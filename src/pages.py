@@ -63,7 +63,7 @@ def home():
   <div class="wrap">
     <p class="eyebrow">Governed AI · Finance · Data · Modelling</p>
     <h1>AI you can sign off on.</h1>
-    <p class="lede">Everyone's racing to use AI. Most small businesses are either falling behind or taking risks they can't see. We help you catch up safely: <strong>automation that saves hours, forecasts that show what's coming, and controls that keep your data and your name safe</strong>. Built by a Chartered Accountant, so the numbers are right.</p>
+    <p class="lede">We help Australian businesses <strong>get paid faster, see their cash coming and cut hours of admin</strong>. AI does the heavy lifting. A Chartered Accountant builds the controls, and you sign off anything that matters.</p>
     <div class="cta">
       <a class="btn primary" href="/try/">Try a 60-second demo</a>
       <a class="btn" href="/contact/#form">Start in writing</a>
@@ -107,11 +107,21 @@ def home():
         <li><a href="/try/#hours"><q>Month-end eats a week.</q><span>→ <b>Reconciliations and checks automated</b> · see your hours<em class="eta">Typically 2 to 4 weeks</em></span><i>→</i></a></li>
       </ul></div>
       <div><h3>Leading the business</h3><ul class="fix">
-        <li><a href="/ai-check/"><q>Will the new Privacy Act AI rules catch us?</q><span>→ <b>Free 2-minute check</b>, then a written action list<em class="eta">Free · 2 minutes</em></span><i>→</i></a></li>
+        <li><a href="/ai-check/"><q>Will the new Privacy Act AI rules catch us?</q><span>→ <b>Free 2-minute check</b>, then a written action list<em class="eta">Free check · then a 5 to 10 day sprint</em></span><i>→</i></a></li>
         <li><a href="/services/ai-governance/"><q>My team uses ChatGPT and I don't know what goes in it.</q><span>→ <b>AI register, policy and controls</b><em class="eta">AI Readiness Sprint · 10 business days</em></span><i>→</i></a></li>
         <li><a href="/industries/startups/"><q>Investors want numbers I can't produce.</q><span>→ <b>Runway model and investor metrics</b><em class="eta">Typically 2 to 4 weeks</em></span><i>→</i></a></li>
         <li><a href="/insights/burned-by-an-ai-product/"><q>Our tech project or developer went sideways.</q><span>→ <b>Get control back</b>, then finish it properly<em class="eta">Health check · about a week</em></span><i>→</i></a></li>
       </ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="evidence" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="evid">
+      <div><b>~80%</b><p>of Australian small and medium businesses had their cash flow hit in the past year.</p><small>CommBank survey by YouGov, 507 businesses, published January 2025 · <a href="https://www.unsw.edu.au/news/2025/01/80-per-cent-of-aussie-small-businesses-experience-cash-flow-chal" rel="noopener">source</a></small></div>
+      <div><b>~65%</b><p>of SMEs not using AI say it's because they distrust AI decisions or want to keep human control.</p><small>National AI Centre SME AI Pulse, Dec 2025 to Feb 2026 · <a href="https://www.ai.gov.au/news-and-insights/blog/ai-adoption-insights-december-2025-february-2026" rel="noopener">source</a></small></div>
+      <div class="so"><b>So that's what we sell.</b><p>Cash you can see, admin you don't have to do, and AI that never acts without a human saying yes.</p></div>
     </div>
   </div>
 </section>
@@ -217,6 +227,7 @@ def services_hub():
         ("/services/automation/", "Build", "Agents & automation", "Accounts payable, month-end, reporting and admin, automated with approvals and an audit trail."),
         ("/services/dashboards-and-models/", "See", "Dashboards & financial models", "Cash forecasts, runway scenarios, job profitability and board or investor dashboards."),
         ("/services/project-delivery/", "Deliver", "AI & tech project delivery", "Scope, vendors, milestones and honest reporting, so your tech project actually lands."),
+        ("/services/privacy-sprint/", "Before 10 Dec", "Automated-Decision Privacy Sprint", "Map what your software decides about people and hand your lawyer the policy wording. Fixed price, 5 to 10 days."),
         ("/services/ai-readiness-sprint/", "Start here", "AI Readiness Sprint", "Ten business days: AI inventory, risk map, one working prototype and a roadmap."),
         ("/services/quick-wins/", "Small business", "Quick wins", "Small, fixed-price fixes that give you back evenings and bring cash in faster."),
     ]
@@ -283,7 +294,7 @@ def services():
         "See next month, not just last month.",
         "Live dashboards and financial models built from your own data: cash forecasts that warn you early, profitability by job or client, runway scenarios and the investor metrics people actually check.",
         f'''<h2>What we build</h2>
-<ul><li><strong>13-week cash forecast:</strong> refreshed from your ledger and bank, with an early warning when cash will dip below your buffer.</li>
+<ul><li><strong>13-week cash forecast:</strong> refreshed from your ledger and bank, with an early warning when cash will dip below your buffer. Built for Payday Super timing: since 1 July 2026, super goes out with each pay run rather than quarterly, so the cash leaves sooner.</li>
 <li><strong>Profitability by job, client or service:</strong> find out what actually makes money while there's still time to change it.</li>
 <li><strong>Runway and scenario models:</strong> what does a new hire, a bigger ad budget or an expensive AI tool do to your cash over 6, 12 and 24 months?</li>
 <li><strong>Investor and board metrics:</strong> MRR, churn, CAC payback, gross margin and runway, calculated the same way every month.</li>
@@ -356,6 +367,33 @@ def services():
             related([("/industries/trades/", "For trades & construction"), ("/industries/hospitality-retail/", "For hospitality & retail"), ("/examples/", "See a sample Monday cash email")]) +
             "</div></section>" + cta_band(topic="Small business quick win"))
     add("/services/quick-wins/", "Small business quick wins", "Fixed-price quick wins for small businesses: invoices that chase themselves, quote to invoice automation, Xero health checks, Monday cash emails and job profitability.", body)
+
+
+def privacy_sprint():
+    svc("/services/privacy-sprint/", "Privacy Sprint", "Before 10 December 2026",
+        "Automated-Decision Privacy Sprint.",
+        "A fixed-price sprint for organisations covered by the Privacy Act, including health, allied health and NDIS providers and businesses over $3 million. We find what your software decides about people, and hand your lawyer what they need to update your privacy policy before 10 December 2026.",
+        """<h2>Why now</h2>
+<p>From 10 December 2026, if the Privacy Act covers you, your privacy policy has to say when computer programs make, or substantially help make, decisions that could significantly affect people, and what personal information they use. Most businesses don't yet know which of their tools do that. It's often buried inside booking, finance, HR and fraud software.</p>
+<h2>Who it's for</h2>
+<ul><li>Health, allied health and NDIS providers, who are generally covered regardless of turnover</li><li>Businesses with annual turnover over $3 million</li><li>Businesses that trade in personal information</li></ul>
+<p>Not sure you're covered? Take the <a href="/ai-check/">free 2-minute check</a> first.</p>
+<h2>How the sprint runs</h2>
+<ol><li><strong>Inventory:</strong> every system and AI tool that touches customer, patient, staff or applicant information, the free ones included.</li>
+<li><strong>Decision map:</strong> for each, what it decides or shapes, what personal information it uses, and how significant the outcome is for the person.</li>
+<li><strong>Human review:</strong> where a person genuinely reviews outcomes, and where they should.</li>
+<li><strong>Handover to your lawyer:</strong> plain-English draft wording describing your automated decisions, with the evidence behind it, ready for legal review.</li></ol>
+<p class="fine">We don't give legal advice. The sprint produces the facts and draft wording; your lawyer confirms the final privacy policy.</p>""",
+        [("System & AI tool inventory", "Including tools staff adopted on their own."), ("Automated-decision map", "What decides what, using which personal information."),
+         ("Significance assessment", "Which decisions could significantly affect people."), ("Human-review design", "Where a person must genuinely check outcomes."),
+         ("Draft policy wording", "Plain English, for your lawyer to finalise."), ("One-page summary", "For the board, the owner or the practice manager.")],
+        aside("The fine print", ["Fixed price, quoted in writing", "About 5 to 10 business days", "Document-first: no meetings needed", "Built to finish before 10 December 2026"], "Privacy Act automated-decision check",
+              "General information and process support only, not legal advice."),
+        before_after("An allied health practice, 12 staff", ["Booking system auto-declines repeat no-shows", "Billing software sets payment plans automatically", "Privacy policy silent on automation", "No one knows what the tools decide"],
+                     ["Both decisions mapped, with the data they use", "Human review added for payment plans", "Draft wording with the lawyer", "One-page summary for the practice owner"], "Example scenario"),
+        [("/ai-check/", "Free 2-minute check"), ("/insights/privacy-act-automated-decisions/", "The rule in plain English"), ("/services/ai-governance/", "Wider AI governance")],
+        "Privacy Act automated-decision check", "Automated-Decision Privacy Sprint",
+        "Fixed-price sprint to map automated decisions and prepare privacy policy wording for your lawyer before the Privacy Act transparency obligation starts on 10 December 2026.")
 
 
 # ------------------------------------------------------------------ industries
@@ -552,7 +590,7 @@ def ai_check():
 <h2>What you'll need to do</h2>
 <p>Update your privacy policy to describe the kinds of personal information used and the kinds of decisions involved. That means knowing which of your tools do this, which most businesses don't yet.</p>
 <p><a href="/insights/privacy-act-automated-decisions/">Read the plain-English guide →</a></p>
-</div><aside class="aside"><h3>Days until 10 December 2026</h3><p class="price" data-adm-days>&nbsp;</p><p class="muted">The obligation applies to organisations covered by the Privacy Act. Many small businesses are exempt today, but health service providers are generally covered regardless of size.</p><a class="btn primary" href="/services/ai-governance/">How we help</a></aside></div></section>''' + contact_form("Want the written version?", "Send your result and we'll reply with a short written action list.", "Next step")
+</div><aside class="aside"><h3>Days until 10 December 2026</h3><p class="price" data-adm-days>&nbsp;</p><p class="muted">The obligation applies to organisations covered by the Privacy Act. Many small businesses are exempt today, but health service providers are generally covered regardless of size.</p><a class="btn primary" href="/services/privacy-sprint/">The Privacy Sprint</a></aside></div></section>''' + contact_form("Want the written version?", "Send your result and we'll reply with a short written action list.", "Next step")
     add("/ai-check/", "Privacy Act AI check (free, 2 minutes)", "Free 2-minute check: will the Privacy Act automated-decision transparency rules starting 10 December 2026 apply to your business? Runs in your browser; nothing is sent.", body)
 
 
@@ -836,6 +874,6 @@ def not_found():
 
 
 def build_all():
-    home(); services_hub(); services(); industries_hub(); industries(); examples(); ai_check()
+    home(); services_hub(); services(); privacy_sprint(); industries_hub(); industries(); examples(); ai_check()
     how_we_work(); faq(); contact(); privacy(); insights(); live_page(); try_page(); about(); not_found()
     return PAGES

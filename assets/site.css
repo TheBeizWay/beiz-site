@@ -467,3 +467,13 @@ b.warn,.tile b.warn{color:var(--warn)}
 @media (max-width:1180px){.mark .wx{display:none}}
 
 @media (max-width:900px){.why[style]{grid-template-columns:1fr 1fr!important}}@media (max-width:560px){.why[style]{grid-template-columns:1fr!important}}
+
+.evid{display:grid;grid-template-columns:1fr 1fr 1.1fr;gap:14px}
+.evid>div{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
+.evid b{display:block;font-size:2rem;font-weight:600;letter-spacing:-.02em;color:var(--accent)}
+.evid .so{background:linear-gradient(180deg,rgba(94,234,212,.06),transparent);border-color:#2b5a53}
+.evid .so b{font-size:1.1rem;color:var(--text);margin-bottom:4px}
+.evid p{font-size:.93rem;margin-top:4px}
+.evid small{display:block;margin-top:10px;font-size:.74rem;color:var(--muted)}
+.evid small a{color:var(--muted)}
+@media (max-width:900px){.evid{grid-template-columns:1fr}}
