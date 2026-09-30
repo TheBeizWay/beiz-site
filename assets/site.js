@@ -66,7 +66,9 @@
         return;
       }
       const data = Object.fromEntries(new FormData(form));
+      if (data.company_website) return;
       delete data.company_website;
+      data.page = location.pathname;
       if (FORM_ENDPOINT) {
         try {
           const r = await fetch(FORM_ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) });

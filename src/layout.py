@@ -2,7 +2,7 @@
 import json
 
 SITE = "https://beiz.com.au"
-ASSET_V = "8"  # bump to bust caches when CSS/JS change
+ASSET_V = "9"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true" class="logo">'
         '<defs><linearGradient id="hg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#2DD4BF"/>'
@@ -120,7 +120,7 @@ def _header(path):
 </div>
 <header class="site">
   <div class="wrap">
-    <a class="mark" href="/" aria-label="Beiz home">{LOGO}<span class="wm">Beiz<small>CA · GAICD led</small></span></a>
+    <a class="mark" href="/" aria-label="Beiz home">{LOGO}<span class="wm"><span class="wn">Beiz<span class="wx"> Data &amp; Accounting</span></span><small>CA · GAICD · AI · Data</small></span></a>
     <nav class="main" aria-label="Main">{nav}</nav>
     <a class="btn primary" href="/contact/#form">Start in writing</a>
     <button class="menu-btn" id="menuBtn" type="button" aria-controls="mnav" aria-expanded="false">MENU</button>
@@ -142,7 +142,7 @@ def _footer():
       <div><h4>Industries</h4><ul>{i}</ul></div>
       <div><h4>Company</h4><ul><li><a href="/try/">Try it: demos</a></li><li><a href="/examples/">Examples</a></li><li><a href="/live/">Live data</a></li><li><a href="/how-we-work/">How we work</a></li><li><a href="/ai-check/">Privacy Act AI check</a></li><li><a href="/insights/">Insights</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy/">Privacy policy</a></li></ul></div>
     </div>
-    <div class="legal"><span>&copy; <span data-yr>2026</span> Beiz Data &amp; Accounting Pty Ltd · ABN 53 691 755 496</span><span>Australia-wide · written enquiries only</span>
+    <div class="legal"><span>&copy; <span data-yr>2026</span> Beiz Data &amp; Accounting Pty Ltd · ABN 53 691 755 496</span><span>Australia-wide · Fixed-scope finance systems &amp; AI governance</span>
       <p>Liability limited by a scheme approved under Professional Standards Legislation. Beiz does not provide tax agent, BAS agent, legal or financial product advice services.</p></div>
   </div>
 </footer>'''

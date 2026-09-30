@@ -65,8 +65,8 @@ def home():
     <h1>AI you can sign off on.</h1>
     <p class="lede">Everyone's racing to use AI. Most small businesses are either falling behind or taking risks they can't see. We help you catch up safely: <strong>automation that saves hours, forecasts that show what's coming, and controls that keep your data and your name safe</strong>. Built by a Chartered Accountant, so the numbers are right.</p>
     <div class="cta">
-      <a class="btn primary" href="/try/">Find your problem in 60 seconds</a>
-      <a class="btn" href="#fix">What we fix</a>
+      <a class="btn primary" href="/try/">Try a 60-second demo</a>
+      <a class="btn" href="/contact/#form">Start in writing</a>
     </div>
     <div class="grid2">
       <div class="panel">
@@ -101,16 +101,16 @@ def home():
     <p class="lede">We solve specific, expensive problems. Each one below is a fixed-price piece of work with a result you can see.</p>
     <div class="fixcols">
       <div><h3>Running the business</h3><ul class="fix">
-        <li><a href="/try/#late"><q>I spend every week chasing money.</q><span>→ <b>Invoices that chase themselves</b> · try the demo</span><i>→</i></a></li>
-        <li><a href="/try/#cash"><q>I don't know if I'll have enough cash next month.</q><span>→ <b>13-week cash forecast</b> · try the demo</span><i>→</i></a></li>
-        <li><a href="/industries/trades/"><q>I don't know which jobs actually make money.</q><span>→ <b>Profit by job, client or service</b>, every month</span><i>→</i></a></li>
-        <li><a href="/try/#hours"><q>Month-end eats a week.</q><span>→ <b>Reconciliations and checks automated</b> · see your hours</span><i>→</i></a></li>
+        <li><a href="/try/#late"><q>I spend every week chasing money.</q><span>→ <b>Invoices that chase themselves</b> · try the demo<em class="eta">Typically days</em></span><i>→</i></a></li>
+        <li><a href="/try/#cash"><q>I don't know if I'll have enough cash next month.</q><span>→ <b>13-week cash forecast</b> · try the demo<em class="eta">Typically 1 to 2 weeks</em></span><i>→</i></a></li>
+        <li><a href="/industries/trades/"><q>I don't know which jobs actually make money.</q><span>→ <b>Profit by job, client or service</b>, every month<em class="eta">Typically 2 to 3 weeks</em></span><i>→</i></a></li>
+        <li><a href="/try/#hours"><q>Month-end eats a week.</q><span>→ <b>Reconciliations and checks automated</b> · see your hours<em class="eta">Typically 2 to 4 weeks</em></span><i>→</i></a></li>
       </ul></div>
       <div><h3>Leading the business</h3><ul class="fix">
-        <li><a href="/ai-check/"><q>Will the new Privacy Act AI rules catch us?</q><span>→ <b>Free 2-minute check</b>, then a written action list</span><i>→</i></a></li>
-        <li><a href="/services/ai-governance/"><q>My team uses ChatGPT and I don't know what goes in it.</q><span>→ <b>AI register, policy and controls</b></span><i>→</i></a></li>
-        <li><a href="/industries/startups/"><q>Investors want numbers I can't produce.</q><span>→ <b>Runway model and investor metrics</b></span><i>→</i></a></li>
-        <li><a href="/insights/burned-by-an-ai-product/"><q>Our tech project or developer went sideways.</q><span>→ <b>Get control back</b>, then finish it properly</span><i>→</i></a></li>
+        <li><a href="/ai-check/"><q>Will the new Privacy Act AI rules catch us?</q><span>→ <b>Free 2-minute check</b>, then a written action list<em class="eta">Free · 2 minutes</em></span><i>→</i></a></li>
+        <li><a href="/services/ai-governance/"><q>My team uses ChatGPT and I don't know what goes in it.</q><span>→ <b>AI register, policy and controls</b><em class="eta">AI Readiness Sprint · 10 business days</em></span><i>→</i></a></li>
+        <li><a href="/industries/startups/"><q>Investors want numbers I can't produce.</q><span>→ <b>Runway model and investor metrics</b><em class="eta">Typically 2 to 4 weeks</em></span><i>→</i></a></li>
+        <li><a href="/insights/burned-by-an-ai-product/"><q>Our tech project or developer went sideways.</q><span>→ <b>Get control back</b>, then finish it properly<em class="eta">Health check · about a week</em></span><i>→</i></a></li>
       </ul></div>
     </div>
   </div>

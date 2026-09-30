@@ -461,3 +461,7 @@ b.warn,.tile b.warn{color:var(--warn)}
 .trynav a:hover{border-color:var(--accent);color:var(--accent)}
 @media (max-width:900px){.demo{grid-template-columns:1fr}}
 #bills td:first-child{white-space:nowrap;font-family:var(--mono);font-size:.82rem}
+
+.mark .wn{white-space:nowrap}
+.fix em.eta{display:block;font-style:normal;font:500 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+@media (max-width:1180px){.mark .wx{display:none}}
