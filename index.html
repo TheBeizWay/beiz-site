@@ -573,12 +573,13 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const jobs=[
     J(ESPN+'australian-football/afl/scoreboard').then(d=>{data.afl=(d.events||[]).map(e=>fromEspn(e));}),
     J(ESPN+'rugby-league/3/scoreboard').then(d=>{data.nrl=(d.events||[]).map(e=>fromEspn(e));}),
-    Promise.allSettled([J(ESPN+'soccer/eng.1/scoreboard?dates='+win),J(ESPN+'soccer/aus.1/scoreboard?dates='+win)]).then(([e,a])=>{
-      const L=/Liverpool/i;
-      const epl=e.status==='fulfilled'?(e.value.events||[]).map(x=>({...fromEspn(x,L),lg:'EPL'})):[];
-      const al=a.status==='fulfilled'?(a.value.events||[]).map(x=>({...fromEspn(x),lg:'A-League'})):[];
-      const rank=m=>(m.fav?0:1)*10+(m.st==='in'?0:m.st==='post'?1:2);
-      data.football=[...epl,...al].sort((x,y)=>rank(x)-rank(y)||(x.st==='post'?new Date(y.date)-new Date(x.date):new Date(x.date)-new Date(y.date))).slice(0,14);}),
+    Promise.allSettled([['eng.1','EPL'],['uefa.champions','Champions League'],['aus.1','A-League Men'],['aus.w.1','A-League Women'],['fifa.friendly','Socceroos'],['fifa.friendly.w','Matildas']]
+      .map(([k,lg])=>J(ESPN+'soccer/'+k+'/scoreboard?dates='+win).then(d=>(d.events||[]).map(x=>({...fromEspn(x,/Liverpool/i),lg})))))
+      .then(rs=>{
+        const all=rs.flatMap(r=>r.status==='fulfilled'?r.value:[])
+          .filter(m=>!['Socceroos','Matildas'].includes(m.lg)||m.t.some(x=>/Australia/i.test(x.n)));
+        const rank=m=>(m.fav?0:10)+(m.st==='in'?0:m.st==='post'?1:2);
+        data.football=all.sort((x,y)=>rank(x)-rank(y)||(x.st==='post'?new Date(y.date)-new Date(x.date):new Date(x.date)-new Date(y.date))).slice(0,18);}),
     J(ESPN+'cricket/scorepanel').then(d=>{
       const big=/Test|ODI|T20I|Big Bash|Sheffield|Marsh|WBBL|World Cup|IPL/i;
       const all=[];(d.scores||[]).forEach(g=>(g.events||[]).forEach(ev=>{const c=ev.competitions[0];
