@@ -390,3 +390,116 @@
     document.addEventListener("keydown", e => { if (e.key === "Escape" && bot.classList.contains("open")) closeBot(); });
   }
 })();
+
+// ---------- Try-it demos (all client-side; nothing leaves the browser unless the visitor sends it) ----------
+(function () {
+  "use strict";
+  const $ = (s, r = document) => r.querySelector(s);
+  const money = v => (v < 0 ? "-" : "") + "$" + Math.round(Math.abs(v)).toLocaleString("en-AU");
+  const num = id => Math.max(0, parseFloat(($("#" + id) || {}).value) || 0);
+  const send = (topic, text) => window.beizPrefill && window.beizPrefill(topic, text);
+
+  // 1. Late payments
+  const late = $("#dLate");
+  if (late) {
+    const out = $("#dLateOut");
+    const calc = () => {
+      const n = num("lpN"), avg = num("lpAvg"), terms = num("lpTerms"), actual = num("lpActual"), hrs = num("lpHrs");
+      const monthly = n * avg;
+      const owed = monthly * actual / 30;
+      const excess = Math.max(0, monthly * (actual - terms) / 30);
+      const hoursYr = hrs * 48;
+      out.innerHTML = `<div class="tiles t2"><div class="tile"><small>Owed to you at any time</small><b>${money(owed)}</b><span>on your numbers</span></div>
+        <div class="tile"><small>Stuck past your terms</small><b class="${excess > 0 ? "warn" : ""}">${money(excess)}</b><span>cash you've earned but can't use</span></div>
+        <div class="tile"><small>Hours a year chasing</small><b>${Math.round(hoursYr)}</b><span>at ${hrs} hrs a week, 48 weeks</span></div>
+        <div class="tile"><small>Days over terms</small><b>${Math.max(0, actual - terms)}</b><span>average</span></div></div>
+        <p class="dsay">${excess > 0 ? `If customers paid on your ${terms}-day terms, about <b>${money(excess)}</b> would be back in your bank account. That's the problem automated reminders with a pay-now link go after.` : "Customers are paying on time. Nice. Your bigger win is probably elsewhere."}</p>`;
+      late.dataset.summary = `Late payments demo: ${n} invoices/month averaging ${money(avg)}, ${terms}-day terms, customers take ${actual} days, ${hrs} hrs/week chasing. Result: ${money(excess)} stuck past terms, ${Math.round(hoursYr)} hours a year chasing.`;
+    };
+    late.addEventListener("input", calc); calc();
+    $("#dLateSend").onclick = () => send("Small business quick win", late.dataset.summary + "\n\nI'd like to fix this.");
+  }
+
+  // 2. 13-week cash
+  const cash = $("#dCash");
+  if (cash) {
+    const out = $("#dCashOut");
+    const calc = () => {
+      const start = num("cfStart"), inW = num("cfIn"), outW = num("cfOut"), big = num("cfBig"), wk = Math.min(13, Math.max(1, Math.round(num("cfWk")) || 1)), buf = num("cfBuf");
+      const bal = []; let c = start;
+      for (let w = 1; w <= 13; w++) { c += inW - outW - (w === wk ? big : 0); bal.push(c); }
+      const lo = Math.min(...bal), hi = Math.max(start, ...bal, buf);
+      const first = bal.findIndex(v => v < buf);
+      const W = 560, H = 210, L = 58, R = 10, T = 16, B = 26, pw = W - L - R, ph = H - T - B;
+      const min = Math.min(0, lo), span = (hi - min) || 1;
+      const y = v => T + ph - (v - min) / span * ph, band = pw / 13, bw = band * .62, zero = y(0);
+      let svg = `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Your 13-week cash forecast">`;
+      [min, (min + hi) / 2, hi].forEach(g => { svg += `<line x1="${L}" x2="${W - R}" y1="${y(g)}" y2="${y(g)}" stroke="#232d36"/><text x="${L - 6}" y="${y(g) + 4}" text-anchor="end" font-size="10.5" fill="#93a0ab" font-family="JetBrains Mono,monospace">${money(g / 1000).replace("$", "$")}k</text>`; });
+      bal.forEach((v, i) => {
+        const x = L + i * band + (band - bw) / 2, top = Math.min(y(v), zero), h = Math.max(1, Math.abs(y(v) - zero)), low = v < buf;
+        svg += `<g><title>Week ${i + 1}: ${money(v)}${low ? " · below buffer" : ""}</title><rect x="${L + i * band}" y="${T}" width="${band}" height="${ph}" fill="transparent"/><rect x="${x}" y="${top}" width="${bw}" height="${h}" rx="3" fill="${low ? "#fbbf24" : "#3987e5"}"/></g>`;
+        if (i % 2 === 0) svg += `<text x="${x + bw / 2}" y="${H - 8}" text-anchor="middle" font-size="10" fill="#93a0ab" font-family="JetBrains Mono,monospace">W${i + 1}</text>`;
+      });
+      svg += `<line x1="${L}" x2="${W - R}" y1="${y(buf)}" y2="${y(buf)}" stroke="#e8edf1" stroke-dasharray="4 4" opacity=".7"/><text x="${W - R}" y="${y(buf) - 5}" text-anchor="end" font-size="10.5" fill="#e8edf1" font-family="Inter,sans-serif">Buffer ${money(buf)}</text></svg>`;
+      const msg = first >= 0
+        ? `<b class="warn">▼ Week ${first + 1}</b> is where cash first drops below your ${money(buf)} buffer (to ${money(bal[first])}). Lowest point: ${money(lo)}. That's the week to plan for, and you'd want to know about it now, not then.`
+        : `You stay above your ${money(buf)} buffer for all 13 weeks. Lowest point: ${money(lo)}. Worth keeping an eye on: this assumes every week looks the same, and real weeks don't.`;
+      out.innerHTML = svg + `<p class="dsay">${msg}</p>`;
+      cash.dataset.summary = `Cash demo: ${money(start)} in the bank, ${money(inW)} in and ${money(outW)} out per week, ${money(big)} bill in week ${wk}, ${money(buf)} buffer. Result: ${first >= 0 ? "drops below buffer in week " + (first + 1) : "stays above buffer"}, lowest ${money(lo)}.`;
+    };
+    cash.addEventListener("input", calc); calc();
+    $("#dCashSend").onclick = () => send("Dashboards & analytics", cash.dataset.summary + "\n\nI'd like a real 13-week forecast from my own data.");
+  }
+
+  // 3. Bill checker agent
+  const bills = $("#bills");
+  if (bills) {
+    const rows = [
+      ["INV-2201", "Timber Co", 4280, "", "ok"],
+      ["INV-2202", "Fixings Direct", 612, "", "ok"],
+      ["INV-2203", "Harbour Electrical", 18400, "Over your $10,000 approval limit · routed to owner", "hold"],
+      ["INV-2204", "Timber Co", 4280, "Same supplier, amount and date as INV-2201 · possible duplicate", "hold"],
+      ["INV-2205", "Coastal Plumbing", 2950, "Bank account changed since last payment · verify by phone first", "hold"],
+      ["INV-2206", "Office Supplies AU", 186, "", "ok"],
+      ["INV-2207", "Fixings Direct", 745, "Unit price up 11% on last order · flagged for review", "flag"],
+      ["INV-2208", "Waste Services", 390, "", "ok"]
+    ];
+    const tb = $("#dBillsBody"), res = $("#dBillsRes"), btn = $("#dBillsRun");
+    const reset = () => {
+      tb.innerHTML = rows.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td><td class="n">${money(r[2])}</td><td class="st"><span class="muted">Waiting</span></td></tr>`).join("");
+      res.innerHTML = ""; btn.disabled = false; btn.textContent = "Run the checks";
+    };
+    reset();
+    btn.onclick = () => {
+      if (btn.dataset.done) { delete btn.dataset.done; reset(); return; }
+      btn.disabled = true; btn.textContent = "Checking…";
+      const trs = [...tb.querySelectorAll("tr")], reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      rows.forEach((r, i) => setTimeout(() => {
+        const td = trs[i].querySelector(".st");
+        td.innerHTML = r[4] === "ok" ? '<span class="pill g">✓ Ready to pay</span>'
+          : r[4] === "hold" ? `<span class="pill a">! Held</span> <small>${r[3]}</small>` : `<span class="pill b">? Review</span> <small>${r[3]}</small>`;
+        if (i === rows.length - 1) {
+          const ok = rows.filter(x => x[4] === "ok"), held = rows.filter(x => x[4] !== "ok");
+          res.innerHTML = `<p class="dsay"><b>${ok.length} bills (${money(ok.reduce((a, x) => a + x[2], 0))})</b> ready for your one-click approval. <b class="warn">${held.length} held (${money(held.reduce((a, x) => a + x[2], 0))})</b> for a human, with the reason. Nothing is paid until you say yes.</p>`;
+          btn.disabled = false; btn.textContent = "Reset"; btn.dataset.done = "1";
+        }
+      }, reduce ? 0 : 450 * (i + 1)));
+    };
+  }
+
+  // 4. Admin hours
+  const hrs = $("#dHrs");
+  if (hrs) {
+    const out = $("#dHrsOut");
+    const calc = () => {
+      const parts = [["Invoicing & quotes", num("ahInv")], ["Chasing payments", num("ahChase")], ["Data entry & reconciling", num("ahData")], ["Reports & spreadsheets", num("ahRep")]];
+      const rate = num("ahRate"), wk = parts.reduce((a, p) => a + p[1], 0), yr = wk * 48;
+      document.querySelectorAll("#dHrs output").forEach(o => { const i = $("#" + o.htmlFor); if (i) o.textContent = i.value + " h"; });
+      out.innerHTML = `<div class="tiles t2"><div class="tile"><small>Admin hours a week</small><b>${wk}</b><span>across four tasks</span></div><div class="tile"><small>Hours a year</small><b>${Math.round(yr)}</b><span>48 working weeks</span></div><div class="tile"><small>Value of that time</small><b class="warn">${money(yr * rate)}</b><span>at ${money(rate)} an hour</span></div><div class="tile"><small>Working weeks</small><b>${(yr / 38).toFixed(1)}</b><span>of 38 hours, gone to admin</span></div></div>
+        <p class="dsay">These four are exactly the tasks we automate first. Even halving them gives you back <b>${Math.round(yr / 2)} hours</b> a year.</p>`;
+      hrs.dataset.summary = `Admin hours demo: ${wk} hrs/week (${parts.map(p => p[0] + " " + p[1]).join(", ")}), valued at ${money(rate)}/hr = ${money(yr * rate)} a year.`;
+    };
+    hrs.addEventListener("input", calc); calc();
+    $("#dHrsSend").onclick = () => send("Automation & AI agents", hrs.dataset.summary + "\n\nWhere would you start?");
+  }
+})();

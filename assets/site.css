@@ -438,3 +438,26 @@ details.numbers table{margin-bottom:12px}
 .btn:not(.primary):hover{border-color:var(--accent);color:var(--accent);filter:none}
 .panel,.card,.gate,.fix a,.why li,.flow>li,.sectors li,.ex,.aside,details{box-shadow:0 1px 0 rgba(255,255,255,.03) inset,0 8px 24px rgba(0,0,0,.25)}
 .mark .wm small{margin-top:4px}
+
+/* ---------- Try-it demos ---------- */
+.demo{display:grid;grid-template-columns:.8fr 1.2fr;gap:22px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:24px;margin-top:22px;scroll-margin-top:80px}
+.demo .k{font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--warn)}
+.demo h2{font-size:1.4rem;margin:6px 0 8px}
+.demo .fields{display:grid;gap:10px;margin-top:14px}
+.demo label{display:grid;gap:4px;font-size:.84rem}
+.demo input[type=number]{padding:10px 12px}
+.demo input[type=range]{padding:0;border:0;background:none;accent-color:var(--accent);height:28px}
+.demo .rng{display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:center}
+.demo .rng output{font:500 12px var(--mono);color:var(--text)}
+.demo .rng input{grid-column:1/-1}
+.dsay{margin-top:14px;font-size:.95rem;color:var(--muted)}
+.dsay b{color:var(--text)}
+b.warn,.tile b.warn{color:var(--warn)}
+.demo .btn{margin-top:14px}
+.pill.b{background:#1b2a3a;color:#93c5fd}
+#dBills td.st small{display:block;color:var(--muted);font-size:.78rem;margin-top:3px}
+.trynav{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.trynav a{border:1px solid #2b5a53;background:rgba(94,234,212,.05);border-radius:999px;padding:9px 14px;text-decoration:none;font-size:.9rem}
+.trynav a:hover{border-color:var(--accent);color:var(--accent)}
+@media (max-width:900px){.demo{grid-template-columns:1fr}}
+#bills td:first-child{white-space:nowrap;font-family:var(--mono);font-size:.82rem}

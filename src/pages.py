@@ -65,8 +65,8 @@ def home():
     <h1>AI you can sign off on.</h1>
     <p class="lede">Everyone's racing to use AI. Most small businesses are either falling behind or taking risks they can't see. We help you catch up safely: <strong>automation that saves hours, forecasts that show what's coming, and controls that keep your data and your name safe</strong>. Built by a Chartered Accountant, so the numbers are right.</p>
     <div class="cta">
-      <a class="btn primary" href="#fix">What we fix</a>
-      <a class="btn" href="/examples/">See examples</a>
+      <a class="btn primary" href="/try/">Find your problem in 60 seconds</a>
+      <a class="btn" href="#fix">What we fix</a>
     </div>
     <div class="grid2">
       <div class="panel">
@@ -101,10 +101,10 @@ def home():
     <p class="lede">We solve specific, expensive problems. Each one below is a fixed-price piece of work with a result you can see.</p>
     <div class="fixcols">
       <div><h3>Running the business</h3><ul class="fix">
-        <li><a href="/services/quick-wins/"><q>I spend every week chasing money.</q><span>→ <b>Invoices that chase themselves</b>, with a pay-now link</span><i>→</i></a></li>
-        <li><a href="/services/dashboards-and-models/"><q>I don't know if I'll have enough cash next month.</q><span>→ <b>13-week cash forecast</b> that warns you early</span><i>→</i></a></li>
+        <li><a href="/try/#late"><q>I spend every week chasing money.</q><span>→ <b>Invoices that chase themselves</b> · try the demo</span><i>→</i></a></li>
+        <li><a href="/try/#cash"><q>I don't know if I'll have enough cash next month.</q><span>→ <b>13-week cash forecast</b> · try the demo</span><i>→</i></a></li>
         <li><a href="/industries/trades/"><q>I don't know which jobs actually make money.</q><span>→ <b>Profit by job, client or service</b>, every month</span><i>→</i></a></li>
-        <li><a href="/services/automation/"><q>Month-end eats a week.</q><span>→ <b>Reconciliations and checks automated</b>, you sign off</span><i>→</i></a></li>
+        <li><a href="/try/#hours"><q>Month-end eats a week.</q><span>→ <b>Reconciliations and checks automated</b> · see your hours</span><i>→</i></a></li>
       </ul></div>
       <div><h3>Leading the business</h3><ul class="fix">
         <li><a href="/ai-check/"><q>Will the new Privacy Act AI rules catch us?</q><span>→ <b>Free 2-minute check</b>, then a written action list</span><i>→</i></a></li>
@@ -755,6 +755,38 @@ def live_page():
     add("/live/", "Live Data Lab", "Live ASX, AUD and crypto prices with cricket, NRL, AFL, EPL, Champions League and A-League scores. A working demo of the live dashboards Beiz builds for businesses.", body)
 
 
+# ------------------------------------------------------------------ try-it demos
+def try_page():
+    def n(i, label, v, step="1"):
+        return f'<label for="{i}">{label}<input id="{i}" type="number" inputmode="decimal" min="0" step="{step}" value="{v}"></label>'
+    def r(i, label, v, mx=20):
+        return f'<div class="rng"><label for="{i}">{label}</label><output for="{i}">{v} h</output><input id="{i}" type="range" min="0" max="{mx}" step="1" value="{v}"></div>'
+    body = phero("Try it · 60 seconds each", "Find your problem in 60 seconds.",
+                 "Four quick demos using your own numbers. They run entirely in your browser: nothing is sent to us unless you press send. Pick the one that sounds like your week.",
+                 [("/try/", "Try it")]) + f'''<section style="padding-top:0"><div class="wrap">
+<nav class="trynav" aria-label="Demos"><a href="#late">Late payers</a><a href="#cash">Cash forecast</a><a href="#bills">Bill checker</a><a href="#hours">Admin hours</a><a href="/ai-check/">Privacy Act check</a></nav>
+
+<div class="demo" id="late"><div><span class="k">Demo 1 · Getting paid</span><h2>What are late payers costing you?</h2><p class="muted">Enter your rough numbers. We'll show how much of your money is sitting with customers.</p>
+  <div class="fields" id="dLate">{n("lpN","Invoices you send a month",40)}{n("lpAvg","Average invoice ($)",2500,"50")}{n("lpTerms","Your payment terms (days)",14)}{n("lpActual","How long customers actually take (days)",38)}{n("lpHrs","Hours a week spent chasing",3)}</div></div>
+  <div><div id="dLateOut"></div><button class="btn primary" type="button" id="dLateSend">Send me this with a fix</button></div></div>
+
+<div class="demo" id="cash"><div><span class="k">Demo 2 · Cash</span><h2>Will you have enough cash?</h2><p class="muted">A simple 13-week forecast. Add one big bill and see what happens.</p>
+  <div class="fields" id="dCash">{n("cfStart","Cash in the bank now ($)",42000,"500")}{n("cfIn","Money in, typical week ($)",11000,"250")}{n("cfOut","Money out, typical week ($)",11800,"250")}{n("cfBig","One big bill ($)",18000,"500")}{n("cfWk","Big bill lands in week (1 to 13)",7)}{n("cfBuf","Minimum buffer you want ($)",20000,"500")}</div></div>
+  <div><div id="dCashOut"></div><button class="btn primary" type="button" id="dCashSend">Send me this with a fix</button></div></div>
+
+<div class="demo" id="bills"><div><span class="k">Demo 3 · Controls</span><h2>Watch an agent check your bills.</h2><p class="muted">Eight supplier bills from a made-up business. Press run and watch what gets paid and what gets held for a human.</p>
+  <button class="btn primary" type="button" id="dBillsRun">Run the checks</button><div id="dBillsRes"></div></div>
+  <div class="tblw"><table class="tbl" style="min-width:0"><thead><tr><th>Bill</th><th>Supplier</th><th class="n">Amount</th><th>Result</th></tr></thead><tbody id="dBillsBody"></tbody></table></div></div>
+
+<div class="demo" id="hours"><div><span class="k">Demo 4 · Time</span><h2>How many hours is admin eating?</h2><p class="muted">Slide to your typical week.</p>
+  <div class="fields" id="dHrs">{r("ahInv","Invoicing &amp; quotes",3)}{r("ahChase","Chasing payments",2)}{r("ahData","Data entry &amp; reconciling",4)}{r("ahRep","Reports &amp; spreadsheets",2)}{n("ahRate","What an hour of your time is worth ($)",90,"5")}</div></div>
+  <div><div id="dHrsOut"></div><button class="btn primary" type="button" id="dHrsSend">Send me this with a fix</button></div></div>
+
+<p class="fine" style="margin-top:18px">Demos are simplified estimates from the numbers you enter. They're illustrations, not financial advice. The real versions are built from your own data.</p>
+</div></section>''' + cta_band("Found your problem?", "Tell us in a few lines. You'll get a written, fixed-price way to fix it.")
+    add("/try/", "Try it: 60-second demos", "Four 60-second demos using your own numbers: what late payers cost you, a 13-week cash forecast, an AI bill checker and admin hours. Runs in your browser.", body)
+
+
 def not_found():
     body = phero("404", "That page isn't here.", "It may have moved when we rebuilt the site. Try one of these instead.", [("/404.html", "Not found")],
                  [("/", "Home"), ("/services/", "Services"), ("/examples/", "Examples"), ("/contact/", "Contact")])
@@ -763,5 +795,5 @@ def not_found():
 
 def build_all():
     home(); services_hub(); services(); industries_hub(); industries(); examples(); ai_check()
-    how_we_work(); faq(); contact(); privacy(); insights(); live_page(); not_found()
+    how_we_work(); faq(); contact(); privacy(); insights(); live_page(); try_page(); not_found()
     return PAGES

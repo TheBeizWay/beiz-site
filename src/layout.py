@@ -2,7 +2,7 @@
 import json
 
 SITE = "https://beiz.com.au"
-ASSET_V = "6"  # bump to bust caches when CSS/JS change
+ASSET_V = "8"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true" class="logo">'
         '<defs><linearGradient id="hg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#2DD4BF"/>'
@@ -13,11 +13,12 @@ LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidd
         '<path d="M58 120 L110 120 A33 33 0 0 1 110 186 L58 186 L58 22 L102 58 A31 31 0 0 1 102 120 L58 120"/></g></svg>')
 
 NAV = [
+    ("/try/", "Try it", "60-second demos with your own numbers"),
     ("/examples/", "Examples", "See the kind of work we deliver"),
     ("/live/", "Live data", "Markets and scores, live"),
-    ("/ai-check/", "AI check", "Free 2-minute Privacy Act check"),
 ]
 MORE = [
+    ("/ai-check/", "Privacy Act AI check"),
     ("/how-we-work/", "How we work"),
     ("/insights/", "Insights"),
     ("/faq/", "FAQ"),
@@ -139,7 +140,7 @@ def _footer():
         <p style="margin-top:10px"><a href="mailto:hello@beiz.com.au">hello@beiz.com.au</a></p></div>
       <div><h4>Services</h4><ul>{s}</ul></div>
       <div><h4>Industries</h4><ul>{i}</ul></div>
-      <div><h4>Company</h4><ul><li><a href="/examples/">Examples</a></li><li><a href="/live/">Live data</a></li><li><a href="/how-we-work/">How we work</a></li><li><a href="/ai-check/">Privacy Act AI check</a></li><li><a href="/insights/">Insights</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy/">Privacy policy</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="/try/">Try it: demos</a></li><li><a href="/examples/">Examples</a></li><li><a href="/live/">Live data</a></li><li><a href="/how-we-work/">How we work</a></li><li><a href="/ai-check/">Privacy Act AI check</a></li><li><a href="/insights/">Insights</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy/">Privacy policy</a></li></ul></div>
     </div>
     <div class="legal"><span>&copy; <span data-yr>2026</span> Beiz Data &amp; Accounting Pty Ltd · ABN 53 691 755 496</span><span>Australia-wide · written enquiries only</span>
       <p>Liability limited by a scheme approved under Professional Standards Legislation. Beiz does not provide tax agent, BAS agent, legal or financial product advice services.</p></div>
