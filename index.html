@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beiz Data &amp; Accounting | Governed AI for finance</title>
+<meta name="description" content="Beiz Data & Accounting. Governed AI for finance and operations. AI agents, automation and analytics with controls, audit trail and board-level governance built in. Chartered Accountant and GAICD led. Launching soon.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07090b; --panel:#0d1115; --line:#1c232a; --text:#e8edf1; --muted:#8a96a1;
+  --accent:#5eead4; --accent-dim:rgba(94,234,212,.12); --warn:#fbbf24;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace; --sans:"Inter",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--text)}
+body{font-family:var(--sans);min-height:100vh;display:flex;flex-direction:column;line-height:1.55;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;
+  background:radial-gradient(60rem 30rem at 80% -10%,rgba(94,234,212,.07),transparent 60%),
+             repeating-linear-gradient(0deg,rgba(255,255,255,.012) 0 1px,transparent 1px 3px)}
+a{color:inherit}
+.wrap{width:100%;max-width:1040px;margin:0 auto;padding:0 20px;position:relative}
+
+header{border-bottom:1px solid var(--line)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+.mark{font-weight:600;letter-spacing:.02em;display:flex;gap:10px;align-items:center}
+.mark i{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent);animation:pulse 2.4s ease-in-out infinite}
+.status{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.status b{color:var(--accent);font-weight:500}
+
+main{flex:1;padding:72px 0 48px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:clamp(2.1rem,5.4vw,3.9rem);line-height:1.08;font-weight:600;letter-spacing:-.025em;margin:18px 0 22px;max-width:15ch}
+.lede{font-size:1.125rem;color:var(--muted);max-width:56ch}
+.lede strong{color:var(--text);font-weight:500}
+
+.grid{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;margin-top:56px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px}
+.panel h2{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;display:flex;justify-content:space-between}
+.log{font-family:var(--mono);font-size:13px;list-style:none;min-height:190px}
+.log li{display:flex;gap:14px;padding:6px 0;border-bottom:1px dashed var(--line);opacity:0;transform:translateY(4px);animation:in .5s forwards}
+.log li:last-child{border-bottom:0}
+.log time{color:var(--muted);flex:none}
+.log .ok{color:var(--accent)} .log .flag{color:var(--warn)}
+.cursor{display:inline-block;width:8px;height:14px;background:var(--accent);vertical-align:-2px;animation:blink 1s steps(1) infinite}
+
+.services{list-style:none;display:grid;gap:10px}
+.services li{display:flex;justify-content:space-between;gap:12px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font-size:.95rem}
+.services span{font-family:var(--mono);font-size:11px;color:var(--muted);align-self:center}
+
+.creds{display:flex;flex-wrap:wrap;gap:10px;margin-top:40px}
+.creds{align-items:center}
+.ca-logo{height:36px;width:auto;margin-right:6px}
+.creds span{font-family:var(--mono);font-size:12px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
+
+.cta{margin-top:48px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 20px;border-radius:10px;text-decoration:none;font-weight:500;font-size:.95rem;border:1px solid var(--line)}
+.btn.primary{background:var(--accent);color:#04201c;border-color:var(--accent)}
+.btn:hover{filter:brightness(1.08)}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+footer{border-top:1px solid var(--line);padding:22px 0;font-family:var(--mono);font-size:12px;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+.liability{flex-basis:100%;font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+@keyframes pulse{50%{opacity:.35}}
+@keyframes blink{50%{opacity:0}}
+@keyframes in{to{opacity:1;transform:none}}
+@media (max-width:780px){.grid{grid-template-columns:1fr}main{padding-top:48px}.status{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.log li{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mark"><i aria-hidden="true"></i>Beiz Data &amp; Accounting</div>
+    <div class="status">SYSTEM STATUS: <b>BUILDING</b> · AUSTRALIA</div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <p class="eyebrow">Governed AI · Launching soon</p>
+    <h1>AI your board can sign off.</h1>
+    <p class="lede">We design and build AI agents, automation and analytics for finance and operations, with the controls, audit trail and governance <strong>built in from day one, not bolted on after the incident</strong>. Chartered Accountant and company-director trained. Audit and risk by background.</p>
+
+    <div class="grid">
+      <section class="panel" aria-labelledby="log-h">
+        <h2 id="log-h"><span>Agent run · control log</span><span aria-hidden="true">live</span></h2>
+        <ul class="log" id="log" aria-live="off"></ul>
+      </section>
+
+      <section class="panel" aria-labelledby="svc-h">
+        <h2 id="svc-h"><span>Capabilities</span></h2>
+        <ul class="services">
+          <li>AI strategy &amp; governance <span>board-ready</span></li>
+          <li>AI agents &amp; assistants <span>claude · openclaw</span></li>
+          <li>Finance process automation <span>n8n · controls</span></li>
+          <li>Data analytics &amp; forecasting <span>python · power bi</span></li>
+          <li>Virtual CFO &amp; board reporting <span>ca · gaicd</span></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="creds" aria-label="Credentials">
+      <img class="ca-logo" src="ca-logo.png" alt="Chartered Accountants Australia and New Zealand member" onerror="this.remove()">
+      <span>Chartered Accountant · Public Practice</span><span>GAICD</span><span>Audit &amp; risk</span><span>Data science</span><span>Australia-based</span>
+    </div>
+
+    <div class="cta">
+      <a class="btn primary" href="mailto:hello@beiz.com.au?subject=AI%20readiness%20briefing">Book an AI readiness briefing</a>
+      <a class="btn" href="tel:0433029542">0433 029 542</a>
+      <a class="btn" href="https://github.com/TheBeizWay" rel="noopener">See the code on GitHub &rarr;</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; <span id="yr">2026</span> Beiz Data &amp; Accounting Pty Ltd · ABN 53 691 755 496</span>
+    <span>hello@beiz.com.au</span>
+    <p class="liability">Liability limited by a scheme approved under Professional Standards Legislation.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+const lines=[
+  ['02:00','ok','Agent started · accounts payable run'],
+  ['02:03','ok','418 invoices matched to purchase orders'],
+  ['02:07','flag','Duplicate supplier bank details detected · payment held'],
+  ['02:09','flag','Payment $48,200 exceeds delegation · routed to CFO'],
+  ['02:14','ok','Segregation of duties check passed'],
+  ['02:18','ok','Every decision written to audit trail'],
+  ['06:00','ok','Board dashboard refreshed · 13-week cash forecast']
+];
+const log=document.getElementById('log');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+lines.forEach(([t,c,msg],i)=>{
+  const li=document.createElement('li');
+  li.style.animationDelay=reduce?'0s':(i*0.7)+'s';
+  li.innerHTML=`<time>${t}</time><span class="${c}">${c==='ok'?'✓':'!'}</span><span>${msg}</span>`;
+  log.appendChild(li);
+});
+const end=document.createElement('li');
+end.style.animationDelay=reduce?'0s':(lines.length*0.7)+'s';
+end.innerHTML='<time>06:01</time><span class="ok">&gt;</span><span>Awaiting human approval <span class="cursor" aria-hidden="true"></span></span>';
+log.appendChild(end);
+</script>
+</body>
+</html>
