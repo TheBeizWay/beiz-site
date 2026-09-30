@@ -574,7 +574,9 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     J(ESPN+'australian-football/afl/scoreboard').then(d=>{data.afl=(d.events||[]).map(e=>fromEspn(e));}),
     J(ESPN+'rugby-league/3/scoreboard').then(d=>{data.nrl=(d.events||[]).map(e=>fromEspn(e));}),
     Promise.allSettled([['eng.1','EPL'],['uefa.champions','Champions League'],['aus.1','A-League Men'],['aus.w.1','A-League Women'],['fifa.friendly','Socceroos'],['fifa.friendly.w','Matildas']]
-      .map(([k,lg])=>J(ESPN+'soccer/'+k+'/scoreboard?dates='+win).then(d=>(d.events||[]).map(x=>({...fromEspn(x,/Liverpool/i),lg})))))
+      .map(([k,lg])=>J(ESPN+'soccer/'+k+'/scoreboard').then(d=>(d.events||[]).map(x=>({...fromEspn(x,/Liverpool/i),lg}))))
+      .concat(J(ESPN+'soccer/eng.1/teams/364/schedule').then(d=>{const p=(d.events||[]).filter(e=>e.competitions?.[0]?.status?.type?.state==='post');const e=p[p.length-1];if(!e)return[];const c=e.competitions[0];
+        return [{t:c.competitors.slice().sort(a=>a.homeAway==='home'?-1:1).map(x=>({n:x.team.shortDisplayName||x.team.displayName,a:x.team.abbreviation,s:x.score?.displayValue??x.score??'',w:x.winner})),st:'post',det:'FT · '+new Date(e.date).toLocaleDateString('en-AU',{day:'numeric',month:'short'}),date:e.date,fav:true,lg:'EPL · Liverpool last result'}];})))
       .then(rs=>{
         const all=rs.flatMap(r=>r.status==='fulfilled'?r.value:[])
           .filter(m=>!['Socceroos','Matildas'].includes(m.lg)||m.t.some(x=>/Australia/i.test(x.n)));
@@ -590,7 +592,7 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
       data.cricket=all.sort((a,b)=>a.score-b.score).slice(0,8);}),
     J('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=aud&include_24hr_change=true').then(d=>{
       [['bitcoin','Bitcoin','BTC'],['ethereum','Ethereum','ETH'],['solana','Solana','SOL']].forEach(([id,n,a])=>{if(d[id])data.markets.push({n,a,v:'A$'+Math.round(d[id].aud).toLocaleString('en-AU'),c:d[id].aud_24h_change,g:'Crypto · 24h'});});}),
-    J('data/markets.json?'+Math.floor(Date.now()/6e5)).then(d=>{(d.items||[]).forEach(i=>data.markets.unshift({n:i.label,a:i.label,v:i.sym.includes('=X')?Number(i.price).toFixed(4):Number(i.price).toLocaleString('en-AU',{maximumFractionDigits:1}),c:i.chg,g:'ASX & AUD · delayed'}));})
+    J('data/markets.json?'+Math.floor(Date.now()/6e5)).then(d=>{(d.items||[]).slice().reverse().forEach(i=>data.markets.unshift({n:i.label,a:i.label,v:i.sym.includes('=X')?Number(i.price).toFixed(4):Number(i.price).toLocaleString('en-AU',{maximumFractionDigits:1}),c:i.chg,g:'ASX & AUD · delayed'}));})
   ];
   const tabs=[['markets','Markets'],['cricket','Cricket'],['nrl','NRL'],['afl','AFL'],['football','Football']];
   let cur='markets';
