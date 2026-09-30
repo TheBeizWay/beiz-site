@@ -575,7 +575,7 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     J(ESPN+'rugby-league/3/scoreboard').then(d=>{data.nrl=(d.events||[]).map(e=>fromEspn(e));}),
     Promise.allSettled([['eng.1','EPL'],['uefa.champions','Champions League'],['aus.1','A-League Men'],['aus.w.1','A-League Women'],['fifa.friendly','Socceroos'],['fifa.friendly.w','Matildas']]
       .map(([k,lg])=>J(ESPN+'soccer/'+k+'/scoreboard').then(d=>(d.events||[]).map(x=>({...fromEspn(x,/Liverpool/i),lg}))))
-      .concat(J(ESPN+'soccer/eng.1/teams/364/schedule').then(d=>{const p=(d.events||[]).filter(e=>e.competitions?.[0]?.status?.type?.state==='post');const e=p[p.length-1];if(!e)return[];const c=e.competitions[0];
+      .concat(J(ESPN+'soccer/eng.1/teams/364/schedule').then(d=>{const p=(d.events||[]).filter(e=>e.competitions?.[0]?.status?.type?.state==='post').sort((x,y)=>new Date(x.date)-new Date(y.date));const e=p[p.length-1];if(!e||Date.now()-new Date(e.date)>10*864e5)return[];const c=e.competitions[0];
         return [{t:c.competitors.slice().sort(a=>a.homeAway==='home'?-1:1).map(x=>({n:x.team.shortDisplayName||x.team.displayName,a:x.team.abbreviation,s:x.score?.displayValue??x.score??'',w:x.winner})),st:'post',det:'FT · '+new Date(e.date).toLocaleDateString('en-AU',{day:'numeric',month:'short'}),date:e.date,fav:true,lg:'EPL · Liverpool last result'}];})))
       .then(rs=>{
         const all=rs.flatMap(r=>r.status==='fulfilled'?r.value:[])
