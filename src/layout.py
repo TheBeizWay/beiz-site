@@ -2,7 +2,7 @@
 import json
 
 SITE = "https://beiz.com.au"
-ASSET_V = "9"  # bump to bust caches when CSS/JS change
+ASSET_V = "10"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true" class="logo">'
         '<defs><linearGradient id="hg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#2DD4BF"/>'
@@ -18,6 +18,7 @@ NAV = [
     ("/live/", "Live data", "Markets and scores, live"),
 ]
 MORE = [
+    ("/about/", "About us"),
     ("/ai-check/", "Privacy Act AI check"),
     ("/how-we-work/", "How we work"),
     ("/insights/", "Insights"),
@@ -110,7 +111,7 @@ def _header(path):
                 f'<div class="ddm" id="dd-{key}"><a class="hub" href="{hub}">All {label.lower()} →</a>{links}</div></div>')
     live = lambda h, t: f'<a href="{h}"{cur(h)}>{t}{" <i class=live-dot aria-hidden=true></i>" if h == "/live/" else ""}</a>'
     nav = (dd("Services", "/services/", SERVICES, "s") + dd("Industries", "/industries/", INDUSTRIES, "i") +
-           "".join(live(h, t) for h, t, _ in NAV) + dd("More", "/how-we-work/", MORE, "m").replace('<a class="hub" href="/how-we-work/">All more →</a>', ""))
+           "".join(live(h, t) for h, t, _ in NAV) + dd("About", "/about/", MORE, "m").replace('<a class="hub" href="/about/">All about →</a>', ""))
     grp = lambda title, items: f'<p class="mg">{title}</p>' + "".join(f'<a href="{h}">{t}</a>' for h, t in items)
     mnav = (grp("Services", SERVICES) + grp("Industries", INDUSTRIES) +
             grp("See it", [(h, t) for h, t, _ in NAV]) + grp("About", MORE))
@@ -140,7 +141,7 @@ def _footer():
         <p style="margin-top:10px"><a href="mailto:hello@beiz.com.au">hello@beiz.com.au</a></p></div>
       <div><h4>Services</h4><ul>{s}</ul></div>
       <div><h4>Industries</h4><ul>{i}</ul></div>
-      <div><h4>Company</h4><ul><li><a href="/try/">Try it: demos</a></li><li><a href="/examples/">Examples</a></li><li><a href="/live/">Live data</a></li><li><a href="/how-we-work/">How we work</a></li><li><a href="/ai-check/">Privacy Act AI check</a></li><li><a href="/insights/">Insights</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy/">Privacy policy</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="/about/">About us</a></li><li><a href="/try/">Try it: demos</a></li><li><a href="/examples/">Examples</a></li><li><a href="/live/">Live data</a></li><li><a href="/how-we-work/">How we work</a></li><li><a href="/ai-check/">Privacy Act AI check</a></li><li><a href="/insights/">Insights</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy/">Privacy policy</a></li></ul></div>
     </div>
     <div class="legal"><span>&copy; <span data-yr>2026</span> Beiz Data &amp; Accounting Pty Ltd · ABN 53 691 755 496</span><span>Australia-wide · Fixed-scope finance systems &amp; AI governance</span>
       <p>Liability limited by a scheme approved under Professional Standards Legislation. Beiz does not provide tax agent, BAS agent, legal or financial product advice services.</p></div>

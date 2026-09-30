@@ -465,3 +465,5 @@ b.warn,.tile b.warn{color:var(--warn)}
 .mark .wn{white-space:nowrap}
 .fix em.eta{display:block;font-style:normal;font:500 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:6px}
 @media (max-width:1180px){.mark .wx{display:none}}
+
+@media (max-width:900px){.why[style]{grid-template-columns:1fr 1fr!important}}@media (max-width:560px){.why[style]{grid-template-columns:1fr!important}}

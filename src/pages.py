@@ -787,6 +787,48 @@ def try_page():
     add("/try/", "Try it: 60-second demos", "Four 60-second demos using your own numbers: what late payers cost you, a 13-week cash forecast, an AI bill checker and admin hours. Runs in your browser.", body)
 
 
+# ------------------------------------------------------------------ about
+def about():
+    principles = [
+        ("Controls before code", "We design every system the way an auditor would test it. The approvals, limits and logs come first; the clever part comes second."),
+        ("A human signs off", "AI prepares the work. A person approves anything that moves money, reaches a customer or makes a decision about someone."),
+        ("Fixed price, in writing", "You know the scope, the deliverables and the price before we start. No hourly meter, no lock-in."),
+        ("Your data stays yours", "We build inside your own accounts, with business-grade AI that doesn't train on your data. When we part ways, everything keeps running."),
+        ("Plain English", "If we can't explain it simply, we haven't understood it. Board papers are one page. Status reports are one page."),
+    ]
+    pr = "".join(f'<div class="card"><span class="k">0{i+1}</span><h3>{a}</h3><p>{b}</p></div>' for i, (a, b) in enumerate(principles))
+    body = phero("About Beiz", "An accountant's firm, built for the AI era.",
+                 "Beiz Data &amp; Accounting helps Australian businesses use AI, automation and data without losing control of their numbers. Chartered Accountant and GAICD led, and set up to be small, careful and fast.",
+                 [("/about/", "About us")], [("/contact/#form", "Start in writing"), ("/examples/", "See our work")]) + f'''
+<section style="padding-top:8px"><div class="wrap"><h2 style="margin-top:0">Four disciplines, one firm.</h2>
+<ul class="why" style="grid-template-columns:repeat(4,1fr)">
+<li><span class="ic">CA</span><b>Chartered Accountant</b><p>CA ANZ member with a Certificate of Public Practice. Numbers that reconcile to your ledger, and professional standards you can hold us to.</p></li>
+<li><span class="ic">GA</span><b>GAICD governance</b><p>Trained by the Australian Institute of Company Directors in how boards oversee risk. AI policies, controls and board reporting that directors can sign off.</p></li>
+<li><span class="ic">DS</span><b>Data science solutions</b><p>Python, R, Power BI and automation. Forecasts, dashboards, predictive models and AI agents, built on your own data.</p></li>
+<li><span class="ic">🔒</span><b>Your data, secured</b><p>Built inside your own accounts, with two-factor access, least-privilege permissions and business-grade AI that doesn't train on your data. Covered by professional confidentiality under the CA ANZ code of ethics.</p></li>
+</ul></div></section>
+<section style="padding-top:0"><div class="wrap split"><div class="prose">
+<h2>Why Beiz exists</h2>
+<p>Small and mid-sized businesses are being sold AI from two directions. On one side, tech agencies that can build fast but have never reconciled a ledger, tested a control or sat in front of an auditor. On the other, accountants who understand the numbers but can't build the tools.</p>
+<p>Most owners end up in the gap between them: a chatbot nobody uses, an automation that breaks at month-end, a spreadsheet only one person understands, and no idea what their AI tools are doing with customer data.</p>
+<p>Beiz sits in that gap. We're accountants who build. The systems we deliver save real hours, and they're built with the controls, sign-offs and audit trail a Chartered Accountant would expect.</p>
+<h2>Why the name, and the dog</h2>
+<p>Beiz is named after a chocolate-and-white Border Collie. Collies are working dogs: persistent, precise, and nothing slips past them through the gate. That's the standard we hold our systems to, and it's why there's a collie's ear in the B of our logo.</p>
+<h2>Who's behind it</h2>
+<p>Beiz is led by a Chartered Accountant holding a Certificate of Public Practice and a graduate of the Australian Institute of Company Directors. The background: internal audit, fraud and controls; corporate finance and enterprise finance systems; delivery of large project portfolios; and data science with Python, R, Power BI and automation tools.</p>
+<p>Your written proposal names who will do the work, and you can verify credentials before you sign anything.</p>
+<h2>How we're set up</h2>
+<p>Strategy, architecture, governance, client communication and sign-off all happen in Australia. For some build work we use a small, vetted delivery team, always under our direct review. We also use business-grade AI tools to work faster. That's how a small firm delivers quickly at a fixed price, and your engagement letter spells out exactly who touches your information and where.</p>
+<h2>What we don't do</h2>
+<p>We don't do tax returns, BAS, legal advice or financial product advice. We work alongside the people who do, and make their jobs easier with clean, reconciled data.</p>
+</div>
+<aside class="aside"><h3>At a glance</h3>
+<ul class="ticks"><li>Chartered Accountant, CA ANZ Certificate of Public Practice</li><li>GAICD</li><li>Professional indemnity insured</li><li>Liability limited by an approved Professional Standards scheme</li><li>Bound by the APES 110 code of ethics</li><li>Beiz Data &amp; Accounting Pty Ltd · ABN 53 691 755 496</li><li>Australia-wide, remote-first</li></ul>
+<a class="btn primary" href="/how-we-work/">How we work</a></aside></div></section>
+<section><div class="wrap"><p class="eyebrow">What we believe</p><h2>Five rules we don't bend.</h2><div class="cards">{pr}</div></div></section>''' + cta_band("Sound like the kind of firm you want?", "Tell us what you're trying to fix. A few lines in writing is enough.")
+    add("/about/", "About us", "About Beiz Data & Accounting: a Chartered Accountant and GAICD led firm helping Australian businesses use AI, automation and data without losing control of their numbers.", body)
+
+
 def not_found():
     body = phero("404", "That page isn't here.", "It may have moved when we rebuilt the site. Try one of these instead.", [("/404.html", "Not found")],
                  [("/", "Home"), ("/services/", "Services"), ("/examples/", "Examples"), ("/contact/", "Contact")])
@@ -795,5 +837,5 @@ def not_found():
 
 def build_all():
     home(); services_hub(); services(); industries_hub(); industries(); examples(); ai_check()
-    how_we_work(); faq(); contact(); privacy(); insights(); live_page(); try_page(); not_found()
+    how_we_work(); faq(); contact(); privacy(); insights(); live_page(); try_page(); about(); not_found()
     return PAGES
