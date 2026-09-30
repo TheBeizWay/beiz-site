@@ -43,11 +43,12 @@ p{color:var(--muted)}
 .skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:var(--accent-ink);padding:8px 12px;border-radius:8px;z-index:100}
 .skip:focus{left:8px}
 
-.ticker{position:relative;z-index:2;background:var(--warn);color:var(--warn-ink);font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.04em;overflow:hidden;white-space:nowrap;border-bottom:1px solid #b88a12}
-.ticker .label{position:absolute;left:0;top:0;bottom:0;display:flex;align-items:center;padding:0 12px;background:#1f1400;color:var(--warn);z-index:2;font-weight:600}
-.ticker .track{display:inline-flex;gap:48px;padding:8px 0 8px 190px;animation:tick 90s linear infinite}
+.ticker{position:relative;z-index:2;background:#0b1a1d;color:#cdeee9;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.04em;overflow:hidden;white-space:nowrap;border-bottom:1px solid #1f3a3a}
+.ticker .label{position:absolute;left:0;top:0;bottom:0;display:flex;align-items:center;padding:0 12px;background:var(--accent);color:var(--accent-ink);z-index:2;font-weight:600;letter-spacing:.08em}
+.ticker .track{display:inline-flex;gap:48px;padding:8px 0 8px 130px;animation:tick 90s linear infinite}
 .ticker:hover .track{animation-play-state:paused}
-.ticker span::before{content:"▲ "}
+.ticker .track span::before{content:"◆";color:var(--accent);margin-right:10px;font-size:9px;vertical-align:1px}
+.ticker b{color:#fff;font-weight:500}
 @keyframes tick{to{transform:translateX(-50%)}}
 
 header.site{border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;background:rgba(7,9,11,.88);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
@@ -167,7 +168,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   .bot-btn span{display:none}
   .bot-btn{padding:16px}
   .ticker .label{padding:0 8px;font-size:11px}
-  .ticker .track{padding-left:170px}
+  .ticker .track{padding-left:110px}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}.log li{opacity:1;transform:none}}
 </style>
@@ -175,18 +176,9 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<div class="ticker" role="region" aria-label="AI caution notes">
-  <div class="label">PROCEED WITH CAUTION</div>
-  <div class="track">
-    <span>Every AI decision needs a named human owner</span>
-    <span>If you can't explain the output, you can't sign it</span>
-    <span>No client data goes into a public chatbot</span>
-    <span>Fix the process before you automate it</span>
-    <span>Keep a register of every AI tool in use, including the free ones</span>
-    <span>Log every decision the agent makes, then check the log</span>
-    <span>A model is only as good as the data it was fed</span>
-    <span>Test with real data before you trust it with real money</span>
-  </div>
+<div class="ticker" role="region" aria-label="Beiz Pulse: key dates and ideas">
+  <div class="label">BEIZ PULSE</div>
+  <div class="track" id="pulse"></div>
 </div>
 
 <header class="site">
@@ -413,8 +405,30 @@ const EMAIL = "hello@beiz.com.au";
 document.getElementById('yr').textContent = new Date().getFullYear();
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-const track = document.querySelector('.ticker .track');
-if (!reduce) track.innerHTML += track.innerHTML;
+// Beiz Pulse: live countdowns to real ATO dates + ideas
+(function(){
+  const track=document.getElementById('pulse');
+  const today=new Date(); today.setHours(0,0,0,0);
+  const next=(list)=>{for(let y=today.getFullYear();y<=today.getFullYear()+1;y++){for(const [m,d] of list){const t=new Date(y,m-1,d);if(t>=today)return t;}}};
+  const days=t=>Math.round((t-today)/864e5);
+  const fmt=t=>t.toLocaleDateString('en-AU',{day:'numeric',month:'short'});
+  const bas=next([[2,28],[4,28],[7,28],[10,28]]);
+  const eofy=next([[6,30]]);
+  const itr=next([[10,31]]);
+  const items=[
+    `Next quarterly BAS (self-lodged) <b>${fmt(bas)}</b> · ${days(bas)} days`,
+    `Idea: invoices that <b>chase themselves</b>`,
+    `End of financial year <b>${fmt(eofy)}</b> · ${days(eofy)} days`,
+    `Every automation ends with a <b>human sign-off</b>`,
+    `Idea: a <b>Monday cash email</b> in your inbox before coffee`,
+    `Self-lodged individual tax returns due <b>${fmt(itr)}</b> · ${days(itr)} days`,
+    `Your data stays in <b>your</b> accounts`,
+    `Idea: see <b>which jobs actually make money</b>`,
+    `Using a registered tax agent? Your lodgment dates are usually later.`
+  ];
+  const html=items.map(i=>`<span>${i}</span>`).join('');
+  track.innerHTML = reduce ? html : html+html;
+})();
 
 const lines = [
   ['02:00','ok','Agent started · accounts payable run'],
