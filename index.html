@@ -6,8 +6,10 @@
 <title>Beiz Data &amp; Accounting | Governed AI for finance</title>
 <meta name="description" content="Governed AI for finance and operations. AI agents, automation, analytics and financial modelling with controls, audit trail and board-level governance built in. Chartered Accountant and GAICD led.">
 <meta name="theme-color" content="#07090b">
-<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
-<link rel="apple-touch-icon" href="assets/logo.svg">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:image" content="https://beiz.com.au/assets/icon-512.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -49,12 +51,16 @@ p{color:var(--muted)}
 .ticker:hover .track{animation-play-state:paused}
 .ticker .track span::before{content:"◆";color:var(--accent);margin-right:10px;font-size:9px;vertical-align:1px}
 .ticker b{color:#fff;font-weight:500}
+.ticker i{font-style:normal}.ticker .up{color:#4ade80}.ticker .dn{color:#f87171}
+.ticker .note{color:#6b8f8a}
 @keyframes tick{to{transform:translateX(-50%)}}
 
 header.site{border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;background:rgba(7,9,11,.88);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 header.site .wrap{display:flex;justify-content:space-between;align-items:center;height:60px;gap:12px}
 .mark{font-weight:600;display:flex;gap:10px;align-items:center;text-decoration:none;white-space:nowrap}
-.mark .logo{width:30px;height:30px;flex:none;border-radius:8px;box-shadow:0 0 18px rgba(94,234,212,.25)}
+.mark .logo{width:38px;height:38px;flex:none;filter:drop-shadow(0 0 10px rgba(94,234,212,.25))}
+.mark .wm{display:flex;flex-direction:column;line-height:1.05;font-size:1.15rem;font-weight:600;letter-spacing:-.01em}
+.mark .wm small{font-family:var(--mono);font-size:9.5px;font-weight:500;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-top:3px}
 nav{display:flex;gap:22px;font-size:.9rem}
 nav a{text-decoration:none;color:var(--muted)}
 nav a:hover{color:var(--text)}
@@ -86,7 +92,7 @@ header.site .btn{min-height:38px;padding:8px 14px;font-size:.85rem}
 .card .k{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;display:block}
 .card p{font-size:.95rem}
 
-.sectors{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
+.sectors{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
 .sectors li{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
 .sectors b{display:block;font-weight:600;font-size:.95rem;margin-bottom:4px}
 .sectors span{color:var(--muted);font-size:.85rem}
@@ -176,14 +182,14 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<div class="ticker" role="region" aria-label="Beiz Pulse: key dates and ideas">
+<div class="ticker" role="region" aria-label="Beiz Pulse: AI rules, markets and ideas">
   <div class="label">BEIZ PULSE</div>
   <div class="track" id="pulse"></div>
 </div>
 
 <header class="site">
   <div class="wrap">
-    <a class="mark" href="#top"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true" class="logo"><rect width="64" height="64" rx="15" fill="#5eead4"/><path d="M21 13v38" stroke="#04201c" stroke-width="7" stroke-linecap="round"/><circle cx="34.5" cy="38" r="13" fill="none" stroke="#04201c" stroke-width="7"/><path d="M29 38.2l4 4 7-8" fill="none" stroke="#04201c" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Beiz Data &amp; Accounting</a>
+    <a class="mark" href="#top"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true" class="logo"><defs><linearGradient id="hg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#2DD4BF"/><stop offset="1" stop-color="#818CF8"/></linearGradient></defs><defs><mask id="mH" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"><rect width="200" height="200" fill="#fff"/><circle cx="126.4" cy="69.9" r="6" fill="#000"/></mask></defs><g mask="url(#mH)" fill="none" stroke="url(#hg)" stroke-width="26" stroke-linejoin="round" stroke-linecap="butt"><path d="M58 120 L110 120 A33 33 0 0 1 110 186 L58 186 L58 22 L102 58 A31 31 0 0 1 102 120 L58 120"/></g></svg><span class="wm">Beiz<small>CA · GAICD led</small></span></a>
     <nav aria-label="Main">
       <a href="#what">What we do</a>
       <a href="#safe">How we protect you</a>
@@ -236,6 +242,18 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   </div>
 </section>
 
+<section id="straight" class="hooks">
+  <div class="wrap">
+    <p class="eyebrow">Straight answers</p>
+    <h2>The questions nobody else will ask you.</h2>
+    <div class="cards">
+      <div class="card"><span class="k">Compliance</span><h3>Are you AI compliant?</h3><p>From <b data-adm></b>, the Privacy Act requires businesses covered by it to disclose in their privacy policy when personal information feeds substantially automated decisions that significantly affect people. Most owners don't know which of their tools do that. We'll find out and fix it.</p></div>
+      <div class="card"><span class="k">Recovery</span><h3>Did an AI product burn you?</h3><p>Paid for a chatbot nobody uses? An automation that broke at month-end? A dev who vanished with your access? We untangle it, get your data and accounts back under your control, and tell you honestly what's worth keeping.</p></div>
+      <div class="card"><span class="k">Scale</span><h3>Scaling on AI without the risk?</h3><p>You need someone who knows the ledger, the controls and the code, and who'll give you realistic expectations in writing before you spend a dollar. Chartered Accountant, GAICD, audit and data science. <b>We're here for you.</b></p></div>
+    </div>
+  </div>
+</section>
+
 <section id="what">
   <div class="wrap">
     <p class="eyebrow">What we do</p>
@@ -262,6 +280,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       <li><b>Hospitality</b><span>Wages, suppliers, weekly cash</span></li>
       <li><b>Professional services</b><span>Time, billing, client onboarding</span></li>
       <li><b>Not-for-profits</b><span>Grant reporting, board packs, donors</span></li>
+      <li><b>Crypto &amp; digital assets</b><span>Wallet reconciliations, treasury reporting, controls</span></li>
       <li><b>Growing companies</b><span>Board reporting, forecasts, AI policy</span></li>
     </ul>
   </div>
@@ -292,7 +311,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
     <p class="eyebrow">How we protect you</p>
     <h2>The controls come first. The AI comes second.</h2>
     <div class="cards">
-      <div class="card"><span class="k">01 · Human sign-off</span><p><strong>Nothing material happens without a person approving it.</strong> Payments, lodgements and client communications always stop for a human.</p></div>
+      <div class="card"><span class="k">01 · Human sign-off</span><p><strong>Nothing material happens without a person approving it.</strong> Payments, filings and client communications always stop for a human.</p></div>
       <div class="card"><span class="k">02 · Your data stays yours</span><p><strong>We build inside your own accounts wherever possible.</strong> Business-grade AI only, on terms that stop your data being used for training.</p></div>
       <div class="card"><span class="k">03 · Audit trail</span><p><strong>Every automated decision is logged.</strong> You can see what happened, when, why, and who approved it.</p></div>
       <div class="card"><span class="k">04 · Written scope</span><p><strong>Fixed price, fixed deliverables, agreed in writing</strong> before any work starts. No hourly meter running.</p></div>
@@ -405,29 +424,40 @@ const EMAIL = "hello@beiz.com.au";
 document.getElementById('yr').textContent = new Date().getFullYear();
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// Beiz Pulse: live countdowns to real ATO dates + ideas
+// Beiz Pulse: AI rules, markets and ideas (no tax/BAS content by design)
 (function(){
   const track=document.getElementById('pulse');
   const today=new Date(); today.setHours(0,0,0,0);
-  const next=(list)=>{for(let y=today.getFullYear();y<=today.getFullYear()+1;y++){for(const [m,d] of list){const t=new Date(y,m-1,d);if(t>=today)return t;}}};
-  const days=t=>Math.round((t-today)/864e5);
-  const fmt=t=>t.toLocaleDateString('en-AU',{day:'numeric',month:'short'});
-  const bas=next([[2,28],[4,28],[7,28],[10,28]]);
-  const eofy=next([[6,30]]);
-  const itr=next([[10,31]]);
-  const items=[
-    `Next quarterly BAS (self-lodged) <b>${fmt(bas)}</b> · ${days(bas)} days`,
-    `Idea: invoices that <b>chase themselves</b>`,
-    `End of financial year <b>${fmt(eofy)}</b> · ${days(eofy)} days`,
+  const adm=new Date(2026,11,10);
+  const dleft=Math.round((adm-today)/864e5);
+  document.querySelectorAll('[data-adm]').forEach(e=>e.textContent='10 December 2026');
+  const base=[
+    dleft>0 ? `Privacy Act: automated-decision disclosures start <b>10 Dec 2026</b> · ${dleft} days`
+            : `Privacy Act: automated-decision disclosures <b>now in force</b> since 10 Dec 2026`,
+    `Are you <b>AI compliant</b>? Know which of your tools make decisions about people`,
     `Every automation ends with a <b>human sign-off</b>`,
-    `Idea: a <b>Monday cash email</b> in your inbox before coffee`,
-    `Self-lodged individual tax returns due <b>${fmt(itr)}</b> · ${days(itr)} days`,
+    `Did an AI product <b>burn you</b>? Get your data and access back`,
+    `Idea: invoices that <b>chase themselves</b>`,
+    `Realistic expectations, <b>in writing</b>, before you spend a dollar`,
     `Your data stays in <b>your</b> accounts`,
-    `Idea: see <b>which jobs actually make money</b>`,
-    `Using a registered tax agent? Your lodgment dates are usually later.`
+    `Crypto &amp; digital assets: <b>reconciliations, treasury reporting, controls</b>`,
+    `Idea: a <b>Monday cash email</b> before coffee`
   ];
-  const html=items.map(i=>`<span>${i}</span>`).join('');
-  track.innerHTML = reduce ? html : html+html;
+  const render=items=>{const html=items.map(i=>`<span>${i}</span>`).join('');track.innerHTML=reduce?html:html+html;};
+  render(base);
+  // Live crypto (CoinGecko public API). Silently skipped if unavailable.
+  const coins=[['bitcoin','BTC'],['ethereum','ETH'],['solana','SOL']];
+  fetch('https://api.coingecko.com/api/v3/simple/price?ids='+coins.map(c=>c[0]).join(',')+'&vs_currencies=aud&include_24hr_change=true')
+    .then(r=>r.ok?r.json():Promise.reject())
+    .then(d=>{
+      const q=coins.filter(([id])=>d[id]&&d[id].aud).map(([id,sym])=>{
+        const ch=d[id].aud_24h_change||0, cls=ch>=0?'up':'dn';
+        return `${sym} <b>A$${Math.round(d[id].aud).toLocaleString('en-AU')}</b> <i class="${cls}">${ch>=0?'▲':'▼'}${Math.abs(ch).toFixed(1)}%</i>`;
+      });
+      if(!q.length) return;
+      const mk=q.join(' &nbsp;·&nbsp; ')+' <i class="note">24h · indicative only, not advice</i>';
+      render([base[0],mk,...base.slice(1,4),mk,...base.slice(4)]);
+    }).catch(()=>{});
 })();
 
 const lines = [
