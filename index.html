@@ -6,6 +6,8 @@
 <title>Beiz Data &amp; Accounting | Governed AI for finance</title>
 <meta name="description" content="Governed AI for finance and operations. AI agents, automation, analytics and financial modelling with controls, audit trail and board-level governance built in. Chartered Accountant and GAICD led.">
 <meta name="theme-color" content="#07090b">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="apple-touch-icon" href="assets/logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -26,7 +28,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
 a{color:inherit}
 img{max-width:100%}
 .wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
-section{padding:64px 0}
+section{padding:64px 0;scroll-margin-top:64px}
 .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
 h1{font-size:clamp(2.2rem,6vw,4rem);line-height:1.06;font-weight:600;letter-spacing:-.025em;margin:16px 0 20px;max-width:14ch}
 h2{font-size:clamp(1.5rem,3.4vw,2.1rem);line-height:1.15;font-weight:600;letter-spacing:-.015em;margin:10px 0 14px;max-width:24ch}
@@ -51,7 +53,7 @@ p{color:var(--muted)}
 header.site{border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;background:rgba(7,9,11,.88);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 header.site .wrap{display:flex;justify-content:space-between;align-items:center;height:60px;gap:12px}
 .mark{font-weight:600;display:flex;gap:10px;align-items:center;text-decoration:none;white-space:nowrap}
-.mark i{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent);animation:pulse 2.4s ease-in-out infinite;flex:none}
+.mark .logo{width:30px;height:30px;flex:none;border-radius:8px;box-shadow:0 0 18px rgba(94,234,212,.25)}
 nav{display:flex;gap:22px;font-size:.9rem}
 nav a{text-decoration:none;color:var(--muted)}
 nav a:hover{color:var(--text)}
@@ -83,6 +85,12 @@ header.site .btn{min-height:38px;padding:8px 14px;font-size:.85rem}
 .card .k{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;display:block}
 .card p{font-size:.95rem}
 
+.sectors{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
+.sectors li{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
+.sectors b{display:block;font-weight:600;font-size:.95rem;margin-bottom:4px}
+.sectors span{color:var(--muted);font-size:.85rem}
+.cards.quick .card{padding:20px}
+.cards.quick h3{font-size:1rem}
 .steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px;counter-reset:s}
 .steps li{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:20px;counter-increment:s}
 .steps li::before{content:"0" counter(s);font-family:var(--mono);color:var(--accent);font-size:12px;display:block;margin-bottom:10px}
@@ -144,11 +152,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   .trust{grid-template-columns:1fr 1fr}
   .cards{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr 1fr}
+  .sectors{grid-template-columns:1fr 1fr}
 }
 @media (max-width:560px){
   section{padding:48px 0}
   .hero{padding-top:36px}
-  .trust,.steps{grid-template-columns:1fr}
+  .trust,.steps,.sectors{grid-template-columns:1fr}
   form.contact{grid-template-columns:1fr}
   .offer{padding:22px}
   .hero .cta .btn{flex:1 1 100%}
@@ -182,12 +191,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 
 <header class="site">
   <div class="wrap">
-    <a class="mark" href="#top"><i aria-hidden="true"></i>Beiz Data &amp; Accounting</a>
+    <a class="mark" href="#top"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true" class="logo"><rect width="64" height="64" rx="15" fill="#5eead4"/><path d="M21 13v38" stroke="#04201c" stroke-width="7" stroke-linecap="round"/><circle cx="34.5" cy="38" r="13" fill="none" stroke="#04201c" stroke-width="7"/><path d="M29 38.2l4 4 7-8" fill="none" stroke="#04201c" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Beiz Data &amp; Accounting</a>
     <nav aria-label="Main">
       <a href="#what">What we do</a>
       <a href="#safe">How we protect you</a>
       <a href="#how">How it works</a>
-      <a href="#sprint">Sprint</a>
+      <a href="#small">Small business</a>
       <a href="#faq">FAQ</a>
     </nav>
     <a class="btn primary" href="#contact">Start in writing</a>
@@ -198,8 +207,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 <section class="hero" id="top">
   <div class="wrap">
     <p class="eyebrow">Governed AI · Finance · Data · Modelling</p>
-    <h1>AI your board can sign off.</h1>
-    <p class="lede">We design and build AI agents, automation, dashboards and financial models for finance and operations teams, with the controls, audit trail and governance <strong>built in from day one, not bolted on after the incident</strong>.</p>
+    <h1>AI you can sign off on.</h1>
+    <p class="lede">We design and build AI agents, automation, dashboards and financial models, with the controls, audit trail and governance <strong>built in from day one, not bolted on after the incident</strong>. Whether you answer to a board, or just to yourself at 10pm with a pile of invoices.</p>
     <div class="cta">
       <a class="btn primary" href="#contact">Tell us what you need</a>
       <button class="btn" type="button" data-open-bot>Try the guided assistant</button>
@@ -228,7 +237,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
         <b>Chartered Accountant</b>
         <small>CA ANZ member holding a Certificate of Public Practice. Bound by the APES code of ethics.</small>
       </div>
-      <div><b>GAICD</b><small>Graduate of the Australian Institute of Company Directors. We write for boards, not just for IT.</small></div>
+      <div><b>GAICD</b><small>Graduate of the Australian Institute of Company Directors. We write for owners and boards, not for IT.</small></div>
       <div><b>Audit &amp; risk</b><small>Internal audit, fraud and controls background. We design systems the way an auditor would test them.</small></div>
       <div><b>Data science</b><small>Python, R, Power BI and automation, built by people who understand the ledger.</small></div>
     </div>
@@ -243,8 +252,46 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
     <div class="cards">
       <div class="card"><span class="k">Govern</span><h3>AI readiness &amp; governance</h3><p>Find where AI is already being used, map the risks, set the controls and give your board a clear one-page view.</p></div>
       <div class="card"><span class="k">Build</span><h3>Agents &amp; automation</h3><p>Invoice matching, month-end, reporting, inbox triage. Automated end to end, with approvals and a full log of every action.</p></div>
-      <div class="card"><span class="k">See</span><h3>Dashboards &amp; models</h3><p>Live dashboards, 13-week cash forecasts, business cases and scenario models your lender and your board will trust.</p></div>
+      <div class="card"><span class="k">See</span><h3>Dashboards &amp; models</h3><p>Live dashboards, 13-week cash forecasts, business cases and scenario models your lender, your investors or your board will trust.</p></div>
     </div>
+  </div>
+</section>
+
+<section id="who">
+  <div class="wrap">
+    <p class="eyebrow">Who we work with</p>
+    <h2>Owners and leaders who are done doing it the hard way.</h2>
+    <p class="lede">From a sole trader to a company with a board. Different industries, the same problems: too much admin, not enough visibility, and no time to fix either.</p>
+    <ul class="sectors">
+      <li><b>Trades &amp; construction</b><span>Quotes, job costing, chasing payment</span></li>
+      <li><b>Health, allied health &amp; wellness</b><span>Bookings, billing, practice reporting</span></li>
+      <li><b>Childcare &amp; education</b><span>Enrolments, fees, compliance paperwork</span></li>
+      <li><b>Retail &amp; e-commerce</b><span>Stock, margins, platform fees</span></li>
+      <li><b>Hospitality</b><span>Wages, suppliers, weekly cash</span></li>
+      <li><b>Professional services</b><span>Time, billing, client onboarding</span></li>
+      <li><b>Not-for-profits</b><span>Grant reporting, board packs, donors</span></li>
+      <li><b>Growing companies</b><span>Board reporting, forecasts, AI policy</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="small">
+  <div class="wrap">
+    <p class="eyebrow">Small business quick wins</p>
+    <h2>The jobs you keep meaning to get to.</h2>
+    <p class="lede">Small, fixed-price fixes that give you back evenings and bring cash in faster. Most take days, not months.</p>
+    <div class="cards quick">
+      <div class="card"><h3>Invoices that chase themselves</h3><p>Automatic reminders and pay-now links, so you stop ringing late payers.</p></div>
+      <div class="card"><h3>Quote to invoice, automatically</h3><p>Finished jobs get invoiced the same day, not three weeks later.</p></div>
+      <div class="card"><h3>Xero health check</h3><p>Bank rules fixed, duplicates cleaned up, reconciliation back on track.</p></div>
+      <div class="card"><h3>Which jobs actually make money</h3><p>A simple profitability view by job, client or service.</p></div>
+      <div class="card"><h3>Your Monday cash email</h3><p>One short email each week: cash in the bank, what's owed, what's due.</p></div>
+      <div class="card"><h3>Duplicate &amp; price-creep check</h3><p>Catch bills paid twice and suppliers quietly putting prices up.</p></div>
+      <div class="card"><h3>Receipts, sorted</h3><p>Snap and forget. Receipts captured and matched without the shoebox.</p></div>
+      <div class="card"><h3>A website assistant</h3><p>Answers the same customer questions for you, with limits you set.</p></div>
+      <div class="card"><h3>Quoting you can trust</h3><p>A pricing model built from your real costs, so quotes protect your margin.</p></div>
+    </div>
+    <p style="margin-top:22px"><a class="btn primary" href="#contact" data-topic="Something else">Ask about a quick win</a></p>
   </div>
 </section>
 
@@ -283,7 +330,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       <div>
         <p class="eyebrow">Start here</p>
         <h2>AI Readiness Sprint</h2>
-        <p class="price">from $3,500 <small>+ GST · fixed</small></p>
+        <p class="price" style="font-size:1.5rem">Fixed price. <small>Quoted in writing.</small></p>
         <p>Ten business days. A clear picture of where AI can help, where it's already a risk, and one working prototype to prove it.</p>
         <p style="margin-top:18px"><a class="btn primary" href="#contact" data-topic="AI Readiness Sprint">Request a proposal</a></p>
       </div>
@@ -308,6 +355,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       <details><summary>Do you replace my accountant or bookkeeper?</summary><p>No. We make them faster. We often work alongside an existing accountant or finance team and hand over something they can run.</p></details>
       <details><summary>Which tools do you work with?</summary><p>Xero, MYOB, Microsoft 365, Power BI, Power Automate, Google Workspace, n8n, Python and leading AI models. We pick what fits what you already own.</p></details>
       <details><summary>Why no phone calls?</summary><p>Written briefs get better answers and leave a clear record of what was agreed. If a call genuinely helps later in a project, we'll schedule one.</p></details>
+      <details><summary>Do I need a board or a big business?</summary><p>No. Plenty of our work is for owner-operators who are flat out and just want the admin to stop eating their evenings. We size the work to the business.</p></details>
+      <details><summary>How much does it cost?</summary><p>Every job is fixed price, quoted in writing after we understand the problem. Small quick wins are a few hundred dollars; larger builds are scoped individually. No hourly meter.</p></details>
       <details><summary>Where are you based?</summary><p>Australia. We work remotely with clients across the country.</p></details>
     </div>
   </div>
@@ -418,7 +467,7 @@ const bot=document.getElementById('bot'), msgs=document.getElementById('msgs'), 
 const openers=document.querySelectorAll('[data-open-bot]');
 const flow={
   start:{say:["Hi. I'm a guided assistant, not an AI. Three quick questions and I'll point you to the right starting place.","What's on your mind?"],
-    opts:[["Using AI safely","ai"],["Automating a finance process","auto"],["Dashboards & reporting","dash"],["A financial model or business case","model"],["Not sure yet","unsure"]]},
+    opts:[["Using AI safely","ai"],["Small business admin","sb"],["Automating a finance process","auto"],["Dashboards & reporting","dash"],["A financial model or business case","model"],["Not sure yet","unsure"]]},
   ai:{topic:"AI readiness & governance",say:["Good place to start. Which is closest?"],
     opts:[["Staff already use ChatGPT or Copilot","ai1"],["The board is asking about AI risk","ai2"],["We want to build our first agent","ai3"]]},
   ai1:{topic:"AI Readiness Sprint",say:["That's the most common one. Free AI tools often mean business data leaving without anyone noticing.","The AI Readiness Sprint finds what's in use, maps the risk and sets simple rules people will actually follow."],next:"size"},
@@ -430,6 +479,12 @@ const flow={
   a2:{say:["We match invoices to POs, flag changed bank details and duplicate payments, and route anything over your delegation limit for approval. Nothing gets paid without a human."],next:"size"},
   a3:{say:["We connect your ledger to a live dashboard, so the pack builds itself and your time goes on the commentary."],next:"size"},
   a4:{say:["An agent can chase, collect and file documents on a schedule, with a clear log of who sent what and when."],next:"size"},
+  sb:{topic:"Something else",say:["Which one sounds most like your week?"],
+    opts:[["Chasing unpaid invoices","sb1"],["Jobs not invoiced on time","sb2"],["No idea where cash is","sb3"],["Xero is a mess","sb4"]]},
+  sb1:{say:["Automatic reminders with a pay-now link usually fix most of this. You approve the wording once and it runs itself."],next:"size"},
+  sb2:{say:["We connect your quotes or job system to your invoicing, so a finished job becomes an invoice the same day."],next:"size"},
+  sb3:{say:["A short weekly cash email (what's in the bank, what's owed, what's due) is one of the quickest wins there is."],next:"size"},
+  sb4:{say:["A Xero health check cleans up bank rules and duplicates and gets reconciliation back on track, then we keep it that way."],next:"size"},
   dash:{topic:"Dashboards & analytics",say:["What do you need to see that you can't see now?"],
     opts:[["Cash position & forecast","d1"],["Project or job profitability","d2"],["Board KPIs","d3"]]},
   d1:{say:["A 13-week cash forecast that refreshes itself is one of the most useful things a business can have. We build it from your actual data."],next:"size"},
@@ -441,7 +496,7 @@ const flow={
   m2:{say:["We model your real costs from past jobs so quotes protect your margin, with risk-adjusted contingency."],next:"size"},
   m3:{say:["Driver-based forecasts with best, base and worst cases, built so your team can update them without breaking anything."],next:"size"},
   unsure:{topic:"Something else",say:["That's fine. Most people start with a vague itch. Describe the problem in plain words and we'll suggest where to begin."],next:"size"},
-  size:{say:["Roughly how big is the organisation?"],opts:[["1–20 people","s"],["20–200 people","s"],["200+ people","s"],["Not-for-profit","s"]]},
+  size:{say:["Roughly how big is the organisation?"],opts:[["Just me","s"],["2–20 people","s"],["20–200 people","s"],["200+ people","s"],["Not-for-profit","s"]]},
   s:{say:["Thanks. Last step: send us a short written brief. I'll fill in what you've told me so far, and you add the details."],opts:[["Write my brief","go"],["Start again","start"]]}
 };
 let path=[], topic="Something else";
