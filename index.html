@@ -2,118 +2,343 @@
 <html lang="en-AU">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Beiz Data &amp; Accounting | Governed AI for finance</title>
-<meta name="description" content="Beiz Data & Accounting. Governed AI for finance and operations. AI agents, automation and analytics with controls, audit trail and board-level governance built in. Chartered Accountant and GAICD led. Launching soon.">
+<meta name="description" content="Governed AI for finance and operations. AI agents, automation, analytics and financial modelling with controls, audit trail and board-level governance built in. Chartered Accountant and GAICD led.">
+<meta name="theme-color" content="#07090b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#07090b; --panel:#0d1115; --line:#1c232a; --text:#e8edf1; --muted:#8a96a1;
-  --accent:#5eead4; --accent-dim:rgba(94,234,212,.12); --warn:#fbbf24;
-  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace; --sans:"Inter",system-ui,sans-serif;
+  --bg:#07090b; --panel:#0d1115; --panel2:#10161b; --line:#1c232a; --text:#e8edf1; --muted:#93a0ab;
+  --accent:#5eead4; --accent-ink:#04201c; --warn:#fbbf24; --warn-ink:#1f1400;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace; --sans:"Inter",system-ui,-apple-system,Segoe UI,sans-serif;
+  --r:14px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 html,body{background:var(--bg);color:var(--text)}
-body{font-family:var(--sans);min-height:100vh;display:flex;flex-direction:column;line-height:1.55;-webkit-font-smoothing:antialiased}
-body::before{content:"";position:fixed;inset:0;pointer-events:none;
-  background:radial-gradient(60rem 30rem at 80% -10%,rgba(94,234,212,.07),transparent 60%),
+body{font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(60rem 30rem at 85% -10%,rgba(94,234,212,.07),transparent 60%),
              repeating-linear-gradient(0deg,rgba(255,255,255,.012) 0 1px,transparent 1px 3px)}
 a{color:inherit}
-.wrap{width:100%;max-width:1040px;margin:0 auto;padding:0 20px;position:relative}
-
-header{border-bottom:1px solid var(--line)}
-header .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
-.mark{font-weight:600;letter-spacing:.02em;display:flex;gap:10px;align-items:center}
-.mark i{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent);animation:pulse 2.4s ease-in-out infinite}
-.status{font-family:var(--mono);font-size:12px;color:var(--muted)}
-.status b{color:var(--accent);font-weight:500}
-
-main{flex:1;padding:72px 0 48px}
+img{max-width:100%}
+.wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+section{padding:64px 0}
 .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
-h1{font-size:clamp(2.1rem,5.4vw,3.9rem);line-height:1.08;font-weight:600;letter-spacing:-.025em;margin:18px 0 22px;max-width:15ch}
-.lede{font-size:1.125rem;color:var(--muted);max-width:56ch}
-.lede strong{color:var(--text);font-weight:500}
+h1{font-size:clamp(2.2rem,6vw,4rem);line-height:1.06;font-weight:600;letter-spacing:-.025em;margin:16px 0 20px;max-width:14ch}
+h2{font-size:clamp(1.5rem,3.4vw,2.1rem);line-height:1.15;font-weight:600;letter-spacing:-.015em;margin:10px 0 14px;max-width:24ch}
+h3{font-size:1.05rem;font-weight:600;margin-bottom:6px}
+p{color:var(--muted)}
+.lede{font-size:1.125rem;max-width:58ch}
+.lede strong,p strong{color:var(--text);font-weight:500}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:500;font-size:.95rem;border:1px solid var(--line);background:transparent;color:var(--text);cursor:pointer;font-family:inherit}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn:hover{filter:brightness(1.08)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:var(--accent-ink);padding:8px 12px;border-radius:8px;z-index:100}
+.skip:focus{left:8px}
 
-.grid{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;margin-top:56px}
-.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px}
-.panel h2{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;display:flex;justify-content:space-between}
-.log{font-family:var(--mono);font-size:13px;list-style:none;min-height:190px}
-.log li{display:flex;gap:14px;padding:6px 0;border-bottom:1px dashed var(--line);opacity:0;transform:translateY(4px);animation:in .5s forwards}
+.ticker{position:relative;z-index:2;background:var(--warn);color:var(--warn-ink);font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.04em;overflow:hidden;white-space:nowrap;border-bottom:1px solid #b88a12}
+.ticker .label{position:absolute;left:0;top:0;bottom:0;display:flex;align-items:center;padding:0 12px;background:#1f1400;color:var(--warn);z-index:2;font-weight:600}
+.ticker .track{display:inline-flex;gap:48px;padding:8px 0 8px 190px;animation:tick 90s linear infinite}
+.ticker:hover .track{animation-play-state:paused}
+.ticker span::before{content:"▲ "}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+header.site{border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;background:rgba(7,9,11,.88);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+header.site .wrap{display:flex;justify-content:space-between;align-items:center;height:60px;gap:12px}
+.mark{font-weight:600;display:flex;gap:10px;align-items:center;text-decoration:none;white-space:nowrap}
+.mark i{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent);animation:pulse 2.4s ease-in-out infinite;flex:none}
+nav{display:flex;gap:22px;font-size:.9rem}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--text)}
+header.site .btn{min-height:38px;padding:8px 14px;font-size:.85rem}
+
+.hero{padding-top:56px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.grid2{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;margin-top:48px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.panel h4{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:flex;justify-content:space-between;gap:10px}
+.log{font-family:var(--mono);font-size:13px;list-style:none;min-height:230px}
+.log li{display:grid;grid-template-columns:44px 14px 1fr;gap:10px;padding:6px 0;border-bottom:1px dashed var(--line);opacity:0;transform:translateY(4px);animation:in .5s forwards}
 .log li:last-child{border-bottom:0}
-.log time{color:var(--muted);flex:none}
+.log time{color:var(--muted)}
 .log .ok{color:var(--accent)} .log .flag{color:var(--warn)}
 .cursor{display:inline-block;width:8px;height:14px;background:var(--accent);vertical-align:-2px;animation:blink 1s steps(1) infinite}
+.caps{list-style:none;display:grid;gap:10px}
+.caps li{display:flex;justify-content:space-between;gap:12px;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font-size:.95rem}
+.caps span{font-family:var(--mono);font-size:11px;color:var(--muted);align-self:center;text-align:right}
 
-.services{list-style:none;display:grid;gap:10px}
-.services li{display:flex;justify-content:space-between;gap:12px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font-size:.95rem}
-.services span{font-family:var(--mono);font-size:11px;color:var(--muted);align-self:center}
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:40px}
+.trust div{background:var(--panel);padding:18px}
+.trust b{display:block;font-size:.95rem;font-weight:600;margin-bottom:4px}
+.trust small{color:var(--muted);font-size:.85rem;line-height:1.45;display:block}
+.ca-logo{height:34px;width:auto;margin-bottom:8px;display:block}
 
-.creds{display:flex;flex-wrap:wrap;gap:10px;margin-top:40px}
-.creds{align-items:center}
-.ca-logo{height:36px;width:auto;margin-right:6px}
-.creds span{font-family:var(--mono);font-size:12px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.card .k{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;display:block}
+.card p{font-size:.95rem}
 
-.cta{margin-top:48px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 20px;border-radius:10px;text-decoration:none;font-weight:500;font-size:.95rem;border:1px solid var(--line)}
-.btn.primary{background:var(--accent);color:#04201c;border-color:var(--accent)}
-.btn:hover{filter:brightness(1.08)}
-.btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px;counter-reset:s}
+.steps li{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:20px;counter-increment:s}
+.steps li::before{content:"0" counter(s);font-family:var(--mono);color:var(--accent);font-size:12px;display:block;margin-bottom:10px}
+.steps p{font-size:.92rem}
 
-footer{border-top:1px solid var(--line);padding:22px 0;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.offer{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid #23413c;border-radius:18px;padding:32px}
+.price{font-size:2.4rem;font-weight:600;letter-spacing:-.02em;margin:6px 0 2px;color:var(--text)}
+.price small{font-size:1rem;color:var(--muted);font-weight:400}
+.ticks{list-style:none;display:grid;gap:10px}
+.ticks li{padding-left:26px;position:relative;color:var(--text);font-size:.95rem}
+.ticks li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-family:var(--mono)}
+
+.faq{margin-top:24px;display:grid;gap:10px}
+details{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:0 18px}
+summary{cursor:pointer;padding:16px 0;font-weight:500;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--mono);color:var(--accent)}
+details[open] summary::after{content:"–"}
+details p{padding:0 0 16px;font-size:.95rem}
+
+form.contact{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
+.field{display:grid;gap:6px}
+.field.full{grid-column:1/-1}
+label{font-size:.85rem;color:var(--muted)}
+input,select,textarea{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;color:var(--text);font:inherit;font-size:16px}
+textarea{min-height:130px;resize:vertical}
+input:focus,select:focus,textarea:focus{border-color:var(--accent);outline:none}
+.hp{position:absolute;left:-9999px}
+.note{font-size:.82rem;color:var(--muted);margin-top:8px}
+.formmsg{grid-column:1/-1;font-family:var(--mono);font-size:13px;color:var(--accent);min-height:1em}
+
+footer{border-top:1px solid var(--line);padding:26px 0 96px;font-family:var(--mono);font-size:12px;color:var(--muted)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
-.liability{flex-basis:100%;font-family:var(--sans);font-size:12px;color:var(--muted)}
+.liability{flex-basis:100%;font-family:var(--sans);font-size:12px}
+
+.bot-btn{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:50;display:flex;align-items:center;gap:10px;background:var(--accent);color:var(--accent-ink);border:0;border-radius:999px;padding:14px 18px;font:600 .92rem var(--sans);cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.bot-btn i{width:8px;height:8px;border-radius:50%;background:var(--accent-ink);animation:pulse 2.4s infinite}
+.bot{position:fixed;right:16px;bottom:calc(84px + env(safe-area-inset-bottom));z-index:60;width:min(380px,calc(100vw - 32px));max-height:min(560px,calc(100dvh - 120px));display:none;flex-direction:column;background:var(--panel);border:1px solid #23413c;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.6);overflow:hidden}
+.bot.open{display:flex}
+.bot .hd{background:var(--panel2);padding:12px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}
+.bot .hd b{font-size:.92rem}
+.bot .hd small{display:block;font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.04em}
+.bot .x{background:none;border:0;color:var(--muted);font-size:24px;cursor:pointer;line-height:1;padding:4px 8px;min-width:40px;min-height:40px}
+.msgs{padding:14px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;flex:1}
+.m{max-width:88%;padding:10px 12px;border-radius:12px;font-size:.92rem;line-height:1.5}
+.m.b{background:var(--panel2);border:1px solid var(--line);align-self:flex-start}
+.m.u{background:var(--accent);color:var(--accent-ink);align-self:flex-end}
+.opts{display:flex;flex-wrap:wrap;gap:8px;padding:0 14px 14px}
+.opts button{background:transparent;border:1px solid #23413c;color:var(--text);border-radius:999px;padding:9px 12px;font:500 .85rem var(--sans);cursor:pointer;min-height:40px}
+.opts button:hover{border-color:var(--accent);color:var(--accent)}
 
 @keyframes pulse{50%{opacity:.35}}
 @keyframes blink{50%{opacity:0}}
 @keyframes in{to{opacity:1;transform:none}}
-@media (max-width:780px){.grid{grid-template-columns:1fr}main{padding-top:48px}.status{display:none}}
-@media (prefers-reduced-motion:reduce){*{animation:none!important}.log li{opacity:1;transform:none}}
+
+@media (max-width:900px){
+  nav{display:none}
+  .grid2,.offer{grid-template-columns:1fr}
+  .trust{grid-template-columns:1fr 1fr}
+  .cards{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  section{padding:48px 0}
+  .hero{padding-top:36px}
+  .trust,.steps{grid-template-columns:1fr}
+  form.contact{grid-template-columns:1fr}
+  .offer{padding:22px}
+  .hero .cta .btn{flex:1 1 100%}
+  .log{font-size:12px}
+  .log li{grid-template-columns:40px 12px 1fr;gap:8px}
+  header.site .btn{display:none}
+  .bot-btn span{display:none}
+  .bot-btn{padding:16px}
+  .ticker .label{padding:0 8px;font-size:11px}
+  .ticker .track{padding-left:170px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}.log li{opacity:1;transform:none}}
 </style>
 </head>
 <body>
-<header>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="ticker" role="region" aria-label="AI caution notes">
+  <div class="label">PROCEED WITH CAUTION</div>
+  <div class="track">
+    <span>Every AI decision needs a named human owner</span>
+    <span>If you can't explain the output, you can't sign it</span>
+    <span>No client data goes into a public chatbot</span>
+    <span>Fix the process before you automate it</span>
+    <span>Keep a register of every AI tool in use, including the free ones</span>
+    <span>Log every decision the agent makes, then check the log</span>
+    <span>A model is only as good as the data it was fed</span>
+    <span>Test with real data before you trust it with real money</span>
+  </div>
+</div>
+
+<header class="site">
   <div class="wrap">
-    <div class="mark"><i aria-hidden="true"></i>Beiz Data &amp; Accounting</div>
-    <div class="status">SYSTEM STATUS: <b>BUILDING</b> · AUSTRALIA</div>
+    <a class="mark" href="#top"><i aria-hidden="true"></i>Beiz Data &amp; Accounting</a>
+    <nav aria-label="Main">
+      <a href="#what">What we do</a>
+      <a href="#safe">How we protect you</a>
+      <a href="#how">How it works</a>
+      <a href="#sprint">Sprint</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn primary" href="#contact">Start in writing</a>
   </div>
 </header>
 
-<main>
+<main id="main">
+<section class="hero" id="top">
   <div class="wrap">
-    <p class="eyebrow">Governed AI · Launching soon</p>
+    <p class="eyebrow">Governed AI · Finance · Data · Modelling</p>
     <h1>AI your board can sign off.</h1>
-    <p class="lede">We design and build AI agents, automation and analytics for finance and operations, with the controls, audit trail and governance <strong>built in from day one, not bolted on after the incident</strong>. Chartered Accountant and company-director trained. Audit and risk by background.</p>
-
-    <div class="grid">
-      <section class="panel" aria-labelledby="log-h">
-        <h2 id="log-h"><span>Agent run · control log</span><span aria-hidden="true">live</span></h2>
-        <ul class="log" id="log" aria-live="off"></ul>
-      </section>
-
-      <section class="panel" aria-labelledby="svc-h">
-        <h2 id="svc-h"><span>Capabilities</span></h2>
-        <ul class="services">
-          <li>AI strategy &amp; governance <span>board-ready</span></li>
-          <li>AI agents &amp; assistants <span>claude · openclaw</span></li>
-          <li>Finance process automation <span>n8n · controls</span></li>
-          <li>Data analytics &amp; forecasting <span>python · power bi</span></li>
-          <li>Virtual CFO &amp; board reporting <span>ca · gaicd</span></li>
-        </ul>
-      </section>
-    </div>
-
-    <div class="creds" aria-label="Credentials">
-      <img class="ca-logo" src="ca-logo.png" alt="Chartered Accountants Australia and New Zealand member" onerror="this.remove()">
-      <span>Chartered Accountant-led</span><span>GAICD</span><span>Audit &amp; risk</span><span>Data science</span><span>Australia-based</span>
-    </div>
-
+    <p class="lede">We design and build AI agents, automation, dashboards and financial models for finance and operations teams, with the controls, audit trail and governance <strong>built in from day one, not bolted on after the incident</strong>.</p>
     <div class="cta">
-      <a class="btn primary" href="mailto:hello@beiz.com.au?subject=AI%20readiness%20briefing">Book an AI readiness briefing</a>
-      <a class="btn" href="mailto:hello@beiz.com.au">hello@beiz.com.au</a>
+      <a class="btn primary" href="#contact">Tell us what you need</a>
+      <button class="btn" type="button" data-open-bot>Try the guided assistant</button>
+    </div>
+
+    <div class="grid2">
+      <div class="panel">
+        <h4><span>Agent run · control log · example</span><span aria-hidden="true">live</span></h4>
+        <ul class="log" id="log" aria-label="Example automated control log"></ul>
+      </div>
+      <div class="panel">
+        <h4><span>Capabilities</span></h4>
+        <ul class="caps">
+          <li>AI strategy &amp; governance <span>board-ready</span></li>
+          <li>AI agents &amp; assistants <span>with guardrails</span></li>
+          <li>Finance process automation <span>n8n · power automate</span></li>
+          <li>Dashboards &amp; analytics <span>power bi · python</span></li>
+          <li>Financial modelling <span>forecasts · cases</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="trust" aria-label="Credentials">
+      <div>
+        <img class="ca-logo" src="ca-logo.png" alt="Chartered Accountants Australia and New Zealand" onerror="this.remove()">
+        <b>Chartered Accountant</b>
+        <small>CA ANZ member holding a Certificate of Public Practice. Bound by the APES code of ethics.</small>
+      </div>
+      <div><b>GAICD</b><small>Graduate of the Australian Institute of Company Directors. We write for boards, not just for IT.</small></div>
+      <div><b>Audit &amp; risk</b><small>Internal audit, fraud and controls background. We design systems the way an auditor would test them.</small></div>
+      <div><b>Data science</b><small>Python, R, Power BI and automation, built by people who understand the ledger.</small></div>
     </div>
   </div>
+</section>
+
+<section id="what">
+  <div class="wrap">
+    <p class="eyebrow">What we do</p>
+    <h2>Accounting rigour, engineering speed.</h2>
+    <p class="lede">Most firms can either build the tech or understand the numbers. We do both, so nothing gets lost between the finance team and the code.</p>
+    <div class="cards">
+      <div class="card"><span class="k">Govern</span><h3>AI readiness &amp; governance</h3><p>Find where AI is already being used, map the risks, set the controls and give your board a clear one-page view.</p></div>
+      <div class="card"><span class="k">Build</span><h3>Agents &amp; automation</h3><p>Invoice matching, month-end, reporting, inbox triage. Automated end to end, with approvals and a full log of every action.</p></div>
+      <div class="card"><span class="k">See</span><h3>Dashboards &amp; models</h3><p>Live dashboards, 13-week cash forecasts, business cases and scenario models your lender and your board will trust.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="safe">
+  <div class="wrap">
+    <p class="eyebrow">How we protect you</p>
+    <h2>The controls come first. The AI comes second.</h2>
+    <div class="cards">
+      <div class="card"><span class="k">01 · Human sign-off</span><p><strong>Nothing material happens without a person approving it.</strong> Payments, lodgements and client communications always stop for a human.</p></div>
+      <div class="card"><span class="k">02 · Your data stays yours</span><p><strong>We build inside your own accounts wherever possible.</strong> Business-grade AI only, on terms that stop your data being used for training.</p></div>
+      <div class="card"><span class="k">03 · Audit trail</span><p><strong>Every automated decision is logged.</strong> You can see what happened, when, why, and who approved it.</p></div>
+      <div class="card"><span class="k">04 · Written scope</span><p><strong>Fixed price, fixed deliverables, agreed in writing</strong> before any work starts. No hourly meter running.</p></div>
+      <div class="card"><span class="k">05 · Confidentiality</span><p><strong>Professional confidentiality obligations apply to everything you share.</strong> We don't name clients without permission.</p></div>
+      <div class="card"><span class="k">06 · Conflict checks</span><p><strong>Every enquiry is checked for conflicts of interest</strong> before we respond with a proposal.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <p class="eyebrow">How it works</p>
+    <h2>No sales calls. Everything in writing.</h2>
+    <p class="lede">You get a considered written answer, not a pitch, and a record of exactly what was agreed.</p>
+    <ol class="steps">
+      <li><h3>Tell us in writing</h3><p>Use the form or the guided assistant. A few lines is enough.</p></li>
+      <li><h3>Written proposal</h3><p>Fixed price, scope and timeline within three business days.</p></li>
+      <li><h3>Build with updates</h3><p>Weekly written progress notes and a working demo you can click.</p></li>
+      <li><h3>Handover pack</h3><p>Documentation, controls and training so your team owns it.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="sprint">
+  <div class="wrap">
+    <div class="offer">
+      <div>
+        <p class="eyebrow">Start here</p>
+        <h2>AI Readiness Sprint</h2>
+        <p class="price">from $3,500 <small>+ GST · fixed</small></p>
+        <p>Ten business days. A clear picture of where AI can help, where it's already a risk, and one working prototype to prove it.</p>
+        <p style="margin-top:18px"><a class="btn primary" href="#contact" data-topic="AI Readiness Sprint">Request a proposal</a></p>
+      </div>
+      <ul class="ticks">
+        <li>Inventory of AI tools already in use, including the free ones</li>
+        <li>Risk and controls map for each use case</li>
+        <li>One working automation or agent prototype on your own data</li>
+        <li>A one-page board paper with recommendations</li>
+        <li>A prioritised roadmap with fixed-price next steps</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <p class="eyebrow">Questions</p>
+    <h2>The things people ask first.</h2>
+    <div class="faq">
+      <details><summary>Is my data safe with AI?</summary><p>We only use business-grade AI services whose terms stop your data being used to train models, and we build inside your own Microsoft, Google or Xero accounts wherever we can. Sensitive steps stay with a human.</p></details>
+      <details><summary>What happens if the AI gets it wrong?</summary><p>It will, sometimes. That's why every build has approval steps, limits and a log. The AI prepares the work, a person signs it off, and anything unusual gets flagged rather than actioned.</p></details>
+      <details><summary>Do you replace my accountant or bookkeeper?</summary><p>No. We make them faster. We often work alongside an existing accountant or finance team and hand over something they can run.</p></details>
+      <details><summary>Which tools do you work with?</summary><p>Xero, MYOB, Microsoft 365, Power BI, Power Automate, Google Workspace, n8n, Python and leading AI models. We pick what fits what you already own.</p></details>
+      <details><summary>Why no phone calls?</summary><p>Written briefs get better answers and leave a clear record of what was agreed. If a call genuinely helps later in a project, we'll schedule one.</p></details>
+      <details><summary>Where are you based?</summary><p>Australia. We work remotely with clients across the country.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Start in writing</p>
+    <h2>Tell us what you're trying to fix.</h2>
+    <p class="lede">A few lines is plenty. You'll get a written response within three business days.</p>
+    <form class="contact" id="contactForm" novalidate>
+      <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+      <div class="field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="f-org">Organisation</label><input id="f-org" name="organisation" autocomplete="organization"></div>
+      <div class="field"><label for="f-topic">Area</label>
+        <select id="f-topic" name="topic">
+          <option>AI readiness &amp; governance</option>
+          <option>AI Readiness Sprint</option>
+          <option>Automation &amp; AI agents</option>
+          <option>Dashboards &amp; analytics</option>
+          <option>Financial modelling</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="field full"><label for="f-msg">What's the problem?</label><textarea id="f-msg" name="message" required placeholder="e.g. Month-end takes 8 days and half of it is copying data between Xero and Excel."></textarea></div>
+      <input class="hp" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="field full"><div><button class="btn primary" type="submit">Send</button></div><p class="note">We only use your details to reply. Please don't include passwords or bank details.</p></div>
+      <p class="formmsg" id="formMsg" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
 </main>
 
 <footer>
@@ -124,29 +349,136 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   </div>
 </footer>
 
+<button class="bot-btn" type="button" data-open-bot aria-controls="bot" aria-expanded="false" aria-label="Open guided assistant"><i aria-hidden="true"></i><span>Guided assistant</span></button>
+<div class="bot" id="bot" role="dialog" aria-label="Beiz guided assistant">
+  <div class="hd"><div><b>Beiz assistant</b><small>GUIDED · NO AI · NOTHING STORED</small></div><button class="x" type="button" aria-label="Close assistant">&times;</button></div>
+  <div class="msgs" id="msgs" aria-live="polite"></div>
+  <div class="opts" id="opts"></div>
+</div>
+
 <script>
-document.getElementById('yr').textContent=new Date().getFullYear();
-const lines=[
+// CONFIG: set to a form endpoint (e.g. Formspree or a Google Apps Script web app) to receive submissions directly.
+const FORM_ENDPOINT = "";
+const EMAIL = "hello@beiz.com.au";
+
+document.getElementById('yr').textContent = new Date().getFullYear();
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const track = document.querySelector('.ticker .track');
+if (!reduce) track.innerHTML += track.innerHTML;
+
+const lines = [
   ['02:00','ok','Agent started · accounts payable run'],
   ['02:03','ok','418 invoices matched to purchase orders'],
-  ['02:07','flag','Duplicate supplier bank details detected · payment held'],
-  ['02:09','flag','Payment $48,200 exceeds delegation · routed to CFO'],
+  ['02:07','flag','Supplier bank details changed · payment held'],
+  ['02:09','flag','$48,200 exceeds delegation · routed to CFO'],
   ['02:14','ok','Segregation of duties check passed'],
   ['02:18','ok','Every decision written to audit trail'],
   ['06:00','ok','Board dashboard refreshed · 13-week cash forecast']
 ];
-const log=document.getElementById('log');
-const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-lines.forEach(([t,c,msg],i)=>{
+const log = document.getElementById('log');
+lines.forEach(([t,c,m],i)=>{
   const li=document.createElement('li');
-  li.style.animationDelay=reduce?'0s':(i*0.7)+'s';
-  li.innerHTML=`<time>${t}</time><span class="${c}">${c==='ok'?'✓':'!'}</span><span>${msg}</span>`;
+  li.style.animationDelay = reduce ? '0s' : (i*0.7)+'s';
+  li.innerHTML=`<time>${t}</time><span class="${c}">${c==='ok'?'✓':'!'}</span><span>${m}</span>`;
   log.appendChild(li);
 });
 const end=document.createElement('li');
-end.style.animationDelay=reduce?'0s':(lines.length*0.7)+'s';
+end.style.animationDelay = reduce ? '0s' : (lines.length*0.7)+'s';
 end.innerHTML='<time>06:01</time><span class="ok">&gt;</span><span>Awaiting human approval <span class="cursor" aria-hidden="true"></span></span>';
 log.appendChild(end);
+
+const form=document.getElementById('contactForm'), fmsg=document.getElementById('formMsg');
+function prefill(topic, text){
+  if(topic){[...form.topic.options].forEach(o=>{if(o.text===topic)o.selected=true;});}
+  if(text) form.message.value=text;
+}
+document.querySelectorAll('[data-topic]').forEach(a=>a.addEventListener('click',()=>prefill(a.dataset.topic)));
+form.addEventListener('submit', async e=>{
+  e.preventDefault();
+  if(form.company_website.value) return;
+  if(!form.name.value.trim()||!form.email.value.trim()||!form.email.checkValidity()||!form.message.value.trim()){
+    fmsg.style.color='var(--warn)'; fmsg.textContent='Please add your name, a valid email and a line about the problem.'; return;
+  }
+  const data=Object.fromEntries(new FormData(form)); delete data.company_website;
+  if(FORM_ENDPOINT){
+    try{
+      const r=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify(data)});
+      if(!r.ok) throw new Error();
+      form.reset(); fmsg.style.color='var(--accent)'; fmsg.textContent='Received. You will get a written response within three business days.'; return;
+    }catch(_){}
+  }
+  const body=`Name: ${data.name}\nEmail: ${data.email}\nOrganisation: ${data.organisation||'-'}\nArea: ${data.topic}\n\n${data.message}`;
+  location.href=`mailto:${EMAIL}?subject=${encodeURIComponent('Enquiry: '+data.topic)}&body=${encodeURIComponent(body)}`;
+  fmsg.style.color='var(--accent)'; fmsg.textContent='Opening your email app with the details filled in. Just press send.';
+});
+
+// Guided assistant: rule-based, no AI, nothing stored.
+const bot=document.getElementById('bot'), msgs=document.getElementById('msgs'), opts=document.getElementById('opts');
+const openers=document.querySelectorAll('[data-open-bot]');
+const flow={
+  start:{say:["Hi. I'm a guided assistant, not an AI. Three quick questions and I'll point you to the right starting place.","What's on your mind?"],
+    opts:[["Using AI safely","ai"],["Automating a finance process","auto"],["Dashboards & reporting","dash"],["A financial model or business case","model"],["Not sure yet","unsure"]]},
+  ai:{topic:"AI readiness & governance",say:["Good place to start. Which is closest?"],
+    opts:[["Staff already use ChatGPT or Copilot","ai1"],["The board is asking about AI risk","ai2"],["We want to build our first agent","ai3"]]},
+  ai1:{topic:"AI Readiness Sprint",say:["That's the most common one. Free AI tools often mean business data leaving without anyone noticing.","The AI Readiness Sprint finds what's in use, maps the risk and sets simple rules people will actually follow."],next:"size"},
+  ai2:{topic:"AI Readiness Sprint",say:["Boards want a clear view, not a technical lecture.","We'd start with the AI Readiness Sprint: a register, a risk and controls map, and a one-page board paper."],next:"size"},
+  ai3:{topic:"AI Readiness Sprint",say:["The safest first agent does one well-defined job with a human approving the output.","We'd scope it in the Sprint and build a working prototype on your own data."],next:"size"},
+  auto:{topic:"Automation & AI agents",say:["Which process hurts most?"],
+    opts:[["Month-end close","a1"],["Invoices & payments","a2"],["Reporting packs","a3"],["Chasing documents","a4"]]},
+  a1:{say:["Month-end usually loses days to copying and checking. We automate the pulls, reconciliations and checks, and leave the judgement calls with your team."],next:"size"},
+  a2:{say:["We match invoices to POs, flag changed bank details and duplicate payments, and route anything over your delegation limit for approval. Nothing gets paid without a human."],next:"size"},
+  a3:{say:["We connect your ledger to a live dashboard, so the pack builds itself and your time goes on the commentary."],next:"size"},
+  a4:{say:["An agent can chase, collect and file documents on a schedule, with a clear log of who sent what and when."],next:"size"},
+  dash:{topic:"Dashboards & analytics",say:["What do you need to see that you can't see now?"],
+    opts:[["Cash position & forecast","d1"],["Project or job profitability","d2"],["Board KPIs","d3"]]},
+  d1:{say:["A 13-week cash forecast that refreshes itself is one of the most useful things a business can have. We build it from your actual data."],next:"size"},
+  d2:{say:["We pull costs, time and revenue together so you can see margin by job while there's still time to fix it."],next:"size"},
+  d3:{say:["We design board dashboards the way directors read them: a few measures, clear trends, flagged exceptions."],next:"size"},
+  model:{topic:"Financial modelling",say:["What's the model for?"],
+    opts:[["Business case or investment","m1"],["Pricing or quoting","m2"],["Forecast & scenarios","m3"]]},
+  m1:{say:["We build business cases that stand up to a lender, board or auditor: clear assumptions, scenarios and sensitivity, fully documented."],next:"size"},
+  m2:{say:["We model your real costs from past jobs so quotes protect your margin, with risk-adjusted contingency."],next:"size"},
+  m3:{say:["Driver-based forecasts with best, base and worst cases, built so your team can update them without breaking anything."],next:"size"},
+  unsure:{topic:"Something else",say:["That's fine. Most people start with a vague itch. Describe the problem in plain words and we'll suggest where to begin."],next:"size"},
+  size:{say:["Roughly how big is the organisation?"],opts:[["1–20 people","s"],["20–200 people","s"],["200+ people","s"],["Not-for-profit","s"]]},
+  s:{say:["Thanks. Last step: send us a short written brief. I'll fill in what you've told me so far, and you add the details."],opts:[["Write my brief","go"],["Start again","start"]]}
+};
+let path=[], topic="Something else";
+function add(text,who){const d=document.createElement('div');d.className='m '+who;d.textContent=text;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;}
+function closeBot(){bot.classList.remove('open');openers.forEach(x=>x.setAttribute('aria-expanded','false'));}
+function step(key){
+  if(key==='go'){
+    prefill(topic, path.join(' → ')+'\n\n');
+    closeBot();
+    document.getElementById('contact').scrollIntoView({behavior:reduce?'auto':'smooth'});
+    setTimeout(()=>{form.message.focus();form.message.setSelectionRange(form.message.value.length,form.message.value.length);},500);
+    return;
+  }
+  if(key==='start'){path=[];topic="Something else";msgs.innerHTML='';}
+  const n=flow[key]; if(n.topic) topic=n.topic;
+  let says=[...n.say], options=n.opts;
+  if(n.next){const nx=flow[n.next]; says=says.concat(nx.say); options=nx.opts;}
+  opts.innerHTML='';
+  says.forEach((t,i)=>setTimeout(()=>add(t,'b'), reduce?0:i*350));
+  setTimeout(()=>render(options||[]), reduce?0:says.length*350);
+}
+function render(list){
+  opts.innerHTML='';
+  list.forEach(([label,key])=>{
+    const b=document.createElement('button');b.type='button';b.textContent=label;
+    b.onclick=()=>{add(label,'u'); if(key!=='go'&&key!=='start') path.push(label); step(key);};
+    opts.appendChild(b);
+  });
+}
+openers.forEach(o=>o.addEventListener('click',()=>{
+  const open=!bot.classList.contains('open');
+  bot.classList.toggle('open',open);
+  openers.forEach(x=>x.setAttribute('aria-expanded',String(open)));
+  if(open && !msgs.children.length) step('start');
+}));
+bot.querySelector('.x').onclick=closeBot;
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&bot.classList.contains('open'))closeBot();});
 </script>
 </body>
 </html>
