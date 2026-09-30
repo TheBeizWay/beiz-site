@@ -168,7 +168,7 @@ def home():
     <h2>Three kinds of business. One standard.</h2>
     <p class="lede">We group clients by the problem they have, not the logo on the van.</p>
     <div class="cards">
-      <div class="card"><span class="k">Regulated &amp; high-stakes</span><h3>Governance, audit trails, Privacy Act</h3><p>Health practices, not-for-profits and businesses with boards, where getting it wrong costs trust, not just money.</p><p class="related" style="margin-top:12px"><a href="/industries/health/">Health</a><a href="/industries/not-for-profits/">Not-for-profits</a><a href="/services/ai-governance/">Governance</a></p></div>
+      <div class="card"><span class="k">Regulated &amp; high-stakes</span><h3>Governance, audit trails, Privacy Act</h3><p>Clinics, allied health and NDIS providers, not-for-profits and businesses with boards, where getting it wrong costs trust, not just money.</p><p class="related" style="margin-top:12px"><a href="/industries/health/">Health</a><a href="/industries/not-for-profits/">Not-for-profits</a><a href="/services/ai-governance/">Governance</a></p></div>
       <div class="card"><span class="k">Transaction-heavy operators</span><h3>Reconciliations, margins, quote to cash</h3><p>Trades, hospitality, retail and professional services, where hundreds of small transactions hide where the money goes.</p><p class="related" style="margin-top:12px"><a href="/industries/trades/">Trades</a><a href="/industries/hospitality-retail/">Hospitality &amp; retail</a><a href="/services/quick-wins/">Quick wins</a></p></div>
       <div class="card"><span class="k">Tech &amp; digital assets</span><h3>Runway, investor metrics, treasury</h3><p>Startups, tech agencies and businesses holding or paid in digital assets, where the numbers move fast and investors ask hard questions.</p><p class="related" style="margin-top:12px"><a href="/industries/startups/">Startups</a><a href="/industries/crypto/">Crypto &amp; digital assets</a><a href="/services/dashboards-and-models/">Models</a></p></div>
     </div>
@@ -178,8 +178,8 @@ def home():
 <section id="how">
   <div class="wrap">
     <p class="eyebrow">How it works</p>
-    <h2>No sales calls. Everything in writing.</h2>
-    <p class="lede">You get a considered written answer, not a pitch, and a record of exactly what was agreed.</p>
+    <h2>Document-first. No sales pitch.</h2>
+    <p class="lede">We run discovery in writing to respect your time. You get a fully priced written blueprint, not a high-pressure pitch, and a record of exactly what was agreed.</p>
     <ol class="steps">
       <li><h3>Tell us in writing</h3><p>Use the form or the guided assistant. A few lines is enough.</p></li>
       <li><h3>Written proposal</h3><p>Fixed price, scope and timeline within three business days.</p></li>
@@ -332,7 +332,7 @@ def services():
 <p>No obligation to continue with us afterwards. The roadmap is yours.</p>''',
         [("AI inventory", "Every tool in use, including the free ones."), ("Risk & controls map", "For each use case, what could go wrong and what stops it."), ("Working prototype", "One real automation or agent on your data."),
          ("Privacy Act check", "Where you stand on the automated-decision rules."), ("One-page paper", "For the board or for yourself."), ("Roadmap", "Prioritised next steps, each with a fixed price.")],
-        aside("The fine print", ["Fixed price, quoted in writing", "Ten business days from kickoff", "Everything in writing, no sales calls", "No lock-in: the roadmap is yours"], "AI Readiness Sprint"),
+        aside("The fine print", ["Fixed price, quoted in writing", "Ten business days from kickoff", "Document-first: priced blueprint, no pitch", "No lock-in: the roadmap is yours"], "AI Readiness Sprint"),
         "", [("/services/ai-governance/", "AI governance"), ("/services/automation/", "Agents & automation"), ("/examples/", "Examples")],
         "AI Readiness Sprint", "AI Readiness Sprint",
         "A ten-day, fixed-price AI Readiness Sprint: AI inventory, risk and controls map, Privacy Act check, one working prototype and a costed roadmap.")
@@ -362,7 +362,7 @@ def services():
 def industries_hub():
     groups = [
         ("Regulated & high-stakes", "Governance, audit trails and Privacy Act readiness, where getting it wrong costs trust.",
-         [("/industries/health/", "Health & allied health", "Billing, practice reporting, patient privacy"), ("/industries/not-for-profits/", "Not-for-profits", "Grant reporting, board packs, donor data")],
+         [("/industries/health/", "Health, allied health & NDIS", "Billing, rostering, reporting, privacy"), ("/industries/not-for-profits/", "Not-for-profits", "Grant reporting, board packs, donor data")],
          "Also: businesses with boards, professional services."),
         ("Transaction-heavy operators", "Reconciliations, margin protection and quote to cash, where small transactions hide where the money goes.",
          [("/industries/trades/", "Trades & construction", "Quotes, job costing, chasing payment"), ("/industries/hospitality-retail/", "Hospitality & retail", "Wages, suppliers, margins, weekly cash")],
@@ -403,19 +403,19 @@ def industries():
         "Small business quick win", "For trades & construction",
         "Automated quoting, invoicing, payment reminders and job costing for Australian tradies and construction businesses. Fixed price, no lock-in.")
 
-    ind("/industries/health/", "Health & allied health", "Run the practice, not the paperwork.",
-        "Bookings, billing reconciliations and practice reporting, automated with care. And because health practices hold sensitive information, privacy and AI controls come first.",
+    ind("/industries/health/", "Health, allied health & NDIS", "Run the practice, not the paperwork.",
+        "For clinics, allied health practices and NDIS providers: bookings, billing reconciliations, rostering and reporting, automated with care. You hold some of the most sensitive information there is, so privacy, AI controls and human sign-off come first.",
         [("Billing that doesn't reconcile", "Payments, rebates and fund claims arrive in different places, and matching them takes hours."),
          ("No-shows and gaps", "Empty appointments cost money, and nobody has time to chase rebookings."),
          ("AI and patient data", "Staff want to use AI for notes and letters, and you're not sure what's allowed.")],
         [("Billing reconciliation", "Payments matched to appointments automatically, exceptions listed."), ("Practice dashboard", "Utilisation, revenue per practitioner, no-show rate, weekly."),
          ("Reminder and rebooking flows", "Using your existing booking system, within its rules."), ("AI use policy", "What staff can and can't put into AI tools, in plain English."),
-         ("Privacy Act readiness", "Health service providers are generally covered regardless of size."), ("Controls", "Access, approvals and logs around anything touching patient data.")],
+         ("Privacy Act readiness", "Health service providers, including many NDIS providers, are generally covered regardless of size."), ("Controls", "Access, approvals and logs around anything touching patient data.")],
         before_after("An allied health practice, 4 clinicians", ["Friday afternoons spent reconciling", "No-show rate unknown", "Staff pasting notes into a free chatbot", "Privacy policy last updated years ago"],
                      ["Reconciliation done nightly", "No-shows tracked and followed up", "Approved, business-grade AI only", "Policy reviewed for automated decisions"], "Example scenario"),
         [("/ai-check/", "Privacy Act AI check"), ("/services/ai-governance/", "AI governance"), ("/services/automation/", "Automation")],
-        "AI readiness & governance", "For health & allied health practices",
-        "Billing reconciliation, practice dashboards and AI governance for Australian health and allied health practices, with patient privacy built in.")
+        "AI readiness & governance", "For health, allied health & NDIS providers",
+        "Billing reconciliation, rostering, practice dashboards and AI governance for Australian clinics, allied health practices and NDIS providers, with privacy and human sign-off built in.")
 
     rf = runway_facts()
     ind("/industries/startups/", "Startups & tech agencies", "Know your runway before your investors ask.",
@@ -567,7 +567,9 @@ FAQ = [
     ("Do you replace my accountant or bookkeeper?", "No. We don't replace your tax accountant, we feed them. They keep you right with the ATO, looking back at what happened. We work on what happens next week. At year end they get clean, reconciled data and do their job faster."),
     ("Do you do tax, BAS or R&D tax incentive claims?", "No. We don't provide tax agent or BAS services. What we do is make your records clean: crypto transactions reconciled, development costs tagged by project and activity, everything traceable. Your registered tax agent or R&D adviser then works from data they can rely on."),
     ("Which tools do you work with?", "Xero, MYOB, Microsoft 365, Power BI, Power Automate, Google Workspace, n8n, Python and leading AI models. We pick what fits what you already own."),
-    ("Why no phone calls?", "Written briefs get better answers and leave a clear record of what was agreed. If a call genuinely helps later in a project, we'll schedule one."),
+    ("Why do you work in writing first?", "It respects your time and gets better answers. A written brief lets us think properly before replying, and you get a fully priced blueprint with a clear record of what was agreed, instead of a sales pitch. Once work is under way, if a conversation genuinely helps, we'll schedule one."),
+    ("Is any of the work done offshore?", "All strategy, architecture, governance and sign-off are led in Australia by a Chartered Accountant and GAICD. For some build work we use a small, vetted delivery team, always under our direct review. Your engagement letter tells you exactly where any of your information will be handled, before you sign."),
+    ("Who owns what you build?", "You own the outcome: the automations, dashboards and models run inside your own accounts, with your logins. Our reusable templates, frameworks and code libraries remain our intellectual property, licensed to you for your business. That's how we keep delivery fast and prices fixed."),
     ("Do I need a board or a big business?", "No. Plenty of our work is for owner-operators who are flat out and just want the admin to stop eating their evenings. We size the work to the business."),
     ("How much does it cost?", "Every job is fixed price, quoted in writing after we understand the problem. Quick wins are priced like quick wins; larger builds are scoped individually. No hourly meter and no lock-in contracts."),
     ("Do you work with crypto businesses?", "Yes: reconciliations, stablecoin payment matching, treasury reporting and controls. We don't give tax, financial product or licensing advice."),
@@ -599,7 +601,7 @@ def how_we_work():
 <section><div class="wrap"><p class="eyebrow">How we protect you</p><h2>The controls come first. The AI comes second.</h2><div class="cards">{p}</div></div></section>
 <section><div class="wrap split"><div class="prose">
 <h2>What you won't get from us</h2>
-<ul><li><strong>Sales calls.</strong> Everything is in writing, so there's a record of what was promised.</li>
+<ul><li><strong>A sales pitch.</strong> Discovery is document-first, so there's a record of what was promised and a price before you commit.</li>
 <li><strong>An hourly meter.</strong> Fixed price, agreed before we start.</li>
 <li><strong>Lock-in.</strong> No long contracts. Everything we build runs in your accounts, with your logins.</li>
 <li><strong>Jargon.</strong> If we can't explain it simply, we haven't understood it well enough.</li>
@@ -607,6 +609,10 @@ def how_we_work():
 <h2>Who's behind Beiz</h2>
 <p>Beiz is led by a Chartered Accountant (CA ANZ, Certificate of Public Practice) and graduate of the Australian Institute of Company Directors. The background: internal audit, fraud and controls, corporate finance, large-portfolio project delivery and data science. Your written proposal names who does the work, and you can verify credentials before signing.</p>
 <p>We're professional indemnity insured, as required for public practice, and bound by the APES code of ethics.</p>
+<h2>Led in Australia</h2>
+<p>All strategy, architecture, governance and sign-off happen in Australia, by a Chartered Accountant and GAICD. For some build work we use a small, vetted delivery team, always under our direct review and audit. Your engagement letter says where any of your information will be handled, before you sign.</p>
+<h2>Who owns what</h2>
+<p>You own the outcome: everything runs in your accounts, with your logins, and it keeps running if we part ways. Our reusable templates, frameworks and code libraries stay our intellectual property, licensed to you. That's what keeps delivery fast and prices fixed.</p>
 </div><aside class="aside"><h3>Working with your accountant</h3><p class="muted">Already have a tax accountant or bookkeeper? Good. We work alongside them and hand over clean, reconciled data.</p><a class="btn primary" href="/insights/we-feed-your-tax-accountant/">How that works</a></aside></div></section>''' + cta_band()
     add("/how-we-work/", "How we work", "How a Beiz engagement runs: written brief, fixed-price proposal, weekly updates and a full handover. Human sign-off, audit trail, confidentiality and conflict checks.", body)
 
@@ -618,12 +624,12 @@ def faq():
 
 
 def contact():
-    body = phero("Contact", "Start in writing.", "A few lines about the problem is plenty. No sales calls, no pressure. You'll get a considered written reply within three business days.", [("/contact/", "Contact")]) + '''
+    body = phero("Contact", "Start in writing.", "A few lines about the problem is plenty. No sales pitch, no pressure. You'll get a considered written reply within three business days.", [("/contact/", "Contact")]) + '''
 <section style="padding:8px 0 0"><div class="wrap"><ol class="steps three">
 <li><h3>You write</h3><p>What's broken, what you've tried, and what good would look like.</p></li>
 <li><h3>We check</h3><p>A conflict check, then a proper look at the problem.</p></li>
 <li><h3>We reply</h3><p>A written answer: what we'd do, how long, and a fixed price if it's a fit.</p></li></ol></div></section>''' + contact_form("Tell us what you're trying to fix.", "Prefer email? Write to hello@beiz.com.au.")
-    add("/contact/", "Contact", "Send Beiz a short written brief. No sales calls. A considered written reply within three business days. hello@beiz.com.au", body)
+    add("/contact/", "Contact", "Send Beiz a short written brief. Document-first, no sales pitch. A considered written reply within three business days. hello@beiz.com.au", body)
 
 
 def privacy():
