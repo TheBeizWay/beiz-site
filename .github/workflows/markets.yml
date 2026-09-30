@@ -1,9 +1,8 @@
 name: markets
 on:
   schedule:
-    # Every 30 min, 22:00-07:59 UTC = ASX trading day in AEST and AEDT, Sun-Fri UTC (Mon-Fri Sydney)
-    - cron: '7,37 22-23 * * 0-4'
-    - cron: '7,37 0-7 * * 1-5'
+    # Every 30 minutes: ASX/AUD (delayed) plus crypto, so pages never call third parties on load
+    - cron: '7,37 * * * *'
   workflow_dispatch:
 permissions:
   contents: write

@@ -14,11 +14,20 @@ async function quote(sym) {
   }
   return null;
 }
-const out = { source: 'Yahoo Finance, delayed', items: [] };
-for (const [sym, label] of SYMS) { const q = await quote(sym); if (q) out.items.push({ sym, label, ...q }); }
-if (!out.items.length) { console.log('no data, leaving file unchanged'); process.exit(0); }
 const file = 'data/markets.json';
 const prev = existsSync(file) ? readFileSync(file, 'utf8') : '';
+let old = {}; try { old = JSON.parse(prev); } catch (e) {}
+const out = { source: 'Yahoo Finance (delayed), CoinGecko', items: [], crypto: [] };
+for (const [sym, label] of SYMS) { const q = await quote(sym); if (q) out.items.push({ sym, label, ...q }); }
+if (!out.items.length && old.items) out.items = old.items;
+try {
+  const r = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=aud&include_24hr_change=true', { headers: UA });
+  const d = await r.json();
+  for (const [id, label, short] of [['bitcoin', 'Bitcoin', 'BTC'], ['ethereum', 'Ethereum', 'ETH'], ['solana', 'Solana', 'SOL']])
+    if (d[id]) out.crypto.push({ id, label, short, price: d[id].aud, chg: d[id].aud_24h_change });
+} catch (e) { /* keep previous */ }
+if (!out.crypto.length && old.crypto) out.crypto = old.crypto;
+if (!out.items.length && !out.crypto.length) { console.log('no data, leaving file unchanged'); process.exit(0); }
 const next = JSON.stringify(out);
 if (prev.trim() === next) { console.log('unchanged'); process.exit(0); }
 writeFileSync(file, next + '\n');
