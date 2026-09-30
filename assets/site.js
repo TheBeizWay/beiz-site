@@ -95,10 +95,12 @@
   const dleft = Math.round((new Date(2026, 11, 10) - today) / 864e5);
   $$("[data-adm-days]").forEach(e => (e.textContent = dleft > 0 ? dleft + " days" : "now in force"));
   // One purpose only: regulatory countdown + Australian market benchmarks.
+  const ndis = Math.round((new Date(2026, 11, 1) - today) / 864e5);
   const base = [
     dleft > 0 ? `Privacy Act: automated-decision disclosures start <b>10 Dec 2026</b> · ${dleft} days`
               : `Privacy Act: automated-decision disclosures <b>in force</b> since 10 Dec 2026`
   ];
+  if (ndis > 0) base.push(`NDIS: 90-day claiming limit starts <b>1 Dec 2026</b> · ${ndis} days`);
   const renderTicker = items => {
     if (!track) return;
     const html = items.map(i => `<span>${i}</span>`).join("");
@@ -122,7 +124,7 @@
       .map(m => `${esc(m.a)} <b>${esc(m.v)}</b>${m.c == null ? "" : ` <i class="${m.c >= 0 ? "up" : "dn"}">${m.c >= 0 ? "▲" : "▼"}${Math.abs(m.c).toFixed(1)}%</i>`}`)
       .join(" &nbsp;·&nbsp; ");
     if (mk) {
-      renderTicker([base[0], mk + ' <i class="note">delayed · indicative only</i>']);
+      renderTicker([...base, mk + ' <i class="note">delayed · indicative only</i>']);
     }
   }).catch(() => {});
 
