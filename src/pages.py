@@ -147,17 +147,6 @@ def home():
   </div>
 </section>
 
-<section id="live-teaser">
-  <div class="wrap">
-    <div class="offer">
-      <div><p class="eyebrow">Live Data Lab <i class="live-dot" aria-hidden="true"></i></p><h2>Watch it work, live.</h2>
-        <p>ASX, the Aussie dollar and crypto, plus cricket, NRL, AFL and football scores, pulled from public feeds and updated automatically. It's a small demo of the same plumbing behind a live cash dashboard or a sales board for your business.</p>
-        <p style="margin-top:18px"><a class="btn primary" href="/live/">Open Live Data</a></p></div>
-      <div class="labgrid" id="labMkHome"></div>
-    </div>
-  </div>
-</section>
-
 <section id="what">
   <div class="wrap">
     <p class="eyebrow">What we do</p>
@@ -176,10 +165,13 @@ def home():
 <section id="who">
   <div class="wrap">
     <p class="eyebrow">Who we work with</p>
-    <h2>Owners and leaders who are done doing it the hard way.</h2>
-    <p class="lede">From a sole trader to a company with a board. Different industries, the same problems: too much admin, not enough visibility, and no time to fix either.</p>
-    <ul class="sectors">{ind}</ul>
-    <p style="margin-top:16px" class="muted">Also: professional services, childcare and education, e-commerce. <a href="/industries/" style="color:var(--accent)">All industries →</a></p>
+    <h2>Three kinds of business. One standard.</h2>
+    <p class="lede">We group clients by the problem they have, not the logo on the van.</p>
+    <div class="cards">
+      <div class="card"><span class="k">Regulated &amp; high-stakes</span><h3>Governance, audit trails, Privacy Act</h3><p>Health practices, not-for-profits and businesses with boards, where getting it wrong costs trust, not just money.</p><p class="related" style="margin-top:12px"><a href="/industries/health/">Health</a><a href="/industries/not-for-profits/">Not-for-profits</a><a href="/services/ai-governance/">Governance</a></p></div>
+      <div class="card"><span class="k">Transaction-heavy operators</span><h3>Reconciliations, margins, quote to cash</h3><p>Trades, hospitality, retail and professional services, where hundreds of small transactions hide where the money goes.</p><p class="related" style="margin-top:12px"><a href="/industries/trades/">Trades</a><a href="/industries/hospitality-retail/">Hospitality &amp; retail</a><a href="/services/quick-wins/">Quick wins</a></p></div>
+      <div class="card"><span class="k">Tech &amp; digital assets</span><h3>Runway, investor metrics, treasury</h3><p>Startups, tech agencies and businesses holding or paid in digital assets, where the numbers move fast and investors ask hard questions.</p><p class="related" style="margin-top:12px"><a href="/industries/startups/">Startups</a><a href="/industries/crypto/">Crypto &amp; digital assets</a><a href="/services/dashboards-and-models/">Models</a></p></div>
+    </div>
   </div>
 </section>
 
@@ -368,14 +360,24 @@ def services():
 
 # ------------------------------------------------------------------ industries
 def industries_hub():
-    extra = [("Professional services", "Time, billing, client onboarding"), ("Childcare & education", "Enrolments, fees, compliance paperwork"), ("E-commerce", "Stock, margins, platform fees")]
-    desc = ["Quotes, job costing, chasing payment", "Bookings, billing, practice reporting, patient privacy", "Runway scenarios, investor metrics, board packs",
-            "Wallet and stablecoin reconciliations, controls", "Grant reporting, board packs, donor data", "Wages, suppliers, margins, weekly cash"]
-    li = "".join(f'<li><a href="{h}"><b>{t}</b><span>{d}</span><span class="go">Read more →</span></a></li>' for (h, t), d in zip(INDUSTRIES, desc))
-    li += "".join(f"<li><b>{t}</b><span>{d}</span></li>" for t, d in extra)
-    body = phero("Industries", "Different industries. The same three problems.", "Too much admin, not enough visibility, and no time to fix either. Here's how that looks in the industries we see most.",
-                 [("/industries/", "Industries")]) + f'<section style="padding-top:8px"><div class="wrap"><ul class="sectors">{li}</ul></div></section>' + cta_band("Your industry not listed?", "The problems are usually the same. Tell us yours in writing.")
-    add("/industries/", "Industries", "How Beiz helps trades, health practices, startups, crypto businesses, not-for-profits, hospitality and retail with automation, dashboards and governed AI.", body)
+    groups = [
+        ("Regulated & high-stakes", "Governance, audit trails and Privacy Act readiness, where getting it wrong costs trust.",
+         [("/industries/health/", "Health & allied health", "Billing, practice reporting, patient privacy"), ("/industries/not-for-profits/", "Not-for-profits", "Grant reporting, board packs, donor data")],
+         "Also: businesses with boards, professional services."),
+        ("Transaction-heavy operators", "Reconciliations, margin protection and quote to cash, where small transactions hide where the money goes.",
+         [("/industries/trades/", "Trades & construction", "Quotes, job costing, chasing payment"), ("/industries/hospitality-retail/", "Hospitality & retail", "Wages, suppliers, margins, weekly cash")],
+         "Also: e-commerce, childcare and education."),
+        ("Tech & digital assets", "Runway modelling, investor metrics, treasury reporting and integrations, where numbers move fast.",
+         [("/industries/startups/", "Startups & tech agencies", "Runway, investor metrics, board packs"), ("/industries/crypto/", "Crypto & digital assets", "Wallet and stablecoin reconciliations, controls")],
+         ""),
+    ]
+    html = ""
+    for title, d, items, also in groups:
+        li = "".join(f'<li><a href="{h}"><b>{t}</b><span>{x}</span><span class="go">Read more →</span></a></li>' for h, t, x in items)
+        html += f'<div style="margin-bottom:34px"><p class="eyebrow">{title}</p><p class="muted" style="margin-top:6px">{d}</p><ul class="sectors" style="margin-top:14px">{li}</ul>{f"<p class=fine>{also}</p>" if also else ""}</div>'
+    body = phero("Industries", "Three kinds of business. One standard.", "We group clients by the problem they have, not the logo on the van. Every one of them gets the same accounting rigour, controls and human sign-off.",
+                 [("/industries/", "Industries")]) + f'<section style="padding-top:8px"><div class="wrap">{html}</div></section>' + cta_band("Your industry not listed?", "The problems are usually the same. Tell us yours in writing.")
+    add("/industries/", "Industries", "Beiz works with regulated and high-stakes organisations, transaction-heavy operators, and tech and digital asset businesses: governance, automation, dashboards and models.", body)
 
 
 def ind(path, crumb, h1, lede, pains, builds, scene, rel, topic, title, desc, extra=""):
@@ -728,8 +730,8 @@ def insights():
 
 # ------------------------------------------------------------------ live data page
 def live_page():
-    body = phero("Live Data Lab", "Markets and the footy, live.",
-                 "A working demo of what we build for clients: public data feeds pulled in, cached safely, checked and shown clearly. No trackers, and if a source drops out, the page carries on without it.",
+    body = phero("Live Data Lab", "Resilient live data, demonstrated.",
+                 "A live demonstration of the data pipelines we build for clients: multiple public sources pulled in, normalised, cached safely and shown clearly. No client-side tracking, and if a source drops out, the page carries on without it.",
                  [("/live/", "Live data")]) + '''<section style="padding-top:8px"><div class="wrap labwrap">
   <div class="panel"><h4><span>Markets</span><span>ASX delayed · crypto 24h</span></h4><div class="labgrid" id="labMk"></div>
     <p class="labsrc">ASX and AUD via Yahoo Finance (delayed), crypto via CoinGecko. Indicative only, not financial advice.</p></div>
@@ -737,14 +739,14 @@ def live_page():
     <p class="labsrc">Scores via ESPN. Football shows the EPL, Champions League, A-Leagues and the Socceroos and Matildas. Liverpool gets top billing.</p></div>
 </div></section>
 <section><div class="wrap split"><div class="prose">
-<h2>Why a finance firm has a scoreboard</h2>
-<p>Because it's the easiest way to show what live data looks like. The plumbing behind this page is the same plumbing behind the systems we build for clients:</p>
+<h2>Why this matters for your business</h2>
+<p>Market benchmarks and live sport are simply public feeds everyone recognises. The engineering behind this page is the same engineering behind the systems we build for clients:</p>
 <ul><li><strong>A live cash dashboard</strong> that refreshes from your bank and ledger, instead of a spreadsheet updated once a month.</li>
 <li><strong>A sales or jobs board</strong> for the office wall, showing today's bookings, jobs finished and invoices out.</li>
 <li><strong>Alerts that come to you</strong>: a supplier price jump, a big customer paying late, cash heading below your buffer.</li></ul>
 <p>Same principles every time: pull from the source, check it, cache it safely, show only what matters, and keep working when something upstream breaks.</p>
 </div><aside class="aside"><h3>Want this for your numbers?</h3><p class="muted">A live view of cash, sales or jobs, built from your own systems.</p><a class="btn primary" href="/contact/?topic=Dashboards%20%26%20analytics#form">Start in writing</a><a class="btn" style="margin-top:10px" href="/examples/">See examples</a></aside></div></section>'''
-    add("/live/", "Live Data Lab: ASX, crypto, cricket, NRL, AFL and football", "Live ASX, AUD and crypto prices with cricket, NRL, AFL, EPL, Champions League and A-League scores. A working demo of the live dashboards Beiz builds for businesses.", body)
+    add("/live/", "Live Data Lab", "Live ASX, AUD and crypto prices with cricket, NRL, AFL, EPL, Champions League and A-League scores. A working demo of the live dashboards Beiz builds for businesses.", body)
 
 
 def not_found():

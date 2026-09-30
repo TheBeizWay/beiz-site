@@ -14,12 +14,12 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/site.css?v=3">
+<link rel="stylesheet" href="/assets/site.css?v=4">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Beiz Data & Accounting", "legalName": "Beiz Data & Accounting Pty Ltd", "url": "https://beiz.com.au/", "email": "hello@beiz.com.au", "logo": "https://beiz.com.au/assets/icon-512.png", "areaServed": {"@type": "Country", "name": "Australia"}, "description": "Governed AI, automation, dashboards and financial modelling for Australian businesses. Chartered Accountant and GAICD led.", "taxID": "53 691 755 496"}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div class="ticker" role="region" aria-label="Beiz Pulse: AI rules, markets and ideas">
+<div class="ticker" role="region" aria-label="Beiz Pulse: regulatory countdown and market benchmarks">
   <div class="label">BEIZ PULSE</div>
   <div class="track" id="pulse"></div>
 </div>
@@ -143,17 +143,6 @@
   </div>
 </section>
 
-<section id="live-teaser">
-  <div class="wrap">
-    <div class="offer">
-      <div><p class="eyebrow">Live Data Lab <i class="live-dot" aria-hidden="true"></i></p><h2>Watch it work, live.</h2>
-        <p>ASX, the Aussie dollar and crypto, plus cricket, NRL, AFL and football scores, pulled from public feeds and updated automatically. It's a small demo of the same plumbing behind a live cash dashboard or a sales board for your business.</p>
-        <p style="margin-top:18px"><a class="btn primary" href="/live/">Open Live Data</a></p></div>
-      <div class="labgrid" id="labMkHome"></div>
-    </div>
-  </div>
-</section>
-
 <section id="what">
   <div class="wrap">
     <p class="eyebrow">What we do</p>
@@ -172,10 +161,13 @@
 <section id="who">
   <div class="wrap">
     <p class="eyebrow">Who we work with</p>
-    <h2>Owners and leaders who are done doing it the hard way.</h2>
-    <p class="lede">From a sole trader to a company with a board. Different industries, the same problems: too much admin, not enough visibility, and no time to fix either.</p>
-    <ul class="sectors"><li><a href="/industries/trades/"><b>Trades & construction</b><span>Quotes, job costing, chasing payment</span><span class="go">Read more →</span></a></li><li><a href="/industries/health/"><b>Health & allied health</b><span>Bookings, billing, practice reporting, patient privacy</span><span class="go">Read more →</span></a></li><li><a href="/industries/startups/"><b>Startups & tech agencies</b><span>Runway scenarios, investor metrics, board packs</span><span class="go">Read more →</span></a></li><li><a href="/industries/crypto/"><b>Crypto & digital assets</b><span>Wallet and stablecoin reconciliations, controls</span><span class="go">Read more →</span></a></li><li><a href="/industries/not-for-profits/"><b>Not-for-profits</b><span>Grant reporting, board packs, donor data</span><span class="go">Read more →</span></a></li><li><a href="/industries/hospitality-retail/"><b>Hospitality & retail</b><span>Wages, suppliers, margins, weekly cash</span><span class="go">Read more →</span></a></li></ul>
-    <p style="margin-top:16px" class="muted">Also: professional services, childcare and education, e-commerce. <a href="/industries/" style="color:var(--accent)">All industries →</a></p>
+    <h2>Three kinds of business. One standard.</h2>
+    <p class="lede">We group clients by the problem they have, not the logo on the van.</p>
+    <div class="cards">
+      <div class="card"><span class="k">Regulated &amp; high-stakes</span><h3>Governance, audit trails, Privacy Act</h3><p>Health practices, not-for-profits and businesses with boards, where getting it wrong costs trust, not just money.</p><p class="related" style="margin-top:12px"><a href="/industries/health/">Health</a><a href="/industries/not-for-profits/">Not-for-profits</a><a href="/services/ai-governance/">Governance</a></p></div>
+      <div class="card"><span class="k">Transaction-heavy operators</span><h3>Reconciliations, margins, quote to cash</h3><p>Trades, hospitality, retail and professional services, where hundreds of small transactions hide where the money goes.</p><p class="related" style="margin-top:12px"><a href="/industries/trades/">Trades</a><a href="/industries/hospitality-retail/">Hospitality &amp; retail</a><a href="/services/quick-wins/">Quick wins</a></p></div>
+      <div class="card"><span class="k">Tech &amp; digital assets</span><h3>Runway, investor metrics, treasury</h3><p>Startups, tech agencies and businesses holding or paid in digital assets, where the numbers move fast and investors ask hard questions.</p><p class="related" style="margin-top:12px"><a href="/industries/startups/">Startups</a><a href="/industries/crypto/">Crypto &amp; digital assets</a><a href="/services/dashboards-and-models/">Models</a></p></div>
+    </div>
   </div>
 </section>
 
@@ -245,7 +237,7 @@
 <button class="sb-tab" type="button" id="sbTab" aria-controls="sb" aria-expanded="false"><i aria-hidden="true"></i>LIVE<span> MARKETS &amp; SCORES</span></button>
 <aside class="sb" id="sb" aria-label="Live data lab: markets and scores" aria-hidden="true">
   <header><b>LIVE DATA LAB</b><button type="button" id="sbClose" aria-label="Close">&times;</button></header>
-  <p class="lab">A small demo of what we build: live public feeds, no trackers, and it fails safe if a source drops. Markets and the footy, because that's what most of us check first.</p>
+  <p class="lab">A live demonstration of resilient data pipelines: multiple public sources pulled in, normalised and shown clearly, with no client-side tracking and automatic fail-safes if a source drops.</p>
   <nav role="tablist" id="sbNav"></nav>
   <div class="list" id="sbList"><p class="st">Loading&hellip;</p></div>
   <div class="foot"><a href="/live/" style="color:var(--accent)">Open the full Live Data page →</a><br>Scores via ESPN and live crypto via CoinGecko, loaded only when you open this panel. ASX delayed. Indicative only, not financial advice. Times in your time zone.</div>
@@ -255,6 +247,6 @@
   <div class="msgs" id="msgs" aria-live="polite"></div>
   <div class="opts" id="opts"></div>
 </div>
-<script src="/assets/site.js?v=3" defer></script>
+<script src="/assets/site.js?v=4" defer></script>
 </body>
 </html>

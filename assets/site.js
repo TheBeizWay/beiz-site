@@ -92,18 +92,10 @@
   const today = new Date(); today.setHours(0, 0, 0, 0);
   const dleft = Math.round((new Date(2026, 11, 10) - today) / 864e5);
   $$("[data-adm-days]").forEach(e => (e.textContent = dleft > 0 ? dleft + " days" : "now in force"));
+  // One purpose only: regulatory countdown + Australian market benchmarks.
   const base = [
     dleft > 0 ? `Privacy Act: automated-decision disclosures start <b>10 Dec 2026</b> · ${dleft} days`
-              : `Privacy Act: automated-decision disclosures <b>now in force</b> since 10 Dec 2026`,
-    `Are you <b>AI compliant</b>? Know which of your tools make decisions about people`,
-    `Missing out on the <b>AI race</b>? Catch up safely, with controls built in`,
-    `Every automation ends with a <b>human sign-off</b>`,
-    `Did an AI product <b>burn you</b>? Get your data and access back`,
-    `Idea: invoices that <b>chase themselves</b>`,
-    `Realistic expectations, <b>in writing</b>, before you spend a dollar`,
-    `Your data stays in <b>your</b> accounts`,
-    `Crypto &amp; digital assets: <b>reconciliations, treasury reporting, controls</b>`,
-    `Idea: a <b>Monday cash email</b> before coffee`
+              : `Privacy Act: automated-decision disclosures <b>in force</b> since 10 Dec 2026`
   ];
   const renderTicker = items => {
     if (!track) return;
@@ -124,13 +116,11 @@
     const asx = (d.items || []).map(i => fmtMk({ ...i, group: "ASX & AUD · delayed" }));
     const cr = (d.crypto || []).map(i => fmtMk({ ...i, cur: "AUD", group: "Crypto · 24h" }));
     data.markets = [...asx, ...cr];
-    const mk = data.markets.filter(m => m.g.startsWith("ASX") || m.a === "BTC")
+    const mk = data.markets.filter(m => m.g.startsWith("ASX"))
       .map(m => `${esc(m.a)} <b>${esc(m.v)}</b>${m.c == null ? "" : ` <i class="${m.c >= 0 ? "up" : "dn"}">${m.c >= 0 ? "▲" : "▼"}${Math.abs(m.c).toFixed(1)}%</i>`}`)
       .join(" &nbsp;·&nbsp; ");
     if (mk) {
-      const x = mk + ' <i class="note">indicative only, not advice</i>', mix = [];
-      base.forEach((b, i) => { mix.push(b); if (i % 4 === 0) mix.push(x); });
-      renderTicker(mix);
+      renderTicker([base[0], mk + ' <i class="note">delayed · indicative only</i>']);
     }
   }).catch(() => {});
 

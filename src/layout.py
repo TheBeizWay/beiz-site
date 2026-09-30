@@ -2,7 +2,7 @@
 import json
 
 SITE = "https://beiz.com.au"
-ASSET_V = "3"  # bump to bust caches when CSS/JS change
+ASSET_V = "4"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true" class="logo">'
         '<defs><linearGradient id="hg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#2DD4BF"/>'
@@ -113,7 +113,7 @@ def _header(path):
     grp = lambda title, items: f'<p class="mg">{title}</p>' + "".join(f'<a href="{h}">{t}</a>' for h, t in items)
     mnav = (grp("Services", SERVICES) + grp("Industries", INDUSTRIES) +
             grp("See it", [(h, t) for h, t, _ in NAV]) + grp("About", MORE))
-    return f'''<div class="ticker" role="region" aria-label="Beiz Pulse: AI rules, markets and ideas">
+    return f'''<div class="ticker" role="region" aria-label="Beiz Pulse: regulatory countdown and market benchmarks">
   <div class="label">BEIZ PULSE</div>
   <div class="track" id="pulse"></div>
 </div>
@@ -151,7 +151,7 @@ _WIDGETS = '''<button class="bot-btn" type="button" data-open-bot aria-controls=
 <button class="sb-tab" type="button" id="sbTab" aria-controls="sb" aria-expanded="false"><i aria-hidden="true"></i>LIVE<span> MARKETS &amp; SCORES</span></button>
 <aside class="sb" id="sb" aria-label="Live data lab: markets and scores" aria-hidden="true">
   <header><b>LIVE DATA LAB</b><button type="button" id="sbClose" aria-label="Close">&times;</button></header>
-  <p class="lab">A small demo of what we build: live public feeds, no trackers, and it fails safe if a source drops. Markets and the footy, because that's what most of us check first.</p>
+  <p class="lab">A live demonstration of resilient data pipelines: multiple public sources pulled in, normalised and shown clearly, with no client-side tracking and automatic fail-safes if a source drops.</p>
   <nav role="tablist" id="sbNav"></nav>
   <div class="list" id="sbList"><p class="st">Loading&hellip;</p></div>
   <div class="foot"><a href="/live/" style="color:var(--accent)">Open the full Live Data page →</a><br>Scores via ESPN and live crypto via CoinGecko, loaded only when you open this panel. ASX delayed. Indicative only, not financial advice. Times in your time zone.</div>
