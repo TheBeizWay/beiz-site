@@ -76,6 +76,8 @@ header.site .btn{min-height:38px;padding:8px 14px;font-size:.85rem}
 .log li:last-child{border-bottom:0}
 .log time{color:var(--muted)}
 .log .ok{color:var(--accent)} .log .flag{color:var(--warn)}
+.log .why{all:unset;cursor:pointer}.log .why u{color:var(--warn);text-underline-offset:3px;font-size:11px;margin-left:4px}
+.log .whytxt{display:block;font-family:var(--sans);font-size:12.5px;color:var(--muted);background:#15130b;border-left:2px solid var(--warn);padding:8px 10px;margin-top:6px;border-radius:0 6px 6px 0;line-height:1.5}
 .cursor{display:inline-block;width:8px;height:14px;background:var(--accent);vertical-align:-2px;animation:blink 1s steps(1) infinite}
 .caps{list-style:none;display:grid;gap:10px}
 .caps li{display:flex;justify-content:space-between;gap:12px;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font-size:.95rem}
@@ -88,10 +90,37 @@ header.site .btn{min-height:38px;padding:8px 14px;font-size:.85rem}
 .ca-logo{height:34px;width:auto;margin-bottom:8px;display:block}
 
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+#what .cards{grid-template-columns:repeat(2,1fr)}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px}
 .card .k{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;display:block}
 .card p{font-size:.95rem}
 
+.paths{padding-top:8px}
+.card .more{display:inline-block;margin-top:12px;font-weight:600;font-size:.9rem;color:var(--accent);text-decoration:none}
+.chk{display:grid;grid-template-columns:1.25fr .75fr;gap:20px;margin-top:24px;align-items:start}
+.chk ol{list-style:none;counter-reset:q;display:grid;gap:8px}
+.chk ol>li{counter-increment:q;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;font-size:.93rem}
+.chk ol>li small{display:block;color:var(--muted);font-size:.8rem;margin-top:2px}
+.chk .opts{display:flex;gap:6px}
+.chk .opts button{background:var(--panel2);border:1px solid var(--line);color:var(--muted);border-radius:8px;padding:7px 10px;font:500 12px var(--sans);cursor:pointer;min-width:44px;min-height:36px}
+.chk .opts button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.res{position:sticky;top:80px;background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid #23413c;border-radius:16px;padding:22px}
+.res .lvl{font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:6px;display:inline-block}
+.res .hi{background:#3a2a07;color:var(--warn)}.res .md{background:#1b2a3a;color:#93c5fd}.res .lo{background:#0f2a25;color:var(--accent)}
+.res h3{margin:10px 0 8px;font-size:1.15rem}
+.res ul{list-style:none;margin:10px 0 14px;font-size:.88rem;color:var(--muted)}
+.res li{padding:4px 0 4px 16px;position:relative}.res li::before{content:"•";position:absolute;left:2px;color:var(--warn)}
+.muted{color:var(--muted)}
+.fine{margin-top:14px;font-size:.78rem;color:var(--muted)}
+.gates{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.gate{display:block;text-decoration:none;background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:16px;padding:24px;transition:border-color .2s,transform .2s}
+.gate:hover{border-color:#2b5a53;transform:translateY(-2px)}
+.gate .k{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.1em;text-transform:uppercase}
+.gate h3{font-size:1.25rem;margin:8px 0 10px}
+.gate ul{list-style:none;color:var(--muted);font-size:.93rem}
+.gate li{padding:3px 0 3px 18px;position:relative}.gate li::before{content:"›";position:absolute;left:2px;color:var(--accent)}
+.gate .go{display:inline-block;margin-top:12px;font-weight:600;font-size:.9rem;color:var(--text)}
+.same{margin-top:14px;color:var(--muted);font-size:.92rem;text-align:center}
 .sectors{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
 .sectors li{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
 .sectors b{display:block;font-weight:600;font-size:.95rem;margin-bottom:4px}
@@ -157,14 +186,16 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   nav{display:none}
   .grid2,.offer{grid-template-columns:1fr}
   .trust{grid-template-columns:1fr 1fr}
-  .cards{grid-template-columns:1fr}
+  .cards,#what .cards{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr 1fr}
   .sectors{grid-template-columns:1fr 1fr}
 }
 @media (max-width:560px){
   section{padding:48px 0}
   .hero{padding-top:36px}
-  .trust,.steps,.sectors{grid-template-columns:1fr}
+  .trust,.steps,.sectors,.gates,.chk{grid-template-columns:1fr}
+  .chk ol>li{grid-template-columns:1fr}
+  .res{position:static}
   form.contact{grid-template-columns:1fr}
   .offer{padding:22px}
   .hero .cta .btn{flex:1 1 100%}
@@ -179,12 +210,13 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 
 /* Scoreboard drawer */
 .sb-tab{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:45;writing-mode:vertical-rl;background:var(--panel2);color:var(--text);border:1px solid #23413c;border-right:0;border-radius:10px 0 0 10px;padding:14px 8px;font:600 11px var(--mono);letter-spacing:.14em;cursor:pointer;display:flex;align-items:center;gap:8px;box-shadow:-6px 0 24px rgba(0,0,0,.35)}
-.sb-tab i{width:7px;height:7px;border-radius:50%;background:#f87171;animation:pulse 1.6s infinite}
+.sb-tab i{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 1.6s infinite}
 .sb{position:fixed;top:0;right:0;bottom:0;width:min(380px,100vw);z-index:60;background:rgba(9,12,15,.97);backdrop-filter:blur(10px);border-left:1px solid var(--line);transform:translateX(105%);transition:transform .28s ease;display:flex;flex-direction:column}
 .sb.open{transform:none}
 .sb header{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border-bottom:1px solid var(--line)}
 .sb header b{font:600 12px var(--mono);letter-spacing:.14em;color:var(--accent)}
 .sb header button{background:none;border:0;color:var(--muted);font-size:22px;cursor:pointer;line-height:1;padding:4px 8px}
+.sb .lab{padding:12px 18px 0;font-size:.82rem;color:var(--muted);line-height:1.5}
 .sb nav{display:flex;gap:6px;padding:12px 14px;overflow-x:auto;border-bottom:1px solid var(--line);font-size:.8rem;scrollbar-width:none}
 .sb nav button{background:var(--panel);border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:6px 12px;font:500 12px var(--sans);cursor:pointer;white-space:nowrap}
 .sb nav button[aria-selected=true]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
@@ -249,7 +281,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
           <li>AI agents &amp; assistants <span>with guardrails</span></li>
           <li>Finance process automation <span>n8n · power automate</span></li>
           <li>Dashboards &amp; analytics <span>power bi · python</span></li>
-          <li>Financial modelling <span>forecasts · cases</span></li>
+          <li>Financial modelling <span>runway · scenarios</span></li>
+          <li>Tech project delivery <span>scope · vendors · risk</span></li>
         </ul>
       </div>
     </div>
@@ -267,15 +300,48 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   </div>
 </section>
 
+<section id="paths" class="paths">
+  <div class="wrap">
+    <div class="gates">
+      <a class="gate" href="#safe">
+        <span class="k">For boards, CFOs &amp; founders</span>
+        <h3>Govern it, prove it, scale it.</h3>
+        <ul><li>Privacy Act automated-decision readiness</li><li>AI policy, controls and board reporting</li><li>Runway scenarios and investor metrics</li><li>AI and tech project delivery</li></ul>
+        <span class="go">How we protect you →</span>
+      </a>
+      <a class="gate" href="#small">
+        <span class="k">For owner-operators</span>
+        <h3>Get your evenings back.</h3>
+        <ul><li>Invoices that chase themselves</li><li>A Monday cash email before coffee</li><li>Quotes and job costing without double entry</li><li>Your data back from a developer who vanished</li></ul>
+        <span class="go">Quick wins →</span>
+      </a>
+    </div>
+    <p class="same">Same foundation either way: accounting rigour, tested controls and a human sign-off.</p>
+  </div>
+</section>
+
 <section id="straight" class="hooks">
   <div class="wrap">
     <p class="eyebrow">Straight answers</p>
     <h2>The questions nobody else will ask you.</h2>
     <div class="cards">
-      <div class="card"><span class="k">Compliance</span><h3>Are you AI compliant?</h3><p>From <b data-adm></b>, the Privacy Act requires businesses covered by it to disclose in their privacy policy when personal information feeds substantially automated decisions that significantly affect people. Most owners don't know which of their tools do that. We'll find out and fix it.</p></div>
+      <div class="card"><span class="k">Compliance</span><h3>Are you AI compliant?</h3><p>From <b data-adm></b>, the Privacy Act requires businesses covered by it to disclose in their privacy policy when personal information feeds substantially automated decisions that significantly affect people. Most owners don't know which of their tools do that. We'll find out and fix it.</p><a class="more" href="#check">Take the 2-minute check →</a></div>
       <div class="card"><span class="k">Recovery</span><h3>Did an AI product burn you?</h3><p>Paid for a chatbot nobody uses? An automation that broke at month-end? A dev who vanished with your access? We untangle it, get your data and accounts back under your control, and tell you honestly what's worth keeping.</p></div>
       <div class="card"><span class="k">Scale</span><h3>Scaling on AI without the risk?</h3><p>You need someone who knows the ledger, the controls and the code, and who'll give you realistic expectations in writing before you spend a dollar. Chartered Accountant, GAICD, audit and data science. <b>We're here for you.</b></p></div>
     </div>
+  </div>
+</section>
+
+<section id="check">
+  <div class="wrap">
+    <p class="eyebrow">2-minute check</p>
+    <h2>Will the new Privacy Act AI rules catch you?</h2>
+    <p class="lede">Nine quick questions. Your answers stay in your browser and nothing is sent anywhere unless you choose to send it.</p>
+    <div class="chk">
+      <ol id="chkQ"></ol>
+      <div class="res" id="chkRes" aria-live="polite"><p class="muted">Answer the questions to see where you stand.</p></div>
+    </div>
+    <p class="fine">General information only, not legal advice. The automated-decision transparency obligation applies to organisations covered by the Privacy Act from 10 December 2026.</p>
   </div>
 </section>
 
@@ -287,7 +353,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
     <div class="cards">
       <div class="card"><span class="k">Govern</span><h3>AI readiness &amp; governance</h3><p>Find where AI is already being used, map the risks, set the controls and give your board a clear one-page view.</p></div>
       <div class="card"><span class="k">Build</span><h3>Agents &amp; automation</h3><p>Invoice matching, month-end, reporting, inbox triage. Automated end to end, with approvals and a full log of every action.</p></div>
-      <div class="card"><span class="k">See</span><h3>Dashboards &amp; models</h3><p>Live dashboards, 13-week cash forecasts, business cases and scenario models your lender, your investors or your board will trust.</p></div>
+      <div class="card"><span class="k">See</span><h3>Dashboards &amp; models</h3><p>Live dashboards, 13-week cash forecasts, runway scenarios and investor metrics (MRR, CAC, churn) your lender, investors or board will trust.</p></div>
+      <div class="card"><span class="k">Deliver</span><h3>AI &amp; tech project delivery</h3><p>Already bought the software, or about to? We run the project: scope, vendors, milestones, risks and reporting, so it lands on time, on budget and actually gets used.</p></div>
     </div>
   </div>
 </section>
@@ -305,8 +372,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       <li><b>Hospitality</b><span>Wages, suppliers, weekly cash</span></li>
       <li><b>Professional services</b><span>Time, billing, client onboarding</span></li>
       <li><b>Not-for-profits</b><span>Grant reporting, board packs, donors</span></li>
-      <li><b>Crypto &amp; digital assets</b><span>Wallet reconciliations, treasury reporting, controls</span></li>
-      <li><b>Growing companies</b><span>Board reporting, forecasts, AI policy</span></li>
+      <li><b>Crypto &amp; digital assets</b><span>Wallet and stablecoin reconciliations, treasury reporting, controls</span></li>
+      <li><b>Startups &amp; tech agencies</b><span>Runway scenarios, investor metrics, board packs, AI policy</span></li>
     </ul>
   </div>
 </section>
@@ -392,7 +459,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       <details><summary>Which tools do you work with?</summary><p>Xero, MYOB, Microsoft 365, Power BI, Power Automate, Google Workspace, n8n, Python and leading AI models. We pick what fits what you already own.</p></details>
       <details><summary>Why no phone calls?</summary><p>Written briefs get better answers and leave a clear record of what was agreed. If a call genuinely helps later in a project, we'll schedule one.</p></details>
       <details><summary>Do I need a board or a big business?</summary><p>No. Plenty of our work is for owner-operators who are flat out and just want the admin to stop eating their evenings. We size the work to the business.</p></details>
-      <details><summary>How much does it cost?</summary><p>Every job is fixed price, quoted in writing after we understand the problem. Small quick wins are a few hundred dollars; larger builds are scoped individually. No hourly meter.</p></details>
+      <details><summary>How much does it cost?</summary><p>Every job is fixed price, quoted in writing after we understand the problem. Quick wins are priced like quick wins; larger builds are scoped individually. No hourly meter and no lock-in contracts.</p></details>
+      <details><summary>Do you do tax, BAS or R&amp;D tax incentive claims?</summary><p>No. We don't provide tax agent or BAS services. What we do is make your records clean: crypto transactions reconciled, development costs tagged by project and activity, everything traceable. Your registered tax agent or R&amp;D adviser then works from data they can rely on.</p></details>
       <details><summary>Where are you based?</summary><p>Australia. We work remotely with clients across the country.</p></details>
     </div>
   </div>
@@ -411,6 +479,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
         <select id="f-topic" name="topic">
           <option>AI readiness &amp; governance</option>
           <option>AI Readiness Sprint</option>
+          <option>Privacy Act automated-decision check</option>
+          <option>Tech project delivery</option>
           <option>Automation &amp; AI agents</option>
           <option>Dashboards &amp; analytics</option>
           <option>Financial modelling</option>
@@ -435,9 +505,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 </footer>
 
 <button class="bot-btn" type="button" data-open-bot aria-controls="bot" aria-expanded="false" aria-label="Open guided assistant"><i aria-hidden="true"></i><span>Guided assistant</span></button>
-<button class="sb-tab" type="button" id="sbTab" aria-controls="sb" aria-expanded="false"><i aria-hidden="true"></i>SCORES &amp; MARKETS</button>
-<aside class="sb" id="sb" aria-label="Scores and markets" aria-hidden="true">
-  <header><b>SCORES &amp; MARKETS</b><button type="button" id="sbClose" aria-label="Close">×</button></header>
+<button class="sb-tab" type="button" id="sbTab" aria-controls="sb" aria-expanded="false"><i aria-hidden="true"></i>LIVE DATA</button>
+<aside class="sb" id="sb" aria-label="Live data lab: markets and scores" aria-hidden="true">
+  <header><b>LIVE DATA LAB</b><button type="button" id="sbClose" aria-label="Close">×</button></header>
+  <p class="lab">A small demo of what we build: live public feeds, no trackers, and it fails safe if a source drops. Markets and the footy, because that's what most of us check first.</p>
   <nav role="tablist" id="sbNav"></nav>
   <div class="list" id="sbList"><p class="st">Loading…</p></div>
   <div class="foot">Live scores via ESPN · crypto via CoinGecko · ASX delayed. Indicative only, not financial advice. Times shown in your time zone.</div>
@@ -534,12 +605,10 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.addEventListener('keydown',e=>{if(e.key==='Escape')set(false);});
   Promise.allSettled(jobs).then(()=>{
     draw();
-    // Ticker: markets line + anything live, plus the headline result/fixture per code
-    const mk=data.markets.map(m=>`${esc(m.a)} <b>${esc(m.v)}</b>${m.c==null?'':` <i class="${m.c>=0?'up':'dn'}">${m.c>=0?'▲':'▼'}${Math.abs(m.c).toFixed(1)}%</i>`}`).join(' &nbsp;·&nbsp; ');
-    const pick=(arr,lbl)=>{const l=arr.filter(m=>m.st==='in');(l.length?l.slice(0,2):arr.slice(0,1)).forEach(m=>ticks.push(tick(lbl,m)));};
-    pick(data.cricket.filter(m=>m.score<10),'Cricket'); pick(data.nrl,'NRL'); pick(data.afl,'AFL'); pick(data.football.filter(m=>m.fav||m.st==='in'),'Football');
-    const B=P.base, extra=[mk?mk+' <i class="note">indicative only, not advice</i>':'',...ticks].filter(Boolean);
-    const mix=[];B.forEach((b,i)=>{mix.push(b);if(extra[i])mix.push(extra[i]);});extra.slice(B.length).forEach(x=>mix.push(x));
+    // Ticker stays financial/regulatory: ASX, AUD and Bitcoin only. Sports live in the drawer.
+    const mk=data.markets.filter(m=>m.g.startsWith('ASX')||m.a==='BTC').map(m=>`${esc(m.a)} <b>${esc(m.v)}</b>${m.c==null?'':` <i class="${m.c>=0?'up':'dn'}">${m.c>=0?'▲':'▼'}${Math.abs(m.c).toFixed(1)}%</i>`}`).join(' &nbsp;·&nbsp; ');
+    const B=P.base, extra=mk?[mk+' <i class="note">indicative only, not advice</i>']:[];
+    const mix=[];B.forEach((b,i)=>{mix.push(b);if(i%4===0&&extra.length)mix.push(extra[0]);});
     P.render(mix);
   });
 })();
@@ -547,29 +616,67 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const lines = [
   ['02:00','ok','Agent started · accounts payable run'],
   ['02:03','ok','418 invoices matched to purchase orders'],
-  ['02:07','flag','Supplier bank details changed · payment held'],
-  ['02:09','flag','$48,200 exceeds delegation · routed to CFO'],
+  ['02:07','flag','Supplier bank details changed · payment held','Why it held: payment-redirection scams are among the costliest frauds hitting Australian businesses. The agent never pays new bank details until a person verifies them on a number already on file.'],
+  ['02:09','flag','$48,200 exceeds delegation · routed to CFO','Why it routed: the agent works inside the same delegation limits as your staff. Above the limit it prepares the payment and the evidence, then stops and waits.'],
   ['02:14','ok','Segregation of duties check passed'],
   ['02:18','ok','Every decision written to audit trail'],
   ['06:00','ok','Board dashboard refreshed · 13-week cash forecast']
 ];
 const log = document.getElementById('log');
-lines.forEach(([t,c,m],i)=>{
+lines.forEach(([t,c,m,why],i)=>{
   const li=document.createElement('li');
   li.style.animationDelay = reduce ? '0s' : (i*0.7)+'s';
-  li.innerHTML=`<time>${t}</time><span class="${c}">${c==='ok'?'✓':'!'}</span><span>${m}</span>`;
+  li.innerHTML=`<time>${t}</time><span class="${c}">${c==='ok'?'✓':'!'}</span><span>${why?`<button type="button" class="why" aria-expanded="false">${m} <u>why?</u></button><small class="whytxt" hidden>${why}</small>`:m}</span>`;
   log.appendChild(li);
 });
 const end=document.createElement('li');
 end.style.animationDelay = reduce ? '0s' : (lines.length*0.7)+'s';
 end.innerHTML='<time>06:01</time><span class="ok">&gt;</span><span>Awaiting human approval <span class="cursor" aria-hidden="true"></span></span>';
 log.appendChild(end);
+log.addEventListener('click',e=>{const b=e.target.closest('.why');if(!b)return;const t=b.nextElementSibling,o=t.hidden;t.hidden=!o;b.setAttribute('aria-expanded',o);});
 
 const form=document.getElementById('contactForm'), fmsg=document.getElementById('formMsg');
 function prefill(topic, text){
   if(topic){[...form.topic.options].forEach(o=>{if(o.text===topic)o.selected=true;});}
   if(text) form.message.value=text;
 }
+// Privacy Act automated-decision check (runs entirely client-side)
+(function(){
+  const Q=[
+    ['cov','Is your annual turnover over $3 million, or are you a health service provider or a business that trades in personal information?','These are the main triggers for being covered by the Privacy Act.'],
+    ['dec','Does any software or AI make or recommend decisions about individual people?','e.g. credit terms, pricing, bookings, screening applicants, fraud flags, rosters'],
+    ['pi','Does it use personal information to do that?',''],
+    ['sig','Could the outcome significantly affect someone: their money, access to a service, or a job?',''],
+    ['hum','Does a person genuinely review each outcome before it takes effect?',''],
+    ['pol','Does your privacy policy already explain any automated decisions?',''],
+    ['reg','Do you have a current list of every AI tool your team uses, including free ones?',''],
+    ['dat','Do you know whether those tools store or train on your data?',''],
+    ['own','Is one named person accountable for how AI is used in the business?','']
+  ];
+  const A={}; const ol=document.getElementById('chkQ'), res=document.getElementById('chkRes');
+  ol.innerHTML=Q.map(([k,q,h])=>`<li><div>${q}${h?`<small>${h}</small>`:''}</div><div class="opts" role="group" aria-label="${q}">${['Yes','No','Not sure'].map(o=>`<button type="button" data-k="${k}" data-v="${o}" aria-pressed="false">${o}</button>`).join('')}</div></li>`).join('');
+  const fix={pol:'Update your privacy policy to describe automated decisions',reg:'Build a register of every AI tool in use',dat:'Check each tool\'s data storage and training terms',own:'Name one person accountable for AI use',hum:'Add a genuine human review step where outcomes matter'};
+  const draw=()=>{
+    const n=Object.keys(A).length; if(n<Q.length){res.innerHTML=`<p class="muted">${Q.length-n} question${Q.length-n>1?'s':''} to go.</p>`;return;}
+    const y=k=>A[k]==='Yes', u=k=>A[k]!=='No';
+    const exposed=y('dec')&&u('pi')&&u('sig'), auto=!y('hum');
+    const gaps=['pol','reg','dat','own'].filter(k=>!y(k)); if(exposed&&auto) gaps.unshift('hum');
+    let lvl,cls,h,t;
+    if(exposed&&y('cov')){lvl='Likely in scope';cls='hi';h='You probably need to act before 10 December 2026.';t='You appear to be covered by the Privacy Act and using automated decisions that affect people.';}
+    else if(exposed&&A.cov==='Not sure'){lvl='Worth checking';cls='md';h='Confirm whether the Privacy Act covers you.';t='Your tools look like the kind the new rule targets. Coverage is the open question.';}
+    else if(exposed){lvl='Probably exempt, still exposed';cls='md';h='The rule may not bind you yet, but your customers\' trust does.';t='Small businesses are generally exempt today. The government has flagged further reform, and larger clients increasingly ask suppliers about AI use.';}
+    else if(A.dec==='Not sure'){lvl='Worth checking';cls='md';h='Find out what your software actually decides.';t='Many businesses use automated decisions without realising it, inside booking, finance and HR tools.';}
+    else{lvl='Low exposure today';cls='lo';h='Good position. Keep it that way.';t='Nothing here suggests automated decisions about people, but basic AI hygiene still pays off.';}
+    res.innerHTML=`<span class="lvl ${cls}">${lvl}</span><h3>${h}</h3><p class="muted" style="font-size:.9rem">${t}</p>${gaps.length?`<ul>${gaps.map(g=>`<li>${fix[g]}</li>`).join('')}</ul>`:'<p style="margin:12px 0">No obvious gaps. Nice.</p>'}<button class="btn primary" type="button" id="chkSend">Get this as a written action list</button>`;
+    document.getElementById('chkSend').onclick=()=>{
+      const sum=Q.map(([k,q])=>`- ${q} ${A[k]}`).join('\n');
+      prefill('Privacy Act automated-decision check',`My check result: ${lvl}\n\n${sum}\n\nPlease send me a written action list.`);
+      document.getElementById('contact').scrollIntoView({behavior:reduce?'auto':'smooth'});
+    };
+  };
+  ol.addEventListener('click',e=>{const b=e.target.closest('button[data-k]');if(!b)return;A[b.dataset.k]=b.dataset.v;b.parentElement.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));draw();});
+})();
+
 document.querySelectorAll('[data-topic]').forEach(a=>a.addEventListener('click',()=>prefill(a.dataset.topic)));
 form.addEventListener('submit', async e=>{
   e.preventDefault();
