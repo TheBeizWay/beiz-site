@@ -88,7 +88,7 @@ def home():
       </div>
     </div>
     <div class="trust" aria-label="Credentials">
-      <div><img class="ca-logo" src="/ca-logo.png" alt="Chartered Accountants Australia and New Zealand" onerror="this.remove()"><b>Chartered Accountant</b><small>CA ANZ member holding a Certificate of Public Practice. Bound by the APES code of ethics.</small></div>
+      <div><img class="ca-logo" src="/ca-logo.png" alt="CA ANZ" onerror="this.remove()"><b>Chartered Accountant</b><small>CA ANZ member holding a Certificate of Public Practice. Bound by the APES code of ethics.</small></div>
       <div><b>GAICD</b><small>Graduate of the Australian Institute of Company Directors. We write for owners and boards, not for IT.</small></div>
       <div><b>Audit &amp; risk</b><small>Internal audit, fraud and controls background. We design systems the way an auditor would test them.</small></div>
       <div><b>Data science</b><small>Python, R, Power BI and automation, built by people who understand the ledger.</small></div>
@@ -683,7 +683,7 @@ def ai_check():
 FAQ = [
     ("Are you an AI company?", "We don't make or sell AI software, and we're not tied to any vendor. We set AI up properly for your business: we pick the right tools, connect them to your systems and your team, build the automations, dashboards and agents, and put the controls an accountant would expect around them."),
     ("What does Beiz actually do?", "We're accountants who build the systems behind a business's money: automation that does the grunt work, dashboards and forecasts that show what's coming, and the controls that keep AI safe. We don't do tax."),
-    ("Aren't Chartered Accountants just tax accountants?", "Tax is one thing CAs do, and we don't do it at all. Chartered Accountants are trained in audit, risk, systems, forecasting and business advice. GAICD means we're also trained in how boards govern a business and oversee risk."),
+    ("Isn't a Chartered Accountant just a tax accountant?", "Tax is one thing a Chartered Accountant can do, and we don't do it at all. A Chartered Accountant is trained in audit, risk, systems, forecasting and business advice. GAICD means we're also trained in how boards govern a business and oversee risk."),
     ("Who's behind Beiz?", "Beiz is led by a Chartered Accountant holding a Certificate of Public Practice and a graduate of the Australian Institute of Company Directors, with a background in internal audit, fraud and controls, corporate finance, project delivery and data science. Your written proposal names who does the work, and you can verify credentials before you sign anything."),
     ("Are you insured?", "Yes. We hold professional indemnity insurance, as required for public practice, and our liability is limited by a scheme approved under Professional Standards Legislation."),
     ("Is my data safe with AI?", "We only use business-grade AI services whose terms stop your data being used to train models, and we build inside your own Microsoft, Google or Xero accounts wherever we can. Sensitive steps stay with a human."),
