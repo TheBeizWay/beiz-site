@@ -180,7 +180,7 @@ def home():
       <li><b>4.0%</b><span>inflation, year to August</span></li>
       <li><b>14,152</b><span>company insolvencies last financial year</span></li>
       <li><b>43%</b><span>of SMEs using AI. Most of the rest want a human in control</span></li></ul>
-      <a href="/live/">More numbers →</a></div>
+      <a href="/live/">More live numbers →</a></div>
     <div class="evid">
       <div><b>~80%</b><p>of Australian small and medium businesses had their cash flow hit in the past year.</p><small>CommBank survey by YouGov, 507 businesses, published January 2025 · <a href="https://www.unsw.edu.au/news/2025/01/80-per-cent-of-aussie-small-businesses-experience-cash-flow-chal" rel="noopener">source</a></small></div>
       <div><b>~65%</b><p>of SMEs not using AI say it's because they distrust AI decisions or want to keep human control.</p><small>National AI Centre SME AI Pulse, Dec 2025 to Feb 2026 · <a href="https://www.ai.gov.au/news-and-insights/blog/ai-adoption-insights-december-2025-february-2026" rel="noopener">source</a></small></div>
@@ -805,7 +805,8 @@ def privacy():
 <li><strong>Engagement information:</strong> if you become a client, the information needed to deliver the work, invoice you and meet our professional obligations.</li></ul>
 <h2>What our website does and doesn't do</h2>
 <ul><li>We don't use analytics, advertising cookies or tracking pixels.</li>
-<li>Fonts and economic data are served from our own site. Pages don't call third-party services when they load.</li>
+<li>Fonts and market data are served from our own site. Pages don't call third-party services when they load.</li>
+<li><strong>Live Data panel and page:</strong> only if you open the panel or visit the Live Data page, your browser connects to ESPN (sports scores) and CoinGecko (crypto prices), which will see your IP address.</li>
 <li>Our website host (GitHub Pages) may log technical information such as IP addresses for security and operations, under its own privacy statement.</li>
 <li><strong>Privacy Act check and guided assistant:</strong> these run entirely in your browser. Nothing is sent to us unless you choose to send it through the contact form or email.</li>
 <li>We use your browser's session storage only to carry a prefilled message to our contact page. It's cleared once used.</li></ul>
@@ -920,9 +921,9 @@ def insights():
 
 # ------------------------------------------------------------------ live data page
 def live_page():
-    body = phero("Economy", "Australia's key numbers, at a glance.",
-                 "The figures that shape cash flow for Australian businesses, from official sources. The cash rate refreshes itself from the RBA; everything else is updated from each new release.",
-                 [("/live/", "Economy")]) + '''<section style="padding-top:8px"><div class="wrap labwrap">
+    body = phero("Live Data Lab", "Resilient live data, demonstrated.",
+                 "A live demonstration of the data pipelines we build for clients: multiple public sources pulled in, normalised, cached safely and shown clearly. No client-side tracking, and if a source drops out, the page carries on without it.",
+                 [("/live/", "Live data")]) + '''<section style="padding-top:8px"><div class="wrap labwrap">
   <div class="panel econ"><h4><span>The economy, in numbers</span><span>Australia</span></h4>
     <div class="labgrid">
       <div class="mtile"><small>RBA cash rate</small><b data-rba>4.60%</b><span class="muted" data-rba-note style="display:block;margin-top:2px;font-size:.72rem">Raised 0.25, effective 30 Sep 2026</span></div>
@@ -934,16 +935,20 @@ def live_page():
     </div>
     <p class="labsrc">Cash rate refreshed automatically from the <a href="https://www.rba.gov.au/statistics/cash-rate/" rel="noopener">RBA</a>. Other figures from the latest releases: <a href="https://www.abs.gov.au/media-centre/media-releases/cpi-rose-40-year-august-2026" rel="noopener">ABS CPI</a> (Aug 2026), <a href="https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia/latest-release" rel="noopener">ABS Labour Force</a> (Aug 2026), <a href="https://www.asic.gov.au/about-asic/news-centre/news-items/annual-asic-insolvency-data-reveals-increase-in-companies-failing" rel="noopener">ASIC insolvency data</a> (FY2025–26), <a href="https://www.abs.gov.au/media-centre/media-releases/7-facts-about-australian-businesses" rel="noopener">ABS business counts</a> (June 2025) and the <a href="https://www.ai.gov.au/news-and-insights/blog/ai-adoption-insights-december-2025-february-2026" rel="noopener">National AI Centre</a> (Dec 2025 to Feb 2026).</p>
     <p class="econ-so"><b>What it means:</b> borrowing is dearer, costs are rising and more businesses are failing, while most haven't worked out AI yet. The owners who see their cash weeks ahead, and use AI safely, are the ones who get through and pull ahead.</p></div>
+  <div class="panel"><h4><span>Markets</span><span>ASX delayed · crypto 24h</span></h4><div class="labgrid" id="labMk"></div>
+    <p class="labsrc">ASX and AUD via Yahoo Finance (delayed), crypto via CoinGecko. Indicative only, not financial advice.</p></div>
+  <div class="panel"><h4><span>Scores</span><span>your time zone</span></h4><div class="labtabs" role="tablist" id="labNav"></div><div id="labList"></div>
+    <p class="labsrc">Scores via ESPN. Soccer shows the EPL, Champions League, A-Leagues and the Socceroos and Matildas. Liverpool gets top billing.</p></div>
 </div></section>
 <section><div class="wrap split"><div class="prose">
 <h2>Why this matters for your business</h2>
-<p>The cash rate on this page updates itself from the RBA's published data. The same approach powers the systems we build for clients:</p>
+<p>Market benchmarks and live sport are simply public feeds everyone recognises. The engineering behind this page is the same engineering behind the systems we build for clients:</p>
 <ul><li><strong>A live cash dashboard</strong> that refreshes from your bank and ledger, instead of a spreadsheet updated once a month.</li>
 <li><strong>A sales or jobs board</strong> for the office wall, showing today's bookings, jobs finished and invoices out.</li>
 <li><strong>Alerts that come to you</strong>: a supplier price jump, a big customer paying late, cash heading below your buffer.</li></ul>
 <p>Same principles every time: pull from the source, check it, cache it safely, show only what matters, and keep working when something upstream breaks.</p>
 </div><aside class="aside"><h3>Want this for your numbers?</h3><p class="muted">A live view of cash, sales or jobs, built from your own systems.</p><a class="btn primary" href="/contact/?topic=Dashboards%20%26%20analytics#form">Start in writing</a><a class="btn" style="margin-top:10px" href="/examples/">See examples</a></aside></div></section>'''
-    add("/live/", "Economy", "Australia's key business numbers from official sources: RBA cash rate, inflation, unemployment, insolvencies and business counts.", body)
+    add("/live/", "Live Data Lab", "Live ASX, AUD and crypto prices with cricket, NRL, AFL, EPL, Champions League and A-League scores. A working demo of the live dashboards Beiz builds for businesses.", body)
 
 
 # ------------------------------------------------------------------ try-it demos

@@ -2,14 +2,14 @@
 import json
 
 SITE = "https://beiz.com.au"
-ASSET_V = "27"  # bump to bust caches when CSS/JS change
+ASSET_V = "28"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true" class="logo"><defs><linearGradient id="hg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#2DD4BF"/><stop offset="1" stop-color="#818CF8"/></linearGradient><mask id="mH" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"><rect width="200" height="200" fill="#fff"/><circle cx="126.4" cy="69.9" r="6.5" fill="#000"/></mask></defs><rect x="5" y="5" width="190" height="190" rx="44" fill="#0D1115" stroke="url(#hg)" stroke-width="6"/><g stroke="#818CF8" stroke-width="3" fill="none" stroke-linecap="round"><path d="M113.0 75.4 L150 75.4 L165 53.4"/><path d="M150 75.4 L165 97.4"/></g><g fill="#818CF8"><circle cx="165" cy="53.4" r="6"/><circle cx="165" cy="97.4" r="6"/></g><circle cx="150" cy="75.4" r="4" fill="#5EEAD4"/><g transform="translate(16,25.1) scale(.72)"><g mask="url(#mH)" fill="none" stroke="url(#hg)" stroke-width="27" stroke-linejoin="round"><path d="M58 120 L110 120 A33 33 0 0 1 110 186 L58 186 L58 22 L102 58 A31 31 0 0 1 102 120 L58 120"/></g></g></svg>')
 
 NAV = [
     ("/try/", "Try it", "60-second demos with your own numbers"),
     ("/examples/", "Examples", "See the kind of work we deliver"),
-    ("/live/", "Economy", "Australia's key numbers, kept current"),
+    ("/live/", "Live data", "Markets and scores, live"),
 ]
 MORE = [
     ("/about/", "About us"),
@@ -112,7 +112,7 @@ def _header(path):
         on = ' class="on"' if path.startswith(hub) else ""
         return (f'<div class="dd"><button type="button" aria-expanded="false" aria-controls="dd-{key}"{on}>{label}<span aria-hidden="true">▾</span></button>'
                 f'<div class="ddm" id="dd-{key}"><a class="hub" href="{hub}">All {label.lower()} →</a>{links}</div></div>')
-    live = lambda h, t: f'<a href="{h}"{cur(h)}>{t}{" <i class=live-dot aria-hidden=true></i>" if False else ""}</a>'
+    live = lambda h, t: f'<a href="{h}"{cur(h)}>{t}{" <i class=live-dot aria-hidden=true></i>" if h == "/live/" else ""}</a>'
     nav = (dd("Services", "/services/", SERVICES, "s") + dd("Industries", "/industries/", INDUSTRIES, "i") +
            "".join(live(h, t) for h, t, _ in NAV) + dd("About", "/about/", MORE, "m").replace('<a class="hub" href="/about/">All about →</a>', ""))
     grp = lambda title, items: f'<p class="mg">{title}</p>' + "".join(f'<a href="{h}">{t}</a>' for h, t in items)
@@ -153,6 +153,14 @@ def _footer():
 
 
 _WIDGETS = '''<button class="bot-btn" type="button" data-open-bot aria-controls="bot" aria-expanded="false" aria-label="Open Ask Beiz, the guided assistant"><i aria-hidden="true"></i><span>Ask Beiz</span></button>
+<button class="sb-tab" type="button" id="sbTab" aria-controls="sb" aria-expanded="false"><i aria-hidden="true"></i>LIVE<span> MARKETS &amp; SCORES</span></button>
+<aside class="sb" id="sb" aria-label="Live data lab: markets and scores" aria-hidden="true">
+  <header><b>LIVE DATA LAB</b><button type="button" id="sbClose" aria-label="Close">&times;</button></header>
+  <p class="lab">A live demonstration of resilient data pipelines: multiple public sources pulled in, normalised and shown clearly, with no client-side tracking and automatic fail-safes if a source drops.</p>
+  <nav role="tablist" id="sbNav"></nav>
+  <div class="list" id="sbList"><p class="st">Loading&hellip;</p></div>
+  <div class="foot"><a href="/live/" style="color:var(--accent)">Open the full Live Data page →</a><br>Scores via ESPN and live crypto via CoinGecko, loaded only when you open this panel. ASX delayed. Indicative only, not financial advice. Times in your time zone.</div>
+</aside>
 <div class="bot" id="bot" role="dialog" aria-label="Beiz guided assistant">
   <div class="hd"><div><b>Ask Beiz</b><small>GUIDED · NO AI · NOTHING STORED</small></div><button class="x" type="button" aria-label="Close assistant">&times;</button></div>
   <div class="msgs" id="msgs" aria-live="polite"></div>

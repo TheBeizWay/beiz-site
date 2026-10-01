@@ -115,12 +115,133 @@
       : Number(i.price).toLocaleString("en-AU", { maximumFractionDigits: 1 })
   });
   const marketsReady = J("/data/markets.json?" + Math.floor(Date.now() / 6e5)).then(d => {
+    const asx = (d.items || []).map(i => fmtMk({ ...i, group: "ASX & AUD · delayed" }));
+    const cr = (d.crypto || []).map(i => fmtMk({ ...i, cur: "AUD", group: "Crypto · 24h" }));
+    data.markets = [...asx, ...cr];
+    const mk = data.markets.filter(m => m.g.startsWith("ASX"))
+      .map(m => `${esc(m.a)} <b>${esc(m.v)}</b>${m.c == null ? "" : ` <i class="${m.c >= 0 ? "up" : "dn"}">${m.c >= 0 ? "▲" : "▼"}${Math.abs(m.c).toFixed(1)}%</i>`}`)
+      .join(" &nbsp;·&nbsp; ");
     const rba = d.rba ? `RBA cash rate <b>${Number(d.rba.rate).toFixed(2)}%</b>${d.rba.lastChange ? ` <i class="${d.rba.lastChange.by >= 0 ? "dn" : "up"}">${d.rba.lastChange.by >= 0 ? "▲" : "▼"}${Math.abs(d.rba.lastChange.by).toFixed(2)} on ${esc(d.rba.lastChange.date)}</i>` : ""}` : "";
     $$("[data-rba]").forEach(e => { if (d.rba) e.textContent = Number(d.rba.rate).toFixed(2) + "%"; });
     $$("[data-rba-note]").forEach(e => { if (d.rba && d.rba.lastChange) e.textContent = `Last moved ${d.rba.lastChange.by >= 0 ? "up" : "down"} ${Math.abs(d.rba.lastChange.by).toFixed(2)} on ${d.rba.lastChange.date}`; });
     const parts = [...base]; if (rba) parts.push(rba);
-    if (rba) renderTicker(parts);
+    if (mk) parts.push(mk + ' <i class="note">delayed · indicative only</i>');
+    if (rba || mk) renderTicker(parts);
   }).catch(() => {});
+
+  // ---------- Live data engine (drawer + /live/ page) ----------
+  const ESPN = "https://site.api.espn.com/apis/site/v2/sports/";
+  const when = d => new Date(d).toLocaleString("en-AU", { weekday: "short", day: "numeric", month: "short", hour: "numeric", minute: "2-digit" });
+  const fromEspn = (ev, fav) => {
+    const c = ev.competitions[0], st = ev.status.type.state;
+    const t = c.competitors.slice().sort(a => (a.homeAway === "home" ? -1 : 1))
+      .map(x => ({ n: x.team.shortDisplayName || x.team.displayName, a: x.team.abbreviation, s: x.score?.displayValue ?? x.score ?? "", w: x.winner }));
+    return { t, st, det: st === "pre" ? when(ev.date) : ev.status.type.shortDetail, date: ev.date, fav: !!(fav && t.some(x => fav.test(x.n))) };
+  };
+  const card = m => `<div class="sm${m.fav ? " fav" : ""}">${m.t.map(x => `<div class="row${x.w ? " win" : ""}"><span>${esc(x.n)}</span><span>${m.st === "pre" ? "" : esc(x.s)}</span></div>`).join("")}<div class="st">${m.st === "in" ? '<span class="live">LIVE</span>' : ""}${esc(m.lg ? m.lg + " · " : "")}${esc(m.det)}</div></div>`;
+  let loaded = false, loading = null;
+  const views = [];
+  const redraw = () => views.forEach(v => v());
+  const loadLive = () => {
+    if (loading) return loading;
+    const jobs = [
+      J(ESPN + "australian-football/afl/scoreboard").then(d => { data.afl = (d.events || []).map(e => fromEspn(e)); }),
+      J(ESPN + "rugby-league/3/scoreboard").then(d => { data.nrl = (d.events || []).map(e => fromEspn(e)); }),
+      Promise.allSettled(
+        [["eng.1", "EPL"], ["uefa.champions", "Champions League"], ["aus.1", "A-League Men"], ["aus.w.1", "A-League Women"], ["fifa.friendly", "Socceroos"], ["fifa.friendly.w", "Matildas"]]
+          .map(([k, lg]) => J(ESPN + "soccer/" + k + "/scoreboard").then(d => (d.events || []).map(x => ({ ...fromEspn(x, /Liverpool/i), lg }))))
+          .concat(J(ESPN + "soccer/eng.1/teams/364/schedule").then(d => {
+            const p = (d.events || []).filter(e => e.competitions?.[0]?.status?.type?.state === "post").sort((x, y) => new Date(x.date) - new Date(y.date));
+            const e = p[p.length - 1];
+            if (!e || Date.now() - new Date(e.date) > 10 * 864e5) return [];
+            const m = fromEspn({ ...e, status: e.competitions[0].status }, /Liverpool/i);
+            return [{ ...m, st: "post", fav: true, lg: "EPL · Liverpool last result", det: "FT · " + new Date(e.date).toLocaleDateString("en-AU", { day: "numeric", month: "short" }) }];
+          }))
+      ).then(rs => {
+        const all = rs.flatMap(r => (r.status === "fulfilled" ? r.value : []))
+          .filter(m => !["Socceroos", "Matildas"].includes(m.lg) || m.t.some(x => /Australia/i.test(x.n)));
+        const rank = m => (m.fav ? 0 : 10) + (m.st === "in" ? 0 : m.st === "post" ? 1 : 2);
+        data.football = all.sort((x, y) => rank(x) - rank(y) || (x.st === "post" ? new Date(y.date) - new Date(x.date) : new Date(x.date) - new Date(y.date))).slice(0, 18);
+      }),
+      J(ESPN + "cricket/scorepanel").then(d => {
+        const big = /Test|ODI|T20I|Big Bash|Sheffield|Marsh|WBBL|World Cup|IPL/i, all = [];
+        (d.scores || []).forEach(g => (g.events || []).forEach(ev => {
+          const c = ev.competitions[0];
+          const t = c.competitors.map(x => ({ n: x.team?.shortDisplayName || x.team?.displayName || x.team?.abbreviation, a: x.team?.abbreviation, s: x.score || "", w: x.winner }));
+          const lg = g.leagues?.[0]?.name || "", cls = c.class?.generalClassCard || "";
+          const aus = t.some(x => /^AUS|^AU-/.test(x.a || "")) || /Australia|Big Bash|Sheffield|Marsh|WBBL/i.test(lg);
+          all.push({ t, st: ev.status?.type?.state, det: ev.status?.type?.shortDetail || ev.status?.summary || "", lg: (cls ? cls + " · " : "") + lg, rk: (aus ? 0 : 10) + (big.test(cls + " " + lg) ? 0 : 5) + (ev.status?.type?.state === "in" ? 0 : 2) });
+        }));
+        data.cricket = all.sort((a, b) => a.rk - b.rk).slice(0, 8);
+      }),
+      J("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=aud&include_24hr_change=true").then(d => {
+        const live = [["bitcoin", "Bitcoin", "BTC"], ["ethereum", "Ethereum", "ETH"], ["solana", "Solana", "SOL"]]
+          .filter(([id]) => d[id]).map(([id, n, a]) => fmtMk({ label: n, short: a, price: d[id].aud, chg: d[id].aud_24h_change, cur: "AUD", group: "Crypto · 24h · live" }));
+        if (live.length) data.markets = [...data.markets.filter(m => !m.g.startsWith("Crypto")), ...live];
+      })
+    ];
+    jobs.forEach(j => j.then(redraw, redraw));
+    loading = Promise.allSettled(jobs).then(() => { loaded = true; redraw(); });
+    return loading;
+  };
+  const sportsList = (k) => {
+    const rows = data[k];
+    if (!rows.length) return `<p class="st muted">${loaded ? "Nothing on right now." : "Loading…"}</p>`;
+    const grp = { in: "Live", post: "Results", pre: "Coming up" }; let g = "";
+    return rows.slice().sort((a, b) => ({ in: 0, post: 1, pre: 2 }[a.st] ?? 3) - ({ in: 0, post: 1, pre: 2 }[b.st] ?? 3))
+      .map(m => { const h = grp[m.st] !== g ? `<div class="grp">${grp[m.st] || ""}</div>` : ""; g = grp[m.st]; return h + card(m); }).join("");
+  };
+  const marketsList = () => {
+    if (!data.markets.length) return '<p class="st muted">Loading…</p>';
+    let g = "";
+    return data.markets.map(m => {
+      const h = m.g !== g ? `<div class="grp">${esc(m.g)}</div>` : ""; g = m.g;
+      const c = m.c == null ? "" : `<span class="${m.c >= 0 ? "up" : "dn"}">${m.c >= 0 ? "▲" : "▼"}${Math.abs(m.c).toFixed(2)}%</span>`;
+      return h + `<div class="sm"><div class="row"><span>${esc(m.n)}</span><span>${esc(m.v)} ${c}</span></div></div>`;
+    }).join("");
+  };
+  const mountTabs = (nav, list, tabs, start) => {
+    let cur = start;
+    const draw = () => {
+      nav.innerHTML = tabs.map(([k, l]) => `<button role="tab" type="button" aria-selected="${k === cur}" data-k="${k}">${l}</button>`).join("");
+      list.innerHTML = cur === "markets" ? marketsList() : sportsList(cur);
+    };
+    nav.addEventListener("click", e => { const k = e.target.closest("[data-k]")?.dataset.k; if (k) { cur = k; draw(); } });
+    views.push(draw); draw();
+  };
+  const TABS = [["markets", "Markets"], ["cricket", "Cricket"], ["nrl", "NRL"], ["afl", "AFL"], ["football", "Soccer"]];
+  marketsReady.then(redraw);
+
+  const sb = $("#sb"), tab = $("#sbTab");
+  if (sb && tab) {
+    mountTabs($("#sbNav"), $("#sbList"), TABS, "markets");
+    const set = o => {
+      sb.classList.toggle("open", o); sb.setAttribute("aria-hidden", !o); tab.setAttribute("aria-expanded", o);
+      if (o) loadLive();
+    };
+    tab.addEventListener("click", () => set(!sb.classList.contains("open")));
+    $("#sbClose").addEventListener("click", () => set(false));
+    document.addEventListener("keydown", e => { if (e.key === "Escape") set(false); });
+  }
+  // Homepage teaser tiles (same-origin data only; no third-party calls)
+  const mkHome = $("#labMkHome");
+  if (mkHome) {
+    marketsReady.then(() => {
+      const pick = data.markets.filter(m => ["ASX 200", "AUD/USD", "Bitcoin", "Ethereum"].includes(m.n));
+      mkHome.innerHTML = pick.map(m => `<div class="mtile"><small>${esc(m.n)}</small><b>${esc(m.v)}</b>${m.c == null ? "" : `<span class="${m.c >= 0 ? "up" : "dn"}">${m.c >= 0 ? "▲" : "▼"} ${Math.abs(m.c).toFixed(2)}%</span>`}</div>`).join("");
+    });
+  }
+  // Full page: /live/
+  const labMk = $("#labMk");
+  if (labMk) {
+    const tiles = () => {
+      if (!data.markets.length) { labMk.innerHTML = '<p class="muted">Loading…</p>'; return; }
+      labMk.innerHTML = data.markets.map(m => `<div class="mtile"><small>${esc(m.n)}</small><b>${esc(m.v)}</b>${m.c == null ? "" : `<span class="${m.c >= 0 ? "up" : "dn"}">${m.c >= 0 ? "▲" : "▼"} ${Math.abs(m.c).toFixed(2)}%</span>`}<span class="muted" style="display:block;margin-top:2px;font-size:.72rem">${esc(m.g)}</span></div>`).join("");
+    };
+    views.push(tiles); tiles();
+    mountTabs($("#labNav"), $("#labList"), TABS.slice(1).concat([]), "cricket");
+    loadLive();
+  }
 
   // ---------- Dropdown menus ----------
   $$(".dd>button").forEach(b => b.addEventListener("click", e => {
