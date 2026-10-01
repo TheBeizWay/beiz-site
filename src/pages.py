@@ -187,7 +187,7 @@ def home():
     <h2>Why owners trust us with the numbers.</h2>
     <ul class="why">
       <li><span class="ic">CA</span><b>The numbers are right</b><p>Built by an accountant. Everything reconciles back to your ledger, not just to a nice chart.</p></li>
-      <li><span class="ic">GA</span><b>Controls come first</b><p>GAICD trained in governance. Approvals, limits and an audit trail are built in, not added later.</p></li>
+      <li><span class="ic">GAICD</span><b>Controls come first</b><p>GAICD trained in governance. Approvals, limits and an audit trail are built in, not added later.</p></li>
       <li><span class="ic">$</span><b>Fixed price, in writing</b><p>You know the cost and the deliverables before we start. No hourly meter, no lock-in contracts.</p></li>
       <li><span class="ic">🔒</span><b>Your data stays yours</b><p>We build inside your own accounts, use business-grade AI that doesn't train on your data, and are bound by professional confidentiality under the CA ANZ code of ethics.</p></li>
       <li><span class="ic">✓</span><b>Accountable</b><p>Certificate of Public Practice, professional indemnity insured, liability limited under an approved Professional Standards scheme.</p></li>
@@ -1009,7 +1009,7 @@ def about():
 <section style="padding-top:8px"><div class="wrap"><h2 style="margin-top:0">Four disciplines, one firm.</h2>
 <ul class="why" style="grid-template-columns:repeat(4,1fr)">
 <li><span class="ic">CA</span><b>Chartered Accountant</b><p>CA ANZ member with a Certificate of Public Practice. Numbers that reconcile to your ledger, and professional standards you can hold us to.</p></li>
-<li><span class="ic">GA</span><b>GAICD governance</b><p>Trained by the Australian Institute of Company Directors in how boards oversee risk. AI policies, controls and board reporting that directors can sign off.</p></li>
+<li><span class="ic">GAICD</span><b>GAICD governance</b><p>Trained by the Australian Institute of Company Directors in how boards oversee risk. AI policies, controls and board reporting that directors can sign off.</p></li>
 <li><span class="ic">DS</span><b>Data science solutions</b><p>Python, R, Power BI and automation. Forecasts, dashboards, predictive models and AI agents, built on your own data.</p></li>
 <li><span class="ic">🔒</span><b>Your data, secured</b><p>Built inside your own accounts, with two-factor access, least-privilege permissions and business-grade AI that doesn't train on your data. Covered by professional confidentiality under the CA ANZ code of ethics.</p></li>
 </ul></div></section>

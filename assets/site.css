@@ -399,7 +399,7 @@ nav.main{align-items:center}
 .why li{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:14px;padding:18px}
 .why b{display:block;margin:8px 0 6px;font-size:.98rem}
 .why p{font-size:.86rem}
-.why .ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:#0f2a25;color:var(--accent);font:600 13px var(--mono)}
+.why .ic{min-width:34px;width:auto;padding:0 9px;justify-self:start;height:34px;border-radius:10px;display:grid;place-items:center;background:#0f2a25;color:var(--accent);font:600 13px var(--mono)}
 .tiles.t2{grid-template-columns:1fr 1fr}
 .steps.three{grid-template-columns:repeat(3,1fr)}
 details.numbers{margin-top:10px}
