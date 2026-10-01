@@ -688,12 +688,12 @@ def faq():
 
 
 def contact():
-    body = phero("Contact", "Start in writing.", "A few lines about the problem is plenty. No sales pitch, no pressure. You'll get a considered written reply within three business days.", [("/contact/", "Contact")]) + '''
+    body = phero("Contact", "Start in writing.", "A few lines about the problem is plenty. No sales pitch, no pressure. You'll get a considered written reply by the next business day. Calls are by arrangement, early morning or after 5pm.", [("/contact/", "Contact")]) + '''
 <section style="padding:8px 0 0"><div class="wrap"><ol class="steps three">
 <li><h3>You write</h3><p>What's broken, what you've tried, and what good would look like.</p></li>
 <li><h3>We check</h3><p>A conflict check, then a proper look at the problem.</p></li>
 <li><h3>We reply</h3><p>A written answer: what we'd do, how long, and a fixed price if it's a fit.</p></li></ol></div></section>''' + contact_form("Tell us what you're trying to fix.", "Prefer email? Write to hello@beiz.com.au.")
-    add("/contact/", "Contact", "Send Beiz a short written brief. Document-first, no sales pitch. A considered written reply within three business days. hello@beiz.com.au", body)
+    add("/contact/", "Contact", "Send Beiz a short written brief. Document-first, no sales pitch. A considered written reply by the next business day. hello@beiz.com.au", body)
 
 
 def privacy():
