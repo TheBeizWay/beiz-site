@@ -630,6 +630,9 @@ FAQ = [
     ("What happens if the AI gets it wrong?", "It will, sometimes. That's why every build has approval steps, limits and a log. The AI prepares the work, a person signs it off, and anything unusual gets flagged rather than actioned."),
     ("Do you replace my accountant or bookkeeper?", "No. We don't replace your tax accountant, we feed them. They keep you right with the ATO, looking back at what happened. We work on what happens next week. At year end they get clean, reconciled data and do their job faster."),
     ("Do you do tax, BAS or R&D tax incentive claims?", "No. We don't provide tax agent or BAS services. What we do is make your records clean: crypto transactions reconciled, development costs tagged by project and activity, everything traceable. Your registered tax agent or R&D adviser then works from data they can rely on."),
+    ("Doesn't Xero already do a cash forecast?", "Xero shows a short-term view of what's already entered as invoices and bills. Most cash surprises come from what isn't: payroll and super, the BAS, loan repayments, the big job coming up, and bills nobody has entered yet. We build a 13-week forecast that includes all of it, and a short Monday note that tells you the one thing worth acting on."),
+    ("Why 13 weeks?", "It's one quarter, so it always includes a BAS payment, several pay runs and three months of rent and loans. Customers on 30 to 60 day terms pay inside the window, so most of it is money you already know about. It's far enough ahead to act, and near enough to be reliable. Each Monday the oldest week drops off and a new one is added."),
+    ("Do you do SMSF work or business valuations?", "No. SMSF advice and audits need licences and registrations we don't hold, and valuations are a specialist field with their own professional standard. What we can do is get your numbers clean and sale-ready, so the valuer, broker or adviser you choose has what they need."),
     ("Which tools do you work with?", "Xero, MYOB, Microsoft 365, Power BI, Power Automate, Google Workspace, n8n, Python and leading AI models. We pick what fits what you already own."),
     ("Why do you work in writing first?", "It respects your time and gets better answers. A written brief lets us think properly before replying, and you get a fully priced blueprint with a clear record of what was agreed, instead of a sales pitch. Once work is under way, if a conversation genuinely helps, we'll schedule one."),
     ("Is any of the work done offshore?", "All strategy, architecture, governance and sign-off are led in Australia by a Chartered Accountant and GAICD. For some build work we use a small, vetted delivery team, always under our direct review. Your engagement letter names the country and what the team can access, and nothing is shared without your written consent. They only get the access the job needs, and we remain fully responsible for the work, so any mistake is ours to fix, not yours."),
@@ -729,6 +732,7 @@ def privacy():
 ARTICLES = [
     ("/insights/privacy-act-automated-decisions/", "The Privacy Act's new AI rule, in plain English", "What the automated-decision transparency obligation starting 10 December 2026 means, who it applies to, and five things to do now.", "1 October 2026 · 5 minute read"),
     ("/insights/burned-by-an-ai-product/", "Burned by an AI product or a developer who vanished? Get these back first", "A practical checklist for taking back control of your domain, website, data and AI accounts when a supplier relationship goes wrong.", "1 October 2026 · 4 minute read"),
+    ("/insights/why-13-weeks/", "Why 13 weeks? Your cash cycle in plain English", "Why a weekly view of the next quarter catches the problems a monthly report hides, and what Xero's own forecast leaves out.", "1 October 2026 · 4 minute read"),
     ("/insights/we-feed-your-tax-accountant/", "We don't replace your tax accountant. We feed them.", "Why compliance and finance systems are different jobs, and how clean data makes both better.", "1 October 2026 · 3 minute read"),
 ]
 
@@ -782,7 +786,26 @@ def insights():
 <blockquote>Keep everything in writing. Don't pay extra to get access to things you've already paid for without getting advice first.</blockquote>
 <p>We help businesses do exactly this, calmly and quickly. <a href="/contact/?topic=Something%20else#form">Tell us what happened</a>.</p>''', "Something else")
 
-    art(2, '''<p>People sometimes ask whether we'll replace their accountant. We won't, and we don't want to. It's a different job.</p>
+    art(2, '''<p>Most small businesses don't run out of money because they're unprofitable. They run out because a few big payments land in the same week, before the money customers owe them arrives. A 13-week cash forecast is built to catch that week before it happens.</p>
+<h2>Why a quarter</h2>
+<p>Thirteen weeks is one quarter. That matters because most of a small business's big cash movements run on a quarterly or shorter cycle:</p>
+<ul><li><strong>The BAS.</strong> For many businesses it's the biggest single payment of the quarter, and a 13-week view always includes one.</li>
+<li><strong>Payroll and super.</strong> Wages go out weekly or fortnightly, and since Payday Super started on 1 July 2026, super goes out with every pay run too.</li>
+<li><strong>Customer terms.</strong> On 30 to 60 day terms, invoices you raise today are paid inside the window. So most of the forecast is money you already know about, not guesses.</li>
+<li><strong>Rent, loans and leases.</strong> Monthly payments show up three times, so nothing sneaks up on you.</li></ul>
+<h2>Why weekly, not monthly</h2>
+<p>A monthly report averages everything out. If payroll, super and the BAS all land in the last week of October, a monthly view says October is fine. The weekly view shows that one week goes short, and that's the week that matters.</p>
+<h2>The cash loop</h2>
+<p>Every business runs the same loop: pay staff and suppliers, do the work, send the invoice, wait to be paid. The gap between paying out and getting paid is where cash runs short. For most small businesses that loop takes 30 to 90 days, so 13 weeks covers one or two full loops. It's far enough ahead to act on, and close enough to be reliable.</p>
+<h2>Doesn't Xero already do this?</h2>
+<p>Xero has a short-term cash view built from the invoices and bills already in it. That's useful. But most cash surprises come from what isn't in it yet:</p>
+<ul><li>Payroll, super and the BAS</li><li>Loan and lease repayments</li><li>The big job you've quoted but not invoiced</li><li>Bills sitting in someone's inbox</li><li>The customer who always pays three weeks late</li></ul>
+<p>A proper 13-week forecast puts all of that in, week by week, and is updated with what actually happened each Monday.</p>
+<h2>What to do with it</h2>
+<p>The point isn't a pretty chart. It's the one decision it lets you make early: chase that invoice now, move a purchase back a fortnight, or talk to the bank before the tight week rather than during it.</p>
+<p>If your year is seasonal, a simple 12-month view alongside it shows the quiet months coming too.</p>''', "13-week cash forecast")
+
+    art(3, '''<p>People sometimes ask whether we'll replace their accountant. We won't, and we don't want to. It's a different job.</p>
 <h2>Two different jobs</h2>
 <div class="tblw"><table class="tbl"><thead><tr><th></th><th>Your tax accountant</th><th>Beiz</th></tr></thead><tbody>
 <tr><td>Main focus</td><td>Compliance: tax returns, BAS, keeping the ATO happy</td><td>Operations: automation, forecasts, dashboards, AI controls</td></tr>
@@ -884,7 +907,7 @@ def about():
 <h2>How we're set up</h2>
 <p>Strategy, architecture, governance, client communication and sign-off all happen in Australia. For some build work we use a small, vetted delivery team, always under our direct review. We also use business-grade AI tools to work faster. That's how a small firm delivers quickly at a fixed price, and your engagement letter spells out exactly who touches your information and where.</p>
 <h2>What we don't do</h2>
-<p>We don't do tax returns, BAS, legal advice or financial product advice. We work alongside the people who do, and make their jobs easier with clean, reconciled data.</p>
+<p>We don't do tax returns, BAS, SMSF advice or audits, business valuations, legal advice or financial product advice. Those need licences, registrations or specialist standards, and we'd rather do one thing properly. We work alongside the people who do them, and make their jobs easier with clean, reconciled data.</p>
 </div>
 <aside class="aside"><h3>At a glance</h3>
 <ul class="ticks"><li>Chartered Accountant, CA ANZ Certificate of Public Practice</li><li>GAICD</li><li>Professional indemnity insured</li><li>Liability limited by an approved Professional Standards scheme</li><li>Bound by the APES 110 code of ethics</li><li>Beiz Data &amp; Accounting Pty Ltd · ABN 53 691 755 496</li><li>Australia-wide, remote-first</li></ul>
