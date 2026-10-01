@@ -488,3 +488,6 @@ b.warn,.tile b.warn{color:var(--warn)}
 .wrongai li:before{content:"!";position:absolute;left:0;top:0;color:#fbbf24;font-weight:700}
 .wrongai .fixit{margin:0;padding-top:14px;border-top:1px solid var(--line,#2a3138)}
 @media(min-width:860px){.wrongai{grid-template-columns:1fr 1fr}.wrongai .fixit{grid-column:1/-1}}
+
+.newfirm{margin:0;max-width:70ch;font-size:1rem;border-left:2px solid var(--accent);padding:6px 0 6px 16px;color:var(--muted)}
+.newfirm b{color:var(--text)}

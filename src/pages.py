@@ -127,6 +127,12 @@ def home():
   </div>
 </section>
 
+<section id="newfirm">
+  <div class="wrap">
+    <p class="newfirm"><b>We're a new firm.</b> That means partner-level attention and a price that reflects our stage. In writing, every time: a fixed scope, a fixed price, weekly updates, and you own everything at handover.</p>
+  </div>
+</section>
+
 <section id="wrongai">
   <div class="wrap">
     <div class="wrongai">
@@ -629,7 +635,7 @@ FAQ = [
     ("Do you do tax, BAS or R&D tax incentive claims?", "No. We don't provide tax agent or BAS services. What we do is make your records clean: crypto transactions reconciled, development costs tagged by project and activity, everything traceable. Your registered tax agent or R&D adviser then works from data they can rely on."),
     ("Which tools do you work with?", "Xero, MYOB, Microsoft 365, Power BI, Power Automate, Google Workspace, n8n, Python and leading AI models. We pick what fits what you already own."),
     ("Why do you work in writing first?", "It respects your time and gets better answers. A written brief lets us think properly before replying, and you get a fully priced blueprint with a clear record of what was agreed, instead of a sales pitch. Once work is under way, if a conversation genuinely helps, we'll schedule one."),
-    ("Is any of the work done offshore?", "All strategy, architecture, governance and sign-off are led in Australia by a Chartered Accountant and GAICD. For some build work we use a small, vetted delivery team, always under our direct review. Your engagement letter tells you exactly where any of your information will be handled, before you sign."),
+    ("Is any of the work done offshore?", "All strategy, architecture, governance and sign-off are led in Australia by a Chartered Accountant and GAICD. For some build work we use a small, vetted delivery team, always under our direct review. Your engagement letter names the country and what the team can access, and nothing is shared without your written consent. They only get the access the job needs, and we remain fully responsible for the work, so any mistake is ours to fix, not yours."),
     ("Who owns what you build?", "You own the outcome: the automations, dashboards and models run inside your own accounts, with your logins. Our reusable templates, frameworks and code libraries remain our intellectual property, licensed to you for your business. That's how we keep delivery fast and prices fixed."),
     ("Do I need a board or a big business?", "No. Plenty of our work is for owner-operators who are flat out and just want the admin to stop eating their evenings. We size the work to the business."),
     ("How much does it cost?", "Every job is fixed price, quoted in writing after we understand the problem. Quick wins are priced like quick wins; larger builds are scoped individually. No hourly meter and no lock-in contracts."),

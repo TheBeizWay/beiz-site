@@ -2,7 +2,7 @@
 import json
 
 SITE = "https://beiz.com.au"
-ASSET_V = "14"  # bump to bust caches when CSS/JS change
+ASSET_V = "15"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true" class="logo">'
         '<defs><linearGradient id="hg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#2DD4BF"/>'
@@ -53,7 +53,7 @@ def esc(s):
     return (s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;"))
 
 
-def contact_form(heading="Tell us what you're trying to fix.", lede="A few lines is plenty. You'll get a written reply within three business days.", eyebrow="Start in writing"):
+def contact_form(heading="Tell us what you're trying to fix.", lede="A few lines is plenty. We work in writing first: you'll get a written reply within three business days, and any call is arranged by agreement.", eyebrow="Start in writing"):
     opts = "".join(f"<option>{esc(t)}</option>" for t in TOPICS)
     return f'''<section id="form">
   <div class="wrap">
