@@ -457,7 +457,7 @@ def services():
              ("Quoting you can trust", "A pricing model built from your real costs, so quotes protect your margin."),
              ("Get your access back", "Domain, website, email and data back in your name after a supplier leaves.")]
     c = "".join(f'<div class="card"><h3>{t}</h3><p>{d}</p></div>' for t, d in quick)
-    body = (phero("Small business quick wins", "The jobs you keep meaning to get to.", "Small, fixed-price fixes that give you back evenings and bring cash in faster. Most take days, not months. No lock-in contracts.",
+    body = (phero("Small business quick wins", "The jobs you keep meaning to get to.", "Small, fixed-price fixes that give you back evenings and bring cash in faster. Built for sole traders and small teams. Most are scoped in days, not months. No lock-in contracts.",
                   [("/services/", "Services"), ("/services/quick-wins/", "Quick wins")], [("/contact/?topic=Small%20business%20quick%20win#form", "Ask about a quick win"), ("/examples/", "See examples")]) +
             f'<section style="padding-top:8px"><div class="wrap"><div class="cards quick">{c}</div>' +
             before_after("A two-van plumbing business", ["Invoices sent on Sunday nights", "$18k owed, nobody chasing", "No idea which jobs lost money", "Receipts in the glovebox"],
@@ -735,7 +735,7 @@ FAQ = [
     ("Why use an Australian CA rather than just AI or an offshore team?", "Use them too. AI and offshore teams are great for speed and volume. What an Australian Chartered Accountant adds is accountability here: bound by the CA ANZ Code of Ethics, across Australian rules like Payday Super, BAS timing and the Privacy Act, and answerable for the result. If you already outsource, we can set up the access, review steps and checks so it runs safely."),
     ("Is any of the work done offshore?", "All strategy, architecture, governance and sign-off are led in Australia by a Chartered Accountant and GAICD. For some build work we may use a small, vetted delivery team, always under our direct review. Your engagement letter names the country and what the team can access, and nothing is shared without your written consent. They only get the access the job needs, and we remain responsible for the work we deliver to you."),
     ("Who owns what you build?", "You own the outcome: the automations, dashboards and models run inside your own accounts, with your logins. Our reusable templates, frameworks and code libraries remain our intellectual property, licensed to you for your business. That's how we keep delivery fast and prices fixed."),
-    ("Do I need a board or a big business?", "No. Plenty of our work is for owner-operators who are flat out and just want the admin to stop eating their evenings. We size the work to the business."),
+    ("Do I need a board or a big business?", "No. Much of what we do is built for sole traders and owner-operators who are flat out and just want the admin to stop eating their evenings. We size the work to the business."),
     ("How much does it cost?", "Every job is fixed price, quoted in writing after we understand the problem. Quick wins are priced like quick wins; larger builds are scoped individually. No hourly meter and no lock-in contracts."),
     ("Do you work with crypto businesses?", "Yes: reconciliations, stablecoin payment matching, treasury reporting and controls. We don't give tax, financial product or licensing advice."),
     ("Where are you based?", "Australia. We work remotely with clients across the country."),
