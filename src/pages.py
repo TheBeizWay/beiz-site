@@ -354,7 +354,7 @@ def services():
         "See next month, not just last month.",
         "Live dashboards and financial models built from your own data: cash forecasts that warn you early, profitability by job or client, runway scenarios and the investor metrics people actually check.",
         f'''<h2>What we build</h2>
-<ul><li><strong>13-week cash forecast:</strong> refreshed from your ledger and bank, with an early warning when cash will dip below your buffer. Built for Payday Super timing: since 1 July 2026, super goes out with each pay run rather than quarterly, so the cash leaves sooner.</li>
+<ul><li><strong>13-week cash forecast:</strong> the cash visibility of a part-time CFO, without the CFO cost. Refreshed from your ledger and bank, with an early warning when cash will dip below your buffer. Built for Payday Super timing: since 1 July 2026, super goes out with each pay run rather than quarterly, so the cash leaves sooner.</li>
 <li><strong>Profitability by job, client or service:</strong> find out what actually makes money while there's still time to change it.</li>
 <li><strong>Runway and scenario models:</strong> what does a new hire, a bigger ad budget or an expensive AI tool do to your cash over 6, 12 and 24 months?</li>
 <li><strong>Investor and board metrics:</strong> MRR, churn, CAC payback, gross margin and runway, calculated the same way every month.</li>
@@ -368,7 +368,7 @@ def services():
                      ["Monday cash email with a 13-week view", "Model the team can update safely", "Board pack refreshes itself", "Every hire tested against runway first"], "Example scenario"),
         [("/examples/", "See sample charts"), ("/industries/startups/", "For startups & tech agencies"), ("/industries/trades/", "For trades & construction")],
         "Dashboards & analytics", "Dashboards & financial models",
-        "13-week cash forecasts, runway and scenario models, job profitability and investor metrics, built from your own data and reconciled to the ledger.")
+        "13-week cash forecasts, runway and scenario models, job profitability and investor metrics, built from your own data and reconciled to the ledger. The cash visibility of a part-time CFO, without the CFO cost.")
 
     svc("/services/project-delivery/", "Project delivery", "AI & tech project delivery",
         "Tech projects that land on time and actually get used.",
