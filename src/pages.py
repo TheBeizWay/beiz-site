@@ -96,6 +96,24 @@ def home():
   </div>
 </section>
 
+<section id="mix">
+  <div class="wrap">
+    <p class="eyebrow">The difference</p>
+    <h2>Four skills most firms keep apart. We put them in one room.</h2>
+    <p class="lede">An IT firm can build you an AI agent. An accountant can check your numbers. A board adviser can tell you what could go wrong. You usually hire them separately, and the gaps between them are where projects fail. We bring all four to every job.</p>
+    <div class="mix">
+      <div><span class="k">CA</span><b>The numbers are right</b><p>Everything reconciles to your ledger. Cash, margins and forecasts you can take to the bank.</p></div>
+      <i aria-hidden="true">+</i>
+      <div><span class="k">GAICD</span><b>The risks are covered</b><p>Governance, controls and sign-offs designed in from day one, the way a board would expect.</p></div>
+      <i aria-hidden="true">+</i>
+      <div><span class="k">Data</span><b>The systems connect</b><p>Your tools joined up, data cleaned, models and dashboards built on one version of the truth.</p></div>
+      <i aria-hidden="true">+</i>
+      <div><span class="k">AI &amp; automation</span><b>The work gets faster</b><p>Agents, assistants and automations that take the grunt work off your team.</p></div>
+    </div>
+    <p class="mix-eq"><span>=</span> <b>AI you can sign off on.</b> Speed from the technology, confidence from the people behind it.</p>
+  </div>
+</section>
+
 <section id="fix">
   <div class="wrap">
     <p class="eyebrow">What we fix</p>
@@ -125,6 +143,12 @@ def home():
 
 <section id="evidence" style="padding-bottom:0">
   <div class="wrap">
+    <div class="moment"><span class="k">The moment · Australia, 2026</span><ul>
+      <li><b data-rba>4.60%</b><span>RBA cash rate, a 15-year high</span></li>
+      <li><b>4.0%</b><span>inflation, year to August</span></li>
+      <li><b>14,152</b><span>company insolvencies last financial year</span></li>
+      <li><b>43%</b><span>of SMEs using AI. Most of the rest want a human in control</span></li></ul>
+      <a href="/live/">More live numbers →</a></div>
     <div class="evid">
       <div><b>~80%</b><p>of Australian small and medium businesses had their cash flow hit in the past year.</p><small>CommBank survey by YouGov, 507 businesses, published January 2025 · <a href="https://www.unsw.edu.au/news/2025/01/80-per-cent-of-aussie-small-businesses-experience-cash-flow-chal" rel="noopener">source</a></small></div>
       <div><b>~65%</b><p>of SMEs not using AI say it's because they distrust AI decisions or want to keep human control.</p><small>National AI Centre SME AI Pulse, Dec 2025 to Feb 2026 · <a href="https://www.ai.gov.au/news-and-insights/blog/ai-adoption-insights-december-2025-february-2026" rel="noopener">source</a></small></div>
@@ -878,10 +902,21 @@ def live_page():
     body = phero("Live Data Lab", "Resilient live data, demonstrated.",
                  "A live demonstration of the data pipelines we build for clients: multiple public sources pulled in, normalised, cached safely and shown clearly. No client-side tracking, and if a source drops out, the page carries on without it.",
                  [("/live/", "Live data")]) + '''<section style="padding-top:8px"><div class="wrap labwrap">
+  <div class="panel econ"><h4><span>The economy, in numbers</span><span>Australia</span></h4>
+    <div class="labgrid">
+      <div class="mtile"><small>RBA cash rate</small><b data-rba>4.60%</b><span class="muted" data-rba-note style="display:block;margin-top:2px;font-size:.72rem">Raised 0.25, effective 30 Sep 2026</span></div>
+      <div class="mtile"><small>Inflation (CPI, year to Aug)</small><b>4.0%</b><span class="muted" style="display:block;margin-top:2px;font-size:.72rem">Underlying 3.6% · ABS</span></div>
+      <div class="mtile"><small>Unemployment (Aug)</small><b>4.6%</b><span class="muted" style="display:block;margin-top:2px;font-size:.72rem">Up 0.2 points · ABS</span></div>
+      <div class="mtile"><small>Company insolvencies FY26</small><b>14,152</b><span class="muted" style="display:block;margin-top:2px;font-size:.72rem">Construction 3,472 · ASIC</span></div>
+      <div class="mtile"><small>Businesses in Australia</small><b>2.73m</b><span class="muted" style="display:block;margin-top:2px;font-size:.72rem">437,150 started in FY25 · ABS</span></div>
+      <div class="mtile"><small>SMEs using AI</small><b>43%</b><span class="muted" style="display:block;margin-top:2px;font-size:.72rem">65% of the rest want human control · NAIC</span></div>
+    </div>
+    <p class="labsrc">Cash rate refreshed automatically from the <a href="https://www.rba.gov.au/statistics/cash-rate/" rel="noopener">RBA</a>. Other figures from the latest releases: <a href="https://www.abs.gov.au/media-centre/media-releases/cpi-rose-40-year-august-2026" rel="noopener">ABS CPI</a> (Aug 2026), <a href="https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia/latest-release" rel="noopener">ABS Labour Force</a> (Aug 2026), <a href="https://www.asic.gov.au/about-asic/news-centre/news-items/annual-asic-insolvency-data-reveals-increase-in-companies-failing" rel="noopener">ASIC insolvency data</a> (FY2025–26), <a href="https://www.abs.gov.au/media-centre/media-releases/7-facts-about-australian-businesses" rel="noopener">ABS business counts</a> (June 2025) and the <a href="https://www.ai.gov.au/news-and-insights/blog/ai-adoption-insights-december-2025-february-2026" rel="noopener">National AI Centre</a> (Dec 2025 to Feb 2026).</p>
+    <p class="econ-so"><b>What it means:</b> borrowing is dearer, costs are rising and more businesses are failing, while most haven't worked out AI yet. The owners who see their cash weeks ahead, and use AI safely, are the ones who get through and pull ahead.</p></div>
   <div class="panel"><h4><span>Markets</span><span>ASX delayed · crypto 24h</span></h4><div class="labgrid" id="labMk"></div>
     <p class="labsrc">ASX and AUD via Yahoo Finance (delayed), crypto via CoinGecko. Indicative only, not financial advice.</p></div>
   <div class="panel"><h4><span>Scores</span><span>your time zone</span></h4><div class="labtabs" role="tablist" id="labNav"></div><div id="labList"></div>
-    <p class="labsrc">Scores via ESPN. Football shows the EPL, Champions League, A-Leagues and the Socceroos and Matildas. Liverpool gets top billing.</p></div>
+    <p class="labsrc">Scores via ESPN. Soccer shows the EPL, Champions League, A-Leagues and the Socceroos and Matildas. Liverpool gets top billing.</p></div>
 </div></section>
 <section><div class="wrap split"><div class="prose">
 <h2>Why this matters for your business</h2>

@@ -121,9 +121,12 @@
     const mk = data.markets.filter(m => m.g.startsWith("ASX"))
       .map(m => `${esc(m.a)} <b>${esc(m.v)}</b>${m.c == null ? "" : ` <i class="${m.c >= 0 ? "up" : "dn"}">${m.c >= 0 ? "▲" : "▼"}${Math.abs(m.c).toFixed(1)}%</i>`}`)
       .join(" &nbsp;·&nbsp; ");
-    if (mk) {
-      renderTicker([...base, mk + ' <i class="note">delayed · indicative only</i>']);
-    }
+    const rba = d.rba ? `RBA cash rate <b>${Number(d.rba.rate).toFixed(2)}%</b>${d.rba.lastChange ? ` <i class="${d.rba.lastChange.by >= 0 ? "dn" : "up"}">${d.rba.lastChange.by >= 0 ? "▲" : "▼"}${Math.abs(d.rba.lastChange.by).toFixed(2)} on ${esc(d.rba.lastChange.date)}</i>` : ""}` : "";
+    $$("[data-rba]").forEach(e => { if (d.rba) e.textContent = Number(d.rba.rate).toFixed(2) + "%"; });
+    $$("[data-rba-note]").forEach(e => { if (d.rba && d.rba.lastChange) e.textContent = `Last moved ${d.rba.lastChange.by >= 0 ? "up" : "down"} ${Math.abs(d.rba.lastChange.by).toFixed(2)} on ${d.rba.lastChange.date}`; });
+    const parts = [...base]; if (rba) parts.push(rba);
+    if (mk) parts.push(mk + ' <i class="note">delayed · indicative only</i>');
+    if (rba || mk) renderTicker(parts);
   }).catch(() => {});
 
   // ---------- Live data engine (drawer + /live/ page) ----------
@@ -206,7 +209,7 @@
     nav.addEventListener("click", e => { const k = e.target.closest("[data-k]")?.dataset.k; if (k) { cur = k; draw(); } });
     views.push(draw); draw();
   };
-  const TABS = [["markets", "Markets"], ["cricket", "Cricket"], ["nrl", "NRL"], ["afl", "AFL"], ["football", "Football"]];
+  const TABS = [["markets", "Markets"], ["cricket", "Cricket"], ["nrl", "NRL"], ["afl", "AFL"], ["football", "Soccer"]];
   marketsReady.then(redraw);
 
   const sb = $("#sb"), tab = $("#sbTab");
