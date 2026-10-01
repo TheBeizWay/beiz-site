@@ -2,7 +2,7 @@
 import json
 
 SITE = "https://beiz.com.au"
-ASSET_V = "20"  # bump to bust caches when CSS/JS change
+ASSET_V = "21"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true" class="logo">'
         '<defs><linearGradient id="hg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#2DD4BF"/>'
@@ -72,6 +72,11 @@ def contact_form(heading="Tell us what you're trying to fix.", lede="A few lines
       <div class="field full"><div><button class="btn primary" type="submit">Send</button></div><p class="note">We only use your details to reply. Please don't include passwords or bank details. See our <a href="/privacy/">privacy policy</a>.</p></div>
       <p class="formmsg" id="formMsg" role="status" aria-live="polite"></p>
     </form>
+    <ol class="nextsteps" aria-label="What happens next">
+      <li><b>Next business day</b><span>A written reply from us, either a few questions or a clear "we can help with this".</span></li>
+      <li><b>Within three business days</b><span>A one-page proposal: what we'll do, a fixed price and a timeline.</span></li>
+      <li><b>Your call</b><span>No chasing, no pressure. If it's not right for you, that's the end of it.</span></li>
+    </ol>
   </div>
 </section>'''
 
