@@ -127,6 +127,24 @@ def home():
   </div>
 </section>
 
+<section id="wrongai">
+  <div class="wrap">
+    <div class="wrongai">
+      <div>
+        <p class="eyebrow">A word of warning</p>
+        <h2>Don't be tempted to use AI the wrong way.</h2>
+        <p class="lede">Free AI tools are easy to start and easy to get wrong. The mistakes are usually quiet ones, and they land on the owner.</p>
+      </div>
+      <ul>
+        <li><b>Pasting customer or client data into a free chatbot.</b> You may have just breached your own privacy policy.</li>
+        <li><b>Letting AI send, pay or decide without a check.</b> One wrong invoice or email is your name on it.</li>
+        <li><b>Buying a tool before you know your own data.</b> It automates the mess you already have.</li>
+      </ul>
+      <p class="fixit"><b>We set it up for you.</b> The right tool for your business, the rules for what goes in, the checks on what comes out, and a person who signs off. You get the speed without the risk.</p>
+    </div>
+  </div>
+</section>
+
 <section id="why">
   <div class="wrap">
     <p class="eyebrow">Why work with us</p>

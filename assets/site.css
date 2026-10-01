@@ -481,3 +481,10 @@ b.warn,.tile b.warn{color:var(--warn)}
 .hero .rule{margin-top:18px;max-width:62ch;font-size:.92rem;color:var(--muted);border-left:2px solid var(--accent);padding:4px 0 4px 14px}
 .hero .rule b{color:var(--text);font-weight:600}
 .hero h1{max-width:16ch}
+
+.wrongai{display:grid;gap:18px;border:1px solid var(--line,#2a3138);border-left:3px solid #fbbf24;border-radius:12px;padding:24px;background:rgba(251,191,36,.05)}
+.wrongai ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.wrongai li{padding-left:22px;position:relative}
+.wrongai li:before{content:"!";position:absolute;left:0;top:0;color:#fbbf24;font-weight:700}
+.wrongai .fixit{margin:0;padding-top:14px;border-top:1px solid var(--line,#2a3138)}
+@media(min-width:860px){.wrongai{grid-template-columns:1fr 1fr}.wrongai .fixit{grid-column:1/-1}}
