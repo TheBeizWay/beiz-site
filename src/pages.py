@@ -119,7 +119,7 @@ def home():
     <p class="eyebrow">AI with due diligence</p>
     <h2>Anyone can use AI. Using it with due diligence is different.</h2>
     <p class="lede">AI is more than writing good prompts. Prompts are the easy part. The hard part is knowing your data, your obligations and your risks, and building the checks around them. That's the part we do.</p>
-    <div class="dd" role="table" aria-label="Prompting compared with due diligence">
+    <div class="ddt" role="table" aria-label="Prompting compared with due diligence">
       <div class="dd-h" role="row"><span role="columnheader">Just prompting</span><span role="columnheader">With due diligence</span></div>
       <div role="row"><span role="cell">Pick a tool and start typing</span><span role="cell">Check your data, privacy obligations and costs first</span></div>
       <div role="row"><span role="cell">Paste in whatever's handy</span><span role="cell">Decide what goes in, and keep customer data out of free tools</span></div>
