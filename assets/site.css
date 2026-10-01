@@ -385,7 +385,8 @@ nav.main{align-items:center}
 .explain p{font-size:.93rem}
 
 /* ---------- Home: what we fix / why us ---------- */
-.fixcols{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px}
+.fixcols{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+@media(max-width:1100px){.fixcols{grid-template-columns:1fr 1fr}}
 .fixcols h3{font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
 .fix{list-style:none;display:grid;gap:10px}
 .fix a{display:grid;grid-template-columns:1fr auto;gap:6px 14px;align-items:center;text-decoration:none;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px;transition:border-color .2s,transform .2s}

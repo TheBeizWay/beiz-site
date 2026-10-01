@@ -46,7 +46,7 @@ PLAIN = '''<section id="plain">
         <p>A short email, a live dashboard or a forecast you can trust.</p></li>
     </ol>
     <div class="explain">
-      <div><b>"Aren't Chartered Accountants just tax people?"</b><p>Tax is one thing CAs do, and we don't do it at all. Chartered Accountants are also trained in audit, risk, systems, forecasting and business advice. That's our lane.</p></div>
+      <div><b>"Which AI should we use?"</b><p>Whichever fits the job and the tools you already pay for: Copilot, Gemini, ChatGPT or Claude all have business versions that keep your data out of training. We're independent, so we recommend, set it up and train your team. We don't resell any of them.</p></div>
       <div><b>"What does GAICD mean?"</b><p>A graduate of the Australian Institute of Company Directors: trained in how boards govern a business and oversee risk. It's why we build AI with controls and sign-offs, not just speed.</p></div>
     </div>
     <p style="margin-top:22px"><a class="btn primary" href="/examples/">See example outputs</a></p>
@@ -61,9 +61,9 @@ def home():
         "Grant reporting, board packs, donor data", "Wages, suppliers, margins, weekly cash"]))
     body = f'''<section class="hero" id="top">
   <div class="wrap">
-    <p class="eyebrow">Chartered Accountant · GAICD · Data &amp; AI</p>
-    <h1>Grow faster. Stay in control.</h1>
-    <p class="lede"><strong>We're an Australian Chartered Accountant firm, not an AI company.</strong> We get to know your business, map your numbers, your data and your worries, then fix where you're losing time and money. That includes helping you and your team use AI responsibly, so you can scale with real assurance.</p>
+    <p class="eyebrow">Automation · Dashboards · Models · AI agents · Data</p>
+    <h1>AI and automation, set up properly.</h1>
+    <p class="lede"><strong>Not sure which AI to use? Worried about getting it wrong?</strong> We pick the right tools, connect them to your systems and your team, and build the automations, dashboards, models and AI agents that make your business faster. Built by people who understand the numbers, so the numbers are right.</p>
     <div class="cta">
       <a class="btn primary" href="/try/">Try a 60-second demo</a>
       <a class="btn" href="/contact/#form">Start in writing</a>
@@ -77,12 +77,13 @@ def home():
       <div class="panel">
         <h4><span>Capabilities</span></h4>
         <ul class="caps">
+          <li><a href="/services/ai-agents/">AI agents &amp; chatbots</a> <span>with guardrails</span></li>
+          <li><a href="/services/ai-agents/">AI integration &amp; training</a> <span>copilot · gemini</span></li>
+          <li><a href="/services/automation/">Workflow automation</a> <span>n8n · power automate</span></li>
+          <li><a href="/services/data-engineering/">Data engineering</a> <span>pipelines · clean data</span></li>
+          <li><a href="/services/dashboards-and-models/">Dashboards &amp; visualisation</a> <span>power bi · python</span></li>
+          <li><a href="/services/dashboards-and-models/">Financial modelling</a> <span>cash · runway · scenarios</span></li>
           <li><a href="/services/ai-governance/">AI strategy &amp; governance</a> <span>board-ready</span></li>
-          <li><a href="/services/automation/">AI agents &amp; assistants</a> <span>with guardrails</span></li>
-          <li><a href="/services/automation/">Finance process automation</a> <span>n8n · power automate</span></li>
-          <li><a href="/services/dashboards-and-models/">Dashboards &amp; analytics</a> <span>power bi · python</span></li>
-          <li><a href="/services/dashboards-and-models/">Financial modelling</a> <span>runway · scenarios</span></li>
-          <li><a href="/services/project-delivery/">Tech project delivery</a> <span>scope · vendors · risk</span></li>
         </ul>
       </div>
     </div>
@@ -109,9 +110,14 @@ def home():
       </ul></div>
       <div><h3>Leading the business</h3><ul class="fix">
         <li><a href="/ai-check/"><q>Will the new Privacy Act AI rules catch us?</q><span>→ <b>Free 2-minute check</b>, then a written action list<em class="eta">Free check · then a 5 to 10 day sprint</em></span><i>→</i></a></li>
-        <li><a href="/services/ai-governance/"><q>My team uses ChatGPT and I don't know what goes in it.</q><span>→ <b>AI register, policy and controls</b><em class="eta">AI Readiness Sprint · 10 business days</em></span><i>→</i></a></li>
         <li><a href="/industries/startups/"><q>Investors want numbers I can't produce.</q><span>→ <b>Runway model and investor metrics</b><em class="eta">Typically 2 to 4 weeks</em></span><i>→</i></a></li>
         <li><a href="/insights/burned-by-an-ai-product/"><q>Our tech project or developer went sideways.</q><span>→ <b>Get control back</b>, then finish it properly<em class="eta">Health check · about a week</em></span><i>→</i></a></li>
+      </ul></div>
+      <div><h3>Using AI and data</h3><ul class="fix">
+        <li><a href="/services/ai-governance/"><q>We're scared to use AI with our data.</q><span>→ <b>Approved AI tools, with rules your team follows</b><em class="eta">AI Readiness Sprint · 10 business days</em></span><i>→</i></a></li>
+        <li><a href="/services/ai-readiness-sprint/"><q>We don't know which AI to use.</q><span>→ <b>An honest shortlist for your business</b>, set up and tested<em class="eta">Part of the AI Readiness Sprint</em></span><i>→</i></a></li>
+        <li><a href="/services/ai-agents/"><q>We want AI working with the team, not around it.</q><span>→ <b>Assistants and agents built into daily work</b><em class="eta">Typically 2 to 6 weeks</em></span><i>→</i></a></li>
+        <li><a href="/services/data-engineering/"><q>Our data is spread across five systems.</q><span>→ <b>One clean, connected source of truth</b><em class="eta">Typically 2 to 6 weeks</em></span><i>→</i></a></li>
       </ul></div>
     </div>
   </div>
@@ -156,7 +162,7 @@ def home():
     <p class="eyebrow">Why work with us</p>
     <h2>Why owners trust us with the numbers.</h2>
     <ul class="why">
-      <li><span class="ic">CA</span><b>The numbers are right</b><p>Chartered Accountant built. Everything reconciles back to your ledger, not just to a nice chart.</p></li>
+      <li><span class="ic">CA</span><b>The numbers are right</b><p>Built by an accountant. Everything reconciles back to your ledger, not just to a nice chart.</p></li>
       <li><span class="ic">GA</span><b>Controls come first</b><p>GAICD trained in governance. Approvals, limits and an audit trail are built in, not added later.</p></li>
       <li><span class="ic">$</span><b>Fixed price, in writing</b><p>You know the cost and the deliverables before we start. No hourly meter, no lock-in contracts.</p></li>
       <li><span class="ic">🔒</span><b>Your data stays yours</b><p>We build inside your own accounts, use business-grade AI that doesn't train on your data, and are bound by professional confidentiality under the CA ANZ code of ethics.</p></li>
@@ -241,15 +247,17 @@ def home():
 </section>
 
 {contact_form()}'''
-    add("/", "Beiz Data & Accounting | Chartered Accountants helping you grow, in control",
-        "An Australian Chartered Accountant and GAICD led firm, not an AI company. We map your numbers, data and risks, fix where you lose time and money, and help you use AI responsibly. Fixed price, in writing.", body)
+    add("/", "Beiz Data & Accounting | AI, automation and dashboards, set up properly",
+        "AI agents, chatbots, automation, dashboards, financial models and data engineering for Australian businesses, set up properly with human sign-off. Not sure which AI to use? Start here.", body)
 
 
 # ------------------------------------------------------------------ services
 def services_hub():
     cards = [
         ("/services/ai-governance/", "Govern", "AI governance & Privacy Act readiness", "Know what AI is in use, what it decides and who's accountable. Ready for 10 December 2026."),
-        ("/services/automation/", "Build", "Agents & automation", "Accounts payable, month-end, reporting and admin, automated with approvals and an audit trail."),
+        ("/services/ai-agents/", "Adopt", "AI agents, chatbots & integration", "Not sure which AI to use? We pick it, build assistants and agents into your team's daily work, and train people to use them."),
+        ("/services/automation/", "Build", "Workflow automation", "Accounts payable, month-end, reporting and admin, automated with approvals and an audit trail."),
+        ("/services/data-engineering/", "Connect", "Data engineering", "Your systems connected, cleaned and flowing into one source your reports, models and AI can trust."),
         ("/services/dashboards-and-models/", "See", "Dashboards & financial models", "Cash forecasts, runway scenarios, job profitability and board or investor dashboards."),
         ("/services/project-delivery/", "Deliver", "AI & tech project delivery", "Scope, vendors, milestones and honest reporting, so your tech project actually lands."),
         ("/services/privacy-sprint/", "Before 10 Dec", "Automated-Decision Privacy Sprint", "Map what your software decides about people and hand your lawyer the policy wording. Fixed price, 5 to 10 days."),
@@ -257,7 +265,7 @@ def services_hub():
         ("/services/quick-wins/", "Small business", "Quick wins", "Small, fixed-price fixes that give you back evenings and bring cash in faster."),
     ]
     c = "".join(f'<a class="card" href="{h}"><span class="k">{k}</span><h3>{t}</h3><p>{d}</p><span class="go">Learn more →</span></a>' for h, k, t, d in cards)
-    body = phero("Services", "Six ways we help.", "Every engagement is fixed price, agreed in writing, and ends with something your team can run. Pick the one closest to your problem, or tell us the problem and we'll pick.",
+    body = phero("Services", "What we build and fix.", "Every engagement is fixed price, agreed in writing, and ends with something your team can run. Pick the one closest to your problem, or tell us the problem and we'll pick.",
                  [("/services/", "Services")]) + f'<section style="padding-top:8px"><div class="wrap"><div class="cards">{c}</div></div></section>' + cta_band()
     add("/services/", "Services", "AI governance, automation, dashboards and financial models, tech project delivery and small business quick wins. Fixed price, in writing.", body)
 
@@ -313,6 +321,50 @@ def services():
         [("/examples/", "See a sample control log"), ("/services/quick-wins/", "Small business quick wins"), ("/how-we-work/", "How we protect you")],
         "Automation & AI agents", "Agents & automation for finance",
         "AI agents and finance automation with approvals, delegation limits and a full audit trail: accounts payable, invoicing, month-end, reporting and admin.")
+
+    svc("/services/ai-agents/", "AI agents & chatbots", "AI agents, chatbots & integration",
+        "AI that works with your team, not around it.",
+        "Chatbots that answer from your own information, assistants that draft and check, and agents that handle routine steps across your tools. Each one has limits, a log and a person who signs off.",
+        '''<h2>Which AI should we use?</h2>
+<p>It's usually the first question, and the honest answer depends on what you already pay for and what the job is. Microsoft 365 Copilot, Google Gemini, ChatGPT and Claude all have business versions that keep your data out of training. We look at your tools, your data and your budget, and recommend the smallest setup that does the job. We don't resell any of them.</p>
+<h2>What we build</h2>
+<ul><li><strong>Website and customer chatbots</strong> that answer from your own pages, policies and FAQs, say "I don't know" when they don't, and hand over to a person.</li>
+<li><strong>Internal assistants</strong> that find answers in your procedures, contracts and past work, so staff stop asking the same questions.</li>
+<li><strong>Drafting and checking:</strong> quotes, emails, reports and summaries drafted for a person to approve.</li>
+<li><strong>Agents</strong> that carry routine steps across your tools: read the email, update the job, draft the invoice, ask for approval.</li></ul>
+<h2>Bringing your team along</h2>
+<p>AI only speeds you up if people use it. We set simple rules for what goes in, train your team on real examples from their own work, and measure the time saved, so you know it's working.</p>
+<h2>How we keep it safe</h2>
+<p>Business-grade tools with training on your data switched off. Each assistant sees only what it needs. Anything that sends, pays or changes a record waits for a person. Every action is logged.</p>''',
+        [("Tool recommendation", "Which AI fits your business and budget, and why."), ("Working assistant or agent", "Built on your own information and tested on real questions."), ("Guardrails", "What it can see, what it can do, when it must ask."),
+         ("Team training", "Short sessions using your team's own work."), ("Usage rules", "One page on what staff can and can't put into AI."), ("Measured results", "Time saved, questions answered, errors caught.")],
+        aside("Good fit if", ["You don't know which AI to use", "Staff already use free AI tools", "The same questions get asked every day", "You want speed without losing control"], "Automation & AI agents"),
+        before_after("A 15-person trades business", ["Office answers the same 30 questions by phone", "Quotes typed from scratch", "Staff pasting customer details into free tools", "No idea if AI saves any time"],
+                     ["Website assistant answers the common ones and hands over the rest", "Quotes drafted from past jobs, checked by a person", "One approved business AI tool, with rules", "Hours saved reported monthly"], "Example scenario"),
+        [("/services/automation/", "Workflow automation"), ("/services/ai-governance/", "AI governance"), ("/services/ai-readiness-sprint/", "AI Readiness Sprint")],
+        "Automation & AI agents", "AI agents, chatbots & AI integration",
+        "Not sure which AI to use? We pick the right tool, build chatbots, assistants and agents into your team's work, and train your people, with limits, logs and human sign-off.")
+
+    svc("/services/data-engineering/", "Data engineering", "Data engineering",
+        "One version of the numbers.",
+        "Your data lives in Xero, a CRM, a job app, a POS and a few spreadsheets. We connect it, clean it and keep it flowing, so your dashboards, models and AI all work from the same trusted information.",
+        '''<h2>The problem</h2>
+<p>Every report starts with someone copying and pasting. Revenue means three different things in three systems. Nobody trusts the numbers enough to act on them, and any AI you add just repeats the mess faster.</p>
+<h2>What we do</h2>
+<ol><li><strong>Map it.</strong> Every system, what it holds, who owns it, and where the numbers disagree.</li>
+<li><strong>Define it.</strong> A plain-English data dictionary: what each number means and where it comes from.</li>
+<li><strong>Connect it.</strong> Automated pipelines that pull data from your tools on a schedule, with checks that flag missing or odd records.</li>
+<li><strong>Serve it.</strong> One clean source that your dashboards, models and AI assistants all use.</li></ol>
+<h2>Right-sized tools</h2>
+<p>We use what fits your size: n8n or Power Automate for the flows, Python for the heavy lifting, and a simple database or your existing SharePoint or Google Drive where that's enough. No platform you don't need.</p>''',
+        [("Data map", "Every system and how they connect."), ("Data dictionary", "What each number means, its source and its owner."), ("Automated pipelines", "Scheduled, with checks and alerts."),
+         ("Clean data store", "One source for reports, models and AI."), ("Quality checks", "Missing, duplicate and odd records flagged."), ("Runbook", "What runs when, and what to do if it stops.")],
+        aside("Good fit if", ["Reports start with copy and paste", "Systems disagree about the same number", "You want AI, but your data isn't ready", "You're outgrowing spreadsheets"], "Dashboards & analytics"),
+        before_after("A multi-site hospitality group", ["Sales in the POS, wages in payroll, costs in Xero", "Weekly report built by hand every Monday", "Three versions of revenue", "Nobody trusts the numbers"],
+                     ["All three connected nightly", "Weekly report ready by 6am Monday", "One agreed definition of revenue", "Owners act on the numbers"], "Example scenario"),
+        [("/services/dashboards-and-models/", "Dashboards & financial models"), ("/services/automation/", "Workflow automation"), ("/services/ai-agents/", "AI agents & chatbots")],
+        "Dashboards & analytics", "Data engineering & integration",
+        "Data engineering for Australian businesses: Xero, CRM, POS and spreadsheets connected, cleaned and flowing into one trusted source for dashboards, models and AI.")
 
     rf = runway_facts()
     svc("/services/dashboards-and-models/", "Dashboards & models", "Dashboards & financial models",
@@ -621,7 +673,7 @@ def ai_check():
 
 # ------------------------------------------------------------------ how we work / faq / contact
 FAQ = [
-    ("Are you an AI company?", "No. We're an Australian Chartered Accountant firm. We don't make or sell AI software. We help you understand your numbers and your data, fix the problems costing you time and money, and use AI tools responsibly where they genuinely help. We're independent, so we recommend what fits, often tools you already pay for."),
+    ("Are you an AI company?", "We don't make or sell AI software, and we're not tied to any vendor. We set AI up properly for your business: we pick the right tools, connect them to your systems and your team, build the automations, dashboards and agents, and put the controls an accountant would expect around them."),
     ("What does Beiz actually do?", "We're accountants who build the systems behind a business's money: automation that does the grunt work, dashboards and forecasts that show what's coming, and the controls that keep AI safe. We don't do tax."),
     ("Aren't Chartered Accountants just tax accountants?", "Tax is one thing CAs do, and we don't do it at all. Chartered Accountants are trained in audit, risk, systems, forecasting and business advice. GAICD means we're also trained in how boards govern a business and oversee risk."),
     ("Who's behind Beiz?", "Beiz is led by a Chartered Accountant holding a Certificate of Public Practice and a graduate of the Australian Institute of Company Directors, with a background in internal audit, fraud and controls, corporate finance, project delivery and data science. Your written proposal names who does the work, and you can verify credentials before you sign anything."),
