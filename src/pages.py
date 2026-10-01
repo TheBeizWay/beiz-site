@@ -88,7 +88,7 @@ def home():
       </div>
     </div>
     <div class="trust" aria-label="Credentials">
-      <div><img class="ca-logo" src="/ca-logo.png" alt="CA ANZ" onerror="this.remove()"><b>Chartered Accountant</b><small>CA ANZ member holding a Certificate of Public Practice. Bound by the APES code of ethics.</small></div>
+      <div><b>Chartered Accountant</b><small>CA ANZ member holding a Certificate of Public Practice. Bound by the APES code of ethics.</small></div>
       <div><b>GAICD</b><small>Graduate of the Australian Institute of Company Directors. We write for owners and boards, not for IT.</small></div>
       <div><b>Audit &amp; risk</b><small>Internal audit, fraud and controls background. We design systems the way an auditor would test them.</small></div>
       <div><b>Data science</b><small>Python, R, Power BI and automation, built by people who understand the ledger.</small></div>
@@ -140,7 +140,7 @@ def home():
     <ul class="why three">
       <li><span class="ic">AI</span><b>AI is fast</b><p>It drafts, summarises and spots patterns around the clock. It needs someone to check the numbers before anyone acts on them.</p></li>
       <li><span class="ic">⇄</span><b>Offshore teams scale</b><p>Skilled, cost-effective help for volume work like data prep and reconciliations. They do their best work with clear instructions, the right access and review.</p></li>
-      <li><span class="ic">CA</span><b>An Australian CA answers for it</b><p>Bound by the CA ANZ Code of Ethics, insured, across the ATO, Payday Super and Privacy Act rules, and accountable here for the result.</p></li>
+      <li><span class="ic">CA</span><b>An Australian CA answers for it</b><p>Bound by the CA ANZ Code of Ethics, across the ATO, Payday Super and Privacy Act rules, and accountable here for the result.</p></li>
     </ul>
     <p class="dd-so"><b>Already outsource, or thinking about it?</b> We set up the human in the loop: who can access what, the review steps and the checks. <a href="/services/human-in-the-loop/">See how</a></p>
   </div>
@@ -180,7 +180,7 @@ def home():
       <li><b>4.0%</b><span>inflation, year to August</span></li>
       <li><b>14,152</b><span>company insolvencies last financial year</span></li>
       <li><b>43%</b><span>of SMEs using AI. Most of the rest want a human in control</span></li></ul>
-      <a href="/live/">More live numbers →</a></div>
+      <a href="/live/">More numbers →</a></div>
     <div class="evid">
       <div><b>~80%</b><p>of Australian small and medium businesses had their cash flow hit in the past year.</p><small>CommBank survey by YouGov, 507 businesses, published January 2025 · <a href="https://www.unsw.edu.au/news/2025/01/80-per-cent-of-aussie-small-businesses-experience-cash-flow-chal" rel="noopener">source</a></small></div>
       <div><b>~65%</b><p>of SMEs not using AI say it's because they distrust AI decisions or want to keep human control.</p><small>National AI Centre SME AI Pulse, Dec 2025 to Feb 2026 · <a href="https://www.ai.gov.au/news-and-insights/blog/ai-adoption-insights-december-2025-february-2026" rel="noopener">source</a></small></div>
@@ -198,7 +198,7 @@ def home():
       <li><span class="ic">GAICD</span><b>Controls come first</b><p>GAICD trained in governance. Approvals, limits and an audit trail are built in, not added later.</p></li>
       <li><span class="ic">$</span><b>Fixed price, in writing</b><p>You know the cost and the deliverables before we start. No hourly meter, no lock-in contracts.</p></li>
       <li><span class="ic">🔒</span><b>Your data stays yours</b><p>We build inside your own accounts, use business-grade AI that doesn't train on your data, and are bound by professional confidentiality under the CA ANZ code of ethics.</p></li>
-      <li><span class="ic">✓</span><b>Accountable</b><p>Certificate of Public Practice, professional indemnity insured, liability limited under an approved Professional Standards scheme.</p></li>
+      <li><span class="ic">✓</span><b>Accountable</b><p>CA ANZ Certificate of Public Practice, bound by the CA ANZ Code of Ethics, and everything agreed in writing.</p></li>
     </ul>
   </div>
 </section>
@@ -287,7 +287,7 @@ def services():
         aside("Good fit if", ["You're covered by the Privacy Act, or not sure", "Staff use ChatGPT, Copilot or Gemini", "A board, investor or big customer is asking about AI", "You want AI, just not the headline"], "AI readiness & governance",
               "Not legal advice. We work alongside your lawyer where the law needs interpreting."),
         before_after("A 40-person services firm", ["Nine AI tools in use, three approved", "Client data pasted into a free chatbot", "Privacy policy silent on automation", "Board asks, nobody can answer"],
-                     ["One register, owned by the COO", "Business-grade tools only, training switched off", "Automated decisions described in plain English", "One-page board paper each quarter"], "Example scenario"),
+                     ["One register, owned by the COO", "Business-grade tools only, training switched off", "Automated decisions described in plain English", "One-page board paper each quarter"], "Illustrative example, not a client"),
         [("/ai-check/", "Free 2-minute Privacy Act check"), ("/insights/privacy-act-automated-decisions/", "The new rule in plain English"), ("/services/ai-readiness-sprint/", "AI Readiness Sprint")],
         "AI readiness & governance", "AI governance & Privacy Act readiness",
         "AI register, automated-decision mapping, AI use policy, controls and board reporting, ready for the Privacy Act automated-decision rules from 10 December 2026.")
@@ -310,7 +310,7 @@ def services():
         aside("Good fit if", ["You use an offshore bookkeeper, VA or admin team", "You're about to outsource and want it set up right", "Staff use AI on customer or financial data", "You want someone in Australia accountable for the result"], "Offshore & AI oversight",
               "Not an audit or assurance engagement, and not legal advice."),
         before_after("A 15-person trades business with an offshore bookkeeper", ["One shared login to Xero and the bank", "Bookkeeper can pay bills and change supplier bank details", "Nobody checks the reconciliations", "Customer data sent to personal email"],
-                     ["Own login with read-and-draft access", "Owner approves payments and bank-detail changes", "Monthly sample check by a CA", "Work stays in the business's own accounts"], "Example scenario"),
+                     ["Own login with read-and-draft access", "Owner approves payments and bank-detail changes", "Monthly sample check by a CA", "Work stays in the business's own accounts"], "Illustrative example, not a client"),
         [("/services/ai-governance/", "AI governance & Privacy Act readiness"), ("/services/automation/", "Workflow automation"), ("/faq/", "FAQ")],
         "Offshore & AI oversight", "Offshore & AI oversight: human in the loop",
         "Set up offshore teams and AI tools with the right access, review steps and checks, overseen by an Australian Chartered Accountant.")
@@ -332,7 +332,7 @@ def services():
          ("Runbook", "What it does, what to do when it stops."), ("Training", "Short, recorded, for the people who'll use it."), ("Handover", "It's yours: your accounts, your data, your logins.")],
         aside("Typical builds", ["Quick wins: days", "Single process: 2 to 4 weeks", "Multi-step agent: 4 to 8 weeks", "Fixed price, agreed in writing"], "Automation & AI agents"),
         before_after("Accounts payable, 400 invoices a month", ["Two days a month keying and matching", "A duplicate payment every quarter", "Bank detail changes by email, unchecked", "No record of who approved what"],
-                     ["Matching done overnight", "Duplicates flagged before payment", "Changed bank details held until verified by phone", "Every approval logged"], "Example scenario"),
+                     ["Matching done overnight", "Duplicates flagged before payment", "Changed bank details held until verified by phone", "Every approval logged"], "Illustrative example, not a client"),
         [("/examples/", "See a sample control log"), ("/services/quick-wins/", "Small business quick wins"), ("/how-we-work/", "How we protect you")],
         "Automation & AI agents", "Agents & automation for finance",
         "AI agents and finance automation with approvals, delegation limits and a full audit trail: accounts payable, invoicing, month-end, reporting and admin.")
@@ -355,7 +355,7 @@ def services():
          ("Team training", "Short sessions using your team's own work."), ("Usage rules", "One page on what staff can and can't put into AI."), ("Measured results", "Time saved, questions answered, errors caught.")],
         aside("Good fit if", ["You don't know which AI to use", "Staff already use free AI tools", "The same questions get asked every day", "You want speed without losing control"], "Automation & AI agents"),
         before_after("A 15-person trades business", ["Office answers the same 30 questions by phone", "Quotes typed from scratch", "Staff pasting customer details into free tools", "No idea if AI saves any time"],
-                     ["Website assistant answers the common ones and hands over the rest", "Quotes drafted from past jobs, checked by a person", "One approved business AI tool, with rules", "Hours saved reported monthly"], "Example scenario"),
+                     ["Website assistant answers the common ones and hands over the rest", "Quotes drafted from past jobs, checked by a person", "One approved business AI tool, with rules", "Hours saved reported monthly"], "Illustrative example, not a client"),
         [("/services/automation/", "Workflow automation"), ("/services/ai-governance/", "AI governance"), ("/services/ai-readiness-sprint/", "AI Readiness Sprint")],
         "Automation & AI agents", "AI agents, chatbots & AI integration",
         "Not sure which AI to use? We pick the right tool, build chatbots, assistants and agents into your team's work, and train your people, with limits, logs and human sign-off.")
@@ -382,7 +382,7 @@ def services():
          ("Clean data store", "One source for reports, models and AI."), ("Quality checks", "Missing, duplicate and odd records flagged."), ("Runbook", "What runs when, and what to do if it stops.")],
         aside("Good fit if", ["Reports start with copy and paste", "Systems disagree about the same number", "You want AI, but your data isn't ready", "You're outgrowing spreadsheets"], "Dashboards & analytics"),
         before_after("A multi-site hospitality group", ["Sales in the POS, wages in payroll, costs in Xero", "Weekly report built by hand every Monday", "Three versions of revenue", "Nobody trusts the numbers"],
-                     ["All three connected nightly", "Weekly report ready by 6am Monday", "One agreed definition of revenue", "Owners act on the numbers"], "Example scenario"),
+                     ["All three connected nightly", "Weekly report ready by 6am Monday", "One agreed definition of revenue", "Owners act on the numbers"], "Illustrative example, not a client"),
         [("/services/dashboards-and-models/", "Dashboards & financial models"), ("/services/automation/", "Workflow automation"), ("/services/ai-agents/", "AI agents & chatbots")],
         "Dashboards & analytics", "Data engineering & integration",
         "Data engineering for Australian businesses: Xero, CRM, POS and spreadsheets connected, cleaned and flowing into one trusted source for dashboards, models and AI.")
@@ -403,7 +403,7 @@ def services():
          ("Scenarios", "Best, base and worst, with the drivers you can change."), ("Walkthrough", "A recorded explanation of how to read and update it."), ("Refresh routine", "Weekly or monthly, automated where possible.")],
         aside("Good fit if", ["You find out about cash problems too late", "Investors or the bank want numbers you can defend", "You're deciding on a hire, a loan or a big spend", "Your spreadsheet has become fragile"], "Dashboards & analytics"),
         before_after("A growing agency", ["Cash checked by logging into the bank", "Forecast in a spreadsheet only the founder understands", "Board pack takes three days", "Hiring decisions made on gut feel"],
-                     ["Monday cash email with a 13-week view", "Model the team can update safely", "Board pack refreshes itself", "Every hire tested against runway first"], "Example scenario"),
+                     ["Monday cash email with a 13-week view", "Model the team can update safely", "Board pack refreshes itself", "Every hire tested against runway first"], "Illustrative example, not a client"),
         [("/examples/", "See sample charts"), ("/industries/startups/", "For startups & tech agencies"), ("/industries/trades/", "For trades & construction")],
         "Dashboards & analytics", "Dashboards & financial models",
         "13-week cash forecasts, runway and scenario models, job profitability and investor metrics, built from your own data and reconciled to the ledger. The cash visibility of a part-time CFO, without the CFO cost.")
@@ -423,7 +423,7 @@ def services():
          ("Risk & issue log", "Kept current, not filled in after the fact."), ("Weekly status", "One page, in plain English, every week."), ("Benefits check", "Did it deliver what was promised?")],
         aside("Good fit if", ["You're about to buy software or hire a developer", "A project is late, over budget or stuck", "Nobody internally has time to run it", "You want someone on your side of the table"], "Tech project delivery"),
         before_after("A clinic changing booking systems", ["Vendor chosen from a demo", "No data migration plan", "Go-live date slipped twice", "Staff still using the old system"],
-                     ["Scope and migration signed off in writing", "Weekly status against milestones", "Go-live on the agreed date", "Training done, old system switched off"], "Example scenario"),
+                     ["Scope and migration signed off in writing", "Weekly status against milestones", "Go-live on the agreed date", "Training done, old system switched off"], "Illustrative example, not a client"),
         [("/insights/burned-by-an-ai-product/", "Burned by a developer? Start here"), ("/services/automation/", "Agents & automation"), ("/how-we-work/", "How we work")],
         "Tech project delivery", "AI & tech project delivery",
         "Project delivery for AI and technology projects: scoping, vendor comparison, milestones, risk logs and plain-English status reporting. Rescue for stalled projects.")
@@ -461,7 +461,7 @@ def services():
                   [("/services/", "Services"), ("/services/quick-wins/", "Quick wins")], [("/contact/?topic=Small%20business%20quick%20win#form", "Ask about a quick win"), ("/examples/", "See examples")]) +
             f'<section style="padding-top:8px"><div class="wrap"><div class="cards quick">{c}</div>' +
             before_after("A two-van plumbing business", ["Invoices sent on Sunday nights", "$18k owed, nobody chasing", "No idea which jobs lost money", "Receipts in the glovebox"],
-                         ["Invoice sent when the job's marked done", "Reminders go out automatically", "Monthly margin by job type", "Receipts snapped and matched"], "Example scenario") +
+                         ["Invoice sent when the job's marked done", "Reminders go out automatically", "Monthly margin by job type", "Receipts snapped and matched"], "Illustrative example, not a client") +
             related([("/industries/trades/", "For trades & construction"), ("/industries/hospitality-retail/", "For hospitality & retail"), ("/examples/", "See a sample Monday cash email")]) +
             "</div></section>" + cta_band(topic="Small business quick win"))
     add("/services/quick-wins/", "Small business quick wins", "Fixed-price quick wins for small businesses: invoices that chase themselves, quote to invoice automation, Xero health checks, Monday cash emails and job profitability.", body)
@@ -488,7 +488,7 @@ def privacy_sprint():
         aside("The fine print", ["Fixed price, quoted in writing", "About 5 to 10 business days", "Document-first: no meetings needed", "Built to finish before 10 December 2026"], "Privacy Act automated-decision check",
               "General information and process support only, not legal advice."),
         before_after("An allied health practice, 12 staff", ["Booking system auto-declines repeat no-shows", "Billing software sets payment plans automatically", "Privacy policy silent on automation", "No one knows what the tools decide"],
-                     ["Both decisions mapped, with the data they use", "Human review added for payment plans", "Draft wording with the lawyer", "One-page summary for the practice owner"], "Example scenario"),
+                     ["Both decisions mapped, with the data they use", "Human review added for payment plans", "Draft wording with the lawyer", "One-page summary for the practice owner"], "Illustrative example, not a client"),
         [("/ai-check/", "Free 2-minute check"), ("/insights/privacy-act-automated-decisions/", "The rule in plain English"), ("/services/ai-governance/", "Wider AI governance")],
         "Privacy Act automated-decision check", "Automated-Decision Privacy Sprint",
         "Fixed-price sprint to map automated decisions and prepare privacy policy wording for your lawyer before the Privacy Act transparency obligation starts on 10 December 2026.")
@@ -534,7 +534,7 @@ def industries():
          ("Job costing", "Materials, labour and subbies against each job, so you know what made money."), ("Quoting model", "Built from your real past jobs, with contingency that reflects risk."),
          ("Monday cash email", "What's in the bank, what's owed, what's due, before you hit the site."), ("Supplier price watch", "Flags when a supplier's prices creep up.")],
         before_after("A cabinet-making business, 6 staff", ["Invoices typed up on the weekend", "31 days average to get paid", "Two jobs a quarter quietly lose money", "Cash surprises every BAS quarter"],
-                     ["Invoices out the day the job closes", "Reminders run themselves", "Margin by job, every month", "13-week cash view, no surprises"], "Example scenario"),
+                     ["Invoices out the day the job closes", "Reminders run themselves", "Margin by job, every month", "13-week cash view, no surprises"], "Illustrative example, not a client"),
         [("/services/quick-wins/", "Quick wins"), ("/examples/", "Sample job profitability chart"), ("/services/dashboards-and-models/", "Cash forecasts")],
         "Small business quick win", "For trades & construction",
         "Automated quoting, invoicing, payment reminders and job costing for Australian tradies and construction businesses. Fixed price, no lock-in.")
@@ -548,7 +548,7 @@ def industries():
          ("Reminder and rebooking flows", "Using your existing booking system, within its rules."), ("AI use policy", "What staff can and can't put into AI tools, in plain English."),
          ("Privacy Act readiness", "Health service providers are generally covered regardless of size."), ("Controls", "Access, approvals and logs around anything touching patient data.")],
         before_after("An allied health practice, 4 clinicians", ["Friday afternoons spent reconciling", "No-show rate unknown", "Staff pasting notes into a free chatbot", "Privacy policy last updated years ago"],
-                     ["Reconciliation done nightly", "No-shows tracked and followed up", "Approved, business-grade AI only", "Policy reviewed for automated decisions"], "Example scenario"),
+                     ["Reconciliation done nightly", "No-shows tracked and followed up", "Approved, business-grade AI only", "Policy reviewed for automated decisions"], "Illustrative example, not a client"),
         [("/ai-check/", "Privacy Act AI check"), ("/services/ai-governance/", "AI governance"), ("/services/automation/", "Automation")],
         "AI readiness & governance", "For health & allied health providers",
         "Billing reconciliation, rostering, practice dashboards and AI governance for Australian clinics and allied health practices, with privacy and human sign-off built in.")
@@ -563,7 +563,7 @@ def industries():
          ("Board pack", "Monthly, refreshed from your systems, with commentary."), ("Data room financials", "Clean, reconciled and documented."),
          ("R&D cost tagging", "Development time and costs tagged by project, ready for your R&D adviser."), ("AI governance", "Register, policy and controls for due diligence.")],
         before_after("A 12-person SaaS startup", ["Runway 'about 18 months'", "Metrics rebuilt before every raise", "R&D costs untangled at year end", "No answer on AI governance"],
-                     [f"Base case runway {rf['Base']} months, worst case {rf['Worst']}", "Metrics dashboard, same definitions monthly", "Costs tagged as they happen", "One-page AI governance summary"], "Example scenario"),
+                     [f"Base case runway {rf['Base']} months, worst case {rf['Worst']}", "Metrics dashboard, same definitions monthly", "Costs tagged as they happen", "One-page AI governance summary"], "Illustrative example, not a client"),
         [("/examples/", "Sample runway model"), ("/services/dashboards-and-models/", "Dashboards & models"), ("/services/ai-governance/", "AI governance")],
         "Financial modelling", "For startups & tech agencies",
         "Runway and scenario models, investor metrics (MRR, CAC, churn), board packs, R&D cost tagging and AI governance for Australian startups and tech agencies.")
@@ -577,7 +577,7 @@ def industries():
          ("Treasury reporting", "Holdings, movements and exposure, weekly."), ("Transaction records", "Complete, categorised and traceable, ready for your tax agent."),
          ("Controls", "Documented approvals, segregation of duties and access reviews."), ("Audit readiness", "The evidence trail your auditor will ask for.")],
         before_after("A software company paid partly in stablecoins", ["Three wallets, one spreadsheet", "Payments matched by hand monthly", "One person can move funds alone", "Year-end records rebuilt from scratch"],
-                     ["Daily reconciliation to the ledger", "Stablecoin receipts matched on arrival", "Two-person approval, logged", "Clean records for the tax agent"], "Example scenario"),
+                     ["Daily reconciliation to the ledger", "Stablecoin receipts matched on arrival", "Two-person approval, logged", "Clean records for the tax agent"], "Illustrative example, not a client"),
         [("/examples/", "Sample wallet reconciliation"), ("/services/automation/", "Automation"), ("/services/dashboards-and-models/", "Treasury dashboards")],
         "Something else", "For crypto & digital asset businesses",
         "Wallet and stablecoin reconciliations, treasury reporting, transaction records and controls for Australian businesses working with digital assets.",
@@ -592,7 +592,7 @@ def industries():
          ("Donor reconciliation", "Payments, CRM and ledger matched automatically."), ("Cash & reserves forecast", "So the board can see the next 12 months."),
          ("AI use policy", "Sensible rules for staff and volunteers using AI."), ("Reporting data", "Ready for your ACNC annual information statement.")],
         before_after("A community organisation, 3 grants", ["Acquittals built from scratch each time", "Board pack takes a week", "Donor totals don't match the ledger", "Reserves discussed by feel"],
-                     ["Acquittals from tagged spend", "Board dashboard refreshes itself", "Donors reconciled monthly", "12-month reserves forecast"], "Example scenario"),
+                     ["Acquittals from tagged spend", "Board dashboard refreshes itself", "Donors reconciled monthly", "12-month reserves forecast"], "Illustrative example, not a client"),
         [("/services/dashboards-and-models/", "Dashboards"), ("/services/automation/", "Automation"), ("/services/ai-governance/", "AI governance")],
         "Something else", "For not-for-profits",
         "Grant reporting, board dashboards, donor reconciliation and reserves forecasting for Australian not-for-profits and charities.")
@@ -606,7 +606,7 @@ def industries():
          ("Margin by product", "Which items make money and which just move."), ("Weekly cash email", "In the bank, owed, due, and next week's big bills."),
          ("Stock alerts", "Slow movers and reorder points from your sales history."), ("Invoice capture", "Supplier bills captured and coded without the shoebox.")],
         before_after("A café with two sites", ["Wages 38% of sales, found out monthly", "Supplier prices unchecked", "Menu priced by gut feel", "Cash crunch every quarter"],
-                     ["Wages tracked daily against sales", "Price rises flagged on arrival", "Margin by menu item", "13-week cash view"], "Example scenario"),
+                     ["Wages tracked daily against sales", "Price rises flagged on arrival", "Margin by menu item", "13-week cash view"], "Illustrative example, not a client"),
         [("/services/quick-wins/", "Quick wins"), ("/services/dashboards-and-models/", "Dashboards"), ("/examples/", "Sample Monday cash email")],
         "Small business quick win", "For hospitality & retail",
         "Wages versus sales, supplier price monitoring, margins and weekly cash reporting for Australian cafés, restaurants and retailers.")
@@ -673,7 +673,7 @@ def examples():
 <div class="exb"><div class="vscroll"><svg class="flowsvg" viewBox="0 0 1226 210" role="img" aria-label="Workflow: schedule, pull from Xero read-only, run checks, update forecast, AI drafts the note, you approve, send and log. Failed checks stop the run and alert you."><defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#93a0ab"/></marker></defs><g><title>Every Monday: 5:00am schedule</title><rect x="10" y="20" width="150" height="78" rx="10" fill="#10161b" stroke="#2c3843" stroke-width="1.5"/><text x="22" y="40" font-family="JetBrains Mono,monospace" font-size="9.5" letter-spacing="1.2" fill="#93a0ab">STEP 1</text><text x="22" y="62" font-family="Inter,sans-serif" font-size="14" font-weight="600" fill="#e8edf1">Every Monday</text><text x="22" y="81" font-family="Inter,sans-serif" font-size="10.5" fill="#93a0ab">5:00am schedule</text></g><line x1="162" y1="59.0" x2="183" y2="59.0" stroke="#93a0ab" stroke-width="1.5" marker-end="url(#ar)"/><g><title>Pull from Xero: read-only access</title><rect x="186" y="20" width="150" height="78" rx="10" fill="#10161b" stroke="#2c3843" stroke-width="1.5"/><text x="198" y="40" font-family="JetBrains Mono,monospace" font-size="9.5" letter-spacing="1.2" fill="#93a0ab">STEP 2</text><text x="198" y="62" font-family="Inter,sans-serif" font-size="14" font-weight="600" fill="#e8edf1">Pull from Xero</text><text x="198" y="81" font-family="Inter,sans-serif" font-size="10.5" fill="#93a0ab">read-only access</text></g><line x1="338" y1="59.0" x2="359" y2="59.0" stroke="#93a0ab" stroke-width="1.5" marker-end="url(#ar)"/><g><title>Run the checks: ties to bank? bills missing?</title><rect x="362" y="20" width="150" height="78" rx="10" fill="#10161b" stroke="#5eead4" stroke-width="2"/><text x="374" y="40" font-family="JetBrains Mono,monospace" font-size="9.5" letter-spacing="1.2" fill="#5eead4">STEP 3</text><text x="374" y="62" font-family="Inter,sans-serif" font-size="14" font-weight="600" fill="#e8edf1">Run the checks</text><text x="374" y="81" font-family="Inter,sans-serif" font-size="10.5" fill="#93a0ab">ties to bank? bills missing?</text></g><line x1="514" y1="59.0" x2="535" y2="59.0" stroke="#93a0ab" stroke-width="1.5" marker-end="url(#ar)"/><g><title>Update forecast: 13 weeks, rolled on</title><rect x="538" y="20" width="150" height="78" rx="10" fill="#10161b" stroke="#2c3843" stroke-width="1.5"/><text x="550" y="40" font-family="JetBrains Mono,monospace" font-size="9.5" letter-spacing="1.2" fill="#93a0ab">STEP 4</text><text x="550" y="62" font-family="Inter,sans-serif" font-size="14" font-weight="600" fill="#e8edf1">Update forecast</text><text x="550" y="81" font-family="Inter,sans-serif" font-size="10.5" fill="#93a0ab">13 weeks, rolled on</text></g><line x1="690" y1="59.0" x2="711" y2="59.0" stroke="#93a0ab" stroke-width="1.5" marker-end="url(#ar)"/><g><title>Draft the note: AI writes, cites figures</title><rect x="714" y="20" width="150" height="78" rx="10" fill="#10161b" stroke="#2c3843" stroke-width="1.5"/><text x="726" y="40" font-family="JetBrains Mono,monospace" font-size="9.5" letter-spacing="1.2" fill="#93a0ab">AI · CHECKED</text><text x="726" y="62" font-family="Inter,sans-serif" font-size="14" font-weight="600" fill="#e8edf1">Draft the note</text><text x="726" y="81" font-family="Inter,sans-serif" font-size="10.5" fill="#93a0ab">AI writes, cites figures</text></g><line x1="866" y1="59.0" x2="887" y2="59.0" stroke="#93a0ab" stroke-width="1.5" marker-end="url(#ar)"/><g><title>You approve: nothing sends without you</title><rect x="890" y="20" width="150" height="78" rx="10" fill="#10161b" stroke="#fbbf24" stroke-width="2"/><text x="902" y="40" font-family="JetBrains Mono,monospace" font-size="9.5" letter-spacing="1.2" fill="#fbbf24">HUMAN</text><text x="902" y="62" font-family="Inter,sans-serif" font-size="14" font-weight="600" fill="#e8edf1">You approve</text><text x="902" y="81" font-family="Inter,sans-serif" font-size="10.5" fill="#93a0ab">nothing sends without you</text></g><line x1="1042" y1="59.0" x2="1063" y2="59.0" stroke="#93a0ab" stroke-width="1.5" marker-end="url(#ar)"/><g><title>Send + log: email out, all logged</title><rect x="1066" y="20" width="150" height="78" rx="10" fill="#10161b" stroke="#2c3843" stroke-width="1.5"/><text x="1078" y="40" font-family="JetBrains Mono,monospace" font-size="9.5" letter-spacing="1.2" fill="#93a0ab">STEP 7</text><text x="1078" y="62" font-family="Inter,sans-serif" font-size="14" font-weight="600" fill="#e8edf1">Send + log</text><text x="1078" y="81" font-family="Inter,sans-serif" font-size="10.5" fill="#93a0ab">email out, all logged</text></g><path d="M437.0,100 L437.0,142" stroke="#d95926" stroke-width="1.5" stroke-dasharray="4 3" fill="none" marker-end="url(#ar)"/><g><title>If a check fails, the run stops and you get an alert instead of a wrong email</title><rect x="317.0" y="146" width="240" height="50" rx="10" fill="#10161b" stroke="#d95926" stroke-width="1.5"/><text x="329.0" y="166" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#e8edf1">Check fails? Stop and alert you</text><text x="329.0" y="184" font-family="Inter,sans-serif" font-size="10.5" fill="#93a0ab">No wrong numbers ever reach your inbox</text></g></svg></div></div>
 <p class="cap">Every Monday the same seven steps run on their own. The orange line is the safety net: if the numbers don't tie to the bank, the run stops and you get an alert, not a wrong email. Nothing goes out until a person approves it.</p></div>
 
-<div class="ex" id="ex10"><div class="exh"><b>10. Time given back</b><span>Example scenario · 12-person business</span></div>
+<div class="ex" id="ex10"><div class="exh"><b>10. Time given back</b><span>Illustrative example · 12-person business</span></div>
 <div class="exb"><div class="vlegend"><span><i style="background:#56636e"></i>Before (hours a month)</span><span><i style="background:#3987e5"></i>After</span></div><div class="vscroll"><svg class="timesvg" viewBox="0 0 700 300" role="img" aria-label="Hours per month before and after automation, by task. Total 52 hours before, 12.5 after."><line x1="230.0" y1="22" x2="230.0" y2="274" stroke="#232d36" stroke-width="1"/><text x="230.0" y="290" text-anchor="middle" font-size="10" fill="#93a0ab" font-family="JetBrains Mono,monospace">0h</text><line x1="332.5" y1="22" x2="332.5" y2="274" stroke="#232d36" stroke-width="1"/><text x="332.5" y="290" text-anchor="middle" font-size="10" fill="#93a0ab" font-family="JetBrains Mono,monospace">4h</text><line x1="435.0" y1="22" x2="435.0" y2="274" stroke="#232d36" stroke-width="1"/><text x="435.0" y="290" text-anchor="middle" font-size="10" fill="#93a0ab" font-family="JetBrains Mono,monospace">8h</text><line x1="537.5" y1="22" x2="537.5" y2="274" stroke="#232d36" stroke-width="1"/><text x="537.5" y="290" text-anchor="middle" font-size="10" fill="#93a0ab" font-family="JetBrains Mono,monospace">12h</text><line x1="640.0" y1="22" x2="640.0" y2="274" stroke="#232d36" stroke-width="1"/><text x="640.0" y="290" text-anchor="middle" font-size="10" fill="#93a0ab" font-family="JetBrains Mono,monospace">16h</text><text x="218" y="43" text-anchor="end" font-size="12.5" fill="#e8edf1" font-family="Inter,sans-serif">Matching supplier bills</text><g><title>Matching supplier bills: before 12 hours a month</title><rect x="230" y="26" width="307.5" height="13" rx="3" fill="#56636e"/></g><text x="543.5" y="37" font-size="10.5" fill="#93a0ab" font-family="JetBrains Mono,monospace">12h</text><g><title>Matching supplier bills: after 3 hours a month</title><rect x="230" y="42.0" width="76.875" height="13" rx="3" fill="#3987e5"/></g><text x="312.875" y="53.0" font-size="10.5" fill="#e8edf1" font-family="JetBrains Mono,monospace">3h</text><text x="218" y="91" text-anchor="end" font-size="12.5" fill="#e8edf1" font-family="Inter,sans-serif">Chasing payments</text><g><title>Chasing payments: before 10 hours a month</title><rect x="230" y="74" width="256.25" height="13" rx="3" fill="#56636e"/></g><text x="492.25" y="85" font-size="10.5" fill="#93a0ab" font-family="JetBrains Mono,monospace">10h</text><g><title>Chasing payments: after 2 hours a month</title><rect x="230" y="90.0" width="51.25" height="13" rx="3" fill="#3987e5"/></g><text x="287.25" y="101.0" font-size="10.5" fill="#e8edf1" font-family="JetBrains Mono,monospace">2h</text><text x="218" y="139" text-anchor="end" font-size="12.5" fill="#e8edf1" font-family="Inter,sans-serif">Month-end checks</text><g><title>Month-end checks: before 16 hours a month</title><rect x="230" y="122" width="410.0" height="13" rx="3" fill="#56636e"/></g><text x="646.0" y="133" font-size="10.5" fill="#93a0ab" font-family="JetBrains Mono,monospace">16h</text><g><title>Month-end checks: after 6 hours a month</title><rect x="230" y="138.0" width="153.75" height="13" rx="3" fill="#3987e5"/></g><text x="389.75" y="149.0" font-size="10.5" fill="#e8edf1" font-family="JetBrains Mono,monospace">6h</text><text x="218" y="187" text-anchor="end" font-size="12.5" fill="#e8edf1" font-family="Inter,sans-serif">Building the reporting pack</text><g><title>Building the reporting pack: before 8 hours a month</title><rect x="230" y="170" width="205.0" height="13" rx="3" fill="#56636e"/></g><text x="441.0" y="181" font-size="10.5" fill="#93a0ab" font-family="JetBrains Mono,monospace">8h</text><g><title>Building the reporting pack: after 1 hours a month</title><rect x="230" y="186.0" width="25.625" height="13" rx="3" fill="#3987e5"/></g><text x="261.625" y="197.0" font-size="10.5" fill="#e8edf1" font-family="JetBrains Mono,monospace">1h</text><text x="218" y="235" text-anchor="end" font-size="12.5" fill="#e8edf1" font-family="Inter,sans-serif">Working out cash for the month</text><g><title>Working out cash for the month: before 6 hours a month</title><rect x="230" y="218" width="153.75" height="13" rx="3" fill="#56636e"/></g><text x="389.75" y="229" font-size="10.5" fill="#93a0ab" font-family="JetBrains Mono,monospace">6h</text><g><title>Working out cash for the month: after 0.5 hours a month</title><rect x="230" y="234.0" width="12.8125" height="13" rx="3" fill="#3987e5"/></g><text x="248.8125" y="245.0" font-size="10.5" fill="#e8edf1" font-family="JetBrains Mono,monospace">0.5h</text></svg></div>
 <div class="vkpis"><div><small>Before</small><b>52 h a month</b></div><div><small>After</small><b>12.5 h a month</b></div><div><small>Back to the business</small><b>About 40 h a month</b></div></div></div>
 <p class="cap">Illustrative only: your numbers depend on your volume and how tidy your data is. We measure your real before-and-after hours, so you see the actual result, not a promise.</p></div>
@@ -723,18 +723,17 @@ FAQ = [
     ("What does Beiz actually do?", "We're accountants who build the systems behind a business's money: automation that does the grunt work, dashboards and forecasts that show what's coming, and the controls that keep AI safe. We don't do tax."),
     ("Isn't a Chartered Accountant just a tax accountant?", "Tax is one thing a Chartered Accountant can do, and we don't do it at all. A Chartered Accountant is trained in audit, risk, systems, forecasting and business advice. GAICD means we're also trained in how boards govern a business and oversee risk."),
     ("Who's behind Beiz?", "Beiz is led by a Chartered Accountant holding a Certificate of Public Practice and a graduate of the Australian Institute of Company Directors, with a background in internal audit, fraud and controls, corporate finance, project delivery and data science. Your written proposal names who does the work, and you can verify credentials before you sign anything."),
-    ("Are you insured?", "Yes. We hold professional indemnity insurance, as required for public practice, and our liability is limited by a scheme approved under Professional Standards Legislation."),
     ("Is my data safe with AI?", "We only use business-grade AI services whose terms stop your data being used to train models, and we build inside your own Microsoft, Google or Xero accounts wherever we can. Sensitive steps stay with a human."),
     ("What happens if the AI gets it wrong?", "It will, sometimes. That's why every build has approval steps, limits and a log. The AI prepares the work, a person signs it off, and anything unusual gets flagged rather than actioned."),
     ("Do you replace my accountant or bookkeeper?", "No. We don't replace your tax accountant, we feed them. They keep you right with the ATO, looking back at what happened. We work on what happens next week. At year end they get clean, reconciled data and do their job faster."),
     ("Do you do tax, BAS or R&D tax incentive claims?", "No. We don't provide tax agent or BAS services. What we do is make your records clean: crypto transactions reconciled, development costs tagged by project and activity, everything traceable. Your registered tax agent or R&D adviser then works from data they can rely on."),
-    ("Doesn't Xero already do a cash forecast?", "Xero shows a short-term view of what's already entered as invoices and bills. Most cash surprises come from what isn't: payroll and super, the BAS, loan repayments, the big job coming up, and bills nobody has entered yet. We build a 13-week forecast that includes all of it, and a short Monday note that tells you the one thing worth acting on."),
+    ("Doesn't Xero already do a cash forecast?", "Xero's own short-term forecast works mainly from the invoices and bills already entered in Xero. Most cash surprises come from what isn't: payroll and super, the BAS, loan repayments, the big job coming up, and bills nobody has entered yet. We build a 13-week forecast that includes all of it, and a short Monday note that tells you the one thing worth acting on."),
     ("Why 13 weeks?", "It's one quarter, so it always includes a BAS payment, several pay runs and three months of rent and loans. Customers on 30 to 60 day terms pay inside the window, so most of it is money you already know about. It's far enough ahead to act, and near enough to be reliable. Each Monday the oldest week drops off and a new one is added."),
     ("Do you do SMSF work or business valuations?", "No. SMSF advice and audits need licences and registrations we don't hold, and valuations are a specialist field with their own professional standard. What we can do is get your numbers clean and sale-ready, so the valuer, broker or adviser you choose has what they need."),
     ("Which tools do you work with?", "Xero, MYOB, Microsoft 365, Power BI, Power Automate, Google Workspace, n8n, Python and leading AI models. We pick what fits what you already own."),
     ("Why do you work in writing first?", "It respects your time and gets better answers. A written brief lets us think properly before replying, and you get a fully priced blueprint with a clear record of what was agreed, instead of a sales pitch. Once work is under way, if a conversation genuinely helps, we'll schedule one."),
-    ("Why use an Australian CA rather than just AI or an offshore team?", "Use them too. AI and offshore teams are great for speed and volume. What an Australian Chartered Accountant adds is accountability here: bound by the CA ANZ Code of Ethics, insured, across Australian rules like Payday Super, BAS timing and the Privacy Act, and answerable for the result. If you already outsource, we can set up the access, review steps and checks so it runs safely."),
-    ("Is any of the work done offshore?", "All strategy, architecture, governance and sign-off are led in Australia by a Chartered Accountant and GAICD. For some build work we use a small, vetted delivery team, always under our direct review. Your engagement letter names the country and what the team can access, and nothing is shared without your written consent. They only get the access the job needs, and we remain fully responsible for the work, so any mistake is ours to fix, not yours."),
+    ("Why use an Australian CA rather than just AI or an offshore team?", "Use them too. AI and offshore teams are great for speed and volume. What an Australian Chartered Accountant adds is accountability here: bound by the CA ANZ Code of Ethics, across Australian rules like Payday Super, BAS timing and the Privacy Act, and answerable for the result. If you already outsource, we can set up the access, review steps and checks so it runs safely."),
+    ("Is any of the work done offshore?", "All strategy, architecture, governance and sign-off are led in Australia by a Chartered Accountant and GAICD. For some build work we may use a small, vetted delivery team, always under our direct review. Your engagement letter names the country and what the team can access, and nothing is shared without your written consent. They only get the access the job needs, and we remain responsible for the work we deliver to you."),
     ("Who owns what you build?", "You own the outcome: the automations, dashboards and models run inside your own accounts, with your logins. Our reusable templates, frameworks and code libraries remain our intellectual property, licensed to you for your business. That's how we keep delivery fast and prices fixed."),
     ("Do I need a board or a big business?", "No. Plenty of our work is for owner-operators who are flat out and just want the admin to stop eating their evenings. We size the work to the business."),
     ("How much does it cost?", "Every job is fixed price, quoted in writing after we understand the problem. Quick wins are priced like quick wins; larger builds are scoped individually. No hourly meter and no lock-in contracts."),
@@ -774,9 +773,9 @@ def how_we_work():
 <li><strong>Tax or BAS work.</strong> We leave that to your tax agent and make their job easier.</li></ul>
 <h2>Who's behind Beiz</h2>
 <p>Beiz is led by a Chartered Accountant (CA ANZ, Certificate of Public Practice) and graduate of the Australian Institute of Company Directors. The background: internal audit, fraud and controls, corporate finance, large-portfolio project delivery and data science. Your written proposal names who does the work, and you can verify credentials before signing.</p>
-<p>We're professional indemnity insured, as required for public practice, and bound by the APES code of ethics.</p>
+<p>We're bound by the CA ANZ Code of Ethics (APES 110).</p>
 <h2>Led in Australia</h2>
-<p>All strategy, architecture, governance and sign-off happen in Australia, by a Chartered Accountant and GAICD. For some build work we use a small, vetted delivery team, always under our direct review and audit. Your engagement letter says where any of your information will be handled, before you sign.</p>
+<p>All strategy, architecture, governance and sign-off happen in Australia, by a Chartered Accountant and GAICD. For some build work we use a small, vetted delivery team, only with your written consent and always under our direct review. Your engagement letter says where any of your information will be handled, before you sign.</p>
 <h2>Who owns what</h2>
 <p>You own the outcome: everything runs in your accounts, with your logins, and it keeps running if we part ways. Our reusable templates, frameworks and code libraries stay our intellectual property, licensed to you. That's what keeps delivery fast and prices fixed.</p>
 </div><aside class="aside"><h3>Working with your accountant</h3><p class="muted">Already have a tax accountant or bookkeeper? Good. We work alongside them and hand over clean, reconciled data.</p><a class="btn primary" href="/insights/we-feed-your-tax-accountant/">How that works</a></aside></div></section>''' + cta_band()
@@ -806,9 +805,8 @@ def privacy():
 <li><strong>Engagement information:</strong> if you become a client, the information needed to deliver the work, invoice you and meet our professional obligations.</li></ul>
 <h2>What our website does and doesn't do</h2>
 <ul><li>We don't use analytics, advertising cookies or tracking pixels.</li>
-<li>Fonts and market data are served from our own site. Pages don't call third-party services when they load.</li>
+<li>Fonts and economic data are served from our own site. Pages don't call third-party services when they load.</li>
 <li>Our website host (GitHub Pages) may log technical information such as IP addresses for security and operations, under its own privacy statement.</li>
-<li><strong>Live Data panel and page:</strong> only if you open the panel or visit the Live Data page, your browser connects to ESPN (sports scores) and CoinGecko (crypto prices), which will see your IP address.</li>
 <li><strong>Privacy Act check and guided assistant:</strong> these run entirely in your browser. Nothing is sent to us unless you choose to send it through the contact form or email.</li>
 <li>We use your browser's session storage only to carry a prefilled message to our contact page. It's cleared once used.</li></ul>
 <h2>How we use it</h2>
@@ -922,9 +920,9 @@ def insights():
 
 # ------------------------------------------------------------------ live data page
 def live_page():
-    body = phero("Live Data Lab", "Resilient live data, demonstrated.",
-                 "A live demonstration of the data pipelines we build for clients: multiple public sources pulled in, normalised, cached safely and shown clearly. No client-side tracking, and if a source drops out, the page carries on without it.",
-                 [("/live/", "Live data")]) + '''<section style="padding-top:8px"><div class="wrap labwrap">
+    body = phero("Economy", "Australia's key numbers, at a glance.",
+                 "The figures that shape cash flow for Australian businesses, from official sources. The cash rate refreshes itself from the RBA; everything else is updated from each new release.",
+                 [("/live/", "Economy")]) + '''<section style="padding-top:8px"><div class="wrap labwrap">
   <div class="panel econ"><h4><span>The economy, in numbers</span><span>Australia</span></h4>
     <div class="labgrid">
       <div class="mtile"><small>RBA cash rate</small><b data-rba>4.60%</b><span class="muted" data-rba-note style="display:block;margin-top:2px;font-size:.72rem">Raised 0.25, effective 30 Sep 2026</span></div>
@@ -936,20 +934,16 @@ def live_page():
     </div>
     <p class="labsrc">Cash rate refreshed automatically from the <a href="https://www.rba.gov.au/statistics/cash-rate/" rel="noopener">RBA</a>. Other figures from the latest releases: <a href="https://www.abs.gov.au/media-centre/media-releases/cpi-rose-40-year-august-2026" rel="noopener">ABS CPI</a> (Aug 2026), <a href="https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia/latest-release" rel="noopener">ABS Labour Force</a> (Aug 2026), <a href="https://www.asic.gov.au/about-asic/news-centre/news-items/annual-asic-insolvency-data-reveals-increase-in-companies-failing" rel="noopener">ASIC insolvency data</a> (FY2025–26), <a href="https://www.abs.gov.au/media-centre/media-releases/7-facts-about-australian-businesses" rel="noopener">ABS business counts</a> (June 2025) and the <a href="https://www.ai.gov.au/news-and-insights/blog/ai-adoption-insights-december-2025-february-2026" rel="noopener">National AI Centre</a> (Dec 2025 to Feb 2026).</p>
     <p class="econ-so"><b>What it means:</b> borrowing is dearer, costs are rising and more businesses are failing, while most haven't worked out AI yet. The owners who see their cash weeks ahead, and use AI safely, are the ones who get through and pull ahead.</p></div>
-  <div class="panel"><h4><span>Markets</span><span>ASX delayed · crypto 24h</span></h4><div class="labgrid" id="labMk"></div>
-    <p class="labsrc">ASX and AUD via Yahoo Finance (delayed), crypto via CoinGecko. Indicative only, not financial advice.</p></div>
-  <div class="panel"><h4><span>Scores</span><span>your time zone</span></h4><div class="labtabs" role="tablist" id="labNav"></div><div id="labList"></div>
-    <p class="labsrc">Scores via ESPN. Soccer shows the EPL, Champions League, A-Leagues and the Socceroos and Matildas. Liverpool gets top billing.</p></div>
 </div></section>
 <section><div class="wrap split"><div class="prose">
 <h2>Why this matters for your business</h2>
-<p>Market benchmarks and live sport are simply public feeds everyone recognises. The engineering behind this page is the same engineering behind the systems we build for clients:</p>
+<p>The cash rate on this page updates itself from the RBA's published data. The same approach powers the systems we build for clients:</p>
 <ul><li><strong>A live cash dashboard</strong> that refreshes from your bank and ledger, instead of a spreadsheet updated once a month.</li>
 <li><strong>A sales or jobs board</strong> for the office wall, showing today's bookings, jobs finished and invoices out.</li>
 <li><strong>Alerts that come to you</strong>: a supplier price jump, a big customer paying late, cash heading below your buffer.</li></ul>
 <p>Same principles every time: pull from the source, check it, cache it safely, show only what matters, and keep working when something upstream breaks.</p>
 </div><aside class="aside"><h3>Want this for your numbers?</h3><p class="muted">A live view of cash, sales or jobs, built from your own systems.</p><a class="btn primary" href="/contact/?topic=Dashboards%20%26%20analytics#form">Start in writing</a><a class="btn" style="margin-top:10px" href="/examples/">See examples</a></aside></div></section>'''
-    add("/live/", "Live Data Lab", "Live ASX, AUD and crypto prices with cricket, NRL, AFL, EPL, Champions League and A-League scores. A working demo of the live dashboards Beiz builds for businesses.", body)
+    add("/live/", "Economy", "Australia's key business numbers from official sources: RBA cash rate, inflation, unemployment, insolvencies and business counts.", body)
 
 
 # ------------------------------------------------------------------ try-it demos
@@ -1015,12 +1009,12 @@ def about():
 <p>Beiz is led by a Chartered Accountant holding a Certificate of Public Practice and a graduate of the Australian Institute of Company Directors. The background: internal audit, fraud and controls; corporate finance and enterprise finance systems; delivery of large project portfolios; and data science with Python, R, Power BI and automation tools.</p>
 <p>Your written proposal names who will do the work, and you can verify credentials before you sign anything.</p>
 <h2>How we're set up</h2>
-<p>Strategy, architecture, governance, client communication and sign-off all happen in Australia. For some build work we use a small, vetted delivery team, always under our direct review. We also use business-grade AI tools to work faster. That's how a small firm delivers quickly at a fixed price, and your engagement letter spells out exactly who touches your information and where.</p>
+<p>Strategy, architecture, governance, client communication and sign-off all happen in Australia. For some build work we may use a small, vetted delivery team, always under our direct review. We also use business-grade AI tools to work faster. That's how a small firm delivers quickly at a fixed price, and your engagement letter spells out exactly who touches your information and where.</p>
 <h2>What we don't do</h2>
 <p>We don't do tax returns, BAS, SMSF advice or audits, business valuations, legal advice or financial product advice. Those need licences, registrations or specialist standards, and we'd rather do one thing properly. We work alongside the people who do them, and make their jobs easier with clean, reconciled data.</p>
 </div>
 <aside class="aside"><h3>At a glance</h3>
-<ul class="ticks"><li>Chartered Accountant, CA ANZ Certificate of Public Practice</li><li>GAICD</li><li>Professional indemnity insured</li><li>Liability limited by an approved Professional Standards scheme</li><li>Bound by the APES 110 code of ethics</li><li>Beiz Data &amp; Accounting Pty Ltd · ABN 53 691 755 496</li><li>Australia-wide, remote-first</li></ul>
+<ul class="ticks"><li>Chartered Accountant, CA ANZ Certificate of Public Practice</li><li>GAICD</li><li>Bound by the APES 110 code of ethics</li><li>Beiz Data &amp; Accounting Pty Ltd · ABN 53 691 755 496</li><li>Australia-wide, remote-first</li></ul>
 <a class="btn primary" href="/how-we-work/">How we work</a></aside></div></section>
 <section><div class="wrap"><p class="eyebrow">What we believe</p><h2>Five rules we don't bend.</h2><div class="cards">{pr}</div></div></section>''' + cta_band("Sound like the kind of firm you want?", "Tell us what you're trying to fix. A few lines in writing is enough.")
     add("/about/", "About us", "About Beiz Data & Accounting: a Chartered Accountant and GAICD led firm helping Australian businesses use AI, automation and data without losing control of their numbers.", body)

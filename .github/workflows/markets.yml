@@ -1,8 +1,8 @@
 name: markets
 on:
   schedule:
-    # Every 30 minutes: ASX/AUD (delayed) plus crypto, so pages never call third parties on load
-    - cron: '7,37 * * * *'
+    # Four times a day: RBA cash rate (table F1), so pages never call third parties on load
+    - cron: '17 */6 * * *'
   workflow_dispatch:
 permissions:
   contents: write
@@ -22,6 +22,6 @@ jobs:
           git config user.email "hello@beiz.com.au"
           git add data/markets.json
           if git diff --cached --quiet; then echo "no change"; exit 0; fi
-          git commit -m "data: market levels"
+          git commit -m "data: RBA cash rate"
           git pull --rebase origin main
           git push origin HEAD:main
