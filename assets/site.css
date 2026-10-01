@@ -396,6 +396,7 @@ nav.main{align-items:center}
 .fix span b{color:var(--accent);font-weight:600}
 .fix i{grid-row:1/3;grid-column:2;font-style:normal;color:var(--accent)}
 .why{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:26px}
+.why.three{grid-template-columns:repeat(3,1fr)}
 .why li{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:14px;padding:18px}
 .why b{display:block;margin:8px 0 6px;font-size:.98rem}
 .why p{font-size:.86rem}
@@ -427,9 +428,10 @@ details.numbers table{margin-bottom:12px}
   .flow,.fixcols,.explain,.labwrap{grid-template-columns:1fr}
   .flow>li:not(:last-child)::after{content:"↓";right:50%;top:auto;bottom:-16px;transform:translateX(50%)}
   .why{grid-template-columns:1fr 1fr}
+  .why.three{grid-template-columns:1fr}
   .cards.two,.steps.three{grid-template-columns:1fr}
 }
-@media (max-width:560px){.why,.labgrid{grid-template-columns:1fr}}
+@media (max-width:560px){.why,.why.three,.labgrid{grid-template-columns:1fr}}
 
 @media (max-width:760px){.sb-tab span{display:none}}
 

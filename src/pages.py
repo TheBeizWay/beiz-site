@@ -132,6 +132,20 @@ def home():
   </div>
 </section>
 
+<section id="together">
+  <div class="wrap">
+    <p class="eyebrow">AI, offshore and an Australian CA</p>
+    <h2>Use AI. Use offshore help. Keep an Australian CA in the loop.</h2>
+    <p class="lede">AI and offshore teams are a smart way to get more done for less. We use both ourselves. What they work best with is clear instructions, the right access and someone here who answers for the result.</p>
+    <ul class="why three">
+      <li><span class="ic">AI</span><b>AI is fast</b><p>It drafts, summarises and spots patterns around the clock. It needs someone to check the numbers before anyone acts on them.</p></li>
+      <li><span class="ic">⇄</span><b>Offshore teams scale</b><p>Skilled, cost-effective help for volume work like data prep and reconciliations. They do their best work with clear instructions, the right access and review.</p></li>
+      <li><span class="ic">CA</span><b>An Australian CA answers for it</b><p>Bound by the CA ANZ Code of Ethics, insured, across the ATO, Payday Super and Privacy Act rules, and accountable here for the result.</p></li>
+    </ul>
+    <p class="dd-so"><b>Already outsource, or thinking about it?</b> We set up the human in the loop: who can access what, the review steps and the checks. <a href="/services/human-in-the-loop/">See how</a></p>
+  </div>
+</section>
+
 <section id="fix">
   <div class="wrap">
     <p class="eyebrow">What we fix</p>
@@ -232,6 +246,7 @@ def home():
 def services_hub():
     cards = [
         ("/services/ai-governance/", "Govern", "AI governance & Privacy Act readiness", "Know what AI is in use, what it decides and who's accountable. Ready for 10 December 2026."),
+        ("/services/human-in-the-loop/", "Oversee", "Offshore & AI oversight", "Outsourcing or using AI? We set up the access, review steps and checks, with an Australian CA in the loop."),
         ("/services/ai-agents/", "Adopt", "AI agents, chatbots & integration", "Not sure which AI to use? We pick it, build assistants and agents into your team's daily work, and train people to use them."),
         ("/services/automation/", "Build", "Workflow automation", "Accounts payable, month-end, reporting and admin, automated with approvals and an audit trail."),
         ("/services/data-engineering/", "Connect", "Data engineering", "Your systems connected, cleaned and flowing into one source your reports, models and AI can trust."),
@@ -276,6 +291,29 @@ def services():
         [("/ai-check/", "Free 2-minute Privacy Act check"), ("/insights/privacy-act-automated-decisions/", "The new rule in plain English"), ("/services/ai-readiness-sprint/", "AI Readiness Sprint")],
         "AI readiness & governance", "AI governance & Privacy Act readiness",
         "AI register, automated-decision mapping, AI use policy, controls and board reporting, ready for the Privacy Act automated-decision rules from 10 December 2026.")
+
+    svc("/services/human-in-the-loop/", "Human in the loop", "Offshore & AI oversight",
+        "Outsource with confidence. Keep an Australian CA in the loop.",
+        "Offshore teams and AI tools are a smart way to get more done for less. They work best with clear instructions, the right access and someone here checking the result. We set that up, and can stay on as your reviewer.",
+        '''<h2>Where it usually goes wrong</h2>
+<p>Rarely in the work itself. Usually at the handover: instructions that live in someone's head, a shared login with more access than the job needs, and nobody checking the output until something has already gone out the door.</p>
+<p>There's an obligation too. If the Privacy Act covers your business and you send personal information overseas, you generally stay accountable for how it's handled there. The same care applies to what goes into AI tools.</p>
+<h2>How we do it</h2>
+<ol><li><strong>Map the work.</strong> What goes offshore or to AI, what data it touches, and what must stay with you, like approving payments.</li>
+<li><strong>Set the access.</strong> Each person gets their own login with only the access the job needs. Nothing shared by email, and a clear way to remove access when someone leaves.</li>
+<li><strong>Build the checks.</strong> Review steps, owner sign-off where money moves, numbers tied back to the bank and ledger, and a log of who did what.</li>
+<li><strong>Write it down.</strong> A short runbook for your team and the offshore staff, plus the points to cover in your contract and privacy policy. Your lawyer confirms the final wording.</li>
+<li><strong>Stay on, if you like.</strong> A monthly sample check by a Chartered Accountant, with a one-page note on what we found.</li></ol>''',
+        [("Work map", "What's outsourced or automated, and what stays with you."), ("Access plan", "Who can see and change what, in each system."),
+         ("Review checklist", "The checks that happen before work is used or sent."), ("Runbook", "Plain instructions your team and offshore staff can follow."),
+         ("Contract and privacy points", "What to raise with your provider and your lawyer."), ("Monthly review (optional)", "Sample checks and a one-page note.")],
+        aside("Good fit if", ["You use an offshore bookkeeper, VA or admin team", "You're about to outsource and want it set up right", "Staff use AI on customer or financial data", "You want someone in Australia accountable for the result"], "Offshore & AI oversight",
+              "Not an audit or assurance engagement, and not legal advice."),
+        before_after("A 15-person trades business with an offshore bookkeeper", ["One shared login to Xero and the bank", "Bookkeeper can pay bills and change supplier bank details", "Nobody checks the reconciliations", "Customer data sent to personal email"],
+                     ["Own login with read-and-draft access", "Owner approves payments and bank-detail changes", "Monthly sample check by a CA", "Work stays in the business's own accounts"], "Example scenario"),
+        [("/services/ai-governance/", "AI governance & Privacy Act readiness"), ("/services/automation/", "Workflow automation"), ("/faq/", "FAQ")],
+        "Offshore & AI oversight", "Offshore & AI oversight: human in the loop",
+        "Set up offshore teams and AI tools with the right access, review steps and checks, overseen by an Australian Chartered Accountant.")
 
     svc("/services/automation/", "Agents & automation", "Agents & automation",
         "Let the machine do the grunt work. Keep the judgement.",
@@ -695,6 +733,7 @@ FAQ = [
     ("Do you do SMSF work or business valuations?", "No. SMSF advice and audits need licences and registrations we don't hold, and valuations are a specialist field with their own professional standard. What we can do is get your numbers clean and sale-ready, so the valuer, broker or adviser you choose has what they need."),
     ("Which tools do you work with?", "Xero, MYOB, Microsoft 365, Power BI, Power Automate, Google Workspace, n8n, Python and leading AI models. We pick what fits what you already own."),
     ("Why do you work in writing first?", "It respects your time and gets better answers. A written brief lets us think properly before replying, and you get a fully priced blueprint with a clear record of what was agreed, instead of a sales pitch. Once work is under way, if a conversation genuinely helps, we'll schedule one."),
+    ("Why use an Australian CA rather than just AI or an offshore team?", "Use them too. AI and offshore teams are great for speed and volume, and we use both. What an Australian Chartered Accountant adds is accountability here: bound by the CA ANZ Code of Ethics, insured, across Australian rules like Payday Super, BAS timing and the Privacy Act, and answerable for the result. If you already outsource, we can set up the access, review steps and checks so it runs safely."),
     ("Is any of the work done offshore?", "All strategy, architecture, governance and sign-off are led in Australia by a Chartered Accountant and GAICD. For some build work we use a small, vetted delivery team, always under our direct review. Your engagement letter names the country and what the team can access, and nothing is shared without your written consent. They only get the access the job needs, and we remain fully responsible for the work, so any mistake is ours to fix, not yours."),
     ("Who owns what you build?", "You own the outcome: the automations, dashboards and models run inside your own accounts, with your logins. Our reusable templates, frameworks and code libraries remain our intellectual property, licensed to you for your business. That's how we keep delivery fast and prices fixed."),
     ("Do I need a board or a big business?", "No. Plenty of our work is for owner-operators who are flat out and just want the admin to stop eating their evenings. We size the work to the business."),
