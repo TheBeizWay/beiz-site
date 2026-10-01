@@ -114,6 +114,24 @@ def home():
   </div>
 </section>
 
+<section id="diligence">
+  <div class="wrap">
+    <p class="eyebrow">AI with due diligence</p>
+    <h2>Anyone can use AI. Using it with due diligence is different.</h2>
+    <p class="lede">AI is more than writing good prompts. Prompts are the easy part. The hard part is knowing your data, your obligations and your risks, and building the checks around them. That's the part we do.</p>
+    <div class="dd" role="table" aria-label="Prompting compared with due diligence">
+      <div class="dd-h" role="row"><span role="columnheader">Just prompting</span><span role="columnheader">With due diligence</span></div>
+      <div role="row"><span role="cell">Pick a tool and start typing</span><span role="cell">Check your data, privacy obligations and costs first</span></div>
+      <div role="row"><span role="cell">Paste in whatever's handy</span><span role="cell">Decide what goes in, and keep customer data out of free tools</span></div>
+      <div role="row"><span role="cell">Write clever prompts</span><span role="cell">Design the process: who approves, what's logged, what it can't touch</span></div>
+      <div role="row"><span role="cell">Trust the answer</span><span role="cell">Tie every number back to your ledger before anyone acts on it</span></div>
+      <div role="row"><span role="cell">A demo that looks good</span><span role="cell">Tested on your real data, with accuracy measured</span></div>
+      <div role="row"><span role="cell">Done when it runs</span><span role="cell">Done when your team uses it, it's documented and you own it</span></div>
+    </div>
+    <p class="dd-so"><b>We set it up properly for you.</b> The speed of AI, with an accountant, board-level governance and a data specialist behind it.</p>
+  </div>
+</section>
+
 <section id="fix">
   <div class="wrap">
     <p class="eyebrow">What we fix</p>
@@ -157,30 +175,6 @@ def home():
   </div>
 </section>
 
-<section id="newfirm">
-  <div class="wrap">
-    <p class="newfirm"><b>We're a new firm.</b> That means partner-level attention and a price that reflects our stage. In writing, every time: a fixed scope, a fixed price, weekly updates, and you own everything at handover.</p>
-  </div>
-</section>
-
-<section id="wrongai">
-  <div class="wrap">
-    <div class="wrongai">
-      <div>
-        <p class="eyebrow">A word of warning</p>
-        <h2>Don't be tempted to use AI the wrong way.</h2>
-        <p class="lede">Free AI tools are easy to start and easy to get wrong. The mistakes are usually quiet ones, and they land on the owner.</p>
-      </div>
-      <ul>
-        <li><b>Pasting customer or client data into a free chatbot.</b> You may have just breached your own privacy policy.</li>
-        <li><b>Letting AI send, pay or decide without a check.</b> One wrong invoice or email is your name on it.</li>
-        <li><b>Buying a tool before you know your own data.</b> It automates the mess you already have.</li>
-      </ul>
-      <p class="fixit"><b>We set it up for you.</b> The right tool for your business, the rules for what goes in, the checks on what comes out, and a person who signs off. You get the speed without the risk.</p>
-    </div>
-  </div>
-</section>
-
 <section id="why">
   <div class="wrap">
     <p class="eyebrow">Why work with us</p>
@@ -213,34 +207,6 @@ def home():
   </div>
 </section>
 
-<section id="what">
-  <div class="wrap">
-    <p class="eyebrow">What we do</p>
-    <h2>Accounting rigour, engineering speed.</h2>
-    <p class="lede">Most firms can either build the tech or understand the numbers. We do both, so nothing gets lost between the finance team and the code.</p>
-    <div class="cards two">
-      <a class="card" href="/services/ai-governance/"><span class="k">Govern</span><h3>AI governance &amp; Privacy Act readiness</h3><p>Find where AI is already being used, map the risks, set the controls and give your board or your own team a clear one-page view.</p><span class="go">Learn more →</span></a>
-      <a class="card" href="/services/automation/"><span class="k">Build</span><h3>Agents &amp; automation</h3><p>Invoice matching, month-end, reporting, inbox triage. Automated end to end, with approvals and a full log of every action.</p><span class="go">Learn more →</span></a>
-      <a class="card" href="/services/dashboards-and-models/"><span class="k">See</span><h3>Dashboards &amp; financial models</h3><p>Live dashboards, 13-week cash forecasts, runway scenarios and investor metrics your lender, investors or board will trust.</p><span class="go">Learn more →</span></a>
-      <a class="card" href="/services/project-delivery/"><span class="k">Deliver</span><h3>AI &amp; tech project delivery</h3><p>Already bought the software, or about to? We run the project: scope, vendors, milestones, risks and reporting, so it lands and gets used.</p><span class="go">Learn more →</span></a>
-    </div>
-    <div class="feed"><b>We don't replace your tax accountant. We feed them.</b><span>Your accountant looks after the ATO, looking back. We look out the windscreen: what's coming next week, and the systems that get you there. Different jobs, and we make theirs easier. <a href="/insights/we-feed-your-tax-accountant/">Why that matters →</a></span></div>
-  </div>
-</section>
-
-<section id="who">
-  <div class="wrap">
-    <p class="eyebrow">Who we work with</p>
-    <h2>Three kinds of business. One standard.</h2>
-    <p class="lede">We group clients by the problem they have, not the logo on the van.</p>
-    <div class="cards">
-      <div class="card"><span class="k">Regulated &amp; high-stakes</span><h3>Governance, audit trails, Privacy Act</h3><p>Clinics, allied health practices, not-for-profits and businesses with boards, where getting it wrong costs trust, not just money.</p><p class="related" style="margin-top:12px"><a href="/industries/health/">Health</a><a href="/industries/not-for-profits/">Not-for-profits</a><a href="/services/ai-governance/">Governance</a></p></div>
-      <div class="card"><span class="k">Transaction-heavy operators</span><h3>Reconciliations, margins, quote to cash</h3><p>Trades, hospitality, retail and professional services, where hundreds of small transactions hide where the money goes.</p><p class="related" style="margin-top:12px"><a href="/industries/trades/">Trades</a><a href="/industries/hospitality-retail/">Hospitality &amp; retail</a><a href="/services/quick-wins/">Quick wins</a></p></div>
-      <div class="card"><span class="k">Tech &amp; digital assets</span><h3>Runway, investor metrics, treasury</h3><p>Startups, tech agencies and businesses holding or paid in digital assets, where the numbers move fast and investors ask hard questions.</p><p class="related" style="margin-top:12px"><a href="/industries/startups/">Startups</a><a href="/industries/crypto/">Crypto &amp; digital assets</a><a href="/services/dashboards-and-models/">Models</a></p></div>
-    </div>
-  </div>
-</section>
-
 <section id="how">
   <div class="wrap">
     <p class="eyebrow">How it works</p>
@@ -252,22 +218,8 @@ def home():
       <li><h3>Build with updates</h3><p>Weekly written progress notes and a working demo you can click.</p></li>
       <li><h3>Handover pack</h3><p>Documentation, controls and training so your team owns it.</p></li>
     </ol>
+    <p class="newfirm" style="margin-top:22px"><b>We're a new firm.</b> That means partner-level attention and a price that reflects our stage. Fixed scope, fixed price, weekly updates, and you own everything at handover.</p>
     <p style="margin-top:18px"><a class="btn" href="/how-we-work/">How we work and protect you →</a></p>
-  </div>
-</section>
-
-<section id="sprint">
-  <div class="wrap">
-    <div class="offer">
-      <div>
-        <p class="eyebrow">Start here</p>
-        <h2>AI Readiness Sprint</h2>
-        <p class="price" style="font-size:1.5rem">Fixed price. <small>Quoted in writing.</small></p>
-        <p>Ten business days. A clear picture of where AI can help, where it's already a risk, and one working prototype to prove it.</p>
-        <p style="margin-top:18px"><a class="btn primary" href="/services/ai-readiness-sprint/">About the Sprint</a></p>
-      </div>
-      {ticks(["Inventory of AI tools already in use, including the free ones", "Risk and controls map for each use case", "One working automation or agent prototype on your own data", "A one-page board paper with recommendations", "A prioritised roadmap with fixed-price next steps"])}
-    </div>
   </div>
 </section>
 

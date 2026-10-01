@@ -17,5 +17,9 @@ sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitem
 sm += [f"  <url><loc>{SITE}{u}</loc><lastmod>2026-10-01</lastmod></url>" for u in sorted(urls)]
 sm.append("</urlset>")
 open(os.path.join(ROOT, "sitemap.xml"), "w").write("\n".join(sm) + "\n")
-open(os.path.join(ROOT, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n")
+AI_TRAINING_BOTS = ["GPTBot", "Google-Extended", "CCBot", "ClaudeBot", "anthropic-ai", "Applebot-Extended", "Bytespider", "meta-externalagent"]
+open(os.path.join(ROOT, "robots.txt"), "w").write(
+    "# Search engines and AI search assistants are welcome. AI model-training crawlers are not.\n"
+    + "".join(f"User-agent: {b}\nDisallow: /\n\n" for b in AI_TRAINING_BOTS)
+    + f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n")
 print(f"built {len(pages)} pages")
