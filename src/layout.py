@@ -2,7 +2,7 @@
 import json
 
 SITE = "https://beiz.com.au"
-ASSET_V = "15"  # bump to bust caches when CSS/JS change
+ASSET_V = "16"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true" class="logo">'
         '<defs><linearGradient id="hg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#2DD4BF"/>'
@@ -37,7 +37,7 @@ SERVICES = [
 ]
 INDUSTRIES = [
     ("/industries/trades/", "Trades & construction"),
-    ("/industries/health/", "Health, allied health & NDIS"),
+    ("/industries/health/", "Health & allied health"),
     ("/industries/startups/", "Startups & tech agencies"),
     ("/industries/crypto/", "Crypto & digital assets"),
     ("/industries/not-for-profits/", "Not-for-profits"),

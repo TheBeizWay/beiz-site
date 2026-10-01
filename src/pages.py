@@ -203,7 +203,7 @@ def home():
     <h2>Three kinds of business. One standard.</h2>
     <p class="lede">We group clients by the problem they have, not the logo on the van.</p>
     <div class="cards">
-      <div class="card"><span class="k">Regulated &amp; high-stakes</span><h3>Governance, audit trails, Privacy Act</h3><p>Clinics, allied health and NDIS providers, not-for-profits and businesses with boards, where getting it wrong costs trust, not just money.</p><p class="related" style="margin-top:12px"><a href="/industries/health/">Health</a><a href="/industries/not-for-profits/">Not-for-profits</a><a href="/services/ai-governance/">Governance</a></p></div>
+      <div class="card"><span class="k">Regulated &amp; high-stakes</span><h3>Governance, audit trails, Privacy Act</h3><p>Clinics, allied health practices, not-for-profits and businesses with boards, where getting it wrong costs trust, not just money.</p><p class="related" style="margin-top:12px"><a href="/industries/health/">Health</a><a href="/industries/not-for-profits/">Not-for-profits</a><a href="/services/ai-governance/">Governance</a></p></div>
       <div class="card"><span class="k">Transaction-heavy operators</span><h3>Reconciliations, margins, quote to cash</h3><p>Trades, hospitality, retail and professional services, where hundreds of small transactions hide where the money goes.</p><p class="related" style="margin-top:12px"><a href="/industries/trades/">Trades</a><a href="/industries/hospitality-retail/">Hospitality &amp; retail</a><a href="/services/quick-wins/">Quick wins</a></p></div>
       <div class="card"><span class="k">Tech &amp; digital assets</span><h3>Runway, investor metrics, treasury</h3><p>Startups, tech agencies and businesses holding or paid in digital assets, where the numbers move fast and investors ask hard questions.</p><p class="related" style="margin-top:12px"><a href="/industries/startups/">Startups</a><a href="/industries/crypto/">Crypto &amp; digital assets</a><a href="/services/dashboards-and-models/">Models</a></p></div>
     </div>
@@ -397,11 +397,11 @@ def services():
 def privacy_sprint():
     svc("/services/privacy-sprint/", "Privacy Sprint", "Before 10 December 2026",
         "Automated-Decision Privacy Sprint.",
-        "A fixed-price sprint for organisations covered by the Privacy Act, including health, allied health and NDIS providers and businesses over $3 million. We find what your software decides about people, and hand your lawyer what they need to update your privacy policy before 10 December 2026.",
+        "A fixed-price sprint for organisations covered by the Privacy Act, including health and allied health providers and businesses over $3 million. We find what your software decides about people, and hand your lawyer what they need to update your privacy policy before 10 December 2026.",
         """<h2>Why now</h2>
 <p>From 10 December 2026, if the Privacy Act covers you, your privacy policy has to say when computer programs make, or substantially help make, decisions that could significantly affect people, and what personal information they use. Most businesses don't yet know which of their tools do that. It's often buried inside booking, finance, HR and fraud software.</p>
 <h2>Who it's for</h2>
-<ul><li>Health, allied health and NDIS providers, who are generally covered regardless of turnover</li><li>Businesses with annual turnover over $3 million</li><li>Businesses that trade in personal information</li></ul>
+<ul><li>Health and allied health providers, who are generally covered regardless of turnover</li><li>Businesses with annual turnover over $3 million</li><li>Businesses that trade in personal information</li></ul>
 <p>Not sure you're covered? Take the <a href="/ai-check/">free 2-minute check</a> first.</p>
 <h2>How the sprint runs</h2>
 <ol><li><strong>Inventory:</strong> every system and AI tool that touches customer, patient, staff or applicant information, the free ones included.</li>
@@ -425,7 +425,7 @@ def privacy_sprint():
 def industries_hub():
     groups = [
         ("Regulated & high-stakes", "Governance, audit trails and Privacy Act readiness, where getting it wrong costs trust.",
-         [("/industries/health/", "Health, allied health & NDIS", "Billing, rostering, reporting, privacy"), ("/industries/not-for-profits/", "Not-for-profits", "Grant reporting, board packs, donor data")],
+         [("/industries/health/", "Health & allied health", "Billing, rostering, reporting, privacy"), ("/industries/not-for-profits/", "Not-for-profits", "Grant reporting, board packs, donor data")],
          "Also: businesses with boards, professional services."),
         ("Transaction-heavy operators", "Reconciliations, margin protection and quote to cash, where small transactions hide where the money goes.",
          [("/industries/trades/", "Trades & construction", "Quotes, job costing, chasing payment"), ("/industries/hospitality-retail/", "Hospitality & retail", "Wages, suppliers, margins, weekly cash")],
@@ -466,22 +466,19 @@ def industries():
         "Small business quick win", "For trades & construction",
         "Automated quoting, invoicing, payment reminders and job costing for Australian tradies and construction businesses. Fixed price, no lock-in.")
 
-    ind("/industries/health/", "Health, allied health & NDIS", "Run the practice, not the paperwork.",
-        "For clinics, allied health practices and NDIS providers: bookings, billing reconciliations, rostering and reporting, automated with care. You hold some of the most sensitive information there is, so privacy, AI controls and human sign-off come first.",
-        [("The NDIS claim window is shrinking", "From 1 December 2026, NDIS claims must generally be made within 90 days of the support, down from two years. A slow claiming process becomes lost revenue."),
-         ("Billing that doesn't reconcile", "Payments, rebates and fund claims arrive in different places, and matching them takes hours."),
+    ind("/industries/health/", "Health & allied health", "Run the practice, not the paperwork.",
+        "For clinics and allied health practices: bookings, billing reconciliations, rostering and reporting, automated with care. You hold some of the most sensitive information there is, so privacy, AI controls and human sign-off come first.",
+        [("Billing that doesn't reconcile", "Payments, rebates and fund claims arrive in different places, and matching them takes hours."),
          ("No-shows and gaps", "Empty appointments cost money, and nobody has time to chase rebookings."),
          ("AI and patient data", "Staff want to use AI for notes and letters, and you're not sure what's allowed.")],
-        [("90-day claiming control", "Every delivered support matched to a claim within days, rejected claims flagged, and a weekly report of anything getting close to the limit."),
-         ("Claims backlog sweep", "Find supports delivered but not yet claimed, before the new limit starts on 1 December 2026."),
-         ("Billing reconciliation", "Payments matched to appointments automatically, exceptions listed."), ("Practice dashboard", "Utilisation, revenue per practitioner, no-show rate, weekly."),
+        [("Billing reconciliation", "Payments matched to appointments automatically, exceptions listed."), ("Practice dashboard", "Utilisation, revenue per practitioner, no-show rate, weekly."),
          ("Reminder and rebooking flows", "Using your existing booking system, within its rules."), ("AI use policy", "What staff can and can't put into AI tools, in plain English."),
-         ("Privacy Act readiness", "Health service providers, including many NDIS providers, are generally covered regardless of size."), ("Controls", "Access, approvals and logs around anything touching patient data.")],
+         ("Privacy Act readiness", "Health service providers are generally covered regardless of size."), ("Controls", "Access, approvals and logs around anything touching patient data.")],
         before_after("An allied health practice, 4 clinicians", ["Friday afternoons spent reconciling", "No-show rate unknown", "Staff pasting notes into a free chatbot", "Privacy policy last updated years ago"],
                      ["Reconciliation done nightly", "No-shows tracked and followed up", "Approved, business-grade AI only", "Policy reviewed for automated decisions"], "Example scenario"),
         [("/ai-check/", "Privacy Act AI check"), ("/services/ai-governance/", "AI governance"), ("/services/automation/", "Automation")],
-        "AI readiness & governance", "For health, allied health & NDIS providers",
-        "Billing reconciliation, rostering, practice dashboards and AI governance for Australian clinics, allied health practices and NDIS providers, with privacy and human sign-off built in.")
+        "AI readiness & governance", "For health & allied health providers",
+        "Billing reconciliation, rostering, practice dashboards and AI governance for Australian clinics and allied health practices, with privacy and human sign-off built in.")
 
     rf = runway_facts()
     ind("/industries/startups/", "Startups & tech agencies", "Know your runway before your investors ask.",

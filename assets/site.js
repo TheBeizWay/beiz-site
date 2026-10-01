@@ -95,12 +95,10 @@
   const dleft = Math.round((new Date(2026, 11, 10) - today) / 864e5);
   $$("[data-adm-days]").forEach(e => (e.textContent = dleft > 0 ? dleft + " days" : "now in force"));
   // One purpose only: regulatory countdown + Australian market benchmarks.
-  const ndis = Math.round((new Date(2026, 11, 1) - today) / 864e5);
   const base = [
     dleft > 0 ? `Privacy Act: automated-decision disclosures start <b>10 Dec 2026</b> · ${dleft} days`
               : `Privacy Act: automated-decision disclosures <b>in force</b> since 10 Dec 2026`
   ];
-  if (ndis > 0) base.push(`NDIS: 90-day claiming limit starts <b>1 Dec 2026</b> · ${ndis} days`);
   const renderTicker = items => {
     if (!track) return;
     const html = items.map(i => `<span>${i}</span>`).join("");
@@ -284,7 +282,7 @@
   const ol = $("#chkQ"), res = $("#chkRes");
   if (ol && res) {
     const Q = [
-      ["cov", "Are you a health, allied health or NDIS provider, trade in personal information, or turn over more than $3 million a year?", "Health service providers, including many allied health and NDIS providers, are generally covered regardless of turnover."],
+      ["cov", "Are you a health or allied health provider, trade in personal information, or turn over more than $3 million a year?", "Health service providers, including allied health practices, are generally covered regardless of turnover."],
       ["dec", "Does any software or AI make or recommend decisions about individual people?", "e.g. credit terms, pricing, bookings, screening applicants, fraud flags, rosters"],
       ["pi", "Does it use personal information to do that?", ""],
       ["sig", "Could the outcome significantly affect someone: their money, access to a service, or a job?", ""],
