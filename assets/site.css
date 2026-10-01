@@ -477,3 +477,7 @@ b.warn,.tile b.warn{color:var(--warn)}
 .evid small{display:block;margin-top:10px;font-size:.74rem;color:var(--muted)}
 .evid small a{color:var(--muted)}
 @media (max-width:900px){.evid{grid-template-columns:1fr}}
+
+.hero .rule{margin-top:18px;max-width:62ch;font-size:.92rem;color:var(--muted);border-left:2px solid var(--accent);padding:4px 0 4px 14px}
+.hero .rule b{color:var(--text);font-weight:600}
+.hero h1{max-width:16ch}

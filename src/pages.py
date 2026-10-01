@@ -61,13 +61,14 @@ def home():
         "Grant reporting, board packs, donor data", "Wages, suppliers, margins, weekly cash"]))
     body = f'''<section class="hero" id="top">
   <div class="wrap">
-    <p class="eyebrow">Governed AI · Finance · Data · Modelling</p>
-    <h1>AI you can sign off on.</h1>
-    <p class="lede">We help Australian businesses <strong>get paid faster, see their cash coming and cut hours of admin</strong>. AI does the heavy lifting. A Chartered Accountant builds the controls, and you sign off anything that matters.</p>
+    <p class="eyebrow">Chartered Accountant · GAICD · Data &amp; AI</p>
+    <h1>Grow faster. Stay in control.</h1>
+    <p class="lede"><strong>We're an Australian Chartered Accountant firm, not an AI company.</strong> We get to know your business, map your numbers, your data and your worries, then fix where you're losing time and money. That includes helping you and your team use AI responsibly, so you can scale with real assurance.</p>
     <div class="cta">
       <a class="btn primary" href="/try/">Try a 60-second demo</a>
       <a class="btn" href="/contact/#form">Start in writing</a>
     </div>
+    <p class="rule"><b>Our rule: AI you can sign off on.</b> Nothing touches your money, your customers or your data without a person saying yes. And we're independent: no software of our own to sell, and we work with the tools you already have.</p>
     <div class="grid2">
       <div class="panel">
         <h4><span>Agent run · control log · example</span><span aria-hidden="true">live</span></h4>
@@ -216,8 +217,8 @@ def home():
 </section>
 
 {contact_form()}'''
-    add("/", "Beiz Data & Accounting | Governed AI, automation and finance systems",
-        "Accountants who build the systems behind a business's money: AI agents, automation, dashboards and financial models with controls and a human sign-off. Chartered Accountant and GAICD led. Australia-wide.", body)
+    add("/", "Beiz Data & Accounting | Chartered Accountants helping you grow, in control",
+        "An Australian Chartered Accountant and GAICD led firm, not an AI company. We map your numbers, data and risks, fix where you lose time and money, and help you use AI responsibly. Fixed price, in writing.", body)
 
 
 # ------------------------------------------------------------------ services
@@ -599,6 +600,7 @@ def ai_check():
 
 # ------------------------------------------------------------------ how we work / faq / contact
 FAQ = [
+    ("Are you an AI company?", "No. We're an Australian Chartered Accountant firm. We don't make or sell AI software. We help you understand your numbers and your data, fix the problems costing you time and money, and use AI tools responsibly where they genuinely help. We're independent, so we recommend what fits, often tools you already pay for."),
     ("What does Beiz actually do?", "We're accountants who build the systems behind a business's money: automation that does the grunt work, dashboards and forecasts that show what's coming, and the controls that keep AI safe. We don't do tax."),
     ("Aren't Chartered Accountants just tax accountants?", "Tax is one thing CAs do, and we don't do it at all. Chartered Accountants are trained in audit, risk, systems, forecasting and business advice. GAICD means we're also trained in how boards govern a business and oversee risk."),
     ("Who's behind Beiz?", "Beiz is led by a Chartered Accountant holding a Certificate of Public Practice and a graduate of the Australian Institute of Company Directors, with a background in internal audit, fraud and controls, corporate finance, project delivery and data science. Your written proposal names who does the work, and you can verify credentials before you sign anything."),
