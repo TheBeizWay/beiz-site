@@ -59,7 +59,7 @@ def home():
     body = f'''<section class="hero" id="top">
   <div class="wrap hero2">
     <div>
-      <p class="eyebrow">Set up by a Chartered Accountant</p>
+      <p class="eyebrow">Set up by an Australian Chartered Accountant</p>
       <h1>AI and automation, set up properly.</h1>
       <p class="lede">For sole traders through to growing teams. We connect your accounting, bank and job systems, automate the grunt work, and put a person's sign-off on anything that touches your money, your customers or your data.</p>
       <div class="cta">
