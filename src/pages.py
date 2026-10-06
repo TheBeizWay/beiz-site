@@ -1,4 +1,4 @@
-"""Page content for beiz.com.au. Australian English, plain words, no prices, no names."""
+"""Page content for beiz.com.au. Australian English, plain words. Published prices are "from" anchors only."""
 import json
 from layout import (SITE, page, phero, related, cta_band, contact_form, SERVICES, INDUSTRIES, CALL_HREF, CALL_ATTR)
 from charts import cash13, job_margins, runway, runway_facts
@@ -148,7 +148,7 @@ def home():
     <p class="eyebrow">How it works</p>
     <h2>Talk it through. Get it in writing.</h2>
     <ol class="steps">
-      <li><h3>Talk or write</h3><p>A free 20-minute discovery call, or a few lines in the form.</p></li>
+      <li><h3>Talk or write</h3><p>A free 20-minute discovery call, or a few lines in the form. You'll come away knowing what's worth automating, roughly what it costs, and whether we're the right fit. If we're not, we'll say so.</p></li>
       <li><h3>Written proposal</h3><p>Fixed price, scope and timeline within three business days.</p></li>
       <li><h3>Build with updates</h3><p>Weekly written notes and a working demo you can click.</p></li>
       <li><h3>Handover pack</h3><p>Documentation, controls and training. Your team owns it.</p></li>
@@ -172,9 +172,9 @@ def services_hub():
         ("/services/data-engineering/", "Connect", "Data engineering", "Your systems connected, cleaned and flowing into one source your reports, models and AI can trust."),
         ("/services/dashboards-and-models/", "See", "Dashboards & financial models", "Cash forecasts, runway scenarios, job profitability and board or investor dashboards."),
         ("/services/project-delivery/", "Deliver", "AI & tech project delivery", "Scope, vendors, milestones and honest reporting, so your tech project actually lands."),
-        ("/services/privacy-sprint/", "Before 10 Dec", "Automated-Decision Privacy Sprint", "Map what your software decides about people and hand your lawyer the policy wording. Fixed price, 5 to 10 days."),
-        ("/services/ai-readiness-sprint/", "Start here", "AI Readiness Sprint", "Ten business days: AI inventory, risk map, one working prototype and a roadmap."),
-        ("/services/quick-wins/", "Small business", "Quick wins", "Small, fixed-price fixes that give you back evenings and bring cash in faster. Built for sole traders and small teams who don't have time for admin. Most are scoped in days, not months, with no lock-in. Your BAS and tax stay with your tax or BAS agent; we make their job easier."),
+        ("/services/privacy-sprint/", "Before 10 Dec", "Automated-Decision Privacy Sprint", "Map what your software decides about people and hand your lawyer the policy wording. Fixed price from $3,500, 5 to 10 days."),
+        ("/services/ai-readiness-sprint/", "Start here", "AI Readiness Sprint", "Ten business days: AI inventory, risk map, one working prototype and a roadmap. From $6,000."),
+        ("/services/quick-wins/", "Small business", "Quick wins", "Small, fixed-price fixes from $1,200 that give you back evenings and bring cash in faster. Built for sole traders and small teams who don't have time for admin. Most are scoped in days, not months, with no lock-in. Your BAS and tax stay with your tax or BAS agent; we make their job easier."),
     ]
     c = "".join(f'<a class="card" href="{h}"><span class="k">{k}</span><h3>{t}</h3><p>{d}</p><span class="go">Learn more →</span></a>' for h, k, t, d in cards)
     body = phero("Services", "What we build and fix.", "Every engagement is fixed price, agreed in writing, and ends with something your team can run. Pick the one closest to your problem, or tell us the problem and we'll pick.",
@@ -380,7 +380,7 @@ def services():
 <p>No obligation to continue with us afterwards. The roadmap is yours.</p>''',
         [("AI inventory", "Every tool in use, including the free ones."), ("Risk & controls map", "For each use case, what could go wrong and what stops it."), ("Working prototype", "One real automation or agent on your data."),
          ("Privacy Act check", "Where you stand on the automated-decision rules."), ("One-page paper", "For the board or for yourself."), ("Roadmap", "Prioritised next steps, each with a fixed price.")],
-        aside("The fine print", ["Fixed price, quoted in writing", "Ten business days from kickoff", "A priced, written blueprint, no pitch", "No lock-in: the roadmap is yours"], "AI Readiness Sprint"),
+        aside("The fine print", ["Fixed price from $6,000, quoted in writing", "Ten business days from kickoff", "A priced, written blueprint, no pitch", "No lock-in: the roadmap is yours"], "AI Readiness Sprint"),
         "", [("/services/ai-governance/", "AI governance"), ("/services/automation/", "Agents & automation"), ("/examples/", "Examples")],
         "AI Readiness Sprint", "AI Readiness Sprint",
         "A ten-day, fixed-price AI Readiness Sprint: AI inventory, risk and controls map, Privacy Act check, one working prototype and a costed roadmap.")
@@ -396,14 +396,14 @@ def services():
              ("Quoting you can trust", "A pricing model built from your real costs, so quotes protect your margin."),
              ("Get your access back", "Domain, website, email and data back in your name after a supplier leaves.")]
     c = "".join(f'<div class="card"><h3>{t}</h3><p>{d}</p></div>' for t, d in quick)
-    body = (phero("Small business quick wins", "The jobs you keep meaning to get to.", "Small, fixed-price fixes that give you back evenings and bring cash in faster. Built for sole traders and small teams. Most are scoped in days, not months. No lock-in contracts.",
+    body = (phero("Small business quick wins", "The jobs you keep meaning to get to.", "Small, fixed-price fixes from $1,200 that give you back evenings and bring cash in faster. Built for sole traders and small teams. Most are scoped in days, not months. No lock-in contracts.",
                   [("/services/", "Services"), ("/services/quick-wins/", "Quick wins")], [("/contact/?topic=Small%20business%20quick%20win#form", "Ask about a quick win"), ("/examples/", "See examples")]) +
             f'<section style="padding-top:8px"><div class="wrap"><div class="cards quick">{c}</div>' +
             before_after("A two-van plumbing business", ["Invoices sent on Sunday nights", "$18k owed, nobody chasing", "No idea which jobs lost money", "Receipts in the glovebox"],
                          ["Invoice sent when the job's marked done", "Reminders go out automatically", "Monthly margin by job type", "Receipts snapped and matched"], "Illustrative example, not a client") +
             related([("/industries/trades/", "For trades & construction"), ("/industries/hospitality-retail/", "For hospitality & retail"), ("/examples/", "See a sample Monday cash email")]) +
             "</div></section>" + cta_band(topic="Small business quick win"))
-    add("/services/quick-wins/", "Small business quick wins", "Fixed-price quick wins for small businesses: invoices that chase themselves, quote to invoice automation, Xero health checks, Monday cash emails and job profitability.", body)
+    add("/services/quick-wins/", "Small business quick wins", "Fixed-price quick wins for small businesses, from $1,200: invoices that chase themselves, quote to invoice automation, Xero health checks, Monday cash emails and job profitability.", body)
 
 
 def privacy_sprint():
@@ -424,7 +424,7 @@ def privacy_sprint():
         [("System & AI tool inventory", "Including tools staff adopted on their own."), ("Automated-decision map", "What decides what, using which personal information."),
          ("Significance assessment", "Which decisions could significantly affect people."), ("Human-review design", "Where a person must genuinely check outcomes."),
          ("Draft policy wording", "Plain English, for your lawyer to finalise."), ("One-page summary", "For the board, the owner or the practice manager.")],
-        aside("The fine print", ["Fixed price, quoted in writing", "About 5 to 10 business days", "A call if you want one, never required", "Built to finish before 10 December 2026"], "Privacy Act automated-decision check",
+        aside("The fine print", ["Fixed price from $3,500, quoted in writing", "About 5 to 10 business days", "A call if you want one, never required", "Built to finish before 10 December 2026"], "Privacy Act automated-decision check",
               "General information and process support only, not legal advice."),
         before_after("An allied health practice, 12 staff", ["Booking system auto-declines repeat no-shows", "Billing software sets payment plans automatically", "Privacy policy silent on automation", "No one knows what the tools decide"],
                      ["Both decisions mapped, with the data they use", "Human review added for payment plans", "Draft wording with the lawyer", "One-page summary for the practice owner"], "Illustrative example, not a client"),
@@ -677,7 +677,7 @@ FAQ = [
     ("Is any of the work done offshore?", "All strategy, architecture, governance and sign-off are led in Australia by a Chartered Accountant and GAICD. For some build work we may use a small, vetted delivery team, always under our direct review. Your engagement letter names the country and what the team can access, and nothing is shared without your written consent. They only get the access the job needs, and we remain responsible for the work we deliver to you."),
     ("Who owns what you build?", "You own the outcome: the automations, dashboards and models run inside your own accounts, with your logins. Our reusable templates, frameworks and code libraries remain our intellectual property, licensed to you for your business. That's how we keep delivery fast and prices fixed."),
     ("Do I need a board or a big business?", "No. Much of what we do is built for sole traders and owner-operators who are flat out and just want the admin to stop eating their evenings. We size the work to the business."),
-    ("How much does it cost?", "Every job is fixed price, quoted in writing after we understand the problem. Quick wins are priced like quick wins; larger builds are scoped individually. No hourly meter and no lock-in contracts."),
+    ("How much does it cost?", "Every job is fixed price, quoted in writing after we understand the problem. Quick wins start from $1,200, the Privacy Act automated-decision sprint from $3,500 and the AI Readiness Sprint from $6,000. Larger builds are scoped individually. No hourly meter and no lock-in contracts."),
     ("Do you work with crypto businesses?", "Yes: reconciliations, stablecoin payment matching, treasury reporting and controls. We don't give tax, financial product or licensing advice."),
     ("Where are you based?", "Australia. We work remotely with clients across the country."),
 ]

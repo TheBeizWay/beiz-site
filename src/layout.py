@@ -2,7 +2,7 @@
 import json
 
 SITE = "https://beiz.com.au"
-ASSET_V = "37"  # bump to bust caches when CSS/JS change
+ASSET_V = "38"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true" class="logo"><defs><linearGradient id="hg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#2DD4BF"/><stop offset="1" stop-color="#818CF8"/></linearGradient><mask id="mH" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"><rect width="200" height="200" fill="#fff"/><circle cx="126.4" cy="69.9" r="6.5" fill="#000"/></mask></defs><rect x="5" y="5" width="190" height="190" rx="44" fill="#0D1115" stroke="url(#hg)" stroke-width="6"/><g stroke="#818CF8" stroke-width="3" fill="none" stroke-linecap="round"><path d="M113.0 75.4 L150 75.4 L165 53.4"/><path d="M150 75.4 L165 97.4"/></g><g fill="#818CF8"><circle cx="165" cy="53.4" r="6"/><circle cx="165" cy="97.4" r="6"/></g><circle cx="150" cy="75.4" r="4" fill="#5EEAD4"/><g transform="translate(16,25.1) scale(.72)"><g mask="url(#mH)" fill="none" stroke="url(#hg)" stroke-width="27" stroke-linejoin="round"><path d="M58 120 L110 120 A33 33 0 0 1 110 186 L58 186 L58 22 L102 58 A31 31 0 0 1 102 120 L58 120"/></g></g></svg>')
 
@@ -63,7 +63,7 @@ def esc(s):
     return (s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;"))
 
 
-def contact_form(heading="Tell us what you're trying to fix.", lede="A few lines is plenty: you'll get a written reply by the next business day. Rather talk it through? Pick “Discovery call” and we'll book a free 20 minutes, early morning or after 5pm.", eyebrow="Start in writing"):
+def contact_form(heading="Tell us what you're trying to fix.", lede="A few lines is plenty: you'll get a written reply by the next business day. Rather talk it through? Pick “Discovery call” and we'll book a free 20 minutes, early morning or after 5pm. You'll know what's worth automating, roughly what it costs, and whether we're the right fit. If we're not, we'll say so.", eyebrow="Start in writing"):
     opts = "".join(f"<option>{esc(t)}</option>" for t in TOPICS)
     return f'''<section id="form">
   <div class="wrap">
