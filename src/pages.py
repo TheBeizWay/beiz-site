@@ -747,7 +747,7 @@ def faq():
 
 
 def contact():
-    body = phero("Contact", "Start in writing.", "A few lines about the problem is plenty. No sales pitch, no pressure. You'll get a considered written reply by the next business day. Calls are by arrangement, early morning or after 5pm.", [("/contact/", "Contact")]) + '''
+    body = phero("Contact", "Start in writing.", "A few lines about the problem is plenty. No sales pitch, no pressure. You'll get a considered written reply by the next business day. Rather talk? Book a free 20-minute call, early morning or after 5pm. You'll know what's worth automating, roughly what it costs, and whether we're the right fit. If we're not, we'll say so.", [("/contact/", "Contact")]) + '''
 <section style="padding:8px 0 0"><div class="wrap"><ol class="steps three">
 <li><h3>You write</h3><p>What's broken, what you've tried, and what good would look like.</p></li>
 <li><h3>We check</h3><p>A conflict check, then a proper look at the problem.</p></li>
