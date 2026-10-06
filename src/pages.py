@@ -786,9 +786,10 @@ def privacy():
 
 # ------------------------------------------------------------------ insights
 ARTICLES = [
-    ("/insights/privacy-act-automated-decisions/", "The Privacy Act's new AI rule, in plain English", "What the automated-decision transparency obligation starting 10 December 2026 means, who it applies to, and five things to do now.", "1 October 2026 · 5 minute read"),
+    ("/insights/privacy-act-automated-decisions/", "Privacy Act automated decisions from 10 December 2026: a plain-English guide", "What the new automated-decision rule means for Australian businesses, the OAIC's three-part test, who it applies to, and five things to do now.", "Updated 6 October 2026 · 5 minute read"),
     ("/insights/burned-by-an-ai-product/", "Burned by an AI product or a developer who vanished? Get these back first", "A practical checklist for taking back control of your domain, website, data and AI accounts when a supplier relationship goes wrong.", "1 October 2026 · 4 minute read"),
     ("/insights/why-13-weeks/", "Why 13 weeks? Your cash cycle in plain English", "Why a weekly view of the next quarter catches the problems a monthly report hides, and what Xero's own forecast leaves out.", "1 October 2026 · 4 minute read"),
+    ("/insights/check-bills-before-you-pay/", "Five checks to run on every supplier bill before you pay it", "Duplicate bills, changed bank details and quiet price rises cost small businesses real money. Here's how to catch them, by hand or automatically with n8n and Xero.", "6 October 2026 · 4 minute read"),
     ("/insights/we-feed-your-tax-accountant/", "We don't replace your tax accountant. We feed them.", "Why compliance and finance systems are different jobs, and how clean data makes both better.", "1 October 2026 · 3 minute read"),
 ]
 
@@ -807,6 +808,12 @@ def insights():
 <h2>What the rule says</h2>
 <p>If your organisation is covered by the Privacy Act, your privacy policy must explain when you use a computer program to make a decision, or to do something substantially and directly related to making a decision, that could reasonably be expected to significantly affect an individual's rights or interests, where personal information is used.</p>
 <p>The policy needs to describe the kinds of personal information used, the kinds of decisions made by the program alone, and the kinds of decisions where the program does something substantially and directly related to the decision.</p>
+<h2>The three-part test</h2>
+<p>The OAIC's fact sheet, published on 30 September 2026, boils it down to three conditions. The rule applies when all three are true:</p>
+<ol><li>A computer program makes a decision, or does something substantially and directly related to making it.</li>
+<li>The decision could reasonably be expected to significantly affect someone's rights or interests.</li>
+<li>Personal information is used to do it.</li></ol>
+<p>If any one of the three is missing, this particular rule doesn't bite. If all three are there, your privacy policy needs to say so.</p>
 <h2>Who it applies to</h2>
 <p>Organisations covered by the Privacy Act. That generally means businesses with annual turnover over $3 million, plus some smaller ones regardless of size, including health service providers and businesses that trade in personal information. Government agencies are covered too.</p>
 <p>If you're a small business that's exempt today, it's still worth knowing. Larger customers increasingly ask suppliers how they use AI, and the government has signalled further privacy reform.</p>
@@ -822,7 +829,7 @@ def insights():
 <li><strong>Decide where a human genuinely reviews,</strong> and make sure that review is real, not a click-through.</li>
 <li><strong>Update your privacy policy</strong> in plain English, with your lawyer confirming the wording where needed.</li></ol>
 <p>Our <a href="/ai-check/">free 2-minute check</a> is a quick way to see where you stand.</p>
-<p class="fine">General information only, not legal advice. Source: Office of the Australian Information Commissioner, <a href="https://www.oaic.gov.au/__data/assets/pdf_file/0027/263925/ADM-Issues-Paper.pdf" rel="noopener">automated decision-making issues paper</a>.</p>''', "Privacy Act automated-decision check")
+<p class="fine">General information only, not legal advice. Sources: Office of the Australian Information Commissioner, <a href="https://www.oaic.gov.au/__data/assets/pdf_file/0021/269013/APP-1.7-1.9-Transparency-Obligation-Fact-Sheet.PDF" rel="noopener">APP 1.7–1.9 transparency obligation fact sheet</a> and <a href="https://www.oaic.gov.au/__data/assets/pdf_file/0019/269011/OAIC-APP-1.7-1.9-Transparency-Obligation-Flowchart_v4.pdf" rel="noopener">flowchart</a> (30 September 2026); <a href="https://www.oaic.gov.au/privacy/australian-privacy-principles-guidelines/chapter-1-app-1-open-and-transparent-management-of-personal-information/" rel="noopener">APP 1 guidelines</a>.</p>''', "Privacy Act automated-decision check")
 
     art(1, '''<p>It happens more than people admit. You paid a developer or an agency for a website, a chatbot or an automation. It didn't work, or they stopped replying, or they now want more money to hand things over. Before anything else, get control back. Here's the order that matters.</p>
 <h2>1. Your domain name</h2>
@@ -861,7 +868,26 @@ def insights():
 <p>The point isn't a pretty chart. It's the one decision it lets you make early: chase that invoice now, move a purchase back a fortnight, or talk to the bank before the tight week rather than during it.</p>
 <p>If your year is seasonal, a simple 12-month view alongside it shows the quiet months coming too.</p>''', "13-week cash forecast")
 
-    art(3, '''<p>People sometimes ask whether we'll replace their accountant. We won't, and we don't want to. It's a different job.</p>
+    art(3, '''<p>Most money lost on supplier bills isn't lost to anything clever. It's a bill paid twice, a price that crept up and nobody noticed, or a payment sent to bank details that changed last week. Five simple checks catch nearly all of it.</p>
+<h2>1. Have we paid this already?</h2>
+<p>Look for the same supplier and the same amount within a few weeks, or the same invoice number twice. Duplicates usually come from a bill arriving by email and again by post, or a reminder being entered as a new bill.</p>
+<h2>2. Have the bank details changed?</h2>
+<p>This is the one that matters most. Payment-redirection scams work by sending a convincing email saying a supplier has new bank details. <strong>Never pay new bank details on the strength of an email.</strong> Hold the payment and phone the supplier on a number you already had, not one from the email.</p>
+<h2>3. Is it over the approval limit?</h2>
+<p>Set a dollar limit above which a bill needs a second pair of eyes, even in a two-person business. It costs a minute and stops most mistakes that matter.</p>
+<h2>4. Has the price moved?</h2>
+<p>Compare the unit price with the last order from the same supplier. A 10% rise might be fine, but you should decide that, not find out at year end.</p>
+<h2>5. Is this a new supplier?</h2>
+<p>First bills from new suppliers deserve a quick check: ABN, contact details and whether anyone actually ordered from them.</p>
+<h2>Doing it automatically</h2>
+<p>All five checks are rules, which makes them a good fit for automation. A workflow tool like n8n can pull new bills from Xero or MYOB each morning, run the checks, and sort them into <em>ready to pay</em> and <em>held for a person</em>, each held bill with its reason. Nothing is paid automatically: you still approve the payment run, you just stop reading every bill line by line.</p>
+<p>You can watch it work on our <a href="/try/#bills">bill-checking demo</a>, which runs these checks on eight made-up bills in your browser.</p>
+<h2>What it won't do</h2>
+<p>It won't catch a fake bill from a real supplier with unchanged details and a normal price; that still needs someone who knows what was ordered. And the rules are only as good as your data: if supplier records are messy, cleaning them up comes first.</p>
+<p>If you'd like these checks running on your own bills, <a href="/contact/?topic=Automation%20%26%20AI%20agents#form">tell us about your setup</a>. It's usually a few days' work.</p>
+<p class="fine">General information only. If you think you've paid a scammer, contact your bank immediately and report it at <a href="https://www.scamwatch.gov.au/" rel="noopener">Scamwatch</a>.</p>''', "Automation & AI agents")
+
+    art(4, '''<p>People sometimes ask whether we'll replace their accountant. We won't, and we don't want to. It's a different job.</p>
 <h2>Two different jobs</h2>
 <div class="tblw"><table class="tbl"><thead><tr><th></th><th>Your tax accountant</th><th>Beiz</th></tr></thead><tbody>
 <tr><td>Main focus</td><td>Compliance: tax returns, BAS, keeping the ATO happy</td><td>Operations: automation, forecasts, dashboards, AI controls</td></tr>
