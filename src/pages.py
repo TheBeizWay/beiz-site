@@ -1,5 +1,5 @@
 """Page content for beiz.com.au. Australian English, plain words, no prices, no names."""
-from layout import (page, phero, related, cta_band, contact_form, SERVICES, INDUSTRIES)
+from layout import (page, phero, related, cta_band, contact_form, SERVICES, INDUSTRIES, CALL_HREF, CALL_ATTR)
 from charts import cash13, job_margins, runway, runway_facts
 
 PAGES = {}
@@ -62,8 +62,8 @@ def home():
       <h1>AI and automation, set up properly.</h1>
       <p class="lede">We connect your accounting, bank and job systems, automate the grunt work, and put a person's sign-off on anything that touches your money, your customers or your data.</p>
       <div class="cta">
-        <a class="btn primary" href="/try/">Try a 60-second demo</a>
-        <a class="btn" href="/contact/#form">Start in writing</a>
+        <a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a discovery call</a>
+        <a class="btn" href="/try/">Try a 60-second demo</a>
       </div>
       <ul class="hero-ticks"><li>Fixed price, in writing, before we start</li><li>Built in your own accounts. You own it.</li><li>Independent: no software of our own to sell</li></ul>
     </div>
@@ -135,7 +135,7 @@ def home():
     <p class="eyebrow">How it works</p>
     <h2>In writing, start to finish.</h2>
     <ol class="steps">
-      <li><h3>Tell us in writing</h3><p>A few lines in the form is enough.</p></li>
+      <li><h3>Talk or write</h3><p>A free 20-minute discovery call, or a few lines in the form.</p></li>
       <li><h3>Written proposal</h3><p>Fixed price, scope and timeline within three business days.</p></li>
       <li><h3>Build with updates</h3><p>Weekly written notes and a working demo you can click.</p></li>
       <li><h3>Handover pack</h3><p>Documentation, controls and training. Your team owns it.</p></li>
@@ -949,7 +949,8 @@ def about():
 <p>Most owners end up in the gap between them: a chatbot nobody uses, an automation that breaks at month-end, a spreadsheet only one person understands, and no idea what their AI tools are doing with customer data.</p>
 <p>Beiz sits in that gap. We're accountants who build. The systems we deliver save real hours, and they're built with the controls, sign-offs and audit trail a Chartered Accountant would expect.</p>
 <h2>Why the name, and the dog</h2>
-<p>Beiz is named after a chocolate-and-white Border Collie. Collies are working dogs: persistent, precise, and nothing slips past them through the gate. That's the standard we hold our systems to, and it's why there's a collie's ear in the B of our logo.</p>
+<p>Beiz is named after a chocolate-and-white Border Collie. The name comes from <span lang="zh">贝仔</span> (bèi zǎi). <span lang="zh">贝</span> is short for <span lang="zh">宝贝</span>, “baby” or “treasure”, and <span lang="zh">仔</span> is an affectionate word for a little boy or a young animal. Put together: little treasure, or baby boy.</p>
+<p>Collies are working dogs: persistent, precise, and nothing slips past them through the gate. That's the standard we hold our systems to, and it's why there's a collie's ear in the B of our logo.</p>
 <h2>Who's behind it</h2>
 <p>Beiz is led by a Chartered Accountant holding a Certificate of Public Practice and a graduate of the Australian Institute of Company Directors. The background: internal audit, fraud and controls; corporate finance and enterprise finance systems; delivery of large project portfolios; and data science with Python, R, Power BI and automation tools.</p>
 <p>Your written proposal names who will do the work, and you can verify credentials before you sign anything.</p>

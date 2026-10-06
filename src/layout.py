@@ -41,7 +41,12 @@ INDUSTRIES = [
     ("/industries/hospitality-retail/", "Hospitality & retail"),
 ]
 
-TOPICS = ["13-week cash forecast", "AI readiness & governance", "AI Readiness Sprint", "Privacy Act automated-decision check",
+# Google Calendar appointment schedule link. Until it's set, "Book a call" opens the form with "Discovery call" selected.
+BOOKING_URL = ""
+CALL_HREF = BOOKING_URL or "/contact/?topic=Discovery%20call#form"
+CALL_ATTR = ' target="_blank" rel="noopener"' if BOOKING_URL else ""
+
+TOPICS = ["Discovery call", "13-week cash forecast", "AI readiness & governance", "AI Readiness Sprint", "Privacy Act automated-decision check",
           "Automation & AI agents", "Offshore & AI oversight", "Dashboards & analytics", "Financial modelling", "Tech project delivery",
           "Small business quick win", "Something else"]
 
@@ -50,7 +55,7 @@ def esc(s):
     return (s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;"))
 
 
-def contact_form(heading="Tell us what you're trying to fix.", lede="A few lines is plenty. We work in writing first: you'll get a written reply by the next business day. If a call helps, we'll book one early in the morning or after 5pm.", eyebrow="Start in writing"):
+def contact_form(heading="Tell us what you're trying to fix.", lede="A few lines is plenty: you'll get a written reply by the next business day. Rather talk it through? Pick “Discovery call” and we'll book a free 20 minutes, early morning or after 5pm.", eyebrow="Start in writing"):
     opts = "".join(f"<option>{esc(t)}</option>" for t in TOPICS)
     return f'''<section id="form">
   <div class="wrap">
@@ -76,10 +81,10 @@ def contact_form(heading="Tell us what you're trying to fix.", lede="A few lines
 </section>'''
 
 
-def cta_band(title="Not sure where to start?", text="Send a few lines in writing. You'll get a considered reply, not a sales pitch.", topic=None):
+def cta_band(title="Not sure where to start?", text="Book a free 20-minute call, or send a few lines in writing. Either way you get a considered reply, not a sales pitch.", topic=None):
     href = "/contact/" + (f"?topic={topic.replace(' ', '%20').replace('&', '%26')}" if topic else "") + "#form"
     return f'''<section class="band"><div class="wrap cta-band"><div><h2>{title}</h2><p class="muted">{text}</p></div>
-  <div class="cta" style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn primary" href="{href}">Start in writing</a><button class="btn" type="button" data-open-bot>Ask Beiz</button></div></div></section>'''
+  <div class="cta" style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a discovery call</a><a class="btn" href="{href}">Start in writing</a><button class="btn" type="button" data-open-bot>Ask Beiz</button></div></div></section>'''
 
 
 def crumbs(items):
@@ -126,10 +131,10 @@ def _header(path):
   <div class="wrap">
     <a class="mark" href="/" aria-label="Beiz home">{LOGO}<span class="wm"><span class="wn">Beiz<span class="wx"> Data &amp; Accounting</span></span><small>CA · GAICD · AI · Data</small></span></a>
     <nav class="main" aria-label="Main">{nav}</nav>
-    <a class="btn primary" href="/contact/#form">Start in writing</a>
+    <a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a discovery call</a>
     <button class="menu-btn" id="menuBtn" type="button" aria-controls="mnav" aria-expanded="false">MENU</button>
   </div>
-  <div class="mnav" id="mnav"><div class="wrap">{mnav}<a class="btn primary" href="/contact/#form">Start in writing</a></div></div>
+  <div class="mnav" id="mnav"><div class="wrap">{mnav}<a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a discovery call</a><a class="btn" href="/contact/#form">Start in writing</a></div></div>
 </header>'''
 
 
