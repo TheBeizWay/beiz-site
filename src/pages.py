@@ -152,7 +152,7 @@ def home():
       <li><h3>Build with updates</h3><p>Weekly written notes and a working demo you can click.</p></li>
       <li><h3>Handover pack</h3><p>Documentation, controls and training. Your team owns it.</p></li>
     </ol>
-    <p class="newfirm" style="margin-top:22px"><b>We're a new firm.</b> That means partner-level attention and a price that reflects our stage. <a href="/how-we-work/">How we work and protect you →</a></p>
+    <div class="founder"><img src="/assets/media/purav-mehta-160.jpg" alt="Purav Mehta" width="64" height="64" loading="lazy"><p><b>You work directly with Purav Mehta</b>, Chartered Accountant (Certificate of Public Practice) and GAICD. We're a new firm: partner-level attention, at a price that reflects our stage. <a href="/about/#who">Who's behind Beiz →</a></p></div>
   </div>
 </section>
 
@@ -662,7 +662,7 @@ FAQ = [
     ("Are you an AI company?", "We don't make or sell AI software, and we're not tied to any vendor. We set AI up properly for your business: we pick the right tools, connect them to your systems and your team, build the automations, dashboards and agents, and put the controls an accountant would expect around them."),
     ("What does Beiz actually do?", "We're accountants who build the systems behind a business's money: automation that does the grunt work, dashboards and forecasts that show what's coming, and the controls that keep AI safe. We don't do tax."),
     ("Isn't a Chartered Accountant just a tax accountant?", "Tax is one thing a Chartered Accountant can do, and we don't do it at all. A Chartered Accountant is trained in audit, risk, systems, forecasting and business advice. GAICD means we're also trained in how boards govern a business and oversee risk."),
-    ("Who's behind Beiz?", "Beiz is led by a Chartered Accountant holding a Certificate of Public Practice and a graduate of the Australian Institute of Company Directors, with a background in internal audit, fraud and controls, corporate finance, project delivery and data science. Your written proposal names who does the work, and you can verify credentials before you sign anything."),
+    ("Who's behind Beiz?", "Beiz is led by Purav Mehta, a Chartered Accountant holding a Certificate of Public Practice and a graduate of the Australian Institute of Company Directors, with a background in internal audit, fraud and controls, corporate finance, project portfolio governance and data science. Your written proposal confirms who does the work, and you can verify his credentials before you sign anything."),
     ("Is my data safe with AI?", "We only use business-grade AI services whose terms stop your data being used to train models, and we build inside your own Microsoft, Google or Xero accounts wherever we can. Sensitive steps stay with a human."),
     ("What happens if the AI gets it wrong?", "It will, sometimes. That's why every build has approval steps, limits and a log. The AI prepares the work, a person signs it off, and anything unusual gets flagged rather than actioned."),
     ("Do you replace my accountant or bookkeeper?", "No. We don't replace your tax accountant, we feed them. They keep you right with the ATO, looking back at what happened. We work on what happens next week. At year end they get clean, reconciled data and do their job faster."),
@@ -729,7 +729,7 @@ def how_we_work():
 <li><strong>Jargon.</strong> If we can't explain it simply, we haven't understood it well enough.</li>
 <li><strong>Tax or BAS work.</strong> We leave that to your tax agent and make their job easier.</li></ul>
 <h2>Who's behind Beiz</h2>
-<p>Beiz is led by a Chartered Accountant (CA ANZ, Certificate of Public Practice) and graduate of the Australian Institute of Company Directors. The background: internal audit, fraud and controls, corporate finance, large-portfolio project delivery and data science. Your written proposal names who does the work, and you can verify credentials before signing.</p>
+<p>Beiz is led by Purav Mehta, a Chartered Accountant (CA ANZ, Certificate of Public Practice) and graduate of the Australian Institute of Company Directors. His background: internal audit, fraud and controls, corporate finance, large-portfolio governance and data science. Your written proposal confirms who does the work, and you can verify his credentials before signing. <a href="https://www.linkedin.com/in/puravmehtaca/" rel="noopener">Purav on LinkedIn</a>.</p>
 <p>We're bound by the CA ANZ Code of Ethics (APES 110).</p>
 <h2>Led in Australia</h2>
 <p>All strategy, architecture, governance and sign-off happen in Australia, by a Chartered Accountant and GAICD. For some build work we use a small, vetted delivery team, only with your written consent and always under our direct review. Your engagement letter says where any of your information will be handled, before you sign.</p>
@@ -968,16 +968,18 @@ def about():
 <h2>Why the name, and the dog</h2>
 <p>Beiz is named after a chocolate-and-white Border Collie. The name comes from <span lang="zh">贝仔</span> (bèi zǎi). <span lang="zh">贝</span> is short for <span lang="zh">宝贝</span>, “baby” or “treasure”, and <span lang="zh">仔</span> is an affectionate word for a little boy or a young animal. Put together: little treasure, or baby boy.</p>
 <p>Collies are working dogs: persistent, precise, and nothing slips past them through the gate. That's the standard we hold our systems to, and it's why there's a collie's ear in the B of our logo.</p>
-<h2>Who's behind it</h2>
-<p>Beiz is led by a Chartered Accountant holding a Certificate of Public Practice and a graduate of the Australian Institute of Company Directors. The background: internal audit, fraud and controls; corporate finance and enterprise finance systems; delivery of large project portfolios; and data science with Python, R, Power BI and automation tools.</p>
-<p>Your written proposal names who will do the work, and you can verify credentials before you sign anything.</p>
+<h2 id="who">Who's behind it</h2>
+<figure class="founderfig"><img src="/assets/media/purav-mehta.jpg" alt="Purav Mehta" width="480" height="640" loading="lazy"><figcaption><b>Purav Mehta</b> CA · GAICD</figcaption></figure>
+<p>Beiz is led by Purav Mehta, a Chartered Accountant holding a CA ANZ Certificate of Public Practice and a graduate of the Australian Institute of Company Directors.</p>
+<p>His background: internal audit, fraud and controls; corporate finance and enterprise finance systems, including SAP; governance and reporting for large project portfolios; and data science with Python, R, Power BI and automation tools. He's based in Canberra and works with businesses Australia-wide.</p>
+<p>When you work with Beiz, you work with him. Your written proposal confirms who does what, and you can verify his credentials before you sign anything. <a href="https://www.linkedin.com/in/puravmehtaca/" rel="noopener">Purav on LinkedIn</a>.</p>
 <h2>How we're set up</h2>
 <p>Strategy, architecture, governance, client communication and sign-off all happen in Australia. For some build work we may use a small, vetted delivery team, always under our direct review. We also use business-grade AI tools to work faster. That's how a small firm delivers quickly at a fixed price, and your engagement letter spells out exactly who touches your information and where.</p>
 <h2>What we don't do</h2>
 <p>We don't do tax returns, BAS, SMSF advice or audits, business valuations, legal advice or financial product advice. Those need licences, registrations or specialist standards, and we'd rather do one thing properly. We work alongside the people who do them, and make their jobs easier with clean, reconciled data.</p>
 </div>
 <aside class="aside"><h3>At a glance</h3>
-<ul class="ticks"><li>Chartered Accountant, CA ANZ Certificate of Public Practice</li><li>GAICD</li><li>Bound by the APES 110 code of ethics</li><li>Beiz Data &amp; Accounting Pty Ltd · ABN 53 691 755 496</li><li>Australia-wide, remote-first</li></ul>
+<ul class="ticks"><li>Led by Purav Mehta</li><li>Chartered Accountant, CA ANZ Certificate of Public Practice</li><li>GAICD</li><li>Bound by the APES 110 code of ethics</li><li>Beiz Data &amp; Accounting Pty Ltd · ABN 53 691 755 496</li><li>Australia-wide, remote-first</li></ul>
 <a class="btn primary" href="/how-we-work/">How we work</a></aside></div></section>
 <section><div class="wrap"><p class="eyebrow">What we believe</p><h2>Five rules we don't bend.</h2><div class="cards">{pr}</div></div></section>''' + cta_band("Sound like the kind of firm you want?", "Tell us what you're trying to fix. A few lines in writing is enough.")
     add("/about/", "About us", "About Beiz Data & Accounting: a Chartered Accountant and GAICD led firm helping Australian businesses use AI, automation and data without losing control of their numbers.", body)

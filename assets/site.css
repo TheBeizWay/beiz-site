@@ -641,3 +641,14 @@ header.site .mnav .btn{display:flex;justify-content:center}
 html{scroll-padding-top:calc(var(--tk,24px) + 72px)}
 section{scroll-margin-top:calc(var(--tk,24px) + 72px)}
 footer.site .legal,footer.site .legal p{color:#a9b4be}
+
+/* founder */
+.founder{display:flex;gap:16px;align-items:center;margin-top:24px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 18px;max-width:760px}
+.founder img{width:64px;height:64px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid #2b5a53}
+.founder p{font-size:.95rem}
+.founder p b{color:var(--text);font-weight:600}
+.founderfig{float:right;width:200px;margin:4px 0 16px 24px}
+.founderfig img{width:100%;height:auto;border-radius:14px;border:1px solid var(--line);display:block}
+.founderfig figcaption{font-size:.85rem;color:var(--muted);margin-top:8px}
+.founderfig figcaption b{color:var(--text)}
+@media (max-width:560px){.founderfig{float:none;width:160px;margin:0 0 14px}}
