@@ -659,3 +659,7 @@ footer.site .legal,footer.site .legal p,footer.site .legal span{color:#cdd5dc!im
 .ddm .ddg:first-of-type{margin-top:6px}
 .fix .due{display:block;font:500 11px var(--mono);letter-spacing:.06em;color:var(--warn);margin-top:2px}
 .venn .vt{font-size:20px}
+
+.fixgrid li:last-child:nth-child(odd){grid-column:1/-1}
+.gapstats small,.evid small,.labsrc,.fine{color:#c3ccd4}
+@media (max-width:900px){header.site{background:#07090b;-webkit-backdrop-filter:none;backdrop-filter:none}}

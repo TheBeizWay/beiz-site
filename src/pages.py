@@ -61,7 +61,7 @@ def home():
     <div>
       <p class="eyebrow">Set up by a Chartered Accountant</p>
       <h1>AI and automation, set up properly.</h1>
-      <p class="lede">We connect your accounting, bank and job systems, automate the grunt work, and put a person's sign-off on anything that touches your money, your customers or your data.</p>
+      <p class="lede">For sole traders through to growing teams. We connect your accounting, bank and job systems, automate the grunt work, and put a person's sign-off on anything that touches your money, your customers or your data.</p>
       <div class="cta">
         <a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a discovery call</a>
         <a class="btn" href="/try/">Try a 60-second demo</a>
@@ -113,6 +113,7 @@ def home():
     <p class="lede">Each one is a fixed-price piece of work with a result you can see.</p>
     <ul class="fix fixgrid">
       <li><a href="/try/#cash"><q>I don't know if I'll have enough cash next month.</q><span>→ <b>13-week cash forecast</b><em class="eta">Typically 1 to 2 weeks</em></span><i>→</i></a></li>
+      <li><a href="/services/quick-wins/"><q>I'm a sole trader. Admin eats my evenings.</q><span>→ <b>Quick wins</b>: invoices, receipts and reminders that run themselves<em class="eta">Typically days</em></span><i>→</i></a></li>
       <li><a href="/try/#late"><q>I spend every week chasing money.</q><span>→ <b>Invoices that chase themselves</b><em class="eta">Typically days</em></span><i>→</i></a></li>
       <li><a href="/industries/trades/"><q>I don't know which jobs actually make money.</q><span>→ <b>Profit by job, client or service</b><em class="eta">Typically 2 to 3 weeks</em></span><i>→</i></a></li>
       <li><a href="/try/#hours"><q>Month-end eats a week.</q><span>→ <b>Reconciliations and checks automated</b><em class="eta">Typically 2 to 4 weeks</em></span><i>→</i></a></li>
@@ -173,7 +174,7 @@ def services_hub():
         ("/services/project-delivery/", "Deliver", "AI & tech project delivery", "Scope, vendors, milestones and honest reporting, so your tech project actually lands."),
         ("/services/privacy-sprint/", "Before 10 Dec", "Automated-Decision Privacy Sprint", "Map what your software decides about people and hand your lawyer the policy wording. Fixed price, 5 to 10 days."),
         ("/services/ai-readiness-sprint/", "Start here", "AI Readiness Sprint", "Ten business days: AI inventory, risk map, one working prototype and a roadmap."),
-        ("/services/quick-wins/", "Small business", "Quick wins", "Small, fixed-price fixes that give you back evenings and bring cash in faster."),
+        ("/services/quick-wins/", "Small business", "Quick wins", "Small, fixed-price fixes that give you back evenings and bring cash in faster. Built for sole traders and small teams who don't have time for admin. Most are scoped in days, not months, with no lock-in. Your BAS and tax stay with your tax or BAS agent; we make their job easier."),
     ]
     c = "".join(f'<a class="card" href="{h}"><span class="k">{k}</span><h3>{t}</h3><p>{d}</p><span class="go">Learn more →</span></a>' for h, k, t, d in cards)
     body = phero("Services", "What we build and fix.", "Every engagement is fixed price, agreed in writing, and ends with something your team can run. Pick the one closest to your problem, or tell us the problem and we'll pick.",

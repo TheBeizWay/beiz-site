@@ -2,7 +2,7 @@
 import json
 
 SITE = "https://beiz.com.au"
-ASSET_V = "36"  # bump to bust caches when CSS/JS change
+ASSET_V = "37"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true" class="logo"><defs><linearGradient id="hg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#2DD4BF"/><stop offset="1" stop-color="#818CF8"/></linearGradient><mask id="mH" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"><rect width="200" height="200" fill="#fff"/><circle cx="126.4" cy="69.9" r="6.5" fill="#000"/></mask></defs><rect x="5" y="5" width="190" height="190" rx="44" fill="#0D1115" stroke="url(#hg)" stroke-width="6"/><g stroke="#818CF8" stroke-width="3" fill="none" stroke-linecap="round"><path d="M113.0 75.4 L150 75.4 L165 53.4"/><path d="M150 75.4 L165 97.4"/></g><g fill="#818CF8"><circle cx="165" cy="53.4" r="6"/><circle cx="165" cy="97.4" r="6"/></g><circle cx="150" cy="75.4" r="4" fill="#5EEAD4"/><g transform="translate(16,25.1) scale(.72)"><g mask="url(#mH)" fill="none" stroke="url(#hg)" stroke-width="27" stroke-linejoin="round"><path d="M58 120 L110 120 A33 33 0 0 1 110 186 L58 186 L58 22 L102 58 A31 31 0 0 1 102 120 L58 120"/></g></g></svg>')
 
@@ -30,7 +30,7 @@ SERVICES = [
     ("/services/project-delivery/", "AI & tech project delivery"),
     ("/services/privacy-sprint/", "Automated-Decision Privacy Sprint"),
     ("/services/ai-readiness-sprint/", "AI Readiness Sprint"),
-    ("/services/quick-wins/", "Small business quick wins"),
+    ("/services/quick-wins/", "Quick wins for sole traders & small teams"),
 ]
 SERVICE_GROUPS = [
     ("Your numbers", ["/services/dashboards-and-models/", "/services/data-engineering/", "/services/quick-wins/"]),
@@ -132,11 +132,11 @@ def _header(path):
         return (f'<div class="dd"><button type="button" aria-expanded="false" aria-controls="dd-{key}"{on}>{label}<span aria-hidden="true">▾</span></button>'
                 f'<div class="ddm" id="dd-{key}"><a class="hub" href="{hub}">{hub_text}</a>{body}</div></div>')
     nav = (dd_grouped("What we do", "/services/", SERVICE_GROUPS, "s", "All services →") +
-           dd("Who we help", "/industries/", INDUSTRIES, "i", "All industries →") +
+           dd("Who we help", "/industries/", [("/services/quick-wins/", "Sole traders")] + INDUSTRIES, "i", "All industries →") +
            dd("See it working", "/try/", see, "v") +
            dd("Why Beiz", "/about/", MORE, "m"))
     grp = lambda title, items: f'<p class="mg">{title}</p>' + "".join(f'<a href="{h}">{t}</a>' for h, t in items)
-    mnav = ("".join(grp(g, [(h, sname[h]) for h in hs]) for g, hs in SERVICE_GROUPS) + grp("Who we help", INDUSTRIES) +
+    mnav = ("".join(grp(g, [(h, sname[h]) for h in hs]) for g, hs in SERVICE_GROUPS) + grp("Who we help", [("/services/quick-wins/", "Sole traders")] + INDUSTRIES) +
             grp("See it working", see) + grp("Why Beiz", MORE))
     return f'''<div class="ticker" role="region" aria-label="Beiz Pulse: regulatory countdown and market benchmarks">
   <div class="label">BEIZ PULSE</div>
