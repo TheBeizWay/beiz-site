@@ -76,6 +76,8 @@
         try {
           const r = await fetch(FORM_ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) });
           if (!r.ok) throw new Error();
+          const res = await r.json().catch(() => ({}));
+          if (!res.ok) throw new Error();
           form.reset();
           fmsg.style.color = "var(--accent)";
           fmsg.textContent = "Received. You'll get a written reply by the next business day.";
