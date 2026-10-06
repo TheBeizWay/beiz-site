@@ -152,7 +152,7 @@ def home():
       <li><h3>Build with updates</h3><p>Weekly written notes and a working demo you can click.</p></li>
       <li><h3>Handover pack</h3><p>Documentation, controls and training. Your team owns it.</p></li>
     </ol>
-    <div class="founder"><img src="/assets/media/purav-mehta-160.jpg" alt="Purav Mehta" width="64" height="64" loading="lazy"><p><b>You work directly with Purav Mehta</b>, Chartered Accountant (Certificate of Public Practice) and GAICD. We're a new firm: partner-level attention, at a price that reflects our stage. <a href="/about/#who">Who's behind Beiz →</a></p></div>
+    <div class="founder"><img src="/assets/media/purav-mehta-2-160.jpg" alt="Purav Mehta" width="64" height="64" loading="lazy"><p><b>You work directly with Purav Mehta</b>, Chartered Accountant (Certificate of Public Practice) and GAICD. We're a new firm: partner-level attention, at a price that reflects our stage. <a href="/about/#who">Who's behind Beiz →</a></p></div>
   </div>
 </section>
 
@@ -969,7 +969,7 @@ def about():
 <p>Beiz is named after a chocolate-and-white Border Collie. The name comes from <span lang="zh">贝仔</span> (bèi zǎi). <span lang="zh">贝</span> is short for <span lang="zh">宝贝</span>, “baby” or “treasure”, and <span lang="zh">仔</span> is an affectionate word for a little boy or a young animal. Put together: little treasure, or baby boy.</p>
 <p>Collies are working dogs: persistent, precise, and nothing slips past them through the gate. That's the standard we hold our systems to, and it's why there's a collie's ear in the B of our logo.</p>
 <h2 id="who">Who's behind it</h2>
-<figure class="founderfig"><img src="/assets/media/purav-mehta.jpg" alt="Purav Mehta" width="480" height="640" loading="lazy"><figcaption><b>Purav Mehta</b> CA · GAICD</figcaption></figure>
+<figure class="founderfig"><img src="/assets/media/purav-mehta-2.jpg" alt="Purav Mehta" width="480" height="640" loading="lazy"><figcaption><b>Purav Mehta</b> CA · GAICD</figcaption></figure>
 <p>Beiz is led by Purav Mehta, a Chartered Accountant holding a CA ANZ Certificate of Public Practice and a graduate of the Australian Institute of Company Directors.</p>
 <p>His background: internal audit, fraud and controls; corporate finance and enterprise finance systems, including SAP; governance and reporting for large project portfolios; and data science with Python, R, Power BI and automation tools. He's based in Canberra and works with businesses Australia-wide.</p>
 <p>When you work with Beiz, you work with him. Your written proposal confirms who does what, and you can verify his credentials before you sign anything. <a href="https://www.linkedin.com/in/puravmehtaca/" rel="noopener">Purav on LinkedIn</a>.</p>
