@@ -59,7 +59,7 @@ def home():
     body = f'''<section class="hero" id="top">
   <div class="wrap hero2">
     <div>
-      <p class="eyebrow">Chartered Accountant · GAICD · Data &amp; AI</p>
+      <p class="eyebrow">Set up by a Chartered Accountant</p>
       <h1>AI and automation, set up properly.</h1>
       <p class="lede">We connect your accounting, bank and job systems, automate the grunt work, and put a person's sign-off on anything that touches your money, your customers or your data.</p>
       <div class="cta">
@@ -91,15 +91,15 @@ def home():
         <title id="vennT">Where Beiz sits</title>
         <desc id="vennD">Three overlapping circles: Chartered Accountant (the numbers are right), GAICD governance (the controls are in place) and AI and data (the tools work). Beiz sits where all three overlap.</desc>
         <circle cx="155" cy="145" r="115" class="c1"/><circle cx="285" cy="145" r="115" class="c2"/><circle cx="220" cy="255" r="115" class="c3"/>
-        <text x="110" y="110" class="vt">CA</text><text x="110" y="134" class="vs">numbers right</text>
-        <text x="330" y="110" class="vt">GAICD</text><text x="330" y="134" class="vs">controls in place</text>
+        <text x="122" y="110" class="vt">Accountant</text><text x="122" y="134" class="vs">numbers right</text>
+        <text x="318" y="110" class="vt">Governance</text><text x="318" y="134" class="vs">controls in place</text>
         <text x="220" y="320" class="vt">AI &amp; data</text><text x="220" y="344" class="vs">tools that work</text>
         <circle cx="220" cy="180" r="34" class="core"/><text x="220" y="186" class="vc">Beiz</text>
       </svg>
       <ul class="vlist">
         <li><b>An accountant</b> gets the numbers right, but usually doesn't build the systems.</li>
-        <li><b>A tech or AI agency</b> builds fast, but isn't usually set up to reconcile a ledger or design the controls.</li>
-        <li><b>Beiz does all three in one job</b>: a Chartered Accountant checks every figure, GAICD training puts approvals and audit trails in from day one, and the AI and automation are tested on your own data before you rely on them.</li>
+        <li><b>A tech or AI agency</b> builds fast, but isn't usually set up to match the books to the bank or design the controls.</li>
+        <li><b>Beiz does all three in one job</b>: a Chartered Accountant checks every figure, company-director training (GAICD) puts approvals and audit trails in from day one, and the AI and automation are tested on your own data before you rely on them.</li>
       </ul>
     </div>
     <p style="margin-top:16px"><a href="/services/ai-governance/#frameworks">The responsible-AI frameworks we work to →</a></p>
@@ -117,7 +117,7 @@ def home():
       <li><a href="/industries/trades/"><q>I don't know which jobs actually make money.</q><span>→ <b>Profit by job, client or service</b><em class="eta">Typically 2 to 3 weeks</em></span><i>→</i></a></li>
       <li><a href="/try/#hours"><q>Month-end eats a week.</q><span>→ <b>Reconciliations and checks automated</b><em class="eta">Typically 2 to 4 weeks</em></span><i>→</i></a></li>
       <li><a href="/services/ai-readiness-sprint/"><q>We don't know which AI to use, or if it's safe.</q><span>→ <b>AI Readiness Sprint</b>: approved tools and rules your team follows<em class="eta">10 business days</em></span><i>→</i></a></li>
-      <li><a href="/ai-check/"><q>Will the new Privacy Act AI rules catch us?</q><span>→ <b>Free 2-minute check</b>, then a written action list<em class="eta">Free · then a 5 to 10 day sprint</em></span><i>→</i></a></li>
+      <li><a href="/ai-check/"><q>Will the new Privacy Act AI rules catch us?</q><small class="due">Rules start 10 December 2026</small><span>→ <b>Free 2-minute check</b>, then a written action list<em class="eta">Free · then a 5 to 10 day sprint</em></span><i>→</i></a></li>
     </ul>
     <p style="margin-top:18px"><a class="btn" href="/services/">All services →</a></p>
   </div>
@@ -152,7 +152,7 @@ def home():
       <li><h3>Build with updates</h3><p>Weekly written notes and a working demo you can click.</p></li>
       <li><h3>Handover pack</h3><p>Documentation, controls and training. Your team owns it.</p></li>
     </ol>
-    <div class="founder"><img src="/assets/media/purav-mehta-2-160.jpg" alt="Purav Mehta" width="64" height="64" loading="lazy"><p><b>You work directly with Purav Mehta</b>, Chartered Accountant (Certificate of Public Practice) and GAICD. We're a new firm: partner-level attention, at a price that reflects our stage. <a href="/about/#who">Who's behind Beiz →</a></p></div>
+    <div class="founder"><img src="/assets/media/purav-mehta-2-160.jpg" alt="Purav Mehta" width="64" height="64" loading="lazy"><p><b>You work directly with Purav Mehta</b>, Chartered Accountant (Certificate of Public Practice) and graduate of the Australian Institute of Company Directors. We're a new firm: partner-level attention, at a price that reflects our stage. <a href="/about/#who">Who's behind Beiz →</a></p></div>
   </div>
 </section>
 

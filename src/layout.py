@@ -2,7 +2,7 @@
 import json
 
 SITE = "https://beiz.com.au"
-ASSET_V = "35"  # bump to bust caches when CSS/JS change
+ASSET_V = "36"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true" class="logo"><defs><linearGradient id="hg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#2DD4BF"/><stop offset="1" stop-color="#818CF8"/></linearGradient><mask id="mH" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"><rect width="200" height="200" fill="#fff"/><circle cx="126.4" cy="69.9" r="6.5" fill="#000"/></mask></defs><rect x="5" y="5" width="190" height="190" rx="44" fill="#0D1115" stroke="url(#hg)" stroke-width="6"/><g stroke="#818CF8" stroke-width="3" fill="none" stroke-linecap="round"><path d="M113.0 75.4 L150 75.4 L165 53.4"/><path d="M150 75.4 L165 97.4"/></g><g fill="#818CF8"><circle cx="165" cy="53.4" r="6"/><circle cx="165" cy="97.4" r="6"/></g><circle cx="150" cy="75.4" r="4" fill="#5EEAD4"/><g transform="translate(16,25.1) scale(.72)"><g mask="url(#mH)" fill="none" stroke="url(#hg)" stroke-width="27" stroke-linejoin="round"><path d="M58 120 L110 120 A33 33 0 0 1 110 186 L58 186 L58 22 L102 58 A31 31 0 0 1 102 120 L58 120"/></g></g></svg>')
 
@@ -31,6 +31,11 @@ SERVICES = [
     ("/services/privacy-sprint/", "Automated-Decision Privacy Sprint"),
     ("/services/ai-readiness-sprint/", "AI Readiness Sprint"),
     ("/services/quick-wins/", "Small business quick wins"),
+]
+SERVICE_GROUPS = [
+    ("Your numbers", ["/services/dashboards-and-models/", "/services/data-engineering/", "/services/quick-wins/"]),
+    ("Automation & AI", ["/services/automation/", "/services/ai-agents/", "/services/project-delivery/"]),
+    ("Safe use of AI", ["/services/ai-readiness-sprint/", "/services/ai-governance/", "/services/privacy-sprint/", "/services/human-in-the-loop/"]),
 ]
 INDUSTRIES = [
     ("/industries/trades/", "Trades & construction"),
@@ -120,12 +125,18 @@ def _header(path):
                 f'<div class="ddm" id="dd-{key}">{top}{links}</div></div>')
     see = [(h, t) for h, t, _ in NAV]
     # Four questions a visitor has: what do you do, do you work with businesses like mine, show me, why you
-    nav = (dd("What we do", "/services/", SERVICES, "s", "All services →") +
+    sname = dict(SERVICES)
+    def dd_grouped(label, hub, groups, key, hub_text):
+        on = ' class="on"' if path.startswith(hub) else ""
+        body = "".join(f'<p class="ddg">{g}</p>' + "".join(f'<a href="{h}"{cur(h)}>{sname[h]}</a>' for h in hs) for g, hs in groups)
+        return (f'<div class="dd"><button type="button" aria-expanded="false" aria-controls="dd-{key}"{on}>{label}<span aria-hidden="true">▾</span></button>'
+                f'<div class="ddm" id="dd-{key}"><a class="hub" href="{hub}">{hub_text}</a>{body}</div></div>')
+    nav = (dd_grouped("What we do", "/services/", SERVICE_GROUPS, "s", "All services →") +
            dd("Who we help", "/industries/", INDUSTRIES, "i", "All industries →") +
            dd("See it working", "/try/", see, "v") +
            dd("Why Beiz", "/about/", MORE, "m"))
     grp = lambda title, items: f'<p class="mg">{title}</p>' + "".join(f'<a href="{h}">{t}</a>' for h, t in items)
-    mnav = (grp("What we do", SERVICES) + grp("Who we help", INDUSTRIES) +
+    mnav = ("".join(grp(g, [(h, sname[h]) for h in hs]) for g, hs in SERVICE_GROUPS) + grp("Who we help", INDUSTRIES) +
             grp("See it working", see) + grp("Why Beiz", MORE))
     return f'''<div class="ticker" role="region" aria-label="Beiz Pulse: regulatory countdown and market benchmarks">
   <div class="label">BEIZ PULSE</div>
@@ -133,7 +144,7 @@ def _header(path):
 </div>
 <header class="site">
   <div class="wrap">
-    <a class="mark" href="/" aria-label="Beiz home">{LOGO}<span class="wm"><span class="wn">Beiz<span class="wx"> Data &amp; Accounting</span></span><small>CA · GAICD · AI · Data</small></span></a>
+    <a class="mark" href="/" aria-label="Beiz home">{LOGO}<span class="wm"><span class="wn">Beiz<span class="wx"> Data &amp; Accounting</span></span><small>Accounting · Data · AI</small></span></a>
     <nav class="main" aria-label="Main">{nav}</nav>
     <a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a discovery call</a>
     <button class="menu-btn" id="menuBtn" type="button" aria-controls="mnav" aria-expanded="false">MENU</button>
@@ -149,7 +160,7 @@ def _footer():
   <div class="wrap">
     <div class="fcols">
       <div><a class="mark" href="/" aria-label="Beiz home">{LOGO.replace('id="hg"', 'id="fg"').replace('url(#hg)', 'url(#fg)').replace('id="mH"', 'id="fM"').replace('url(#mH)', 'url(#fM)')}<span class="wm">Beiz<small>Data · AI · Accounting</small></span></a>
-        <p style="margin-top:14px;max-width:34ch">Governed AI, automation, dashboards and financial models for Australian businesses. Chartered Accountant and GAICD led.</p>
+        <p style="margin-top:14px;max-width:34ch">Governed AI, automation, dashboards and financial models for Australian businesses. Led by a Chartered Accountant.</p>
         <p style="margin-top:10px"><a href="mailto:hello@beiz.com.au">hello@beiz.com.au</a></p></div>
       <div><h4>Services</h4><ul>{s}</ul></div>
       <div><h4>Industries</h4><ul>{i}</ul></div>
@@ -220,7 +231,7 @@ def page(path, title, desc, body, extra_head=""):
 <meta name="theme-color" content="#07090b">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Beiz Data &amp; Accounting">
 <meta property="og:title" content="{esc(full_title)}"><meta property="og:description" content="{esc(desc)}">
-<meta property="og:url" content="{canon}"><meta property="og:image" content="{SITE}/assets/og-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Beiz Data &amp; Accounting: AI you can sign off on. Chartered Accountant and GAICD led.">
+<meta property="og:url" content="{canon}"><meta property="og:image" content="{SITE}/assets/og-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Beiz Data &amp; Accounting: AI you can sign off on. Led by a Chartered Accountant.">
 <meta name="twitter:card" content="summary_large_image"><meta property="og:locale" content="en_AU">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
