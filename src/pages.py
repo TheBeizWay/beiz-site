@@ -75,37 +75,6 @@ def home():
   </div>
 </section>
 
-<section id="gap">
-  <div class="wrap">
-    <p class="eyebrow">The gap · Australia, 2026</p>
-    <h2>Most businesses aren't using AI yet. Most of those using it aren't checking it.</h2>
-    <div class="gapstats">
-      <div><b>57%</b><p>of Australian SMEs haven't meaningfully adopted AI.</p><small>National AI Centre SME AI Pulse, Dec 2025 to Feb 2026 · <a href="https://www.ai.gov.au/news-and-insights/blog/ai-adoption-insights-december-2025-february-2026" rel="noopener">source</a></small></div>
-      <div><b>65%</b><p>of those holding back say they distrust AI decisions or want to keep a human in control.</p><small>Same survey, non-adopters · <a href="https://www.ai.gov.au/news-and-insights/blog/ai-adoption-insights-december-2025-february-2026" rel="noopener">source</a></small></div>
-      <div><b>~1 in 2</b><p>SMEs already using AI check its output before it reaches a customer. The other half don't.</p><small>Same survey, current users · <a href="https://www.ai.gov.au/news-and-insights/blog/ai-adoption-insights-december-2025-february-2026" rel="noopener">source</a></small></div>
-      <div><b>20%</b><p>of organisations properly monitor their AI after it goes live. 21% give people a way to challenge an AI decision.</p><small>Responsible AI Index self-assessment, 241 organisations, 2025 · <a href="https://www.fifthquadrant.com.au/content/uploads/FQ_NAIC_Responsible_AI_Index_Self-Assessment-Tool-Mini-Report-June-2026.pdf" rel="noopener">source</a></small></div>
-    </div>
-    <h3 class="gap-h">Closing it takes three skills most firms keep apart.</h3>
-    <div class="vennrow">
-      <svg class="venn" viewBox="0 0 440 400" role="img" aria-labelledby="vennT vennD">
-        <title id="vennT">Where Beiz sits</title>
-        <desc id="vennD">Three overlapping circles: Chartered Accountant (the numbers are right), GAICD governance (the controls are in place) and AI and data (the tools work). Beiz sits where all three overlap.</desc>
-        <circle cx="155" cy="145" r="115" class="c1"/><circle cx="285" cy="145" r="115" class="c2"/><circle cx="220" cy="255" r="115" class="c3"/>
-        <text x="122" y="110" class="vt">Accountant</text><text x="122" y="134" class="vs">numbers right</text>
-        <text x="318" y="110" class="vt">Governance</text><text x="318" y="134" class="vs">controls in place</text>
-        <text x="220" y="320" class="vt">AI &amp; data</text><text x="220" y="344" class="vs">tools that work</text>
-        <circle cx="220" cy="180" r="34" class="core"/><text x="220" y="186" class="vc">Beiz</text>
-      </svg>
-      <ul class="vlist">
-        <li><b>An accountant</b> gets the numbers right, but usually doesn't build the systems.</li>
-        <li><b>A tech or AI agency</b> builds fast, but isn't usually set up to match the books to the bank or design the controls.</li>
-        <li><b>Beiz does all three in one job</b>: a Chartered Accountant checks every figure, company-director training (GAICD) puts approvals and audit trails in from day one, and the AI and automation are tested on your own data before you rely on them.</li>
-      </ul>
-    </div>
-    <p style="margin-top:16px"><a href="/services/ai-governance/#frameworks">The responsible-AI frameworks we work to →</a></p>
-  </div>
-</section>
-
 <section id="fix">
   <div class="wrap">
     <p class="eyebrow">What we fix</p>
@@ -118,9 +87,39 @@ def home():
       <li><a href="/industries/trades/"><q>I don't know which jobs actually make money.</q><span>→ <b>Profit by job, client or service</b><em class="eta">Typically 2 to 3 weeks</em></span><i>→</i></a></li>
       <li><a href="/try/#hours"><q>Month-end eats a week.</q><span>→ <b>Reconciliations and checks automated</b><em class="eta">Typically 2 to 4 weeks</em></span><i>→</i></a></li>
       <li><a href="/services/ai-readiness-sprint/"><q>We don't know which AI to use, or if it's safe.</q><span>→ <b>AI Readiness Sprint</b>: approved tools and rules your team follows<em class="eta">10 business days</em></span><i>→</i></a></li>
-      <li><a href="/ai-check/"><q>Will the new Privacy Act AI rules catch us?</q><small class="due">Rules start 10 December 2026</small><span>→ <b>Free 2-minute check</b>, then a written action list<em class="eta">Free · then a 5 to 10 day sprint</em></span><i>→</i></a></li>
+      <li><a href="/ai-check/"><q>Do the new automated-decision privacy rules apply to us?</q><small class="due">Rules start 10 December 2026</small><span>→ <b>Free 2-minute check</b>, then a written action list<em class="eta">Free · then a 5 to 10 day sprint</em></span><i>→</i></a></li>
     </ul>
     <p style="margin-top:18px"><a class="btn" href="/services/">All services →</a></p>
+  </div>
+</section>
+
+<section id="gap">
+  <div class="wrap">
+    <p class="eyebrow">The gap · Australia, 2026</p>
+    <h2>Most businesses aren't using AI yet. Most of those using it aren't checking it.</h2>
+    <div class="gapstats">
+      <div><b>57%</b><p>of Australian SMEs haven't meaningfully adopted AI.</p><small>National AI Centre SME AI Pulse, Dec 2025 to Feb 2026 · <a href="https://www.ai.gov.au/news-and-insights/blog/ai-adoption-insights-december-2025-february-2026" rel="noopener">source</a></small></div>
+      <div><b>65%</b><p>of those holding back say they distrust AI decisions or want to keep a human in control.</p><small>Same survey, non-adopters · <a href="https://www.ai.gov.au/news-and-insights/blog/ai-adoption-insights-december-2025-february-2026" rel="noopener">source</a></small></div>
+      <div><b>~1 in 2</b><p>SMEs already using AI check its output before it reaches a customer. The other half don't.</p><small>Same survey, current users · <a href="https://www.ai.gov.au/news-and-insights/blog/ai-adoption-insights-december-2025-february-2026" rel="noopener">source</a></small></div>
+      <div><b>20%</b><p>of organisations properly monitor their AI after it goes live. 21% give people a way to challenge an AI decision.</p><small>Responsible AI Index self-assessment, 241 organisations, 2025 · <a href="https://www.fifthquadrant.com.au/content/uploads/FQ_NAIC_Responsible_AI_Index_Self-Assessment-Tool-Mini-Report-June-2026.pdf" rel="noopener">source</a></small></div>
+    </div>
+    <h3 class="gap-h">Closing it takes three skills that usually sit with different specialists.</h3>
+    <div class="vennrow">
+      <svg class="venn" viewBox="0 0 440 400" role="img" aria-labelledby="vennT vennD">
+        <title id="vennT">Where Beiz sits</title>
+        <desc id="vennD">Three overlapping circles: Chartered Accountant (the numbers are right), GAICD governance (the controls are in place) and AI and data (the tools work). Beiz sits where all three overlap.</desc>
+        <circle cx="155" cy="145" r="115" class="c1"/><circle cx="285" cy="145" r="115" class="c2"/><circle cx="220" cy="255" r="115" class="c3"/>
+        <text x="122" y="110" class="vt">Accountant</text><text x="122" y="134" class="vs">numbers right</text>
+        <text x="318" y="110" class="vt">Governance</text><text x="318" y="134" class="vs">controls in place</text>
+        <text x="220" y="320" class="vt">AI &amp; data</text><text x="220" y="344" class="vs">tools that work</text>
+        <circle cx="220" cy="180" r="34" class="core"/><text x="220" y="186" class="vc">Beiz</text>
+      </svg>
+      <ul class="vlist">
+        <li>Many businesses coordinate separate accounting, governance and technology specialists to get this right.</li>
+        <li><b>Beiz brings those disciplines together in one engagement</b>: a Chartered Accountant checks every figure, company-director training (GAICD) puts approvals and audit trails in from day one, and the AI and automation are tested on your own data before you rely on them.</li>
+      </ul>
+    </div>
+    <p style="margin-top:16px"><a href="/services/ai-governance/#frameworks">The responsible-AI frameworks we work to →</a></p>
   </div>
 </section>
 
@@ -153,7 +152,7 @@ def home():
       <li><h3>Build with updates</h3><p>Weekly written notes and a working demo you can click.</p></li>
       <li><h3>Handover pack</h3><p>Documentation, controls and training. Your team owns it.</p></li>
     </ol>
-    <div class="founder"><img src="/assets/media/purav-mehta-2-160.jpg" alt="Purav Mehta" width="64" height="64" loading="lazy"><p><b>You work directly with Purav Mehta</b>, Chartered Accountant (Certificate of Public Practice) and graduate of the Australian Institute of Company Directors. We're a new firm: partner-level attention, at a price that reflects our stage. <a href="/about/#who">Who's behind Beiz →</a></p></div>
+    <div class="founder"><img src="/assets/media/purav-mehta-2-160.jpg" alt="Purav Mehta" width="64" height="64" loading="lazy"><p><b>You work directly with Purav Mehta</b>, Chartered Accountant (Certificate of Public Practice) and graduate of the Australian Institute of Company Directors. You work with him directly, from discovery through to handover. <a href="/about/#who">Who's behind Beiz →</a></p></div>
   </div>
 </section>
 
@@ -641,7 +640,7 @@ def examples():
 
 # ------------------------------------------------------------------ AI check
 def ai_check():
-    body = phero("Free · 2 minutes · nothing sent anywhere", "Will the new Privacy Act AI rules catch you?",
+    body = phero("Free · 2 minutes · nothing sent anywhere", "Do the new automated-decision privacy rules apply to you?",
                  "From 10 December 2026, organisations covered by the Privacy Act must explain in their privacy policy when computer programs make, or substantially help make, decisions that significantly affect people. Nine questions tell you where you stand.",
                  [("/ai-check/", "Privacy Act AI check")]) + '''<section style="padding-top:8px"><div class="wrap">
     <div class="chk"><ol id="chkQ"></ol><div class="res" id="chkRes" aria-live="polite"><p class="muted">Answer the questions to see where you stand.</p></div></div>
