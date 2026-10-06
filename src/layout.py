@@ -46,6 +46,9 @@ INDUSTRIES = [
     ("/industries/hospitality-retail/", "Hospitality & retail"),
 ]
 
+# Google Search Console HTML-tag verification code (the content="..." value only).
+GOOGLE_SITE_VERIFICATION = ""
+
 # Google Calendar appointment schedule link. Until it's set, "Book a call" opens the form with "Discovery call" selected.
 BOOKING_URL = ""
 CALL_HREF = BOOKING_URL or "/contact/?topic=Discovery%20call#form"
@@ -228,7 +231,7 @@ def page(path, title, desc, body, extra_head=""):
 <title>{esc(full_title)}</title>
 <meta name="description" content="{esc(desc)}">
 <link rel="canonical" href="{canon}">
-<meta name="theme-color" content="#07090b">
+<meta name="theme-color" content="#07090b">{f'<meta name="google-site-verification" content="{GOOGLE_SITE_VERIFICATION}">' if GOOGLE_SITE_VERIFICATION else ""}
 <meta property="og:type" content="website"><meta property="og:site_name" content="Beiz Data &amp; Accounting">
 <meta property="og:title" content="{esc(full_title)}"><meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{canon}"><meta property="og:image" content="{SITE}/assets/og-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Beiz Data &amp; Accounting: AI you can sign off on. Led by an Australian Chartered Accountant.">
