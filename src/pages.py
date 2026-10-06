@@ -127,8 +127,8 @@ def home():
 <section id="see">
   <div class="wrap hero2 rev">
     <figure class="vid">
-      <video src="/assets/media/how-beiz-adds-value-2.mp4" poster="/assets/media/how-beiz-adds-value-2.jpg" autoplay muted loop playsinline preload="none" aria-label="25-second animation in four steps: numbers spread across six systems; connected, checked and logged; a person approves; a Monday cash email"></video>
-      <figcaption><b>How we add value, in 25 seconds.</b> Your numbers connected and checked, your sign-off on anything that matters, and a clear view every Monday. Example business, made-up numbers.</figcaption>
+      <video src="/assets/media/how-beiz-adds-value-3.mp4" poster="/assets/media/how-beiz-adds-value-3.jpg" autoplay muted loop playsinline preload="none" aria-label="Short animation in four steps: numbers spread across six systems; connected, checked and logged; a person approves; a Monday cash email"></video>
+      <figcaption><b>How we add value, in under 30 seconds.</b> Your numbers connected and checked, your sign-off on anything that matters, and a clear view every Monday. Example business, made-up numbers.</figcaption>
     </figure>
     <div>
       <p class="eyebrow">What you get</p>
