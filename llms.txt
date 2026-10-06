@@ -1,0 +1,40 @@
+# Beiz Data & Accounting
+
+> Australian firm that sets up AI, automation, dashboards and cash forecasts for small and mid-sized businesses, with a person signing off anything that touches money, customers or data. Chartered Accountant (CA ANZ, Certificate of Public Practice) and GAICD led.
+
+Key facts:
+- Beiz Data & Accounting Pty Ltd, ABN 53 691 755 496. Australia-wide, remote-first.
+- Fixed scope and fixed price, agreed in writing before work starts. Prices are not published; a written proposal follows within three business days.
+- Independent: no software of its own to sell. Builds inside the client's own accounts (e.g. Xero, MYOB, Microsoft 365, Google Workspace) with business-grade AI that doesn't train on client data.
+- Does not provide tax agent, BAS agent, legal, audit or financial product advice services.
+- Contact: hello@beiz.com.au, or book a discovery call at https://beiz.com.au/contact/
+
+## Services
+- [AI governance & Privacy Act readiness](https://beiz.com.au/services/ai-governance/)
+- [Offshore & AI oversight](https://beiz.com.au/services/human-in-the-loop/)
+- [AI agents, chatbots & integration](https://beiz.com.au/services/ai-agents/)
+- [Workflow automation](https://beiz.com.au/services/automation/)
+- [Data engineering](https://beiz.com.au/services/data-engineering/)
+- [Dashboards & financial models](https://beiz.com.au/services/dashboards-and-models/)
+- [AI & tech project delivery](https://beiz.com.au/services/project-delivery/)
+- [Automated-Decision Privacy Sprint](https://beiz.com.au/services/privacy-sprint/)
+- [AI Readiness Sprint](https://beiz.com.au/services/ai-readiness-sprint/)
+- [Small business quick wins](https://beiz.com.au/services/quick-wins/)
+
+## Who we help
+- [Trades & construction](https://beiz.com.au/industries/trades/)
+- [Health & allied health](https://beiz.com.au/industries/health/)
+- [Startups & tech agencies](https://beiz.com.au/industries/startups/)
+- [Crypto & digital assets](https://beiz.com.au/industries/crypto/)
+- [Not-for-profits](https://beiz.com.au/industries/not-for-profits/)
+- [Hospitality & retail](https://beiz.com.au/industries/hospitality-retail/)
+
+## See it working
+- [60-second demos](https://beiz.com.au/try/): late payers, 13-week cash forecast, an agent checking bills, admin hours
+- [Example outputs](https://beiz.com.au/examples/): made-up businesses, real formats
+- [Free Privacy Act AI check](https://beiz.com.au/ai-check/): for the automated-decision disclosure rules starting 10 December 2026
+
+## About
+- [About Beiz](https://beiz.com.au/about/)
+- [How we work](https://beiz.com.au/how-we-work/)
+- [FAQ](https://beiz.com.au/faq/)

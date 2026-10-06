@@ -1,12 +1,13 @@
 """Page content for beiz.com.au. Australian English, plain words, no prices, no names."""
-from layout import (page, phero, related, cta_band, contact_form, SERVICES, INDUSTRIES, CALL_HREF, CALL_ATTR)
+import json
+from layout import (SITE, page, phero, related, cta_band, contact_form, SERVICES, INDUSTRIES, CALL_HREF, CALL_ATTR)
 from charts import cash13, job_margins, runway, runway_facts
 
 PAGES = {}
 
 
-def add(path, title, desc, body):
-    PAGES[path] = page(path, title, desc, body)
+def add(path, title, desc, body, extra_head=""):
+    PAGES[path] = page(path, title, desc, body, extra_head)
 
 
 def deliv(items):
@@ -85,11 +86,22 @@ def home():
       <div><b>20%</b><p>of organisations properly monitor their AI after it goes live. 21% give people a way to challenge an AI decision.</p><small>Responsible AI Index self-assessment, 241 organisations, 2025 · <a href="https://www.fifthquadrant.com.au/content/uploads/FQ_NAIC_Responsible_AI_Index_Self-Assessment-Tool-Mini-Report-June-2026.pdf" rel="noopener">source</a></small></div>
     </div>
     <h3 class="gap-h">Closing it takes three skills most firms keep apart.</h3>
-    <ul class="why three">
-      <li><span class="ic">CA</span><b>The numbers are right</b><p>A Chartered Accountant ties every figure back to your ledger before anyone acts on it, under the CA ANZ code of ethics.</p></li>
-      <li><span class="ic">GAICD</span><b>The controls are in place</b><p>Company-director training means approvals, limits, logs and a way to challenge a decision are designed in from day one.</p></li>
-      <li><span class="ic">AI</span><b>The tools actually work</b><p>The right AI for the job, connected to your systems, tested on your own data and handed over so your team can run it.</p></li>
-    </ul>
+    <div class="vennrow">
+      <svg class="venn" viewBox="0 0 440 400" role="img" aria-labelledby="vennT vennD">
+        <title id="vennT">Where Beiz sits</title>
+        <desc id="vennD">Three overlapping circles: Chartered Accountant (the numbers are right), GAICD governance (the controls are in place) and AI and data (the tools work). Beiz sits where all three overlap.</desc>
+        <circle cx="155" cy="145" r="115" class="c1"/><circle cx="285" cy="145" r="115" class="c2"/><circle cx="220" cy="255" r="115" class="c3"/>
+        <text x="110" y="110" class="vt">CA</text><text x="110" y="134" class="vs">numbers right</text>
+        <text x="330" y="110" class="vt">GAICD</text><text x="330" y="134" class="vs">controls in place</text>
+        <text x="220" y="320" class="vt">AI &amp; data</text><text x="220" y="344" class="vs">tools that work</text>
+        <circle cx="220" cy="180" r="34" class="core"/><text x="220" y="186" class="vc">Beiz</text>
+      </svg>
+      <ul class="vlist">
+        <li><b>An accountant</b> gets the numbers right, but usually doesn't build the systems.</li>
+        <li><b>A tech or AI agency</b> builds fast, but isn't usually set up to reconcile a ledger or design the controls.</li>
+        <li><b>Beiz does all three in one job</b>: a Chartered Accountant checks every figure, GAICD training puts approvals and audit trails in from day one, and the AI and automation are tested on your own data before you rely on them.</li>
+      </ul>
+    </div>
     <p style="margin-top:16px"><a href="/services/ai-governance/#frameworks">The responsible-AI frameworks we work to →</a></p>
   </div>
 </section>
@@ -114,8 +126,8 @@ def home():
 <section id="see">
   <div class="wrap hero2 rev">
     <figure class="vid">
-      <video src="/assets/media/cash-forecast-demo.mp4" poster="/assets/media/cash-forecast-demo.jpg" autoplay muted loop playsinline preload="none" aria-label="Screen recording: a 13-week cash forecast redraws as a large bill moves between weeks, showing which week falls below the cash buffer"></video>
-      <figcaption><b>A 13-week cash forecast.</b> Move one big bill and see which week drops below your buffer. <a href="/try/#cash">Try it with your numbers →</a></figcaption>
+      <video src="/assets/media/how-beiz-adds-value.mp4" poster="/assets/media/how-beiz-adds-value.jpg" autoplay muted loop playsinline preload="none" aria-label="25-second animation in four steps: numbers spread across six systems; connected, checked and logged; a person approves; a Monday cash email"></video>
+      <figcaption><b>How we add value, in 25 seconds.</b> Your numbers connected and checked, your sign-off on anything that matters, and a clear view every Monday. Example business, made-up numbers.</figcaption>
     </figure>
     <div>
       <p class="eyebrow">What you get</p>
@@ -145,7 +157,7 @@ def home():
 </section>
 
 {contact_form()}'''
-    add("/", "Beiz Data & Accounting | AI, automation and dashboards, set up properly",
+    add("/", "Beiz Data & Accounting | AI and automation, set up properly",
         "AI, automation, dashboards and cash forecasts for Australian businesses, set up properly with human sign-off. Chartered Accountant and GAICD led.", body)
 
 
@@ -189,7 +201,10 @@ def svc(path, crumb, eyebrow, h1, lede, prose, dl, side, scene, rel, topic, titl
             f'''<section style="padding-top:8px"><div class="wrap split"><div class="prose">{prose}<h2>What you get</h2>{deliv(dl)}{scene}{related(rel)}</div>{side}</div></section>''' +
             (FRAMEWORKS if path in ("/services/ai-governance/", "/services/ai-readiness-sprint/") else "") +
             cta_band(topic=topic))
-    add(path, title, desc, body)
+    ld = {"@context": "https://schema.org", "@type": "Service", "name": h1, "serviceType": crumb, "description": desc,
+          "url": SITE + path, "areaServed": {"@type": "Country", "name": "Australia"},
+          "provider": {"@type": "ProfessionalService", "name": "Beiz Data & Accounting", "url": SITE + "/"}}
+    add(path, title, desc, body, f'<script type="application/ld+json">{json.dumps(ld)}</script>')
 
 
 def services():
@@ -541,6 +556,8 @@ def examples():
     body = phero("Examples", "See the work. Not the recipe.",
                  "Every example here uses a made-up business and made-up numbers. What's real is the format: this is what lands in your inbox or on your screen. How it's built is what you're paying for, so that part stays with us.",
                  [("/examples/", "Examples")]) + f'''<section style="padding-top:8px"><div class="wrap">
+
+<figure class="vid" style="max-width:760px;margin-bottom:28px"><video src="/assets/media/cash-forecast-demo.mp4" poster="/assets/media/cash-forecast-demo.jpg" autoplay muted loop playsinline preload="none" aria-label="Screen recording: a 13-week cash forecast redraws as a large bill moves between weeks"></video><figcaption><b>A 13-week cash forecast.</b> Move one big bill and see which week drops below your buffer. <a href="/try/#cash">Try it with your numbers →</a></figcaption></figure>
 
 <div class="ex"><div class="exh"><b>1. The Monday cash email</b><span>Sample · fictional joinery business</span></div>
 <div class="exb"><div class="mail"><div class="mh">From: Beiz reports · To: Sam · Monday 6:00am<br><b>Subject: Cash this week: $42,000 in the bank, one thing to watch</b></div>

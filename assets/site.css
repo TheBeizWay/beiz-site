@@ -593,3 +593,36 @@ b.warn,.tile b.warn{color:var(--warn)}
 
 .spark{display:block;width:100%;height:24px;margin-top:8px}.spark polyline{fill:none;stroke-width:1.5;vector-effect:non-scaling-stroke}.spark.up polyline{stroke:var(--accent)}.spark.dn polyline{stroke:#f59e0b}
 .fwlist{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:24px 0 12px}.fwlist a{display:block;height:100%;text-decoration:none;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px}.fwlist a:hover{border-color:#2b5a53}.fwlist b{display:block;color:var(--text);margin-bottom:6px}.fwlist span{font-size:.88rem;color:var(--muted)}
+
+/* pinned ticker + header; full-screen mobile menu */
+:root{--tk:34px}
+.ticker{position:sticky;top:0;z-index:22}
+header.site{top:var(--tk)}
+@media (max-width:900px){
+  .mnav.open{position:absolute;left:0;right:0;top:100%;height:calc(100dvh - var(--hb,100px));max-height:none;overflow-y:auto;z-index:40;background:#07090b}
+  .mnav.open a{font-size:1.05rem;padding:14px 4px}
+  body.menu-open{overflow:hidden}
+  body.menu-open .bot-btn,body.menu-open .sb-tab{display:none}
+  .mnav .mcta{display:grid;gap:8px;margin:4px 0 6px}
+  .mnav .mcta .btn{margin-top:0}
+}
+
+header.site .mnav .btn{display:flex;justify-content:center}
+
+/* venn: why Beiz is different */
+.vennrow{display:grid;grid-template-columns:420px 1fr;gap:36px;align-items:center;margin-top:18px}
+.venn{width:100%;height:auto;display:block}
+.venn circle{stroke-width:1.5}
+.venn .c1{fill:rgba(94,234,212,.10);stroke:rgba(94,234,212,.55)}
+.venn .c2{fill:rgba(129,140,248,.10);stroke:rgba(129,140,248,.55)}
+.venn .c3{fill:rgba(251,191,36,.08);stroke:rgba(251,191,36,.5)}
+.venn .core{fill:var(--accent);stroke:none}
+.venn text{text-anchor:middle;font-family:var(--sans)}
+.venn .vt{fill:var(--text);font-size:19px;font-weight:600}
+.venn .vs{fill:var(--muted);font-size:13px}
+.venn .vc{fill:var(--accent-ink);font-size:17px;font-weight:600}
+.vlist{list-style:none;display:grid;gap:14px}
+.vlist li{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;color:var(--muted);font-size:.97rem}
+.vlist li b{color:var(--text);font-weight:600}
+.vlist li:last-child{border-color:#2b5a53;background:linear-gradient(180deg,rgba(94,234,212,.06),transparent)}
+@media (max-width:900px){.vennrow{grid-template-columns:1fr}.venn{max-width:380px;margin:0 auto}}

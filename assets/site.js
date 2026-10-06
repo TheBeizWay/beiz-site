@@ -28,6 +28,9 @@
       mb.setAttribute("aria-expanded", o);
       mb.textContent = o ? "CLOSE" : "MENU";
     });
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape" && mn.classList.contains("open")) { mn.classList.remove("open"); mb.setAttribute("aria-expanded", "false"); mb.textContent = "MENU"; mb.focus(); }
+    });
   }
 
   // ---------- Contact prefill (works across pages) ----------
@@ -94,6 +97,16 @@
     if (reduce) { v.removeAttribute("autoplay"); v.pause(); v.controls = true; return; }
     if ("IntersectionObserver" in window) new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? v.play().catch(() => {}) : v.pause())).observe(v);
   });
+
+  // ---------- Pinned ticker + header: measure real heights so nothing overlaps ----------
+  const tk = $(".ticker"), hd = $("header.site");
+  const pin = () => {
+    if (tk) document.documentElement.style.setProperty("--tk", tk.offsetHeight + "px");
+    if (hd) document.documentElement.style.setProperty("--hb", (hd.getBoundingClientRect().bottom) + "px");
+  };
+  pin(); addEventListener("resize", pin);
+  const mnv = $("#mnav");
+  if (mnv) new MutationObserver(() => { pin(); document.body.classList.toggle("menu-open", mnv.classList.contains("open")); }).observe(mnv, { attributes: true, attributeFilter: ["class"] });
 
   // ---------- Beiz Pulse ticker ----------
   const track = $("#pulse");

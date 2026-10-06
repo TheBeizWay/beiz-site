@@ -2,7 +2,7 @@
 import json
 
 SITE = "https://beiz.com.au"
-ASSET_V = "29"  # bump to bust caches when CSS/JS change
+ASSET_V = "30"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true" class="logo"><defs><linearGradient id="hg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#2DD4BF"/><stop offset="1" stop-color="#818CF8"/></linearGradient><mask id="mH" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"><rect width="200" height="200" fill="#fff"/><circle cx="126.4" cy="69.9" r="6.5" fill="#000"/></mask></defs><rect x="5" y="5" width="190" height="190" rx="44" fill="#0D1115" stroke="url(#hg)" stroke-width="6"/><g stroke="#818CF8" stroke-width="3" fill="none" stroke-linecap="round"><path d="M113.0 75.4 L150 75.4 L165 53.4"/><path d="M150 75.4 L165 97.4"/></g><g fill="#818CF8"><circle cx="165" cy="53.4" r="6"/><circle cx="165" cy="97.4" r="6"/></g><circle cx="150" cy="75.4" r="4" fill="#5EEAD4"/><g transform="translate(16,25.1) scale(.72)"><g mask="url(#mH)" fill="none" stroke="url(#hg)" stroke-width="27" stroke-linejoin="round"><path d="M58 120 L110 120 A33 33 0 0 1 110 186 L58 186 L58 22 L102 58 A31 31 0 0 1 102 120 L58 120"/></g></g></svg>')
 
@@ -112,17 +112,21 @@ def _header(path):
     def cur(h):
         return ' aria-current="page"' if (path == h or (h != "/" and path.startswith(h))) else ""
 
-    def dd(label, hub, items, key):
+    def dd(label, hub, items, key, hub_text=None):
         links = "".join(f'<a href="{h}"{cur(h)}>{t}</a>' for h, t in items)
-        on = ' class="on"' if path.startswith(hub) else ""
+        on = ' class="on"' if any(path.startswith(h) for h, _ in items) or (hub and path.startswith(hub)) else ""
+        top = f'<a class="hub" href="{hub}">{hub_text}</a>' if hub_text else ""
         return (f'<div class="dd"><button type="button" aria-expanded="false" aria-controls="dd-{key}"{on}>{label}<span aria-hidden="true">▾</span></button>'
-                f'<div class="ddm" id="dd-{key}"><a class="hub" href="{hub}">All {label.lower()} →</a>{links}</div></div>')
-    live = lambda h, t: f'<a href="{h}"{cur(h)}>{t}{" <i class=live-dot aria-hidden=true></i>" if h == "/live/" else ""}</a>'
-    nav = (dd("Services", "/services/", SERVICES, "s") + dd("Industries", "/industries/", INDUSTRIES, "i") +
-           "".join(live(h, t) for h, t, _ in NAV) + dd("About", "/about/", MORE, "m").replace('<a class="hub" href="/about/">All about →</a>', ""))
+                f'<div class="ddm" id="dd-{key}">{top}{links}</div></div>')
+    see = [(h, t) for h, t, _ in NAV]
+    # Four questions a visitor has: what do you do, do you work with businesses like mine, show me, why you
+    nav = (dd("What we do", "/services/", SERVICES, "s", "All services →") +
+           dd("Who we help", "/industries/", INDUSTRIES, "i", "All industries →") +
+           dd("See it working", "/try/", see, "v") +
+           dd("Why Beiz", "/about/", MORE, "m"))
     grp = lambda title, items: f'<p class="mg">{title}</p>' + "".join(f'<a href="{h}">{t}</a>' for h, t in items)
-    mnav = (grp("Services", SERVICES) + grp("Industries", INDUSTRIES) +
-            grp("See it", [(h, t) for h, t, _ in NAV]) + grp("About", MORE))
+    mnav = (grp("What we do", SERVICES) + grp("Who we help", INDUSTRIES) +
+            grp("See it working", see) + grp("Why Beiz", MORE))
     return f'''<div class="ticker" role="region" aria-label="Beiz Pulse: regulatory countdown and market benchmarks">
   <div class="label">BEIZ PULSE</div>
   <div class="track" id="pulse"></div>
@@ -134,7 +138,7 @@ def _header(path):
     <a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a discovery call</a>
     <button class="menu-btn" id="menuBtn" type="button" aria-controls="mnav" aria-expanded="false">MENU</button>
   </div>
-  <div class="mnav" id="mnav"><div class="wrap">{mnav}<a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a discovery call</a><a class="btn" href="/contact/#form">Start in writing</a></div></div>
+  <div class="mnav" id="mnav"><div class="wrap"><div class="mcta"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a discovery call</a><a class="btn" href="/contact/#form">Start in writing</a></div>{mnav}</div></div>
 </header>'''
 
 
@@ -178,10 +182,27 @@ ORG = {
     "email": "hello@beiz.com.au", "logo": SITE + "/assets/icon-512.png", "areaServed": {"@type": "Country", "name": "Australia"},
     "description": "Australian Chartered Accountant and GAICD led firm helping businesses grow with control: cash flow, automation, dashboards, data and responsible AI.",
     "taxID": "53 691 755 496",
+    "slogan": "AI you can sign off on.",
+    "knowsAbout": ["AI governance", "Privacy Act automated decision-making", "responsible AI", "workflow automation", "13-week cash flow forecasting",
+                   "management reporting and dashboards", "month-end close automation", "data engineering", "Power BI", "n8n", "Power Automate"],
+    "hasCredential": [{"@type": "EducationalOccupationalCredential", "credentialCategory": "Chartered Accountant, CA ANZ Certificate of Public Practice"},
+                      {"@type": "EducationalOccupationalCredential", "credentialCategory": "Graduate, Australian Institute of Company Directors (GAICD)"}],
+    "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Services",
+                        "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": n, "url": SITE + h}} for h, n in SERVICES]},
 }
 
 
+def _trim(desc, n=158):
+    """Keep meta descriptions inside what Google and AI previews show: cut at a sentence, else a word."""
+    if len(desc) <= n:
+        return desc
+    cut = desc[:n]
+    end = max(cut.rfind(". "), cut.rfind("? "))
+    return cut[:end + 1] if end > 70 else cut[:cut.rfind(" ")].rstrip(",;:·") + "…"
+
+
 def page(path, title, desc, body, extra_head=""):
+    desc = _trim(desc)
     full_title = title if "Beiz" in title else f"{title} | Beiz"
     canon = SITE + path
     ld = f'<script type="application/ld+json">{json.dumps(ORG)}</script>' if path == "/" else ""
@@ -196,7 +217,8 @@ def page(path, title, desc, body, extra_head=""):
 <meta name="theme-color" content="#07090b">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Beiz Data &amp; Accounting">
 <meta property="og:title" content="{esc(full_title)}"><meta property="og:description" content="{esc(desc)}">
-<meta property="og:url" content="{canon}"><meta property="og:image" content="{SITE}/assets/icon-512.png">
+<meta property="og:url" content="{canon}"><meta property="og:image" content="{SITE}/assets/og-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Beiz Data &amp; Accounting: AI you can sign off on. Chartered Accountant and GAICD led.">
+<meta name="twitter:card" content="summary_large_image"><meta property="og:locale" content="en_AU">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
