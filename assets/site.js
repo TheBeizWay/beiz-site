@@ -78,7 +78,7 @@
           if (!r.ok) throw new Error();
           form.reset();
           fmsg.style.color = "var(--accent)";
-          fmsg.textContent = "Received. You'll get a written reply within three business days.";
+          fmsg.textContent = "Received. You'll get a written reply by the next business day.";
           return;
         } catch (_) {}
       }
