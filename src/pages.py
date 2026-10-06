@@ -145,7 +145,7 @@ def home():
 <section id="how">
   <div class="wrap">
     <p class="eyebrow">How it works</p>
-    <h2>In writing, start to finish.</h2>
+    <h2>Talk it through. Get it in writing.</h2>
     <ol class="steps">
       <li><h3>Talk or write</h3><p>A free 20-minute discovery call, or a few lines in the form.</p></li>
       <li><h3>Written proposal</h3><p>Fixed price, scope and timeline within three business days.</p></li>
@@ -379,7 +379,7 @@ def services():
 <p>No obligation to continue with us afterwards. The roadmap is yours.</p>''',
         [("AI inventory", "Every tool in use, including the free ones."), ("Risk & controls map", "For each use case, what could go wrong and what stops it."), ("Working prototype", "One real automation or agent on your data."),
          ("Privacy Act check", "Where you stand on the automated-decision rules."), ("One-page paper", "For the board or for yourself."), ("Roadmap", "Prioritised next steps, each with a fixed price.")],
-        aside("The fine print", ["Fixed price, quoted in writing", "Ten business days from kickoff", "Document-first: priced blueprint, no pitch", "No lock-in: the roadmap is yours"], "AI Readiness Sprint"),
+        aside("The fine print", ["Fixed price, quoted in writing", "Ten business days from kickoff", "A priced, written blueprint, no pitch", "No lock-in: the roadmap is yours"], "AI Readiness Sprint"),
         "", [("/services/ai-governance/", "AI governance"), ("/services/automation/", "Agents & automation"), ("/examples/", "Examples")],
         "AI Readiness Sprint", "AI Readiness Sprint",
         "A ten-day, fixed-price AI Readiness Sprint: AI inventory, risk and controls map, Privacy Act check, one working prototype and a costed roadmap.")
@@ -423,7 +423,7 @@ def privacy_sprint():
         [("System & AI tool inventory", "Including tools staff adopted on their own."), ("Automated-decision map", "What decides what, using which personal information."),
          ("Significance assessment", "Which decisions could significantly affect people."), ("Human-review design", "Where a person must genuinely check outcomes."),
          ("Draft policy wording", "Plain English, for your lawyer to finalise."), ("One-page summary", "For the board, the owner or the practice manager.")],
-        aside("The fine print", ["Fixed price, quoted in writing", "About 5 to 10 business days", "Document-first: no meetings needed", "Built to finish before 10 December 2026"], "Privacy Act automated-decision check",
+        aside("The fine print", ["Fixed price, quoted in writing", "About 5 to 10 business days", "A call if you want one, never required", "Built to finish before 10 December 2026"], "Privacy Act automated-decision check",
               "General information and process support only, not legal advice."),
         before_after("An allied health practice, 12 staff", ["Booking system auto-declines repeat no-shows", "Billing software sets payment plans automatically", "Privacy policy silent on automation", "No one knows what the tools decide"],
                      ["Both decisions mapped, with the data they use", "Human review added for payment plans", "Draft wording with the lawyer", "One-page summary for the practice owner"], "Illustrative example, not a client"),
@@ -723,7 +723,7 @@ def how_we_work():
 <section><div class="wrap"><p class="eyebrow">How we protect you</p><h2>The controls come first. The AI comes second.</h2><div class="cards">{p}</div></div></section>
 <section><div class="wrap split"><div class="prose">
 <h2>What you won't get from us</h2>
-<ul><li><strong>A sales pitch.</strong> Discovery is document-first, so there's a record of what was promised and a price before you commit.</li>
+<ul><li><strong>A sales pitch.</strong> Talk to us or write to us, whichever suits. Either way, what we'll do and the price are written down before you commit.</li>
 <li><strong>An hourly meter.</strong> Fixed price, agreed before we start.</li>
 <li><strong>Lock-in.</strong> No long contracts. Everything we build runs in your accounts, with your logins.</li>
 <li><strong>Jargon.</strong> If we can't explain it simply, we haven't understood it well enough.</li>
@@ -751,7 +751,7 @@ def contact():
 <li><h3>You write</h3><p>What's broken, what you've tried, and what good would look like.</p></li>
 <li><h3>We check</h3><p>A conflict check, then a proper look at the problem.</p></li>
 <li><h3>We reply</h3><p>A written answer: what we'd do, how long, and a fixed price if it's a fit.</p></li></ol></div></section>''' + contact_form("Tell us what you're trying to fix.", "Prefer email? Write to hello@beiz.com.au.")
-    add("/contact/", "Contact", "Send Beiz a short written brief. Document-first, no sales pitch. A considered written reply by the next business day. hello@beiz.com.au", body)
+    add("/contact/", "Contact", "Book a free 20-minute discovery call or send a short written brief. No sales pitch, and a written reply by the next business day. hello@beiz.com.au", body)
 
 
 def privacy():

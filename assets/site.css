@@ -626,3 +626,14 @@ header.site .mnav .btn{display:flex;justify-content:center}
 .vlist li b{color:var(--text);font-weight:600}
 .vlist li:last-child{border-color:#2b5a53;background:linear-gradient(180deg,rgba(94,234,212,.06),transparent)}
 @media (max-width:900px){.vennrow{grid-template-columns:1fr}.venn{max-width:380px;margin:0 auto}}
+
+/* review fixes: contrast, legibility, mobile overlap, ticker edge */
+.gapstats small,.evid small,.labsrc,.fine{color:#aeb9c3;font-size:.8rem}
+.gapstats small a,.evid small a{color:#cfd8df}
+.venn .vt{font-size:22px}.venn .vs{font-size:15.5px;fill:#b8c3cc}.venn .vc{font-size:19px}
+.ticker .label::after{content:"";position:absolute;top:0;bottom:0;left:100%;width:28px;background:linear-gradient(90deg,#0b1a1d,rgba(11,26,29,0));pointer-events:none}
+@media (max-width:760px){
+  .sb-tab{display:none}
+  .bot-btn{padding:12px 14px}
+  footer{padding-bottom:84px}
+}
