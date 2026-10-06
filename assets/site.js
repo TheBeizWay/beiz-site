@@ -15,7 +15,7 @@
   };
   const EMAIL = "hello@beiz.com.au";
   // Set to a form endpoint (e.g. a Google Apps Script web app) to receive submissions directly.
-  const FORM_ENDPOINT = "";
+  const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbw3iLtpS-Pubb6fLiWK2A8TgFGi9Joq0u-c7UyZqBO2-ciPcQbgdxmygnsBMKWXjm8FJg/exec";
 
   $$("[data-yr]").forEach(e => (e.textContent = new Date().getFullYear()));
 
