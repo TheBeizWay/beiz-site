@@ -55,191 +55,98 @@ PLAIN = '''<section id="plain">
 
 
 def home():
-    ind = "".join(f'<li><a href="{h}"><b>{t}</b><span>{d}</span><span class="go">Read more →</span></a></li>' for (h, t), d in zip(INDUSTRIES, [
-        "Quotes, job costing, chasing payment", "Bookings, billing, practice reporting, patient privacy",
-        "Runway scenarios, investor metrics, board packs", "Wallet and stablecoin reconciliations, controls",
-        "Grant reporting, board packs, donor data", "Wages, suppliers, margins, weekly cash"]))
     body = f'''<section class="hero" id="top">
-  <div class="wrap">
-    <p class="eyebrow">Chartered Accountant · GAICD · Data &amp; AI</p>
-    <h1>AI and automation, set up properly.</h1>
-    <p class="lede"><strong>Accountant-grade numbers and board-grade governance, now with AI and automation.</strong> Not sure which AI to use, or worried about getting it wrong? We pick the right tools, connect them to your systems and your team, and build the automations, dashboards, models and AI agents that make your business faster.</p>
-    <div class="cta">
-      <a class="btn primary" href="/try/">Try a 60-second demo</a>
-      <a class="btn" href="/contact/#form">Start in writing</a>
-    </div>
-    <p class="rule"><b>Our rule: AI you can sign off on.</b> Nothing touches your money, your customers or your data without a person saying yes. And we're independent: no software of our own to sell, and we work with the tools you already have.</p>
-    <div class="grid2">
-      <div class="panel">
-        <h4><span>Agent run · control log · example</span><span aria-hidden="true">live</span></h4>
-        <ul class="log" id="log" aria-label="Example automated control log"></ul>
+  <div class="wrap hero2">
+    <div>
+      <p class="eyebrow">Chartered Accountant · GAICD · Data &amp; AI</p>
+      <h1>AI and automation, set up properly.</h1>
+      <p class="lede">We connect your accounting, bank and job systems, automate the grunt work, and put a person's sign-off on anything that touches your money, your customers or your data.</p>
+      <div class="cta">
+        <a class="btn primary" href="/try/">Try a 60-second demo</a>
+        <a class="btn" href="/contact/#form">Start in writing</a>
       </div>
-      <div class="panel">
-        <h4><span>Capabilities</span></h4>
-        <ul class="caps">
-          <li><a href="/services/ai-agents/">AI agents &amp; chatbots</a> <span>with guardrails</span></li>
-          <li><a href="/services/ai-agents/">AI integration &amp; training</a> <span>copilot · gemini</span></li>
-          <li><a href="/services/automation/">Workflow automation</a> <span>n8n · power automate</span></li>
-          <li><a href="/services/data-engineering/">Data engineering</a> <span>pipelines · clean data</span></li>
-          <li><a href="/services/dashboards-and-models/">Dashboards &amp; visualisation</a> <span>power bi · python</span></li>
-          <li><a href="/services/dashboards-and-models/">Financial modelling</a> <span>cash · runway · scenarios</span></li>
-          <li><a href="/services/ai-governance/">AI strategy &amp; governance</a> <span>board-ready</span></li>
-        </ul>
-      </div>
+      <ul class="hero-ticks"><li>Fixed price, in writing, before we start</li><li>Built in your own accounts. You own it.</li><li>Independent: no software of our own to sell</li></ul>
     </div>
-    <div class="trust" aria-label="Credentials">
-      <div><b>Chartered Accountant</b><small>CA ANZ member holding a Certificate of Public Practice. Bound by the APES code of ethics.</small></div>
-      <div><b>GAICD</b><small>Graduate of the Australian Institute of Company Directors. We write for owners and boards, not for IT.</small></div>
-      <div><b>Audit &amp; risk</b><small>Internal audit, fraud and controls background. We design systems the way an auditor would test them.</small></div>
-      <div><b>Data science</b><small>Python, R, Power BI and automation, built by people who understand the ledger.</small></div>
-    </div>
+    <figure class="vid">
+      <video src="/assets/media/bill-check-demo.mp4" poster="/assets/media/bill-check-demo.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Screen recording: an agent checks eight supplier bills, approves four and holds four for a person, each with a reason"></video>
+      <figcaption><b>An agent checking supplier bills.</b> Four ready to pay, four held for a person: over the limit, a likely duplicate, changed bank details, a price jump. <a href="/try/#bills">Try it yourself →</a></figcaption>
+    </figure>
   </div>
 </section>
 
-<section id="mix">
+<section id="gap">
   <div class="wrap">
-    <p class="eyebrow">The difference</p>
-    <h2>Four skills most firms keep apart. We put them in one room.</h2>
-    <p class="lede">An IT firm can build you an AI agent. An accountant can check your numbers. A board adviser can tell you what could go wrong. You usually hire them separately, and the gaps between them are where projects fail. We bring all four to every job.</p>
-    <div class="mix">
-      <div><span class="k">CA</span><b>The numbers are right</b><p>Everything reconciles to your ledger. Cash, margins and forecasts you can take to the bank.</p></div>
-      <i aria-hidden="true">+</i>
-      <div><span class="k">GAICD</span><b>The risks are covered</b><p>Governance, controls and sign-offs designed in from day one, the way a board would expect.</p></div>
-      <i aria-hidden="true">+</i>
-      <div><span class="k">Data</span><b>The systems connect</b><p>Your tools joined up, data cleaned, models and dashboards built on one version of the truth.</p></div>
-      <i aria-hidden="true">+</i>
-      <div><span class="k">AI &amp; automation</span><b>The work gets faster</b><p>Agents, assistants and automations that take the grunt work off your team.</p></div>
+    <p class="eyebrow">The gap · Australia, 2026</p>
+    <h2>Most businesses aren't using AI yet. Most of those using it aren't checking it.</h2>
+    <div class="gapstats">
+      <div><b>57%</b><p>of Australian SMEs haven't meaningfully adopted AI.</p><small>National AI Centre SME AI Pulse, Dec 2025 to Feb 2026 · <a href="https://www.ai.gov.au/news-and-insights/blog/ai-adoption-insights-december-2025-february-2026" rel="noopener">source</a></small></div>
+      <div><b>65%</b><p>of those holding back say they distrust AI decisions or want to keep a human in control.</p><small>Same survey, non-adopters · <a href="https://www.ai.gov.au/news-and-insights/blog/ai-adoption-insights-december-2025-february-2026" rel="noopener">source</a></small></div>
+      <div><b>~1 in 2</b><p>SMEs already using AI check its output before it reaches a customer. The other half don't.</p><small>Same survey, current users · <a href="https://www.ai.gov.au/news-and-insights/blog/ai-adoption-insights-december-2025-february-2026" rel="noopener">source</a></small></div>
+      <div><b>20%</b><p>of organisations properly monitor their AI after it goes live. 21% give people a way to challenge an AI decision.</p><small>Responsible AI Index self-assessment, 241 organisations, 2025 · <a href="https://www.fifthquadrant.com.au/content/uploads/FQ_NAIC_Responsible_AI_Index_Self-Assessment-Tool-Mini-Report-June-2026.pdf" rel="noopener">source</a></small></div>
     </div>
-    <p class="mix-eq"><span>=</span> <b>AI you can sign off on.</b> Speed from the technology, confidence from the people behind it.</p>
-  </div>
-</section>
-
-<section id="diligence">
-  <div class="wrap">
-    <p class="eyebrow">AI with due diligence</p>
-    <h2>Anyone can use AI. Using it with due diligence is different.</h2>
-    <p class="lede">AI is more than writing good prompts. Prompts are the easy part. The hard part is knowing your data, your obligations and your risks, and building the checks around them. That's the part we do.</p>
-    <div class="ddt" role="table" aria-label="Prompting compared with due diligence">
-      <div class="dd-h" role="row"><span role="columnheader">Just prompting</span><span role="columnheader">With due diligence</span></div>
-      <div role="row"><span role="cell">Pick a tool and start typing</span><span role="cell">Check your data, privacy obligations and costs first</span></div>
-      <div role="row"><span role="cell">Paste in whatever's handy</span><span role="cell">Decide what goes in, and keep customer data out of free tools</span></div>
-      <div role="row"><span role="cell">Write clever prompts</span><span role="cell">Design the process: who approves, what's logged, what it can't touch</span></div>
-      <div role="row"><span role="cell">Trust the answer</span><span role="cell">Tie every number back to your ledger before anyone acts on it</span></div>
-      <div role="row"><span role="cell">A demo that looks good</span><span role="cell">Tested on your real data, with accuracy measured</span></div>
-      <div role="row"><span role="cell">Done when it runs</span><span role="cell">Done when your team uses it, it's documented and you own it</span></div>
-    </div>
-    <p class="dd-so"><b>We set it up properly for you.</b> The speed of AI, with an accountant, board-level governance and a data specialist behind it.</p>
-  </div>
-</section>
-
-<section id="together">
-  <div class="wrap">
-    <p class="eyebrow">AI, offshore and an Australian CA</p>
-    <h2>Use AI. Use offshore help. Keep an Australian CA in the loop.</h2>
-    <p class="lede">AI and offshore teams are a smart way to get more done for less. What they work best with is clear instructions, the right access and someone here who answers for the result.</p>
+    <h3 class="gap-h">Closing it takes three skills most firms keep apart.</h3>
     <ul class="why three">
-      <li><span class="ic">AI</span><b>AI is fast</b><p>It drafts, summarises and spots patterns around the clock. It needs someone to check the numbers before anyone acts on them.</p></li>
-      <li><span class="ic">⇄</span><b>Offshore teams scale</b><p>Skilled, cost-effective help for volume work like data prep and reconciliations. They do their best work with clear instructions, the right access and review.</p></li>
-      <li><span class="ic">CA</span><b>An Australian CA answers for it</b><p>Bound by the CA ANZ Code of Ethics, across the ATO, Payday Super and Privacy Act rules, and accountable here for the result.</p></li>
+      <li><span class="ic">CA</span><b>The numbers are right</b><p>A Chartered Accountant ties every figure back to your ledger before anyone acts on it, under the CA ANZ code of ethics.</p></li>
+      <li><span class="ic">GAICD</span><b>The controls are in place</b><p>Company-director training means approvals, limits, logs and a way to challenge a decision are designed in from day one.</p></li>
+      <li><span class="ic">AI</span><b>The tools actually work</b><p>The right AI for the job, connected to your systems, tested on your own data and handed over so your team can run it.</p></li>
     </ul>
-    <p class="dd-so"><b>Already outsource, or thinking about it?</b> We set up the human in the loop: who can access what, the review steps and the checks. <a href="/services/human-in-the-loop/">See how</a></p>
+    <p style="margin-top:16px"><a href="/services/ai-governance/#frameworks">The responsible-AI frameworks we work to →</a></p>
   </div>
 </section>
 
 <section id="fix">
   <div class="wrap">
     <p class="eyebrow">What we fix</p>
-    <h2>Sound like you? That's what we fix.</h2>
-    <p class="lede">We solve specific, expensive problems. Each one below is a fixed-price piece of work with a result you can see.</p>
-    <div class="fixcols">
-      <div><h3>Running the business</h3><ul class="fix">
-        <li><a href="/try/#late"><q>I spend every week chasing money.</q><span>→ <b>Invoices that chase themselves</b> · try the demo<em class="eta">Typically days</em></span><i>→</i></a></li>
-        <li><a href="/try/#cash"><q>I don't know if I'll have enough cash next month.</q><span>→ <b>13-week cash forecast</b> · try the demo<em class="eta">Typically 1 to 2 weeks</em></span><i>→</i></a></li>
-        <li><a href="/industries/trades/"><q>I don't know which jobs actually make money.</q><span>→ <b>Profit by job, client or service</b>, every month<em class="eta">Typically 2 to 3 weeks</em></span><i>→</i></a></li>
-        <li><a href="/try/#hours"><q>Month-end eats a week.</q><span>→ <b>Reconciliations and checks automated</b> · see your hours<em class="eta">Typically 2 to 4 weeks</em></span><i>→</i></a></li>
-      </ul></div>
-      <div><h3>Leading the business</h3><ul class="fix">
-        <li><a href="/ai-check/"><q>Will the new Privacy Act AI rules catch us?</q><span>→ <b>Free 2-minute check</b>, then a written action list<em class="eta">Free check · then a 5 to 10 day sprint</em></span><i>→</i></a></li>
-        <li><a href="/industries/startups/"><q>Investors want numbers I can't produce.</q><span>→ <b>Runway model and investor metrics</b><em class="eta">Typically 2 to 4 weeks</em></span><i>→</i></a></li>
-        <li><a href="/insights/burned-by-an-ai-product/"><q>Our tech project or developer went sideways.</q><span>→ <b>Get control back</b>, then finish it properly<em class="eta">Health check · about a week</em></span><i>→</i></a></li>
-      </ul></div>
-      <div><h3>Using AI and data</h3><ul class="fix">
-        <li><a href="/services/ai-governance/"><q>We're scared to use AI with our data.</q><span>→ <b>Approved AI tools, with rules your team follows</b><em class="eta">AI Readiness Sprint · 10 business days</em></span><i>→</i></a></li>
-        <li><a href="/services/ai-readiness-sprint/"><q>We don't know which AI to use.</q><span>→ <b>An honest shortlist for your business</b>, set up and tested<em class="eta">Part of the AI Readiness Sprint</em></span><i>→</i></a></li>
-        <li><a href="/services/ai-agents/"><q>We want AI working with the team, not around it.</q><span>→ <b>Assistants and agents built into daily work</b><em class="eta">Typically 2 to 6 weeks</em></span><i>→</i></a></li>
-        <li><a href="/services/data-engineering/"><q>Our data is spread across five systems.</q><span>→ <b>One clean, connected source of truth</b><em class="eta">Typically 2 to 6 weeks</em></span><i>→</i></a></li>
-      </ul></div>
-    </div>
-  </div>
-</section>
-
-<section id="evidence" style="padding-bottom:0">
-  <div class="wrap">
-    <div class="moment"><span class="k">The moment · Australia, 2026</span><ul>
-      <li><b data-rba>4.60%</b><span>RBA cash rate, a 15-year high</span></li>
-      <li><b>4.0%</b><span>inflation, year to August</span></li>
-      <li><b>14,152</b><span>company insolvencies last financial year</span></li>
-      <li><b>43%</b><span>of SMEs using AI. Most of the rest want a human in control</span></li></ul>
-      <a href="/live/">More live numbers →</a></div>
-    <div class="evid">
-      <div><b>~80%</b><p>of Australian small and medium businesses had their cash flow hit in the past year.</p><small>CommBank survey by YouGov, 507 businesses, published January 2025 · <a href="https://www.unsw.edu.au/news/2025/01/80-per-cent-of-aussie-small-businesses-experience-cash-flow-chal" rel="noopener">source</a></small></div>
-      <div><b>~65%</b><p>of SMEs not using AI say it's because they distrust AI decisions or want to keep human control.</p><small>National AI Centre SME AI Pulse, Dec 2025 to Feb 2026 · <a href="https://www.ai.gov.au/news-and-insights/blog/ai-adoption-insights-december-2025-february-2026" rel="noopener">source</a></small></div>
-      <div class="so"><b>So that's what we sell.</b><p>Cash you can see, admin you don't have to do, and AI that never acts without a human saying yes.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="why">
-  <div class="wrap">
-    <p class="eyebrow">Why work with us</p>
-    <h2>Why owners trust us with the numbers.</h2>
-    <ul class="why">
-      <li><span class="ic">CA</span><b>The numbers are right</b><p>Built by an accountant. Everything reconciles back to your ledger, not just to a nice chart.</p></li>
-      <li><span class="ic">GAICD</span><b>Controls come first</b><p>GAICD trained in governance. Approvals, limits and an audit trail are built in, not added later.</p></li>
-      <li><span class="ic">$</span><b>Fixed price, in writing</b><p>You know the cost and the deliverables before we start. No hourly meter, no lock-in contracts.</p></li>
-      <li><span class="ic">🔒</span><b>Your data stays yours</b><p>We build inside your own accounts, use business-grade AI that doesn't train on your data, and are bound by professional confidentiality under the CA ANZ code of ethics.</p></li>
-      <li><span class="ic">✓</span><b>Accountable</b><p>CA ANZ Certificate of Public Practice, bound by the CA ANZ Code of Ethics, and everything agreed in writing.</p></li>
+    <h2>Sound like you?</h2>
+    <p class="lede">Each one is a fixed-price piece of work with a result you can see.</p>
+    <ul class="fix fixgrid">
+      <li><a href="/try/#cash"><q>I don't know if I'll have enough cash next month.</q><span>→ <b>13-week cash forecast</b><em class="eta">Typically 1 to 2 weeks</em></span><i>→</i></a></li>
+      <li><a href="/try/#late"><q>I spend every week chasing money.</q><span>→ <b>Invoices that chase themselves</b><em class="eta">Typically days</em></span><i>→</i></a></li>
+      <li><a href="/industries/trades/"><q>I don't know which jobs actually make money.</q><span>→ <b>Profit by job, client or service</b><em class="eta">Typically 2 to 3 weeks</em></span><i>→</i></a></li>
+      <li><a href="/try/#hours"><q>Month-end eats a week.</q><span>→ <b>Reconciliations and checks automated</b><em class="eta">Typically 2 to 4 weeks</em></span><i>→</i></a></li>
+      <li><a href="/services/ai-readiness-sprint/"><q>We don't know which AI to use, or if it's safe.</q><span>→ <b>AI Readiness Sprint</b>: approved tools and rules your team follows<em class="eta">10 business days</em></span><i>→</i></a></li>
+      <li><a href="/ai-check/"><q>Will the new Privacy Act AI rules catch us?</q><span>→ <b>Free 2-minute check</b>, then a written action list<em class="eta">Free · then a 5 to 10 day sprint</em></span><i>→</i></a></li>
     </ul>
+    <p style="margin-top:18px"><a class="btn" href="/services/">All services →</a></p>
   </div>
 </section>
-
-{PLAIN}
 
 <section id="see">
-  <div class="wrap">
-    <p class="eyebrow">What you actually get</p>
-    <h2>Real outputs. Made-up businesses.</h2>
-    <p class="lede">A forecast that warns you before cash gets tight. A view of which jobs make money. We show the result here; how it's built stays with us.</p>
-    <p class="seemore"><a href="/examples/#ex9">The workflow behind it</a><a href="/examples/#ex10">Time given back</a><a href="/examples/#ex11">The accountant's check</a><a href="/examples/#ex12">The board's view of risk</a></p>
-    <div class="grid2" style="margin-top:28px">
-      <div class="panel"><h4><span>13-week cash forecast · sample</span><span>fictional joinery business</span></h4>{cash13(compact=True)}<p class="fine">The amber week is the one to plan for. You'd know about it seven weeks early.</p></div>
-      <div class="panel"><h4><span>Startup dashboard · sample</span></h4>
-        <div class="tiles t2"><div class="tile"><small>MRR</small><b>$86.4k</b><span>▲ 6.1% on last month</span></div><div class="tile"><small>Runway</small><b>{runway_facts()["Base"]} mo</b><span>base case</span></div><div class="tile"><small>CAC payback</small><b>9.5 mo</b><span>target under 12</span></div><div class="tile"><small>Churn</small><b>1.6%</b><span>monthly, logo</span></div></div>
-        <p class="fine" style="margin-top:12px">Investor-ready numbers, refreshed from your own systems.</p></div>
+  <div class="wrap hero2 rev">
+    <figure class="vid">
+      <video src="/assets/media/cash-forecast-demo.mp4" poster="/assets/media/cash-forecast-demo.jpg" autoplay muted loop playsinline preload="none" aria-label="Screen recording: a 13-week cash forecast redraws as a large bill moves between weeks, showing which week falls below the cash buffer"></video>
+      <figcaption><b>A 13-week cash forecast.</b> Move one big bill and see which week drops below your buffer. <a href="/try/#cash">Try it with your numbers →</a></figcaption>
+    </figure>
+    <div>
+      <p class="eyebrow">What you get</p>
+      <h2>Your numbers, in one place, every Monday.</h2>
+      <ol class="flow flow-v">
+        <li><span class="k">01 · Today</span><h3>Your numbers are everywhere</h3><p>Accounting software, spreadsheets, the inbox, the bank, a job app. Someone copies between them by hand.</p></li>
+        <li><span class="k">02 · We build</span><h3>Connected, checked, logged</h3><p>Automation does the grunt work. A person signs off anything that matters.</p></li>
+        <li><span class="k">03 · You see</span><h3>What matters, when it matters</h3><p>A short Monday email, a live dashboard or a forecast you can take to the bank.</p></li>
+      </ol>
+      <p style="margin-top:18px"><a class="btn" href="/examples/">See example outputs →</a></p>
     </div>
-    <p style="margin-top:20px"><a class="btn" href="/examples/">See all examples →</a></p>
   </div>
 </section>
 
 <section id="how">
   <div class="wrap">
     <p class="eyebrow">How it works</p>
-    <h2>Document-first. No sales pitch.</h2>
-    <p class="lede">We run discovery in writing to respect your time. You get a fully priced written blueprint, not a high-pressure pitch, and a record of exactly what was agreed.</p>
+    <h2>In writing, start to finish.</h2>
     <ol class="steps">
-      <li><h3>Tell us in writing</h3><p>Use the form or the guided assistant. A few lines is enough.</p></li>
+      <li><h3>Tell us in writing</h3><p>A few lines in the form is enough.</p></li>
       <li><h3>Written proposal</h3><p>Fixed price, scope and timeline within three business days.</p></li>
-      <li><h3>Build with updates</h3><p>Weekly written progress notes and a working demo you can click.</p></li>
-      <li><h3>Handover pack</h3><p>Documentation, controls and training so your team owns it.</p></li>
+      <li><h3>Build with updates</h3><p>Weekly written notes and a working demo you can click.</p></li>
+      <li><h3>Handover pack</h3><p>Documentation, controls and training. Your team owns it.</p></li>
     </ol>
-    <p class="newfirm" style="margin-top:22px"><b>We're a new firm.</b> That means partner-level attention and a price that reflects our stage. Fixed scope, fixed price, weekly updates, and you own everything at handover.</p>
-    <p style="margin-top:18px"><a class="btn" href="/how-we-work/">How we work and protect you →</a></p>
+    <p class="newfirm" style="margin-top:22px"><b>We're a new firm.</b> That means partner-level attention and a price that reflects our stage. <a href="/how-we-work/">How we work and protect you →</a></p>
   </div>
 </section>
 
 {contact_form()}'''
     add("/", "Beiz Data & Accounting | AI, automation and dashboards, set up properly",
-        "AI agents, chatbots, automation, dashboards, financial models and data engineering for Australian businesses, set up properly with human sign-off. Not sure which AI to use? Start here.", body)
+        "AI, automation, dashboards and cash forecasts for Australian businesses, set up properly with human sign-off. Chartered Accountant and GAICD led.", body)
 
 
 # ------------------------------------------------------------------ services
@@ -262,9 +169,25 @@ def services_hub():
     add("/services/", "Services", "AI governance, automation, dashboards and financial models, tech project delivery and small business quick wins. Fixed price, in writing.", body)
 
 
+FRAMEWORKS = '''<section id="frameworks"><div class="wrap">
+  <p class="eyebrow">Frameworks we work to</p>
+  <h2>Responsible AI isn't our invention. We just make it practical.</h2>
+  <p class="lede">These are the public standards behind our AI policies, controls and sign-offs. Read them for free; we turn them into a one-page policy, an approved-tools list and a checklist your team actually uses.</p>
+  <ul class="fwlist">
+    <li><a href="https://www.industry.gov.au/publications/guidance-for-ai-adoption" rel="noopener"><b>Guidance for AI Adoption</b><span>National AI Centre, Australia. The government's practical starting point for businesses using AI.</span></a></li>
+    <li><a href="https://www.oaic.gov.au/privacy/privacy-guidance-for-organisations-and-government-agencies/guidance-on-privacy-and-the-use-of-commercially-available-ai-products" rel="noopener"><b>Privacy and commercially available AI products</b><span>OAIC. What the Privacy Act expects when you put personal information into AI tools.</span></a></li>
+    <li><a href="https://www.unesco.org/en/artificial-intelligence/recommendation-ethics" rel="noopener"><b>Recommendation on the Ethics of AI</b><span>UNESCO, adopted by 193 member states in 2021. The first global standard: human oversight, transparency, fairness, privacy.</span></a></li>
+    <li><a href="https://www.ibm.com/think/topics/responsible-ai" rel="noopener"><b>What is responsible AI?</b><span>IBM. A clear explainer of the core pillars: transparency, fairness, robustness and privacy.</span></a></li>
+    <li><a href="https://www.iso.org/standard/42001" rel="noopener"><b>ISO/IEC 42001</b><span>The international management-system standard for AI, for organisations that want to be audited against one.</span></a></li>
+  </ul>
+  <p class="fine">Links go to the publishers' own sites. We're not affiliated with or endorsed by any of them.</p>
+</div></section>'''
+
+
 def svc(path, crumb, eyebrow, h1, lede, prose, dl, side, scene, rel, topic, title, desc):
     body = (phero(eyebrow, h1, lede, [("/services/", "Services"), (path, crumb)]) +
             f'''<section style="padding-top:8px"><div class="wrap split"><div class="prose">{prose}<h2>What you get</h2>{deliv(dl)}{scene}{related(rel)}</div>{side}</div></section>''' +
+            (FRAMEWORKS if path in ("/services/ai-governance/", "/services/ai-readiness-sprint/") else "") +
             cta_band(topic=topic))
     add(path, title, desc, body)
 
@@ -763,6 +686,23 @@ def how_we_work():
     <li><h3>Handover pack</h3><p>Documentation, controls, training and your logins. It's yours.</p></li>
   </ol>
 </div></section>
+<section id="diligence">
+  <div class="wrap">
+    <p class="eyebrow">AI with due diligence</p>
+    <h2>Anyone can use AI. Using it with due diligence is different.</h2>
+    <p class="lede">AI is more than writing good prompts. Prompts are the easy part. The hard part is knowing your data, your obligations and your risks, and building the checks around them. That's the part we do.</p>
+    <div class="ddt" role="table" aria-label="Prompting compared with due diligence">
+      <div class="dd-h" role="row"><span role="columnheader">Just prompting</span><span role="columnheader">With due diligence</span></div>
+      <div role="row"><span role="cell">Pick a tool and start typing</span><span role="cell">Check your data, privacy obligations and costs first</span></div>
+      <div role="row"><span role="cell">Paste in whatever's handy</span><span role="cell">Decide what goes in, and keep customer data out of free tools</span></div>
+      <div role="row"><span role="cell">Write clever prompts</span><span role="cell">Design the process: who approves, what's logged, what it can't touch</span></div>
+      <div role="row"><span role="cell">Trust the answer</span><span role="cell">Tie every number back to your ledger before anyone acts on it</span></div>
+      <div role="row"><span role="cell">A demo that looks good</span><span role="cell">Tested on your real data, with accuracy measured</span></div>
+      <div role="row"><span role="cell">Done when it runs</span><span role="cell">Done when your team uses it, it's documented and you own it</span></div>
+    </div>
+    <p class="dd-so"><b>We set it up properly for you.</b> The speed of AI, with an accountant, board-level governance and a data specialist behind it.</p>
+  </div>
+</section>
 <section><div class="wrap"><p class="eyebrow">How we protect you</p><h2>The controls come first. The AI comes second.</h2><div class="cards">{p}</div></div></section>
 <section><div class="wrap split"><div class="prose">
 <h2>What you won't get from us</h2>

@@ -89,16 +89,26 @@
     if (form) { e.preventDefault(); prefill(a.dataset.topic); }
   }));
 
+  // ---------- Demo videos: respect reduced motion, pause off-screen ----------
+  $$(".vid video").forEach(v => {
+    if (reduce) { v.removeAttribute("autoplay"); v.pause(); v.controls = true; return; }
+    if ("IntersectionObserver" in window) new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? v.play().catch(() => {}) : v.pause())).observe(v);
+  });
+
   // ---------- Beiz Pulse ticker ----------
   const track = $("#pulse");
   const today = new Date(); today.setHours(0, 0, 0, 0);
   const dleft = Math.round((new Date(2026, 11, 10) - today) / 864e5);
   $$("[data-adm-days]").forEach(e => (e.textContent = dleft > 0 ? dleft + " days" : "now in force"));
-  // One purpose only: regulatory countdown + Australian market benchmarks.
-  const base = [
-    dleft > 0 ? `Privacy Act: automated-decision disclosures start <b>10 Dec 2026</b> · ${dleft} days`
-              : `Privacy Act: automated-decision disclosures <b>in force</b> since 10 Dec 2026`
+  // Regulatory countdown, the AI gap (sourced, static) and Australian benchmarks (live, below).
+  const privacy = dleft > 0 ? `Privacy Act: automated-decision disclosures start <b>10 Dec 2026</b> · ${dleft} days`
+                            : `Privacy Act: automated-decision disclosures <b>in force</b> since 10 Dec 2026`;
+  const aiGap = [
+    `SMEs using AI <b>43%</b> · <b>57%</b> not yet · 65% of those distrust AI decisions or want human control <i class="note">NAIC, Dec–Feb 2026</i>`,
+    `Only <b>~1 in 2</b> SMEs using AI check its output before customers see it <i class="note">NAIC</i>`,
+    `Just <b>20%</b> of organisations monitor AI after go-live · <b>21%</b> let people challenge an AI decision <i class="note">Responsible AI Index 2025</i>`
   ];
+  const base = [privacy, ...aiGap];
   const renderTicker = items => {
     if (!track) return;
     const html = items.map(i => `<span>${i}</span>`).join("");
@@ -109,7 +119,7 @@
   // ---------- Market data (same-origin JSON, refreshed by a scheduled job) ----------
   const data = { markets: [], cricket: [], nrl: [], afl: [], football: [] };
   const fmtMk = i => ({
-    n: i.label, a: i.short || i.label, c: i.chg, g: i.group,
+    n: i.label, a: i.short || i.label, c: i.chg, g: i.group, m1: i.m1, sp: i.spark,
     v: i.cur === "AUD" ? "A$" + Math.round(i.price).toLocaleString("en-AU")
       : i.sym && i.sym.includes("=X") ? Number(i.price).toFixed(4)
       : Number(i.price).toLocaleString("en-AU", { maximumFractionDigits: 1 })
@@ -119,12 +129,21 @@
     const cr = (d.crypto || []).map(i => fmtMk({ ...i, cur: "AUD", group: "Crypto · 24h" }));
     data.markets = [...asx, ...cr];
     const mk = data.markets.filter(m => m.g.startsWith("ASX"))
-      .map(m => `${esc(m.a)} <b>${esc(m.v)}</b>${m.c == null ? "" : ` <i class="${m.c >= 0 ? "up" : "dn"}">${m.c >= 0 ? "▲" : "▼"}${Math.abs(m.c).toFixed(1)}%</i>`}`)
+      .map(m => `${esc(m.a)} <b>${esc(m.v)}</b>${m.c == null ? "" : ` <i class="${m.c >= 0 ? "up" : "dn"}">${m.c >= 0 ? "▲" : "▼"}${Math.abs(m.c).toFixed(1)}%</i>`}${m.m1 == null ? "" : ` <i class="note">1M ${m.m1 >= 0 ? "+" : "−"}${Math.abs(m.m1).toFixed(1)}%</i>`}`)
       .join(" &nbsp;·&nbsp; ");
-    const rba = d.rba ? `RBA cash rate <b>${Number(d.rba.rate).toFixed(2)}%</b>${d.rba.lastChange ? ` <i class="${d.rba.lastChange.by >= 0 ? "dn" : "up"}">${d.rba.lastChange.by >= 0 ? "▲" : "▼"}${Math.abs(d.rba.lastChange.by).toFixed(2)} on ${esc(d.rba.lastChange.date)}</i>` : ""}` : "";
+    const r = d.rba, mon = x => esc(String(x).replace(/^0/, "").replace(/-(\d{4})$/, " $1").replace(/-/g, " "));
+    const d12 = r && r.yearAgo != null ? +(r.rate - r.yearAgo).toFixed(2) : null;
+    const rba = r ? `RBA cash rate <b>${Number(r.rate).toFixed(2)}%</b>`
+      + (r.lastChange ? ` <i class="${r.lastChange.by >= 0 ? "dn" : "up"}">${r.lastChange.by >= 0 ? "▲" : "▼"}${Math.abs(r.lastChange.by).toFixed(2)} on ${mon(r.lastChange.date)}</i>` : "")
+      + (d12 ? ` · ${d12 > 0 ? "+" : "−"}${Math.abs(d12).toFixed(2)} pts in 12 months` : "")
+      + (r.higherLast ? ` · highest since ${mon(r.higherLast).replace(/^\d+ /, "")}` : "") : "";
+    const impact = d12 ? `What ${d12 > 0 ? "+" : "−"}${Math.abs(d12).toFixed(2)} pts means: about <b>$${Math.round(Math.abs(d12) * 5000).toLocaleString("en-AU")}</b> a year ${d12 > 0 ? "more" : "less"} interest on a $500k business loan <i class="note">illustration</i>` : "";
     $$("[data-rba]").forEach(e => { if (d.rba) e.textContent = Number(d.rba.rate).toFixed(2) + "%"; });
-    $$("[data-rba-note]").forEach(e => { if (d.rba && d.rba.lastChange) e.textContent = `Last moved ${d.rba.lastChange.by >= 0 ? "up" : "down"} ${Math.abs(d.rba.lastChange.by).toFixed(2)} on ${d.rba.lastChange.date}`; });
-    const parts = [...base]; if (rba) parts.push(rba);
+    $$("[data-rba-note]").forEach(e => { if (r && r.lastChange) e.textContent = `${r.lastChange.by >= 0 ? "Raised" : "Cut"} ${Math.abs(r.lastChange.by).toFixed(2)} on ${String(r.lastChange.date).replace(/-/g, " ")}` + (d12 ? ` · ${d12 > 0 ? "+" : "−"}${Math.abs(d12).toFixed(2)} pts in a year` : ""); });
+    const parts = [privacy];
+    if (rba) parts.push(rba);
+    if (impact) parts.push(impact);
+    parts.push(...aiGap);
     if (mk) parts.push(mk + ' <i class="note">delayed · indicative only</i>');
     if (rba || mk) renderTicker(parts);
   }).catch(() => {});
@@ -236,7 +255,13 @@
   if (labMk) {
     const tiles = () => {
       if (!data.markets.length) { labMk.innerHTML = '<p class="muted">Loading…</p>'; return; }
-      labMk.innerHTML = data.markets.map(m => `<div class="mtile"><small>${esc(m.n)}</small><b>${esc(m.v)}</b>${m.c == null ? "" : `<span class="${m.c >= 0 ? "up" : "dn"}">${m.c >= 0 ? "▲" : "▼"} ${Math.abs(m.c).toFixed(2)}%</span>`}<span class="muted" style="display:block;margin-top:2px;font-size:.72rem">${esc(m.g)}</span></div>`).join("");
+      const spark = a => {
+        if (!a || a.length < 5) return "";
+        const lo = Math.min(...a), hi = Math.max(...a), w = 100, h = 24, k = hi - lo || 1;
+        const pts = a.map((y, i) => `${(i / (a.length - 1) * w).toFixed(1)},${(h - (y - lo) / k * h).toFixed(1)}`).join(" ");
+        return `<svg class="spark ${a[a.length - 1] >= a[0] ? "up" : "dn"}" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" aria-hidden="true"><polyline points="${pts}"/></svg>`;
+      };
+      labMk.innerHTML = data.markets.map(m => `<div class="mtile"><small>${esc(m.n)}</small><b>${esc(m.v)}</b>${m.c == null ? "" : `<span class="${m.c >= 0 ? "up" : "dn"}">${m.c >= 0 ? "▲" : "▼"} ${Math.abs(m.c).toFixed(2)}%</span>`}${m.m1 == null ? "" : `<span class="muted" style="font-size:.78rem"> · 1M ${m.m1 >= 0 ? "+" : "−"}${Math.abs(m.m1).toFixed(1)}%</span>`}${spark(m.sp)}<span class="muted" style="display:block;margin-top:2px;font-size:.72rem">${esc(m.g)}</span></div>`).join("");
     };
     views.push(tiles); tiles();
     mountTabs($("#labNav"), $("#labList"), TABS.slice(1).concat([]), "cricket");
