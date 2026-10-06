@@ -882,6 +882,7 @@ def insights():
 <h2>Doing it automatically</h2>
 <p>All five checks are rules, which makes them a good fit for automation. A workflow tool like n8n can pull new bills from Xero or MYOB each morning, run the checks, and sort them into <em>ready to pay</em> and <em>held for a person</em>, each held bill with its reason. Nothing is paid automatically: you still approve the payment run, you just stop reading every bill line by line.</p>
 <p>You can watch it work on our <a href="/try/#bills">bill-checking demo</a>, which runs these checks on eight made-up bills in your browser.</p>
+<p>If you already run n8n, the workflow is free on GitHub: <a href="https://github.com/TheBeizWay/n8n-finance-workflows" rel="noopener">supplier bill checks for n8n</a>. It uses made-up data, so swap in your own bills and supplier list, and keep the approval step.</p>
 <h2>What it won't do</h2>
 <p>It won't catch a fake bill from a real supplier with unchanged details and a normal price; that still needs someone who knows what was ordered. And the rules are only as good as your data: if supplier records are messy, cleaning them up comes first.</p>
 <p>If you'd like these checks running on your own bills, <a href="/contact/?topic=Automation%20%26%20AI%20agents#form">tell us about your setup</a>. It's usually a few days' work.</p>
