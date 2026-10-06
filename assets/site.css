@@ -652,3 +652,4 @@ footer.site .legal,footer.site .legal p{color:#a9b4be}
 .founderfig figcaption{font-size:.85rem;color:var(--muted);margin-top:8px}
 .founderfig figcaption b{color:var(--text)}
 @media (max-width:560px){.founderfig{float:none;width:160px;margin:0 0 14px}}
+footer.site .legal p.pss{font-size:12px;color:#c3ccd4;margin-top:2px}
