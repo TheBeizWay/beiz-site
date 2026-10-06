@@ -1,5 +1,5 @@
 """Build beiz.com.au: python3 src/build.py  (writes static HTML into the repo root)."""
-import os, sys
+import os, sys, datetime
 sys.path.insert(0, os.path.dirname(__file__))
 from pages import build_all
 from layout import SITE, SERVICES, INDUSTRIES
@@ -14,7 +14,7 @@ for path, html in pages.items():
     if path != "/404.html":
         urls.append(path)
 sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-sm += [f"  <url><loc>{SITE}{u}</loc><lastmod>2026-10-01</lastmod></url>" for u in sorted(urls)]
+sm += [f"  <url><loc>{SITE}{u}</loc><lastmod>{datetime.date.today().isoformat()}</lastmod></url>" for u in sorted(urls)]
 sm.append("</urlset>")
 open(os.path.join(ROOT, "sitemap.xml"), "w").write("\n".join(sm) + "\n")
 AI_TRAINING_BOTS = ["GPTBot", "Google-Extended", "CCBot", "ClaudeBot", "anthropic-ai", "Applebot-Extended", "Bytespider", "meta-externalagent"]
