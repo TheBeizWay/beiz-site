@@ -116,7 +116,7 @@ def home():
       </svg>
       <ul class="vlist">
         <li>Many businesses coordinate separate accounting, governance and technology specialists to get this right.</li>
-        <li><b>Beiz brings those disciplines together in one engagement</b>: a Chartered Accountant checks every figure, company-director training (GAICD) puts approvals and audit trails in from day one, and the AI and automation are tested on your own data before you rely on them.</li>
+        <li><b>Beiz brings those disciplines together in one engagement</b>: a Chartered Accountant checks every figure, approvals and audit trails go in from day one, and the automation is tested on your own data before you rely on it.</li>
       </ul>
     </div>
     <p style="margin-top:16px"><a href="/services/ai-governance/#frameworks">The responsible-AI frameworks we work to →</a></p>
