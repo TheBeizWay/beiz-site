@@ -637,3 +637,7 @@ header.site .mnav .btn{display:flex;justify-content:center}
   .bot-btn{padding:12px 14px}
   footer{padding-bottom:84px}
 }
+/* anchor jumps land below the pinned ticker + header; readable footer legal text */
+html{scroll-padding-top:calc(var(--tk,24px) + 72px)}
+section{scroll-margin-top:calc(var(--tk,24px) + 72px)}
+footer.site .legal,footer.site .legal p{color:#a9b4be}
