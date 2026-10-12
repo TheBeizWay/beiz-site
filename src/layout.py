@@ -220,7 +220,7 @@ def _trim(desc, n=158):
 
 def page(path, title, desc, body, extra_head=""):
     desc = _trim(desc)
-    full_title = title if "Beiz" in title else f"{title} | Beiz"
+    full_title = title if "Beiz" in title else (f"{title} | Beiz Data & Accounting" if len(title) <= 40 else f"{title} | Beiz")
     canon = SITE + path
     ld = f'<script type="application/ld+json">{json.dumps(ORG)}</script>' if path == "/" else ""
     return f'''<!doctype html>
