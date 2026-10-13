@@ -59,106 +59,100 @@ def home():
     body = f'''<section class="hero" id="top">
   <div class="wrap hero2">
     <div>
-      <p class="eyebrow">Set up by an Australian Chartered Accountant</p>
-      <h1>AI and automation, set up properly.</h1>
-      <p class="lede">For sole traders through to growing teams. We connect your accounting, bank and job systems, automate the grunt work, and put a person's sign-off on anything that touches your money, your customers or your data.</p>
+      <p class="eyebrow">For engineering, IT and consulting firms</p>
+      <h1>You've done the work. Has it all been invoiced?</h1>
+      <p class="lede">In a project firm, money slips out between the timesheet, the job and the Xero invoice. Hours that never get billed. Fixed fees that overrun with no variation raised. Jobs closed before the last invoice goes out. We find it, put a dollar figure on it, and fix the process so it stops.</p>
       <div class="cta">
-        <a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a discovery call</a>
-        <a class="btn" href="/try/">Try a 60-second demo</a>
+        <a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-minute call</a>
+        <a class="btn" href="/examples/#ex13">See a sample finding</a>
       </div>
-      <ul class="hero-ticks"><li>Fixed price, in writing, before we start</li><li>Built in your own accounts. You own it.</li><li>Independent: no software of our own to sell</li></ul>
+      <ul class="hero-ticks"><li>Read-only access. We never change your Xero.</li><li>A dollar figure in about two weeks, at a fixed fee.</li><li>Go ahead with the fixes and the diagnostic fee comes off the price.</li></ul>
     </div>
-    <figure class="vid">
-      <video src="/assets/media/bill-check-demo.mp4?v=43" poster="/assets/media/bill-check-demo.jpg?v=43" autoplay muted loop playsinline preload="metadata" aria-label="Screen recording: an agent checks eight supplier bills, approves four and holds four for a person, each with a reason"></video>
-      <figcaption><b>An agent checking supplier bills.</b> Four ready to pay, four held for a person: over the limit, a likely duplicate, changed bank details, a price jump. <a href="/try/#bills">Try it yourself</a></figcaption>
+    <figure class="findcard" aria-label="Sample finding for an invented firm">
+      <figcaption>Sample finding · invented 8-person engineering firm · one quarter</figcaption>
+      <p class="fc-big"><small>To review this quarter</small><b>$112,654</b></p>
+      <ul class="fc-rows">
+        <li><span>Time and materials work not invoiced</span><b>$54,586</b></li>
+        <li><span>Client time marked non-billable</span><b>$20,273</b></li>
+        <li><span>Fixed fees over budget, no variation raised</span><b>$19,795</b></li>
+        <li><span>Finished jobs, final invoice never raised</span><b>$18,000</b></li>
+      </ul>
+      <p class="fc-note"><b>First job to look at:</b> September's time on the clinic upgrade was never invoiced.</p>
+      <p class="fc-foot">Invented firm and figures, built to show the method. Your number will be different. <a href="/examples/#ex13">Full sample</a></p>
     </figure>
+  </div>
+</section>
+
+<section id="leaks">
+  <div class="wrap">
+    <h2>Six places project firms lose money they've already earned</h2>
+    <p class="lede">Each one is small on its own. Together they're worth knowing about, and none of them shows up in your profit and loss until it's too late to bill.</p>
+    <ul class="leaks">
+      <li><q>Utilisation looks fine. Why is revenue flat?</q><b>Unbilled hours</b><span>Time is logged against a job but never makes it onto an invoice.</span></li>
+      <li><q>We won the job. Why did we lose money on it?</q><b>Fixed fees that overrun</b><span>Scope grows, the team keeps working, and nobody raises a variation.</span></li>
+      <li><q>That job's finished. Why haven't we been paid?</q><b>The last invoice</b><span>Jobs are closed while the final milestone sits in draft or is never raised.</span></li>
+      <li><q>Who agreed to that rate?</q><b>Rates that drift</b><span>Old rate cards, discounts nobody approved, the wrong role on a timesheet.</span></li>
+      <li><q>How much do we give away?</q><b>Quiet write-offs</b><span>Client work marked non-billable as goodwill, without anyone deciding to.</span></li>
+      <li><q>Why does month-end take a week?</q><b>Copying between systems</b><span>Someone moves numbers from the job system into Xero by hand, and things fall through.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="diagnostic" class="band">
+  <div class="wrap">
+    <h2>The revenue leakage diagnostic</h2>
+    <p class="lede">A fixed-scope piece of work with one output: what's leaking, how much, and what to change first.</p>
+    <ol class="steps">
+      <li><h3>A 20-minute call</h3><p>You tell us how billing works today. We tell you straight whether a diagnostic is worth doing. If it isn't, we'll say so.</p></li>
+      <li><h3>Read-only exports</h3><p>Your Xero invoices and a timesheet export. No logins to your systems and no changes to them.</p></li>
+      <li><h3>About two weeks</h3><p>Every hour and every invoice matched to a job. The gaps checked with your project managers, so we know which are mistakes and which were your call.</p></li>
+      <li><h3>A one-hour readout</h3><p>One page: a dollar figure, the jobs to look at first, and three fixes in order of effort.</p></li>
+    </ol>
+    <p class="price-line">Fixed fee, quoted in writing before we start. If you go ahead with the fixes, the diagnostic fee comes off the price.</p>
+    <p style="margin-top:18px"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-minute call</a></p>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap split">
+    <div>
+      <h2>Software can find the gaps. Someone still has to stand behind the number.</h2>
+      <ul class="ticks why-acct">
+        <li><b>A Chartered Accountant signs the findings.</b> Professional indemnity cover, and liability limited under a professional standards scheme.</li>
+        <li><b>We ask why.</b> A spreadsheet shows the gap. A five-minute conversation with your project manager explains it.</li>
+        <li><b>We separate leakage from fair write-offs.</b> Not every non-billable hour is a mistake, and we won't call it one.</li>
+        <li><b>You deal with the person doing the work,</b> from the first call to the handover.</li>
+        <li><b>It isn't an audit.</b> It's a commercial review for you to act on, with no sign-off from us on your accounts.</li>
+      </ul>
+    </div>
+    <aside class="aside">
+      <img class="aside-photo" src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="Purav Mehta" width="80" height="80" loading="lazy">
+      <h3>Purav Mehta</h3>
+      <p>Chartered Accountant (Certificate of Public Practice) and graduate of the Australian Institute of Company Directors. Background in internal audit, controls and enterprise finance systems.</p>
+      <a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-minute call</a>
+      <p class="fine"><a href="/about/#who">More about Purav</a></p>
+    </aside>
   </div>
 </section>
 
 <section id="fix">
   <div class="wrap">
-    <p class="eyebrow">What we fix</p>
-    <h2>Sound like you?</h2>
-    <p class="lede">Each one is a fixed-price piece of work with a result you can see.</p>
+    <h2>Not a project firm? We fix these too.</h2>
     <ul class="fix fixgrid">
-      <li><a href="/try/#cash"><q>I don't know if I'll have enough cash next month.</q><span>→ <b>13-week cash forecast</b><em class="eta">Typically 1 to 2 weeks</em></span><i>→</i></a></li>
-      <li><a href="/services/quick-wins/"><q>I'm a sole trader. Admin eats my evenings.</q><span>→ <b>Quick wins</b>: invoices, receipts and reminders that run themselves<em class="eta">Typically days</em></span><i>→</i></a></li>
-      <li><a href="/try/#late"><q>I spend every week chasing money.</q><span>→ <b>Invoices that chase themselves</b><em class="eta">Typically days</em></span><i>→</i></a></li>
-      <li><a href="/industries/trades/"><q>I don't know which jobs actually make money.</q><span>→ <b>Profit by job, client or service</b><em class="eta">Typically 2 to 3 weeks</em></span><i>→</i></a></li>
-      <li><a href="/try/#hours"><q>Month-end eats a week.</q><span>→ <b>Reconciliations and checks automated</b><em class="eta">Typically 2 to 4 weeks</em></span><i>→</i></a></li>
-      <li><a href="/services/ai-readiness-sprint/"><q>We don't know which AI to use, or if it's safe.</q><span>→ <b>AI Readiness Sprint</b>: approved tools and rules your team follows<em class="eta">10 business days</em></span><i>→</i></a></li>
-      <li><a href="/ai-check/"><q>Do the new automated-decision privacy rules apply to us?</q><small class="due">Rules start 10 December 2026</small><span>→ <b>Free 2-minute check</b>, then a written action list<em class="eta">Free · then a 5 to 10 day sprint</em></span><i>→</i></a></li>
+      <li><a href="/try/#cash"><q>I don't know if I'll have enough cash next month.</q><span><b>13-week cash forecast</b><em class="eta">Typically 1 to 2 weeks</em></span><i>→</i></a></li>
+      <li><a href="/try/#late"><q>I spend every week chasing money.</q><span><b>Invoices that chase themselves</b><em class="eta">Typically days</em></span><i>→</i></a></li>
+      <li><a href="/try/#hours"><q>Month-end eats a week.</q><span><b>Reconciliations and checks automated</b><em class="eta">Typically 2 to 4 weeks</em></span><i>→</i></a></li>
+      <li><a href="/services/quick-wins/"><q>I'm a sole trader. Admin eats my evenings.</q><span><b>Quick wins</b>: invoices, receipts and reminders that run themselves<em class="eta">Typically days</em></span><i>→</i></a></li>
+      <li><a href="/services/ai-readiness-sprint/"><q>We don't know which AI to use, or if it's safe.</q><span><b>AI Readiness Sprint</b>: approved tools and rules your team follows<em class="eta">10 business days</em></span><i>→</i></a></li>
+      <li><a href="/ai-check/"><q>Do the new automated-decision privacy rules apply to us?</q><small class="due">Rules start 10 December 2026</small><span><b>Free 2-minute check</b>, then a written action list<em class="eta">Free, then a 5 to 10 day sprint</em></span><i>→</i></a></li>
     </ul>
     <p style="margin-top:18px"><a class="btn" href="/services/">All services</a></p>
   </div>
 </section>
 
-<section id="gap">
-  <div class="wrap">
-    <p class="eyebrow">The gap · Australia, 2026</p>
-    <h2>Most businesses aren't using AI yet. Most of those using it aren't checking it.</h2>
-    <div class="gapstats">
-      <div><b>57%</b><p>of Australian SMEs haven't meaningfully adopted AI.</p><small>National AI Centre SME AI Pulse, Dec 2025 to Feb 2026 · <a href="https://www.ai.gov.au/news-and-insights/blog/ai-adoption-insights-december-2025-february-2026" rel="noopener">source</a></small></div>
-      <div><b>65%</b><p>of those holding back say they distrust AI decisions or want to keep a human in control.</p><small>Same survey, non-adopters · <a href="https://www.ai.gov.au/news-and-insights/blog/ai-adoption-insights-december-2025-february-2026" rel="noopener">source</a></small></div>
-      <div><b>~1 in 2</b><p>SMEs already using AI check its output before it reaches a customer. The other half don't.</p><small>Same survey, current users · <a href="https://www.ai.gov.au/news-and-insights/blog/ai-adoption-insights-december-2025-february-2026" rel="noopener">source</a></small></div>
-      <div><b>20%</b><p>of organisations properly monitor their AI after it goes live. 21% give people a way to challenge an AI decision.</p><small>Responsible AI Index self-assessment, 241 organisations, 2025 · <a href="https://www.fifthquadrant.com.au/content/uploads/FQ_NAIC_Responsible_AI_Index_Self-Assessment-Tool-Mini-Report-June-2026.pdf" rel="noopener">source</a></small></div>
-    </div>
-    <h3 class="gap-h">Closing it takes three skills that usually sit with different specialists.</h3>
-    <div class="vennrow">
-      <svg class="venn" viewBox="0 0 440 400" role="img" aria-labelledby="vennT vennD">
-        <title id="vennT">Where Beiz sits</title>
-        <desc id="vennD">Three overlapping circles: Chartered Accountant (the numbers are right), GAICD governance (the controls are in place) and AI and data (the tools work). Beiz sits where all three overlap.</desc>
-        <circle cx="155" cy="145" r="115" class="c1"/><circle cx="285" cy="145" r="115" class="c2"/><circle cx="220" cy="255" r="115" class="c3"/>
-        <text x="122" y="110" class="vt">Accountant</text><text x="122" y="134" class="vs">numbers right</text>
-        <text x="318" y="110" class="vt">Governance</text><text x="318" y="134" class="vs">controls in place</text>
-        <text x="220" y="320" class="vt">AI &amp; data</text><text x="220" y="344" class="vs">tools that work</text>
-        <circle cx="220" cy="180" r="34" class="core"/><text x="220" y="186" class="vc">Beiz</text>
-      </svg>
-      <ul class="vlist">
-        <li>Many businesses coordinate separate accounting, governance and technology specialists to get this right.</li>
-        <li><b>Beiz brings those disciplines together in one engagement</b>: a Chartered Accountant checks every figure, approvals and audit trails go in from day one, and the automation is tested on your own data before you rely on it.</li>
-      </ul>
-    </div>
-    <p style="margin-top:16px"><a href="/services/ai-governance/#frameworks">The responsible-AI frameworks we work to</a></p>
-  </div>
-</section>
-
-<section id="see">
-  <div class="wrap hero2 rev">
-    <figure class="vid">
-      <video src="/assets/media/how-beiz-adds-value-3.mp4?v=43" poster="/assets/media/how-beiz-adds-value-3.jpg?v=43" autoplay muted loop playsinline preload="none" aria-label="Short animation in four steps: numbers spread across six systems; connected, checked and logged; a person approves; a Monday cash email"></video>
-      <figcaption><b>How we add value, in under 30 seconds.</b> Your numbers connected and checked, your sign-off on anything that matters, and a clear view every Monday. Example business, made-up numbers.</figcaption>
-    </figure>
-    <div>
-      <p class="eyebrow">What you get</p>
-      <h2>Your numbers, in one place, every Monday.</h2>
-      <ol class="flow flow-v">
-        <li><span class="k">01 · Today</span><h3>Your numbers are everywhere</h3><p>Accounting software, spreadsheets, the inbox, the bank, a job app. Someone copies between them by hand.</p></li>
-        <li><span class="k">02 · We build</span><h3>Connected, checked, logged</h3><p>Automation does the grunt work. A person signs off anything that matters.</p></li>
-        <li><span class="k">03 · You see</span><h3>What matters, when it matters</h3><p>A short Monday email, a live dashboard or a forecast you can take to the bank.</p></li>
-      </ol>
-      <p style="margin-top:18px"><a class="btn" href="/examples/">See example outputs</a></p>
-    </div>
-  </div>
-</section>
-
-<section id="how">
-  <div class="wrap">
-    <p class="eyebrow">How it works</p>
-    <h2>Talk it through. Get it in writing.</h2>
-    <ol class="steps">
-      <li><h3>Talk or write</h3><p>A free 20-minute discovery call, or a few lines in the form. You'll come away knowing what's worth automating, roughly what it costs, and whether we're the right fit. If we're not, we'll say so.</p></li>
-      <li><h3>Written proposal</h3><p>Fixed price, scope and timeline within three business days.</p></li>
-      <li><h3>Build with updates</h3><p>Weekly written notes and a working demo you can click.</p></li>
-      <li><h3>Handover pack</h3><p>Documentation, controls and training. Your team owns it.</p></li>
-    </ol>
-    <div class="founder"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="Purav Mehta" width="64" height="64" loading="lazy"><p><b>Purav Mehta</b>, Chartered Accountant (Certificate of Public Practice) and graduate of the Australian Institute of Company Directors. You work with him directly, from discovery through to handover. <a href="/about/#who">Who's behind Beiz</a></p></div>
-  </div>
-</section>
-
 {contact_form()}'''
-    add("/", "Beiz Data & Accounting | AI and automation, set up properly",
-        "AI, automation, dashboards and cash forecasts for Australian businesses, set up properly with human sign-off. Chartered Accountant and GAICD led.", body)
+    add("/", "Beiz Data & Accounting | Find the revenue your project firm hasn't invoiced",
+        "For engineering, IT and consulting firms: we find hours never billed, fixed fees that overran and final invoices never raised, then fix the process. Fixed fee, read-only, led by a Chartered Accountant.", body)
 
 
 # ------------------------------------------------------------------ services

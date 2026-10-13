@@ -720,5 +720,33 @@ nav.main a[aria-current=page]{box-shadow:inset 0 -2px 0 var(--pencil)}
   repeating-linear-gradient(180deg,transparent 0 35px,rgba(31,90,68,.09) 35px 36px);border-bottom:1px solid var(--line)}
 .hero h1{max-width:15ch}
 /* removed from the business site: market ticker and sports scoreboard */
-.ticker,.sb-tab,.sb{display:none!important}
-:root{--tk:0px}
+.sb-tab,.sb{display:none!important}
+
+/* v3.1: ticker back, restyled as a dark ink band */
+.ticker{background:#18241D;color:#DCE5DE;border-bottom:0;font-family:var(--sans);letter-spacing:0;font-size:12.5px}
+.ticker .label{background:var(--pencil);color:#fff;font-weight:700;letter-spacing:.02em}
+.ticker .track span::before{color:#E5533F}
+.ticker b{color:#fff;font-weight:600}.ticker .up{color:#8FD6AE}.ticker .dn{color:#F4A79C}.ticker .note{color:#A9B9AE}
+.ticker .label::after{background:linear-gradient(90deg,#18241D,transparent)}
+/* homepage: findings card, leaks, diagnostic */
+.findcard{margin:0;background:#fff;border:1px solid var(--line);border-radius:6px;padding:22px 24px;box-shadow:6px 6px 0 rgba(31,90,68,.10)}
+.findcard figcaption{font-size:.8rem;color:var(--muted)}
+.fc-big{margin:10px 0 12px}.fc-big small{display:block;font-size:.9rem;color:var(--muted)}
+.fc-big b{display:block;font-family:var(--sans);font-size:clamp(2.4rem,4.6vw,3.2rem);line-height:1.05;letter-spacing:-.02em;color:var(--pencil);font-weight:700;font-variant-numeric:lining-nums tabular-nums}
+.fc-rows{list-style:none;border-top:1px solid var(--line)}
+.fc-rows li{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:.93rem;color:var(--text)}
+.fc-rows b{font-weight:600;white-space:nowrap}
+.fc-note{margin-top:12px;font-size:.92rem;color:var(--text)}
+.fc-foot{margin-top:10px;font-size:.78rem;color:var(--muted)}.fc-foot a{color:var(--accent)}
+.leaks{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.leaks li{background:#fff;border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:6px;padding:18px}
+.leaks q{display:block;font-family:var(--head);font-size:1.12rem;font-weight:600;color:var(--text);line-height:1.3;quotes:"\201C" "\201D"}
+.leaks b{display:block;margin-top:12px;font-size:.92rem;color:var(--accent)}
+.leaks span{display:block;font-size:.92rem;color:var(--muted);margin-top:2px}
+#diagnostic .steps li::before{content:counter(s);font-family:var(--head);font-size:1.6rem;font-weight:700;color:var(--pencil)}
+.price-line{margin-top:18px;font-size:1.02rem;color:var(--text);max-width:70ch}
+.why-acct{margin-top:18px;gap:14px}.why-acct li{color:var(--muted)}.why-acct b{color:var(--text)}
+.aside-photo{width:80px;height:80px;border-radius:50%;object-fit:cover;margin-bottom:10px;border:2px solid var(--line)}
+@media (max-width:900px){.leaks{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.leaks{grid-template-columns:1fr}.findcard{padding:18px}}
+.hero-ticks li{position:relative;padding-left:24px}.hero-ticks li::before{position:absolute;left:0;margin:0}
