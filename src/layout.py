@@ -2,7 +2,7 @@
 import json
 
 SITE = "https://beiz.com.au"
-ASSET_V = "45"  # bump to bust caches when CSS/JS change
+ASSET_V = "46"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" aria-hidden="true" class="logo"><rect width="40" height="40" rx="5" fill="#1F5A44"/><text x="6" y="30" font-family="Zilla Slab,Georgia,serif" font-weight="700" font-size="27" fill="#FFFFFF">B</text><path d="M26.5 27.5 l3 3.5 l6.5-9.5" fill="none" stroke="#E5533F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>')
 
@@ -250,7 +250,7 @@ def page(path, title, desc, body, extra_head=""):
 {body}
 </main>
 {_footer()}
-{_WIDGETS}
+<a class="mcall btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-minute call</a>{_WIDGETS}
 <script src="/assets/site.js?v={ASSET_V}" defer></script>
 </body>
 </html>
