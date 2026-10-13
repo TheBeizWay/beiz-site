@@ -1,12 +1,12 @@
 """Inline SVG sample charts (fictional data). Dark surface, validated palette:
-blue #3987e5, orange #d95926, aqua #199e70 (dataviz reference, dark steps; passes CVD checks on #0d1115).
+blue #1F5A44, orange #B42318, aqua #1E7A4F (dataviz reference, dark steps; passes CVD checks on #FFFFFF).
 Status warning uses the site's amber and always ships with an icon + label."""
 
-BLUE, ORANGE, AQUA = "#3987e5", "#d95926", "#199e70"
-WARN = "#fbbf24"
-INK, MUTED, GRID = "#e8edf1", "#93a0ab", "#1c232a"
-FONT = 'font-family="Inter,system-ui,sans-serif"'
-MONO = 'font-family="JetBrains Mono,ui-monospace,monospace"'
+BLUE, ORANGE, AQUA = "#1F5A44", "#B42318", "#1F4F7A"
+WARN = "#8A5A00"
+INK, MUTED, GRID = "#18241D", "#4E5C54", "#DCE5DE"
+FONT = 'font-family="Public Sans,system-ui,sans-serif"'
+MONO = 'font-family="Public Sans,system-ui,sans-serif"'
 
 
 def _k(v):
@@ -143,7 +143,7 @@ def runway():
         rw = _runway(s)
         end_i = rw if rw is not None else 24
         cx, cy = x(end_i), y(s[end_i])
-        out.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="4.5" fill="{col}" stroke="#0d1115" stroke-width="2"/>')
+        out.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="4.5" fill="{col}" stroke="#FFFFFF" stroke-width="2"/>')
         label = f"{name}: {rw} months" if rw is not None else f"{name}: 24+ months"
         ly = cy if rw is None else cy
         out.append(f'<text x="{L+pw+10}" y="{(y(s[24]) if rw is None else y(0)) + (0 if rw is None else (-8 if name == "Worst" else 12)):.1f}" font-size="12" fill="{INK}" {FONT}><tspan fill="{col}">●</tspan> {label}</text>')

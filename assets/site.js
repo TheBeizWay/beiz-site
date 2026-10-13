@@ -479,13 +479,13 @@
       const min = Math.min(0, lo), span = (hi - min) || 1;
       const y = v => T + ph - (v - min) / span * ph, band = pw / 13, bw = band * .62, zero = y(0);
       let svg = `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Your 13-week cash forecast">`;
-      [min, (min + hi) / 2, hi].forEach(g => { svg += `<line x1="${L}" x2="${W - R}" y1="${y(g)}" y2="${y(g)}" stroke="#232d36"/><text x="${L - 6}" y="${y(g) + 4}" text-anchor="end" font-size="10.5" fill="#93a0ab" font-family="JetBrains Mono,monospace">${money(g / 1000).replace("$", "$")}k</text>`; });
+      [min, (min + hi) / 2, hi].forEach(g => { svg += `<line x1="${L}" x2="${W - R}" y1="${y(g)}" y2="${y(g)}" stroke="#C8D5CA"/><text x="${L - 6}" y="${y(g) + 4}" text-anchor="end" font-size="10.5" fill="#4E5C54" font-family="Public Sans,sans-serif">${money(g / 1000).replace("$", "$")}k</text>`; });
       bal.forEach((v, i) => {
         const x = L + i * band + (band - bw) / 2, top = Math.min(y(v), zero), h = Math.max(1, Math.abs(y(v) - zero)), low = v < buf;
-        svg += `<g><title>Week ${i + 1}: ${money(v)}${low ? " · below buffer" : ""}</title><rect x="${L + i * band}" y="${T}" width="${band}" height="${ph}" fill="transparent"/><rect x="${x}" y="${top}" width="${bw}" height="${h}" rx="3" fill="${low ? "#fbbf24" : "#3987e5"}"/></g>`;
-        if (i % 2 === 0) svg += `<text x="${x + bw / 2}" y="${H - 8}" text-anchor="middle" font-size="10" fill="#93a0ab" font-family="JetBrains Mono,monospace">W${i + 1}</text>`;
+        svg += `<g><title>Week ${i + 1}: ${money(v)}${low ? " · below buffer" : ""}</title><rect x="${L + i * band}" y="${T}" width="${band}" height="${ph}" fill="transparent"/><rect x="${x}" y="${top}" width="${bw}" height="${h}" rx="3" fill="${low ? "#8A5A00" : "#1F5A44"}"/></g>`;
+        if (i % 2 === 0) svg += `<text x="${x + bw / 2}" y="${H - 8}" text-anchor="middle" font-size="10" fill="#4E5C54" font-family="Public Sans,sans-serif">W${i + 1}</text>`;
       });
-      svg += `<line x1="${L}" x2="${W - R}" y1="${y(buf)}" y2="${y(buf)}" stroke="#e8edf1" stroke-dasharray="4 4" opacity=".7"/><text x="${W - R}" y="${y(buf) - 5}" text-anchor="end" font-size="10.5" fill="#e8edf1" font-family="Inter,sans-serif">Buffer ${money(buf)}</text></svg>`;
+      svg += `<line x1="${L}" x2="${W - R}" y1="${y(buf)}" y2="${y(buf)}" stroke="#18241D" stroke-dasharray="4 4" opacity=".7"/><text x="${W - R}" y="${y(buf) - 5}" text-anchor="end" font-size="10.5" fill="#18241D" font-family="Public Sans,sans-serif">Buffer ${money(buf)}</text></svg>`;
       const msg = first >= 0
         ? `<b class="warn">▼ Week ${first + 1}</b> is where cash first drops below your ${money(buf)} buffer (to ${money(bal[first])}). Lowest point: ${money(lo)}. That's the week to plan for, and you'd want to know about it now, not then.`
         : `You stay above your ${money(buf)} buffer for all 13 weeks. Lowest point: ${money(lo)}. Worth keeping an eye on: this assumes every week looks the same, and real weeks don't.`;

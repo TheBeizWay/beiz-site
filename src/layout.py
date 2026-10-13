@@ -2,9 +2,9 @@
 import json
 
 SITE = "https://beiz.com.au"
-ASSET_V = "42"  # bump to bust caches when CSS/JS change
+ASSET_V = "44"  # bump to bust caches when CSS/JS change
 
-LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true" class="logo"><defs><linearGradient id="hg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#2DD4BF"/><stop offset="1" stop-color="#818CF8"/></linearGradient><mask id="mH" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"><rect width="200" height="200" fill="#fff"/><circle cx="126.4" cy="69.9" r="6.5" fill="#000"/></mask></defs><rect x="5" y="5" width="190" height="190" rx="44" fill="#0D1115" stroke="url(#hg)" stroke-width="6"/><g stroke="#818CF8" stroke-width="3" fill="none" stroke-linecap="round"><path d="M113.0 75.4 L150 75.4 L165 53.4"/><path d="M150 75.4 L165 97.4"/></g><g fill="#818CF8"><circle cx="165" cy="53.4" r="6"/><circle cx="165" cy="97.4" r="6"/></g><circle cx="150" cy="75.4" r="4" fill="#5EEAD4"/><g transform="translate(16,25.1) scale(.72)"><g mask="url(#mH)" fill="none" stroke="url(#hg)" stroke-width="27" stroke-linejoin="round"><path d="M58 120 L110 120 A33 33 0 0 1 110 186 L58 186 L58 22 L102 58 A31 31 0 0 1 102 120 L58 120"/></g></g></svg>')
+LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" aria-hidden="true" class="logo"><rect width="40" height="40" rx="5" fill="#1F5A44"/><text x="6" y="30" font-family="Zilla Slab,Georgia,serif" font-weight="700" font-size="27" fill="#FFFFFF">B</text><path d="M26.5 27.5 l3 3.5 l6.5-9.5" fill="none" stroke="#E5533F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>')
 
 NAV = [
     ("/try/", "Try it", "60-second demos with your own numbers"),
@@ -183,7 +183,7 @@ _WIDGETS = '''<button class="bot-btn" type="button" data-open-bot aria-controls=
   <p class="lab">A live demonstration of resilient data pipelines: multiple public sources pulled in, normalised and shown clearly, with no client-side tracking and automatic fail-safes if a source drops.</p>
   <nav role="tablist" id="sbNav"></nav>
   <div class="list" id="sbList"><p class="st">Loading&hellip;</p></div>
-  <div class="foot"><a href="/live/" style="color:var(--accent)">Open the full Live Data page →</a><br>Scores via ESPN and live crypto via CoinGecko, loaded only when you open this panel. ASX delayed. Indicative only, not financial advice. Times in your time zone.</div>
+  <div class="foot"><a href="/live/" style="color:var(--accent)">Open the full Live Data page</a><br>Scores via ESPN and live crypto via CoinGecko, loaded only when you open this panel. ASX delayed. Indicative only, not financial advice. Times in your time zone.</div>
 </aside>
 <div class="bot" id="bot" role="dialog" aria-label="Beiz guided assistant">
   <div class="hd"><div><b>Ask Beiz</b><small>GUIDED · NO AI · NOTHING STORED</small></div><button class="x" type="button" aria-label="Close assistant">&times;</button></div>
@@ -231,7 +231,7 @@ def page(path, title, desc, body, extra_head=""):
 <title>{esc(full_title)}</title>
 <meta name="description" content="{esc(desc)}">
 <link rel="canonical" href="{canon}">
-<meta name="theme-color" content="#07090b">{f'<meta name="google-site-verification" content="{GOOGLE_SITE_VERIFICATION}">' if GOOGLE_SITE_VERIFICATION else ""}
+<meta name="theme-color" content="#EEF3EC">{f'<meta name="google-site-verification" content="{GOOGLE_SITE_VERIFICATION}">' if GOOGLE_SITE_VERIFICATION else ""}
 <meta property="og:type" content="website"><meta property="og:site_name" content="Beiz Data &amp; Accounting">
 <meta property="og:title" content="{esc(full_title)}"><meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{canon}"><meta property="og:image" content="{SITE}/assets/og-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Beiz Data &amp; Accounting: AI you can sign off on. Led by an Australian Chartered Accountant.">
@@ -239,7 +239,7 @@ def page(path, title, desc, body, extra_head=""):
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/public-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/site.css?v={ASSET_V}">
 {ld}{extra_head}
 </head>
