@@ -59,12 +59,12 @@ def home():
     body = f'''<section class="hero" id="top">
   <div class="wrap hero2">
     <div>
-      <p class="eyebrow">Set up by an Australian Chartered Accountant</p>
-      <h1>AI and automation, set up properly.</h1>
-      <p class="lede">For sole traders through to growing teams. We connect your accounting, bank and job systems, automate the grunt work, and put a person's sign-off on anything that touches your money, your customers or your data.</p>
+      <p class="eyebrow">For small businesses running on accounting software, a job app and spreadsheets</p>
+      <h1>Your numbers, sorted. Your admin, automated.</h1>
+      <p class="lede">Set up by a Chartered Accountant. We connect your accounting, bank and job systems, automate the repetitive work, and put approval controls on payments, sensitive changes and anything your customers see. AI and automation, set up properly.</p>
       <div class="cta">
-        <a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-minute call</a>
-        <a class="btn" href="/try/">Try a 60-second demo</a>
+        <a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Request a 20-minute call</a>
+        <a class="btn" href="/try/">Try the demo</a>
       </div>
       <ul class="hero-ticks"><li>Fixed price, in writing, before we start</li><li>Built in your own accounts. You own it.</li><li>Independent: no software of our own to sell</li></ul>
     </div>
@@ -87,58 +87,39 @@ def home():
       <li><a href="/industries/trades/"><q>I don't know which jobs actually make money.</q><span>→ <b>Profit by job, client or service</b><em class="eta">Typically 2 to 3 weeks</em></span><i>→</i></a></li>
       <li><a href="/try/#hours"><q>Month-end eats a week.</q><span>→ <b>Reconciliations and checks automated</b><em class="eta">Typically 2 to 4 weeks</em></span><i>→</i></a></li>
       <li><a href="/services/ai-readiness-sprint/"><q>We don't know which AI to use, or if it's safe.</q><span>→ <b>AI Readiness Sprint</b>: approved tools and rules your team follows<em class="eta">10 business days</em></span><i>→</i></a></li>
-      <li><a href="/ai-check/"><q>Do the new automated-decision privacy rules apply to us?</q><small class="due">Rules start 10 December 2026</small><span>→ <b>Free 2-minute check</b>, then a written action list<em class="eta">Free · then a 5 to 10 day sprint</em></span><i>→</i></a></li>
     </ul>
     <p style="margin-top:18px"><a class="btn" href="/services/">All services</a></p>
+    <div class="lane"><p><b>A separate question:</b> do the new automated-decision privacy rules apply to you? From 10 December 2026, organisations covered by the Privacy Act must explain in their privacy policy when software makes or helps make decisions that significantly affect people. Many small businesses aren't covered by the Act at all. <a href="/ai-check/">Take the free 2-minute check</a> to see where you stand.</p></div>
   </div>
 </section>
 
-<section id="gap">
+<section id="disciplines">
   <div class="wrap">
-    <p class="eyebrow">The gap · Australia, 2026</p>
-    <h2>Most businesses aren't using AI yet. Most of those using it aren't checking it.</h2>
-    <div class="gapstats">
-      <div><b>57%</b><p>of Australian SMEs haven't meaningfully adopted AI.</p><small>National AI Centre SME AI Pulse, Dec 2025 to Feb 2026 · <a href="https://www.ai.gov.au/news-and-insights/blog/ai-adoption-insights-december-2025-february-2026" rel="noopener">source</a></small></div>
-      <div><b>65%</b><p>of those holding back say they distrust AI decisions or want to keep a human in control.</p><small>Same survey, non-adopters · <a href="https://www.ai.gov.au/news-and-insights/blog/ai-adoption-insights-december-2025-february-2026" rel="noopener">source</a></small></div>
-      <div><b>~1 in 2</b><p>SMEs already using AI check its output before it reaches a customer. The other half don't.</p><small>Same survey, current users · <a href="https://www.ai.gov.au/news-and-insights/blog/ai-adoption-insights-december-2025-february-2026" rel="noopener">source</a></small></div>
-      <div><b>20%</b><p>of organisations properly monitor their AI after it goes live. 21% give people a way to challenge an AI decision.</p><small>Responsible AI Index self-assessment, 241 organisations, 2025 · <a href="https://www.fifthquadrant.com.au/content/uploads/FQ_NAIC_Responsible_AI_Index_Self-Assessment-Tool-Mini-Report-June-2026.pdf" rel="noopener">source</a></small></div>
+    <h2>Accounting and governance work, not just automation</h2>
+    <p class="lede">You can hire Beiz for the professional work on its own. Plenty of it never needs a line of code.</p>
+    <div class="disc">
+      <div><h3>Accounting <small>Chartered Accountant, Certificate of Public Practice</small></h3>
+        <ul class="ticks"><li>Management reports and dashboards your board and bank can rely on</li><li>13-week cash forecasts and financial models</li><li>Month-end close and reconciliations</li><li>Profit by job, client or service</li><li>Internal controls review: approvals, delegations, segregation of duties</li></ul>
+        <p class="more"><a href="/services/dashboards-and-models/">Dashboards and financial models</a></p></div>
+      <div><h3>Governance <small>Graduate, Australian Institute of Company Directors</small></h3>
+        <ul class="ticks"><li>Board and committee reporting packs</li><li>Risk registers and a one-page board view of risk</li><li>Delegations of authority and approval policies</li><li>AI use policy and oversight for boards</li><li>Governance health checks for small boards and not-for-profit committees</li></ul>
+        <p class="more"><a href="/services/ai-governance/">AI governance</a></p></div>
     </div>
-    <h3 class="gap-h">Closing it takes three skills that usually sit with different specialists.</h3>
-    <div class="vennrow">
-      <svg class="venn" viewBox="0 0 440 400" role="img" aria-labelledby="vennT vennD">
-        <title id="vennT">Where Beiz sits</title>
-        <desc id="vennD">Three overlapping circles: Chartered Accountant (the numbers are right), GAICD governance (the controls are in place) and AI and data (the tools work). Beiz sits where all three overlap.</desc>
-        <circle cx="155" cy="145" r="115" class="c1"/><circle cx="285" cy="145" r="115" class="c2"/><circle cx="220" cy="255" r="115" class="c3"/>
-        <text x="122" y="110" class="vt">Accountant</text><text x="122" y="134" class="vs">numbers right</text>
-        <text x="318" y="110" class="vt">Governance</text><text x="318" y="134" class="vs">controls in place</text>
-        <text x="220" y="320" class="vt">AI &amp; data</text><text x="220" y="344" class="vs">tools that work</text>
-        <circle cx="220" cy="180" r="34" class="core"/><text x="220" y="186" class="vc">Beiz</text>
-      </svg>
-      <ul class="vlist">
-        <li>Many businesses coordinate separate accounting, governance and technology specialists to get this right.</li>
-        <li><b>Beiz brings those disciplines together in one engagement</b>: a Chartered Accountant checks every figure, approvals and audit trails go in from day one, and the automation is tested on your own data before you rely on it.</li>
-      </ul>
-    </div>
-    <p style="margin-top:16px"><a href="/services/ai-governance/#frameworks">The responsible-AI frameworks we work to</a></p>
+    <p class="fine">We don't do tax returns, BAS, statutory audit or legal advice. We work alongside your tax agent and auditor.</p>
   </div>
 </section>
 
-<section id="see">
-  <div class="wrap hero2 rev">
-    <figure class="vid">
-      <video src="/assets/media/how-beiz-adds-value-3.mp4?v=43" poster="/assets/media/how-beiz-adds-value-3.jpg?v=43" autoplay muted loop playsinline preload="none" aria-label="Short animation in four steps: numbers spread across six systems; connected, checked and logged; a person approves; a Monday cash email"></video>
-      <figcaption><b>How we add value, in under 30 seconds.</b> Your numbers connected and checked, your sign-off on anything that matters, and a clear view every Monday. Example business, made-up numbers.</figcaption>
-    </figure>
-    <div>
-      <p class="eyebrow">What you get</p>
-      <h2>Your numbers, in one place, every Monday.</h2>
-      <ol class="flow flow-v">
-        <li><span class="k">01 · Today</span><h3>Your numbers are everywhere</h3><p>Accounting software, spreadsheets, the inbox, the bank, a job app. Someone copies between them by hand.</p></li>
-        <li><span class="k">02 · We build</span><h3>Connected, checked, logged</h3><p>Automation does the grunt work. A person signs off anything that matters.</p></li>
-        <li><span class="k">03 · You see</span><h3>What matters, when it matters</h3><p>A short Monday email, a live dashboard or a forecast you can take to the bank.</p></li>
-      </ol>
-      <p style="margin-top:18px"><a class="btn" href="/examples/">See example outputs</a></p>
+<section id="proof" class="band">
+  <div class="wrap">
+    <h2>Automation where it helps. Human approval where it matters.</h2>
+    <p class="lede">Here's what that looks like in practice. This is our own build, tested on sample data. It isn't a client result.</p>
+    <div class="proofgrid">
+      <div><b>The problem</b><p>Supplier bills arrive by email. Someone keys them in, checks them by eye and pays. Duplicates, changed bank details and price jumps slip through.</p></div>
+      <div><b>What we built</b><p>A workflow that reads each bill, matches it to the supplier and the last price paid, and prepares the payment run in the accounting software.</p></div>
+      <div><b>The controls</b><p>Anything over the approval limit, a likely duplicate, new bank details or a price jump is held for a person, with the reason written down. Nothing is paid automatically.</p></div>
+      <div><b>The test</b><p>Eight sample bills: four ready to pay ($5,468) and four held for a person ($26,375), each for the right reason.</p></div>
     </div>
+    <p style="margin-top:18px"><a class="btn" href="/try/#bills">Run it yourself</a> <a class="btn" href="/examples/">See more examples</a></p>
   </div>
 </section>
 

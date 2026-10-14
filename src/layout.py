@@ -2,7 +2,7 @@
 import json
 
 SITE = "https://beiz.com.au"
-ASSET_V = "46"  # bump to bust caches when CSS/JS change
+ASSET_V = "47"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" aria-hidden="true" class="logo"><rect width="40" height="40" rx="5" fill="#1F5A44"/><text x="6" y="30" font-family="Zilla Slab,Georgia,serif" font-weight="700" font-size="27" fill="#FFFFFF">B</text><path d="M26.5 27.5 l3 3.5 l6.5-9.5" fill="none" stroke="#E5533F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>')
 
@@ -92,7 +92,7 @@ def contact_form(heading="Tell us what you're trying to fix.", lede="A few lines
 def cta_band(title="Not sure where to start?", text="Book a free 20-minute call, or send a few lines in writing. Either way you get a considered reply, not a sales pitch.", topic=None):
     href = "/contact/" + (f"?topic={topic.replace(' ', '%20').replace('&', '%26')}" if topic else "") + "#form"
     return f'''<section class="band"><div class="wrap cta-band"><div><h2>{title}</h2><p class="muted">{text}</p></div>
-  <div class="cta" style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-minute call</a><a class="btn" href="{href}">Start in writing</a><button class="btn" type="button" data-open-bot>Ask Beiz</button></div></div></section>'''
+  <div class="cta" style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Request a 20-minute call</a><a class="btn" href="{href}">Start in writing</a><button class="btn" type="button" data-open-bot>Ask Beiz</button></div></div></section>'''
 
 
 def crumbs(items):
@@ -149,10 +149,10 @@ def _header(path):
   <div class="wrap">
     <a class="mark" href="/" aria-label="Beiz home">{LOGO}<span class="wm"><span class="wn">Beiz<span class="wx"> Data &amp; Accounting</span></span><small>Accounting · Data · AI</small></span></a>
     <nav class="main" aria-label="Main">{nav}</nav>
-    <a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-minute call</a>
+    <a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Request a 20-minute call</a>
     <button class="menu-btn" id="menuBtn" type="button" aria-controls="mnav" aria-expanded="false">MENU</button>
   </div>
-  <div class="mnav" id="mnav"><div class="wrap"><div class="mcta"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-minute call</a><a class="btn" href="/contact/#form">Start in writing</a></div>{mnav}</div></div>
+  <div class="mnav" id="mnav"><div class="wrap"><div class="mcta"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Request a 20-minute call</a><a class="btn" href="/contact/#form">Start in writing</a></div>{mnav}</div></div>
 </header>'''
 
 
@@ -250,7 +250,7 @@ def page(path, title, desc, body, extra_head=""):
 {body}
 </main>
 {_footer()}
-<a class="mcall btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-minute call</a>{_WIDGETS}
+<a class="mcall btn primary" href="{CALL_HREF}"{CALL_ATTR}>Request a 20-minute call</a>{_WIDGETS}
 <script src="/assets/site.js?v={ASSET_V}" defer></script>
 </body>
 </html>

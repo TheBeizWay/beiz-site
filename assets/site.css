@@ -760,3 +760,16 @@ nav.main a[aria-current=page]{box-shadow:inset 0 -2px 0 var(--pencil)}
   body.menu-open .mcall{display:none}
   footer.site{padding-bottom:96px}
 }
+/* homepage v6: separate privacy lane, proof grid */
+.lane{margin-top:22px;border-left:3px solid var(--warn);background:#fff;padding:14px 18px;border-radius:0 6px 6px 0;max-width:80ch}
+.lane p{color:var(--muted);font-size:.95rem}.lane b{color:var(--text)}.lane a{color:var(--accent)}
+.proofgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
+.proofgrid>div{background:#fff;border:1px solid var(--line);border-radius:6px;padding:18px}
+.proofgrid b{display:block;font-family:var(--head);font-size:1.1rem;color:var(--text);margin-bottom:6px}
+.proofgrid p{font-size:.93rem}
+@media (max-width:900px){.proofgrid{grid-template-columns:1fr 1fr}}@media (max-width:560px){.proofgrid{grid-template-columns:1fr}}
+.disc{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+.disc>div{background:#fff;border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:6px;padding:20px 22px}
+.disc h3{font-size:1.3rem;margin-bottom:12px}.disc h3 small{display:block;font-family:var(--sans);font-size:.82rem;font-weight:500;color:var(--muted);margin-top:2px}
+.disc .ticks{gap:8px}.disc .more{margin-top:14px;font-size:.92rem}.disc .more a{color:var(--accent)}
+@media (max-width:760px){.disc{grid-template-columns:1fr}}
