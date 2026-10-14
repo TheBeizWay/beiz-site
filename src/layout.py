@@ -193,7 +193,7 @@ ORG = {
     "founder": {"@type": "Person", "name": "Purav Mehta", "jobTitle": "Chartered Accountant, GAICD",
                 "sameAs": ["https://www.linkedin.com/in/puravmehtaca/"]},
     "knowsAbout": ["AI governance", "Privacy Act automated decision-making", "responsible AI", "workflow automation", "13-week cash flow forecasting",
-                   "management reporting and dashboards", "month-end close automation", "data engineering", "Power BI", "n8n", "Power Automate"],
+                   "management reporting and dashboards", "month-end close automation", "data engineering", "Power BI"],
     "hasCredential": [{"@type": "EducationalOccupationalCredential", "credentialCategory": "Chartered Accountant, CA ANZ Certificate of Public Practice"},
                       {"@type": "EducationalOccupationalCredential", "credentialCategory": "Graduate, Australian Institute of Company Directors (GAICD)"}],
     "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Services",
