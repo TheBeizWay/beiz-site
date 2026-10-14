@@ -142,7 +142,7 @@ def home():
     <h2>Your numbers, cleaned, checked and explained.</h2>
     <p class="lede">Done for you, on your own data. Start with the first one. The others only make sense once your records reconcile.</p>
     <div class="dsv">
-      <a class="dsv-c start" href="/contact/?topic=Three-job%20billing%20review#form"><span class="dsv-k">Start here · typically 2 weeks</span><h3>Records reconciled</h3><p>We match your timesheets, jobs and invoices and show what's unbilled, what's explained and what still needs an answer. Every number traces to a record.</p><span class="dsv-l">Ask about a three-job review</span></a>
+      <a class="dsv-c start" href="/contact/?topic=Three-job%20billing%20review#form"><span class="dsv-k">Start here · typically 2 weeks</span><h3>Billing review: three jobs</h3><p>Three jobs, one month. You send exports, no logins. You get back a findings register like the sample below, with every number traced to a record.</p><span class="dsv-l">Ask about a three-job review</span></a>
       <a class="dsv-c" href="/services/dashboards-and-models/"><span class="dsv-k">Typically 2 to 3 weeks</span><h3>Profit by job</h3><p>Revenue, cost and forecast margin for each job, with the assumptions written down. Overruns kept separate from work you can still bill.</p><span class="dsv-l">See how it works</span></a>
       <a class="dsv-c" href="/services/dashboards-and-models/"><span class="dsv-k">1 to 2 weeks, then monthly</span><h3>Monthly management report</h3><p>The same measures every month, reconciled to your accounts, in Power BI or Excel. One page your bank and board can follow.</p><span class="dsv-l">See how it works</span></a>
       <a class="dsv-c" href="/try/#cash"><span class="dsv-k">Typically 1 to 2 weeks</span><h3>Cash scenarios</h3><p>Thirteen weeks ahead with a likely range, and what moves it: a slow payer, a big bill, a quiet month.</p><span class="dsv-l">Try the cash demo</span></a>
@@ -156,15 +156,15 @@ def home():
 
 <section id="proof" class="band">
   <div class="wrap">
-    <h2>Automation where it helps. Human approval where it matters.</h2>
-    <p class="lede">Here's what that looks like in practice. This is our own build, tested on sample data. It isn't a client result.</p>
-    <div class="proofgrid">
-      <div><b>The problem</b><p>Supplier bills arrive by email. Someone keys them in, checks them by eye and pays. Duplicates, changed bank details and price jumps slip through.</p></div>
-      <div><b>What we built</b><p>A workflow that reads each bill, matches it to the supplier and the last price paid, and prepares the payment run in the accounting software.</p></div>
-      <div><b>The controls</b><p>Anything over the approval limit, a likely duplicate, new bank details or a price jump is held for a person, with the reason written down. Nothing is paid automatically.</p></div>
-      <div><b>The test</b><p>Eight sample bills: four ready to pay ($5,468) and four held for a person ($26,375), each for the right reason.</p></div>
-    </div>
-    <p style="margin-top:18px"><a class="btn" href="/try/#bills">Run it yourself</a> <a class="btn" href="/examples/">See more examples</a></p>
+    <h2>What you get back: a findings register, not a slide deck.</h2>
+    <p class="lede">Every line points to the records behind it and shows the arithmetic. Some things look like problems and turn out fine. Those are marked Explained, so nobody wastes a week chasing them.</p>
+    <p class="regmeta"><span>11 findings</span><span class="rs rs-ok">2 confirmed</span><span class="rs rs-q">6 need information</span><span class="rs rs-ex">3 explained</span><span>Hours, billing and job totals all reconcile</span></p>
+    <div class="regw"><table class="reg">
+      <thead><tr><th>Status</th><th>Finding and records</th><th>The arithmetic</th><th>Question for you</th></tr></thead>
+      <tbody><tr><td><span class="rs rs-ok">Confirmed</span></td><td><b>Time logged, never billed</b><small>Job J101</small></td><td>120 h approved − 96 h invoiced = 24 h × $180 = <b>$4,320</b></td><td>Is there an invoice we haven't seen?</td></tr><tr><td><span class="rs rs-ok">Confirmed</span></td><td><b>Billed below the agreed rate</b><small>Job J105, INV-3105</small></td><td>30 h × ($180 agreed − $165 invoiced) = <b>$450</b></td><td>Was a discount agreed?</td></tr><tr><td><span class="rs rs-q">Needs information</span></td><td><b>Same credit note entered twice</b><small>CN-0040, CN-0041</small></td><td>Second $500 held aside, not deducted</td><td>Was it meant to be credited twice?</td></tr><tr><td><span class="rs rs-q">Needs information</span></td><td><b>Fixed fee over budget</b><small>Job F201</small></td><td>220 h + 120 h = 340 h on a 300 h budget. Lost margin, not money owed</td><td>Was a variation agreed?</td></tr><tr><td><span class="rs rs-ex">Explained</span></td><td><b>Looked unbilled, billed in October</b><small>Job J102, INV-3201</small></td><td>30 h September time invoiced 8 Oct</td><td>None. Timing only.</td></tr><tr><td><span class="rs rs-ex">Explained</span></td><td><b>Invoice with no hours</b><small>Job J104, INV-3104</small></td><td>$9,000 ÷ $150 = 60 h, matches the timesheets</td><td>None. Confidence: medium.</td></tr></tbody>
+    </table></div>
+    <p class="fine">From our own practice run on a made-up engineering consultancy, September 2026. Not a client result. Amounts exclude GST.</p>
+    <p style="margin-top:14px"><a class="btn" href="/assets/media/sample-findings.xlsx" download>Download the sample workbook</a> <a class="textlink" href="/contact/?topic=Three-job%20billing%20review#form">Ask about a three-job review</a></p>
   </div>
 </section>
 
