@@ -111,15 +111,18 @@ def home():
 
 <section id="disciplines">
   <div class="wrap">
-    <h2>Accounting and governance work, not just automation</h2>
+    <h2>Accounting, governance and modelling work, not just automation</h2>
     <p class="lede">You can hire Beiz for the professional work on its own. Plenty of it never needs a line of code.</p>
     <div class="disc">
       <div><h3>Accounting <small>Chartered Accountant, Certificate of Public Practice</small></h3>
         <ul class="ticks"><li>Management reports and dashboards your board and bank can rely on</li><li>13-week cash forecasts and financial models</li><li>Month-end close and reconciliations</li><li>Profit by job, client or service</li><li>Internal controls review: approvals, delegations, segregation of duties</li></ul>
-        <p class="more"><a href="/services/dashboards-and-models/">Dashboards and financial models</a></p></div>
+        <p class="more"><a href="/services/automation/">Month-end and reconciliations</a></p></div>
       <div><h3>Governance <small>Graduate, Australian Institute of Company Directors</small></h3>
         <ul class="ticks"><li>Board and committee reporting packs</li><li>Risk registers and a one-page board view of risk</li><li>Delegations of authority and approval policies</li><li>AI use policy and oversight for boards</li><li>Governance health checks for small boards and not-for-profit committees</li></ul>
         <p class="more"><a href="/services/ai-governance/">AI governance</a></p></div>
+      <div><h3>Data and modelling <small>Financial, economic and data analysis</small></h3>
+        <ul class="ticks"><li>Financial models: budgets, pricing, scenarios and investment cases</li><li>Economic modelling: cost-benefit analysis, demand and price scenarios, the impact of market changes on your business</li><li>Forecasting and statistical analysis on your own data</li><li>Data cleaned and joined across systems into one source you can trust</li><li>Dashboards that show what the model means for a decision</li></ul>
+        <p class="more"><a href="/services/dashboards-and-models/">Dashboards and financial models</a></p></div>
     </div>
     <p class="fine">We don't do tax returns, BAS, statutory audit or legal advice. We work alongside your tax agent and auditor.</p>
   </div>
@@ -998,7 +1001,7 @@ def about():
 <ul class="why" style="grid-template-columns:repeat(4,1fr)">
 <li><span class="ic">CA</span><b>Chartered Accountant</b><p>CA ANZ member with a Certificate of Public Practice. Numbers that reconcile to your ledger, and professional standards you can hold us to.</p></li>
 <li><span class="ic">GAICD</span><b>GAICD governance</b><p>Trained by the Australian Institute of Company Directors in how boards oversee risk. AI policies, controls and board reporting that directors can sign off.</p></li>
-<li><span class="ic">DS</span><b>Data science solutions</b><p>Forecasts, dashboards, predictive models and AI agents, built on your own data.</p></li>
+<li><span class="ic">DM</span><b>Data, financial and economic modelling</b><p>Financial models, economic and cost-benefit modelling, forecasts, dashboards and AI agents, built on your own data.</p></li>
 <li><span class="ic">🔒</span><b>Your data, secured</b><p>Built inside your own accounts, with two-factor access, least-privilege permissions and business-grade AI that doesn't train on your data. Covered by professional confidentiality under the CA ANZ code of ethics.</p></li>
 </ul></div></section>
 <section style="padding-top:0"><div class="wrap split"><div class="prose">
