@@ -79,7 +79,6 @@ def home():
 
 <section id="fix">
   <div class="wrap">
-    <p class="eyebrow">What we fix</p>
     <h2>Sound like you?</h2>
     <p class="lede">Each one is a fixed-price piece of work with a result you can see.</p>
     <ul class="fix fixgrid">
@@ -110,7 +109,6 @@ def home():
 
 <section id="data-services">
   <div class="wrap">
-    <p class="eyebrow">Data services</p>
     <h2>Your numbers, cleaned, checked and explained.</h2>
     <p class="lede">Done for you, on your own data. Start with the first one. The others only make sense once your records reconcile.</p>
     <div class="dsv">
@@ -153,13 +151,10 @@ def home():
   </div>
 </section>
 
-{WIRING}
-
 {WATCH}
 
 <section id="how">
   <div class="wrap">
-    <p class="eyebrow">How it works</p>
     <h2>Talk it through. Get it in writing.</h2>
     <ol class="steps">
       <li><h3>Talk or write</h3><p>A free 20-minute discovery call, or a few lines in the form. You'll come away knowing where the gaps are, roughly what fixing them costs, and whether we're the right fit. If we're not, we'll say so.</p></li>
@@ -730,6 +725,8 @@ def how_we_work():
             ("06 · Conflict checks", "Every enquiry is checked for conflicts of interest", "before we respond with a proposal.")]
     p = "".join(f'<div class="card"><span class="k">{k}</span><p><strong>{a}</strong> {b}</p></div>' for k, a, b in prot)
     body = phero("How we work", "Everything in writing. Nothing without your sign-off.", "How an engagement runs, how we protect you, and what you won't get from us.", [("/how-we-work/", "How we work")]) + f'''
+{WIRING}
+
 <section style="padding-top:8px"><div class="wrap">
   <ol class="steps">
     <li><h3>Tell us in writing</h3><p>Use the form or the guided assistant. A few lines is enough. We check for conflicts before replying.</p></li>
