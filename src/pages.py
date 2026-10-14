@@ -111,7 +111,7 @@ def home():
 
 <section id="disciplines">
   <div class="wrap">
-    <h2>Accounting, governance and modelling work, not just automation</h2>
+    <h2>Accounting and governance work, not just automation</h2>
     <p class="lede">You can hire Beiz for the professional work on its own. Plenty of it never needs a line of code.</p>
     <div class="disc">
       <div><h3>Accounting <small>Chartered Accountant, Certificate of Public Practice</small></h3>
@@ -120,11 +120,26 @@ def home():
       <div><h3>Governance <small>Graduate, Australian Institute of Company Directors</small></h3>
         <ul class="ticks"><li>Board and committee reporting packs</li><li>Risk registers and a one-page board view of risk</li><li>Delegations of authority and approval policies</li><li>AI use policy and oversight for boards</li><li>Governance health checks for small boards and not-for-profit committees</li></ul>
         <p class="more"><a href="/services/ai-governance/">AI governance</a></p></div>
-      <div><h3>Data and modelling <small>Financial, economic and data analysis</small></h3>
-        <ul class="ticks"><li>Financial models: budgets, pricing, scenarios and investment cases</li><li>Economic modelling: cost-benefit analysis, demand and price scenarios, the impact of market changes on your business</li><li>Forecasting and statistical analysis on your own data</li><li>Data cleaned and joined across systems into one source you can trust</li><li>Dashboards that show what the model means for a decision</li></ul>
-        <p class="more"><a href="/services/dashboards-and-models/">Dashboards and financial models</a></p></div>
     </div>
     <p class="fine">We don't do tax returns, BAS, statutory audit or legal advice. We work alongside your tax agent and auditor.</p>
+  </div>
+</section>
+
+<section id="data-services">
+  <div class="wrap">
+    <p class="eyebrow">Data services</p>
+    <h2>Your numbers, cleaned, checked and explained.</h2>
+    <p class="lede">Done for you, on your own data. Start with the first one. The others only make sense once your records reconcile.</p>
+    <div class="dsv">
+      <a class="dsv-c start" href="/contact/?topic=Three-job%20billing%20review#form"><span class="dsv-k">Start here · typically 2 weeks</span><h3>Records reconciled</h3><p>We match your timesheets, jobs and invoices and show what's unbilled, what's explained and what still needs an answer. Every number traces to a record.</p><span class="dsv-l">Ask about a three-job review</span></a>
+      <a class="dsv-c" href="/services/dashboards-and-models/"><span class="dsv-k">Typically 2 to 3 weeks</span><h3>Profit by job</h3><p>Revenue, cost and forecast margin for each job, with the assumptions written down. Overruns kept separate from work you can still bill.</p><span class="dsv-l">See how it works</span></a>
+      <a class="dsv-c" href="/services/dashboards-and-models/"><span class="dsv-k">1 to 2 weeks, then monthly</span><h3>Monthly management report</h3><p>The same measures every month, reconciled to your accounts, in Power BI or Excel. One page your bank and board can follow.</p><span class="dsv-l">See how it works</span></a>
+      <a class="dsv-c" href="/try/#cash"><span class="dsv-k">Typically 1 to 2 weeks</span><h3>Cash scenarios</h3><p>Thirteen weeks ahead with a likely range, and what moves it: a slow payer, a big bill, a quiet month.</p><span class="dsv-l">Try the cash demo</span></a>
+      <a class="dsv-c" href="/services/dashboards-and-models/"><span class="dsv-k">Typically 1 to 3 weeks</span><h3>Financial and economic models</h3><p>Budgets, pricing, investment cases, cost-benefit analysis and demand and price scenarios, for decisions with real money on them.</p><span class="dsv-l">See how it works</span></a>
+      <a class="dsv-c" href="/services/data-engineering/"><span class="dsv-k">Once a manual version works</span><h3>Reports that build themselves</h3><p>When a report is right by hand, we automate the data pull from your systems, with checks that stop bad data and a log of every run.</p><span class="dsv-l">See how it works</span></a>
+    </div>
+    <p class="dsv-w"><b>Works with</b> <span>Xero</span><span>MYOB</span><span>Excel</span><span>Power BI</span><span>Google Sheets</span><span>SQL databases</span><span>your job or timesheet app</span></p>
+    <p class="fine">Fixed price for each, agreed in writing. Built in your own accounts, and you own the result.</p>
   </div>
 </section>
 
