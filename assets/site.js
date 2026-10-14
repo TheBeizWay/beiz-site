@@ -168,10 +168,10 @@
   const fromEspn = (ev, fav) => {
     const c = ev.competitions[0], st = ev.status.type.state;
     const t = c.competitors.slice().sort(a => (a.homeAway === "home" ? -1 : 1))
-      .map(x => ({ n: x.team.shortDisplayName || x.team.displayName, a: x.team.abbreviation, s: x.score?.displayValue ?? x.score ?? "", w: x.winner }));
+      .map(x => ({ n: x.team.shortDisplayName || x.team.displayName, a: x.team.abbreviation, s: x.score?.displayValue ?? x.score ?? "", w: x.winner === true || x.winner === "true" }));
     return { t, st, det: st === "pre" ? when(ev.date) : ev.status.type.shortDetail, date: ev.date, fav: !!(fav && t.some(x => fav.test(x.n))) };
   };
-  const card = m => `<div class="sm${m.fav ? " fav" : ""}">${m.t.map(x => `<div class="row${x.w ? " win" : ""}"><span>${esc(x.n)}</span><span>${m.st === "pre" ? "" : esc(x.s)}</span></div>`).join("")}<div class="st">${m.st === "in" ? '<span class="live">LIVE</span>' : ""}${esc(m.lg ? m.lg + " · " : "")}${esc(m.det)}</div></div>`;
+  const card = m => `<div class="sm${m.fav ? " fav" : ""}">${m.t.map(x => `<div class="row${x.w ? " win" : ""}"><span>${esc(x.n)}</span><span>${m.st === "pre" ? "" : esc(x.s) || "–"}</span></div>`).join("")}<div class="st">${m.st === "in" ? '<span class="live">LIVE</span>' : ""}${esc(m.lg ? m.lg + " · " : "")}${esc(m.det)}</div></div>`;
   let loaded = false, loading = null;
   const views = [];
   const redraw = () => views.forEach(v => v());
@@ -200,7 +200,7 @@
         const big = /Test|ODI|T20I|Big Bash|Sheffield|Marsh|WBBL|World Cup|IPL/i, all = [];
         (d.scores || []).forEach(g => (g.events || []).forEach(ev => {
           const c = ev.competitions[0];
-          const t = c.competitors.map(x => ({ n: x.team?.shortDisplayName || x.team?.displayName || x.team?.abbreviation, a: x.team?.abbreviation, s: x.score || "", w: x.winner }));
+          const t = c.competitors.map(x => ({ n: x.team?.shortDisplayName || x.team?.displayName || x.team?.abbreviation, a: x.team?.abbreviation, s: x.score || "", w: x.winner === true || x.winner === "true" }));
           const lg = g.leagues?.[0]?.name || "", cls = c.class?.generalClassCard || "";
           const aus = t.some(x => /^AUS|^AU-/.test(x.a || "")) || /Australia|Big Bash|Sheffield|Marsh|WBBL/i.test(lg);
           all.push({ t, st: ev.status?.type?.state, det: ev.status?.type?.shortDetail || ev.status?.summary || "", lg: (cls ? cls + " · " : "") + lg, rk: (aus ? 0 : 10) + (big.test(cls + " " + lg) ? 0 : 5) + (ev.status?.type?.state === "in" ? 0 : 2) });
