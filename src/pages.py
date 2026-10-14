@@ -111,16 +111,27 @@ def home():
 
 <section id="disciplines">
   <div class="wrap">
-    <h2>Accounting and governance work, not just automation</h2>
-    <p class="lede">You can hire Beiz for the professional work on its own. Plenty of it never needs a line of code.</p>
-    <div class="disc">
+    <h2>Four disciplines. One person accountable.</h2>
+    <p class="lede">Most firms bring one of these. The problems worth paying to fix usually need all four, and someone who answers for the result. Hire Beiz for any one of them on its own.</p>
+    <div class="disc four">
+      <div><h3>Data <small>Records you can trust</small></h3>
+        <ul class="ticks"><li>Your systems joined into one clean source</li><li>Reconciliations that show every exception</li><li>Reporting in Power BI, Excel or SQL</li><li>Forecasting and statistical analysis</li></ul>
+        <p class="more"><a href="/services/data-engineering/">Data services</a></p></div>
+      <div><h3>AI <small>Repetitive work, done by software</small></h3>
+        <ul class="ticks"><li>Workflows automated, with approval steps</li><li>AI assistants built into daily work</li><li>The right AI for the tools you already pay for</li><li>Your team trained to use it safely</li></ul>
+        <p class="more"><a href="/services/ai-agents/">AI and automation</a></p></div>
       <div><h3>Accounting <small>Chartered Accountant, Certificate of Public Practice</small></h3>
-        <ul class="ticks"><li>Management reports and dashboards your board and bank can rely on</li><li>13-week cash forecasts and financial models</li><li>Month-end close and reconciliations</li><li>Profit by job, client or service</li><li>Internal controls review: approvals, delegations, segregation of duties</li></ul>
-        <p class="more"><a href="/services/automation/">Month-end and reconciliations</a></p></div>
+        <ul class="ticks"><li>Management reports your board and bank can rely on</li><li>Cash forecasts, financial and economic models</li><li>Month-end close and profit by job</li><li>Internal controls: approvals, delegations, segregation of duties</li></ul>
+        <p class="more"><a href="/services/dashboards-and-models/">Reports and models</a></p></div>
       <div><h3>Governance <small>Graduate, Australian Institute of Company Directors</small></h3>
-        <ul class="ticks"><li>Board and committee reporting packs</li><li>Risk registers and a one-page board view of risk</li><li>Delegations of authority and approval policies</li><li>AI use policy and oversight for boards</li><li>Governance health checks for small boards and not-for-profit committees</li></ul>
-        <p class="more"><a href="/services/ai-governance/">AI governance</a></p></div>
+        <ul class="ticks"><li>Board and committee reporting packs</li><li>Risk registers and approval policies</li><li>AI use policy and oversight for boards</li><li>Privacy Act automated-decision readiness</li></ul>
+        <p class="more"><a href="/services/ai-governance/">Governance</a></p></div>
     </div>
+    <div class="lenses"><b>One problem, four lenses: "Our job reports never agree."</b>
+      <span><i>Data</i> traces where each number comes from and fixes the records.</span>
+      <span><i>Accounting</i> defines what margin means and reconciles it to the books.</span>
+      <span><i>AI</i> takes over the repetitive checks and drafts the monthly commentary.</span>
+      <span><i>Governance</i> decides who owns each definition and who signs off a change.</span></div>
     <p class="fine">We don't do tax returns, BAS, statutory audit or legal advice. We work alongside your tax agent and auditor.</p>
   </div>
 </section>
