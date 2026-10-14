@@ -24,12 +24,15 @@ open(os.path.join(ROOT, "robots.txt"), "w").write(
     + f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n")
 # llms.txt: a plain summary for AI search assistants (https://llmstxt.org)
 llms = ["# Beiz Data & Accounting", "",
-        "> Australian firm that sets up AI, automation, dashboards and cash forecasts for small and mid-sized businesses, "
-        "with a person signing off anything that touches money, customers or data. Chartered Accountant (CA ANZ, Certificate of Public Practice) and GAICD led.", "",
+        "> Chartered Accountant-led practice in Australia that makes business information reliable, reporting useful and automation accountable. "
+        "Data, AI, accounting and governance for private-sector small and mid-sized businesses, with a person signing off anything that touches money, customers or data.", "",
         "Key facts:",
         "- Beiz Data & Accounting Pty Ltd, ABN 53 691 755 496. Led by Purav Mehta, CA (Certificate of Public Practice), GAICD. Based in Canberra, working Australia-wide.",
         "- Fixed scope and fixed price, agreed in writing before work starts. Starting prices: quick wins from $1,200, Privacy Act automated-decision sprint from $3,500, AI Readiness Sprint from $6,000. A written proposal with the exact price follows within three business days.",
         "- Independent: no software of its own to sell. Builds inside the client's own accounts (e.g. Xero, MYOB, Microsoft 365, Google Workspace) with business-grade AI that doesn't train on client data.",
+        "- Four disciplines: Data (reconciliation, reporting, forecasting), AI (automation with approval steps), Accounting (management reports, cash forecasts, financial and economic models, profit by job), Governance (board reporting, risk, AI use policy, Privacy Act automated-decision readiness).",
+        "- Entry offer: a fixed-price billing review of three completed jobs. Timesheets, job list and invoices are reconciled from exports (no logins) into a findings register where each item is Confirmed, Needs information or Explained, with source records and arithmetic. Sample register (made-up data): " + SITE + "/assets/media/sample-findings.xlsx",
+        "- Typical clients: private-sector businesses of about 5 to 50 staff, especially project businesses that bill time or fixed fees (engineering, IT, consulting, trades).",
         "- Does not provide tax agent, BAS agent, legal, audit or financial product advice services.",
         "- Contact: hello@beiz.com.au, or book a discovery call at https://beiz.com.au/contact/", "",
         "## Services"] + [f"- [{t}]({SITE}{h})" for h, t in SERVICES] + ["", "## Who we help"] + [f"- [{t}]({SITE}{h})" for h, t in INDUSTRIES] + [
