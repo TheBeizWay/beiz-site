@@ -897,3 +897,12 @@ nav.main a[aria-current=page]{box-shadow:inset 0 -2px 0 var(--pencil)}
 .lenses i{font-style:normal;font-weight:700;color:var(--accent)}
 @media (max-width:1100px){.disc.four,.lenses{grid-template-columns:1fr 1fr}}
 @media (max-width:760px){.disc.four,.lenses{grid-template-columns:1fr}}
+
+/* v11: larger service menu */
+.ddm{min-width:330px}
+.ddm a{font-size:1.02rem;padding:10px 14px}
+.ddm .ddg{font-size:13px!important;font-weight:700!important;letter-spacing:.1em;margin:16px 14px 4px}
+.ddm a.hub{font-size:12.5px!important}
+.mnav .mg{font-size:13px!important;font-weight:700!important}
+.mnav a{font-size:1.05rem}
+.ddm{max-height:calc(100vh - 110px);overflow-y:auto}
