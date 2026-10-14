@@ -159,8 +159,7 @@
     if (rba) parts.push(rba);
     if (impact) parts.push(impact);
     parts.push(...aiGap);
-    if (mk) parts.push(mk + ' <i class="note">delayed · indicative only</i>');
-    if (rba || mk) renderTicker(parts);
+    if (rba) renderTicker(parts);
   }).catch(() => {});
 
   // ---------- Live data engine (drawer + /live/ page) ----------
@@ -262,7 +261,7 @@
   if (mkHome) {
     marketsReady.then(() => {
       const pick = data.markets.filter(m => ["ASX 200", "AUD/USD", "Bitcoin", "Ethereum"].includes(m.n));
-      mkHome.innerHTML = pick.map(m => `<div class="mtile"><small>${esc(m.n)}</small><b>${esc(m.v)}</b>${m.c == null ? "" : `<span class="${m.c >= 0 ? "up" : "dn"}">${m.c >= 0 ? "▲" : "▼"} ${Math.abs(m.c).toFixed(2)}%</span>`}</div>`).join("");
+      mkHome.innerHTML = pick.map(m => `<div class="mtile"><small>${esc(m.n)}</small> <b>${esc(m.v)}</b>${m.c == null ? "" : `<span class="${m.c >= 0 ? "up" : "dn"}">${m.c >= 0 ? "▲" : "▼"} ${Math.abs(m.c).toFixed(2)}%</span>`}</div>`).join("");
     });
   }
   // Full page: /live/
@@ -276,7 +275,7 @@
         const pts = a.map((y, i) => `${(i / (a.length - 1) * w).toFixed(1)},${(h - (y - lo) / k * h).toFixed(1)}`).join(" ");
         return `<svg class="spark ${a[a.length - 1] >= a[0] ? "up" : "dn"}" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" aria-hidden="true"><polyline points="${pts}"/></svg>`;
       };
-      labMk.innerHTML = data.markets.map(m => `<div class="mtile"><small>${esc(m.n)}</small><b>${esc(m.v)}</b>${m.c == null ? "" : `<span class="${m.c >= 0 ? "up" : "dn"}">${m.c >= 0 ? "▲" : "▼"} ${Math.abs(m.c).toFixed(2)}%</span>`}${m.m1 == null ? "" : `<span class="muted" style="font-size:.78rem"> · 1M ${m.m1 >= 0 ? "+" : "−"}${Math.abs(m.m1).toFixed(1)}%</span>`}${spark(m.sp)}<span class="muted" style="display:block;margin-top:2px;font-size:.72rem">${esc(m.g)}</span></div>`).join("");
+      labMk.innerHTML = data.markets.map(m => `<div class="mtile"><small>${esc(m.n)}</small> <b>${esc(m.v)}</b>${m.c == null ? "" : `<span class="${m.c >= 0 ? "up" : "dn"}">${m.c >= 0 ? "▲" : "▼"} ${Math.abs(m.c).toFixed(2)}%</span>`}${m.m1 == null ? "" : `<span class="muted" style="font-size:.78rem"> · 1M ${m.m1 >= 0 ? "+" : "−"}${Math.abs(m.m1).toFixed(1)}%</span>`}${spark(m.sp)}<span class="muted" style="display:block;margin-top:2px;font-size:.72rem">${esc(m.g)}</span></div>`).join("");
     };
     views.push(tiles); tiles();
     mountTabs($("#labNav"), $("#labList"), TABS.slice(1).concat([]), "cricket");
@@ -454,10 +453,10 @@
       const owed = monthly * actual / 30;
       const excess = Math.max(0, monthly * (actual - terms) / 30);
       const hoursYr = hrs * 48;
-      out.innerHTML = `<div class="tiles t2"><div class="tile"><small>Owed to you at any time</small><b>${money(owed)}</b><span>on your numbers</span></div>
+      out.innerHTML = `<div class="tiles t2"><div class="tile"><small>Owed to you at any time</small> <b>${money(owed)}</b><span>on your numbers</span></div>
         <div class="tile"><small>Stuck past your terms</small><b class="${excess > 0 ? "warn" : ""}">${money(excess)}</b><span>cash you've earned but can't use</span></div>
-        <div class="tile"><small>Hours a year chasing</small><b>${Math.round(hoursYr)}</b><span>at ${hrs} hrs a week, 48 weeks</span></div>
-        <div class="tile"><small>Days over terms</small><b>${Math.max(0, actual - terms)}</b><span>average</span></div></div>
+        <div class="tile"><small>Hours a year chasing</small> <b>${Math.round(hoursYr)}</b><span>at ${hrs} hrs a week, 48 weeks</span></div>
+        <div class="tile"><small>Days over terms</small> <b>${Math.max(0, actual - terms)}</b><span>average</span></div></div>
         <p class="dsay">${excess > 0 ? `If customers paid on your ${terms}-day terms, about <b>${money(excess)}</b> would be back in your bank account. That's the problem automated reminders with a pay-now link go after.` : "Customers are paying on time. Nice. Your bigger win is probably elsewhere."}</p>`;
       late.dataset.summary = `Late payments demo: ${n} invoices/month averaging ${money(avg)}, ${terms}-day terms, customers take ${actual} days, ${hrs} hrs/week chasing. Result: ${money(excess)} stuck past terms, ${Math.round(hoursYr)} hours a year chasing.`;
     };
@@ -540,7 +539,7 @@
       const parts = [["Invoicing & quotes", num("ahInv")], ["Chasing payments", num("ahChase")], ["Data entry & reconciling", num("ahData")], ["Reports & spreadsheets", num("ahRep")]];
       const rate = num("ahRate"), wk = parts.reduce((a, p) => a + p[1], 0), yr = wk * 48;
       document.querySelectorAll("#dHrs output").forEach(o => { const i = $("#" + o.htmlFor); if (i) o.textContent = i.value + " h"; });
-      out.innerHTML = `<div class="tiles t2"><div class="tile"><small>Admin hours a week</small><b>${wk}</b><span>across four tasks</span></div><div class="tile"><small>Hours a year</small><b>${Math.round(yr)}</b><span>48 working weeks</span></div><div class="tile"><small>Value of that time</small><b class="warn">${money(yr * rate)}</b><span>at ${money(rate)} an hour</span></div><div class="tile"><small>Working weeks</small><b>${(yr / 38).toFixed(1)}</b><span>of 38 hours, gone to admin</span></div></div>
+      out.innerHTML = `<div class="tiles t2"><div class="tile"><small>Admin hours a week</small> <b>${wk}</b><span>across four tasks</span></div><div class="tile"><small>Hours a year</small> <b>${Math.round(yr)}</b><span>48 working weeks</span></div><div class="tile"><small>Value of that time</small><b class="warn">${money(yr * rate)}</b><span>at ${money(rate)} an hour</span></div><div class="tile"><small>Working weeks</small> <b>${(yr / 38).toFixed(1)}</b><span>of 38 hours, gone to admin</span></div></div>
         <p class="dsay">These four are exactly the tasks we automate first. Even halving them gives you back <b>${Math.round(yr / 2)} hours</b> a year.</p>`;
       hrs.dataset.summary = `Admin hours demo: ${wk} hrs/week (${parts.map(p => p[0] + " " + p[1]).join(", ")}), valued at ${money(rate)}/hr = ${money(yr * rate)} a year.`;
     };

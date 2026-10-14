@@ -64,7 +64,7 @@ def home():
       <p class="lede">Set up by a Chartered Accountant. We connect your accounting, bank and job systems, automate the repetitive work, and put approval controls on payments, sensitive changes and anything your customers see. AI and automation, set up properly.</p>
       <div class="cta">
         <a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Request a 20-minute call</a>
-        <a class="btn" href="/try/">Try the demo</a>
+        <a class="textlink" href="/try/">Try the demo</a>
       </div>
       <ul class="hero-ticks"><li>Fixed price, in writing, before we start</li><li>Built in your own accounts. You own it.</li><li>Independent: no software of our own to sell</li></ul>
     </div>
@@ -81,15 +81,27 @@ def home():
     <h2>Sound like you?</h2>
     <p class="lede">Each one is a fixed-price piece of work with a result you can see.</p>
     <ul class="fix fixgrid">
-      <li><a href="/try/#cash"><q>I don't know if I'll have enough cash next month.</q><span>→ <b>13-week cash forecast</b><em class="eta">Typically 1 to 2 weeks</em></span><i>→</i></a></li>
-      <li><a href="/services/quick-wins/"><q>I'm a sole trader. Admin eats my evenings.</q><span>→ <b>Quick wins</b>: invoices, receipts and reminders that run themselves<em class="eta">Typically days</em></span><i>→</i></a></li>
-      <li><a href="/try/#late"><q>I spend every week chasing money.</q><span>→ <b>Invoices that chase themselves</b><em class="eta">Typically days</em></span><i>→</i></a></li>
-      <li><a href="/industries/trades/"><q>I don't know which jobs actually make money.</q><span>→ <b>Profit by job, client or service</b><em class="eta">Typically 2 to 3 weeks</em></span><i>→</i></a></li>
-      <li><a href="/try/#hours"><q>Month-end eats a week.</q><span>→ <b>Reconciliations and checks automated</b><em class="eta">Typically 2 to 4 weeks</em></span><i>→</i></a></li>
-      <li><a href="/services/ai-readiness-sprint/"><q>We don't know which AI to use, or if it's safe.</q><span>→ <b>AI Readiness Sprint</b>: approved tools and rules your team follows<em class="eta">10 business days</em></span><i>→</i></a></li>
+      <li><a href="/try/#cash"><q>I don't know if I'll have enough cash next month.</q><span>→ <b>13-week cash forecast</b><em class="eta">Typically 1 to 2 weeks · from [PRICE]</em></span><i>→</i></a></li>
+      <li><a href="/services/quick-wins/"><q>I'm a sole trader. Admin eats my evenings.</q><span>→ <b>Quick wins</b>: invoices, receipts and reminders that run themselves<em class="eta">Typically days · from [PRICE]</em></span><i>→</i></a></li>
+      <li><a href="/try/#late"><q>I spend every week chasing money.</q><span>→ <b>Invoices that chase themselves</b><em class="eta">Typically days · from [PRICE]</em></span><i>→</i></a></li>
+      <li><a href="/industries/trades/"><q>I don't know which jobs actually make money.</q><span>→ <b>Profit by job, client or service</b><em class="eta">Typically 2 to 3 weeks · from [PRICE]</em></span><i>→</i></a></li>
+      <li><a href="/try/#hours"><q>Month-end eats a week.</q><span>→ <b>Reconciliations and checks automated</b><em class="eta">Typically 2 to 4 weeks · from [PRICE]</em></span><i>→</i></a></li>
+      <li><a href="/services/ai-readiness-sprint/"><q>We don't know which AI to use, or if it's safe.</q><span>→ <b>AI Readiness Sprint</b>: approved tools and rules your team follows<em class="eta">10 business days · from [PRICE]</em></span><i>→</i></a></li>
     </ul>
     <p style="margin-top:18px"><a class="btn" href="/services/">All services</a></p>
-    <div class="lane"><p><b>A separate question:</b> do the new automated-decision privacy rules apply to you? From 10 December 2026, organisations covered by the Privacy Act must explain in their privacy policy when software makes or helps make decisions that significantly affect people. Many small businesses aren't covered by the Act at all. <a href="/ai-check/">Take the free 2-minute check</a> to see where you stand.</p></div>
+  </div>
+</section>
+
+<section id="why-not" class="band">
+  <div class="wrap">
+    <h2>Why not just use ChatGPT and Xero?</h2>
+    <p class="lede">Use both. They're good at what they do. What they don't do is the part between them.</p>
+    <ul class="whynot">
+      <li><b>AI drafts. Someone accountable designs the controls.</b><span>A chatbot will write a payment rule in seconds. It won't decide your approval limits, who can change bank details, or what happens when a bill looks like a duplicate. In the supplier-bill demo, four of eight bills are held for a person, each with the reason written down: over the limit, a likely duplicate, new bank details, a price jump.</span></li>
+      <li><b>Connected end to end, tested on your data.</b><span>Xero keeps the books. The work is getting the inbox, the job app, the bank and Xero to agree, then testing the whole thing against your own bills and invoices before you rely on it.</span></li>
+      <li><b>Numbers your bank and board can rely on.</b><span>Anything that goes to your bank or board is reconciled back to the source and signed off by a Chartered Accountant.</span></li>
+    </ul>
+    <p style="margin-top:16px"><a class="textlink" href="/try/#bills">Run the supplier-bill demo</a></p>
   </div>
 </section>
 
@@ -120,6 +132,22 @@ def home():
       <div><b>The test</b><p>Eight sample bills: four ready to pay ($5,468) and four held for a person ($26,375), each for the right reason.</p></div>
     </div>
     <p style="margin-top:18px"><a class="btn" href="/try/#bills">Run it yourself</a> <a class="btn" href="/examples/">See more examples</a></p>
+  </div>
+</section>
+
+<section id="results">
+  <div class="wrap">
+    <h2>Client results</h2>
+    <div class="placeholder">
+      <p><b>[CLIENT PROOF – TO ADD]</b></p>
+      <p>Quote: [CLIENT QUOTE – TO ADD]<br>Name, role, business: [TO ADD, with written permission]<br>Result: [MEASURED BEFORE AND AFTER – TO ADD]</p>
+    </div>
+  </div>
+</section>
+
+<section id="free-check">
+  <div class="wrap">
+    <div class="lane"><p><b>Free tool: the Privacy Act automated-decision check.</b> From 10 December 2026, organisations covered by the Privacy Act must say in their privacy policy when software makes or helps make decisions that significantly affect people. Many small businesses aren't covered by the Act at all. Two minutes of yes-or-no questions tells you where you stand. <a href="/ai-check/">Take the free check</a></p></div>
   </div>
 </section>
 

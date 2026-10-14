@@ -773,3 +773,13 @@ nav.main a[aria-current=page]{box-shadow:inset 0 -2px 0 var(--pencil)}
 .disc h3{font-size:1.3rem;margin-bottom:12px}.disc h3 small{display:block;font-family:var(--sans);font-size:.82rem;font-weight:500;color:var(--muted);margin-top:2px}
 .disc .ticks{gap:8px}.disc .more{margin-top:14px;font-size:.92rem}.disc .more a{color:var(--accent)}
 @media (max-width:760px){.disc{grid-template-columns:1fr}}
+
+/* v7: why-not list, text link, placeholders */
+.textlink{align-self:center;color:var(--accent);font-weight:600;text-decoration:underline;text-underline-offset:3px;padding:12px 4px}
+.whynot{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.whynot li{background:#fff;border:1px solid var(--line);border-radius:6px;padding:18px}
+.whynot b{display:block;font-family:var(--head);font-size:1.12rem;color:var(--text);margin-bottom:8px}
+.whynot span{font-size:.93rem;color:var(--muted)}
+.placeholder{margin-top:18px;border:2px dashed var(--warn);background:#FFF8E8;border-radius:6px;padding:18px 20px;max-width:70ch}
+.placeholder p{color:var(--text)}.placeholder p+p{margin-top:8px;color:var(--muted)}
+@media (max-width:900px){.whynot{grid-template-columns:1fr}}
