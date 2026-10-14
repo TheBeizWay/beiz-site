@@ -73,9 +73,9 @@ def home():
   </div>
 </section>
 
-{PIPELINE}
-
-{WIRING}
+<section id="who" class="who">
+  <div class="wrap"><div class="founder big"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="Purav Mehta" width="72" height="72" loading="lazy"><p><b>Purav Mehta</b>, Chartered Accountant (Certificate of Public Practice) and graduate of the Australian Institute of Company Directors. You deal with him directly, from the first call to handover, and he reviews every number before it reaches you. <a href="/about/#who">More about Purav</a></p></div></div>
+</section>
 
 <section id="fix">
   <div class="wrap">
@@ -94,18 +94,35 @@ def home():
   </div>
 </section>
 
-{WATCH}
-
-<section id="why-not" class="band">
+<section id="proof" class="band">
   <div class="wrap">
-    <h2>Why not just use ChatGPT and Xero?</h2>
-    <p class="lede">Use both. They're good at what they do. What they don't do is the part between them.</p>
-    <ul class="whynot">
-      <li><b>AI drafts. Someone accountable designs the controls.</b><span>A chatbot will write a payment rule in seconds. It won't decide your approval limits, who can change bank details, or what happens when a bill looks like a duplicate. In the supplier-bill demo, four of eight bills are held for a person, each with the reason written down: over the limit, a likely duplicate, new bank details, a price jump.</span></li>
-      <li><b>Connected end to end, tested on your data.</b><span>Xero keeps the books. The work is getting the inbox, the job app, the bank and Xero to agree, then testing the whole thing against your own bills and invoices before you rely on it.</span></li>
-      <li><b>Numbers your bank and board can rely on.</b><span>Anything that goes to your bank or board is reconciled back to the source and reviewed by a Chartered Accountant, with the evidence, assumptions and limits written down. It's a commercial review, not an audit.</span></li>
-    </ul>
-    <p style="margin-top:16px"><a class="textlink" href="/try/#bills">Run the supplier-bill demo</a></p>
+    <h2>What you get back: a findings register, not a slide deck.</h2>
+    <p class="lede">Every line points to the records behind it and shows the arithmetic. Some things look like problems and turn out fine. Those are marked Explained, so nobody wastes a week chasing them.</p>
+    <p class="regmeta"><span>11 findings</span><span class="rs rs-ok">2 confirmed</span><span class="rs rs-q">6 need information</span><span class="rs rs-ex">3 explained</span><span>Hours, billing and job totals all reconcile</span></p>
+    <div class="regw"><table class="reg">
+      <thead><tr><th>Status</th><th>Finding and records</th><th>The arithmetic</th><th>Question for you</th></tr></thead>
+      <tbody><tr><td><span class="rs rs-ok">Confirmed</span></td><td><b>Time logged, never billed</b><small>Job J101</small></td><td>120 h approved − 96 h invoiced = 24 h × $180 = <b>$4,320</b></td><td>Is there an invoice we haven't seen?</td></tr><tr><td><span class="rs rs-ok">Confirmed</span></td><td><b>Billed below the agreed rate</b><small>Job J105, INV-3105</small></td><td>30 h × ($180 agreed − $165 invoiced) = <b>$450</b></td><td>Was a discount agreed?</td></tr><tr><td><span class="rs rs-q">Needs information</span></td><td><b>Same credit note entered twice</b><small>CN-0040, CN-0041</small></td><td>Second $500 held aside, not deducted</td><td>Was it meant to be credited twice?</td></tr><tr><td><span class="rs rs-q">Needs information</span></td><td><b>Fixed fee over budget</b><small>Job F201</small></td><td>220 h + 120 h = 340 h on a 300 h budget. Lost margin, not money owed</td><td>Was a variation agreed?</td></tr><tr><td><span class="rs rs-ex">Explained</span></td><td><b>Looked unbilled, billed in October</b><small>Job J102, INV-3201</small></td><td>30 h September time invoiced 8 Oct</td><td>None. Timing only.</td></tr><tr><td><span class="rs rs-ex">Explained</span></td><td><b>Invoice with no hours</b><small>Job J104, INV-3104</small></td><td>$9,000 ÷ $150 = 60 h, matches the timesheets</td><td>None. Confidence: medium.</td></tr></tbody>
+    </table></div>
+    <p class="fine">From our own practice run on a made-up engineering consultancy, September 2026. Not a client result. Amounts exclude GST.</p>
+    <p style="margin-top:14px"><a class="btn" href="/assets/media/sample-findings.xlsx" download>Download the sample workbook</a> <a class="textlink" href="/contact/?topic=Three-job%20billing%20review#form">Ask about a three-job review</a></p>
+  </div>
+</section>
+
+<section id="data-services">
+  <div class="wrap">
+    <p class="eyebrow">Data services</p>
+    <h2>Your numbers, cleaned, checked and explained.</h2>
+    <p class="lede">Done for you, on your own data. Start with the first one. The others only make sense once your records reconcile.</p>
+    <div class="dsv">
+      <a class="dsv-c start" href="/contact/?topic=Three-job%20billing%20review#form"><span class="dsv-k">Start here · typically 2 weeks</span><h3>Billing review: three jobs</h3><p>Three jobs, one month. You send exports, no logins. You get back a findings register like the sample below, with every number traced to a record.</p><span class="dsv-l">Ask about a three-job review</span></a>
+      <a class="dsv-c" href="/services/dashboards-and-models/"><span class="dsv-k">Typically 2 to 3 weeks</span><h3>Profit by job</h3><p>Revenue, cost and forecast margin for each job, with the assumptions written down. Overruns kept separate from work you can still bill.</p><span class="dsv-l">See how it works</span></a>
+      <a class="dsv-c" href="/services/dashboards-and-models/"><span class="dsv-k">1 to 2 weeks, then monthly</span><h3>Monthly management report</h3><p>The same measures every month, reconciled to your accounts, in Power BI or Excel. One page your bank and board can follow.</p><span class="dsv-l">See how it works</span></a>
+      <a class="dsv-c" href="/try/#cash"><span class="dsv-k">Typically 1 to 2 weeks</span><h3>Cash scenarios</h3><p>Thirteen weeks ahead with a likely range, and what moves it: a slow payer, a big bill, a quiet month.</p><span class="dsv-l">Try the cash demo</span></a>
+      <a class="dsv-c" href="/services/dashboards-and-models/"><span class="dsv-k">Typically 1 to 3 weeks</span><h3>Financial and economic models</h3><p>Budgets, pricing, investment cases, cost-benefit analysis and demand and price scenarios, for decisions with real money on them.</p><span class="dsv-l">See how it works</span></a>
+      <a class="dsv-c" href="/services/data-engineering/"><span class="dsv-k">Once a manual version works</span><h3>Reports that build themselves</h3><p>When a report is right by hand, we automate the data pull from your systems, with checks that stop bad data and a log of every run.</p><span class="dsv-l">See how it works</span></a>
+    </div>
+    <p class="dsv-w"><b>Works with</b> <span>Xero</span><span>MYOB</span><span>Excel</span><span>Power BI</span><span>Google Sheets</span><span>SQL databases</span><span>your job or timesheet app</span></p>
+    <p class="fine">Fixed price for each, agreed in writing. Built in your own accounts, and you own the result.</p>
   </div>
 </section>
 
@@ -136,43 +153,9 @@ def home():
   </div>
 </section>
 
-<section id="data-services">
-  <div class="wrap">
-    <p class="eyebrow">Data services</p>
-    <h2>Your numbers, cleaned, checked and explained.</h2>
-    <p class="lede">Done for you, on your own data. Start with the first one. The others only make sense once your records reconcile.</p>
-    <div class="dsv">
-      <a class="dsv-c start" href="/contact/?topic=Three-job%20billing%20review#form"><span class="dsv-k">Start here · typically 2 weeks</span><h3>Billing review: three jobs</h3><p>Three jobs, one month. You send exports, no logins. You get back a findings register like the sample below, with every number traced to a record.</p><span class="dsv-l">Ask about a three-job review</span></a>
-      <a class="dsv-c" href="/services/dashboards-and-models/"><span class="dsv-k">Typically 2 to 3 weeks</span><h3>Profit by job</h3><p>Revenue, cost and forecast margin for each job, with the assumptions written down. Overruns kept separate from work you can still bill.</p><span class="dsv-l">See how it works</span></a>
-      <a class="dsv-c" href="/services/dashboards-and-models/"><span class="dsv-k">1 to 2 weeks, then monthly</span><h3>Monthly management report</h3><p>The same measures every month, reconciled to your accounts, in Power BI or Excel. One page your bank and board can follow.</p><span class="dsv-l">See how it works</span></a>
-      <a class="dsv-c" href="/try/#cash"><span class="dsv-k">Typically 1 to 2 weeks</span><h3>Cash scenarios</h3><p>Thirteen weeks ahead with a likely range, and what moves it: a slow payer, a big bill, a quiet month.</p><span class="dsv-l">Try the cash demo</span></a>
-      <a class="dsv-c" href="/services/dashboards-and-models/"><span class="dsv-k">Typically 1 to 3 weeks</span><h3>Financial and economic models</h3><p>Budgets, pricing, investment cases, cost-benefit analysis and demand and price scenarios, for decisions with real money on them.</p><span class="dsv-l">See how it works</span></a>
-      <a class="dsv-c" href="/services/data-engineering/"><span class="dsv-k">Once a manual version works</span><h3>Reports that build themselves</h3><p>When a report is right by hand, we automate the data pull from your systems, with checks that stop bad data and a log of every run.</p><span class="dsv-l">See how it works</span></a>
-    </div>
-    <p class="dsv-w"><b>Works with</b> <span>Xero</span><span>MYOB</span><span>Excel</span><span>Power BI</span><span>Google Sheets</span><span>SQL databases</span><span>your job or timesheet app</span></p>
-    <p class="fine">Fixed price for each, agreed in writing. Built in your own accounts, and you own the result.</p>
-  </div>
-</section>
+{WIRING}
 
-<section id="proof" class="band">
-  <div class="wrap">
-    <h2>What you get back: a findings register, not a slide deck.</h2>
-    <p class="lede">Every line points to the records behind it and shows the arithmetic. Some things look like problems and turn out fine. Those are marked Explained, so nobody wastes a week chasing them.</p>
-    <p class="regmeta"><span>11 findings</span><span class="rs rs-ok">2 confirmed</span><span class="rs rs-q">6 need information</span><span class="rs rs-ex">3 explained</span><span>Hours, billing and job totals all reconcile</span></p>
-    <div class="regw"><table class="reg">
-      <thead><tr><th>Status</th><th>Finding and records</th><th>The arithmetic</th><th>Question for you</th></tr></thead>
-      <tbody><tr><td><span class="rs rs-ok">Confirmed</span></td><td><b>Time logged, never billed</b><small>Job J101</small></td><td>120 h approved − 96 h invoiced = 24 h × $180 = <b>$4,320</b></td><td>Is there an invoice we haven't seen?</td></tr><tr><td><span class="rs rs-ok">Confirmed</span></td><td><b>Billed below the agreed rate</b><small>Job J105, INV-3105</small></td><td>30 h × ($180 agreed − $165 invoiced) = <b>$450</b></td><td>Was a discount agreed?</td></tr><tr><td><span class="rs rs-q">Needs information</span></td><td><b>Same credit note entered twice</b><small>CN-0040, CN-0041</small></td><td>Second $500 held aside, not deducted</td><td>Was it meant to be credited twice?</td></tr><tr><td><span class="rs rs-q">Needs information</span></td><td><b>Fixed fee over budget</b><small>Job F201</small></td><td>220 h + 120 h = 340 h on a 300 h budget. Lost margin, not money owed</td><td>Was a variation agreed?</td></tr><tr><td><span class="rs rs-ex">Explained</span></td><td><b>Looked unbilled, billed in October</b><small>Job J102, INV-3201</small></td><td>30 h September time invoiced 8 Oct</td><td>None. Timing only.</td></tr><tr><td><span class="rs rs-ex">Explained</span></td><td><b>Invoice with no hours</b><small>Job J104, INV-3104</small></td><td>$9,000 ÷ $150 = 60 h, matches the timesheets</td><td>None. Confidence: medium.</td></tr></tbody>
-    </table></div>
-    <p class="fine">From our own practice run on a made-up engineering consultancy, September 2026. Not a client result. Amounts exclude GST.</p>
-    <p style="margin-top:14px"><a class="btn" href="/assets/media/sample-findings.xlsx" download>Download the sample workbook</a> <a class="textlink" href="/contact/?topic=Three-job%20billing%20review#form">Ask about a three-job review</a></p>
-  </div>
-</section>
-
-<section id="free-check">
-  <div class="wrap">
-    <div class="lane"><p><b>Free tool: the Privacy Act automated-decision check.</b> From 10 December 2026, organisations covered by the Privacy Act must say in their privacy policy when software makes or helps make decisions that significantly affect people. Many small businesses aren't covered by the Act at all. Two minutes of yes-or-no questions tells you where you stand. <a href="/ai-check/">Take the free check</a></p></div>
-  </div>
-</section>
+{WATCH}
 
 <section id="how">
   <div class="wrap">
@@ -184,13 +167,20 @@ def home():
       <li><h3>Build with updates</h3><p>Weekly written notes and a working demo you can click.</p></li>
       <li><h3>Handover pack</h3><p>Documentation, controls and training. Your team owns it.</p></li>
     </ol>
-    <div class="founder"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="Purav Mehta" width="64" height="64" loading="lazy"><p><b>Purav Mehta</b>, Chartered Accountant (Certificate of Public Practice) and graduate of the Australian Institute of Company Directors. You work with him directly, from discovery through to handover. <a href="/about/#who">Who's behind Beiz</a></p></div>
+  </div>
+</section>
+
+{PIPELINE}
+
+<section id="free-check">
+  <div class="wrap">
+    <div class="lane"><p><b>Free tool: the Privacy Act automated-decision check.</b> From 10 December 2026, organisations covered by the Privacy Act must say in their privacy policy when software makes or helps make decisions that significantly affect people. Many small businesses aren't covered by the Act at all. Two minutes of yes-or-no questions tells you where you stand. <a href="/ai-check/">Take the free check</a></p></div>
   </div>
 </section>
 
 {contact_form()}'''
-    add("/", "Beiz Data & Accounting | AI and automation, set up properly",
-        "AI, automation, dashboards and cash forecasts for Australian businesses, set up properly with human sign-off. Chartered Accountant and GAICD led.", body)
+    add("/", "Beiz Data & Accounting | Profit by job, cash and reporting you can trust",
+        "Chartered Accountant-led practice for Australian businesses: billing reviews, profit by job, cash forecasts and reporting, with AI and automation where it helps and a person signing off what matters.", body)
 
 
 # ------------------------------------------------------------------ services
