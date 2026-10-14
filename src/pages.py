@@ -87,7 +87,7 @@ def home():
       <li><a href="/try/#late"><q>I spend every week chasing money.</q><span>→ <b>Get paid without chasing</b><em class="eta">Typically days</em></span><i>→</i></a></li>
       <li><a href="/industries/trades/"><q>I don't know which jobs actually make money.</q><span>→ <b>Profit by job, client or service</b><em class="eta">Typically 2 to 3 weeks</em></span><i>→</i></a></li>
       <li><a href="/try/#hours"><q>Month-end eats a week.</q><span>→ <b>Reconciliations and checks automated</b><em class="eta">Typically 2 to 4 weeks</em></span><i>→</i></a></li>
-      <li><a href="/services/ai-readiness-sprint/"><q>We don't know which AI to use, or if it's safe.</q><span>→ <b>AI Readiness Sprint</b>: approved tools and rules your team follows<em class="eta">10 business days</em></span><i>→</i></a></li>
+      <li><a href="/services/ai-readiness-sprint/"><q>We don't know which AI to use, or if it's safe.</q><span>→ <b>AI team setup</b>: two assistants your staff actually use<em class="eta">About 2 weeks</em></span><i>→</i></a></li>
     </ul>
     <p style="margin-top:18px"><a class="btn" href="/services/">All services</a></p>
   </div>
@@ -189,7 +189,7 @@ def services_hub():
         ("/services/dashboards-and-models/", "See", "Dashboards & financial models", "Cash forecasts, runway scenarios, job profitability and board or investor dashboards."),
         ("/services/project-delivery/", "Deliver", "AI & tech project delivery", "Scope, vendors, milestones and honest reporting, so your tech project actually lands."),
         ("/services/privacy-sprint/", "Before 10 Dec", "Automated-Decision Privacy Sprint", "Map what your software decides about people and hand your lawyer the policy wording. Fixed price from $3,500, 5 to 10 days."),
-        ("/services/ai-readiness-sprint/", "Start here", "AI Readiness Sprint", "Ten business days: AI inventory, risk map, one working prototype and a roadmap. From $6,000."),
+        ("/services/ai-readiness-sprint/", "Start here", "AI team setup", "Two AI assistants built in the tools you already pay for, with written rules, staff training and a 30-day check. From $6,000."),
         ("/services/quick-wins/", "Small business", "Quick wins", "Small, fixed-price fixes from $1,200 that give you back evenings and bring cash in faster. Built for sole traders and small teams who don't have time for admin. Most are scoped in days, not months, with no lock-in. Your BAS and tax stay with your tax or BAS agent; we make their job easier."),
     ]
     c = "".join(f'<a class="card" href="{h}"><span class="k">{k}</span><h3>{t}</h3><p>{d}</p><span class="go">Learn more →</span></a>' for h, k, t, d in cards)
@@ -243,7 +243,7 @@ def services():
               "Not legal advice. We work alongside your lawyer where the law needs interpreting."),
         before_after("A 40-person services firm", ["Nine AI tools in use, three approved", "Client data pasted into a free chatbot", "Privacy policy silent on automation", "Board asks, nobody can answer"],
                      ["One register, owned by the COO", "Business-grade tools only, training switched off", "Automated decisions described in plain English", "One-page board paper each quarter"], "Illustrative example, not a client"),
-        [("/ai-check/", "Free 2-minute Privacy Act check"), ("/insights/privacy-act-automated-decisions/", "The new rule in plain English"), ("/services/ai-readiness-sprint/", "AI Readiness Sprint")],
+        [("/ai-check/", "Free 2-minute Privacy Act check"), ("/insights/privacy-act-automated-decisions/", "The new rule in plain English"), ("/services/ai-readiness-sprint/", "AI team setup")],
         "AI readiness & governance", "AI governance & Privacy Act readiness",
         "AI register, automated-decision mapping, AI use policy, controls and board reporting, ready for the Privacy Act automated-decision rules from 10 December 2026.")
 
@@ -311,7 +311,7 @@ def services():
         aside("Good fit if", ["You don't know which AI to use", "Staff already use free AI tools", "The same questions get asked every day", "You want speed without losing control"], "Automation & AI agents"),
         before_after("A 15-person trades business", ["Office answers the same 30 questions by phone", "Quotes typed from scratch", "Staff pasting customer details into free tools", "No idea if AI saves any time"],
                      ["Website assistant answers the common ones and hands over the rest", "Quotes drafted from past jobs, checked by a person", "One approved business AI tool, with rules", "Hours saved reported monthly"], "Illustrative example, not a client"),
-        [("/services/automation/", "Workflow automation"), ("/services/ai-governance/", "AI governance"), ("/services/ai-readiness-sprint/", "AI Readiness Sprint")],
+        [("/services/automation/", "Workflow automation"), ("/services/ai-governance/", "AI governance"), ("/services/ai-readiness-sprint/", "AI team setup")],
         "Automation & AI agents", "AI agents, chatbots & AI integration",
         "Not sure which AI to use? We pick the right tool, build chatbots, assistants and agents into your team's work, and train your people, with limits, logs and human sign-off.")
 
@@ -383,23 +383,24 @@ def services():
         "Tech project delivery", "AI & tech project delivery",
         "Project delivery for AI and technology projects: scoping, vendor comparison, milestones, risk logs and plain-English status reporting. Rescue for stalled projects.")
 
-    svc("/services/ai-readiness-sprint/", "AI Readiness Sprint", "Start here",
-        "AI Readiness Sprint. Ten business days.",
-        "A short, fixed-price engagement that gives you a clear picture of where AI can help, where it's already a risk, and one working prototype to prove the value on your own data.",
-        '''<h2>Why a Sprint first</h2>
-<p>Most businesses either rush into AI or avoid it. Both are expensive. The Sprint is the sensible middle: two weeks, a fixed price, and at the end you know what to do next and what it will cost, in writing.</p>
-<h2>How the ten days run</h2>
-<ol><li><strong>Days 1 to 2:</strong> short written survey of your team, review of your systems and subscriptions.</li>
-<li><strong>Days 3 to 5:</strong> AI register, risk and controls map, and the automated-decision check for the Privacy Act.</li>
-<li><strong>Days 6 to 9:</strong> build one working prototype on your own data, with a human sign-off step.</li>
-<li><strong>Day 10:</strong> a one-page board or owner paper and a prioritised roadmap with fixed-price next steps.</li></ol>
-<p>No obligation to continue with us afterwards. The roadmap is yours.</p>''',
-        [("AI inventory", "Every tool in use, including the free ones."), ("Risk & controls map", "For each use case, what could go wrong and what stops it."), ("Working prototype", "One real automation or agent on your data."),
-         ("Privacy Act check", "Where you stand on the automated-decision rules."), ("One-page paper", "For the board or for yourself."), ("Roadmap", "Prioritised next steps, each with a fixed price.")],
-        aside("The fine print", ["Fixed price from $6,000, quoted in writing", "Ten business days from kickoff", "A priced, written blueprint, no pitch", "No lock-in: the roadmap is yours"], "AI Readiness Sprint"),
+    svc("/services/ai-readiness-sprint/", "AI team setup", "Start here",
+        "AI team setup. Two assistants your staff actually use.",
+        "A fixed-price setup for businesses of 10 to 50 people: two AI assistants built in the tools you already pay for, on two named tasks, with written rules and trained staff. Then we check how they're going after 30 days.",
+        '''<h2>Why start with two</h2>
+<p>Most businesses either let staff use AI with no rules, or spend months planning and never start. Two assistants on two real tasks is enough to prove the value, small enough to control, and quick to undo if it isn't working.</p>
+<h2>How it runs</h2>
+<ol><li><strong>Workshop:</strong> one session with you and the people who do the work. We list the repetitive tasks, what information each one touches, and pick two.</li>
+<li><strong>Build:</strong> two assistants set up in Microsoft 365, Google Workspace or a business AI plan you already have or choose. No custom software. Anything that reaches a customer, moves money or decides something about a person waits for a person's approval.</li>
+<li><strong>Rules and training:</strong> a one-page AI use policy covering what information can go in, what needs approval and who owns each assistant, plus a one-hour training session.</li>
+<li><strong>Day 30 check:</strong> usage, errors and time per task, before and after. We fix what isn't working and tell you plainly whether to add more.</li></ol>
+<h2>What it isn't</h2>
+<p>It isn't custom software, integrations that need a developer, or a licence sale: you buy any subscriptions directly. Support after day 30 is optional and priced separately.</p>''',
+        [("Task list", "Repetitive work across the team, ranked by hours and risk."), ("Two working assistants", "Built in your own accounts, on two named tasks."), ("Approval steps", "Nothing reaches a customer, moves money or decides about a person without a human."),
+         ("AI use policy", "One page your team can actually follow."), ("Staff training", "One hour, on your two assistants."), ("30-day check", "Usage, errors and time saved, measured.")],
+        aside("The fine print", ["Fixed price from $6,000, quoted in writing", "About two weeks, plus the 30-day check", "Built in the tools you already pay for", "No lock-in: everything stays in your accounts"], "AI team setup"),
         "", [("/services/ai-governance/", "AI governance"), ("/services/automation/", "Agents & automation"), ("/examples/", "Examples")],
-        "AI Readiness Sprint", "AI Readiness Sprint",
-        "A ten-day, fixed-price AI Readiness Sprint: AI inventory, risk and controls map, Privacy Act check, one working prototype and a costed roadmap.")
+        "AI team setup", "AI team setup",
+        "Fixed-price AI team setup for Australian businesses of 10 to 50 people: two AI assistants built in the tools you already pay for, written rules, staff training and a 30-day check.")
 
     quick = [("Invoices that chase themselves", "Automatic reminders and pay-now links, so you stop ringing late payers."),
              ("Quote to invoice, automatically", "Finished jobs get invoiced the same day, not three weeks later."),
@@ -706,7 +707,7 @@ FAQ = [
     ("Can we see profit by job without hiring a management accountant?", "Often, yes. In most small project businesses the numbers already exist in the accounting software and the job or timesheet app; they just don't agree. We join them, agree one definition of margin, and set up a monthly report reconciled to your accounts, in Power BI or Excel."),
     ("Who owns what you build?", "You own the outcome: the automations, dashboards and models run inside your own accounts, with your logins. Our reusable templates, frameworks and code libraries remain our intellectual property, licensed to you for your business. That's how we keep delivery fast and prices fixed."),
     ("Do I need a board or a big business?", "No. Much of what we do is built for sole traders and owner-operators who are flat out and just want the admin to stop eating their evenings. We size the work to the business."),
-    ("How much does it cost?", "Every job is fixed price, quoted in writing after we understand the problem. Quick wins start from $1,200, the Privacy Act automated-decision sprint from $3,500 and the AI Readiness Sprint from $6,000. Larger builds are scoped individually. No hourly meter and no lock-in contracts."),
+    ("How much does it cost?", "Every job is fixed price, quoted in writing after we understand the problem. Quick wins start from $1,200, the Privacy Act automated-decision sprint from $3,500 and the AI team setup from $6,000. Larger builds are scoped individually. No hourly meter and no lock-in contracts."),
     ("Do you work with crypto businesses?", "Yes: reconciliations, stablecoin payment matching, treasury reporting and controls. We don't give tax, financial product or licensing advice."),
     ("Where are you based?", "Australia. We work remotely with clients across the country."),
 ]
