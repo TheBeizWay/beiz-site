@@ -83,12 +83,12 @@ def home():
     <h2>Sound like you?</h2>
     <p class="lede">Each one is a fixed-price piece of work with a result you can see.</p>
     <ul class="fix fixgrid">
-      <li><a href="/try/#cash"><q>I don't know if I'll have enough cash next month.</q><span>→ <b>13-week cash forecast</b><em class="eta">Typically 1 to 2 weeks · from [PRICE]</em></span><i>→</i></a></li>
-      <li><a href="/services/quick-wins/"><q>I'm a sole trader. Admin eats my evenings.</q><span>→ <b>Quick wins</b>: the repetitive admin, handled<em class="eta">Typically days · from [PRICE]</em></span><i>→</i></a></li>
-      <li><a href="/try/#late"><q>I spend every week chasing money.</q><span>→ <b>Get paid without chasing</b><em class="eta">Typically days · from [PRICE]</em></span><i>→</i></a></li>
-      <li><a href="/industries/trades/"><q>I don't know which jobs actually make money.</q><span>→ <b>Profit by job, client or service</b><em class="eta">Typically 2 to 3 weeks · from [PRICE]</em></span><i>→</i></a></li>
-      <li><a href="/try/#hours"><q>Month-end eats a week.</q><span>→ <b>Reconciliations and checks automated</b><em class="eta">Typically 2 to 4 weeks · from [PRICE]</em></span><i>→</i></a></li>
-      <li><a href="/services/ai-readiness-sprint/"><q>We don't know which AI to use, or if it's safe.</q><span>→ <b>AI Readiness Sprint</b>: approved tools and rules your team follows<em class="eta">10 business days · from [PRICE]</em></span><i>→</i></a></li>
+      <li><a href="/try/#cash"><q>I don't know if I'll have enough cash next month.</q><span>→ <b>13-week cash forecast</b><em class="eta">Typically 1 to 2 weeks</em></span><i>→</i></a></li>
+      <li><a href="/services/quick-wins/"><q>I'm a sole trader. Admin eats my evenings.</q><span>→ <b>Quick wins</b>: the repetitive admin, handled<em class="eta">Typically days</em></span><i>→</i></a></li>
+      <li><a href="/try/#late"><q>I spend every week chasing money.</q><span>→ <b>Get paid without chasing</b><em class="eta">Typically days</em></span><i>→</i></a></li>
+      <li><a href="/industries/trades/"><q>I don't know which jobs actually make money.</q><span>→ <b>Profit by job, client or service</b><em class="eta">Typically 2 to 3 weeks</em></span><i>→</i></a></li>
+      <li><a href="/try/#hours"><q>Month-end eats a week.</q><span>→ <b>Reconciliations and checks automated</b><em class="eta">Typically 2 to 4 weeks</em></span><i>→</i></a></li>
+      <li><a href="/services/ai-readiness-sprint/"><q>We don't know which AI to use, or if it's safe.</q><span>→ <b>AI Readiness Sprint</b>: approved tools and rules your team follows<em class="eta">10 business days</em></span><i>→</i></a></li>
     </ul>
     <p style="margin-top:18px"><a class="btn" href="/services/">All services</a></p>
   </div>
@@ -136,16 +136,6 @@ def home():
       <div><b>The test</b><p>Eight sample bills: four ready to pay ($5,468) and four held for a person ($26,375), each for the right reason.</p></div>
     </div>
     <p style="margin-top:18px"><a class="btn" href="/try/#bills">Run it yourself</a> <a class="btn" href="/examples/">See more examples</a></p>
-  </div>
-</section>
-
-<section id="results">
-  <div class="wrap">
-    <h2>Client results</h2>
-    <div class="placeholder">
-      <p><b>[CLIENT PROOF – TO ADD]</b></p>
-      <p>Quote: [CLIENT QUOTE – TO ADD]<br>Name, role, business: [TO ADD, with written permission]<br>Result: [MEASURED BEFORE AND AFTER – TO ADD]</p>
-    </div>
   </div>
 </section>
 
