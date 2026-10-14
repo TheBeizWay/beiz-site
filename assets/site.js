@@ -547,3 +547,129 @@
     $("#dHrsSend").onclick = () => send("Automation & AI agents", hrs.dataset.summary + "\n\nWhere would you start?");
   }
 })();
+
+/* ---------- Homepage: agent console (sample business), live pipeline strip, lazy videos ---------- */
+(function () {
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const wait = ms => new Promise(r => setTimeout(r, reduce ? 0 : ms));
+  const clock = () => new Date().toLocaleTimeString("en-AU", { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false });
+
+  /* Agent console */
+  const con = $("#console");
+  if (con) {
+    const STEPS = {
+      cash: ["Reading the bank feed: 1,284 transactions", "Adding bills due and expected receipts", "Projecting 13 weeks", "1 issue found"],
+      margin: ["Matching 46 jobs to timesheets and costs", "Comparing actuals to quotes", "2 jobs below cost"],
+      collect: ["Scoring 112 customers on how they pay", "Comparing to the last 6 months", "1 customer drifting late"],
+      risk: ["Checking bank-detail changes and approval limits", "Looking for finished work not yet billed", "2 items held"]
+    };
+    const BRIEF = [
+      { ag: "Cash", h: "Cash dips to $8,400 in week 7.", why: "The quarterly tax payment ($14,200) and the van lease ($6,800) land in the same week. Your buffer is $20,000.", act: "Move $15,000 from the business saver in week 6.", ok: "Approved. Transfer scheduled for week 6, waiting on your bank's two-step confirmation.", no: "Overruled. Logged. The agent will flag it again if the gap widens." },
+      { ag: "Margin", h: "Two jobs are losing money.", why: "Kingston fit-out: labour 38% over quote, margin −6%. Belconnen service contract: 14 call-outs outside the contract, margin −2%.", act: "Add both to Thursday's job review and re-price the service contract before it renews on 1 December.", ok: "Approved. Added to Thursday's review with the job sheets attached.", no: "Overruled. Logged with your note for the job review." },
+      { ag: "Collections", h: "Northside Builders is paying later every month.", why: "Average days to pay: 21 in July, 33 in August, 44 in September. $22,300 outstanding.", act: "Send the firm reminder the agent drafted. It won't go without your say-so.", ok: "Approved. Reminder sent from your address at " , no: "Overruled. Nothing sent. Logged." },
+      { ag: "Risk", h: "A supplier's bank details changed by email.", why: "The request came from sparky-supplies.co. Your supplier's real domain is sparkysupplies.com.au. A $9,860 payment is on hold.", act: "Keep the hold and call the supplier on the number you already have.", ok: "Approved. Payment stays held. Reminder set to call the supplier.", no: "Overruled. Payment still held: changed bank details always need a phone check under your rules." },
+      { ag: "Unbilled work", h: "$4,920 of finished work hasn't been billed.", why: "41 hours logged in the job app against 6 finished jobs with no invoice raised.", act: "Prepare the six draft invoices for you to check before anything goes out.", ok: "Approved. Six drafts ready in Xero for your review.", no: "Overruled. Logged for the month-end review." }
+    ];
+    const brief = $(".con-brief", con), audit = $(".con-audit ol", con), count = $(".con-count", con), btn = $(".con-run", con);
+    let running = false, decided = 0, t0 = 0;
+    const log = (who, text) => { const li = document.createElement("li"); li.innerHTML = `<time>${clock()}</time> <b>${who}</b> ${text}`; audit.appendChild(li); };
+    const setCount = () => { count.textContent = `${decided} of ${BRIEF.length} decided`; };
+    async function runAgent(k) {
+      const el = $(`[data-ag="${k}"]`, con), line = $(".ag-line", el), bar = $(".ag-bar i", el);
+      el.classList.add("on");
+      const st = STEPS[k];
+      for (let i = 0; i < st.length; i++) {
+        line.textContent = st[i];
+        bar.style.width = Math.round(((i + 1) / st.length) * 100) + "%";
+        await wait(650 + Math.random() * 500);
+      }
+      el.classList.remove("on"); el.classList.add("done");
+      log(el.querySelector("b").textContent, st[st.length - 1].toLowerCase());
+    }
+    function card(b, i) {
+      const d = document.createElement("article");
+      d.className = "bc";
+      d.innerHTML = `<span class="bc-tag">${b.ag}</span><h3>${b.h}</h3><p class="bc-act"><b>Proposed:</b> ${b.act}</p>
+        <div class="bc-why" hidden><b>Evidence:</b> ${b.why}</div>
+        <div class="bc-btns"><button type="button" data-a="ok">Approve</button><button type="button" data-a="no">Overrule</button><button type="button" data-a="why" class="ghost">Why?</button></div>`;
+      d.addEventListener("click", e => {
+        const a = e.target.closest("button")?.dataset.a; if (!a) return;
+        if (a === "why") { const w = $(".bc-why", d); w.hidden = !w.hidden; if (!w.hidden) log("You", `asked for the evidence on "${b.h}"`); return; }
+        const msg = a === "ok" ? (b.ag === "Collections" ? b.ok + clock() + "." : b.ok) : b.no;
+        $(".bc-btns", d).outerHTML = `<p class="bc-res ${a}">${msg}</p>`;
+        d.classList.add(a === "ok" ? "is-ok" : "is-no");
+        log("You", (a === "ok" ? "approved: " : "overruled: ") + b.h);
+        decided++; setCount();
+        const nx = $(".bc:not(.is-ok):not(.is-no)", brief);
+        if (nx && brief.scrollHeight > brief.clientHeight + 4) brief.scrollTo({ top: nx.offsetTop - 6, behavior: reduce ? "auto" : "smooth" });
+        if (decided === BRIEF.length) {
+          const secs = Math.round((Date.now() - t0) / 1000);
+          const end = document.createElement("div");
+          end.className = "bc-end";
+          end.innerHTML = `<b>Five decisions in ${secs < 90 ? secs + " seconds" : Math.round(secs / 60) + " minutes"}. Nothing ran without you.</b> Every step is in the audit trail below. <a href="/contact/?topic=Discovery%20call#form">Want this on your own numbers?</a>`;
+          brief.appendChild(end);
+          $(".con-audit", con).open = true;
+        }
+      });
+      return d;
+    }
+    async function run() {
+      if (running) return; running = true;
+      decided = 0; setCount(); audit.innerHTML = ""; brief.innerHTML = '<p class="con-hint">Agents are reading the books…</p>';
+      $$(".ag", con).forEach(a => { a.classList.remove("done", "on"); $(".ag-line", a).textContent = "Waiting"; $(".ag-bar i", a).style.width = "0"; });
+      btn.disabled = true; btn.textContent = "Running…";
+      log("System", "briefing started on sample data");
+      await Promise.all(Object.keys(STEPS).map((k, i) => wait(i * 250).then(() => runAgent(k))));
+      brief.innerHTML = "";
+      for (let i = 0; i < BRIEF.length; i++) { const c = card(BRIEF[i], i); brief.appendChild(c); requestAnimationFrame(() => c.classList.add("in")); await wait(220); }
+      log("System", "5 items need a decision. Nothing actioned yet.");
+      t0 = Date.now(); btn.disabled = false; btn.textContent = "Run again"; running = false;
+    }
+    btn.addEventListener("click", run);
+    $$("[data-run-console]").forEach(a => a.addEventListener("click", e => { e.preventDefault(); con.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" }); run(); }));
+    // Start once, the first time the console comes into view
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(es => { if (es.some(x => x.isIntersecting)) { io.disconnect(); setTimeout(run, 700); } }, { threshold: .5 });
+      io.observe(con);
+    }
+  }
+
+  /* Live pipeline strip: real run record written by the scheduled job */
+  const pipe = $("#pipeline");
+  if (pipe) {
+    const ago = iso => {
+      const s = Math.max(0, Math.round((Date.now() - Date.parse(iso)) / 1000));
+      if (s < 60) return s + "s ago";
+      const m = Math.floor(s / 60); if (m < 60) return m + " min ago";
+      const h = Math.floor(m / 60); if (h < 48) return h + " h " + (m % 60) + " min ago";
+      return Math.floor(h / 24) + " days ago";
+    };
+    fetch("/data/markets.json", { cache: "no-store" }).then(r => r.json()).then(d => {
+      const run = d.run; const el = k => $(`[data-pipe-${k}]`, pipe);
+      if (!run) { el("ago").textContent = "not yet recorded"; return; }
+      const tick = () => { el("ago").textContent = ago(run.at); el("ago").title = new Date(run.at).toLocaleString("en-AU"); };
+      tick(); setInterval(tick, 1000);
+      el("src").textContent = run.sources.filter(x => x.ok).length + " of " + run.sources.length;
+      el("chk").textContent = run.checks.filter(x => x.pass).length + " of " + run.checks.length;
+      el("held").textContent = run.held.length ? run.held.length + " item" + (run.held.length > 1 ? "s" : "") : "nothing";
+      if (run.held.length) el("held").classList.add("warn");
+      el("checks").innerHTML = run.checks.map(c => `<li class="${c.pass ? "p" : "f"}">${c.pass ? "✓" : "✗"} ${c.name}</li>`).join("") +
+        run.held.map(h => `<li class="f">Held: ${h.item}. ${h.reason}</li>`).join("");
+      el("log").textContent = (d.log || []).map(l => new Date(l.at).toLocaleString("en-AU", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }) + ` (${l.checks} checks, ${l.held} held)`).join(" · ");
+      pipe.classList.add("ready");
+    }).catch(() => { const b = $("[data-pipe-ago]", pipe); if (b) b.textContent = "unavailable right now"; });
+  }
+
+  /* Videos: load and play only when on screen */
+  const vids = $$("#watch video[data-src]");
+  if (vids.length && "IntersectionObserver" in window) {
+    const vo = new IntersectionObserver(es => es.forEach(e => {
+      const v = e.target;
+      if (e.isIntersecting) { if (!v.src) v.src = v.dataset.src; if (!reduce) v.play().catch(() => {}); }
+      else if (v.src) v.pause();
+    }), { threshold: .4 });
+    vids.forEach(v => vo.observe(v));
+  } else vids.forEach(v => { v.src = v.dataset.src; v.controls = true; });
+})();

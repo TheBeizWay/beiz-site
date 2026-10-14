@@ -2,6 +2,7 @@
 import json
 from layout import (SITE, page, phero, related, cta_band, contact_form, SERVICES, INDUSTRIES, CALL_HREF, CALL_ATTR)
 from charts import cash13, job_margins, runway, runway_facts
+from agents import CONSOLE, PIPELINE, WIRING, WATCH
 
 PAGES = {}
 
@@ -59,21 +60,22 @@ def home():
     body = f'''<section class="hero" id="top">
   <div class="wrap hero2">
     <div>
-      <p class="eyebrow">For small businesses running on accounting software, a job app and spreadsheets</p>
-      <h1>Your numbers, sorted. Your admin, automated.</h1>
-      <p class="lede">Set up by a Chartered Accountant. We connect your accounting, bank and job systems, automate the repetitive work, and put approval controls on payments, sensitive changes and anything your customers see. AI and automation, set up properly.</p>
+      <p class="eyebrow">For businesses too big for spreadsheets and too small for a CFO</p>
+      <h1>AI agents run your numbers. A Chartered Accountant answers for them.</h1>
+      <p class="lede">Agents connected to your bank, accounting software and job systems watch cash, margins, collections and risk, then brief you on what needs a decision. Nothing that moves money, reaches a customer or decides something about a person happens without your approval.</p>
       <div class="cta">
         <a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Request a 20-minute call</a>
-        <a class="textlink" href="/try/">Try the demo</a>
+        <a class="textlink" href="#console" data-run-console>Run the agents yourself</a>
       </div>
       <ul class="hero-ticks"><li>Fixed price, in writing, before we start</li><li>Built in your own accounts. You own it.</li><li>Independent: no software of our own to sell</li></ul>
     </div>
-    <figure class="vid">
-      <video src="/assets/media/bill-check-demo.mp4?v=43" poster="/assets/media/bill-check-demo.jpg?v=43" autoplay muted loop playsinline preload="metadata" aria-label="Screen recording: an agent checks eight supplier bills, approves four and holds four for a person, each with a reason"></video>
-      <figcaption><b>An agent checking supplier bills.</b> Four ready to pay, four held for a person: over the limit, a likely duplicate, changed bank details, a price jump. <a href="/try/#bills">Try it yourself</a></figcaption>
-    </figure>
+    {CONSOLE}
   </div>
 </section>
+
+{PIPELINE}
+
+{WIRING}
 
 <section id="fix">
   <div class="wrap">
@@ -82,8 +84,8 @@ def home():
     <p class="lede">Each one is a fixed-price piece of work with a result you can see.</p>
     <ul class="fix fixgrid">
       <li><a href="/try/#cash"><q>I don't know if I'll have enough cash next month.</q><span>→ <b>13-week cash forecast</b><em class="eta">Typically 1 to 2 weeks · from [PRICE]</em></span><i>→</i></a></li>
-      <li><a href="/services/quick-wins/"><q>I'm a sole trader. Admin eats my evenings.</q><span>→ <b>Quick wins</b>: invoices, receipts and reminders that run themselves<em class="eta">Typically days · from [PRICE]</em></span><i>→</i></a></li>
-      <li><a href="/try/#late"><q>I spend every week chasing money.</q><span>→ <b>Invoices that chase themselves</b><em class="eta">Typically days · from [PRICE]</em></span><i>→</i></a></li>
+      <li><a href="/services/quick-wins/"><q>I'm a sole trader. Admin eats my evenings.</q><span>→ <b>Quick wins</b>: the repetitive admin, handled<em class="eta">Typically days · from [PRICE]</em></span><i>→</i></a></li>
+      <li><a href="/try/#late"><q>I spend every week chasing money.</q><span>→ <b>Get paid without chasing</b><em class="eta">Typically days · from [PRICE]</em></span><i>→</i></a></li>
       <li><a href="/industries/trades/"><q>I don't know which jobs actually make money.</q><span>→ <b>Profit by job, client or service</b><em class="eta">Typically 2 to 3 weeks · from [PRICE]</em></span><i>→</i></a></li>
       <li><a href="/try/#hours"><q>Month-end eats a week.</q><span>→ <b>Reconciliations and checks automated</b><em class="eta">Typically 2 to 4 weeks · from [PRICE]</em></span><i>→</i></a></li>
       <li><a href="/services/ai-readiness-sprint/"><q>We don't know which AI to use, or if it's safe.</q><span>→ <b>AI Readiness Sprint</b>: approved tools and rules your team follows<em class="eta">10 business days · from [PRICE]</em></span><i>→</i></a></li>
@@ -92,6 +94,8 @@ def home():
   </div>
 </section>
 
+{WATCH}
+
 <section id="why-not" class="band">
   <div class="wrap">
     <h2>Why not just use ChatGPT and Xero?</h2>
@@ -99,7 +103,7 @@ def home():
     <ul class="whynot">
       <li><b>AI drafts. Someone accountable designs the controls.</b><span>A chatbot will write a payment rule in seconds. It won't decide your approval limits, who can change bank details, or what happens when a bill looks like a duplicate. In the supplier-bill demo, four of eight bills are held for a person, each with the reason written down: over the limit, a likely duplicate, new bank details, a price jump.</span></li>
       <li><b>Connected end to end, tested on your data.</b><span>Xero keeps the books. The work is getting the inbox, the job app, the bank and Xero to agree, then testing the whole thing against your own bills and invoices before you rely on it.</span></li>
-      <li><b>Numbers your bank and board can rely on.</b><span>Anything that goes to your bank or board is reconciled back to the source and signed off by a Chartered Accountant.</span></li>
+      <li><b>Numbers your bank and board can rely on.</b><span>Anything that goes to your bank or board is reconciled back to the source and reviewed by a Chartered Accountant, with the evidence, assumptions and limits written down. It's a commercial review, not an audit.</span></li>
     </ul>
     <p style="margin-top:16px"><a class="textlink" href="/try/#bills">Run the supplier-bill demo</a></p>
   </div>
@@ -156,7 +160,7 @@ def home():
     <p class="eyebrow">How it works</p>
     <h2>Talk it through. Get it in writing.</h2>
     <ol class="steps">
-      <li><h3>Talk or write</h3><p>A free 20-minute discovery call, or a few lines in the form. You'll come away knowing what's worth automating, roughly what it costs, and whether we're the right fit. If we're not, we'll say so.</p></li>
+      <li><h3>Talk or write</h3><p>A free 20-minute discovery call, or a few lines in the form. You'll come away knowing where the gaps are, roughly what fixing them costs, and whether we're the right fit. If we're not, we'll say so.</p></li>
       <li><h3>Written proposal</h3><p>Fixed price, scope and timeline within three business days.</p></li>
       <li><h3>Build with updates</h3><p>Weekly written notes and a working demo you can click.</p></li>
       <li><h3>Handover pack</h3><p>Documentation, controls and training. Your team owns it.</p></li>
