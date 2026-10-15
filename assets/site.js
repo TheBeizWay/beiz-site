@@ -136,6 +136,8 @@
     if (!track) return;
     const html = items.map(i => `<span>${i}</span>`).join("");
     track.innerHTML = reduce ? html : html + html;
+    // Constant, readable speed (~32px a second) however long the feed is
+    if (!reduce) requestAnimationFrame(() => { track.style.animationDuration = Math.max(60, Math.round(track.scrollWidth / 2 / 32)) + "s"; });
   };
   renderTicker(base);
 

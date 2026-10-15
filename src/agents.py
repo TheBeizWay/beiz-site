@@ -239,7 +239,7 @@ AGENT_TEAM = ('<figure class="team" id="team" aria-label="Animated illustration:
   '<path d="M0 -44 L36 -30 V2 C36 26 19 40 0 48 C-19 40 -36 26 -36 2 V-30 Z" class="shield"/>'
   '<path d="M-13 2 l9 9 18 -20" class="shield-tick"/></g>'
   '<text x="320" y="350" text-anchor="middle" class="core-world">YOUR HUMAN IN THE LOOP</text>'
-  '<text x="320" y="372" text-anchor="middle" class="core-name">CA · GAICD · data &amp; AI</text>'
+  '<text x="320" y="372" text-anchor="middle" class="core-name">CA · data &amp; AI</text>'
   + "".join(_agent4(x, y, k, n, w, ic, -66 if y < 200 else 72) for x, y, k, n, w, ic in _NODES) +
   '</svg>'
   '<div class="team-feed" aria-live="polite"><span class="tf-dot"></span><span id="teamFeed">Data scientist agent: 13-week forecast refreshed from your ledger and bank feed</span></div>'
