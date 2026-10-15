@@ -2,7 +2,7 @@
 import json
 from layout import (SITE, page, phero, related, cta_band, contact_form, SERVICES, INDUSTRIES, CALL_HREF, CALL_ATTR)
 from charts import cash13, job_margins, runway, runway_facts
-from agents import CONSOLE, PIPELINE, WIRING, WATCH
+from agents import CONSOLE, PIPELINE, WIRING, WATCH, FLOW, WATCH_HOME
 
 PAGES = {}
 
@@ -62,39 +62,39 @@ def home():
   <div class="hgrid">
   <div>
     <div class="who-strip"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="" width="56" height="56"><p><b>Purav Mehta</b> — Chartered Accountant (CA, CPP) · GAICD<br><span>Canberra, working Australia-wide</span></p></div>
-    <h1>Your tax accountant files the past. I build what runs your next twelve months.</h1>
-    <p class="sub">Cash, margins and job profit you can see every week. AI agents your team actually uses, with a person approving anything that moves money or reaches a customer. Designed, built and checked by one Chartered Accountant.</p>
-    <div class="ctas"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-Min Call</a><a class="btn" href="#pricing">See fixed prices</a></div>
+    <h1>Know your cash and job profit every week. Let AI handle the admin.</h1>
+    <p class="sub">I build cash models, profit reporting and AI workflows for Australian businesses, inside the tools you already use. A person approves anything that touches money or customers. Fixed prices from $1,500.</p>
+    <div class="ctas"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-Min Call</a><a class="btn" href="#demo">See it working</a></div>
   </div>
-  <div class="frame brief" id="hxConsole">
-    <div class="con-h"><span><b>Monday briefing</b> · sample data, made-up business</span><span class="mono" id="clock"></span></div>
-    <div class="tabs" role="tablist" aria-label="Demo views">
-      <button role="tab" aria-selected="true" data-m="bills">Supplier bills</button>
-      <button role="tab" aria-selected="false" data-m="time">Unbilled time</button>
-      <button role="tab" aria-selected="false" data-m="cash">Cash, 13 weeks</button>
-    </div>
-    <div class="pane" id="hxPane" aria-live="polite"></div>
-    <div class="con-sum" id="hxFoot"></div>
-  </div>
+  {FLOW}
   </div>
   <div class="offers" id="offers">
-    <a class="offer" href="#check"><span class="n">01</span><h3>Two-week cash &amp; data check</h3><span class="p mono">$1,500 fixed</span><p>From your Xero and job or timesheet exports, I find unbilled work, margin leaks and manual bottlenecks.</p></a>
-    <a class="offer" href="#model"><span class="n">02</span><h3>Live cash &amp; job profit model</h3><span class="p mono">from $5,000</span><p>A 13-week rolling cash flow and weekly job profitability your team can actually read.</p></a>
-    <a class="offer" href="#ai"><span class="n">03</span><h3>Controlled AI workflows</h3><span class="p mono">from $6,000</span><p>Practical automation for supplier bills, quotes and admin, where a person approves anything touching money or customers.</p></a>
+    <a class="offer" href="#check"><span class="n">01 · Start here</span><h3>Two-week cash &amp; data check</h3><span class="p mono">$1,500 fixed</span><p>From your Xero and job or timesheet exports, I find unbilled work, margin leaks and manual bottlenecks.</p></a>
+    <a class="offer" href="#model"><span class="n">02 · Numbers</span><h3>Live cash &amp; job profit model</h3><span class="p mono">from $5,000</span><p>A 13-week rolling cash flow and weekly job profitability your team can actually read.</p></a>
+    <a class="offer" href="#ai"><span class="n">03 · AI</span><h3>Controlled AI workflows</h3><span class="p mono">from $6,000</span><p>Practical automation for supplier bills, quotes and admin, where a person approves anything touching money or customers.</p></a>
   </div>
 </div></section>
 
-<section class="sec plain" id="vs"><div class="wrap">
-  <div class="label">Not another tax accountant</div>
-  <h2>Keep your tax accountant. Bring me in for the rest.</h2>
-  <p class="lede">I don't do tax returns, BAS or audit, so I'm no threat to the accountant you already trust. I work on the parts of the business they usually aren't asked about.</p>
-  <div class="matrix">
-    <div class="hd c"></div><div class="hd">Your tax accountant</div><div class="hd b">Beiz</div>
-    <div class="k">Looks at</div><div class="t">Last year</div><div class="z">The next 13 weeks to 3 years</div>
-    <div class="k">Answers</div><div class="t">What did we earn? What do we owe the ATO?</div><div class="z">Which jobs make money? Can we afford to hire? What happens if a big client pays late?</div>
-    <div class="k">AI</div><div class="t">Not usually asked to set it up</div><div class="z">Sets up agents your staff use, with rules and your approval built in</div>
-    <div class="k">Rhythm</div><div class="t">Once a year, plus BAS</div><div class="z">A fixed-price project, then a monthly check if you want one</div>
+<section class="sec plain" id="demo"><div class="wrap">
+  <div class="dgrid">
+    <div>
+      <div class="label">See it working</div>
+      <h2>Your Monday briefing, before you've opened Xero.</h2>
+      <p class="lede">This is a made-up 18-person business. Code checks the bills, the hours and the cash. Anything risky waits for the owner. Try it: approve or hold the two flagged bills.</p>
+      <ul class="dpoints"><li><b>Verified</b> bills are matched to the order and the delivery.</li><li><b>Held</b> bills come with the reason, in plain English.</li><li><b>Nothing</b> is paid or sent without a person saying yes.</li></ul>
+    </div>
+    <div class="frame brief" id="hxConsole">
+      <div class="con-h"><span><b>Monday briefing</b> · sample data</span><span class="mono" id="clock"></span></div>
+      <div class="tabs" role="tablist" aria-label="Demo views">
+        <button role="tab" aria-selected="true" data-m="bills">Supplier bills</button>
+        <button role="tab" aria-selected="false" data-m="time">Unbilled time</button>
+        <button role="tab" aria-selected="false" data-m="cash">Cash, 13 weeks</button>
+      </div>
+      <div class="pane" id="hxPane" aria-live="polite"></div>
+      <div class="con-sum" id="hxFoot"></div>
+    </div>
   </div>
+  {WATCH_HOME}
 </div></section>
 
 <section class="sec" id="built"><div class="wrap">
@@ -145,7 +145,7 @@ def home():
   <div class="label">Straight answers</div>
   <h2>What I don't do.</h2>
   <ul class="dont">
-    <li><b>Tax returns, BAS or audit.</b>Keep your tax accountant and auditor. I'll work alongside them.</li>
+    <li><b>Tax returns, BAS or audit.</b>Your accountant keeps that work. I work alongside them, and I'm happy to share what I find.</li>
     <li><b>Lock you in.</b>Everything is built in your accounts and handed over.</li>
     <li><b>Let AI decide on its own.</b>Anything that moves money, reaches a customer or affects a person needs a human yes.</li>
   </ul>
@@ -153,7 +153,7 @@ def home():
 </div>
 {contact_form(heading="What are you trying to fix?", lede="A few lines is plenty. You'll get a written reply by the next business day. Rather talk? Pick “Discovery call” and I'll arrange a free 20 minutes, early morning or after 5pm.")}'''
     add("/", "Beiz Data & Accounting | Chartered Accountant for cash, models and AI agents",
-        "Purav Mehta CA, GAICD. Keep your tax accountant: I build 13-week cash models, job profit reporting and controlled AI workflows for Australian businesses. Fixed prices from $1,500.", body)
+        "Purav Mehta CA, GAICD builds 13-week cash models, weekly job profit reporting and controlled AI workflows for Australian businesses. Fixed prices from $1,500.", body)
 
 
 # ------------------------------------------------------------------ services
@@ -561,7 +561,7 @@ def examples():
                  "Every example here uses a made-up business and made-up numbers. What's real is the format: this is what lands in your inbox or on your screen. How it's built is what you're paying for, so that part stays with us.",
                  [("/examples/", "Examples")]) + f'''<section style="padding-top:8px"><div class="wrap">
 
-<figure class="vid" style="max-width:760px;margin-bottom:28px"><video src="/assets/media/cash-forecast-demo.mp4?v=43" poster="/assets/media/cash-forecast-demo.jpg?v=43" autoplay muted loop playsinline preload="none" aria-label="Screen recording: a 13-week cash forecast redraws as a large bill moves between weeks"></video><figcaption><b>A 13-week cash forecast.</b> Move one big bill and see which week drops below your buffer. <a href="/try/#cash">Try it with your numbers</a></figcaption></figure>
+<figure class="vid" style="max-width:760px;margin-bottom:28px"><video src="/assets/media/cash-forecast-dark.mp4?v=60" poster="/assets/media/cash-forecast-dark.jpg?v=60" autoplay muted loop playsinline preload="none" aria-label="Screen recording: a 13-week cash forecast redraws as a large bill moves between weeks"></video><figcaption><b>A 13-week cash forecast.</b> Move one big bill and see which week drops below your buffer. <a href="/try/#cash">Try it with your numbers</a></figcaption></figure>
 
 <div class="ex"><div class="exh"><b>1. The Monday cash email</b><span>Sample · fictional joinery business</span></div>
 <div class="exb"><div class="mail"><div class="mh">From: Beiz reports · To: Sam · Monday 6:00am<br><b>Subject: Cash this week: $42,000 in the bank, one thing to watch</b></div>

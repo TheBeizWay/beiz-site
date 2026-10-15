@@ -95,11 +95,11 @@ WIRING = '''<section id="wiring" class="band">
   </div>
 </section>'''
 
-_V = "?v=44"
+_V = "?v=60"
 _VIDS = [
-    ("cash-forecast-demo", "13 weeks of cash, ahead.", "Add one big bill and watch the buffer break before it happens."),
-    ("bill-check-demo", "Controls on money going out.", "Eight payments checked. Four held for a person, each with the reason."),
-    ("how-beiz-adds-value-3", "Rules an accountant sets.", "How the controls layer decides what runs and what waits."),
+    ("briefing-demo", "The Monday briefing.", "Bills checked, two held for the owner, the owner decides."),
+    ("cash-forecast-dark", "13 weeks of cash, ahead.", "Add one big bill and watch the buffer break before it happens."),
+    ("bill-check-dark", "Controls on money going out.", "Eight payments checked. Four held for a person, each with the reason."),
 ]
 WATCH = '''<section id="watch">
   <div class="wrap">
@@ -111,3 +111,75 @@ WATCH = '''<section id="watch">
     <p style="margin-top:16px"><a class="textlink" href="/try/">Try the demos with your own numbers</a></p>
   </div>
 </section>'''
+
+
+# ---------------------------------------------------------------- hero flow diagram (v17)
+_FIN = [("Xero or MYOB", "Your ledger"), ("Job &amp; timesheets", "Hours and quotes"), ("Bank feed", "Cash in and out"), ("Bills inbox", "Supplier invoices")]
+_FOUT = [("13-week cash", "Every Monday"), ("Profit by job", "Every week"), ("Bills to approve", "Only the risky ones"), ("Drafted emails", "You press send")]
+
+
+def _flow_desktop():
+    ys = [40, 136, 232, 328]
+    h = 60
+    s = ['<svg class="flow flow-d" viewBox="0 0 600 400" role="img" aria-labelledby="flowT"><title id="flowT">Your systems flow into Beiz, where code checks the numbers, AI drafts, and you approve. Out come a 13-week cash view, profit by job, bills to approve and drafted emails.</title>']
+    s.append('<text class="fl-h" x="0" y="18">YOUR SYSTEMS</text><text class="fl-h" x="300" y="18" text-anchor="middle">BEIZ</text><text class="fl-h" x="600" y="18" text-anchor="end">WHAT YOU GET</text>')
+    cy = 220
+    for i, y in enumerate(ys):
+        c = y + h / 2
+        s.append(f'<path id="fi{i}" class="fl-l" d="M150,{c} C195,{c} 190,{cy} 228,{cy}"/>')
+        s.append(f'<path id="fo{i}" class="fl-l" d="M382,{cy} C415,{cy} 405,{c} 450,{c}"/>')
+    for i, y in enumerate(ys):
+        t, sub = _FIN[i]
+        s.append(f'<g class="fl-n"><rect x="0" y="{y}" width="150" height="{h}" rx="6"/><text x="14" y="{y+26}" class="fl-t">{t}</text><text x="14" y="{y+45}" class="fl-s">{sub}</text></g>')
+        t, sub = _FOUT[i]
+        s.append(f'<g class="fl-n fl-out"><rect x="450" y="{y}" width="150" height="{h}" rx="6"/><text x="464" y="{y+26}" class="fl-t">{t}</text><text x="464" y="{y+45}" class="fl-s">{sub}</text></g>')
+    s.append(f'<g class="fl-core"><rect x="218" y="{cy-96}" width="164" height="192" rx="8"/>'
+             f'<text x="300" y="{cy-60}" text-anchor="middle" class="fl-t">Checks &amp; agents</text>'
+             f'<circle cx="236" cy="{cy-24}" r="5" class="fl-ok"/><text x="248" y="{cy-20}" class="fl-s2">Code checks numbers</text>'
+             f'<circle cx="236" cy="{cy+8}" r="5" class="fl-ai"/><text x="248" y="{cy+12}" class="fl-s2">AI drafts the work</text>'
+             f'<circle cx="236" cy="{cy+40}" r="5" class="fl-gate"/><text x="248" y="{cy+44}" class="fl-s2">You approve</text>'
+             f'<text x="300" y="{cy+78}" text-anchor="middle" class="fl-s">Built in your accounts</text></g>')
+    for i in range(4):
+        s.append(f'<circle r="3.5" class="fl-dot"><animateMotion dur="2.6s" begin="-{i*0.55:.2f}s" repeatCount="indefinite"><mpath href="#fi{i}"/></animateMotion></circle>')
+        s.append(f'<circle r="3.5" class="fl-dot o"><animateMotion dur="2.6s" begin="-{(1.3+i*0.55)%2.6:.2f}s" repeatCount="indefinite"><mpath href="#fo{i}"/></animateMotion></circle>')
+    s.append('</svg>')
+    return "".join(s)
+
+
+def _flow_mobile():
+    s = ['<svg class="flow flow-m" viewBox="0 0 360 560" role="img" aria-labelledby="flowM"><title id="flowM">Your systems flow into Beiz, where code checks the numbers, AI drafts, and you approve. Out come a 13-week cash view, profit by job, bills to approve and drafted emails.</title>']
+    s.append('<text class="fl-h" x="0" y="14">YOUR SYSTEMS</text><text class="fl-h" x="0" y="402">WHAT YOU GET</text>')
+    boxes_in = [(0, 26), (184, 26), (0, 92), (184, 92)]
+    boxes_out = [(0, 414), (184, 414), (0, 480), (184, 480)]
+    w, h = 176, 56
+    core_top, core_bot = 196, 352
+    for i, (x, y) in enumerate(boxes_in[2:]):
+        cx = x + w / 2
+        s.append(f'<path id="mi{i}" class="fl-l" d="M{cx},{y+h} C{cx},{core_top-20} 180,{core_top-30} 180,{core_top}"/>')
+    for i, (x, y) in enumerate(boxes_out[:2]):
+        cx = x + w / 2
+        s.append(f'<path id="mo{i}" class="fl-l" d="M180,{core_bot} C180,{core_bot+30} {cx},{y-24} {cx},{y}"/>')
+    for i, (x, y) in enumerate(boxes_in):
+        t, sub = _FIN[i]
+        s.append(f'<g class="fl-n"><rect x="{x}" y="{y}" width="{w}" height="{h}" rx="6"/><text x="{x+12}" y="{y+24}" class="fl-t">{t}</text><text x="{x+12}" y="{y+42}" class="fl-s">{sub}</text></g>')
+    for i, (x, y) in enumerate(boxes_out):
+        t, sub = _FOUT[i]
+        s.append(f'<g class="fl-n fl-out"><rect x="{x}" y="{y}" width="{w}" height="{h}" rx="6"/><text x="{x+12}" y="{y+24}" class="fl-t">{t}</text><text x="{x+12}" y="{y+42}" class="fl-s">{sub}</text></g>')
+    s.append(f'<g class="fl-core"><rect x="60" y="{core_top}" width="240" height="{core_bot-core_top}" rx="8"/>'
+             f'<text x="180" y="{core_top+30}" text-anchor="middle" class="fl-t">Checks &amp; agents</text>'
+             f'<circle cx="90" cy="{core_top+62}" r="5" class="fl-ok"/><text x="104" y="{core_top+66}" class="fl-s2">Code checks numbers</text>'
+             f'<circle cx="90" cy="{core_top+92}" r="5" class="fl-ai"/><text x="104" y="{core_top+96}" class="fl-s2">AI drafts the work</text>'
+             f'<circle cx="90" cy="{core_top+122}" r="5" class="fl-gate"/><text x="104" y="{core_top+126}" class="fl-s2">You approve</text></g>')
+    for i in range(4):
+        s.append(f'<circle r="3.5" class="fl-dot"><animateMotion dur="2.4s" begin="-{i*0.6:.2f}s" repeatCount="indefinite"><mpath href="#mi{i%2}"/></animateMotion></circle>')
+        s.append(f'<circle r="3.5" class="fl-dot o"><animateMotion dur="2.4s" begin="-{(1.2+i*0.6)%2.4:.2f}s" repeatCount="indefinite"><mpath href="#mo{i%2}"/></animateMotion></circle>')
+    s.append('</svg>')
+    return "".join(s)
+
+
+FLOW = '<figure class="flowfig">' + _flow_desktop() + _flow_mobile() + '<figcaption>Your systems in. Clear answers out. A person signs off anything that touches money or customers.</figcaption></figure>'
+
+
+WATCH_HOME = '<div class="watch hwatch">' + "".join(
+    f'<figure><video data-src="/assets/media/{f}.mp4{_V}" poster="/assets/media/{f}.jpg{_V}" muted loop playsinline preload="none" aria-label="{t} {c}"></video><figcaption><b>{t}</b> {c}</figcaption></figure>'
+    for f, t, c in _VIDS) + '</div><p style="margin-top:14px"><a class="textlink" href="/try/">Try the demos with your own numbers →</a></p>'

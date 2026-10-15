@@ -368,8 +368,12 @@
   if (bot && msgs && opts) {
     const openers = $$("[data-open-bot]");
     const flow = {
-      start: { say: ["Hi. I'm a guided assistant, not an AI. Three quick questions and I'll point you to the right starting place.", "What's on your mind?"],
-        opts: [["Using AI safely", "ai"], ["Small business admin", "sb"], ["Automating a finance process", "auto"], ["Dashboards & reporting", "dash"], ["A financial model or business case", "model"], ["A tech project that's stuck", "pm"], ["Not sure yet", "unsure"]] },
+      start: { say: ["Hi. I'm Purav's guided assistant. I'm not an AI, and nothing you click is stored.", "What would help most?"],
+        opts: [["Two-week cash & data check ($1,500)", "chk"], ["Cash & job profit model", "dash"], ["AI workflows for my team", "aiw"], ["A model for a big decision", "model"], ["Automating a finance process", "auto"], ["Using AI safely", "ai"], ["Not sure yet", "unsure"]] },
+      chk: { topic: "Two-week cash & data check", say: ["You send exports from Xero and your job or timesheet app. No logins needed.", "Within two weeks you get written findings (unbilled work, margin leaks, manual bottlenecks) with the records and arithmetic behind each one, plus a fixed-price next step.", "$1,500 fixed, credited if you go ahead."], next: "size" },
+      aiw: { topic: "Controlled AI workflows", say: ["Which job would you hand to AI first?"],
+        opts: [["Checking supplier bills", "a2"], ["Quotes and admin", "aiq"], ["Chasing payments", "sb1"], ["Staff already use ChatGPT or Copilot", "ai1"]] },
+      aiq: { topic: "Controlled AI workflows", say: ["Quotes and admin are good first jobs. AI drafts, and a person approves before anything reaches a customer.", "Controlled AI workflows start from $6,000, quoted in writing."], next: "size" },
       ai: { topic: "AI readiness & governance", say: ["Good place to start. Which is closest?"],
         opts: [["Staff already use ChatGPT or Copilot", "ai1"], ["The board is asking about AI risk", "ai2"], ["The new Privacy Act rules", "ai4"], ["We want to build our first agent", "ai3"]] },
       ai1: { topic: "AI team setup", say: ["That's the most common one. Free AI tools often mean business data leaving without anyone noticing.", "AI team setup finds what's already in use, sets simple rules people will follow, and builds two assistants your staff actually use."], next: "size" },
@@ -388,7 +392,7 @@
       sb2: { say: ["We connect your quotes or job system to your invoicing, so a finished job becomes an invoice the same day."], next: "size" },
       sb3: { say: ["A short weekly cash email (what's in the bank, what's owed, what's due) is one of the quickest wins there is."], next: "size" },
       sb4: { say: ["A Xero health check cleans up bank rules and duplicates and gets reconciliation back on track, then we keep it that way."], next: "size" },
-      dash: { topic: "Dashboards & analytics", say: ["What do you need to see that you can't see now?"],
+      dash: { topic: "Cash & job profit model", say: ["What do you need to see that you can't see now?"],
         opts: [["Cash position & forecast", "d1"], ["Job or project profitability", "d2"], ["Board or investor KPIs", "d3"]] },
       d1: { say: ["A 13-week cash forecast that refreshes itself is one of the most useful things a business can have. We build it from your actual data."], next: "size" },
       d2: { say: ["We pull costs, time and revenue together so you can see margin by job while there's still time to fix it."], next: "size" },
@@ -432,6 +436,23 @@
     }));
     bot.querySelector(".x").onclick = closeBot;
     document.addEventListener("keydown", e => { if (e.key === "Escape" && bot.classList.contains("open")) closeBot(); });
+    // Teaser: a small pop-up of the three ways to start, once per visit
+    const seen = () => { try { return sessionStorage.getItem("bzTease") === "1"; } catch (e) { return false; } };
+    const mark = () => { try { sessionStorage.setItem("bzTease", "1"); } catch (e) {} };
+    const tz = document.createElement("div");
+    tz.className = "bot-tease"; tz.setAttribute("role", "dialog"); tz.setAttribute("aria-label", "Ways Beiz can help");
+    tz.innerHTML = '<button class="tx" type="button" aria-label="Close">&times;</button><p>Hi, I\'m Purav. Here\'s how I can help.<small>Pick one and my guided assistant will walk you through it.</small></p><div class="tc">'
+      + [["chk", "Cash &amp; data check", "$1,500"], ["dash", "Cash &amp; job profit model", "from $5k"], ["aiw", "AI workflows", "from $6k"], ["start", "Something else", ""]]
+        .map(([k, l, p]) => `<button type="button" data-k="${k}">${l}<span>${p}</span></button>`).join("") + "</div>";
+    document.body.appendChild(tz);
+    const hideTz = () => { tz.classList.remove("show"); mark(); };
+    tz.querySelector(".tx").onclick = hideTz;
+    tz.querySelectorAll("[data-k]").forEach(b => b.onclick = () => {
+      hideTz(); bot.classList.add("open"); openers.forEach(x => x.setAttribute("aria-expanded", "true"));
+      msgs.innerHTML = ""; path = []; topic = "Something else"; add(b.textContent.replace(/\$.*$|from.*$/, "").trim(), "u"); step(b.dataset.k);
+    });
+    openers.forEach(o => o.addEventListener("click", hideTz));
+    if (!seen()) setTimeout(() => { if (!bot.classList.contains("open") && !document.body.classList.contains("menu-open")) tz.classList.add("show"); }, 6000);
   }
 })();
 
@@ -663,7 +684,7 @@
   }
 
   /* Videos: load and play only when on screen */
-  const vids = $$("#watch video[data-src]");
+  const vids = $$("video[data-src]");
   if (vids.length && "IntersectionObserver" in window) {
     const vo = new IntersectionObserver(es => es.forEach(e => {
       const v = e.target;
