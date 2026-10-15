@@ -381,7 +381,7 @@
     const flow = {
       start: { say: ["Hi, I'm Bei-zAI. How can I help?", "I'm a guided helper rather than a chatbot, so nothing you click is stored. Pick what's closest."],
         opts: [["Set up an AI workforce", "aiw"], ["Two-week cash & data check ($1,500)", "chk"], ["Cash & job profit model", "dash"], ["A model for a big decision", "model"], ["Automating a finance process", "auto"], ["Using AI safely", "ai"], ["The Bei-zAI story", "story"], ["Not sure yet", "unsure"]] },
-      story: { topic: "Discovery call", say: ["Beiz is named after Purav's chocolate-and-white Border Collie. The name comes from 贝仔 (bèi zǎi): little treasure.", "Collies are working dogs. They turn up every day, stay on the job until it's done, and nothing slips past them through the gate.", "That's the standard for every agent we build, and why there's a collie's ear in the B of our logo. We work hard for our clients because we love that dog."], opts: [["How can Beiz help me?", "start"], ["Book a 20-minute call", "go"]] },
+      story: { topic: "Discovery call", say: ["Bei-zAI is Beiz plus AI. Beiz is Purav's chocolate-and-white Border Collie, and the name comes from 贝仔 (bèi zǎi): little treasure.", "Collies are working dogs. They turn up every day, stay on the job until it's done, and nothing slips past them through the gate.", "That's the standard for every agent we build, and why there's a collie's ear in the B of our logo. We work hard for our clients because we love that dog."], opts: [["How can Beiz help me?", "start"], ["Book a 20-minute call", "go"]] },
       chk: { topic: "Two-week cash & data check", say: ["You send exports from Xero and your job or timesheet app. No logins needed.", "Within two weeks you get written findings (unbilled work, margin leaks, manual bottlenecks) with the records and arithmetic behind each one, plus a fixed-price next step.", "$1,500 fixed, credited if you go ahead."], next: "size" },
       aiw: { topic: "Controlled AI workflows", say: ["Which job would you hand to AI first?"],
         opts: [["Checking supplier bills", "a2"], ["Quotes and admin", "aiq"], ["Chasing payments", "sb1"], ["Staff already use ChatGPT or Copilot", "ai1"]] },
@@ -453,7 +453,7 @@
     const mark = () => { try { sessionStorage.setItem("bzTease", "1"); } catch (e) {} };
     const tz = document.createElement("div");
     tz.className = "bot-tease"; tz.setAttribute("role", "dialog"); tz.setAttribute("aria-label", "Ways Beiz can help");
-    tz.innerHTML = '<button class="tx" type="button" aria-label="Close">&times;</button><p>Hi, I\'m Bei-zAI. How can I help?<small>Named after our Border Collie. Pick one and I\'ll walk you through it.</small></p><div class="tc">'
+    tz.innerHTML = '<button class="tx" type="button" aria-label="Close">&times;</button><p>Hi, I\'m Bei-zAI. How can I help?<small>Bei-zAI is Beiz plus AI, named after our Border Collie. Pick one and I\'ll walk you through it.</small></p><div class="tc">'
       + [["aiw", "Set up an AI workforce", "from $6k"], ["chk", "Cash &amp; data check", "$1,500"], ["dash", "Cash &amp; job profit model", "from $5k"], ["story", "The Bei-zAI story", ""]]
         .map(([k, l, p]) => `<button type="button" data-k="${k}">${l}<span>${p}</span></button>`).join("") + "</div>";
     document.body.appendChild(tz);

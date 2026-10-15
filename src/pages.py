@@ -140,13 +140,13 @@ def home():
 </div></section>
 
 <section class="bz-sec alt" id="why"><div class="wrap">
-  <h2>One firm, four disciplines</h2>
-  <p class="lede">AI agencies can build but can't sign off the numbers. Accountants can sign off but rarely build. Beiz does both, under one name.</p>
+  <h2>The future finance team is already here. Beiz deploys it.</h2>
+  <p class="lede">Large companies are redesigning finance around people and AI agents working together, with each agent given a defined role and a human signing off. Beiz brings that model to Australian businesses that don't have a CFO, a data team or an AI team.</p>
   <div class="disc4">
-    <div><h3>Data</h3><p>Your systems joined, cleaned and reconciled, so every report starts from the same numbers.</p></div>
-    <div><h3>AI</h3><p>Agents that do the repetitive work, with clear limits on what each one can touch.</p></div>
-    <div><h3>Accounting</h3><p>Chartered Accountant judgement on cash, margins, models and controls.</p></div>
-    <div><h3>Governance</h3><p>Board-level thinking (GAICD) on risk, approvals and AI use policy.</p></div>
+    <div><h3>Future CFO view</h3><p>Cash, margins and decisions from live numbers, with a Chartered Accountant's judgement on what they mean.</p></div>
+    <div><h3>Agentic data scientist</h3><p>Agents that plan the analysis, run it and check it, instead of a spreadsheet nobody updates.</p></div>
+    <div><h3>AI workforce</h3><p>Agents with roles, job descriptions and limits, working alongside your people in your own systems.</p></div>
+    <div><h3>Governance</h3><p>An agent register, a decision log and sign-off that a board can follow (GAICD).</p></div>
   </div>
 </div></section>
 
