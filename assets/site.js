@@ -123,7 +123,7 @@
     T("risk", `<b>43%</b> of SMEs now use AI and <b>65%</b> of the rest want human control <a class="note" href="https://www.industry.gov.au/publications/ai-adoption-tracker" target="_blank" rel="noopener">NAIC 2026</a>. Every Beiz agent reports to a person.`),
     T("risk", `<b>19%</b> of SMEs using AI have none of the recommended responsible AI practices in place <a class="note" href="https://www.industry.gov.au/publications/ai-adoption-tracker" target="_blank" rel="noopener">NAIC, Q4 2025</a>. Who is accountable for yours?`),
     T("beiz", `Every agent we build has a job description, a delegation limit and a human it reports to.`),
-    T("demo", `Payables agent held a <b>$6,140</b> bill: bank details changed. Waiting for your yes.`),
+    T("demo", `Payables agent held a <b>$3,080</b> bill: 22 hours billed, 14 on the timesheet. Waiting for your yes.`),
     T("risk", `Only <b>about 1 in 2</b> SMEs check AI output before customers see it <a class="note" href="https://www.industry.gov.au/publications/ai-adoption-tracker" target="_blank" rel="noopener">NAIC</a>. Ours can't send without a human yes.`),
     T("beiz", `Built in your accounts. No lock-in. You own every agent.`),
     T("risk", `Nearly <b>60%</b> of Australian workers use AI tools their employer hasn't approved <a class="note" href="https://www.okta.com/en-au/newsroom/articles/ai-agents-at-work-2026-agentic-enterprise-security/" target="_blank" rel="noopener">Okta, 2026</a>. Do you know what yours paste in?`),
@@ -476,7 +476,7 @@
       hideTz(); bot.classList.add("open"); openers.forEach(x => x.setAttribute("aria-expanded", "true"));
       msgs.innerHTML = ""; path = []; topic = "Something else"; add(b.dataset.say || "I'm confused about AI", "u"); step(b.dataset.botStep);
     }));
-    if (!seen() && !matchMedia("(max-width: 760px)").matches) setTimeout(() => { if (!bot.classList.contains("open") && !document.body.classList.contains("menu-open")) tz.classList.add("show"); }, 6000);
+    if (!seen() && !matchMedia("(max-width: 760px)").matches && !document.getElementById("dlog")) setTimeout(() => { if (!bot.classList.contains("open") && !document.body.classList.contains("menu-open")) tz.classList.add("show"); }, 6000);
   }
 })();
 
@@ -793,7 +793,7 @@
   const bills = [
     { id: 'B-2201', s: 'Timber Co', a: 4380, st: 'ok', why: 'Matches PO-118 and the delivery docket' },
     { id: 'B-2202', s: 'Fixings Direct', a: 812.5, st: 'ok', why: 'Matches PO-121' },
-    { id: 'B-2203', s: 'Carlton Electrical', a: 6140, st: 'hold', why: 'Bank details changed since the last bill' },
+    { id: 'B-2203', s: 'Carlton Electrical', a: 3080, st: 'hold', why: 'Billed 22 hours on job 2208; the timesheet shows 14' },
     { id: 'B-2205', s: 'Office Supplies AU', a: 386.9, st: 'ok', why: 'Matches PO-124' },
     { id: 'B-2206', s: 'Metro Hire', a: 3540, st: 'hold', why: 'Rate $118 a day against $100 on PO-121' },
     { id: 'B-2207', s: 'Fuel Card', a: 1240.6, st: 'ok', why: 'Matches the statement' }
@@ -801,7 +801,7 @@
   const log = [
     ['08:00', 'Cash agent', 'Refreshed 13-week forecast from the ledger and bank feed', 'Agent, within limits'],
     ['08:02', 'Payables agent', 'Matched 4 bills to orders and deliveries ($6,820.00)', 'Agent, within limits'],
-    ['08:02', 'Payables agent', 'Held B-2203: bank details changed', 'Waiting for a person'],
+    ['08:02', 'Payables agent', 'Held B-2203: hours billed don\'t match the timesheet', 'Waiting for a person'],
     ['08:03', 'Payables agent', 'Held B-2206: rate 18% above the order', 'Waiting for a person'],
     ['08:05', 'Margin agent', 'Found 24 h on J101 logged but not billed ($4,320.00)', 'Waiting for a person']
   ];
@@ -1042,4 +1042,17 @@
   $("#wsBack").onclick = () => go(st.step - 1);
   $("#wsSteps").addEventListener("click", e => { const b = e.target.closest("[data-go]"); if (b) go(+b.dataset.go); });
   render();
+})();
+
+/* v29: hero decision log writes itself once, then stays (sample data) */
+(() => {
+  const dl = document.getElementById('dlog'); if (!dl) return;
+  const rows = [...dl.querySelectorAll('.dl-r')], cnt = document.getElementById('dlCount');
+  const tally = n => {
+    const seen = rows.slice(0, n), c = k => seen.filter(r => r.classList.contains('st-' + k)).length;
+    cnt.innerHTML = `<b class="c-held">${c('held')} held</b><b class="c-stop">${c('stop')} blocked</b><b class="c-ok">${c('ok')} approved</b><b>${c('log')} logged</b>`;
+  };
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) { tally(rows.length); return; }
+  dl.classList.add('dl-anim'); tally(0);
+  rows.forEach((r, i) => setTimeout(() => { r.classList.add('in'); tally(i + 1); }, 500 + i * 900));
 })();
