@@ -131,6 +131,7 @@
     T("risk", `Just <b>20%</b> of organisations monitor AI after go-live <a class="note" href="https://fifthquadrant.com.au/responsible-ai-index" target="_blank" rel="noopener">Responsible AI Index 2025</a>. We review yours every month.`),
     T("risk", `<b>65%</b> of AI users fear falling behind <a class="note" href="https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization" target="_blank" rel="noopener">Microsoft Work Trend Index 2026</a>. Start with one job, done properly.`),
     T("demo", `Cash agent: lowest week is W7 at <b>$52k</b>, <b>$2k</b> above your buffer.`),
+    T("risk", `<b>86%</b> of workers who use AI treat its output as a starting point, not a final answer <a class="note" href="https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization" target="_blank" rel="noopener">Microsoft, 2026</a>. Who checks your agents?`),
     T("beiz", `A Chartered Accountant designs every agent's limits and reviews its work. Bound by the APES 110 Code of Ethics.`),
     T("demo", `Margin agent: 24 hours logged, never billed. <b>$4,320</b> ready to invoice.`),
     T("beiz", `Fixed price, agreed in writing before we start. From <b>$1,500</b>.`)

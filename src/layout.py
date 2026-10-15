@@ -2,7 +2,7 @@
 import json
 
 SITE = "https://beiz.com.au"
-ASSET_V = "74"  # bump to bust caches when CSS/JS change
+ASSET_V = "75"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true" class="logo"><defs><linearGradient id="hg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#2DD4BF"/><stop offset="1" stop-color="#818CF8"/><animateTransform attributeName="gradientTransform" type="rotate" values="0 .5 .5;360 .5 .5" dur="9s" repeatCount="indefinite"/></linearGradient><mask id="mH" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"><rect width="200" height="200" fill="#fff"/><circle cx="126.4" cy="69.9" r="6.5" fill="#000"/></mask></defs><rect x="5" y="5" width="190" height="190" rx="44" fill="#0D1115" stroke="url(#hg)" stroke-width="6"/><g stroke="#818CF8" stroke-width="3" fill="none" stroke-linecap="round"><path d="M113.0 75.4 L150 75.4 L165 53.4"/><path d="M150 75.4 L165 97.4"/></g><g fill="#818CF8"><circle cx="165" cy="53.4" r="6"><animate attributeName="r" values="6;8.5;6" dur="2.4s" repeatCount="indefinite"/></circle><circle cx="165" cy="97.4" r="6"><animate attributeName="r" values="6;8.5;6" dur="2.4s" begin="1.2s" repeatCount="indefinite"/></circle></g><circle cx="150" cy="75.4" r="4" fill="#5EEAD4"><animate attributeName="opacity" values="1;.35;1" dur="1.6s" repeatCount="indefinite"/></circle><circle r="3.2" fill="#fff"><animateMotion dur="2.4s" repeatCount="indefinite" path="M113 75.4 L150 75.4 L165 53.4"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.1;.85;1" dur="2.4s" repeatCount="indefinite"/></circle><g transform="translate(16,25.1) scale(.72)"><g mask="url(#mH)" fill="none" stroke="url(#hg)" stroke-width="27" stroke-linejoin="round"><path d="M58 120 L110 120 A33 33 0 0 1 110 186 L58 186 L58 22 L102 58 A31 31 0 0 1 102 120 L58 120"/></g></g></svg>')
 
@@ -130,7 +130,19 @@ def _header(path):
     see = [(h, t) for h, t, _ in NAV]
     sname = dict(SERVICES)
     TOP = [("/services/", "Services"), ("/services/ai-readiness-sprint/", "AI Workforce"), ("/#pricing", "Pricing"), ("/about/", "About"), ("/contact/", "Contact")]
-    nav = "".join(f'<a href="{h}"{cur(h)}>{t}</a>' for h, t in TOP)
+    mm_start = [("/#check", "Two-week cash &amp; data check", "$1,500 fixed", "Find unbilled work, margin leaks and manual bottlenecks."),
+                ("/services/dashboards-and-models/", "Live cash &amp; job profit model", "from $5,000", "13 weeks of cash and job margins, updated weekly."),
+                ("/services/ai-readiness-sprint/", "AI workforce setup", "from $6,000", "Agents with job descriptions, limits and a person who approves.")]
+    mm_more = [("/services/ai-governance/", "AI governance &amp; Privacy Act"), ("/services/human-in-the-loop/", "Offshore &amp; AI oversight"),
+               ("/services/ai-agents/", "AI agents &amp; chatbots"), ("/services/automation/", "Workflow automation"),
+               ("/services/data-engineering/", "Data engineering"), ("/services/project-delivery/", "AI &amp; tech project delivery"),
+               ("/services/privacy-sprint/", "Automated-decision privacy sprint"), ("/services/quick-wins/", "Small business quick wins")]
+    mmp = ('<div class="mmp" role="group" aria-label="Services"><div class="mm-start"><p class="mm-h">Start here</p>'
+           + "".join(f'<a href="{h}"><b>{t}</b><em>{pr}</em><span>{d}</span></a>' for h, t, pr, d in mm_start)
+           + '</div><div class="mm-more"><p class="mm-h">Everything else</p>'
+           + "".join(f'<a href="{h}">{t}</a>' for h, t in mm_more)
+           + '<a class="mm-all" href="/services/">All services and prices</a></div></div>')
+    nav = "".join((f'<div class="mm"><a href="{h}"{cur(h)} aria-haspopup="true">{t}<span class="mm-c" aria-hidden="true"></span></a>{mmp}</div>' if h == "/services/" else f'<a href="{h}"{cur(h)}>{t}</a>') for h, t in TOP)
     grp = lambda title, items: f'<p class="mg">{title}</p>' + "".join(f'<a href="{h}">{t}</a>' for h, t in items)
     START = [("/#check", "Two-week cash &amp; data check · $1,500"), ("/services/dashboards-and-models/", "Live cash &amp; job profit model · from $5,000"), ("/services/ai-readiness-sprint/", "AI workforce setup · from $6,000")]
     mnav = (grp("Start here", START) + grp("Menu", TOP + [("/how-we-work/", "How we work")]) + grp("See it working", see) +

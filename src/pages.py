@@ -190,6 +190,7 @@ def home():
 
 <section class="bz-sec alt" id="ca"><div class="wrap">
   <h2>Why your AI needs a Chartered Accountant in the loop</h2>
+  <blockquote class="pull"><p>&ldquo;Approving one bad output is manageable, but when bad outputs make it through at scale, the risk compounds.&rdquo;</p><cite><a href="https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization" target="_blank" rel="noopener">Microsoft Work Trend Index 2026</a></cite></blockquote>
   <p class="lede">Anyone can connect an AI tool. The risk is what happens next: a wrong number in front of the bank, customer data in the wrong place, or the person who built it moving on. Ask these questions of anyone you're considering. Here are our answers.</p>
   <div class="qa">
     <div><h3>Who is responsible for how the agents behave?</h3><p>A named Chartered Accountant designs each agent's role and limits and reviews its work, bound by the APES 110 Code of Ethics. Your people approve the decisions that matter.</p><span class="risk">Accountability</span></div>
