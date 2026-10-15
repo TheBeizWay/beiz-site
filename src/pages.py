@@ -65,8 +65,8 @@ def home():
     body = f'''<div class="bz hx">
 <section class="bz-hero" id="top"><div class="wrap bz-hgrid">
   <div class="bz-copy">
-    <h1>Your finance team, now with an AI workforce.</h1>
-    <p class="bz-sub">We set up your AI workforce (data scientist, accounting, reviewer and governance agents) inside the systems you already use. Typically live in three weeks, with a Chartered Accountant signing off what matters. Fixed prices from $1,500.</p>
+    <h1>We set up your agentic AI workforce.</h1>
+    <p class="bz-sub">Data scientist, accounting, reviewer and governance agents that work around the clock inside the systems you already use, with a Chartered Accountant in the loop signing off what matters. Typically live in three weeks. Fixed prices from $1,500.</p>
     <div class="bz-ctas"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-minute call</a><a class="btn ghost" href="#demo">See the agents at work</a></div>
     <div class="bz-trust"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="" width="44" height="44"><p>Your human in the loop: <b>Purav Mehta CA, GAICD</b><br>Chartered Accountant, company director graduate, and the builder of the data models and agents. Canberra, working Australia-wide.</p></div>
   </div>
@@ -237,7 +237,7 @@ def home():
 </div></section>
 </div>
 {contact_form(heading="Tell us what you're trying to fix", lede="A few lines is plenty. By the next business day you'll get a written reply: what the problem looks like, what information it would need, and whether a fixed-scope job makes sense. Rather talk? Pick “Discovery call” and we'll arrange a free 20 minutes, early morning or after 5pm.")}'''
-    add("/", "Beiz Data & Accounting | AI workforce for your finance team, led by a Chartered Accountant",
+    add("/", "Beiz Data & Accounting | We set up your agentic AI workforce, with a Chartered Accountant in the loop",
         "Beiz builds AI agents for cash, margins, bills and reporting, with a Chartered Accountant (CA, GAICD) signing off what matters. Australian businesses. Fixed prices from $1,500.", body)
 
 

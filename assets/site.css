@@ -1555,3 +1555,4 @@ header.site{top:var(--tk,30px)!important}
 .risks p{margin:0 0 10px;font-size:.95rem}
 .risks .fixline{margin:0;padding-top:10px;border-top:1px solid var(--line);color:#5EEAD4;font-size:.92rem}
 nav.main a[aria-current],nav.main.flat a[aria-current]{text-decoration-color:var(--teal)!important;border-color:var(--teal)!important;box-shadow:none}
+.bz h1{max-width:12ch}
