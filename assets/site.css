@@ -1619,3 +1619,6 @@ nav.main.flat .mm-start a em{color:var(--teal)}
 .gov-band li span{color:var(--muted);font-size:.92rem}
 .gov-band .gov-k{margin:0;font:600 1.1rem Sora,sans-serif;color:var(--teal)}
 @media (max-width:760px){.gov-band ul{grid-template-columns:1fr}}
+.au-flag{display:inline-block;vertical-align:-2px;margin-right:8px;border-radius:2px;box-shadow:0 0 0 1px rgba(255,255,255,.18)}
+.au-line{display:flex;gap:12px;align-items:flex-start;max-width:860px;margin:4px 0 18px;padding:14px 18px;border:1px solid var(--line2);border-radius:12px;background:var(--panel2);color:var(--text)}
+.au-line .au-flag{flex:none;margin:4px 0 0}
