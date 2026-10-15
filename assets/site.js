@@ -478,13 +478,13 @@
       const min = Math.min(0, lo), span = (hi - min) || 1;
       const y = v => T + ph - (v - min) / span * ph, band = pw / 13, bw = band * .62, zero = y(0);
       let svg = `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Your 13-week cash forecast">`;
-      [min, (min + hi) / 2, hi].forEach(g => { svg += `<line x1="${L}" x2="${W - R}" y1="${y(g)}" y2="${y(g)}" stroke="#C8D5CA"/><text x="${L - 6}" y="${y(g) + 4}" text-anchor="end" font-size="10.5" fill="#4E5C54" font-family="Public Sans,sans-serif">${money(g / 1000).replace("$", "$")}k</text>`; });
+      [min, (min + hi) / 2, hi].forEach(g => { svg += `<line x1="${L}" x2="${W - R}" y1="${y(g)}" y2="${y(g)}" stroke="#243048"/><text x="${L - 6}" y="${y(g) + 4}" text-anchor="end" font-size="10.5" fill="#9AA6B6" font-family="Inter,sans-serif">${money(g / 1000).replace("$", "$")}k</text>`; });
       bal.forEach((v, i) => {
         const x = L + i * band + (band - bw) / 2, top = Math.min(y(v), zero), h = Math.max(1, Math.abs(y(v) - zero)), low = v < buf;
-        svg += `<g><title>Week ${i + 1}: ${money(v)}${low ? " · below buffer" : ""}</title><rect x="${L + i * band}" y="${T}" width="${band}" height="${ph}" fill="transparent"/><rect x="${x}" y="${top}" width="${bw}" height="${h}" rx="3" fill="${low ? "#8A5A00" : "#1F5A44"}"/></g>`;
-        if (i % 2 === 0) svg += `<text x="${x + bw / 2}" y="${H - 8}" text-anchor="middle" font-size="10" fill="#4E5C54" font-family="Public Sans,sans-serif">W${i + 1}</text>`;
+        svg += `<g><title>Week ${i + 1}: ${money(v)}${low ? " · below buffer" : ""}</title><rect x="${L + i * band}" y="${T}" width="${band}" height="${ph}" fill="transparent"/><rect x="${x}" y="${top}" width="${bw}" height="${h}" rx="3" fill="${low ? "#F59E0B" : "#10B981"}"/></g>`;
+        if (i % 2 === 0) svg += `<text x="${x + bw / 2}" y="${H - 8}" text-anchor="middle" font-size="10" fill="#9AA6B6" font-family="Inter,sans-serif">W${i + 1}</text>`;
       });
-      svg += `<line x1="${L}" x2="${W - R}" y1="${y(buf)}" y2="${y(buf)}" stroke="#18241D" stroke-dasharray="4 4" opacity=".7"/><text x="${W - R}" y="${y(buf) - 5}" text-anchor="end" font-size="10.5" fill="#18241D" font-family="Public Sans,sans-serif">Buffer ${money(buf)}</text></svg>`;
+      svg += `<line x1="${L}" x2="${W - R}" y1="${y(buf)}" y2="${y(buf)}" stroke="#E8EEF5" stroke-dasharray="4 4" opacity=".7"/><text x="${W - R}" y="${y(buf) - 5}" text-anchor="end" font-size="10.5" fill="#E8EEF5" font-family="Inter,sans-serif">Buffer ${money(buf)}</text></svg>`;
       const msg = first >= 0
         ? `<b class="warn">▼ Week ${first + 1}</b> is where cash first drops below your ${money(buf)} buffer (to ${money(bal[first])}). Lowest point: ${money(lo)}. That's the week to plan for, and you'd want to know about it now, not then.`
         : `You stay above your ${money(buf)} buffer for all 13 weeks. Lowest point: ${money(lo)}. Worth keeping an eye on: this assumes every week looks the same, and real weeks don't.`;
@@ -672,4 +672,84 @@
     }), { threshold: .4 });
     vids.forEach(v => vo.observe(v));
   } else vids.forEach(v => { v.src = v.dataset.src; v.controls = true; });
+})();
+
+/* v15: homepage Monday briefing (sample data) */
+(() => {
+  const root = document.getElementById('hxConsole'); if (!root) return;
+  const $ = s => root.querySelector(s);
+  const pane = $('#hxPane'), foot = $('#hxFoot'), log = $('#hxLog'), clock = $('#clock');
+  const money = v => '$' + v.toLocaleString('en-AU', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let timers = []; const later = (f, ms) => timers.push(setTimeout(f, reduce ? 0 : ms));
+  const clear = () => { timers.forEach(clearTimeout); timers = []; };
+  const tick = () => { clock.textContent = new Date().toLocaleTimeString('en-AU', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'Australia/Sydney' }) + ' AET'; };
+  tick(); setInterval(tick, 1000);
+  const addLog = h => { const d = document.createElement('div'); d.innerHTML = new Date().toLocaleTimeString('en-AU', { hour12: false }) + '  ' + h; log.prepend(d); while (log.children.length > 5) log.lastChild.remove(); };
+  const line = (id, who, sub, right) => { const r = document.createElement('div'); r.className = 'ln'; r.innerHTML = `<span class="id">${id}</span><span class="who">${who}<small>${sub}</small></span><span class="r">${right}</span>`; pane.appendChild(r); requestAnimationFrame(() => requestAnimationFrame(() => r.classList.add('in'))); return r; };
+  const setFoot = a => { foot.innerHTML = a.map(([k, v]) => `<div>${k}<b>${v}</b></div>`).join(''); };
+  const bills = [
+    ['B-2201', 'Timber Co', 'Matches order PO-118', 4380.00, 'ok'],
+    ['B-2202', 'Fixings Direct', 'Matches order PO-121', 812.50, 'ok'],
+    ['B-2203', 'Carlton Electrical', 'Bank details changed since last bill', 6140.00, 'hold', 'BANK DETAILS CHANGED'],
+    ['B-2204', 'Coastal Plumbing', 'Same amount and date as B-2187', 2970.00, 'hold', 'POSSIBLE DUPLICATE'],
+    ['B-2205', 'Office Supplies AU', 'Matches order PO-124', 386.90, 'ok'],
+    ['B-2206', 'Metro Hire', 'Rate 18% above last order', 3540.00, 'hold', 'PRICE +18%'],
+    ['B-2207', 'Fuel Card', 'Matches statement', 1240.60, 'ok'],
+    ['B-2208', 'Site Security Pty Ltd', 'Over the $10,000 approval limit', 11800.00, 'hold', 'OVER LIMIT']
+  ];
+  function modeBills() {
+    let ready = 0, held = 0, decided = 0;
+    const okTotal = bills.filter(b => b[4] === 'ok').reduce((s, b) => s + b[3], 0);
+    setFoot([['Ready to pay', '—'], ['Waiting for you', '—'], ['Decided by you', '0']]);
+    bills.forEach((b, i) => later(() => {
+      if (b[4] === 'ok') { ready++; line(b[0], b[1], b[2] + ' · ' + money(b[3]), '<span class="tag t-ok">READY TO PAY</span>'); addLog(`<em>PASS</em> ${b[0]} ${b[1]} ${money(b[3])}`); }
+      else {
+        held++; const r = line(b[0], b[1], b[2] + ' · ' + money(b[3]), `<span class="acts"><button type="button" data-a="ok">APPROVE</button><button type="button" data-a="no">HOLD</button></span>`);
+        addLog(`<u>HOLD</u> ${b[0]} ${b[5]}`);
+        r.querySelectorAll('button').forEach(btn => btn.onclick = () => {
+          decided++; const ok = btn.dataset.a === 'ok';
+          r.querySelector('.r').innerHTML = ok ? '<span class="tag t-ok">APPROVED BY YOU</span>' : '<span class="tag t-stop">HELD BY YOU</span>';
+          addLog(`${ok ? '<em>APPROVED</em>' : '<u>HELD</u>'} ${b[0]} by owner`);
+          setFoot([['Ready to pay', money(okTotal)], ['Waiting for you', String(4 - decided)], ['Decided by you', String(decided)]]);
+        });
+      }
+      setFoot([['Ready to pay', ready === 4 ? money(okTotal) : ready + ' of 4'], ['Waiting for you', String(held)], ['Decided by you', '0']]);
+    }, 350 + i * 420));
+  }
+  const found = [
+    ['J101', 'Time logged, never billed', '120 h approved − 96 h invoiced = 24 h × $180 = $4,320.00', 't-ok', 'CONFIRMED'],
+    ['J105', 'Billed below the agreed rate', '30 h × ($180 − $165) = $450.00', 't-ok', 'CONFIRMED'],
+    ['J105', 'Same credit note entered twice', 'CN-0040 and CN-0041, $500.00', 't-hold', 'NEEDS INFO'],
+    ['F201', 'Fixed fee over budget', '340 h on a 300 h budget. Margin lost, not money owed', 't-hold', 'NEEDS INFO'],
+    ['J102', 'Looked unbilled, billed in October', '30 h invoiced 8 Oct. Timing only', 't-mute', 'EXPLAINED'],
+    ['J104', 'Invoice with no hours', '$9,000 ÷ $150 = 60 h, matches timesheets', 't-mute', 'EXPLAINED']
+  ];
+  function modeTime() {
+    setFoot([['Confirmed', '—'], ['Needs info', '—'], ['Hours reconciled', '—']]);
+    found.forEach((f, i) => later(() => {
+      line(f[0], f[1], f[2], `<span class="tag ${f[3]}">${f[4]}</span>`);
+      addLog(`${f[4] === 'CONFIRMED' ? '<em>FOUND</em>' : f[4] === 'NEEDS INFO' ? '<u>ASK</u>' : 'OK'} ${f[0]} ${f[1].toLowerCase()}`);
+      if (i === found.length - 1) setFoot([['Confirmed', '$4,770.00'], ['Needs info', '2 items'], ['Hours reconciled', 'Yes, to the hour']]);
+    }, 350 + i * 450));
+  }
+  const wk = [86, 79, 74, 81, 70, 63, 52, 58, 66, 61, 72, 77, 83];
+  function modeCash() {
+    const W = 520, H = 230, L = 40, B = 26, T = 14, max = 100, buf = 50, bw = (W - L - 8) / 13, y = v => T + (H - T - B) * (1 - v / max), lowV = Math.min(...wk);
+    let s = `<svg class="cashsvg" viewBox="0 0 ${W} ${H}" role="img" aria-label="Closing cash by week, sample data. Lowest week 7 at $52k, above a $50k buffer.">`;
+    [0, 25, 50, 75, 100].forEach(v => s += `<line x1="${L}" x2="${W - 8}" y1="${y(v)}" y2="${y(v)}" stroke="#1A2333"/><text x="${L - 6}" y="${y(v) + 4}" fill="#6F7C90" font-size="10" text-anchor="end" font-family="JetBrains Mono,monospace">$${v}k</text>`);
+    wk.forEach((v, i) => { const x = L + i * bw + bw * .18, w = bw * .64;
+      s += `<rect class="cb" x="${x}" y="${y(v)}" width="${w}" height="${y(0) - y(v)}" rx="2" fill="${v === lowV ? '#F59E0B' : '#10B981'}" opacity="0"><title>Week ${i + 1}: $${v}k</title></rect><text x="${x + w / 2}" y="${H - 8}" fill="#6F7C90" font-size="9.5" text-anchor="middle" font-family="JetBrains Mono,monospace">W${i + 1}</text>`; });
+    s += `<line x1="${L}" x2="${W - 8}" y1="${y(buf)}" y2="${y(buf)}" stroke="#F87171" stroke-dasharray="4 4"/></svg>`;
+    s += `<div class="ckey"><span><i style="background:#10B981"></i>Closing cash, each week</span><span><i style="background:#F59E0B"></i>Lowest week</span><span><i class="dash"></i>Your $50k buffer</span></div><p class="cnote">Each bar adds bills due and expected receipts to today's bank balance. Hover a bar for the figure.</p>`;
+    pane.innerHTML = s;
+    pane.querySelectorAll('.cb').forEach((r, i) => later(() => { r.style.transition = 'opacity .3s'; r.setAttribute('opacity', '1'); if (i === 12) { addLog('<u>WATCH</u> week 7 low point $52k, $2k above buffer'); addLog('<em>READ</em> 13 weeks of bills due and expected receipts'); } }, 200 + i * 110));
+    setFoot([['Lowest week', 'W7 · $52k'], ['Above buffer', '$2k'], ['What moves it', 'One client paying 30 days late']]);
+  }
+  const modes = { bills: modeBills, time: modeTime, cash: modeCash };
+  const run = m => { clear(); pane.innerHTML = ''; log.innerHTML = ''; addLog('<em>START</em> sample data, made-up business'); modes[m](); };
+  root.querySelectorAll('.tabs button').forEach(b => b.onclick = () => { root.querySelectorAll('.tabs button').forEach(x => x.setAttribute('aria-selected', x === b)); run(b.dataset.m); });
+  let started = false;
+  const go = () => { if (!started) { started = true; run('bills'); } };
+  if ('IntersectionObserver' in window) new IntersectionObserver(e => { if (e[0].isIntersecting) go(); }).observe(root); else go();
 })();
