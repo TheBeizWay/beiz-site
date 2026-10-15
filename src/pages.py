@@ -260,7 +260,7 @@ def services_hub():
         ("/services/dashboards-and-models/", "See", "Dashboards & financial models", "Cash forecasts, runway scenarios, job profitability and board or investor dashboards."),
         ("/services/project-delivery/", "Deliver", "AI & tech project delivery", "Scope, vendors, milestones and honest reporting, so your tech project actually lands."),
         ("/services/privacy-sprint/", "Before 10 Dec", "Automated-Decision Privacy Sprint", "Map what your software decides about people and hand your lawyer the policy wording. Fixed price from $3,500, 5 to 10 days."),
-        ("/services/ai-readiness-sprint/", "Start here", "AI team setup", "Two AI assistants built in the tools you already pay for, with written rules, staff training and a 30-day check. From $6,000."),
+        ("/services/ai-readiness-sprint/", "Start here", "AI workforce setup", "AI agents with job descriptions, limits, a decision log and a person who approves what matters. Typically live in three weeks. From $6,000."),
         ("/services/quick-wins/", "Small business", "Quick wins", "Small, fixed-price fixes from $1,200 that give you back evenings and bring cash in faster. Built for sole traders and small teams who don't have time for admin. Most are scoped in days, not months, with no lock-in. Your BAS and tax stay with your tax or BAS agent; we make their job easier."),
     ]
     c = "".join(f'<a class="card" href="{h}"><span class="k">{k}</span><h3>{t}</h3><p>{d}</p><span class="go">Learn more →</span></a>' for h, k, t, d in cards)
@@ -314,7 +314,7 @@ def services():
               "Not legal advice. We work alongside your lawyer where the law needs interpreting."),
         before_after("A 40-person services firm", ["Nine AI tools in use, three approved", "Client data pasted into a free chatbot", "Privacy policy silent on automation", "Board asks, nobody can answer"],
                      ["One register, owned by the COO", "Business-grade tools only, training switched off", "Automated decisions described in plain English", "One-page board paper each quarter"], "Illustrative example, not a client"),
-        [("/ai-check/", "Free 2-minute Privacy Act check"), ("/insights/privacy-act-automated-decisions/", "The new rule in plain English"), ("/services/ai-readiness-sprint/", "AI team setup")],
+        [("/ai-check/", "Free 2-minute Privacy Act check"), ("/insights/privacy-act-automated-decisions/", "The new rule in plain English"), ("/services/ai-readiness-sprint/", "AI workforce setup")],
         "AI readiness & governance", "AI governance & Privacy Act readiness",
         "AI register, automated-decision mapping, AI use policy, controls and board reporting, ready for the Privacy Act automated-decision rules from 10 December 2026.")
 
@@ -382,7 +382,7 @@ def services():
         aside("Good fit if", ["You don't know which AI to use", "Staff already use free AI tools", "The same questions get asked every day", "You want speed without losing control"], "Automation & AI agents"),
         before_after("A 15-person trades business", ["Office answers the same 30 questions by phone", "Quotes typed from scratch", "Staff pasting customer details into free tools", "No idea if AI saves any time"],
                      ["Website assistant answers the common ones and hands over the rest", "Quotes drafted from past jobs, checked by a person", "One approved business AI tool, with rules", "Hours saved reported monthly"], "Illustrative example, not a client"),
-        [("/services/automation/", "Workflow automation"), ("/services/ai-governance/", "AI governance"), ("/services/ai-readiness-sprint/", "AI team setup")],
+        [("/services/automation/", "Workflow automation"), ("/services/ai-governance/", "AI governance"), ("/services/ai-readiness-sprint/", "AI workforce setup")],
         "Automation & AI agents", "AI agents, chatbots & AI integration",
         "Not sure which AI to use? We pick the right tool, build chatbots, assistants and agents into your team's work, and train your people, with limits, logs and human sign-off.")
 
@@ -454,24 +454,34 @@ def services():
         "Tech project delivery", "AI & tech project delivery",
         "Project delivery for AI and technology projects: scoping, vendor comparison, milestones, risk logs and plain-English status reporting. Rescue for stalled projects.")
 
-    svc("/services/ai-readiness-sprint/", "AI team setup", "Start here",
-        "AI team setup. Two assistants your staff actually use.",
-        "A fixed-price setup for businesses of 10 to 50 people: two AI assistants built in the tools you already pay for, on two named tasks, with written rules and trained staff. Then we check how they're going after 30 days.",
-        '''<h2>Why start with two</h2>
-<p>Most businesses either let staff use AI with no rules, or spend months planning and never start. Two assistants on two real tasks is enough to prove the value, small enough to control, and quick to undo if it isn't working.</p>
+    svc("/services/ai-readiness-sprint/", "AI workforce", "AI workforce setup",
+        "Your AI workforce, set up properly and live in about three weeks.",
+        "We set up AI agents that do real finance and admin work inside the tools you already use: a data scientist agent, an accounting agent, a reviewer agent and a governance agent. Each one has a job description, limits and a person it reports to. Then we keep them in check every month.",
+        '''<h2>The agents</h2>
+<ul><li><strong>Data scientist agent:</strong> forecasts cash for the next 13 weeks, spots margin drift by job, and flags what's unusual.</li>
+<li><strong>Accounting agent:</strong> reconciles transactions, matches bills to orders and deliveries, and drafts invoices and reminders.</li>
+<li><strong>Reviewer agent:</strong> traces every figure back to the ledger and rejects anything it can't find, before a person sees it.</li>
+<li><strong>Governance agent:</strong> keeps the decision log, the register of AI in use and the monthly board or owner report.</li></ul>
+<p>You don't need all four on day one. Most businesses start with the one or two that save the most hours, and add the rest once those are working.</p>
+<h2>Five controls every agent gets</h2>
+<ol><li><strong>A named role and owner.</strong> A written job description: what the agent does, the tools it may use, and the person it reports to.</li>
+<li><strong>Limits it can't cross.</strong> Read-only access where possible, and a delegation limit. Changed bank details, new suppliers and anything over the limit always go to a person.</li>
+<li><strong>Human checkpoints.</strong> Anything that moves money, reaches a customer or decides something about a person waits for a human yes.</li>
+<li><strong>A log of every decision.</strong> What the agent did, why, and who approved it, kept in your own accounts.</li>
+<li><strong>Monthly monitoring and review.</strong> We read the log, check for drift and errors, and adjust the limits. Rules like the Privacy Act's automated-decision disclosures are covered as they apply to you.</li></ol>
 <h2>How it runs</h2>
-<ol><li><strong>Workshop:</strong> one session with you and the people who do the work. We list the repetitive tasks, what information each one touches, and pick two.</li>
-<li><strong>Build:</strong> two assistants set up in Microsoft 365, Google Workspace or a business AI plan you already have or choose. No custom software. Anything that reaches a customer, moves money or decides something about a person waits for a person's approval.</li>
-<li><strong>Rules and training:</strong> a one-page AI use policy covering what information can go in, what needs approval and who owns each assistant, plus a one-hour training session.</li>
-<li><strong>Day 30 check:</strong> usage, errors and time per task, before and after. We fix what isn't working and tell you plainly whether to add more.</li></ol>
+<ol><li><strong>Week 1, map and limit:</strong> we list the repetitive work, pick the agents worth having, and write each job description with you.</li>
+<li><strong>Week 2, shadow mode:</strong> the agents run alongside your team without acting. We compare their answers with yours.</li>
+<li><strong>Week 3, live within limits:</strong> the agents start work. Anything over a limit comes to a person.</li>
+<li><strong>Day 30, review:</strong> errors, time saved and exceptions, measured. We fix what isn't working and tell you plainly whether to add more.</li></ol>
 <h2>What it isn't</h2>
-<p>It isn't custom software, integrations that need a developer, or a licence sale: you buy any subscriptions directly. Support after day 30 is optional and priced separately.</p>''',
-        [("Task list", "Repetitive work across the team, ranked by hours and risk."), ("Two working assistants", "Built in your own accounts, on two named tasks."), ("Approval steps", "Nothing reaches a customer, moves money or decides about a person without a human."),
-         ("AI use policy", "One page your team can actually follow."), ("Staff training", "One hour, on your two assistants."), ("30-day check", "Usage, errors and time saved, measured.")],
-        aside("The fine print", ["Fixed price from $6,000, quoted in writing", "About two weeks, plus the 30-day check", "Built in the tools you already pay for", "No lock-in: everything stays in your accounts"], "AI team setup"),
-        "", [("/services/ai-governance/", "AI governance"), ("/services/automation/", "Agents & automation"), ("/examples/", "Examples")],
-        "AI team setup", "AI team setup",
-        "Fixed-price AI team setup for Australian businesses of 10 to 50 people: two AI assistants built in the tools you already pay for, written rules, staff training and a 30-day check.")
+<p>It isn't an audit or assurance engagement, custom software that needs a development team, or a licence sale. You buy any subscriptions directly, in your name. We don't do tax returns or BAS.</p>''',
+        [("Agent job descriptions", "Role, tools, limits and owner for each agent, agreed with you."), ("Working agents", "Built in your own accounts and tools."), ("Approval steps", "Money, customers and people always need a human yes."),
+         ("Decision log", "Every action recorded, in your accounts."), ("AI use policy and training", "One page your team can follow, plus a session on the agents."), ("Day-30 review", "Errors, time saved and exceptions, measured.")],
+        aside("The fine print", ["Setup from $6,000, fixed and quoted in writing", "Typically live in about three weeks", "Monthly monitoring and review from $750", "Built in your accounts. No lock-in."], "AI workforce setup"),
+        "", [("/services/ai-governance/", "AI governance"), ("/services/automation/", "Workflow automation"), ("/#wrong", "What goes wrong without controls")],
+        "AI workforce setup", "AI workforce setup: AI agents with a Chartered Accountant in the loop",
+        "Fixed-price AI workforce setup for Australian businesses: data scientist, accounting, reviewer and governance agents with job descriptions, limits, a decision log and monthly review. From $6,000.")
 
     quick = [("Invoices that chase themselves", "Automatic reminders and pay-now links, so you stop ringing late payers."),
              ("Quote to invoice, automatically", "Finished jobs get invoiced the same day, not three weeks later."),
@@ -778,7 +788,7 @@ FAQ = [
     ("Can we see profit by job without hiring a management accountant?", "Often, yes. In most small project businesses the numbers already exist in the accounting software and the job or timesheet app; they just don't agree. We join them, agree one definition of margin, and set up a monthly report reconciled to your accounts, in Power BI or Excel."),
     ("Who owns what you build?", "You own the outcome: the automations, dashboards and models run inside your own accounts, with your logins. Our reusable templates, frameworks and code libraries remain our intellectual property, licensed to you for your business. That's how we keep delivery fast and prices fixed."),
     ("Do I need a board or a big business?", "No. Much of what we do is built for sole traders and owner-operators who are flat out and just want the admin to stop eating their evenings. We size the work to the business."),
-    ("How much does it cost?", "Every job is fixed price, quoted in writing after we understand the problem. Quick wins start from $1,200, the Privacy Act automated-decision sprint from $3,500 and the AI team setup from $6,000. Larger builds are scoped individually. No hourly meter and no lock-in contracts."),
+    ("How much does it cost?", "Every job is fixed price, quoted in writing before work starts. The two-week cash and data check is $1,500 fixed and credited if you go ahead. A live cash and job profit model starts from $5,000, AI workforce setup from $6,000, and monthly monitoring and review from $750. All prices exclude GST. No hourly meter and no lock-in contracts."),
     ("Do you work with crypto businesses?", "Yes: reconciliations, stablecoin payment matching, treasury reporting and controls. We don't give tax, financial product or licensing advice."),
     ("Where are you based?", "Australia. We work remotely with clients across the country."),
 ]
