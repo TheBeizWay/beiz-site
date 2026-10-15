@@ -183,3 +183,64 @@ FLOW = '<figure class="flowfig">' + _flow_desktop() + _flow_mobile() + '<figcapt
 WATCH_HOME = '<div class="watch hwatch">' + "".join(
     f'<figure><video data-src="/assets/media/{f}.mp4{_V}" poster="/assets/media/{f}.jpg{_V}" muted loop playsinline preload="none" aria-label="{t} {c}"></video><figcaption><b>{t}</b> {c}</figcaption></figure>'
     for f, t, c in _VIDS) + '</div><p style="margin-top:14px"><a class="textlink" href="/try/">Try the demos with your own numbers →</a></p>'
+
+
+# ---------------------------------------------------------------- v20 animated agent team (hero)
+def _agent(cx, cy, key, name, icon):
+    return (f'<g class="ag" data-k="{key}" transform="translate({cx},{cy})">'
+            f'<circle r="70" class="ag-halo"/>'
+            f'<circle r="54" class="ag-ring"/>'
+            f'<circle r="46" class="ag-disc"/>'
+            f'{icon}'
+            f'<text y="88" text-anchor="middle" class="ag-name">{name}</text></g>')
+
+
+_I_PLAN = ('<g class="ic"><rect x="-15" y="-19" width="30" height="38" rx="4"/><rect x="-7" y="-23" width="14" height="7" rx="2" class="icf"/>'
+           '<path d="M-8 -6 l3 3 5-6"/><path d="M3 -6 h6"/><path d="M-8 4 l3 3 5-6"/><path d="M3 4 h6"/><path d="M-8 13 h17"/></g>')
+_I_EXEC = ('<g class="ic"><path d="M0 -20 L17 -11 L0 -2 L-17 -11 Z" class="icf"/><path d="M-17 -11 L-17 9 L0 18 L0 -2"/><path d="M17 -11 L17 9 L0 18"/>'
+           '<path d="M-9 1 v6 M-5 3 v6" /><path d="M6 4 l5 -3 M6 9 l5 -3"/></g>')
+_I_VAL = ('<g class="ic"><circle cx="-4" cy="-4" r="13"/><path d="M5 5 L17 17" stroke-width="5"/><path d="M-10 -4 l4 4 8 -9"/></g>')
+
+_I_GOV = ('<g class="ic"><path d="M-20 -8 L0 -20 L20 -8 Z" class="icf"/><path d="M-20 -8 H20"/><path d="M-13 -4 V12 M-4 -4 V12 M5 -4 V12 M14 -4 V12"/><path d="M-21 16 H21"/></g>')
+
+
+def _agent4(cx, cy, key, name, world, icon, wy):
+    return (f'<g class="ag" data-k="{key}" transform="translate({cx},{cy})">'
+            f'<circle r="74" class="ag-halo"/><circle r="52" class="ag-ring"/><circle r="44" class="ag-disc"/>{icon}'
+            f'<text y="{wy if wy > 0 else wy-22}" text-anchor="middle" class="ag-world">{world}</text>'
+            f'<text y="{wy+22 if wy > 0 else wy}" text-anchor="middle" class="ag-name">{name}</text></g>')
+
+
+_NODES = [(130, 130, "plan", "Data scientist agent", "DATA SCIENCE · PLAN", _I_PLAN),
+          (510, 130, "exec", "Accounting agent", "ACCOUNTING · DO", _I_EXEC),
+          (510, 400, "val", "Reviewer agent", "REVIEW · CHECK", _I_VAL),
+          (130, 400, "gov", "Governance agent", "GOVERNANCE · REPORT", _I_GOV)]
+
+AGENT_TEAM = ('<figure class="team" id="team" aria-label="Animated illustration: four AI agents (data science, accounting, review and governance) work in a loop around a Chartered Accountant who signs off">'
+  '<svg viewBox="-10 -10 660 580" class="team-svg" role="img" aria-hidden="true">'
+  '<defs>'
+  '<linearGradient id="tg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2DD4BF"/><stop offset="1" stop-color="#818CF8"/></linearGradient>'
+  '<radialGradient id="halo" r=".5"><stop offset="0" stop-color="#2DD4BF" stop-opacity=".30"/><stop offset=".6" stop-color="#818CF8" stop-opacity=".10"/><stop offset="1" stop-color="#818CF8" stop-opacity="0"/></radialGradient>'
+  '<radialGradient id="coreg" r=".5"><stop offset="0" stop-color="#818CF8" stop-opacity=".5"/><stop offset="1" stop-color="#818CF8" stop-opacity="0"/></radialGradient>'
+  '<filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>'
+  '</defs>'
+  '<g class="traces">'
+  + "".join(f'<path d="{d}" class="tr"/><path d="{d}" class="tr-lit" style="animation-delay:-{i*0.6:.1f}s"/>' for i, d in enumerate([
+      "M-10 245 H40 L70 215", "M650 245 H600 L570 215", "M-10 540 H60 L90 510", "M650 540 H580 L550 510",
+      "M-10 20 H30 L55 45", "M650 20 H610 L585 45", "M250 570 V545 L275 520", "M390 570 V545 L365 520"]))
+  + '</g>'
+  # orbit loop through the four agents (clockwise)
+  '<path id="orbit" d="M130 130 H510 V400 H130 Z" class="orbit"/>'
+  + "".join(f'<circle r="4.5" class="pulse"><animateMotion dur="8s" begin="-{i*2:.0f}s" repeatCount="indefinite" rotate="auto"><mpath href="#orbit"/></animateMotion></circle>' for i in range(4))
+  # spokes into the core
+  + "".join(f'<path id="sp{i}" d="M{x} {y} L320 250" class="spoke"/>' for i, (x, y, *_r) in enumerate(_NODES))
+  + "".join(f'<circle r="3.5" class="pulse s"><animateMotion dur="2.2s" begin="-{i*0.55:.2f}s" repeatCount="indefinite"><mpath href="#sp{i}"/></animateMotion></circle>' for i in range(4))
+  + '<g class="core" transform="translate(320,250)"><circle r="96" fill="url(#coreg)" class="core-glow"/><circle r="70" class="core-ring"/>'
+  '<path d="M0 -44 L36 -30 V2 C36 26 19 40 0 48 C-19 40 -36 26 -36 2 V-30 Z" class="shield"/>'
+  '<path d="M-13 2 l9 9 18 -20" class="shield-tick"/></g>'
+  '<text x="320" y="350" text-anchor="middle" class="core-world">YOUR HUMAN IN THE LOOP</text>'
+  '<text x="320" y="372" text-anchor="middle" class="core-name">CA · GAICD · data &amp; AI</text>'
+  + "".join(_agent4(x, y, k, n, w, ic, -66 if y < 200 else 72) for x, y, k, n, w, ic in _NODES) +
+  '</svg>'
+  '<div class="team-feed" aria-live="polite"><span class="tf-dot"></span><span id="teamFeed">Data scientist agent: 13-week forecast refreshed from your ledger and bank feed</span></div>'
+  '<figcaption>Example workforce on sample data. Typically live in three weeks.</figcaption></figure>')

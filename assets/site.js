@@ -116,12 +116,20 @@
   const dleft = Math.round((new Date(2026, 11, 10) - today) / 864e5);
   $$("[data-adm-days]").forEach(e => (e.textContent = dleft > 0 ? dleft + " days" : "now in force"));
   // Regulatory countdown, the AI gap (sourced, static) and Australian benchmarks (live, below).
-  const privacy = dleft > 0 ? `Privacy Act: automated-decision disclosures start <b>10 Dec 2026</b> · ${dleft} days`
-                            : `Privacy Act: automated-decision disclosures <b>in force</b> since 10 Dec 2026`;
+  const T = (k, txt) => `<em class="tk tk-${k}">${{risk: "RISK", mkt: "MARKET", beiz: "BEIZ", demo: "DEMO"}[k]}</em>${txt}`;
+  const privacy = dleft > 0 ? T("risk", `Privacy Act automated-decision disclosures start <b>10 Dec 2026</b>. <b>${dleft} days</b> left. We map what your software decides about people.`)
+                            : T("risk", `Privacy Act automated-decision disclosures are <b>in force</b>. We map what your software decides about people.`);
   const aiGap = [
-    `SMEs using AI <b>43%</b> · <b>57%</b> not yet · 65% of those distrust AI decisions or want human control <i class="note">NAIC, Dec–Feb 2026</i>`,
-    `Only <b>~1 in 2</b> SMEs using AI check its output before customers see it <i class="note">NAIC</i>`,
-    `Just <b>20%</b> of organisations monitor AI after go-live · <b>21%</b> let people challenge an AI decision <i class="note">Responsible AI Index 2025</i>`
+    T("risk", `<b>43%</b> of SMEs now use AI and <b>65%</b> of the rest want human control <i class="note">NAIC 2026</i>. Every Beiz agent reports to a person.`),
+    T("beiz", `Every agent we build has a job description, a delegation limit and a human it reports to.`),
+    T("demo", `Payables agent held a <b>$6,140</b> bill: bank details changed. Waiting for your yes.`),
+    T("risk", `Only <b>about 1 in 2</b> SMEs check AI output before customers see it <i class="note">NAIC</i>. Ours can't send without a human yes.`),
+    T("beiz", `Built in your accounts. No copies of your data, no lock-in. You own every agent.`),
+    T("risk", `Just <b>20%</b> of organisations monitor AI after go-live <i class="note">Responsible AI Index 2025</i>. We review yours every month.`),
+    T("demo", `Cash agent: lowest week is W7 at <b>$52k</b>, <b>$2k</b> above your buffer.`),
+    T("beiz", `Chartered Accountant sign-off on the numbers. Bound by the APES 110 Code of Ethics.`),
+    T("demo", `Margin agent: 24 hours logged, never billed. <b>$4,320</b> ready to invoice.`),
+    T("beiz", `Fixed price, agreed in writing before we start. From <b>$1,500</b>.`)
   ];
   const base = [privacy, ...aiGap];
   const renderTicker = items => {
@@ -148,17 +156,18 @@
       .join(" &nbsp;·&nbsp; ");
     const r = d.rba, mon = x => esc(String(x).replace(/^0/, "").replace(/-(\d{4})$/, " $1").replace(/-/g, " "));
     const d12 = r && r.yearAgo != null ? +(r.rate - r.yearAgo).toFixed(2) : null;
-    const rba = r ? `RBA cash rate <b>${Number(r.rate).toFixed(2)}%</b>`
+    const rba = r ? T("mkt", `RBA cash rate <b>${Number(r.rate).toFixed(2)}%</b>`
       + (r.lastChange ? ` <i class="${r.lastChange.by >= 0 ? "dn" : "up"}">${r.lastChange.by >= 0 ? "▲" : "▼"}${Math.abs(r.lastChange.by).toFixed(2)} on ${mon(r.lastChange.date)}</i>` : "")
       + (d12 ? ` · ${d12 > 0 ? "+" : "−"}${Math.abs(d12).toFixed(2)} pts in 12 months` : "")
-      + (r.higherLast ? ` · highest since ${mon(r.higherLast).replace(/^\d+ /, "")}` : "") : "";
-    const impact = d12 ? `What ${d12 > 0 ? "+" : "−"}${Math.abs(d12).toFixed(2)} pts means: about <b>$${Math.round(Math.abs(d12) * 5000).toLocaleString("en-AU")}</b> a year ${d12 > 0 ? "more" : "less"} interest on a $500k business loan <i class="note">illustration</i>` : "";
+      + (r.higherLast ? ` · highest since ${mon(r.higherLast).replace(/^\d+ /, "")}` : "") + `. Cash is dearer. Know your 13 weeks.`) : "";
+    const impact = d12 ? T("mkt", `What ${d12 > 0 ? "+" : "−"}${Math.abs(d12).toFixed(2)} pts means: about <b>$${Math.round(Math.abs(d12) * 5000).toLocaleString("en-AU")}</b> a year ${d12 > 0 ? "more" : "less"} interest on a $500k business loan <i class="note">illustration</i>`) : "";
     $$("[data-rba]").forEach(e => { if (d.rba) e.textContent = Number(d.rba.rate).toFixed(2) + "%"; });
     $$("[data-rba-note]").forEach(e => { if (r && r.lastChange) e.textContent = `${r.lastChange.by >= 0 ? "Raised" : "Cut"} ${Math.abs(r.lastChange.by).toFixed(2)} on ${String(r.lastChange.date).replace(/-/g, " ")}` + (d12 ? ` · ${d12 > 0 ? "+" : "−"}${Math.abs(d12).toFixed(2)} pts in a year` : ""); });
     const parts = [privacy];
     if (rba) parts.push(rba);
+    parts.push(...aiGap.slice(0, 3));
     if (impact) parts.push(impact);
-    parts.push(...aiGap);
+    parts.push(...aiGap.slice(3));
     if (rba) renderTicker(parts);
   }).catch(() => {});
 
@@ -760,3 +769,86 @@
     el.classList.add('flash'); setTimeout(() => el.classList.remove('flash'), 900);
   }, 1800);
 })();
+
+/* v19: "inside your business" environment demo (sample data). State is shared across tabs. */
+(() => {
+  const env = document.getElementById('env'); if (!env) return;
+  const body = document.getElementById('envBody'), title = document.getElementById('envTitle');
+  const money = v => '$' + v.toLocaleString('en-AU', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const bills = [
+    { id: 'B-2201', s: 'Timber Co', a: 4380, st: 'ok', why: 'Matches PO-118 and the delivery docket' },
+    { id: 'B-2202', s: 'Fixings Direct', a: 812.5, st: 'ok', why: 'Matches PO-121' },
+    { id: 'B-2203', s: 'Carlton Electrical', a: 6140, st: 'hold', why: 'Bank details changed since the last bill' },
+    { id: 'B-2205', s: 'Office Supplies AU', a: 386.9, st: 'ok', why: 'Matches PO-124' },
+    { id: 'B-2206', s: 'Metro Hire', a: 3540, st: 'hold', why: 'Rate $118 a day against $100 on PO-121' },
+    { id: 'B-2207', s: 'Fuel Card', a: 1240.6, st: 'ok', why: 'Matches the statement' }
+  ];
+  const log = [
+    ['08:00', 'Cash agent', 'Refreshed 13-week forecast from the ledger and bank feed', 'Agent, within limits'],
+    ['08:02', 'Payables agent', 'Matched 4 bills to orders and deliveries ($6,820.00)', 'Agent, within limits'],
+    ['08:02', 'Payables agent', 'Held B-2203: bank details changed', 'Waiting for a person'],
+    ['08:03', 'Payables agent', 'Held B-2206: rate 18% above the order', 'Waiting for a person'],
+    ['08:05', 'Margin agent', 'Found 24 h on J101 logged but not billed ($4,320.00)', 'Waiting for a person']
+  ];
+  const now = () => new Date().toLocaleTimeString('en-AU', { hour: '2-digit', minute: '2-digit', hour12: false });
+  const chip = st => st === 'ok' ? '<span class="ec ok">Matched</span>' : st === 'hold' ? '<span class="ec hold">Held for you</span>' : st === 'appr' ? '<span class="ec ok">Approved by you</span>' : '<span class="ec stop">Held by you</span>';
+  const views = {
+    inbox: ['Inbox · finance@yourbusiness.com.au', () => {
+      const held = bills.filter(b => b.st === 'hold');
+      return `<div class="mail">
+        <div class="mlist"><div class="mi on"><b>Payables agent</b><span>${held.length ? held.length + ' bill' + (held.length > 1 ? 's' : '') + ' need your yes' : 'All bills decided'}</span><em>08:03</em></div><div class="mi"><b>Cash agent</b><span>Your week ahead</span><em>08:00</em></div><div class="mi"><b>Margin agent</b><span>J101 ready to invoice</span><em>08:05</em></div></div>
+        <div class="mread"><p class="mh"><b>Payables agent</b> &lt;agents@beiz&gt; to you · 08:03</p><h4>${held.length ? 'Bills that need your yes before Friday’s pay run' : 'Every bill this week has a decision'}</h4>
+        <p>Morning. I matched 4 bills worth ${money(6820)} to their orders and deliveries, and they're queued for Friday. ${held.length ? 'These need you:' : 'Thanks for deciding the held bills. Both are logged.'}</p>
+        ${bills.filter(b => b.st !== 'ok').map(b => `<div class="mb ${b.st}" data-id="${b.id}"><div><b>${b.s}</b> <span class="mono">${money(b.a)}</span><small>${b.why}</small></div>${b.st === 'hold' ? '<div class="ma"><button type="button" data-do="appr">Approve</button><button type="button" data-do="no">Hold</button></div>' : chip(b.st)}</div>`).join('')}
+        <p class="sig">Nothing is paid without a person's approval. Every decision is logged.</p></div></div>`;
+    }],
+    ledger: ['Accounting software · Bills to pay', () => `<table class="lt"><thead><tr><th>Bill</th><th>Supplier</th><th class="n">Amount</th><th>Status</th><th>Reason</th></tr></thead><tbody>${bills.map(b => `<tr><td class="mono">${b.id}</td><td>${b.s}</td><td class="n mono">${money(b.a)}</td><td>${chip(b.st)}</td><td>${b.why}</td></tr>`).join('')}</tbody></table>`],
+    chat: ['Team chat · #finance', () => `<div class="chat">
+        <div class="cm"><i class="av a1">C</i><div><b>Cash agent</b> <em>Mon 08:00</em><p>Your week ahead: <span class="mono">$42,000</span> in the bank, <span class="mono">$31,400</span> owed to you, <span class="mono">$12,900</span> going out. Lowest point is week 7 at <span class="mono">$52k</span>, <span class="mono">$2k</span> above your buffer.</p></div></div>
+        <div class="cm"><i class="av a2">M</i><div><b>Margin agent</b> <em>Mon 08:05</em><p>Job J101 has 24 hours logged but not billed (<span class="mono">$4,320</span>). Draft invoice is ready for your review.</p></div></div>
+        <div class="cm you"><i class="av a3">You</i><div><b>You</b> <em>Mon 08:12</em><p>Thanks. Send me the J101 draft, I'll check it with the PM.</p></div></div>
+        <div class="cm"><i class="av a2">M</i><div><b>Margin agent</b> <em>Mon 08:12</em><p>Sent to your inbox. I won't send anything to the client.</p></div></div></div>`],
+    log: ['Decision log · kept in your accounts', () => `<table class="lt"><thead><tr><th>Time</th><th>Who</th><th>What happened</th><th>Decided by</th></tr></thead><tbody>${log.map(r => `<tr><td class="mono">${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${/person|you/i.test(r[3]) ? `<span class="ec ${/You/.test(r[3]) ? 'ok' : 'hold'}">${r[3]}</span>` : r[3]}</td></tr>`).join('')}</tbody></table>`]
+  };
+  let cur = 'inbox';
+  const render = () => { title.textContent = views[cur][0]; body.innerHTML = views[cur][1](); };
+  body.addEventListener('click', e => {
+    const btn = e.target.closest('[data-do]'); if (!btn) return;
+    const b = bills.find(x => x.id === btn.closest('[data-id]').dataset.id); if (!b) return;
+    b.st = btn.dataset.do === 'appr' ? 'appr' : 'no';
+    log.push([now(), 'You', `${b.st === 'appr' ? 'Approved' : 'Held'} ${b.id} ${b.s} (${money(b.a)})`, 'You']);
+    render();
+  });
+  env.querySelectorAll('.env-tabs button').forEach(t => t.onclick = () => { env.querySelectorAll('.env-tabs button').forEach(x => x.setAttribute('aria-selected', x === t)); cur = t.dataset.e; render(); });
+  render();
+})();
+
+/* v20: agent team sequence — plan, do, check, sign-off (sample data) */
+(() => {
+  const team = document.getElementById('team'); if (!team) return;
+  const feed = document.getElementById('teamFeed');
+  const steps = [
+    ['plan', 'Data scientist agent: 13-week forecast refreshed. Lowest week is W7 at $52k.'],
+    ['exec', 'Accounting agent: 212 transactions reconciled, 8 supplier bills matched to orders.'],
+    ['val', 'Reviewer agent: every figure traced to the ledger. 2 bills held: bank details changed, rate up 18%.'],
+    ['gov', 'Governance agent: board pack drafted. AI use register and risk log updated.'],
+    ['core', 'Human sign-off: 2 bills and the board pack wait for your yes. Nothing goes out until a person approves.'],
+    ['plan', 'Data scientist agent: job J101 margin below 20%. 24 hours logged, not billed.'],
+    ['exec', 'Accounting agent: draft invoice for J101 prepared ($4,320.00).'],
+    ['val', 'Reviewer agent: hours, rate and job checked against the timesheet. No errors found.'],
+    ['gov', 'Governance agent: decision logged with who approved it and why.'],
+    ['core', 'Human sign-off: the invoice goes to the client only when you send it.']
+  ];
+  const set = i => {
+    const [k, msg] = steps[i % steps.length];
+    team.querySelectorAll('.ag').forEach(g => g.classList.toggle('on', g.dataset.k === k));
+    team.querySelector('.core').classList.toggle('on', k === 'core');
+    feed.textContent = msg;
+  };
+  set(0);
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  let i = 0; setInterval(() => set(++i), 2600);
+})();
+
+/* v21: respect reduced motion for the animated logo */
+(() => { if (matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelectorAll('svg.logo').forEach(s => s.pauseAnimations && s.pauseAnimations()); })();

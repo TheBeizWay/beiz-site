@@ -2,7 +2,7 @@
 import json
 from layout import (SITE, page, phero, related, cta_band, contact_form, SERVICES, INDUSTRIES, CALL_HREF, CALL_ATTR)
 from charts import cash13, job_margins, runway, runway_facts
-from agents import CONSOLE, PIPELINE, WIRING, WATCH, FLOW, WATCH_HOME
+from agents import CONSOLE, PIPELINE, WIRING, WATCH, FLOW, WATCH_HOME, AGENT_TEAM
 
 PAGES = {}
 
@@ -66,18 +66,11 @@ def home():
 <section class="bz-hero" id="top"><div class="wrap bz-hgrid">
   <div class="bz-copy">
     <h1>Your finance team, now with an AI workforce.</h1>
-    <p class="bz-sub">Beiz builds AI agents that keep your cash, margins, bills and reporting moving, and puts a Chartered Accountant over every one of them. Fixed prices from $1,500.</p>
+    <p class="bz-sub">We set up your AI workforce (data scientist, accounting, reviewer and governance agents) inside the systems you already use. Typically live in three weeks, with a Chartered Accountant signing off what matters. Fixed prices from $1,500.</p>
     <div class="bz-ctas"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-minute call</a><a class="btn ghost" href="#demo">See the agents at work</a></div>
-    <div class="bz-trust"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="" width="44" height="44"><p>Led by <b>Purav Mehta CA, GAICD</b><br>Chartered Accountants ANZ, Certificate of Public Practice · Canberra, working Australia-wide</p></div>
+    <div class="bz-trust"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="" width="44" height="44"><p>Your human in the loop: <b>Purav Mehta CA, GAICD</b><br>Chartered Accountant, company director graduate, and the builder of the data models and agents. Canberra, working Australia-wide.</p></div>
   </div>
-  <div class="wf" id="workforce" aria-label="Example AI workforce, sample data">
-    <div class="wf-node wf-biz"><b>Your business</b><span>Xero or MYOB · job app · bank feed · bills inbox</span></div>
-    <div class="wf-link"></div>
-    <div class="wf-node wf-ca"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="" width="40" height="40"><div><b>Beiz oversight</b><span>A Chartered Accountant signs off anything that touches money or customers</span></div></div>
-    <div class="wf-fan"><i></i><i></i><i></i><i></i></div>
-    <div class="wf-agents">{ag}</div>
-    <p class="wf-note">Example workforce on sample data</p>
-  </div>
+  {AGENT_TEAM}
 </div></section>
 
 <section class="bz-path" id="start"><div class="wrap">
@@ -91,23 +84,26 @@ def home():
 </div></section>
 
 <section class="bz-sec" id="demo"><div class="wrap">
-  <div class="dgrid">
-    <div>
-      <h2>See the agents at work</h2>
-      <p class="lede">A made-up 18-person business on a Monday morning. The agents check the bills, the hours and the cash. Anything risky waits for the owner. Try it: approve or hold the two flagged bills.</p>
-      <ul class="dpoints"><li><b>Verified</b> bills are matched to the order and the delivery.</li><li><b>Held</b> bills come with the reason, in plain English.</li><li><b>Nothing</b> is paid or sent without a person saying yes.</li></ul>
+  <h2>How the agents work inside your business</h2>
+  <p class="lede">No new platform to learn. The agents work in your inbox, your accounting software and your team chat, and every decision lands in a log you own. This is a made-up business, so click around.</p>
+  <div class="env" id="env">
+    <div class="env-tabs" role="tablist" aria-label="Your work environment">
+      <button role="tab" aria-selected="true" data-e="inbox">Inbox</button>
+      <button role="tab" aria-selected="false" data-e="ledger">Accounting software</button>
+      <button role="tab" aria-selected="false" data-e="chat">Team chat</button>
+      <button role="tab" aria-selected="false" data-e="log">Decision log</button>
     </div>
-    <div class="frame brief" id="hxConsole">
-      <div class="con-h"><span><b>Monday briefing</b>, sample data</span><span class="mono" id="clock"></span></div>
-      <div class="tabs" role="tablist" aria-label="Demo views">
-        <button role="tab" aria-selected="true" data-m="bills">Supplier bills</button>
-        <button role="tab" aria-selected="false" data-m="time">Unbilled time</button>
-        <button role="tab" aria-selected="false" data-m="cash">Cash, 13 weeks</button>
-      </div>
-      <div class="pane" id="hxPane" aria-live="polite"></div>
-      <div class="con-sum" id="hxFoot"></div>
+    <div class="env-win">
+      <div class="env-bar"><i></i><i></i><i></i><span id="envTitle">Inbox · finance@yourbusiness.com.au</span><em>Sample data</em></div>
+      <div class="env-body" id="envBody"></div>
     </div>
   </div>
+  <ol class="roll">
+    <li><b>Week 1 · Map and limit</b><span>We list the work, write each agent's job description and set read-only access.</span></li>
+    <li><b>Week 2 · Shadow mode</b><span>Agents run alongside your team without acting. We compare their answers with yours.</span></li>
+    <li><b>Week 3 · Live, within limits</b><span>Agents start work. Anything over a limit comes to a person.</span></li>
+    <li><b>Day 30 · Review</b><span>Errors, time saved and exceptions, measured. We fix what isn't working.</span></li>
+  </ol>
   {WATCH_HOME}
 </div></section>
 
@@ -141,6 +137,19 @@ def home():
       <dt>Reports to</dt><dd>Your finance lead. Beiz reviews its decisions each month.</dd>
       <dt>Record</dt><dd>Every decision logged in your own accounts.</dd>
     </dl>
+  </div>
+</div></section>
+
+<section class="bz-sec alt" id="ca"><div class="wrap">
+  <h2>Why your AI needs a Chartered Accountant in the loop</h2>
+  <p class="lede">Anyone can connect an AI tool. The risk is what happens next: a wrong number in front of the bank, customer data in the wrong place, or the person who built it moving on. Ask these questions of anyone you're considering. Here are our answers.</p>
+  <div class="qa">
+    <div><h3>Who answers if an agent gets a number wrong?</h3><p>A Chartered Accountant with a Certificate of Public Practice, bound by the APES 110 Code of Ethics and covered by professional indemnity insurance.</p><span class="risk">Accountability</span></div>
+    <div><h3>What can each agent touch, and who set that limit?</h3><p>A written job description and delegation limit for every agent, agreed with you before it goes live.</p><span class="risk">Control</span></div>
+    <div><h3>Can it pay, send or decide on its own?</h3><p>Only low-risk work inside the limits you approve. Money, customers and decisions about people need a human yes.</p><span class="risk">Control</span></div>
+    <div><h3>Where does our data go?</h3><p>It stays in your accounts, with the least access each agent needs. We use business-grade AI that doesn't train on your data.</p><span class="risk">Privacy</span></div>
+    <div><h3>What happens if the builder moves on?</h3><p>You own every agent, with a handover pack of documentation, limits and logs that any competent firm can pick up.</p><span class="risk">Sustainability</span></div>
+    <div><h3>Will it stand up with our bank, auditor or board?</h3><p>Figures are reconciled to your ledger, decisions are logged and the logic is reviewed by a CA, with reporting a board can follow (GAICD).</p><span class="risk">Governance</span></div>
   </div>
 </div></section>
 
@@ -178,9 +187,10 @@ def home():
 <section class="bz-sec" id="who"><div class="wrap fgrid">
   <div class="photo"><img src="/assets/media/purav-mehta-2.jpg?v=43" alt="Purav Mehta" width="480" height="640" loading="lazy"></div>
   <div>
-    <h2>Who leads Beiz</h2>
-    <p class="lede">Beiz is led by Purav Mehta, a Chartered Accountant with a Certificate of Public Practice and a graduate of the Australian Institute of Company Directors. His background is internal audit, corporate finance and SAP systems, and he builds the models and agents himself.</p>
-    <p>When you work with Beiz, Purav scopes the work, reviews the financial logic and signs off before handover. You won't be passed to a junior.</p>
+    <h2>The best human in the loop is one who speaks all four languages</h2>
+    <p class="lede">Most AI projects put someone in the loop who understands only part of the problem: a developer who can't read a balance sheet, or an accountant who can't see inside the model. At Beiz the person signing off is Purav Mehta: a Chartered Accountant with a Certificate of Public Practice, a graduate of the Australian Institute of Company Directors, and the builder of the data models and agents himself.</p>
+    <div class="hl4"><span><b>CA</b> knows when a number is wrong</span><span><b>GAICD</b> knows what a board needs to see</span><span><b>Data</b> knows where the number came from</span><span><b>AI</b> knows what the agent was told to do</span></div>
+    <p>Background in internal audit, corporate finance and SAP systems. He scopes the work, reviews the financial logic and signs off before handover. You won't be passed to a junior.</p>
     <p><a class="textlink" href="/about/">More about Beiz</a></p>
   </div>
 </div></section>
