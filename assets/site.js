@@ -120,12 +120,15 @@
   const privacy = dleft > 0 ? T("risk", `Privacy Act automated-decision disclosures start <b>10 Dec 2026</b>. <b>${dleft} days</b> left. We map what your software decides about people.`)
                             : T("risk", `Privacy Act automated-decision disclosures are <b>in force</b>. We map what your software decides about people.`);
   const aiGap = [
-    T("risk", `<b>43%</b> of SMEs now use AI and <b>65%</b> of the rest want human control <i class="note">NAIC 2026</i>. Every Beiz agent reports to a person.`),
+    T("risk", `<b>43%</b> of SMEs now use AI and <b>65%</b> of the rest want human control <a class="note" href="https://www.industry.gov.au/publications/ai-adoption-tracker" target="_blank" rel="noopener">NAIC 2026</a>. Every Beiz agent reports to a person.`),
+    T("risk", `<b>19%</b> of SMEs using AI have none of the recommended responsible AI practices in place <a class="note" href="https://www.industry.gov.au/publications/ai-adoption-tracker" target="_blank" rel="noopener">NAIC, Q4 2025</a>. Who is accountable for yours?`),
     T("beiz", `Every agent we build has a job description, a delegation limit and a human it reports to.`),
     T("demo", `Payables agent held a <b>$6,140</b> bill: bank details changed. Waiting for your yes.`),
-    T("risk", `Only <b>about 1 in 2</b> SMEs check AI output before customers see it <i class="note">NAIC</i>. Ours can't send without a human yes.`),
-    T("beiz", `Built in your accounts. No copies of your data, no lock-in. You own every agent.`),
-    T("risk", `Just <b>20%</b> of organisations monitor AI after go-live <i class="note">Responsible AI Index 2025</i>. We review yours every month.`),
+    T("risk", `Only <b>about 1 in 2</b> SMEs check AI output before customers see it <a class="note" href="https://www.industry.gov.au/publications/ai-adoption-tracker" target="_blank" rel="noopener">NAIC</a>. Ours can't send without a human yes.`),
+    T("beiz", `Built in your accounts. No lock-in. You own every agent.`),
+    T("beiz", `Confused by AI developments? <b>We're not.</b> Ask Bei-zAI, or book a 20-minute call.`),
+    T("risk", `Just <b>20%</b> of organisations monitor AI after go-live <a class="note" href="https://fifthquadrant.com.au/responsible-ai-index" target="_blank" rel="noopener">Responsible AI Index 2025</a>. We review yours every month.`),
+    T("risk", `<b>65%</b> of AI users fear falling behind <a class="note" href="https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization" target="_blank" rel="noopener">Microsoft Work Trend Index 2026</a>. Start with one job, done properly.`),
     T("demo", `Cash agent: lowest week is W7 at <b>$52k</b>, <b>$2k</b> above your buffer.`),
     T("beiz", `A Chartered Accountant designs every agent's limits and reviews its work. Bound by the APES 110 Code of Ethics.`),
     T("demo", `Margin agent: 24 hours logged, never billed. <b>$4,320</b> ready to invoice.`),
@@ -380,7 +383,9 @@
     const openers = $$("[data-open-bot]");
     const flow = {
       start: { say: ["Hi, I'm Bei-zAI. How can I help?", "I'm a guided helper rather than a chatbot, so nothing you click is stored. Pick what's closest."],
-        opts: [["Set up an AI workforce", "aiw"], ["Two-week cash & data check ($1,500)", "chk"], ["Cash & job profit model", "dash"], ["A model for a big decision", "model"], ["Automating a finance process", "auto"], ["Using AI safely", "ai"], ["The Bei-zAI story", "story"], ["Not sure yet", "unsure"]] },
+        opts: [["I'm confused about AI", "cz"], ["Set up an AI workforce", "aiw"], ["Two-week cash & data check ($1,500)", "chk"], ["Cash & job profit model", "dash"], ["A model for a big decision", "model"], ["Automating a finance process", "auto"], ["Using AI safely", "ai"], ["The Bei-zAI story", "story"], ["Not sure yet", "unsure"]] },
+      cz: { topic: "Discovery call", say: ["Fair enough. There's a new model, tool or headline every week, and most of it doesn't matter to a business your size.", "Three questions cut through it: which job should an agent do first, what could go wrong, and who checks its work.", "We answer those with you in a 20-minute call, in plain English. No slide deck, nothing to prepare."], opts: [["Show me a demo first", "demo"], ["Book a 20-minute call", "go"], ["Show me where to start", "aiw"]] },
+      demo: { topic: "Demo request", say: ["On a 20-minute video call we'll run the agents on a sample business: a scam bill held for approval, a cash warning, and the decision log showing who decided what.", "Bring one job you'd like to hand over and we'll show how it would work for you."], opts: [["Book my demo", "go"], ["Back to the start", "start"]] },
       story: { topic: "Discovery call", say: ["Bei-zAI is Beiz plus AI. Beiz is Purav's chocolate-and-white Border Collie, and the name comes from 贝仔 (bèi zǎi): little treasure.", "Collies are working dogs. They turn up every day, stay on the job until it's done, and nothing slips past them through the gate.", "That's the standard for every agent we build, and why there's a collie's ear in the B of our logo. We work hard for our clients because we love that dog."], opts: [["How can Beiz help me?", "start"], ["Book a 20-minute call", "go"]] },
       chk: { topic: "Two-week cash & data check", say: ["You send exports from Xero and your job or timesheet app. No logins needed.", "Within two weeks you get written findings (unbilled work, margin leaks, manual bottlenecks) with the records and arithmetic behind each one, plus a fixed-price next step.", "$1,500 fixed, credited if you go ahead."], next: "size" },
       aiw: { topic: "Controlled AI workflows", say: ["Which job would you hand to AI first?"],
@@ -464,7 +469,11 @@
       msgs.innerHTML = ""; path = []; topic = "Something else"; add(b.textContent.replace(/\$.*$|from.*$/, "").trim(), "u"); step(b.dataset.k);
     });
     openers.forEach(o => o.addEventListener("click", hideTz));
-    if (!seen()) setTimeout(() => { if (!bot.classList.contains("open") && !document.body.classList.contains("menu-open")) tz.classList.add("show"); }, 6000);
+    document.querySelectorAll("[data-bot-step]").forEach(b => b.addEventListener("click", () => {
+      hideTz(); bot.classList.add("open"); openers.forEach(x => x.setAttribute("aria-expanded", "true"));
+      msgs.innerHTML = ""; path = []; topic = "Something else"; add(b.dataset.say || "I'm confused about AI", "u"); step(b.dataset.botStep);
+    }));
+    if (!seen() && !matchMedia("(max-width: 760px)").matches) setTimeout(() => { if (!bot.classList.contains("open") && !document.body.classList.contains("menu-open")) tz.classList.add("show"); }, 6000);
   }
 })();
 
@@ -873,4 +882,12 @@
   document.getElementById('rpAgain').onclick = play;
   let started = false;
   new IntersectionObserver(e => { if (e[0].isIntersecting && !started) { started = true; play(); } }, { threshold: .3 }).observe(rp);
+})();
+
+// ---------- v23: noise resolves into three questions when the section is seen ----------
+(function () {
+  const n = document.getElementById("clrNoise"); if (!n) return;
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) { n.classList.add("clear"); return; }
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { setTimeout(() => n.classList.add("clear"), 1600); io.disconnect(); } }), { threshold: 0.45 });
+  io.observe(n);
 })();

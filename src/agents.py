@@ -243,4 +243,4 @@ AGENT_TEAM = ('<figure class="team" id="team" aria-label="Animated illustration:
   + "".join(_agent4(x, y, k, n, w, ic, -66 if y < 200 else 72) for x, y, k, n, w, ic in _NODES) +
   '</svg>'
   '<div class="team-feed" aria-live="polite"><span class="tf-dot"></span><span id="teamFeed">Data scientist agent: 13-week forecast refreshed from your ledger and bank feed</span></div>'
-  '<figcaption>Example workforce on sample data. Typically live in three weeks.</figcaption></figure>')
+  '<figcaption>Example workforce on sample data. Planned as a three-week rollout.</figcaption></figure>')

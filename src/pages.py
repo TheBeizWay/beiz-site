@@ -66,11 +66,27 @@ def home():
 <section class="bz-hero" id="top"><div class="wrap bz-hgrid">
   <div class="bz-copy">
     <h1>We set up your agentic AI workforce.</h1>
-    <p class="bz-sub">Data scientist, accounting, reviewer and governance agents that work around the clock inside the systems you already use. Your people approve what matters, and a Chartered Accountant designs the limits and reviews the work. Typically live in three weeks. Fixed prices from $1,500.</p>
+    <p class="bz-sub">Data scientist, accounting, reviewer and governance agents that work around the clock inside the systems you already use. Your people approve what matters, and a Chartered Accountant designs the limits and reviews the work. Planned as a three-week rollout. Fixed prices from $1,500.</p>
     <div class="bz-ctas"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-minute call</a><a class="btn ghost" href="#demo">See the agents at work</a></div>
     <div class="bz-trust"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="" width="44" height="44"><p>Your human in the loop: <b>Purav Mehta CA, GAICD</b><br>Chartered Accountant, company director graduate, and the builder of the data models and agents. Canberra, working Australia-wide.</p></div>
   </div>
   {AGENT_TEAM}
+</div></section>
+
+<section class="bz-clear" id="clear"><div class="wrap clr-grid">
+  <div class="clr-noise" id="clrNoise" aria-hidden="true">
+    <span style="--x:4%;--y:6%">A new model every week</span><span style="--x:58%;--y:4%">agentic</span><span style="--x:70%;--y:16%">copilots</span><span style="--x:10%;--y:20%">MCP</span><span style="--x:30%;--y:15%">RAG</span><span style="--x:22%;--y:28%">&ldquo;AI will replace your finance team&rdquo;</span><span style="--x:2%;--y:36%">autonomous agents</span><span style="--x:62%;--y:44%">fine-tuning</span><span style="--x:24%;--y:50%">prompt engineering</span><span style="--x:4%;--y:64%">vibe coding</span><span style="--x:46%;--y:62%">multi-agent orchestration</span><span style="--x:16%;--y:78%">&ldquo;Just add AI&rdquo;</span><span style="--x:56%;--y:80%">AGI next year?</span><span style="--x:34%;--y:90%">a vendor in every inbox</span><span style="--x:80%;--y:40%">LLMs</span><span style="--x:80%;--y:68%">tokens</span><span style="--x:2%;--y:92%">reasoning models</span>
+    <div class="clr-signal"><b>Under the noise, three questions</b><ol><li>Which job should an agent do first?</li><li>What could go wrong if it does?</li><li>Who checks its work?</li></ol></div>
+  </div>
+  <div class="clr-copy">
+    <h2>Confused by AI? We're not.</h2>
+    <p class="lede">A new model every week, agents, copilots, and a vendor promising all of it. You're not short of AI. You're short of a straight answer about what to do first, and someone accountable for it. Beiz is here to remove the confusion.</p>
+    <p class="clr-stat"><b>65%</b> of AI users fear falling behind if they don't adapt quickly. Only <b>26%</b> say their leadership is clearly aligned on AI. <a href="https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization" target="_blank" rel="noopener">Microsoft Work Trend Index 2026</a>, 20,000 AI users in 10 countries including Australia.</p>
+    <h3>From a 20-minute call, you'll leave with</h3>
+    <ul class="clr-get"><li>The first job an agent could take on in your business, and the jobs it shouldn't touch.</li><li>What could go wrong, and the control that stops it.</li><li>A fixed price, or a straight &ldquo;not yet&rdquo; if that's the right answer.</li></ul>
+    <p class="clr-no">No slide deck, no jargon, nothing to prepare.</p>
+    <div class="bz-ctas"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-minute call</a><a class="btn ghost" href="/contact/?topic=Demo%20request#form" data-topic="Demo request">Ask for a demo</a><button type="button" class="clr-bot" data-bot-step="cz">or ask Bei-zAI first</button></div>
+  </div>
 </div></section>
 
 <section class="bz-path" id="start"><div class="wrap">
@@ -97,7 +113,7 @@ def home():
         <li>Pays <span class="mono">$6,140.00</span></li></ol>
         <p class="rp-out">Money gone to a scammer's account. No record of who allowed it.</p></div>
       <div class="rp-lane good"><h3>Agent set up by Beiz</h3><ol>
-        <li>Reads the email as data. Instructions inside documents are ignored</li>
+        <li>Reads the email as content to check, not orders to follow</li>
         <li>Spots that the bank details have changed</li>
         <li>Checks its job description: bank changes always need a person</li>
         <li>Holds the payment and logs the reason</li></ol>
@@ -106,11 +122,11 @@ def home():
     <div class="rp-foot"><span>Illustration on sample data</span><button type="button" class="btn ghost" id="rpAgain">Play again</button></div>
   </div>
   <div class="risks">
-    <div><h3>It makes up a number</h3><p>A forecast or report built on a figure that isn't in your books.</p><p class="fixline">Beiz: a reviewer agent traces figures to the ledger and rejects anything it can't find.</p></div>
+    <div><h3>It makes up a number</h3><p>A forecast or report built on a figure that isn't in your books.</p><p class="fixline">Beiz: a reviewer agent traces figures to the ledger and holds anything it can't trace for a person.</p></div>
     <div><h3>It pays the wrong account</h3><p>Fake "new bank details" emails are a common invoice scam, and an agent can fall for one at speed.</p><p class="fixline">Beiz: changed bank details are always held for a person.</p></div>
-    <div><h3>It follows instructions hidden in a document</h3><p>Text buried in an invoice or an email can steer an agent that reads it.</p><p class="fixline">Beiz: documents are treated as data, and agents can't approve their own payments.</p></div>
-    <div><h3>It promises a customer something you don't offer</h3><p>In 2024 a Canadian tribunal held an airline liable for a refund policy its chatbot made up.</p><p class="fixline">Beiz: anything going to a customer stays a draft until a person sends it.</p></div>
-    <div><h3>It leaks your data</h3><p>Staff paste client files into free AI tools that may keep them.</p><p class="fixline">Beiz: business-grade tools, least access, and no copies outside your accounts.</p></div>
+    <div><h3>It follows instructions hidden in a document</h3><p>Text buried in an invoice or an email can steer an agent that reads it.</p><p class="fixline">Beiz: agents have no permission to change bank details or release payments, so a hidden instruction can't make them.</p></div>
+    <div><h3>It promises a customer something you don't offer</h3><p>In <i>Moffatt v Air Canada</i> (2024 BCCRT 149), a Canadian tribunal held the airline liable for a refund policy its chatbot made up.</p><p class="fixline">Beiz: anything going to a customer stays a draft until a person sends it.</p></div>
+    <div><h3>It leaks your data</h3><p>Staff paste client files into free AI tools that may keep them.</p><p class="fixline">Beiz: only AI plans whose terms exclude training on your data, and least access.</p></div>
     <div><h3>It drifts and nobody notices</h3><p>It works in week one, then supplier formats, prices and staff change.</p><p class="fixline">Beiz: we review the decision log every month and fix what's slipping.</p></div>
   </div>
 </div></section>
@@ -141,7 +157,7 @@ def home():
 
 <section class="bz-sec alt" id="why"><div class="wrap">
   <h2>The future finance team is already here. Beiz deploys it.</h2>
-  <p class="lede">Large companies are redesigning finance around people and AI agents working together, with each agent given a defined role and a human signing off. Beiz brings that model to Australian businesses that don't have a CFO, a data team or an AI team.</p>
+  <p class="lede">Large firms are now building finance teams where AI agents are a new kind of staff: each with a defined role, supervised like an employee, with a person accountable for the result. Beiz brings that model to Australian businesses that don't have a CFO, a data team or an AI team, at a fixed price agreed in writing. You stay in charge.</p>
   <div class="disc4">
     <div><h3>Future CFO view</h3><p>Cash, margins and decisions from live numbers, with a Chartered Accountant's judgement on what they mean.</p></div>
     <div><h3>Agentic data scientist</h3><p>Agents that plan the analysis, run it and check it, instead of a spreadsheet nobody updates.</p></div>
@@ -176,10 +192,10 @@ def home():
   <h2>Why your AI needs a Chartered Accountant in the loop</h2>
   <p class="lede">Anyone can connect an AI tool. The risk is what happens next: a wrong number in front of the bank, customer data in the wrong place, or the person who built it moving on. Ask these questions of anyone you're considering. Here are our answers.</p>
   <div class="qa">
-    <div><h3>Who is responsible for how the agents behave?</h3><p>A named Chartered Accountant designs each agent's role and limits and reviews its work, bound by the APES 110 Code of Ethics and covered by professional indemnity insurance. Your people approve the decisions that matter.</p><span class="risk">Accountability</span></div>
+    <div><h3>Who is responsible for how the agents behave?</h3><p>A named Chartered Accountant designs each agent's role and limits and reviews its work, bound by the APES 110 Code of Ethics. Your people approve the decisions that matter.</p><span class="risk">Accountability</span></div>
     <div><h3>What can each agent touch, and who set that limit?</h3><p>A written job description and delegation limit for every agent, agreed with you before it goes live.</p><span class="risk">Control</span></div>
     <div><h3>Can it pay, send or decide on its own?</h3><p>Only low-risk work inside the limits you approve. Money, customers and decisions about people need a human yes.</p><span class="risk">Control</span></div>
-    <div><h3>Where does our data go?</h3><p>It stays in your accounts, with the least access each agent needs. We use business-grade AI that doesn't train on your data.</p><span class="risk">Privacy</span></div>
+    <div><h3>Where does our data go?</h3><p>It stays in your accounts, with the least access each agent needs. We only use AI plans whose terms say your data isn't used to train models, and we check each tool before it touches your data.</p><span class="risk">Privacy</span></div>
     <div><h3>What happens if the builder moves on?</h3><p>You own every agent, with a handover pack of documentation, limits and logs that any competent firm can pick up.</p><span class="risk">Sustainability</span></div>
     <div><h3>Will it stand up with our bank, auditor or board?</h3><p>Figures are reconciled to your ledger, decisions are logged and the logic is reviewed by a CA, with reporting a board can follow (GAICD).</p><span class="risk">Governance</span></div>
   </div>
@@ -261,7 +277,7 @@ def services_hub():
         ("/services/dashboards-and-models/", "See", "Dashboards & financial models", "Cash forecasts, runway scenarios, job profitability and board or investor dashboards."),
         ("/services/project-delivery/", "Deliver", "AI & tech project delivery", "Scope, vendors, milestones and honest reporting, so your tech project actually lands."),
         ("/services/privacy-sprint/", "Before 10 Dec", "Automated-Decision Privacy Sprint", "Map what your software decides about people and hand your lawyer the policy wording. Fixed price from $3,500, 5 to 10 days."),
-        ("/services/ai-readiness-sprint/", "Start here", "AI workforce setup", "AI agents with job descriptions, limits, a decision log and a person who approves what matters. Typically live in three weeks. From $6,000."),
+        ("/services/ai-readiness-sprint/", "Start here", "AI workforce setup", "AI agents with job descriptions, limits, a decision log and a person who approves what matters. Planned as a three-week rollout. From $6,000."),
         ("/services/quick-wins/", "Small business", "Quick wins", "Small, fixed-price fixes from $1,200 that give you back evenings and bring cash in faster. Built for sole traders and small teams who don't have time for admin. Most are scoped in days, not months, with no lock-in. Your BAS and tax stay with your tax or BAS agent; we make their job easier."),
     ]
     c = "".join(f'<a class="card" href="{h}"><span class="k">{k}</span><h3>{t}</h3><p>{d}</p><span class="go">Learn more →</span></a>' for h, k, t, d in cards)
@@ -456,12 +472,12 @@ def services():
         "Project delivery for AI and technology projects: scoping, vendor comparison, milestones, risk logs and plain-English status reporting. Rescue for stalled projects.")
 
     svc("/services/ai-readiness-sprint/", "AI workforce", "AI workforce setup",
-        "Your AI workforce, set up properly and live in about three weeks.",
+        "Your AI workforce, set up properly, on a three-week rollout plan.",
         "We set up AI agents that do real finance and admin work inside the tools you already use: a data scientist agent, an accounting agent, a reviewer agent and a governance agent. Each one has a job description, limits and a person it reports to. Then we keep them in check every month.",
         '''<h2>The agents</h2>
 <ul><li><strong>Data scientist agent:</strong> forecasts cash for the next 13 weeks, spots margin drift by job, and flags what's unusual.</li>
 <li><strong>Accounting agent:</strong> reconciles transactions, matches bills to orders and deliveries, and drafts invoices and reminders.</li>
-<li><strong>Reviewer agent:</strong> traces every figure back to the ledger and rejects anything it can't find, before a person sees it.</li>
+<li><strong>Reviewer agent:</strong> traces figures back to the ledger and holds anything it can't trace for a person to check.</li>
 <li><strong>Governance agent:</strong> keeps the decision log, the register of AI in use and the monthly board or owner report.</li></ul>
 <p>You don't need all four on day one. Most businesses start with the one or two that save the most hours, and add the rest once those are working.</p>
 <h2>Five controls every agent gets</h2>
@@ -479,7 +495,7 @@ def services():
 <p>It isn't an audit or assurance engagement, custom software that needs a development team, or a licence sale. You buy any subscriptions directly, in your name. We don't do tax returns or BAS.</p>''',
         [("Agent job descriptions", "Role, tools, limits and owner for each agent, agreed with you."), ("Working agents", "Built in your own accounts and tools."), ("Approval steps", "Money, customers and people always need a human yes."),
          ("Decision log", "Every action recorded, in your accounts."), ("AI use policy and training", "One page your team can follow, plus a session on the agents."), ("Day-30 review", "Errors, time saved and exceptions, measured.")],
-        aside("The fine print", ["Setup from $6,000, fixed and quoted in writing", "Typically live in about three weeks", "Monthly monitoring and review from $750", "Built in your accounts. No lock-in."], "AI workforce setup"),
+        aside("The fine print", ["Setup from $6,000, fixed and quoted in writing", "Three-week rollout plan, subject to scope and system access", "Monthly monitoring and review from $750", "Built in your accounts. No lock-in."], "AI workforce setup"),
         "", [("/services/ai-governance/", "AI governance"), ("/services/automation/", "Workflow automation"), ("/#wrong", "What goes wrong without controls")],
         "AI workforce setup", "AI workforce setup: AI agents with a Chartered Accountant in the loop",
         "Fixed-price AI workforce setup for Australian businesses: data scientist, accounting, reviewer and governance agents with job descriptions, limits, a decision log and monthly review. From $6,000.")
@@ -1066,7 +1082,7 @@ def try_page():
   <div><div id="dLateOut"></div><button class="btn primary" type="button" id="dLateSend">Send me this with a fix</button></div></div>
 
 <div class="demo" id="cash"><div><span class="k">Demo 2 · Cash</span><h2>Will you have enough cash?</h2><p class="muted">A simple 13-week forecast. Add one big bill and see what happens.</p>
-  <div class="fields" id="dCash">{n("cfStart","Cash in the bank now ($)",42000,"500")}{n("cfIn","Money in, typical week ($)",11000,"250")}{n("cfOut","Money out, typical week ($)",11800,"250")}{n("cfBig","One big bill ($)",18000,"500")}{n("cfWk","Big bill lands in week (1 to 13)",7)}{n("cfBuf","Minimum buffer you want ($)",20000,"500")}</div></div>
+  <div class="fields" id="dCash">{n("cfStart","Cash in the bank now ($)",42000,"500")}{n("cfIn","Money in, typical week ($)",11000,"250")}{n("cfOut","Money out, typical week ($)",11800,"50")}{n("cfBig","One big bill ($)",18000,"500")}{n("cfWk","Big bill lands in week (1 to 13)",7)}{n("cfBuf","Minimum buffer you want ($)",20000,"500")}</div></div>
   <div><div id="dCashOut"></div><button class="btn primary" type="button" id="dCashSend">Send me this with a fix</button></div></div>
 
 <div class="demo" id="bills"><div><span class="k">Demo 3 · Controls</span><h2>Watch an agent check your bills.</h2><p class="muted">Eight supplier bills from a made-up business. Press run and watch what gets paid and what gets held for a human.</p>
@@ -1088,7 +1104,7 @@ def about():
         ("Controls before code", "We design every system the way an auditor would test it. The approvals, limits and logs come first; the clever part comes second."),
         ("A human signs off", "AI prepares the work. A person approves anything that moves money, reaches a customer or makes a decision about someone."),
         ("Fixed price, in writing", "You know the scope, the deliverables and the price before we start. No hourly meter, no lock-in."),
-        ("Your data stays yours", "We build inside your own accounts, with business-grade AI that doesn't train on your data. When we part ways, everything keeps running."),
+        ("Your data stays yours", "We build inside your own accounts, using only AI plans whose terms say your data isn't used for training. When we part ways, everything keeps running."),
         ("Plain English", "If we can't explain it simply, we haven't understood it. Board papers are one page. Status reports are one page."),
     ]
     pr = "".join(f'<div class="card"><span class="k">0{i+1}</span><h3>{a}</h3><p>{b}</p></div>' for i, (a, b) in enumerate(principles))
@@ -1100,7 +1116,7 @@ def about():
 <li><span class="ic">CA</span><b>Chartered Accountant</b><p>CA ANZ member with a Certificate of Public Practice. Numbers that reconcile to your ledger, and professional standards you can hold us to.</p></li>
 <li><span class="ic">GAICD</span><b>GAICD governance</b><p>Trained by the Australian Institute of Company Directors in how boards oversee risk. AI policies, controls and board reporting that directors can sign off.</p></li>
 <li><span class="ic">DM</span><b>Data, financial and economic modelling</b><p>Financial models, economic and cost-benefit modelling, forecasts, dashboards and AI agents, built on your own data.</p></li>
-<li><span class="ic">🔒</span><b>Your data, secured</b><p>Built inside your own accounts, with two-factor access, least-privilege permissions and business-grade AI that doesn't train on your data. Covered by professional confidentiality under the CA ANZ code of ethics.</p></li>
+<li><span class="ic">🔒</span><b>Your data, secured</b><p>Built inside your own accounts, with two-factor access, least-privilege permissions and only AI plans whose terms say your data isn't used for training. Covered by professional confidentiality under the CA ANZ code of ethics.</p></li>
 </ul></div></section>
 <section style="padding-top:0"><div class="wrap split"><div class="prose">
 <h2>Why Beiz exists</h2>
