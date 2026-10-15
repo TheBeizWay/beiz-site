@@ -66,7 +66,7 @@ def home():
 <section class="bz-hero" id="top"><div class="wrap bz-hgrid">
   <div class="bz-copy">
     <h1>We set up your agentic AI workforce.</h1>
-    <p class="bz-sub">Data scientist, accounting, reviewer and governance agents that work around the clock inside the systems you already use, with a Chartered Accountant in the loop signing off what matters. Typically live in three weeks. Fixed prices from $1,500.</p>
+    <p class="bz-sub">Data scientist, accounting, reviewer and governance agents that work around the clock inside the systems you already use. Your people approve what matters, and a Chartered Accountant designs the limits and reviews the work. Typically live in three weeks. Fixed prices from $1,500.</p>
     <div class="bz-ctas"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-minute call</a><a class="btn ghost" href="#demo">See the agents at work</a></div>
     <div class="bz-trust"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="" width="44" height="44"><p>Your human in the loop: <b>Purav Mehta CA, GAICD</b><br>Chartered Accountant, company director graduate, and the builder of the data models and agents. Canberra, working Australia-wide.</p></div>
   </div>
@@ -106,7 +106,7 @@ def home():
     <div class="rp-foot"><span>Illustration on sample data</span><button type="button" class="btn ghost" id="rpAgain">Play again</button></div>
   </div>
   <div class="risks">
-    <div><h3>It makes up a number</h3><p>A forecast or report built on a figure that isn't in your books.</p><p class="fixline">Beiz: every figure is traced to the ledger, and a reviewer agent rejects anything it can't find.</p></div>
+    <div><h3>It makes up a number</h3><p>A forecast or report built on a figure that isn't in your books.</p><p class="fixline">Beiz: a reviewer agent traces figures to the ledger and rejects anything it can't find.</p></div>
     <div><h3>It pays the wrong account</h3><p>Fake "new bank details" emails are a common invoice scam, and an agent can fall for one at speed.</p><p class="fixline">Beiz: changed bank details are always held for a person.</p></div>
     <div><h3>It follows instructions hidden in a document</h3><p>Text buried in an invoice or an email can steer an agent that reads it.</p><p class="fixline">Beiz: documents are treated as data, and agents can't approve their own payments.</p></div>
     <div><h3>It promises a customer something you don't offer</h3><p>In 2024 a Canadian tribunal held an airline liable for a refund policy its chatbot made up.</p><p class="fixline">Beiz: anything going to a customer stays a draft until a person sends it.</p></div>
@@ -176,7 +176,7 @@ def home():
   <h2>Why your AI needs a Chartered Accountant in the loop</h2>
   <p class="lede">Anyone can connect an AI tool. The risk is what happens next: a wrong number in front of the bank, customer data in the wrong place, or the person who built it moving on. Ask these questions of anyone you're considering. Here are our answers.</p>
   <div class="qa">
-    <div><h3>Who answers if an agent gets a number wrong?</h3><p>A Chartered Accountant with a Certificate of Public Practice, bound by the APES 110 Code of Ethics and covered by professional indemnity insurance.</p><span class="risk">Accountability</span></div>
+    <div><h3>Who is responsible for how the agents behave?</h3><p>A named Chartered Accountant designs each agent's role and limits and reviews its work, bound by the APES 110 Code of Ethics and covered by professional indemnity insurance. Your people approve the decisions that matter.</p><span class="risk">Accountability</span></div>
     <div><h3>What can each agent touch, and who set that limit?</h3><p>A written job description and delegation limit for every agent, agreed with you before it goes live.</p><span class="risk">Control</span></div>
     <div><h3>Can it pay, send or decide on its own?</h3><p>Only low-risk work inside the limits you approve. Money, customers and decisions about people need a human yes.</p><span class="risk">Control</span></div>
     <div><h3>Where does our data go?</h3><p>It stays in your accounts, with the least access each agent needs. We use business-grade AI that doesn't train on your data.</p><span class="risk">Privacy</span></div>
@@ -220,9 +220,10 @@ def home():
   <div class="photo"><img src="/assets/media/purav-mehta-2.jpg?v=43" alt="Purav Mehta" width="480" height="640" loading="lazy"></div>
   <div>
     <h2>The best human in the loop is one who speaks all four languages</h2>
-    <p class="lede">Most AI projects put someone in the loop who understands only part of the problem: a developer who can't read a balance sheet, or an accountant who can't see inside the model. At Beiz the person signing off is Purav Mehta: a Chartered Accountant with a Certificate of Public Practice, a graduate of the Australian Institute of Company Directors, and the builder of the data models and agents himself.</p>
+    <p class="lede">Most AI projects put someone in the loop who understands only part of the problem: a developer who can't read a balance sheet, or an accountant who can't see inside the model. At Beiz the person who designs and reviews the loop is Purav Mehta: a Chartered Accountant with a Certificate of Public Practice, a graduate of the Australian Institute of Company Directors, and the builder of the data models and agents himself.</p>
     <div class="hl4"><span><b>CA</b> knows when a number is wrong</span><span><b>GAICD</b> knows what a board needs to see</span><span><b>Data</b> knows where the number came from</span><span><b>AI</b> knows what the agent was told to do</span></div>
-    <p>Background in internal audit, corporate finance and SAP systems. He scopes the work, reviews the financial logic and signs off before handover. You deal with him from the first call to the last.</p>
+    <p><b style="color:#fff">Why the human in the loop matters.</b> Agents are fast, tireless and confident, including when they're wrong. They don't weigh risk, notice when a supplier's behaviour has changed, or answer to a bank, a board or a regulator. People do. An agentic workforce works when the people in the loop are the right ones: your team approving decisions, and a Chartered Accountant who understands the data, the AI and the risk setting the limits and checking the work.</p>
+    <p>Background in internal audit, corporate finance and SAP systems. He scopes the work, reviews the financial logic and approves each build against the agreed scope before handover. You deal with him from the first call to the last.</p>
     <p><a class="textlink" href="/about/">More about Beiz</a></p>
   </div>
 </div></section>
@@ -238,7 +239,7 @@ def home():
 </div>
 {contact_form(heading="Tell us what you're trying to fix", lede="A few lines is plenty. By the next business day you'll get a written reply: what the problem looks like, what information it would need, and whether a fixed-scope job makes sense. Rather talk? Pick “Discovery call” and we'll arrange a free 20 minutes, early morning or after 5pm.")}'''
     add("/", "Beiz Data & Accounting | We set up your agentic AI workforce, with a Chartered Accountant in the loop",
-        "Beiz builds AI agents for cash, margins, bills and reporting, with a Chartered Accountant (CA, GAICD) signing off what matters. Australian businesses. Fixed prices from $1,500.", body)
+        "Beiz builds AI agents for cash, margins, bills and reporting, with your people approving what matters and a Chartered Accountant (CA, GAICD) designing and reviewing the controls. Australian businesses. Fixed prices from $1,500.", body)
 
 
 # ------------------------------------------------------------------ services
@@ -333,7 +334,7 @@ def services():
         [("Work map", "What's outsourced or automated, and what stays with you."), ("Access plan", "Who can see and change what, in each system."),
          ("Review checklist", "The checks that happen before work is used or sent."), ("Runbook", "Plain instructions your team and offshore staff can follow."),
          ("Contract and privacy points", "What to raise with your provider and your lawyer."), ("Monthly review (optional)", "Sample checks and a one-page note.")],
-        aside("Good fit if", ["You use an offshore bookkeeper, VA or admin team", "You're about to outsource and want it set up right", "Staff use AI on customer or financial data", "You want someone in Australia accountable for the result"], "Offshore & AI oversight",
+        aside("Good fit if", ["You use an offshore bookkeeper, VA or admin team", "You're about to outsource and want it set up right", "Staff use AI on customer or financial data", "You want an Australian Chartered Accountant overseeing the work"], "Offshore & AI oversight",
               "Not an audit or assurance engagement, and not legal advice."),
         before_after("A 15-person trades business with an offshore bookkeeper", ["One shared login to Xero and the bank", "Bookkeeper can pay bills and change supplier bank details", "Nobody checks the reconciliations", "Customer data sent to personal email"],
                      ["Own login with read-and-draft access", "Owner approves payments and bank-detail changes", "Monthly sample check by a CA", "Work stays in the business's own accounts"], "Illustrative example, not a client"),

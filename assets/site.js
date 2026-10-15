@@ -127,7 +127,7 @@
     T("beiz", `Built in your accounts. No copies of your data, no lock-in. You own every agent.`),
     T("risk", `Just <b>20%</b> of organisations monitor AI after go-live <i class="note">Responsible AI Index 2025</i>. We review yours every month.`),
     T("demo", `Cash agent: lowest week is W7 at <b>$52k</b>, <b>$2k</b> above your buffer.`),
-    T("beiz", `Chartered Accountant sign-off on the numbers. Bound by the APES 110 Code of Ethics.`),
+    T("beiz", `A Chartered Accountant designs every agent's limits and reviews its work. Bound by the APES 110 Code of Ethics.`),
     T("demo", `Margin agent: 24 hours logged, never billed. <b>$4,320</b> ready to invoice.`),
     T("beiz", `Fixed price, agreed in writing before we start. From <b>$1,500</b>.`)
   ];
@@ -835,12 +835,12 @@
     ['exec', 'Accounting agent: 212 transactions reconciled, 8 supplier bills matched to orders.'],
     ['val', 'Reviewer agent: every figure traced to the ledger. 2 bills held: bank details changed, rate up 18%.'],
     ['gov', 'Governance agent: board pack drafted. AI use register and risk log updated.'],
-    ['core', 'Human sign-off: 2 bills and the board pack wait for your yes. Nothing goes out until a person approves.'],
+    ['core', 'You approve: 2 bills and the board pack wait for your yes. Nothing goes out until a person approves.'],
     ['plan', 'Data scientist agent: job J101 margin below 20%. 24 hours logged, not billed.'],
     ['exec', 'Accounting agent: draft invoice for J101 prepared ($4,320.00).'],
     ['val', 'Reviewer agent: hours, rate and job checked against the timesheet. No errors found.'],
     ['gov', 'Governance agent: decision logged with who approved it and why.'],
-    ['core', 'Human sign-off: the invoice goes to the client only when you send it.']
+    ['core', 'You approve: the invoice goes to the client only when you send it.']
   ];
   const set = i => {
     const [k, msg] = steps[i % steps.length];

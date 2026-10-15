@@ -216,7 +216,7 @@ _NODES = [(130, 130, "plan", "Data scientist agent", "DATA SCIENCE · PLAN", _I_
           (510, 400, "val", "Reviewer agent", "REVIEW · CHECK", _I_VAL),
           (130, 400, "gov", "Governance agent", "GOVERNANCE · REPORT", _I_GOV)]
 
-AGENT_TEAM = ('<figure class="team" id="team" aria-label="Animated illustration: four AI agents (data science, accounting, review and governance) work in a loop around a Chartered Accountant who signs off">'
+AGENT_TEAM = ('<figure class="team" id="team" aria-label="Animated illustration: four AI agents (data science, accounting, review and governance) work in a loop, with people approving decisions and a Chartered Accountant designing and reviewing the controls">'
   '<svg viewBox="-10 -10 660 580" class="team-svg" role="img" aria-hidden="true">'
   '<defs>'
   '<linearGradient id="tg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2DD4BF"/><stop offset="1" stop-color="#818CF8"/></linearGradient>'
