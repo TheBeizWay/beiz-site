@@ -58,29 +58,34 @@ PLAIN = '''<section id="plain">
 
 def home():
     body = f'''<div class="hx">
-<section class="sec hero" id="top"><div class="wrap hgrid">
+<section class="sec hero" id="top"><div class="wrap">
+  <div class="hgrid">
   <div>
-    <div class="pill">PRINCIPAL-LED · <i>CHARTERED ACCOUNTANT</i> · GAICD</div>
+    <div class="who-strip"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="" width="56" height="56"><p><b>Purav Mehta</b> — Chartered Accountant (CA, CPP) · GAICD<br><span>Canberra, working Australia-wide</span></p></div>
     <h1>Your tax accountant files the past. I build what runs your next twelve months.</h1>
     <p class="sub">Cash, margins and job profit you can see every week. AI agents your team actually uses, with a person approving anything that moves money or reaches a customer. Designed, built and checked by one Chartered Accountant.</p>
-    <div class="ctas"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-minute call →</a><a class="btn" href="#pricing">See fixed prices</a></div>
-    <div class="sla"><div><b>20 min</b><span>Free first call</span></div><div><b>1 day</b><span>Written reply</span></div><div><b>3 days</b><span>Fixed price in writing</span></div></div>
+    <div class="ctas"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-Min Call</a><a class="btn" href="#pricing">See fixed prices</a></div>
   </div>
-  <div class="frame" id="hxConsole">
-    <div class="con-h"><span><b>MONDAY BRIEFING</b> · SAMPLE DATA</span><span id="clock"></span></div>
+  <div class="frame brief" id="hxConsole">
+    <div class="con-h"><span><b>Monday briefing</b> · sample data, made-up business</span><span class="mono" id="clock"></span></div>
     <div class="tabs" role="tablist" aria-label="Demo views">
-      <button role="tab" aria-selected="true" data-m="bills">01 Supplier bills</button>
-      <button role="tab" aria-selected="false" data-m="time">02 Unbilled time</button>
-      <button role="tab" aria-selected="false" data-m="cash">03 Cash, 13 weeks</button>
+      <button role="tab" aria-selected="true" data-m="bills">Supplier bills</button>
+      <button role="tab" aria-selected="false" data-m="time">Unbilled time</button>
+      <button role="tab" aria-selected="false" data-m="cash">Cash, 13 weeks</button>
     </div>
     <div class="pane" id="hxPane" aria-live="polite"></div>
-    <div class="con-f" id="hxFoot"></div>
-    <div class="log" id="hxLog" aria-hidden="true"></div>
+    <div class="con-sum" id="hxFoot"></div>
+  </div>
+  </div>
+  <div class="offers" id="offers">
+    <a class="offer" href="#check"><span class="n">01</span><h3>Two-week cash &amp; data check</h3><span class="p mono">$1,500 fixed</span><p>From your Xero and job or timesheet exports, I find unbilled work, margin leaks and manual bottlenecks.</p></a>
+    <a class="offer" href="#model"><span class="n">02</span><h3>Live cash &amp; job profit model</h3><span class="p mono">from $5,000</span><p>A 13-week rolling cash flow and weekly job profitability your team can actually read.</p></a>
+    <a class="offer" href="#ai"><span class="n">03</span><h3>Controlled AI workflows</h3><span class="p mono">from $6,000</span><p>Practical automation for supplier bills, quotes and admin, where a person approves anything touching money or customers.</p></a>
   </div>
 </div></section>
 
 <section class="sec plain" id="vs"><div class="wrap">
-  <div class="label">01 · Not another tax accountant</div>
+  <div class="label">Not another tax accountant</div>
   <h2>Keep your tax accountant. Bring me in for the rest.</h2>
   <p class="lede">I don't do tax returns, BAS or audit, so I'm no threat to the accountant you already trust. I work on the parts of the business they usually aren't asked about.</p>
   <div class="matrix">
@@ -93,7 +98,7 @@ def home():
 </div></section>
 
 <section class="sec" id="built"><div class="wrap">
-  <div class="label">02 · How it's built</div>
+  <div class="label">How it's built</div>
   <h2>The AI drafts. The code checks. You decide.</h2>
   <p class="lede">Every build follows the same path, so you always know what an agent can touch and who signed off.</p>
   <div class="pipe">
@@ -108,26 +113,27 @@ def home():
 </div></section>
 
 <section class="sec plain" id="pricing"><div class="wrap">
-  <div class="label">03 · Fixed prices, ex GST</div>
+  <div class="label">Fixed prices, ex GST</div>
   <h2>Start small. Know the price before we start.</h2>
   <div class="tiers">
-    <div class="frame tier first"><div class="num">01 · START HERE</div><h3>Numbers &amp; AI check</h3><div class="price">$1,500 <small>FIXED</small></div>
-      <ul><li>Two hours with you and your team</li><li>A look at your exports and how you use AI today</li><li>Written two-page verdict with a fixed-price next step</li><li>Fee credited if you go ahead</li></ul>
-      <a class="btn primary" href="/contact/?topic=Numbers%20%26%20AI%20check#form">Book the check →</a></div>
-    <div class="frame tier"><div class="num">02 · AI</div><h3>AI team setup</h3><div class="price"><small>FROM</small> $6,000</div>
-      <ul><li>Two assistants your staff actually use</li><li>Rules on what each can touch, and who approves</li><li>Training for your team</li><li>A check at day 30</li></ul>
-      <a class="btn" href="/services/ai-readiness-sprint/">How setup works</a></div>
-    <div class="frame tier"><div class="num">03 · NUMBERS</div><h3>Decision model</h3><div class="price"><small>FROM</small> $5,000</div>
-      <ul><li>One decision: hire, price, borrow, grow or invest</li><li>Scenarios with every assumption written down</li><li>A one-page answer for the bank or board</li><li>The working model is yours</li></ul>
-      <a class="btn" href="/services/dashboards-and-models/">How models work</a></div>
+    <div class="frame tier first" id="check"><div class="num">Start here</div><h3>Two-week cash &amp; data check</h3><div class="price">$1,500 <small>FIXED</small></div>
+      <ul><li>You send exports from Xero and your job or timesheet app. No logins needed.</li><li>I find unbilled work, margin leaks and manual bottlenecks</li><li>Written findings with the records and arithmetic behind each one</li><li>A fixed-price next step. The fee is credited if you go ahead.</li></ul>
+      <a class="btn primary" href="/contact/?topic=Two-week%20cash%20%26%20data%20check#form">Book the check</a></div>
+    <div class="frame tier" id="model"><div class="num">Numbers</div><h3>Live cash &amp; job profit model</h3><div class="price"><small>FROM</small> $5,000</div>
+      <ul><li>A 13-week rolling cash flow, updated weekly</li><li>Profit by job, every week, against what you quoted</li><li>Every assumption written down</li><li>Built in your own Excel or Power BI. It's yours.</li></ul>
+      <a class="btn" href="/services/dashboards-and-models/">How the model works</a></div>
+    <div class="frame tier" id="ai"><div class="num">AI</div><h3>Controlled AI workflows</h3><div class="price"><small>FROM</small> $6,000</div>
+      <ul><li>Supplier bills, quotes or admin, handled by AI your team uses</li><li>Rules on what each assistant can touch</li><li>A person approves anything touching money or customers</li><li>Training for your team, and a check at day 30</li></ul>
+      <a class="btn" href="/services/ai-readiness-sprint/">How the setup works</a></div>
   </div>
-  <div class="frame month"><div><div class="label">Then monthly, if you want it</div><div style="color:var(--muted);margin-top:6px">Your agents checked, your numbers pack, your model kept current.</div></div><b><small style="font-size:12px;color:#6F7C90">FROM</small> $750 / MONTH</b></div>
+  <div class="frame month"><div><div class="label">Then monthly, if you want it</div><div style="color:var(--muted);margin-top:6px">Your workflows checked, your numbers pack, your model kept current.</div></div><b><small>FROM</small> $750 / month</b></div>
+  <p class="fine" style="margin-top:14px">"From" prices are confirmed in writing after the check, once the scope is clear.</p>
 </div></section>
 
 <section class="sec" id="who"><div class="wrap fgrid">
   <div class="frame photo"><img src="/assets/media/purav-mehta-2.jpg?v=43" alt="Purav Mehta" width="480" height="640" loading="lazy"><div class="cap"><span>PURAV MEHTA</span><span>CANBERRA</span></div></div>
   <div>
-    <div class="label">04 · Who you deal with</div>
+    <div class="label">Who you deal with</div>
     <h2>One person, from the first call to handover.</h2>
     <p class="lede">I'm Purav Mehta. I quote the work, I build it, and I check every number before you see it. You won't be handed to a junior.</p>
     <div class="creds"><div><b>CA</b><span>Chartered Accountants ANZ, Certificate of Public Practice</span></div><div><b>GAICD</b><span>Graduate, Australian Institute of Company Directors</span></div><div><b>BUILDER</b><span>Data pipelines, models and AI agents, built by me</span></div></div>
@@ -136,7 +142,7 @@ def home():
 </div></section>
 
 <section class="sec plain" id="dont"><div class="wrap dont-wrap">
-  <div class="label">05 · Straight answers</div>
+  <div class="label">Straight answers</div>
   <h2>What I don't do.</h2>
   <ul class="dont">
     <li><b>Tax returns, BAS or audit.</b>Keep your tax accountant and auditor. I'll work alongside them.</li>
@@ -147,15 +153,15 @@ def home():
 </div>
 {contact_form(heading="What are you trying to fix?", lede="A few lines is plenty. You'll get a written reply by the next business day. Rather talk? Pick “Discovery call” and I'll book a free 20 minutes, early morning or after 5pm.")}'''
     add("/", "Beiz Data & Accounting | Chartered Accountant for cash, models and AI agents",
-        "Keep your tax accountant. Beiz is a Chartered Accountant who builds cash forecasts, decision models and AI agents your team uses, with you approving what matters. Fixed prices from $1,500.", body)
+        "Purav Mehta CA, GAICD. Keep your tax accountant: I build 13-week cash models, job profit reporting and controlled AI workflows for Australian businesses. Fixed prices from $1,500.", body)
 
 
 # ------------------------------------------------------------------ services
 START_HERE = '''<section style="padding-top:8px"><div class="wrap"><p class="eyebrow">Start here</p><h2>Three ways to start, with fixed prices.</h2>
 <div class="cards" style="margin-top:22px">
-<a class="card" href="/contact/?topic=Numbers%20%26%20AI%20check#form"><span class="k">$1,500 fixed · credited if you go ahead</span><h3>Numbers &amp; AI check</h3><p>Two hours with you and your team, a look at your exports and how you use AI today, and a written two-page verdict with a fixed-price next step.</p><span class="go">Book the check →</span></a>
-<a class="card" href="/services/ai-readiness-sprint/"><span class="k">From $6,000</span><h3>AI team setup</h3><p>Two assistants your staff actually use, rules on what each can touch and who approves, training, and a check at day 30.</p><span class="go">How setup works →</span></a>
-<a class="card" href="/services/dashboards-and-models/"><span class="k">From $5,000</span><h3>Decision model</h3><p>One decision (hire, price, borrow, grow or invest) modelled with scenarios and every assumption written down. A one-page answer for the bank or board.</p><span class="go">How models work →</span></a>
+<a class="card" href="/#check"><span class="k">$1,500 fixed · credited if you go ahead</span><h3>Two-week cash &amp; data check</h3><p>From your Xero and job or timesheet exports, I find unbilled work, margin leaks and manual bottlenecks, with a fixed-price next step.</p><span class="go">About the check →</span></a>
+<a class="card" href="/services/dashboards-and-models/"><span class="k">From $5,000</span><h3>Live cash &amp; job profit model</h3><p>A 13-week rolling cash flow and weekly job profitability your team can actually read.</p><span class="go">How the model works →</span></a>
+<a class="card" href="/services/ai-readiness-sprint/"><span class="k">From $6,000</span><h3>Controlled AI workflows</h3><p>Practical automation for supplier bills, quotes and admin, where a person approves anything touching money or customers.</p><span class="go">How the setup works →</span></a>
 </div><p class="fine" style="margin-top:14px">Then monthly support from $750 a month, if you want it. All prices exclude GST and are confirmed in writing before work starts.</p></div></section>'''
 
 
