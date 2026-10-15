@@ -129,6 +129,12 @@ def home():
     <div><h3>It leaks your data</h3><p>Staff paste client files into free AI tools that may keep them.</p><p class="fixline">Beiz: only AI plans whose terms exclude training on your data, and least access.</p></div>
     <div><h3>It drifts and nobody notices</h3><p>It works in week one, then supplier formats, prices and staff change.</p><p class="fixline">Beiz: we review the decision log every month and fix what's slipping.</p></div>
   </div>
+  <div class="gov-band">
+    <h3>AI without controls is a risk. AI with controls is a workforce.</h3>
+    <p>Most AI gets bolted onto a business from the outside, where your data, your approvals and your records don't line up. We set the agents up inside the systems you already run, so every action is:</p>
+    <ul><li><b>Based on your own records</b><span>Figures trace back to your ledger, not a guess.</span></li><li><b>Inside limits you set</b><span>Each agent has a job description and a delegation limit.</span></li><li><b>Logged where you can see it</b><span>Who decided what, and why, in a log you own.</span></li></ul>
+    <p class="gov-k">You ask. The agents act, within the limits you set.</p>
+  </div>
 </div></section>
 
 <section class="bz-sec" id="demo"><div class="wrap">
@@ -295,7 +301,7 @@ FRAMEWORKS = '''<section id="frameworks"><div class="wrap">
     <li><a href="https://www.industry.gov.au/publications/guidance-for-ai-adoption" rel="noopener"><b>Guidance for AI Adoption</b><span>National AI Centre, Australia. The government's practical starting point for businesses using AI.</span></a></li>
     <li><a href="https://www.oaic.gov.au/privacy/privacy-guidance-for-organisations-and-government-agencies/guidance-on-privacy-and-the-use-of-commercially-available-ai-products" rel="noopener"><b>Privacy and commercially available AI products</b><span>OAIC. What the Privacy Act expects when you put personal information into AI tools.</span></a></li>
     <li><a href="https://www.unesco.org/en/artificial-intelligence/recommendation-ethics" rel="noopener"><b>Recommendation on the Ethics of AI</b><span>UNESCO, adopted by 193 member states in 2021. The first global standard: human oversight, transparency, fairness, privacy.</span></a></li>
-    <li><a href="https://www.ibm.com/think/topics/responsible-ai" rel="noopener"><b>What is responsible AI?</b><span>IBM. A clear explainer of the core pillars: transparency, fairness, robustness and privacy.</span></a></li>
+    <li><a href="https://www.nist.gov/itl/ai-risk-management-framework" rel="noopener"><b>AI Risk Management Framework</b><span>NIST, United States. Four functions, Govern, Map, Measure and Manage, that we use to structure each agent's risk register.</span></a></li>
     <li><a href="https://www.iso.org/standard/42001" rel="noopener"><b>ISO/IEC 42001</b><span>The international management-system standard for AI, for organisations that want to be audited against one.</span></a></li>
   </ul>
   <p class="fine">Links go to the publishers' own sites. We're not affiliated with or endorsed by any of them.</p>
