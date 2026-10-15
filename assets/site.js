@@ -996,10 +996,19 @@
     return `<div class="ws-plan" id="wsPlan"><h2>${who} AI workforce plan</h2>
       <div class="pl-stats"><div><b>${tot}</b><span>hours a week mapped</span></div><div><b>${ah ? "about " + Math.round(ah) : 0}</b><span>hours an agent could take on*</span></div><div><b>${chosen().filter(t => t.m === "keep").length}</b><span>${chosen().filter(t => t.m === "keep").length === 1 ? "job stays" : "jobs stay"} with a person</span></div></div>
       ${f ? `<h3>Your first agent</h3>${jd(f)}` : `<p>Add your hours in chapter 2 to see your first agent.</p>`}
+      ${cmp().length ? `<h3>How you compare</h3><ul class="pl-cmp">${cmp().map(([a, b, u]) => `<li><b>${a}</b><span>${b} <a href="${u}" target="_blank" rel="noopener">Source</a></span></li>`).join("")}</ul>` : ""}
       ${out.length ? `<h3>Before it goes live</h3><ul class="pl-do">${out.map(([a, b]) => `<li><b>${a}</b><span>${b}</span></li>`).join("")}</ul>` : ""}
       <h3>Where to start</h3><ul class="pl-do"><li><b>Start with the two-week cash and data check</b><span>$1,500 fixed, credited if you go ahead. It tests these estimates against your real data.</span></li>${f ? `<li><b>${offer[0]}</b><span>${offer[1]}</span></li>` : ""}</ul>
       <p class="fine">*Planning estimate from your hours and our assumption for each job (for example, about 60% of bill checking and 30% of payment preparation). Not a promise.</p>
       <div class="pl-cta"><button type="button" class="btn primary" id="wsSend">Send me this plan and a fixed quote</button><a class="btn ghost" href="/contact/?topic=Discovery%20call#form">Book a 20-minute call</a><button type="button" class="btn ghost" id="wsPrint">Save as PDF</button></div></div>`;
+  }
+  function cmp() {
+    const g = st.ans, r = [];
+    if (g.shadow && g.shadow !== "Yes") r.push(["You're not sure which AI tools your team uses.", "You're far from alone: nearly 60% of Australian workers use AI tools their employer hasn't approved (Okta, 2026).", SIGNALS[1].src[1]]);
+    if (g.shadow === "Yes") r.push(["You know which AI tools your team uses.", "That puts you ahead of most. Nearly 60% of Australian workers use AI tools their employer hasn't approved (Okta, 2026).", SIGNALS[1].src[1]]);
+    if (g.use && g.use !== "Not yet") r.push(["You already use AI.", "Among Australian SMEs using AI, 19% have none of the recommended responsible-AI practices in place (NAIC, Q4 2025). A job description and a log for each agent puts you on the right side of that.", "https://www.industry.gov.au/publications/ai-adoption-tracker"]);
+    if (g.check && g.check !== "A named person") r.push(["Nobody owns the final check.", "86% of workers who use AI say they treat its output as a starting point, not a final answer (Microsoft, 2026). Someone needs to own that step in your business.", WTI]);
+    return r;
   }
   function summary() {
     const f = first(), lines = [];

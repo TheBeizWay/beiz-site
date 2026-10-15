@@ -811,7 +811,21 @@ def workshop():
     <div class="ws-nav"><button type="button" class="btn ghost" id="wsBack">Back</button><span class="ws-count" id="wsCount"></span><button type="button" class="btn primary" id="wsNext">Next</button></div>
   </div>
   <p class="fine">Time estimates use your inputs and our planning assumptions for each task. They're a starting point to test, not a promise. General information, not financial advice.</p>
-</div></section>'''
+</div></section>
+<section class="live" id="live"><div class="wrap live-grid">
+  <div>
+    <h2>Prefer it live? Join a small-group workshop</h2>
+    <p class="lede">Sixty minutes online with Purav Mehta CA, for owners and finance leads of Australian businesses. A small group, so every person gets time on their own business, not a webinar where you watch someone else's slides.</p>
+    <ol class="live-ag">
+      <li><b>Where AI actually is</b><span>Ten minutes on what's changed, what's hype and what the new Privacy Act rule means for you.</span></li>
+      <li><b>Watch the agents work</b><span>A live run on a demo business in accounting software: a scam bill held for approval, a cash warning, the decision log.</span></li>
+      <li><b>Map your first agent</b><span>You fill in its job description and limits for your own business, with help as you go.</span></li>
+      <li><b>Your questions</b><span>Straight answers, including &ldquo;not yet&rdquo; when that's the right one.</span></li>
+    </ol>
+    <ul class="live-facts"><li><b>Free</b> while we run the first sessions</li><li><b>Up to 12 people</b>, by application</li><li><b>Online</b>, early evening Canberra time</li></ul>
+  </div>
+</div></section>
+''' + contact_form(heading="Apply for a seat", lede="Tell us a little about your business and the job you'd most like to hand to an agent. We'll email you the next date and confirm your seat. Seats go to the applications we can help most in the hour.", eyebrow="Live workshop", sel="Live workshop")
     add("/workshop/", "AI workforce workshop (free, 5 minutes)", "A free, interactive 5-minute workshop: see where AI is heading, map your week, decide which jobs an agent should take, set its limits and get a written plan. Runs in your browser.", body)
 
 
