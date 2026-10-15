@@ -738,3 +738,25 @@
   root.querySelectorAll('.tabs button').forEach(b => b.onclick = () => { root.querySelectorAll('.tabs button').forEach(x => x.setAttribute('aria-selected', x === b)); modes[b.dataset.m](); });
   bills();
 })();
+
+/* v18: AI workforce statuses (sample data) */
+(() => {
+  const wf = document.getElementById('workforce'); if (!wf) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const feed = {
+    cash: [["Forecast refreshed", "Low point W7 · $52k", "ok"], ["Receipts matched to bank", "41 of 41 cleared", "ok"], ["Big bill lands W9", "Still above buffer", "ok"]],
+    margin: [["Jobs checked against quote", "2 jobs under 20%", "hold"], ["Hours logged, not billed", "24 h · $4,320", "hold"], ["Variations reconciled", "6 of 6 agreed", "ok"]],
+    pay: [["8 bills matched", "2 held for sign-off", "hold"], ["Bank details changed", "Held for a call", "hold"], ["Payment run drafted", "$6,820 ready", "ok"]],
+    rep: [["Board pack drafted", "Ready for review", "ok"], ["Month-end checks", "Reconciled to ledger", "ok"], ["Debtor emails drafted", "3 waiting to send", "hold"]]
+  };
+  const idx = { cash: 0, margin: 0, pay: 0, rep: 0 }, keys = Object.keys(feed);
+  let k = 0;
+  setInterval(() => {
+    const key = keys[k++ % keys.length], el = wf.querySelector(`[data-a="${key}"]`); if (!el) return;
+    idx[key] = (idx[key] + 1) % feed[key].length;
+    const [st, val, c] = feed[key][idx[key]];
+    el.querySelector('.st').textContent = st; el.querySelector('.val').textContent = val;
+    el.querySelector('.dot').className = 'dot ' + c;
+    el.classList.add('flash'); setTimeout(() => el.classList.remove('flash'), 900);
+  }, 1800);
+})();

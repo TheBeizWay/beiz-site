@@ -57,34 +57,48 @@ PLAIN = '''<section id="plain">
 
 
 def home():
-    body = f'''<div class="hx">
-<section class="sec hero" id="top"><div class="wrap">
-  <div class="hgrid">
-  <div>
-    <div class="who-strip"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="" width="56" height="56"><p><b>Purav Mehta</b> — Chartered Accountant (CA, CPP) · GAICD<br><span>Canberra, working Australia-wide</span></p></div>
-    <h1>Know your cash and job profit every week. Let AI handle the admin.</h1>
-    <p class="sub">I build cash models, profit reporting and AI workflows for Australian businesses, inside the tools you already use. A person approves anything that touches money or customers. Fixed prices from $1,500.</p>
-    <div class="ctas"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-Min Call</a><a class="btn" href="#demo">See it working</a></div>
+    agents = [("cash", "Cash agent", "Forecast refreshed", "Low point W7 · $52k", "ok"),
+              ("margin", "Margin agent", "Jobs checked against quote", "2 jobs under 20%", "hold"),
+              ("pay", "Payables agent", "8 bills matched", "2 held for sign-off", "hold"),
+              ("rep", "Reporting agent", "Board pack drafted", "Ready for review", "ok")]
+    ag = "".join(f'<div class="wf-agent" style="--d:{i*0.18+0.4:.2f}s" data-a="{k}"><i class="dot {c}"></i><b>{n}</b><span class="st">{s}</span><span class="val">{v}</span></div>' for i, (k, n, s, v, c) in enumerate(agents))
+    body = f'''<div class="bz hx">
+<section class="bz-hero" id="top"><div class="wrap bz-hgrid">
+  <div class="bz-copy">
+    <h1>Your finance team, now with an AI workforce.</h1>
+    <p class="bz-sub">Beiz builds AI agents that keep your cash, margins, bills and reporting moving, and puts a Chartered Accountant over every one of them. Fixed prices from $1,500.</p>
+    <div class="bz-ctas"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-minute call</a><a class="btn ghost" href="#demo">See the agents at work</a></div>
+    <div class="bz-trust"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="" width="44" height="44"><p>Led by <b>Purav Mehta CA, GAICD</b><br>Chartered Accountants ANZ, Certificate of Public Practice · Canberra, working Australia-wide</p></div>
   </div>
-  {FLOW}
-  </div>
-  <div class="offers" id="offers">
-    <a class="offer" href="#check"><span class="n">01 · Start here</span><h3>Two-week cash &amp; data check</h3><span class="p mono">$1,500 fixed</span><p>From your Xero and job or timesheet exports, I find unbilled work, margin leaks and manual bottlenecks.</p></a>
-    <a class="offer" href="#model"><span class="n">02 · Numbers</span><h3>Live cash &amp; job profit model</h3><span class="p mono">from $5,000</span><p>A 13-week rolling cash flow and weekly job profitability your team can actually read.</p></a>
-    <a class="offer" href="#ai"><span class="n">03 · AI</span><h3>Controlled AI workflows</h3><span class="p mono">from $6,000</span><p>Practical automation for supplier bills, quotes and admin, where a person approves anything touching money or customers.</p></a>
+  <div class="wf" id="workforce" aria-label="Example AI workforce, sample data">
+    <div class="wf-node wf-biz"><b>Your business</b><span>Xero or MYOB · job app · bank feed · bills inbox</span></div>
+    <div class="wf-link"></div>
+    <div class="wf-node wf-ca"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="" width="40" height="40"><div><b>Beiz oversight</b><span>A Chartered Accountant signs off anything that touches money or customers</span></div></div>
+    <div class="wf-fan"><i></i><i></i><i></i><i></i></div>
+    <div class="wf-agents">{ag}</div>
+    <p class="wf-note">Example workforce on sample data</p>
   </div>
 </div></section>
 
-<section class="sec plain" id="demo"><div class="wrap">
+<section class="bz-path" id="start"><div class="wrap">
+  <h2>How clients start with Beiz</h2>
+  <ol class="path">
+    <li id="check"><span class="pn">1</span><h3>Check</h3><p class="pp">$1,500 fixed</p><p>Two weeks. From your Xero and job or timesheet exports, we find unbilled work, margin leaks and manual bottlenecks. The fee is credited if you go ahead.</p></li>
+    <li><span class="pn">2</span><h3>Build</h3><p class="pp">from $5,000</p><p>A live 13-week cash and job profit model, or your AI workforce: agents for bills, quotes, reporting and admin, with approval built in. From $6,000.</p></li>
+    <li><span class="pn">3</span><h3>Run</h3><p class="pp">from $750 a month</p><p>We keep the agents checked and the numbers current, and send you one page each month showing what was caught and what changed.</p></li>
+  </ol>
+  <p class="bz-more"><a class="textlink" href="#pricing">See what each price includes</a></p>
+</div></section>
+
+<section class="bz-sec" id="demo"><div class="wrap">
   <div class="dgrid">
     <div>
-      <div class="label">See it working</div>
-      <h2>Your Monday briefing, before you've opened Xero.</h2>
-      <p class="lede">This is a made-up 18-person business. Code checks the bills, the hours and the cash. Anything risky waits for the owner. Try it: approve or hold the two flagged bills.</p>
+      <h2>See the agents at work</h2>
+      <p class="lede">A made-up 18-person business on a Monday morning. The agents check the bills, the hours and the cash. Anything risky waits for the owner. Try it: approve or hold the two flagged bills.</p>
       <ul class="dpoints"><li><b>Verified</b> bills are matched to the order and the delivery.</li><li><b>Held</b> bills come with the reason, in plain English.</li><li><b>Nothing</b> is paid or sent without a person saying yes.</li></ul>
     </div>
     <div class="frame brief" id="hxConsole">
-      <div class="con-h"><span><b>Monday briefing</b> · sample data</span><span class="mono" id="clock"></span></div>
+      <div class="con-h"><span><b>Monday briefing</b>, sample data</span><span class="mono" id="clock"></span></div>
       <div class="tabs" role="tablist" aria-label="Demo views">
         <button role="tab" aria-selected="true" data-m="bills">Supplier bills</button>
         <button role="tab" aria-selected="false" data-m="time">Unbilled time</button>
@@ -97,71 +111,100 @@ def home():
   {WATCH_HOME}
 </div></section>
 
-<section class="sec" id="built"><div class="wrap">
-  <div class="label">How it's built</div>
-  <h2>The AI drafts. The code checks. You decide.</h2>
-  <p class="lede">Every build follows the same path, so you always know what an agent can touch and who signed off.</p>
-  <div class="pipe">
-    <div class="node"><div class="n">01</div><h3>Your systems</h3><p>Accounting software, job app, bank feed, inbox.</p></div>
-    <div class="node"><div class="n">02</div><h3>Least access</h3><p>Read-only where possible. Each agent gets only what it needs.</p></div>
-    <div class="node"><div class="n">03</div><h3>Checks in code</h3><p>Every dollar and hour reconciles, or the run stops.</p></div>
-    <div class="node"><div class="n">04</div><h3>AI drafts</h3><p>Summaries, emails, flags. Any figure not in the source is rejected.</p></div>
-    <div class="node gate"><div class="n">05 · GATE</div><h3>You approve</h3><p>Money, customers and people need a human yes.</p></div>
-    <div class="node end"><div class="n">06 · YOURS</div><h3>Your accounts</h3><p>Runs in your own tools, with a log of every decision.</p></div>
+<section class="bz-sec alt" id="why"><div class="wrap">
+  <h2>One firm, four disciplines</h2>
+  <p class="lede">AI agencies can build but can't sign off the numbers. Accountants can sign off but rarely build. Beiz does both, under one name.</p>
+  <div class="disc4">
+    <div><h3>Data</h3><p>Your systems joined, cleaned and reconciled, so every report starts from the same numbers.</p></div>
+    <div><h3>AI</h3><p>Agents that do the repetitive work, with clear limits on what each one can touch.</p></div>
+    <div><h3>Accounting</h3><p>Chartered Accountant judgement on cash, margins, models and controls.</p></div>
+    <div><h3>Governance</h3><p>Board-level thinking (GAICD) on risk, approvals and AI use policy.</p></div>
   </div>
-  <p style="margin-top:22px"><a class="textlink" href="/how-we-work/">How I work, step by step →</a></p>
 </div></section>
 
-<section class="sec plain" id="pricing"><div class="wrap">
-  <div class="label">Fixed prices, ex GST</div>
-  <h2>Start small. Know the price before we start.</h2>
-  <div class="tiers">
-    <div class="frame tier first" id="check"><div class="num">Start here</div><h3>Two-week cash &amp; data check</h3><div class="price">$1,500 <small>FIXED</small></div>
-      <ul><li>You send exports from Xero and your job or timesheet app. No logins needed.</li><li>I find unbilled work, margin leaks and manual bottlenecks</li><li>Written findings with the records and arithmetic behind each one</li><li>A fixed-price next step. The fee is credited if you go ahead.</li></ul>
-      <a class="btn primary" href="/contact/?topic=Two-week%20cash%20%26%20data%20check#form">Book the check</a></div>
-    <div class="frame tier" id="model"><div class="num">Numbers</div><h3>Live cash &amp; job profit model</h3><div class="price"><small>FROM</small> $5,000</div>
-      <ul><li>A 13-week rolling cash flow, updated weekly</li><li>Profit by job, every week, against what you quoted</li><li>Every assumption written down</li><li>Built in your own Excel or Power BI. It's yours.</li></ul>
-      <a class="btn" href="/services/dashboards-and-models/">How the model works</a></div>
-    <div class="frame tier" id="ai"><div class="num">AI</div><h3>Controlled AI workflows</h3><div class="price"><small>FROM</small> $6,000</div>
-      <ul><li>Supplier bills, quotes or admin, handled by AI your team uses</li><li>Rules on what each assistant can touch</li><li>A person approves anything touching money or customers</li><li>Training for your team, and a check at day 30</li></ul>
-      <a class="btn" href="/services/ai-readiness-sprint/">How the setup works</a></div>
-  </div>
-  <div class="frame month"><div><div class="label">Then monthly, if you want it</div><div style="color:var(--muted);margin-top:6px">Your workflows checked, your numbers pack, your model kept current.</div></div><b><small>FROM</small> $750 / month</b></div>
-  <p class="fine" style="margin-top:14px">"From" prices are confirmed in writing after the check, once the scope is clear.</p>
-</div></section>
-
-<section class="sec" id="who"><div class="wrap fgrid">
-  <div class="frame photo"><img src="/assets/media/purav-mehta-2.jpg?v=43" alt="Purav Mehta" width="480" height="640" loading="lazy"><div class="cap"><span>PURAV MEHTA</span><span>CANBERRA</span></div></div>
+<section class="bz-sec" id="jd"><div class="wrap jd-grid">
   <div>
-    <div class="label">Who you deal with</div>
-    <h2>One person, from the first call to handover.</h2>
-    <p class="lede">I'm Purav Mehta. I quote the work, I build it, and I check every number before you see it. You won't be handed to a junior.</p>
-    <div class="creds"><div><b>CA</b><span>Chartered Accountants ANZ, Certificate of Public Practice</span></div><div><b>GAICD</b><span>Graduate, Australian Institute of Company Directors</span></div><div><b>BUILDER</b><span>Data pipelines, models and AI agents, built by me</span></div></div>
-    <p><a class="textlink" href="/about/">More about me →</a></p>
+    <h2>Every agent gets a job description, like any new hire</h2>
+    <p class="lede">That's the difference between an AI workforce and a pile of chatbots. Each agent has a role, the tools it may use, a delegation limit and someone it reports to. We write those the way a Chartered Accountant and company director would for staff.</p>
+    <div class="modes">
+      <div><h3>Co-pilot</h3><p>The agent drafts and a person approves. We use it for payments, customer emails and anything about a person.</p></div>
+      <div><h3>Autopilot, within limits</h3><p>The agent acts alone on low-risk, rule-based work like matching, reconciling and reminders you've approved. It stops at the limit and asks.</p></div>
+    </div>
+  </div>
+  <div class="jd">
+    <div class="jd-h"><b>Payables agent</b><span>Job description, sample</span></div>
+    <dl>
+      <dt>Role</dt><dd>Check supplier bills before anyone pays them.</dd>
+      <dt>Tools</dt><dd>Read-only ledger, the bills inbox, purchase orders and delivery dockets.</dd>
+      <dt>Works alone on</dt><dd>Matching bills to orders and deliveries, up to $10,000.</dd>
+      <dt>Needs a person for</dt><dd>New or changed bank details, possible duplicates, price jumps and anything over $10,000.</dd>
+      <dt>Reports to</dt><dd>Your finance lead. Beiz reviews its decisions each month.</dd>
+      <dt>Record</dt><dd>Every decision logged in your own accounts.</dd>
+    </dl>
   </div>
 </div></section>
 
-<section class="sec plain" id="dont"><div class="wrap dont-wrap">
-  <div class="label">Straight answers</div>
-  <h2>What I don't do.</h2>
+<section class="bz-sec" id="built"><div class="wrap">
+  <h2>The AI drafts. The code checks. You decide.</h2>
+  <p class="lede">Every agent we build follows the same path, so you always know what it can touch and who signed off.</p>
+  <div class="pipe">
+    <div class="node"><div class="n">1</div><h3>Your systems</h3><p>Accounting software, job app, bank feed, inbox.</p></div>
+    <div class="node"><div class="n">2</div><h3>Least access</h3><p>Read-only where possible. Each agent gets only what it needs.</p></div>
+    <div class="node"><div class="n">3</div><h3>Checks in code</h3><p>Every dollar and hour reconciles, or the run stops.</p></div>
+    <div class="node"><div class="n">4</div><h3>AI drafts</h3><p>Summaries, emails and flags. Any figure not in the source is rejected.</p></div>
+    <div class="node gate"><div class="n">5</div><h3>You approve</h3><p>Money, customers and people need a human yes.</p></div>
+    <div class="node end"><div class="n">6</div><h3>Your accounts</h3><p>Runs in your own tools, with a log of every decision.</p></div>
+  </div>
+  <p style="margin-top:22px"><a class="textlink" href="/how-we-work/">How we work, step by step</a></p>
+</div></section>
+
+<section class="bz-sec alt" id="pricing"><div class="wrap">
+  <h2>Fixed prices, agreed before we start</h2>
+  <p class="lede">All prices exclude GST. "From" prices are confirmed in writing once the check has shown what's needed.</p>
+  <div class="tiers">
+    <div class="tier first"><h3>Two-week cash &amp; data check</h3><div class="price">$1,500 <small>fixed</small></div>
+      <ul><li>You send exports from Xero and your job or timesheet app. No logins needed.</li><li>We find unbilled work, margin leaks and manual bottlenecks</li><li>Written findings, with the records and arithmetic behind each one</li><li>A fixed-price next step. The fee is credited if you go ahead.</li></ul>
+      <a class="btn primary" href="/contact/?topic=Two-week%20cash%20%26%20data%20check#form">Book the check</a></div>
+    <div class="tier" id="model"><h3>Live cash &amp; job profit model</h3><div class="price"><small>from</small> $5,000</div>
+      <ul><li>A 13-week rolling cash flow, updated weekly</li><li>Profit by job, every week, against what you quoted</li><li>Every assumption written down</li><li>Built in your own Excel or Power BI, and it's yours</li></ul>
+      <a class="btn" href="/services/dashboards-and-models/">How the model works</a></div>
+    <div class="tier" id="ai"><h3>AI workforce setup</h3><div class="price"><small>from</small> $6,000</div>
+      <ul><li>Agents for bills, quotes, reporting or admin, in tools you already pay for</li><li>Clear rules on what each agent can touch</li><li>A person approves anything touching money or customers</li><li>Training for your team, and a check at day 30</li></ul>
+      <a class="btn" href="/services/ai-readiness-sprint/">How setup works</a></div>
+  </div>
+  <div class="month"><div><b>Then monthly, if you want it.</b><span>Your agents checked, your numbers pack, your model kept current.</span></div><strong>from $750 a month</strong></div>
+</div></section>
+
+<section class="bz-sec" id="who"><div class="wrap fgrid">
+  <div class="photo"><img src="/assets/media/purav-mehta-2.jpg?v=43" alt="Purav Mehta" width="480" height="640" loading="lazy"></div>
+  <div>
+    <h2>Who leads Beiz</h2>
+    <p class="lede">Beiz is led by Purav Mehta, a Chartered Accountant with a Certificate of Public Practice and a graduate of the Australian Institute of Company Directors. His background is internal audit, corporate finance and SAP systems, and he builds the models and agents himself.</p>
+    <p>When you work with Beiz, Purav scopes the work, reviews the financial logic and signs off before handover. You won't be passed to a junior.</p>
+    <p><a class="textlink" href="/about/">More about Beiz</a></p>
+  </div>
+</div></section>
+
+<section class="bz-sec alt" id="dont"><div class="wrap dont-wrap">
+  <h2>What we don't do</h2>
   <ul class="dont">
-    <li><b>Tax returns, BAS or audit.</b>Your accountant keeps that work. I work alongside them, and I'm happy to share what I find.</li>
-    <li><b>Lock you in.</b>Everything is built in your accounts and handed over.</li>
-    <li><b>Let AI decide on its own.</b>Anything that moves money, reaches a customer or affects a person needs a human yes.</li>
+    <li><b>Tax returns, BAS or audit.</b> Your accountant keeps that work. We work alongside them and share what we find.</li>
+    <li><b>Lock you in.</b> Everything is built in your accounts and handed over.</li>
+    <li><b>Let AI decide on its own.</b> Anything that moves money, reaches a customer or affects a person needs a human yes.</li>
   </ul>
 </div></section>
 </div>
-{contact_form(heading="What are you trying to fix?", lede="A few lines is plenty. You'll get a written reply by the next business day. Rather talk? Pick “Discovery call” and I'll arrange a free 20 minutes, early morning or after 5pm.")}'''
-    add("/", "Beiz Data & Accounting | Chartered Accountant for cash, models and AI agents",
-        "Purav Mehta CA, GAICD builds 13-week cash models, weekly job profit reporting and controlled AI workflows for Australian businesses. Fixed prices from $1,500.", body)
+{contact_form(heading="Tell us what you're trying to fix", lede="A few lines is plenty. By the next business day you'll get a written reply: what the problem looks like, what information it would need, and whether a fixed-scope job makes sense. Rather talk? Pick “Discovery call” and we'll arrange a free 20 minutes, early morning or after 5pm.")}'''
+    add("/", "Beiz Data & Accounting | AI workforce for your finance team, led by a Chartered Accountant",
+        "Beiz builds AI agents for cash, margins, bills and reporting, with a Chartered Accountant (CA, GAICD) signing off what matters. Australian businesses. Fixed prices from $1,500.", body)
 
 
 # ------------------------------------------------------------------ services
 START_HERE = '''<section style="padding-top:8px"><div class="wrap"><p class="eyebrow">Start here</p><h2>Three ways to start, with fixed prices.</h2>
 <div class="cards" style="margin-top:22px">
-<a class="card" href="/#check"><span class="k">$1,500 fixed · credited if you go ahead</span><h3>Two-week cash &amp; data check</h3><p>From your Xero and job or timesheet exports, I find unbilled work, margin leaks and manual bottlenecks, with a fixed-price next step.</p><span class="go">About the check →</span></a>
+<a class="card" href="/#check"><span class="k">$1,500 fixed · credited if you go ahead</span><h3>Two-week cash &amp; data check</h3><p>From your Xero and job or timesheet exports, we find unbilled work, margin leaks and manual bottlenecks, with a fixed-price next step.</p><span class="go">About the check →</span></a>
 <a class="card" href="/services/dashboards-and-models/"><span class="k">From $5,000</span><h3>Live cash &amp; job profit model</h3><p>A 13-week rolling cash flow and weekly job profitability your team can actually read.</p><span class="go">How the model works →</span></a>
-<a class="card" href="/services/ai-readiness-sprint/"><span class="k">From $6,000</span><h3>Controlled AI workflows</h3><p>Practical automation for supplier bills, quotes and admin, where a person approves anything touching money or customers.</p><span class="go">How the setup works →</span></a>
+<a class="card" href="/services/ai-readiness-sprint/"><span class="k">From $6,000</span><h3>AI workforce setup</h3><p>AI agents for supplier bills, quotes, reporting and admin, each with a job description and a person who approves anything touching money or customers.</p><span class="go">How the setup works →</span></a>
 </div><p class="fine" style="margin-top:14px">Then monthly support from $750 a month, if you want it. All prices exclude GST and are confirmed in writing before work starts.</p></div></section>'''
 
 

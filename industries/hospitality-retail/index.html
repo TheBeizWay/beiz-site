@@ -14,20 +14,24 @@
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/site.css?v=61">
+<link rel="preload" href="/assets/fonts/sora-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css?v=63">
 
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="ticker" role="region" aria-label="Beiz Pulse: Australian business indicators">
+  <div class="label">BEIZ PULSE</div>
+  <div class="track" id="pulse"></div>
+</div>
 <header class="site">
   <div class="wrap">
-    <a class="mark" href="/" aria-label="Beiz home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true" class="logo"><defs><linearGradient id="hg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#2DD4BF"/><stop offset="1" stop-color="#818CF8"/></linearGradient><mask id="mH" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"><rect width="200" height="200" fill="#fff"/><circle cx="126.4" cy="69.9" r="6.5" fill="#000"/></mask></defs><rect x="5" y="5" width="190" height="190" rx="44" fill="#0D1115" stroke="url(#hg)" stroke-width="6"/><g stroke="#818CF8" stroke-width="3" fill="none" stroke-linecap="round"><path d="M113.0 75.4 L150 75.4 L165 53.4"/><path d="M150 75.4 L165 97.4"/></g><g fill="#818CF8"><circle cx="165" cy="53.4" r="6"/><circle cx="165" cy="97.4" r="6"/></g><circle cx="150" cy="75.4" r="4" fill="#5EEAD4"/><g transform="translate(16,25.1) scale(.72)"><g mask="url(#mH)" fill="none" stroke="url(#hg)" stroke-width="27" stroke-linejoin="round"><path d="M58 120 L110 120 A33 33 0 0 1 110 186 L58 186 L58 22 L102 58 A31 31 0 0 1 102 120 L58 120"/></g></g></svg><span class="wm"><span class="wn">Beiz</span><small>Data &amp; Accounting</small></span></a>
-    <nav class="main flat" aria-label="Main"><a href="/services/">What I Fix</a><a href="/#check">The $1,500 Check</a><a href="/#pricing">Fixed Pricing</a><a href="/about/">Meet Purav</a></nav>
-    <a class="btn primary" href="/contact/?topic=Discovery%20call#form">Book a 20-Min Call</a>
+    <a class="mark" href="/" aria-label="Beiz home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true" class="logo"><defs><linearGradient id="hg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#2DD4BF"/><stop offset="1" stop-color="#818CF8"/></linearGradient><mask id="mH" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"><rect width="200" height="200" fill="#fff"/><circle cx="126.4" cy="69.9" r="6.5" fill="#000"/></mask></defs><rect x="5" y="5" width="190" height="190" rx="44" fill="#0D1115" stroke="url(#hg)" stroke-width="6"/><g stroke="#818CF8" stroke-width="3" fill="none" stroke-linecap="round"><path d="M113.0 75.4 L150 75.4 L165 53.4"/><path d="M150 75.4 L165 97.4"/></g><g fill="#818CF8"><circle cx="165" cy="53.4" r="6"/><circle cx="165" cy="97.4" r="6"/></g><circle cx="150" cy="75.4" r="4" fill="#5EEAD4"/><g transform="translate(16,25.1) scale(.72)"><g mask="url(#mH)" fill="none" stroke="url(#hg)" stroke-width="27" stroke-linejoin="round"><path d="M58 120 L110 120 A33 33 0 0 1 110 186 L58 186 L58 22 L102 58 A31 31 0 0 1 102 120 L58 120"/></g></g></svg><span class="wm"><span class="wn">BEIZ</span><small>Data &amp; Accounting</small></span></a>
+    <nav class="main flat" aria-label="Main"><a href="/services/">Services</a><a href="/services/ai-readiness-sprint/">AI Workforce</a><a href="/#pricing">Pricing</a><a href="/about/">About</a><a href="/contact/">Contact</a></nav>
+    <a class="btn primary" href="/contact/?topic=Discovery%20call#form">Book a call</a>
     <button class="menu-btn" id="menuBtn" type="button" aria-controls="mnav" aria-expanded="false">MENU</button>
   </div>
-  <div class="mnav" id="mnav"><div class="wrap"><div class="mcta"><a class="btn primary" href="/contact/?topic=Discovery%20call#form">Book a 20-Min Call</a><a class="btn" href="/contact/#form">Start in writing</a></div><p class="mg">Start here</p><a href="/#check">Two-week cash &amp; data check · $1,500</a><a href="/services/dashboards-and-models/">Live cash &amp; job profit model · from $5,000</a><a href="/services/ai-readiness-sprint/">Controlled AI workflows · from $6,000</a><p class="mg">Menu</p><a href="/services/">What I Fix</a><a href="/#check">The $1,500 Check</a><a href="/#pricing">Fixed Pricing</a><a href="/about/">Meet Purav</a><a href="/how-we-work/">How it works</a><a href="/contact/">Contact</a><p class="mg">See it working</p><a href="/try/">Try it</a><a href="/examples/">Examples</a><a href="/live/">Live data</a><p class="mg">More</p><a href="/services/ai-governance/">AI governance</a><a href="/ai-check/">Privacy Act AI check</a><a href="/insights/">Insights</a><a href="/faq/">FAQ</a></div></div>
+  <div class="mnav" id="mnav"><div class="wrap"><div class="mcta"><a class="btn primary" href="/contact/?topic=Discovery%20call#form">Book a call</a><a class="btn" href="/contact/#form">Start in writing</a></div><p class="mg">Start here</p><a href="/#check">Two-week cash &amp; data check · $1,500</a><a href="/services/dashboards-and-models/">Live cash &amp; job profit model · from $5,000</a><a href="/services/ai-readiness-sprint/">AI workforce setup · from $6,000</a><p class="mg">Menu</p><a href="/services/">Services</a><a href="/services/ai-readiness-sprint/">AI Workforce</a><a href="/#pricing">Pricing</a><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/how-we-work/">How we work</a><p class="mg">See it working</p><a href="/try/">Try it</a><a href="/examples/">Examples</a><a href="/live/">Live data</a><p class="mg">More</p><a href="/services/ai-governance/">AI governance</a><a href="/ai-check/">Privacy Act AI check</a><a href="/insights/">Insights</a><a href="/faq/">FAQ</a></div></div>
 </header>
 <main id="main">
 <section class="phero"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/industries/">Industries</a><span aria-hidden="true">/</span><span aria-current="page">Hospitality & retail</span></nav>
@@ -35,7 +39,7 @@
 <section><div class="wrap"><p class="eyebrow">What we build</p><h2>What changes.</h2><ul class="deliv"><li><b>Wages vs sales</b>Daily view from your POS and rostering.</li><li><b>Supplier price watch</b>Flags price increases line by line.</li><li><b>Margin by product</b>Which items make money and which just move.</li><li><b>Weekly cash email</b>In the bank, owed, due, and next week's big bills.</li><li><b>Stock alerts</b>Slow movers and reorder points from your sales history.</li><li><b>Invoice capture</b>Supplier bills captured and coded without the shoebox.</li></ul><div class="scene"><span class="k">Illustrative example, not a client</span><h3 style="margin-top:6px">A café with two sites</h3>
   <div class="ba"><div class="b4"><b>Before</b><ul><li>Wages 38% of sales, found out monthly</li><li>Supplier prices unchecked</li><li>Menu priced by gut feel</li><li>Cash crunch every quarter</li></ul></div>
   <div class="af"><b>After</b><ul><li>Wages tracked daily against sales</li><li>Price rises flagged on arrival</li><li>Margin by menu item</li><li>13-week cash view</li></ul></div></div></div><div class="related"><a href="/services/quick-wins/">Quick wins</a><a href="/services/dashboards-and-models/">Dashboards</a><a href="/examples/">Sample Monday cash email</a></div></div></section><section class="band"><div class="wrap cta-band"><div><h2>Not sure where to start?</h2><p class="muted">Book a free 20-minute call, or send a few lines in writing. Either way you get a considered reply, not a sales pitch.</p></div>
-  <div class="cta" style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn primary" href="/contact/?topic=Discovery%20call#form">Book a 20-Min Call</a><a class="btn" href="/contact/?topic=Small%20business%20quick%20win#form">Start in writing</a><button class="btn" type="button" data-open-bot>Ask Beiz</button></div></div></section>
+  <div class="cta" style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn primary" href="/contact/?topic=Discovery%20call#form">Book a call</a><a class="btn" href="/contact/?topic=Small%20business%20quick%20win#form">Start in writing</a><button class="btn" type="button" data-open-bot>Ask Beiz</button></div></div></section>
 </main>
 <footer class="site">
   <div class="wrap">
@@ -44,7 +48,7 @@
         <p style="margin-top:14px;max-width:34ch">Governed AI, automation, dashboards and financial models for Australian businesses. Led by an Australian Chartered Accountant.</p>
         <p style="margin-top:10px"><a href="mailto:hello@beiz.com.au">hello@beiz.com.au</a></p></div>
       <div><h4>Services</h4><ul><li><a href="/services/ai-governance/">AI governance & Privacy Act readiness</a></li><li><a href="/services/human-in-the-loop/">Offshore & AI oversight</a></li><li><a href="/services/ai-agents/">AI agents, chatbots & integration</a></li><li><a href="/services/automation/">Workflow automation</a></li><li><a href="/services/data-engineering/">Data engineering</a></li><li><a href="/services/dashboards-and-models/">Dashboards & financial models</a></li><li><a href="/services/project-delivery/">AI & tech project delivery</a></li><li><a href="/services/privacy-sprint/">Automated-Decision Privacy Sprint</a></li><li><a href="/services/ai-readiness-sprint/">AI team setup</a></li><li><a href="/services/quick-wins/">Quick wins for sole traders & small teams</a></li></ul></div>
-      <div><h4>Start here</h4><ul><li><a href="/#check">Two-week cash &amp; data check · $1,500</a></li><li><a href="/services/dashboards-and-models/">Live cash &amp; job profit model · from $5,000</a></li><li><a href="/services/ai-readiness-sprint/">Controlled AI workflows · from $6,000</a></li><li><a href="/#pricing">Monthly support · from $750</a></li></ul><h4 style="margin-top:18px">Who I work with</h4><ul><li><a href="/industries/">Industries</a></li></ul></div>
+      <div><h4>Start here</h4><ul><li><a href="/#check">Two-week cash &amp; data check · $1,500</a></li><li><a href="/services/dashboards-and-models/">Live cash &amp; job profit model · from $5,000</a></li><li><a href="/services/ai-readiness-sprint/">AI workforce setup · from $6,000</a></li><li><a href="/#pricing">Monthly support · from $750</a></li></ul><h4 style="margin-top:18px">Who I work with</h4><ul><li><a href="/industries/">Industries</a></li></ul></div>
       <div><h4>Company</h4><ul><li><a href="/about/">About us</a></li><li><a href="/try/">Try it: demos</a></li><li><a href="/examples/">Examples</a></li><li><a href="/live/">Live data</a></li><li><a href="/how-we-work/">How we work</a></li><li><a href="/ai-check/">Privacy Act AI check</a></li><li><a href="/insights/">Insights</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy/">Privacy policy</a></li></ul></div>
     </div>
     <div class="legal"><span>&copy; <span data-yr>2026</span> Beiz Data &amp; Accounting Pty Ltd · ABN 53 691 755 496 · All rights reserved. Content, examples and methods may not be copied or reused without permission.</span><span>Australia-wide · Fixed-scope finance systems &amp; AI governance</span>
@@ -52,12 +56,12 @@
       <p class="pss">Liability limited by a scheme approved under Professional Standards Legislation.</p></div>
   </div>
 </footer>
-<a class="mcall btn primary" href="/contact/?topic=Discovery%20call#form">Book a 20-Min Call</a><button class="bot-btn" type="button" data-open-bot aria-controls="bot" aria-expanded="false" aria-label="Open Ask Beiz, the guided assistant"><i aria-hidden="true"></i><span>Ask Beiz</span></button>
+<a class="mcall btn primary" href="/contact/?topic=Discovery%20call#form">Book a call</a><button class="bot-btn" type="button" data-open-bot aria-controls="bot" aria-expanded="false" aria-label="Open Ask Beiz, the guided assistant"><i aria-hidden="true"></i><span>Ask Beiz</span></button>
 <div class="bot" id="bot" role="dialog" aria-label="Beiz guided assistant">
   <div class="hd"><div><b>Ask Beiz</b><small>GUIDED · NO AI · NOTHING STORED</small></div><button class="x" type="button" aria-label="Close assistant">&times;</button></div>
   <div class="msgs" id="msgs" aria-live="polite"></div>
   <div class="opts" id="opts"></div>
 </div>
-<script src="/assets/site.js?v=61" defer></script>
+<script src="/assets/site.js?v=63" defer></script>
 </body>
 </html>

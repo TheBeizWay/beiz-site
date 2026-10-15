@@ -2,7 +2,7 @@
 import json
 
 SITE = "https://beiz.com.au"
-ASSET_V = "61"  # bump to bust caches when CSS/JS change
+ASSET_V = "63"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true" class="logo"><defs><linearGradient id="hg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#2DD4BF"/><stop offset="1" stop-color="#818CF8"/></linearGradient><mask id="mH" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"><rect width="200" height="200" fill="#fff"/><circle cx="126.4" cy="69.9" r="6.5" fill="#000"/></mask></defs><rect x="5" y="5" width="190" height="190" rx="44" fill="#0D1115" stroke="url(#hg)" stroke-width="6"/><g stroke="#818CF8" stroke-width="3" fill="none" stroke-linecap="round"><path d="M113.0 75.4 L150 75.4 L165 53.4"/><path d="M150 75.4 L165 97.4"/></g><g fill="#818CF8"><circle cx="165" cy="53.4" r="6"/><circle cx="165" cy="97.4" r="6"/></g><circle cx="150" cy="75.4" r="4" fill="#5EEAD4"/><g transform="translate(16,25.1) scale(.72)"><g mask="url(#mH)" fill="none" stroke="url(#hg)" stroke-width="27" stroke-linejoin="round"><path d="M58 120 L110 120 A33 33 0 0 1 110 186 L58 186 L58 22 L102 58 A31 31 0 0 1 102 120 L58 120"/></g></g></svg>')
 
@@ -93,7 +93,7 @@ def contact_form(heading="What are you trying to fix?", lede="Tell me what isn't
 def cta_band(title="Not sure where to start?", text="Book a free 20-minute call, or send a few lines in writing. Either way you get a considered reply, not a sales pitch.", topic=None):
     href = "/contact/" + (f"?topic={topic.replace(' ', '%20').replace('&', '%26')}" if topic else "") + "#form"
     return f'''<section class="band"><div class="wrap cta-band"><div><h2>{title}</h2><p class="muted">{text}</p></div>
-  <div class="cta" style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-Min Call</a><a class="btn" href="{href}">Start in writing</a><button class="btn" type="button" data-open-bot>Ask Beiz</button></div></div></section>'''
+  <div class="cta" style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a call</a><a class="btn" href="{href}">Start in writing</a><button class="btn" type="button" data-open-bot>Ask Beiz</button></div></div></section>'''
 
 
 def crumbs(items):
@@ -129,26 +129,30 @@ def _header(path):
                 f'<div class="ddm" id="dd-{key}">{top}{links}</div></div>')
     see = [(h, t) for h, t, _ in NAV]
     sname = dict(SERVICES)
-    TOP = [("/services/", "What I Fix"), ("/#check", "The $1,500 Check"), ("/#pricing", "Fixed Pricing"), ("/about/", "Meet Purav")]
+    TOP = [("/services/", "Services"), ("/services/ai-readiness-sprint/", "AI Workforce"), ("/#pricing", "Pricing"), ("/about/", "About"), ("/contact/", "Contact")]
     nav = "".join(f'<a href="{h}"{cur(h)}>{t}</a>' for h, t in TOP)
     grp = lambda title, items: f'<p class="mg">{title}</p>' + "".join(f'<a href="{h}">{t}</a>' for h, t in items)
-    START = [("/#check", "Two-week cash &amp; data check · $1,500"), ("/services/dashboards-and-models/", "Live cash &amp; job profit model · from $5,000"), ("/services/ai-readiness-sprint/", "Controlled AI workflows · from $6,000")]
-    mnav = (grp("Start here", START) + grp("Menu", TOP + [("/how-we-work/", "How it works"), ("/contact/", "Contact")]) + grp("See it working", see) +
+    START = [("/#check", "Two-week cash &amp; data check · $1,500"), ("/services/dashboards-and-models/", "Live cash &amp; job profit model · from $5,000"), ("/services/ai-readiness-sprint/", "AI workforce setup · from $6,000")]
+    mnav = (grp("Start here", START) + grp("Menu", TOP + [("/how-we-work/", "How we work")]) + grp("See it working", see) +
             grp("More", [("/services/ai-governance/", "AI governance"), ("/ai-check/", "Privacy Act AI check"), ("/insights/", "Insights"), ("/faq/", "FAQ")]))
-    return f'''<header class="site">
+    return f'''<div class="ticker" role="region" aria-label="Beiz Pulse: Australian business indicators">
+  <div class="label">BEIZ PULSE</div>
+  <div class="track" id="pulse"></div>
+</div>
+<header class="site">
   <div class="wrap">
-    <a class="mark" href="/" aria-label="Beiz home">{LOGO}<span class="wm"><span class="wn">Beiz</span><small>Data &amp; Accounting</small></span></a>
+    <a class="mark" href="/" aria-label="Beiz home">{LOGO}<span class="wm"><span class="wn">BEIZ</span><small>Data &amp; Accounting</small></span></a>
     <nav class="main flat" aria-label="Main">{nav}</nav>
-    <a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-Min Call</a>
+    <a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a call</a>
     <button class="menu-btn" id="menuBtn" type="button" aria-controls="mnav" aria-expanded="false">MENU</button>
   </div>
-  <div class="mnav" id="mnav"><div class="wrap"><div class="mcta"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-Min Call</a><a class="btn" href="/contact/#form">Start in writing</a></div>{mnav}</div></div>
+  <div class="mnav" id="mnav"><div class="wrap"><div class="mcta"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a call</a><a class="btn" href="/contact/#form">Start in writing</a></div>{mnav}</div></div>
 </header>'''
 
 
 def _footer():
     s = "".join(f'<li><a href="{h}">{t}</a></li>' for h, t in SERVICES)
-    i = "".join(f'<li><a href="{h}">{t}</a></li>' for h, t in [("/#check", "Two-week cash &amp; data check · $1,500"), ("/services/dashboards-and-models/", "Live cash &amp; job profit model · from $5,000"), ("/services/ai-readiness-sprint/", "Controlled AI workflows · from $6,000"), ("/#pricing", "Monthly support · from $750")])
+    i = "".join(f'<li><a href="{h}">{t}</a></li>' for h, t in [("/#check", "Two-week cash &amp; data check · $1,500"), ("/services/dashboards-and-models/", "Live cash &amp; job profit model · from $5,000"), ("/services/ai-readiness-sprint/", "AI workforce setup · from $6,000"), ("/#pricing", "Monthly support · from $750")])
     return f'''<footer class="site">
   <div class="wrap">
     <div class="fcols">
@@ -221,7 +225,7 @@ def page(path, title, desc, body, extra_head=""):
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/sora-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/site.css?v={ASSET_V}">
 {ld}{extra_head}
 </head>
@@ -232,7 +236,7 @@ def page(path, title, desc, body, extra_head=""):
 {body}
 </main>
 {_footer()}
-<a class="mcall btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-Min Call</a>{_WIDGETS}
+<a class="mcall btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a call</a>{_WIDGETS}
 <script src="/assets/site.js?v={ASSET_V}" defer></script>
 </body>
 </html>
