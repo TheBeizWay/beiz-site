@@ -151,7 +151,7 @@ def home():
   </ul>
 </div></section>
 </div>
-{contact_form(heading="What are you trying to fix?", lede="A few lines is plenty. You'll get a written reply by the next business day. Rather talk? Pick “Discovery call” and I'll book a free 20 minutes, early morning or after 5pm.")}'''
+{contact_form(heading="What are you trying to fix?", lede="A few lines is plenty. You'll get a written reply by the next business day. Rather talk? Pick “Discovery call” and I'll arrange a free 20 minutes, early morning or after 5pm.")}'''
     add("/", "Beiz Data & Accounting | Chartered Accountant for cash, models and AI agents",
         "Purav Mehta CA, GAICD. Keep your tax accountant: I build 13-week cash models, job profit reporting and controlled AI workflows for Australian businesses. Fixed prices from $1,500.", body)
 

@@ -64,7 +64,7 @@ def esc(s):
     return (s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;"))
 
 
-def contact_form(heading="Tell us what you're trying to fix.", lede="A few lines is plenty: you'll get a written reply by the next business day. Rather talk it through? Pick “Discovery call” and we'll book a free 20 minutes, early morning or after 5pm. You'll know what's worth automating, roughly what it costs, and whether we're the right fit. If we're not, we'll say so.", eyebrow="Start in writing"):
+def contact_form(heading="What are you trying to fix?", lede="Tell me what isn't working. A few lines is plenty. By the next business day you'll get a written reply: what the problem looks like, what information it would need, and whether a fixed-scope job makes sense. Rather talk? Pick “Discovery call” and I'll arrange a free 20 minutes, early morning or after 5pm. If I'm not the right fit, I'll say so.", eyebrow="Start in writing"):
     opts = "".join(f"<option>{esc(t)}</option>" for t in TOPICS)
     return f'''<section id="form">
   <div class="wrap">
