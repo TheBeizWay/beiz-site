@@ -1515,3 +1515,9 @@ header.site{top:var(--tk,30px)!important}
 .hl4 span:nth-child(2) b{color:#5FB3E0}.hl4 span:nth-child(3) b{color:#7AA5F0}.hl4 span:nth-child(4) b{color:var(--indigo)}
 @media(max-width:520px){.hl4{grid-template-columns:1fr}}
 .mark .logo{width:44px;height:44px;filter:drop-shadow(0 0 10px rgba(45,212,191,.35))}
+/* v21: type legibility pass */
+@media(min-width:900px){body{font-size:17px}}
+:root{--faint:#8792BA}
+.team figcaption,.wf-note,.bz-trust p,.note,.fine{font-size:.86rem!important}
+.team-feed{font-size:.92rem}
+.qa p,.disc4 p,.roll span,.modes p{font-size:.97rem}

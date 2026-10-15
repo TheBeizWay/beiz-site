@@ -190,7 +190,7 @@ def home():
     <h2>The best human in the loop is one who speaks all four languages</h2>
     <p class="lede">Most AI projects put someone in the loop who understands only part of the problem: a developer who can't read a balance sheet, or an accountant who can't see inside the model. At Beiz the person signing off is Purav Mehta: a Chartered Accountant with a Certificate of Public Practice, a graduate of the Australian Institute of Company Directors, and the builder of the data models and agents himself.</p>
     <div class="hl4"><span><b>CA</b> knows when a number is wrong</span><span><b>GAICD</b> knows what a board needs to see</span><span><b>Data</b> knows where the number came from</span><span><b>AI</b> knows what the agent was told to do</span></div>
-    <p>Background in internal audit, corporate finance and SAP systems. He scopes the work, reviews the financial logic and signs off before handover. You won't be passed to a junior.</p>
+    <p>Background in internal audit, corporate finance and SAP systems. He scopes the work, reviews the financial logic and signs off before handover. You deal with him from the first call to the last.</p>
     <p><a class="textlink" href="/about/">More about Beiz</a></p>
   </div>
 </div></section>
