@@ -855,3 +855,22 @@
 
 /* v21: respect reduced motion for the animated logo */
 (() => { if (matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelectorAll('svg.logo').forEach(s => s.pauseAnimations && s.pauseAnimations()); })();
+
+/* v22: same bill, two agents (illustration) */
+(() => {
+  const rp = document.getElementById('replay'); if (!rp) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const bad = [...rp.querySelectorAll('.bad li')], good = [...rp.querySelectorAll('.good li')];
+  const outs = [...rp.querySelectorAll('.rp-out')];
+  let timers = [];
+  const play = () => {
+    timers.forEach(clearTimeout); timers = [];
+    rp.querySelectorAll('li,.rp-out').forEach(e => e.classList.remove('on'));
+    bad.forEach((li, i) => { timers.push(setTimeout(() => li.classList.add('on'), 600 + i * 1100)); timers.push(setTimeout(() => good[i].classList.add('on'), 600 + i * 1100 + 450)); });
+    timers.push(setTimeout(() => outs.forEach(o => o.classList.add('on')), 600 + bad.length * 1100 + 500));
+    timers.push(setTimeout(play, 600 + bad.length * 1100 + 7000));
+  };
+  document.getElementById('rpAgain').onclick = play;
+  let started = false;
+  new IntersectionObserver(e => { if (e[0].isIntersecting && !started) { started = true; play(); } }, { threshold: .3 }).observe(rp);
+})();

@@ -95,11 +95,11 @@ WIRING = '''<section id="wiring" class="band">
   </div>
 </section>'''
 
-_V = "?v=60"
+_V = "?v=69"
 _VIDS = [
     ("briefing-demo", "The Monday briefing.", "Bills checked, two held for the owner, the owner decides."),
     ("cash-forecast-dark", "13 weeks of cash, ahead.", "Add one big bill and watch the buffer break before it happens."),
-    ("bill-check-dark", "Controls on money going out.", "Eight payments checked. Four held for a person, each with the reason."),
+    ("two-agents", "Same bill, two agents.", "A hidden instruction and changed bank details. One agent pays, ours holds it."),
 ]
 WATCH = '''<section id="watch">
   <div class="wrap">
