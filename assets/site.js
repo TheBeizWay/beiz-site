@@ -126,6 +126,7 @@
     T("demo", `Payables agent held a <b>$6,140</b> bill: bank details changed. Waiting for your yes.`),
     T("risk", `Only <b>about 1 in 2</b> SMEs check AI output before customers see it <a class="note" href="https://www.industry.gov.au/publications/ai-adoption-tracker" target="_blank" rel="noopener">NAIC</a>. Ours can't send without a human yes.`),
     T("beiz", `Built in your accounts. No lock-in. You own every agent.`),
+    T("risk", `Nearly <b>60%</b> of Australian workers use AI tools their employer hasn't approved <a class="note" href="https://www.okta.com/en-au/newsroom/articles/ai-agents-at-work-2026-agentic-enterprise-security/" target="_blank" rel="noopener">Okta, 2026</a>. Do you know what yours paste in?`),
     T("beiz", `Confused by AI developments? <b>We're not.</b> Ask Bei-zAI, or book a 20-minute call.`),
     T("risk", `Just <b>20%</b> of organisations monitor AI after go-live <a class="note" href="https://fifthquadrant.com.au/responsible-ai-index" target="_blank" rel="noopener">Responsible AI Index 2025</a>. We review yours every month.`),
     T("risk", `<b>65%</b> of AI users fear falling behind <a class="note" href="https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization" target="_blank" rel="noopener">Microsoft Work Trend Index 2026</a>. Start with one job, done properly.`),
