@@ -127,7 +127,7 @@
     T("risk", `Only <b>about 1 in 2</b> SMEs check AI output before customers see it <a class="note" href="https://www.industry.gov.au/publications/ai-adoption-tracker" target="_blank" rel="noopener">NAIC</a>. Ours can't send without a human yes.`),
     T("beiz", `Built in your accounts. No lock-in. You own every agent.`),
     T("risk", `Nearly <b>60%</b> of Australian workers use AI tools their employer hasn't approved <a class="note" href="https://www.okta.com/en-au/newsroom/articles/ai-agents-at-work-2026-agentic-enterprise-security/" target="_blank" rel="noopener">Okta, 2026</a>. Do you know what yours paste in?`),
-    T("beiz", `Confused by AI developments? <b>We're not.</b> Ask Bei-zAI, or book a 20-minute call.`),
+    T("beiz", `Confused by AI developments? <b>We're not.</b> Take the free 5-minute AI workforce workshop and leave with a written plan.`),
     T("risk", `Just <b>20%</b> of organisations monitor AI after go-live <a class="note" href="https://fifthquadrant.com.au/responsible-ai-index" target="_blank" rel="noopener">Responsible AI Index 2025</a>. We review yours every month.`),
     T("risk", `<b>65%</b> of AI users fear falling behind <a class="note" href="https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization" target="_blank" rel="noopener">Microsoft Work Trend Index 2026</a>. Start with one job, done properly.`),
     T("demo", `Cash agent: lowest week is W7 at <b>$52k</b>, <b>$2k</b> above your buffer.`),
@@ -386,7 +386,7 @@
     const flow = {
       start: { say: ["Hi, I'm Bei-zAI. How can I help?", "I'm a guided helper rather than a chatbot, so nothing you click is stored. Pick what's closest."],
         opts: [["I'm confused about AI", "cz"], ["Set up an AI workforce", "aiw"], ["Two-week cash & data check ($1,500)", "chk"], ["Cash & job profit model", "dash"], ["A model for a big decision", "model"], ["Automating a finance process", "auto"], ["Using AI safely", "ai"], ["The Bei-zAI story", "story"], ["Not sure yet", "unsure"]] },
-      cz: { topic: "Discovery call", say: ["Fair enough. There's a new model, tool or headline every week, and most of it doesn't matter to a business your size.", "Three questions cut through it: which job should an agent do first, what could go wrong, and who checks its work.", "We answer those with you in a 20-minute call, in plain English. No slide deck, nothing to prepare."], opts: [["Show me a demo first", "demo"], ["Book a 20-minute call", "go"], ["Show me where to start", "aiw"]] },
+      cz: { topic: "Discovery call", say: ["Fair enough. There's a new model, tool or headline every week, and most of it doesn't matter to a business your size.", "Three questions cut through it: which job should an agent do first, what could go wrong, and who checks its work.", "We answer those with you in a 20-minute call, in plain English. No slide deck, nothing to prepare."], opts: [["Take the 5-minute workshop", "ws"], ["Show me a demo first", "demo"], ["Book a 20-minute call", "go"]] },
       demo: { topic: "Demo request", say: ["On a 20-minute video call we'll run the agents on a sample business: a scam bill held for approval, a cash warning, and the decision log showing who decided what.", "Bring one job you'd like to hand over and we'll show how it would work for you."], opts: [["Book my demo", "go"], ["Back to the start", "start"]] },
       story: { topic: "Discovery call", say: ["Bei-zAI is Beiz plus AI. Beiz is Purav's chocolate-and-white Border Collie, and the name comes from 贝仔 (bèi zǎi): little treasure.", "Collies are working dogs. They turn up every day, stay on the job until it's done, and nothing slips past them through the gate.", "That's the standard for every agent we build, and why there's a collie's ear in the B of our logo. We work hard for our clients because we love that dog."], opts: [["How can Beiz help me?", "start"], ["Book a 20-minute call", "go"]] },
       chk: { topic: "Two-week cash & data check", say: ["You send exports from Xero and your job or timesheet app. No logins needed.", "Within two weeks you get written findings (unbilled work, margin leaks, manual bottlenecks) with the records and arithmetic behind each one, plus a fixed-price next step.", "$1,500 fixed, credited if you go ahead."], next: "size" },
@@ -439,6 +439,7 @@
     };
     function step(key) {
       if (key === "go") { closeBot(); prefill(topic, path.join(" → ") + "\n\n"); return; }
+      if (key === "ws") { location.href = "/workshop/"; return; }
       if (key === "start") { path = []; topic = "Something else"; msgs.innerHTML = ""; }
       const n = flow[key]; if (n.topic) topic = n.topic;
       let says = [...n.say], o = n.opts;
@@ -892,4 +893,144 @@
   if (matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) { n.classList.add("clear"); return; }
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { setTimeout(() => n.classList.add("clear"), 1600); io.disconnect(); } }), { threshold: 0.45 });
   io.observe(n);
+})();
+
+// ---------- v27: AI workforce workshop (client-side only; nothing is stored or sent) ----------
+(function () {
+  "use strict";
+  const root = document.getElementById("ws"); if (!root) return;
+  const $ = s => root.querySelector(s);
+  const esc = t => String(t).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const money = v => "$" + Math.round(v).toLocaleString("en-AU");
+  const WTI = "https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization";
+  const days = Math.ceil((new Date("2026-12-10T00:00:00+11:00") - new Date()) / 864e5);
+
+  const SIGNALS = [
+    { k: "use", big: "Agents are becoming staff", txt: "Large finance teams now plan for AI agents as a new kind of worker, each with a role, a supervisor and a performance check.",
+      src: ["Protiviti", "https://www.protiviti.com/au-en/blogs/empowering-finance-integrating-agentic-ai-talent-model"],
+      q: "How much does your business use AI today?", a: ["Not yet", "A little", "Every day"] },
+    { k: "shadow", big: "Nearly 60%", txt: "of Australian workers use AI tools their employer hasn't approved, often pasting in client and company information.",
+      src: ["Okta, AI agents at work 2026", "https://www.okta.com/en-au/newsroom/articles/ai-agents-at-work-2026-agentic-enterprise-security/"],
+      q: "Do you know which AI tools your team uses?", a: ["Yes", "Not sure", "No"] },
+    { k: "check", big: "Mistakes now happen at scale", txt: "“Approving one bad output is manageable, but when bad outputs make it through at scale, the risk compounds.”",
+      src: ["Microsoft Work Trend Index 2026", WTI],
+      q: "Who checks work before it reaches a customer or the bank?", a: ["A named person", "Whoever's free", "Nobody, really"] },
+    { k: "privacy", big: days > 0 ? days + " days" : "In force", txt: days > 0 ? "until businesses covered by the Privacy Act must explain automated decisions about people in their privacy policy (10 December 2026)." : "Businesses covered by the Privacy Act must now explain automated decisions about people in their privacy policy.",
+      src: ["OAIC", "https://www.oaic.gov.au/"],
+      q: "Does any software you use make decisions about people, like credit terms, bookings, hiring or pricing?", a: ["Yes", "No", "Not sure"] }
+  ];
+  const TASKS = [
+    { k: "bills", t: "Entering and checking supplier bills", s: .6, m: "auto", ag: "Payables agent", r: "Pays a fake invoice or a duplicate.", c: "Changed bank details, duplicates and anything over your limit go to a person." },
+    { k: "pay", t: "Preparing supplier payments", s: .3, m: "co", ag: "Payables agent", r: "Money leaves without a second look.", c: "The agent prepares the batch. A person releases it." },
+    { k: "recon", t: "Bank reconciliation", s: .6, m: "auto", ag: "Accounting agent", r: "A wrong match hides a missing payment.", c: "Unmatched and low-confidence items are held for review." },
+    { k: "inv", t: "Invoicing finished jobs", s: .5, m: "co", ag: "Accounting agent", r: "The wrong amount goes to a customer.", c: "Invoices stay drafts until a person sends them." },
+    { k: "chase", t: "Chasing overdue invoices", s: .5, m: "co", ag: "Accounting agent", r: "A blunt reminder lands on a good customer.", c: "Reminders are drafted, and a person approves the first one for each customer." },
+    { k: "cash", t: "Cash forecasting and the weekly cash check", s: .7, m: "auto", ag: "Data scientist agent", r: "A forecast built on a number that isn't in your books.", c: "The reviewer agent traces figures to the ledger and holds anything it can't trace." },
+    { k: "rep", t: "Month-end and management reports", s: .5, m: "co", ag: "Reporting agent", r: "A wrong figure goes to the bank or the board.", c: "The reviewer agent checks the pack, and a person signs it off." },
+    { k: "quote", t: "Quotes and proposals", s: .4, m: "co", ag: "Quotes agent", r: "A job gets quoted below cost.", c: "A margin check runs before a person sends the quote." },
+    { k: "enq", t: "Answering routine customer questions", s: .4, m: "co", ag: "Admin agent", r: "It promises something you don't offer.", c: "Replies stay drafts until a person sends them." },
+    { k: "payroll", t: "Payroll and timesheets", s: .2, m: "keep", ag: "", r: "Someone gets underpaid.", c: "A person runs payroll. The agent only flags unusual hours." },
+    { k: "people", t: "Hiring and decisions about staff or customers", s: 0, m: "keep", ag: "", r: "An unfair or unlawful decision about a person.", c: "Stays with a person. Agents don't decide about people." }
+  ];
+  const MODE = { auto: ["Autopilot, within limits", "Acts alone on rule-based work and stops at the limit."], co: ["Co-pilot", "Drafts and prepares. A person approves."], keep: ["Keep a person", "Too much judgement or risk to hand over."] };
+  const LOCKED = ["New or changed bank details", "Anything sent to a customer", "Any decision about a person"];
+  const OPTIONAL = ["A supplier we haven't paid before", "A price more than 10% above last time", "Possible duplicate bills"];
+
+  const st = { step: 0, biz: "", ans: {}, hrs: {}, limit: 2000, opt: { 0: true, 1: true, 2: true }, boss: "Your finance lead" };
+  const CH = ["The world now", "Your week", "Who does what", "Your limits", "Your plan"];
+
+  const chosen = () => TASKS.filter(t => (st.hrs[t.k] || 0) > 0);
+  const hoursTotal = () => chosen().reduce((a, t) => a + st.hrs[t.k], 0);
+  const agentHours = () => chosen().filter(t => t.m !== "keep").reduce((a, t) => a + st.hrs[t.k] * t.s, 0);
+  const first = () => chosen().filter(t => t.m !== "keep").sort((a, b) => st.hrs[b.k] * b.s - st.hrs[a.k] * a.s)[0];
+
+  function steps() {
+    $("#wsSteps").innerHTML = CH.map((c, i) => `<li${i === st.step ? ' aria-current="step"' : ""} class="${i < st.step ? "done" : ""}"><button type="button" data-go="${i}"><span>${i + 1}</span>${c}</button></li>`).join("");
+    $("#wsCount").textContent = `Chapter ${st.step + 1} of ${CH.length}`;
+    $("#wsBack").style.visibility = st.step ? "visible" : "hidden";
+    $("#wsNext").textContent = st.step === CH.length - 1 ? "Start again" : st.step === CH.length - 2 ? "See my plan" : "Next";
+  }
+
+  function ch0() {
+    return `<h2>Where AI is heading, and where you stand</h2><p class="ws-lede">Four things changing right now. Answer one question on each.</p>
+    <label class="ws-biz">Business name, if you'd like it on your plan <input id="wsBiz" type="text" maxlength="60" value="${esc(st.biz)}" placeholder="Optional"></label>
+    <div class="ws-sig">` + SIGNALS.map(g => `<div class="sig"><p class="sig-big">${esc(g.big)}</p><p>${esc(g.txt)}</p><p class="sig-src"><a href="${g.src[1]}" target="_blank" rel="noopener">${esc(g.src[0])}</a></p>
+      <fieldset><legend>${esc(g.q)}</legend>${g.a.map(a => `<label class="wpill"><input type="radio" name="sig-${g.k}" value="${esc(a)}"${st.ans[g.k] === a ? " checked" : ""}><span>${esc(a)}</span></label>`).join("")}</fieldset></div>`).join("") + "</div>";
+  }
+  function ch1() {
+    return `<h2>Where does your week go?</h2><p class="ws-lede">Roughly how many hours a week do you and your team spend on each? Leave it at zero if it isn't you.</p>
+    <div class="ws-tasks">` + TASKS.map(t => `<label class="tk-row"><span>${esc(t.t)}</span><input type="range" min="0" max="20" step="1" value="${st.hrs[t.k] || 0}" data-h="${t.k}" aria-label="${esc(t.t)}, hours a week"><output>${st.hrs[t.k] || 0} h</output></label>`).join("") +
+    `</div><p class="ws-total">Total: <b id="wsTot">${hoursTotal()}</b> hours a week</p>`;
+  }
+  function ch2() {
+    const c = chosen();
+    if (!c.length) return `<h2>Who should do what?</h2><p class="ws-lede">Go back a step and add some hours, and we'll sort each job into what an agent can do alone, what it should draft for a person, and what stays with a person.</p>`;
+    return `<h2>Who should do what?</h2><p class="ws-lede">How we'd split each job between an agent and your people, what could go wrong, and the control that stops it.</p><div class="ws-split">` +
+      c.map(t => `<div class="sp sp-${t.m}"><div class="sp-h"><b>${esc(t.t)}</b><em>${MODE[t.m][0]}</em></div><p class="sp-m">${MODE[t.m][1]}${t.ag ? " " + esc(t.ag) + "." : ""}</p><p><span>Could go wrong:</span> ${esc(t.r)}</p><p><span>Control:</span> ${esc(t.c)}</p></div>`).join("") + "</div>";
+  }
+  function ch3() {
+    const f = first();
+    return `<h2>Set the limits for your first agent</h2><p class="ws-lede">${f ? `Your first agent would be your <b>${esc(f.ag)}</b>, taking on ${esc(f.t.toLowerCase())}.` : "Pick a few jobs in chapter 2 to name your first agent."} Every agent needs a limit, like any new hire.</p>
+    <div class="ws-lim"><div><label for="wsLimit">It can act alone up to <b id="wsLimV">${money(st.limit)}</b></label><input id="wsLimit" type="range" min="0" max="20000" step="500" value="${st.limit}">
+      <label for="wsBoss" class="ws-boss">It reports to <input id="wsBoss" type="text" maxlength="40" value="${esc(st.boss)}"></label></div>
+      <div><p class="ws-k">Always needs a person</p>${LOCKED.map(l => `<label class="wchk lock"><input type="checkbox" checked disabled><span>${l}</span><i>Always on</i></label>`).join("")}
+      ${OPTIONAL.map((o, i) => `<label class="wchk"><input type="checkbox" data-o="${i}"${st.opt[i] ? " checked" : ""}><span>${o}</span></label>`).join("")}</div></div>`;
+  }
+  function jd(f) {
+    const need = LOCKED.concat(OPTIONAL.filter((_, i) => st.opt[i])).concat(st.limit > 0 ? ["Anything over " + money(st.limit)] : []);
+    const alone = f.m === "auto" ? (st.limit > 0 ? `Rule-based work on ${f.t.toLowerCase()}, up to ${money(st.limit)}.` : "Nothing yet. It drafts only.") : "Nothing. It drafts and prepares; a person approves.";
+    return `<div class="jd"><div class="jd-h"><b>${esc(f.ag)}</b><span>Job description, draft</span></div><dl>
+      <dt>Role</dt><dd>${esc(f.t)}.</dd><dt>Works alone on</dt><dd>${esc(alone)}</dd><dt>Needs a person for</dt><dd>${esc(need.map((x, i) => i ? x.charAt(0).toLowerCase() + x.slice(1) : x).join(", "))}.</dd>
+      <dt>Reports to</dt><dd>${esc(st.boss || "Your finance lead")}. Beiz reviews its decisions each month.</dd><dt>Record</dt><dd>Every decision logged in your own accounts.</dd></dl></div>`;
+  }
+  function plan() {
+    const f = first(), tot = hoursTotal(), ah = agentHours(), out = [];
+    const g = st.ans;
+    if (g.shadow && g.shadow !== "Yes") out.push(["Find the AI already in use", "List the AI tools your team uses and what they paste in. It's the quickest risk to close."]);
+    if (g.check && g.check !== "A named person") out.push(["Name the approver", "Pick one person who approves anything that moves money or reaches a customer, before any agent goes live."]);
+    if (g.privacy && g.privacy !== "No") out.push(["Check the Privacy Act rule", `Map which tools make decisions about people before 10 December 2026. Our <a href="/ai-check/">free 2-minute check</a> is a start; the sprint is from $3,500.`]);
+    const offer = !f ? ["Start with the two-week check", "$1,500 fixed, credited if you go ahead. We find where your time and cash actually go, from exports."]
+      : (f.k === "cash" || f.k === "rep") ? ["Then a live cash and job profit model", "From $5,000. Your data scientist and reporting agents run on it."]
+      : ["Then AI workforce setup", "From $6,000, on a three-week rollout plan, with monthly review from $750."];
+    const who = st.biz ? esc(st.biz) + "'s" : "Your";
+    return `<div class="ws-plan" id="wsPlan"><h2>${who} AI workforce plan</h2>
+      <div class="pl-stats"><div><b>${tot}</b><span>hours a week mapped</span></div><div><b>${ah ? "about " + Math.round(ah) : 0}</b><span>hours an agent could take on*</span></div><div><b>${chosen().filter(t => t.m === "keep").length}</b><span>${chosen().filter(t => t.m === "keep").length === 1 ? "job stays" : "jobs stay"} with a person</span></div></div>
+      ${f ? `<h3>Your first agent</h3>${jd(f)}` : `<p>Add your hours in chapter 2 to see your first agent.</p>`}
+      ${out.length ? `<h3>Before it goes live</h3><ul class="pl-do">${out.map(([a, b]) => `<li><b>${a}</b><span>${b}</span></li>`).join("")}</ul>` : ""}
+      <h3>Where to start</h3><ul class="pl-do"><li><b>Start with the two-week cash and data check</b><span>$1,500 fixed, credited if you go ahead. It tests these estimates against your real data.</span></li>${f ? `<li><b>${offer[0]}</b><span>${offer[1]}</span></li>` : ""}</ul>
+      <p class="fine">*Planning estimate from your hours and our assumption for each job (for example, about 60% of bill checking and 30% of payment preparation). Not a promise.</p>
+      <div class="pl-cta"><button type="button" class="btn primary" id="wsSend">Send me this plan and a fixed quote</button><a class="btn ghost" href="/contact/?topic=Discovery%20call#form">Book a 20-minute call</a><button type="button" class="btn ghost" id="wsPrint">Save as PDF</button></div></div>`;
+  }
+  function summary() {
+    const f = first(), lines = [];
+    lines.push("From the AI workforce workshop" + (st.biz ? " for " + st.biz : "") + ":");
+    Object.keys(st.ans).forEach(k => { const g = SIGNALS.find(x => x.k === k); lines.push("- " + g.q + " " + st.ans[k]); });
+    lines.push("", "Hours a week: " + hoursTotal() + "; about " + Math.round(agentHours()) + " could move to agents (estimate).");
+    chosen().forEach(t => lines.push("- " + t.t + ": " + st.hrs[t.k] + " h (" + MODE[t.m][0] + ")"));
+    if (f) lines.push("", "First agent: " + f.ag + ", acting alone up to " + money(st.limit) + ", reporting to " + (st.boss || "finance lead") + ".");
+    return lines.join("\n");
+  }
+
+  function render() {
+    steps();
+    $("#wsStage").innerHTML = [ch0, ch1, ch2, ch3, plan][st.step]();
+    const stage = $("#wsStage");
+    const biz = stage.querySelector("#wsBiz"); if (biz) biz.oninput = () => { st.biz = biz.value.trim(); };
+    stage.querySelectorAll('input[type=radio]').forEach(r => r.onchange = () => { st.ans[r.name.slice(4)] = r.value; });
+    stage.querySelectorAll("[data-h]").forEach(r => r.oninput = () => { st.hrs[r.dataset.h] = +r.value; r.nextElementSibling.textContent = r.value + " h"; stage.querySelector("#wsTot").textContent = hoursTotal(); });
+    const lim = stage.querySelector("#wsLimit"); if (lim) lim.oninput = () => { st.limit = +lim.value; stage.querySelector("#wsLimV").textContent = money(st.limit); };
+    const boss = stage.querySelector("#wsBoss"); if (boss) boss.oninput = () => { st.boss = boss.value.trim(); };
+    stage.querySelectorAll("[data-o]").forEach(c => c.onchange = () => { st.opt[c.dataset.o] = c.checked; });
+    const send = stage.querySelector("#wsSend"); if (send) send.onclick = () => window.beizPrefill ? window.beizPrefill("AI workforce setup", summary() + "\n\n") : (location.href = "/contact/#form");
+    const pr = stage.querySelector("#wsPrint"); if (pr) pr.onclick = () => window.print();
+  }
+  function go(i) {
+    st.step = Math.max(0, Math.min(CH.length - 1, i)); render();
+    const top = root.getBoundingClientRect().top + scrollY - 140; if (scrollY > top) scrollTo({ top, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    const h = $("#wsStage h2"); if (h) { h.setAttribute("tabindex", "-1"); h.focus({ preventScroll: true }); }
+  }
+  $("#wsNext").onclick = () => st.step === CH.length - 1 ? (Object.assign(st, { step: 0, ans: {}, hrs: {} }), render()) : go(st.step + 1);
+  $("#wsBack").onclick = () => go(st.step - 1);
+  $("#wsSteps").addEventListener("click", e => { const b = e.target.closest("[data-go]"); if (b) go(+b.dataset.go); });
+  render();
 })();

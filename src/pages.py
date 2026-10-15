@@ -93,7 +93,8 @@ def home():
     <h3>From a 20-minute call, you'll leave with</h3>
     <ul class="clr-get"><li>The first job an agent could take on in your business, and the jobs it shouldn't touch.</li><li>What could go wrong, and the control that stops it.</li><li>A fixed price, or a straight &ldquo;not yet&rdquo; if that's the right answer.</li></ul>
     <p class="clr-no">No slide deck, no jargon, nothing to prepare.</p>
-    <div class="bz-ctas"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-minute call</a><a class="btn ghost" href="/contact/?topic=Demo%20request#form" data-topic="Demo request">Ask for a demo</a><button type="button" class="clr-bot" data-bot-step="cz">or ask Bei-zAI first</button></div>
+    <div class="bz-ctas"><a class="btn primary" href="/workshop/">Take the free 5-minute workshop</a><a class="btn ghost" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-minute call</a></div>
+    <p class="clr-alt"><a href="/contact/?topic=Demo%20request#form" data-topic="Demo request">Ask for a demo</a> or <button type="button" class="clr-bot" data-bot-step="cz">ask Bei-zAI</button></p>
   </div>
 </div></section>
 
@@ -800,6 +801,20 @@ def ai_check():
     add("/ai-check/", "Privacy Act AI check (free, 2 minutes)", "Free 2-minute check: will the Privacy Act automated-decision transparency rules starting 10 December 2026 apply to your business? Runs in your browser; nothing is sent.", body)
 
 
+def workshop():
+    body = phero("Free · 5 minutes · runs in your browser", "The AI workforce workshop",
+                 "Five short chapters: where AI is heading, where your week goes, which jobs an agent should take, the limits you'd set, and a written plan at the end. Nothing you enter leaves your browser unless you choose to send it.",
+                 [("/workshop/", "AI workforce workshop")]) + '''<section style="padding-top:8px"><div class="wrap">
+  <div class="ws" id="ws">
+    <ol class="ws-steps" id="wsSteps" aria-label="Workshop chapters"></ol>
+    <div class="ws-stage" id="wsStage" aria-live="polite"></div>
+    <div class="ws-nav"><button type="button" class="btn ghost" id="wsBack">Back</button><span class="ws-count" id="wsCount"></span><button type="button" class="btn primary" id="wsNext">Next</button></div>
+  </div>
+  <p class="fine">Time estimates use your inputs and our planning assumptions for each task. They're a starting point to test, not a promise. General information, not financial advice.</p>
+</div></section>'''
+    add("/workshop/", "AI workforce workshop (free, 5 minutes)", "A free, interactive 5-minute workshop: see where AI is heading, map your week, decide which jobs an agent should take, set its limits and get a written plan. Runs in your browser.", body)
+
+
 # ------------------------------------------------------------------ how we work / faq / contact
 FAQ = [
     ("Are you an AI company?", "We don't make or sell AI software, and we're not tied to any vendor. We set AI up properly for your business: we pick the right tools, connect them to your systems and your team, build the automations, dashboards and agents, and put the controls an accountant would expect around them."),
@@ -1166,6 +1181,6 @@ def not_found():
 
 
 def build_all():
-    home(); services_hub(); services(); privacy_sprint(); industries_hub(); industries(); examples(); ai_check()
+    home(); services_hub(); services(); privacy_sprint(); industries_hub(); industries(); examples(); ai_check(); workshop()
     how_we_work(); faq(); contact(); privacy(); insights(); live_page(); try_page(); about(); not_found()
     return PAGES
