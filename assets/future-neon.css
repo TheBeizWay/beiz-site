@@ -198,3 +198,22 @@ html{overflow-x:clip}
 @media(max-width:900px){.caps4{grid-template-columns:1fr 1fr}.caps4 a{border-bottom:1px solid var(--line)}}
 @media(max-width:520px){.caps4{grid-template-columns:1fr}.caps4 a{border-left:0}.caps4 a:last-child{border-right:0}}
 .caps4 a,.caps4 span,.caps4 b{text-align:left!important}
+/* control room under the six agents */
+.wf-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--line2);margin-right:9px;vertical-align:2px;transition:background .3s,box-shadow .3s}
+.wf6 li.live{border-color:var(--signal)!important}
+.wf6 li.live .wf-dot{background:var(--signal);box-shadow:0 0 0 4px rgba(127,214,194,.18)}
+.wfl{margin:0 0 26px;border:1px solid var(--line2);background:var(--panel)}
+.wfl-h{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;padding:14px 18px;border-bottom:1px solid var(--line);background:var(--panel2)}
+.wfl-h b{color:#fff}.wfl-h span{color:var(--faint);font-size:.85rem;flex:1}
+.wfl-p{background:none;border:1px solid var(--line2);color:var(--muted);padding:4px 12px;font:500 .8rem var(--sans,inherit);cursor:pointer}
+.wfl-p:hover,.wfl-p:focus-visible{border-color:var(--signal);color:var(--signal)}
+.wfl-k{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+.wfl-k div{padding:12px 18px;border-right:1px solid var(--line)}.wfl-k div:last-child{border-right:0}
+.wfl-k span{display:block;font-size:.8rem;color:var(--faint)}.wfl-k b{font:600 1.5rem "IBM Plex Mono",monospace;color:#fff}
+.wfl-log{list-style:none;margin:0;padding:0;min-height:258px}
+.wfl-r{display:grid;grid-template-columns:52px 210px 1fr auto;gap:12px;align-items:baseline;padding:9px 18px;border-bottom:1px solid var(--line);animation:amIn .35s ease both;font-size:.92rem}
+.wfl-r time{font-family:"IBM Plex Mono",monospace;color:var(--faint)}.wfl-w{color:#fff;font-weight:600}.wfl-x{color:var(--muted)}
+.wfl-r em{font:600 .75rem "IBM Plex Mono",monospace;font-style:normal;padding:2px 8px;white-space:nowrap}
+.wfl-r.st-log em{color:var(--muted);background:var(--panel2)}.wfl-r.st-ok em{color:#7BE3BB;background:rgba(79,209,160,.14)}
+.wfl-r.st-held em{color:#F5C76B;background:rgba(242,184,75,.14)}.wfl-r.st-stop em{color:#FF8A8A;background:rgba(255,107,107,.14)}
+@media(max-width:760px){.wfl-k{grid-template-columns:1fr 1fr}.wfl-k div:nth-child(2){border-right:0}.wfl-r{grid-template-columns:44px 1fr auto}.wfl-r em{grid-column:3;grid-row:1}.wfl-x{grid-column:2/-1}}

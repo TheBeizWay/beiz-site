@@ -1374,3 +1374,45 @@
   io.observe(map);
   replay.addEventListener("click", () => { cancelAnimationFrame(raf); best = 0; shown = -1; draw(0); manual = false; setTimeout(() => play(), 300); });
 })();
+
+/* v41 AI workforce control room: sample events, labelled simulation */
+(() => {
+  const box = document.getElementById("wfl"); if (!box) return;
+  const log = document.getElementById("wflLog"), btn = document.getElementById("wflP");
+  const cnt = { A: document.getElementById("wflA"), H: document.getElementById("wflH"), B: document.getElementById("wflB") };
+  const cards = [...document.querySelectorAll(".wf6 [data-ag]")];
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const N = ["Data scientist", "Financial controller", "CFO desk", "Systems", "Compliance", "Risk officer"];
+  const EV = [
+    [1, "41 bank lines matched to the ledger", "log"],
+    [0, "13-week cash refreshed. Low point week 7, $52,000", "log"],
+    [1, "Quoll Electrical bill: 22 h billed, 14 h on the timesheet", "held"],
+    [4, "New client: company and family trust. Sanctions screening clear", "log"],
+    [3, "Email asks to change a supplier's bank details", "stop"],
+    [1, "6 bills matched to orders and deliveries, $7,412.60. Approved by the owner", "ok"],
+    [4, "Possible politically exposed person match on the new client", "held"],
+    [2, "Board pack numbers drafted. Waiting for the owner's review", "held"],
+    [3, "New AI tool seen in use: a meeting transcriber. Added to the register for review", "held"],
+    [0, "Job J2201 margin fell to 13%. Flagged for the project lead", "log"],
+    [5, "Exception log updated for the week", "log"],
+    [2, "Variance note drafted: wages 6% over budget", "log"],
+    [4, "Possible match cleared by the compliance officer. Reason recorded", "ok"],
+    [1, "Duplicate bill from a materials supplier. Not paid", "stop"],
+  ];
+  const ST = { log: "Logged", held: "Held", stop: "Blocked", ok: "Approved" };
+  let i = 0, t = 8 * 60 + 2, n = { A: 0, H: 0, B: 0 }, timer = 0, paused = false, seen = false;
+  const fmt = m => String(Math.floor(m / 60)).padStart(2, "0") + ":" + String(m % 60).padStart(2, "0");
+  const step = () => {
+    const [ag, txt, st] = EV[i % EV.length]; i++; t += 3 + (i * 7) % 9; if (t > 17 * 60) t = 8 * 60 + 2;
+    n.A++; if (st === "held") n.H++; if (st === "stop") n.B++;
+    cnt.A.textContent = n.A; cnt.H.textContent = n.H; cnt.B.textContent = n.B;
+    const li = document.createElement("li"); li.className = "wfl-r st-" + st;
+    li.innerHTML = `<time>${fmt(t)}</time><span class="wfl-w">${N[ag]} agent</span><span class="wfl-x">${txt}</span><em>${ST[st]}</em>`;
+    log.prepend(li); while (log.children.length > 6) log.lastChild.remove();
+    cards.forEach(c => c.classList.toggle("live", +c.dataset.ag === ag));
+  };
+  if (reduce) { for (let k = 0; k < 6; k++) step(); btn.hidden = true; return; }
+  const run = () => { clearInterval(timer); if (!paused && seen) timer = setInterval(step, 2200); };
+  new IntersectionObserver(es => { seen = es[0].isIntersecting; if (seen && !log.children.length) { step(); step(); } run(); }, { threshold: 0.2 }).observe(box);
+  btn.addEventListener("click", () => { paused = !paused; btn.textContent = paused ? "Resume" : "Pause"; btn.setAttribute("aria-pressed", paused); run(); });
+})();
