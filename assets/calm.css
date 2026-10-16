@@ -1,13 +1,11 @@
-/* Beiz calm skin. Load LAST, after future-neon.css. Removes glow and motion, raises contrast, fixes the services menu overlap. */
+/* Beiz calm skin. Load LAST, after future-neon.css. Removes glow and motion, raises contrast, fixes the services menu overlap. Does not touch hero or panel artwork. */
 :root{
 --bg:#0B0F14; --panel:#11171F; --panel2:#0E131A; --line:#232C38; --line2:#33404F;
 --text:#E8EDF3; --hi:#FFFFFF; --muted:#C2CBD6; --faint:#9AA6B5;
 --brand:#7FD6C2; --accent:#7FD6C2; --teal:#7FD6C2; --g:#7FD6C2; --signal:#7FD6C2;
 --ok:#6FCF9F; --held:#E3B04B; --stop:#F07C72; --pencil:#F07C72;
 }
-body{background-image:none!important}
-.hz-hero.dark{background-image:none!important;background-color:#0B0F14!important}
-.fx-canvas,.fx-glow,.fx-bar{display:none!important}
+.fx-glow,.fx-bar{display:none!important}
 .fx-r{opacity:1!important;transform:none!important}
 .hz-hero h1{text-shadow:none!important;font-size:clamp(2.2rem,4.6vw,3.6rem)!important;line-height:1.08!important;letter-spacing:-.025em!important}
 .hz-hero h1 .h1-2{display:block;color:var(--brand)!important;font-size:.42em!important;line-height:1.3!important;margin-top:.7em}
@@ -15,19 +13,14 @@ body{background-image:none!important}
 .btn.primary:hover{background:#fff!important;border-color:#fff!important}
 .bot-btn{background:var(--brand)!important;color:#0B0F14!important}
 .demo-k::before,.eyebrow::before{box-shadow:none!important;background:var(--brand)!important}
-main a:not(.btn):hover{background:transparent;color:var(--brand)}
 p,li,dd,td,.lede{color:var(--muted)!important}
 .lede,.hz-sub{font-size:1.06rem;line-height:1.6;max-width:62ch}
-.card,.tier,.sp,.jd,.dl,.rp-lane,.gov-band,.hz-ws,.env-win,.replay,.au-line,.panel,.scene,.ex,.offer,.am>div,.hz-src>div{background-image:none!important;border:1px solid var(--line2)!important}
-.fx-host:hover{border-color:var(--line2)!important}
 .hz-price td,.hz-price th{padding:14px 12px;vertical-align:top;line-height:1.5}
 .hz-price .n{white-space:nowrap}
 @media (max-width:760px){.hz-price{display:block;overflow-x:auto}}
-/* Services menu: stop prices overlapping the descriptions */
 .mm-start{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 32px}
 .mm-start a{display:block!important;position:static!important;min-width:0}
 .mm-start a b,.mm-start a em,.mm-start a span{position:static!important;display:block!important;white-space:normal!important}
 .mm-start a em{font-family:"IBM Plex Mono",monospace;font-style:normal;font-size:.8rem;color:var(--faint);margin:2px 0 4px}
 .mm-start a span{color:var(--muted);line-height:1.45}
 .mmp{width:min(760px,92vw)}
-@media (prefers-reduced-motion:no-preference){*{scroll-behavior:auto}}
