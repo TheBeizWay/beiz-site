@@ -2,7 +2,7 @@
 import json
 
 SITE = "https://beiz.com.au"
-ASSET_V = "104"  # bump to bust caches when CSS/JS change
+ASSET_V = "105"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" aria-hidden="true" class="logo"><rect x="1" y="1" width="34" height="34" rx="7" fill="#15181D" stroke="#30353D" stroke-width="1.5"/><rect x="7" y="9" width="16" height="3.5" rx="1.75" fill="#43B581"/><circle cx="27.5" cy="10.75" r="1.75" fill="#43B581"/><rect x="7" y="16.25" width="11" height="3.5" rx="1.75" fill="#E9A93B"/><rect x="21" y="16.25" width="8" height="3.5" rx="1.75" fill="none" stroke="#E9A93B" stroke-width="1.2"/><rect x="7" y="23.5" width="22" height="3.5" rx="1.75" fill="#A6A49D"/></svg>')
 
@@ -133,7 +133,7 @@ def _header(path):
     mm_start = [("/#check", "Two-week cash &amp; data check", "$1,500 fixed", "Unbilled work, margin leaks and manual bottlenecks, from your exports."),
                 ("/services/ai-readiness-sprint/", "AI workforce setup", "from $6,000", "Agents with job descriptions and limits, including the AI already in your software."),
                 ("/services/dashboards-and-models/", "Financial modelling", "from $5,000", "13-week cash, job margins and what-if scenarios."),
-                ("/services/privacy-sprint/", "AI governance &amp; Privacy Act", "from $3,500", "Agent register and disclosure wording before 10 December 2026.")]
+                ("/#sprint", "AI workflow &amp; controls sprint", "from $3,500", "Start here. Find the AI your team uses, set owners and limits, pick the first workflow.")]
     mmp = ('<div class="mmp" role="group" aria-label="Services"><div class="mm-start">'
            + "".join(f'<a href="{h}"><b>{t}</b><em>{pr}</em><span>{d}</span></a>' for h, t, pr, d in mm_start)
            + '</div><div class="mm-foot"><a href="/services/data-engineering/">Data science &amp; analytics</a><a href="/services/">All services</a><a class="mm-ws" href="/workshop/">Free 5-minute workshop</a></div></div>')
@@ -201,7 +201,7 @@ ORG = {
                    for n, h, p, d in [("Two-week cash and data check", "/#check", 1500, "Fixed price. Unbilled work, margin leaks and manual bottlenecks found from Xero and timesheet exports, with a findings register and two-page report."),
                                       ("Live cash and job profit model", "/services/dashboards-and-models/", 5000, "From price. A 13-week rolling cash forecast and profit by job, updated weekly."),
                                       ("AI workforce setup", "/services/ai-readiness-sprint/", 6000, "From price. The first AI agent with its job description, limits, approvals and decision log."),
-                                      ("AI governance and Privacy Act sprint", "/services/privacy-sprint/", 3500, "From price. Agent register and a check of whether the automated-decision transparency rules apply."),
+                                      ("AI workflow and controls sprint", "/#sprint", 3500, "From price. Two weeks: AI tool register, data map, named owners, use rules, a 90-day plan and a check of whether the automated-decision transparency rules apply."),
                                       ("Monthly monitoring and review", "/#pricing", 750, "From price per month. Review of agent decisions and a one-page monthly report.")]],
     "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Services",
                         "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": n, "url": SITE + h}} for h, n in SERVICES]},

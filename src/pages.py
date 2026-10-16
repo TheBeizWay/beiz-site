@@ -90,6 +90,21 @@ def home():
   </figure>
 </div></section>
 
+<section class="hz-sec sp" id="sprint"><div class="wrap">
+  <p class="demo-k">Start here</p>
+  <h2>Your team is already using AI. Make it accountable.</h2>
+  <p class="lede">The AI workflow &amp; controls sprint. In two weeks we find the AI tools your people actually use, what data goes into them and who owns each one. Then we set practical limits and pick the first workflow worth running under controls. It starts with short interviews and a list of tools. We don't need access to your ledger.</p>
+  <ul class="sp5">
+    <li><b>Tool register</b><span>What's in use, by whom and for what.</span></li>
+    <li><b>Data map</b><span>Which customer, staff, financial or confidential data goes into each tool.</span></li>
+    <li><b>Named owners</b><span>One accountable person for each use that matters.</span></li>
+    <li><b>Use rules</b><span>Approved tools, data that never goes in, when a person must check and who to escalate to.</span></li>
+    <li><b>90-day plan</b><span>The first controlled workflow, its owner, how it's measured and the next decision.</span></li>
+  </ul>
+  <div class="cv-foot"><p><b>Includes a Privacy Act check.</b> Whether the automated-decision transparency rules starting 10 December 2026 apply to you, with draft wording for your lawyer where they do. We don't give legal advice.</p><div class="cv-price"><span>Fixed price from</span><b>$3,500</b><span>two weeks, agreed in writing</span></div></div>
+  <div class="hz-ctas"><a class="btn primary" href="/contact/?topic=AI%20readiness%20%26%20governance#form" data-topic="AI readiness &amp; governance">Book a 20-minute fit check</a><a class="btn ghost" href="#limits">Try setting an agent's limits</a></div>
+</div></section>
+
 <section class="diff" id="different"><div class="wrap">
   <h2>The AI is the same. The setup isn't.</h2>
   <p class="lede">Every firm can buy the same AI models we use. What makes a Beiz agent different is the rules it runs under. A human is always in the loop.</p>
@@ -123,6 +138,7 @@ def home():
     <div class="lg-scroll"><table class="cm-t" id="cmTable"></table></div>
     <div class="cm-notes"><div><b>How each week is calculated</b><span>Closing cash = opening cash + customer receipts − supplier payments − wages and super − overheads. 60% of each week's sales arrive the following week. Invoices already sent arrive on the old 30-day terms; new invoices on account arrive on the terms you set.</span></div><div><b>What this demo leaves out</b><span>GST and BAS, tax, loans, one-off costs and seasonality. A real model is built from your ledger with assumptions we agree and write down.</span></div></div>
   </div>
+  <p class="nx">Not sure how close your own buffer is? <a href="#check">The two-week cash &amp; data check</a> works it out from your exports. $1,500 fixed.</p>
 </div></section>
 
 <section class="hz-sec xdemo" id="lineage"><div class="wrap">
@@ -134,6 +150,7 @@ def home():
       <div class="ln-sw" role="group" aria-label="Which data"><button type="button" data-v="raw">As it arrived</button><button type="button" data-v="clean" aria-pressed="true">After cleaning</button></div></div>
     <div class="ln-stage" id="lnStage" aria-live="polite"></div>
   </div>
+  <p class="nx">Can't trace a number like this in your business? <a href="#check">Start with the cash &amp; data check.</a> Every finding comes with the records behind it.</p>
 </div></section>
 
 <section class="hz-sec xdemo" id="limits"><div class="wrap">
@@ -141,6 +158,7 @@ def home():
   <h2>AI without controls is a risk. AI with controls is a workforce.</h2>
   <p class="lede">Everyone talks about AI. Few understand its limits. AI agents don't fail quietly; they fail at scale. Here are five requests a payables agent might face in a week. You decide: allow it, hold it for a person, or block it. Then see what we'd set, and why. A simulation, not connected to any real accounts.</p>
   <div class="lm" id="lm"></div>
+  <p class="nx">You just set the limits for one agent. <a href="#sprint">The controls sprint</a> does this for every AI tool your team already uses.</p>
 </div></section>
 
 <section class="hz-sec xdemo" id="trace"><div class="wrap">
@@ -169,6 +187,7 @@ def home():
     <tbody><tr class="lg-r st-log"><td class="t">08:55</td><td class="w">Bank agent</td><td class="x">41 bank lines matched to the ledger</td><td class="a"></td><td class="s"><em>Logged</em><svg class="pen-tick" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 10 L8 16 L22 2"/></svg></td></tr><tr class="lg-r st-log"><td class="t">09:03</td><td class="w">Data scientist agent</td><td class="x">13-week forecast refreshed. Low point week 7</td><td class="a">52,000.00</td><td class="s"><em>Logged</em><svg class="pen-tick" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 10 L8 16 L22 2"/></svg></td></tr><tr class="lg-r st-held"><td class="t">09:12</td><td class="w">Payables agent</td><td class="x">Quoll Electrical bill: <span class="pen-ring">22 h</span> billed, timesheet shows 14 h<span class="pen-note">Only 14 h recorded on the timesheet. Ask the supplier why. PM</span></td><td class="a">3,080.00</td><td class="s"><em>Held</em></td></tr><tr class="lg-r st-ok"><td class="t">09:20</td><td class="w">Payables agent</td><td class="x">6 bills matched to orders and deliveries</td><td class="a">7,412.60</td><td class="s"><em>Approved</em><svg class="pen-tick" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 10 L8 16 L22 2"/></svg></td></tr><tr class="lg-r st-stop"><td class="t">09:31</td><td class="w">Payables agent</td><td class="x">Email asks to change a supplier's bank details<span class="pen-note">Never by email. Call them on the known number.</span></td><td class="a"></td><td class="s"><em>Blocked</em></td></tr><tr class="lg-r st-held"><td class="t">09:44</td><td class="w">Accounting agent</td><td class="x">Reminder drafted, invoice 30 days overdue</td><td class="a">4,350.00</td><td class="s"><em>Held</em></td></tr><tr class="lg-r st-held"><td class="t">10:02</td><td class="w">Reviewer agent</td><td class="x">Board pack figure not found in the ledger<span class="pen-note">Agree to the trial balance first.</span></td><td class="a"></td><td class="s"><em>Held</em></td></tr></tbody>
     <tfoot><tr><td colspan="5"><span id="dlCount"></span></td></tr></tfoot></table></div>
     <figcaption class="lg-f"><span class="pen-sig">Example review notes, P. Mehta CA</span><span>Red ink shows the kind of questions a Chartered Accountant asks. In your business the log sits in your own accounts.</span></figcaption>
+    <p class="nx">Every agent we set up keeps a log like this. <a href="#ai">See AI workforce setup.</a></p>
   </figure>
 </div></section>
 
@@ -191,10 +210,10 @@ def home():
   <table class="hz-price">
     <thead><tr><th>Offer</th><th>What you get</th><th class="n">Price</th></tr></thead>
     <tbody>
+      <tr id="sprint-row" class="start"><td><a href="#sprint">AI workflow &amp; controls sprint</a><small>Start here</small></td><td>Two weeks. A register of the AI tools your team uses, the data going into them, named owners, use rules and a 90-day plan for the first controlled workflow. Includes a check of whether the automated-decision transparency rules starting 10 December 2026 apply to you, with draft wording for your lawyer where they do. No ledger access needed.</td><td class="n">from $3,500</td></tr>
       <tr id="check"><td><a href="/contact/?topic=Two-week%20cash%20%26%20data%20check#form">Two-week cash &amp; data check</a></td><td>From your Xero and job or timesheet exports: unbilled work, margin leaks and manual bottlenecks, with the records behind each finding. One business, up to 12 months of exports. You get a findings register, a two-page report and a 30-minute walkthrough. Doesn't include fixing the records, tax or BAS. Credited if you go ahead. <a class="hz-dl" href="/assets/beiz-sample-check-report.pdf">See a sample report (PDF)</a> <a class="hz-dl" href="/assets/beiz-sample-findings-register.xlsx">and its findings register (Excel)</a></td><td class="n">$1,500 fixed</td></tr>
       <tr id="model"><td><a href="/services/dashboards-and-models/">Live cash &amp; job profit model</a></td><td>A 13-week rolling cash flow and profit by job against what you quoted, updated weekly, in your own Excel or Power BI.</td><td class="n">from $5,000</td></tr>
       <tr id="ai"><td><a href="/services/ai-readiness-sprint/">AI workforce setup</a></td><td>Your first agent with its job description, limits and decision log, plus limits and approvers for the AI already inside your software. Each further agent is quoted in writing. Planned as a three-week rollout: map and limit, shadow mode, live within limits. Includes a review at day 30; ongoing monitoring is the monthly service below.</td><td class="n">from $6,000</td></tr>
-      <tr><td><a href="/services/privacy-sprint/">AI governance &amp; Privacy Act sprint</a></td><td>An agent register, and a check of whether the automated-decision transparency rules starting 10 December 2026 apply to you, with draft wording for your lawyer to review where they do.</td><td class="n">from $3,500</td></tr>
       <tr><td><a href="#cover">Leave cover</a></td><td>An agent carries the routine part of a role while someone is on leave, reviewed by an Australian Chartered Accountant, with a handover note when they return.</td><td class="n">from $3,500 setup, then from $2,000 a month</td></tr>
       <tr><td>Monthly monitoring and review</td><td>We review the agents' decisions, re-test before changes, keep the model current and send you one page on what was caught and what changed.</td><td class="n">from $750 a month</td></tr>
     </tbody>
