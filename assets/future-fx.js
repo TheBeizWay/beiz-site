@@ -4,6 +4,7 @@
    3) Cursor glow on panels
    4) Scroll progress line */
 (function(){
+  if (document.documentElement.classList.contains('classic')) return;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var CYAN = '46,242,226';
 
