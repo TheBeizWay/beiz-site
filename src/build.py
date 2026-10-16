@@ -38,6 +38,7 @@ llms = ["# Beiz Data & Accounting", "",
         "- Contact: hello@beiz.com.au, or book a discovery call at https://beiz.com.au/contact/", "",
         "## Services"] + [f"- [{t}]({SITE}{h})" for h, t in SERVICES] + ["", "## Who we help"] + [f"- [{t}]({SITE}{h})" for h, t in INDUSTRIES] + [
         "", "## Start here", f"- [Compliance controls sprint]({SITE}/#sprint): from $3,500, two weeks, one focus: AI use, AML/CTF Tranche 2 or the Privacy Act", f"- [AML/CTF client onboarding check (interactive demo)]({SITE}/#aml): customer due diligence, screening and the decision a person has to make",
+        f"- [Free bill check on your own data]({SITE}/bill-check/): drop in a bills export; possible duplicates, bank detail changes, split bills and ABN problems; runs in the browser, nothing is sent",
         "", "## See it working",
         f"- [Homepage demonstrations]({SITE}/): an interactive 13-week cash model, a data lineage walk-through from dashboard to source records, and an AI controls simulation (allow, hold or block)",
         f"- [Free 5-minute AI workforce workshop]({SITE}/workshop/): map the week, set an agent's limits, get a written plan",

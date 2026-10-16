@@ -1,6 +1,6 @@
 """Page content for beiz.com.au. Australian English, plain words. Published prices are "from" anchors only."""
 import json
-from layout import (SITE, page, phero, related, cta_band, contact_form, SERVICES, INDUSTRIES, CALL_HREF, CALL_ATTR)
+from layout import (SITE, ASSET_V, page, phero, related, cta_band, contact_form, SERVICES, INDUSTRIES, CALL_HREF, CALL_ATTR)
 from charts import cash13, job_margins, runway, runway_facts
 from agents import CONSOLE, PIPELINE, WIRING, WATCH, FLOW, WATCH_HOME, AGENT_TEAM
 
@@ -64,7 +64,7 @@ def home():
     <h1><span>Your AI workforce</span> <span>for compliance and finance.</span> <span class="h1-2">Checked by an Australian Chartered Accountant.</span></h1>
     <p class="hz-sub">Agents prepare your AML/CTF client checks, privacy and AI controls, cash models and month-end work. Purav Mehta, Chartered Accountant · GAICD, sets their limits and reviews every exception. Nothing is paid or sent without a person.</p>
     <div class="hz-ctas"><a class="btn primary" href="/contact/?topic=Compliance%20controls%20sprint#form" data-topic="Compliance controls sprint">Book a 20-minute fit check</a><a class="btn ghost" href="#aml">Run a client onboarding check</a></div>
-    <p class="hz-alt">Or take the <a href="/workshop/">free 5-minute workshop</a> and leave with a written plan.</p>
+    <p class="hz-alt">Or <a href="/bill-check/">check your own bills for duplicates</a> in two minutes. Nothing leaves your browser.</p>
   </div>
   <figure class="bmap" id="bmap" aria-label="How Beiz works across your business">
     <svg viewBox="0 0 560 470" role="group">
@@ -1117,7 +1117,7 @@ def try_page():
     body = phero("Try it · 60 seconds each", "Find your problem in 60 seconds.",
                  "Four quick demos using your own numbers. They run entirely in your browser: nothing is sent to us unless you press send. Pick the one that sounds like your week.",
                  [("/try/", "Try it")]) + f'''<section style="padding-top:0"><div class="wrap">
-<nav class="trynav" aria-label="Demos"><a href="#late">Late payers</a><a href="#cash">Cash forecast</a><a href="#bills">Bill checker</a><a href="#hours">Admin hours</a><a href="/ai-check/">Privacy Act check</a></nav>
+<nav class="trynav" aria-label="Demos"><a href="#late">Late payers</a><a href="#cash">Cash forecast</a><a href="#bills">Bill checker</a><a href="/bill-check/">Your own bills</a><a href="#hours">Admin hours</a><a href="/ai-check/">Privacy Act check</a></nav>
 
 <div class="demo" id="late"><div><span class="k">Demo 1 · Getting paid</span><h2>What are late payers costing you?</h2><p class="muted">Enter your rough numbers. We'll show how much of your money is sitting with customers.</p>
   <div class="fields" id="dLate">{n("lpN","Invoices you send a month",40)}{n("lpAvg","Average invoice ($)",2500,"50")}{n("lpTerms","Your payment terms (days)",14)}{n("lpActual","How long customers actually take (days)",38)}{n("lpHrs","Hours a week spent chasing",3)}</div></div>
@@ -1138,6 +1138,48 @@ def try_page():
 <p class="fine" style="margin-top:18px">Demos are simplified estimates from the numbers you enter. They're illustrations, not financial advice. The real versions are built from your own data.</p>
 </div></section>''' + WATCH + cta_band("Found your problem?", "Tell us in a few lines. You'll get a written, fixed-price way to fix it.")
     add("/try/", "Try it: 60-second demos", "Four 60-second demos using your own numbers: what late payers cost you, a 13-week cash forecast, an AI bill checker and admin hours. Runs in your browser.", body)
+
+
+def bill_check():
+    checks = ["Possible duplicate bills: same supplier, same amount, within 14 days",
+              "The same invoice number used twice by one supplier",
+              "A supplier's bank details changing",
+              "Bills that look split to stay under your approval limit",
+              "Bills just under your approval limit",
+              "A new supplier whose first bill is large",
+              "Payments made on a weekend",
+              "ABNs missing or failing the check-digit test"]
+    body = phero("Free · runs in your browser · nothing is sent", "Check your bills for duplicates and red flags.",
+                 "Drop in a bills export from Xero, MYOB or QuickBooks, or any spreadsheet saved as CSV. Eight checks run on this device in a few seconds. Your file isn't uploaded, stored or sent to us.",
+                 [("/try/", "Try it"), ("/bill-check/", "Bill check")]) + f"""<section style="padding-top:0"><div class="wrap">
+<div class="bck" id="bc">
+  <div class="bck-in">
+    <label class="bck-drop" id="bcDrop"><input type="file" id="bcFile" accept=".csv,.txt,.tsv,text/csv"><b>Drop your bills CSV here</b><span>or click to choose a file</span></label>
+    <div class="bck-side">
+      <button type="button" class="btn primary" id="bcSample">Try it with sample data</button>
+      <p class="fine">Six months of bills from a made-up building company, with a few problems planted. <a href="/data/sample-bills.csv" download>Download the sample file</a> to see the format.</p>
+      <label class="bck-lim">Your approval limit ($)<input id="bcLimit" type="number" value="5000" min="1" step="100" inputmode="decimal"></label>
+    </div>
+  </div>
+  <p class="bck-status" id="bcStatus" aria-live="polite"></p>
+  <div id="bcMap"></div>
+  <div id="bcOut" aria-live="polite"></div>
+</div>
+</div></section>
+<section style="padding-top:0"><div class="wrap split"><div class="prose">
+<h2>What it checks</h2>
+{ticks(checks)}
+<h2>Getting the file</h2>
+<p>In your accounting software, open the bills or supplier invoices list (or a payables report), pick a date range and export it as CSV. Six or twelve months is a good start. If it only exports to Excel, open the file and save it as CSV. The check needs a supplier, an amount and a date; invoice numbers, payment dates, bank details and ABNs make it sharper.</p>
+<h2>What it doesn't do</h2>
+<p>It's eight quick checks, not an audit. A flag is a prompt for a person to look, and plenty will have an innocent explanation. It can't see your bank, your emails or the bills you never entered, and it doesn't tell you whether anyone did anything wrong.</p>
+</div><aside class="aside"><h3>Want this every week?</h3>
+<p class="muted">These checks are a small slice of the two-week cash &amp; data check, and of the financial controller agent, which runs them on every bill before it's paid and holds anything odd for you.</p>
+<ul class="ticks"><li>Two-week cash &amp; data check: $1,500 fixed</li><li>AI workforce setup, first agent: from $8,500</li></ul>
+<a class="btn primary" href="/contact/?topic=Two-week%20cash%20%26%20data%20check#form">Ask about the check</a>
+<p class="fine">Not registered for GST.</p></aside></div></section>""" + cta_band("Found something?", "Tell us what the check flagged, in a few lines. We'll reply with what we'd look at next.")
+    add("/bill-check/", "Bill check: duplicates and red flags (free, in your browser)", "Free bill check: drop in a Xero, MYOB or QuickBooks bills export and see possible duplicates, bank detail changes, split bills and ABN problems. Runs in your browser; nothing is sent.", body,
+        f'<script src="/assets/billcheck.js?v={ASSET_V}" defer></script>')
 
 
 # ------------------------------------------------------------------ about
@@ -1193,5 +1235,5 @@ def not_found():
 
 def build_all():
     home(); services_hub(); services(); privacy_sprint(); industries_hub(); industries(); examples(); ai_check(); workshop()
-    how_we_work(); faq(); contact(); privacy(); insights(); live_page(); try_page(); about(); not_found()
+    how_we_work(); faq(); contact(); privacy(); insights(); live_page(); try_page(); bill_check(); about(); not_found()
     return PAGES
