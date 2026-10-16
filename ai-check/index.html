@@ -15,12 +15,13 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/sora-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/site.css?v=126">
-<link rel="stylesheet" href="/assets/refine.css?v=126" id="thA">
-<link rel="stylesheet" href="/assets/future-neon.css?v=126" id="thB">
-<link rel="stylesheet" href="/assets/calm.css?v=126" id="thC">
-<link rel="stylesheet" href="/assets/ledger.css?v=126" id="thD">
-<script>(function(){try{var q=new URLSearchParams(location.search).get("theme");if(q)localStorage.setItem("beizTheme",q);var t=q||localStorage.getItem("beizTheme");if(t!=="classic"){document.documentElement.classList.add("ledger")}if(t==="classic"){document.documentElement.classList.add("classic");["thA","thB","thC","thD"].forEach(function(i){var l=document.getElementById(i);l&&l.parentNode.removeChild(l)})}}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/site.css?v=127">
+<link rel="stylesheet" href="/assets/refine.css?v=127" id="thA">
+<link rel="stylesheet" href="/assets/future-neon.css?v=127" id="thB">
+<link rel="stylesheet" href="/assets/calm.css?v=127" id="thC">
+<link rel="stylesheet" href="/assets/ledger.css?v=127" id="thD">
+<link rel="stylesheet" href="/assets/paper.css?v=127" id="thE" media="not all">
+<script>(function(){try{var q=new URLSearchParams(location.search).get("theme");if(q)localStorage.setItem("beizTheme",q);var t=q||localStorage.getItem("beizTheme");if(t!=="classic"){document.documentElement.classList.add("ledger")}if(t==="paper"){document.documentElement.classList.add("paper");var e=document.getElementById("thE");e&&(e.media="all")}if(t==="classic"){document.documentElement.classList.add("classic");["thA","thB","thC","thD","thE"].forEach(function(i){var l=document.getElementById(i);l&&l.parentNode.removeChild(l)})}}catch(e){}})();</script>
 
 </head>
 <body>
@@ -95,7 +96,7 @@
   <div class="msgs" id="msgs" aria-live="polite"></div>
   <div class="opts" id="opts"></div>
 </div>
-<script src="/assets/site.js?v=126" defer></script>
-<script src="/assets/future-fx.js?v=126" defer></script>
+<script src="/assets/site.js?v=127" defer></script>
+<script src="/assets/future-fx.js?v=127" defer></script>
 </body>
 </html>

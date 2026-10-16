@@ -1,0 +1,83 @@
+/* Beiz PAPER — light theme. Loads after ledger.css and only when html.paper is set.
+   The ledger by day: white ruled paper, bottle-green ink, brass detail, the auditor's red pencil.
+   The control room stays dark: it's a screen inside the page. */
+
+html.paper{
+  --bg:#F8F8F4; --panel:#FFFFFF; --panel2:#F0F0EA; --line:#DEDFD6; --line2:#C9CBC0;
+  --text:#1B2420; --hi:#0F1613; --muted:#45504A; --faint:#68716B;
+  --paper:#1F4D3A; --brass:#7E5F1C;
+  --brand:#1F4D3A; --accent:#1F4D3A; --teal:#1F4D3A; --g:#1F4D3A; --signal:#1F4D3A;
+  --deep:#EEEEE7; --on-signal:#FFFFFF;
+  --ok:#2B6E44; --held:#8A5700; --stop:#A8382A; --pencil:#A8382A;
+  color-scheme:light;
+}
+html.paper body{background:var(--bg)!important;color:var(--text)!important}
+
+/* buttons: green ink, white text */
+html.paper .btn.primary,html.paper .hz-hero.dark .btn.primary,html.paper .bot-btn{background:var(--paper)!important;border-color:var(--paper)!important;color:#fff!important}
+html.paper .btn.primary:hover,html.paper .hz-hero.dark .btn.primary:hover{background:#173B2C!important;border-color:#173B2C!important;color:#fff!important}
+html.paper .bot-btn i{background:#fff!important}
+html.paper .btn:not(.primary),html.paper .hz-hero .btn:not(.primary),html.paper .phero .btn:not(.primary){color:var(--hi)!important;border-color:var(--line2)!important}
+html.paper .btn:not(.primary):hover{border-color:var(--hi)!important}
+html.paper main a:not(.btn){color:var(--hi)!important;text-decoration-color:var(--brass)}
+html.paper main a:not(.btn):hover{color:var(--paper)!important}
+
+/* header, ticker, footer */
+html.paper header.site{background:rgba(248,248,244,.95)!important;border-bottom-color:var(--line)!important}
+html.paper .ticker{background:var(--deep)!important;color:var(--muted)!important;border-bottom-color:var(--line)!important}
+html.paper .ticker .label{background:var(--hi)!important;color:#fff!important}
+html.paper .ticker b,html.paper .ticker strong{color:var(--hi)!important}
+html.paper footer.site{background:var(--deep)!important;color:var(--muted)!important;border-top-color:var(--line)!important}
+html.paper footer.site a,html.paper footer.site b{color:var(--hi)!important}
+
+/* hero: ruled paper with red margin lines */
+html.paper .hz-hero.dark,html.paper .phero{
+  background-color:var(--bg)!important;
+  background-image:
+    linear-gradient(90deg,transparent 0,transparent calc(4vw + 6px),rgba(168,56,42,.28) calc(4vw + 6px),rgba(168,56,42,.28) calc(4vw + 7px),transparent calc(4vw + 7px),transparent calc(4vw + 11px),rgba(168,56,42,.28) calc(4vw + 11px),rgba(168,56,42,.28) calc(4vw + 12px),transparent calc(4vw + 12px)),
+    repeating-linear-gradient(180deg,transparent 0,transparent 31px,rgba(31,77,58,.09) 31px,rgba(31,77,58,.09) 32px)!important}
+@media(max-width:1099px){html.paper .hz-hero.dark,html.paper .phero{background-image:repeating-linear-gradient(180deg,transparent 0,transparent 31px,rgba(31,77,58,.08) 31px,rgba(31,77,58,.08) 32px)!important}}
+html.paper .hz-hero h1,html.paper .hz-hero h1 span{color:var(--hi)!important}
+html.paper .hz-hero h1 .h1-2{color:var(--paper)!important}
+html.paper .hz-sub,html.paper .hz-hero p{color:var(--muted)!important}
+
+/* hero map */
+html.paper .hz-hero.dark .bm-node rect{fill:#fff!important;stroke:var(--line2)!important}
+html.paper .hz-hero.dark .bm-node text,html.paper .bm-node .t1{fill:var(--hi)!important}
+html.paper .hz-hero.dark .bm-node .t2{fill:var(--brass)!important}
+html.paper .hz-hero.dark .bm-top rect{fill:var(--hi)!important;stroke:var(--hi)!important}
+html.paper .hz-hero.dark .bm-top text{fill:#fff!important}
+html.paper .hz-hero.dark .bm-node.bm-end rect,html.paper .hz-hero.dark .bm-node.bm-end.flow rect{fill:var(--paper)!important;stroke:var(--paper)!important}
+html.paper .hz-hero.dark .bm-node.bm-end text{fill:#fff!important}
+html.paper .hz-hero.dark .bm-lines path{stroke:var(--faint)!important}
+html.paper .hz-hero.dark .bm-go:hover rect,html.paper .hz-hero.dark .bm-go.on rect{fill:#EAF0EC!important;stroke:var(--paper)!important}
+html.paper .bm-story,html.paper #bmCap{color:var(--muted)!important}
+
+/* sections and surfaces */
+html.paper section.hz-sec.wf,html.paper #demo.hz-sec,html.paper #pricing.hz-sec{background:var(--panel2)!important}
+html.paper p,html.paper li,html.paper dd,html.paper td,html.paper .lede{color:var(--muted)!important}
+html.paper h1,html.paper h2,html.paper h3,html.paper h4,html.paper b,html.paper strong,html.paper dt,html.paper th{color:var(--hi)!important}
+html.paper .demo-k,html.paper .eyebrow,html.paper .bz-kick{color:var(--brass)!important}
+html.paper .hz-price tr.start td{background:rgba(31,77,58,.05)!important}
+html.paper .off:hover,html.paper .off:focus-visible{border-color:var(--paper)!important}
+html.paper .off .go{color:var(--paper)!important}
+html.paper .off-p{color:var(--hi)!important}
+html.paper input,html.paper select,html.paper textarea{background:#fff!important;color:var(--text)!important;border-color:var(--line2)!important}
+
+/* the control room stays a dark screen */
+html.paper .wfl{
+  --panel:#16201C; --panel2:#121A17; --line:#25332D; --line2:#344640;
+  --text:#ECE6D8; --hi:#F7F2E7; --muted:#C9C2B3; --faint:#9F998C; --brass:#CFAE6E; --paper:#ECE6D8;
+  --ok:#8EC79C; --held:#E9A84F; --stop:#EE7A68;
+  background:var(--panel)!important;border-color:var(--line2)!important;color:var(--text)}
+html.paper .wfl p,html.paper .wfl li,html.paper .wfl span{color:inherit}
+html.paper .wfl b,html.paper .wfl .wfl-w{color:var(--hi)!important}
+html.paper .wfl .wfl-x{color:var(--muted)!important}
+html.paper .wfl-sc button[aria-pressed="true"]{background:var(--paper)!important;color:#0F1613!important}
+
+/* demos that were drawn for dark: keep them as dark panels too */
+html.paper .am,html.paper .lm,html.paper .lnx,html.paper .tr,html.paper .lg{
+  --panel:#16201C; --panel2:#121A17; --line:#25332D; --line2:#344640;
+  --text:#ECE6D8; --hi:#F7F2E7; --muted:#C9C2B3; --faint:#9F998C; --brass:#CFAE6E; --paper:#ECE6D8}
+html.paper :is(.am,.lm,.lnx,.tr,.lg,.wfl) .btn.primary{color:#0F1613!important}
+html.paper :is(.am,.lm,.lnx,.tr,.lg,.wfl) .btn:not(.primary){color:var(--hi)!important;border-color:var(--line2)!important}
