@@ -2169,3 +2169,5 @@ img.ca-who-mark{display:block;height:40px;width:auto;margin:4px 0 18px}
 
 .hz-hero.dark .bm-story{color:#EDEBE6}
 .ticker .track em.tk-news{background:rgba(127,214,194,.16);color:#9FE5D3}
+.caps4{display:grid;grid-template-columns:repeat(4,1fr)}.caps4 a{display:block;padding:20px;text-decoration:none}.caps4 b{display:block}
+@media(max-width:900px){.caps4{grid-template-columns:1fr 1fr}}@media(max-width:520px){.caps4{grid-template-columns:1fr}}

@@ -93,6 +93,13 @@ def home():
   </figure>
 </div></section>
 
+<nav class="caps" aria-label="What Beiz does"><div class="wrap caps4">
+  <a href="#workforce"><b>AI workforce</b><span>Six agents, each with a job description, a limit and a person it reports to.</span></a>
+  <a href="/services/ai-agents/"><b>AI agents &amp; automation</b><span>Built in your own systems, run beside your people first, then live within limits.</span></a>
+  <a href="#model-demo"><b>Financial modelling</b><span>13-week cash, job margins and what-if scenarios you can question.</span></a>
+  <a href="#sprint"><b>Compliance controls</b><span>AI use, AML/CTF Tranche 2 and the Privacy Act, with a CA in the loop.</span></a>
+</div></nav>
+
 <section class="hz-sec sp" id="sprint"><div class="wrap">
   <p class="demo-k">Start here</p>
   <h2>Two weeks to know where you stand.</h2>

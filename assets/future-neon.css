@@ -186,3 +186,15 @@ html{overflow-x:clip}
 .ticker .track.tk-step>span:not([hidden]){animation:tkIn .5s ease both}
 .ticker .track>span[hidden]{display:none!important}
 @keyframes tkIn{from{opacity:0}to{opacity:1}}
+/* capability strip under the hero */
+.caps{background:var(--panel2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.caps4{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.caps4 a{display:block;padding:22px 20px;border-left:1px solid var(--line);text-decoration:none!important;background:none!important}
+.caps4 a:last-child{border-right:1px solid var(--line)}
+.caps4 b{display:block;color:#fff;font-size:1.02rem;margin-bottom:6px}
+.caps4 b::after{content:" \2192";color:var(--signal)}
+.caps4 span{display:block;color:var(--muted);font-size:.92rem;line-height:1.45}
+.caps4 a:hover b,.caps4 a:focus-visible b{color:var(--signal)}
+@media(max-width:900px){.caps4{grid-template-columns:1fr 1fr}.caps4 a{border-bottom:1px solid var(--line)}}
+@media(max-width:520px){.caps4{grid-template-columns:1fr}.caps4 a{border-left:0}.caps4 a:last-child{border-right:0}}
+.caps4 a,.caps4 span,.caps4 b{text-align:left!important}
