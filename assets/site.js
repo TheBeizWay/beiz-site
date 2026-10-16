@@ -1434,3 +1434,19 @@
   new IntersectionObserver(es => { seen = es[0].isIntersecting; if (seen && !log.children.length) { step(); step(); } run(); }, { threshold: 0.2 }).observe(box);
   btn.addEventListener("click", () => { paused = !paused; btn.textContent = paused ? "Resume" : "Pause"; btn.setAttribute("aria-pressed", paused); run(); });
 })();
+
+/* v43 light/dark switch (light = paper theme) */
+(() => {
+  const b = document.getElementById("thTog"); if (!b) return;
+  const h = document.documentElement, link = document.getElementById("thE");
+  if (h.classList.contains("classic")) { b.hidden = true; return; }
+  const sync = () => { const on = h.classList.contains("paper"); b.textContent = on ? "Dark" : "Light"; b.setAttribute("aria-pressed", on); b.title = on ? "Switch to the dark version" : "Switch to the light version"; };
+  sync();
+  b.addEventListener("click", () => {
+    const on = !h.classList.contains("paper");
+    h.classList.toggle("paper", on); if (link) link.media = on ? "all" : "not all";
+    try { localStorage.setItem("beizTheme", on ? "paper" : "default"); } catch (e) {}
+    const m = document.querySelector('meta[name="theme-color"]'); if (m) m.content = on ? "#F8F8F4" : "#0F1613";
+    sync();
+  });
+})();

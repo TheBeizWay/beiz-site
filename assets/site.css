@@ -2233,3 +2233,6 @@ img.ca-who-mark{display:block;height:40px;width:auto;margin:4px 0 18px}
 @media(max-width:900px){.off3{grid-template-columns:1fr}.how4{grid-template-columns:1fr 1fr}.talk{grid-template-columns:1fr}.talk img{max-width:220px}}
 @media(max-width:560px){.how4{grid-template-columns:1fr}.how4 li{margin-right:0}}
 .talk p+p{margin-top:12px}
+.th-tog{background:none;border:1px solid var(--line2);color:var(--muted);font:500 .85rem var(--sans);padding:7px 12px;border-radius:var(--r);cursor:pointer;margin-left:auto;margin-right:10px;white-space:nowrap}
+.th-tog:hover,.th-tog:focus-visible{color:var(--text);border-color:var(--text)}
+@media(max-width:1100px){.th-tog{margin-right:8px;padding:6px 10px}}
