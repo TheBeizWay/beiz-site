@@ -68,7 +68,7 @@ def home():
   </div>
   <figure class="dl" id="dlog">
     <div class="dl-h"><b>Decision log</b><span>Sample business, this morning</span></div>
-    <ol class="dl-rows"><li class="dl-r st-log"><time>08:55</time><b>Bank agent</b><span>41 bank transactions matched to the ledger</span><em>Logged</em></li><li class="dl-r st-log"><time>09:03</time><b>Data scientist agent</b><span>13-week forecast refreshed. Lowest week is W7 at $52k</span><em>Logged</em></li><li class="dl-r st-held"><time>09:12</time><b>Payables agent</b><span>Carlton Electrical bill, $3,080: billed 22 hours, the timesheet shows 14</span><em>Held for you</em></li><li class="dl-r st-ok"><time>09:20</time><b>Payables agent</b><span>6 bills under $2,000 matched to orders and deliveries</span><em>Approved within limit</em></li><li class="dl-r st-stop"><time>09:31</time><b>Payables agent</b><span>Supplier email asks to change bank details</span><em>Blocked: agents can't change them</em></li><li class="dl-r st-held"><time>09:44</time><b>Accounting agent</b><span>Reminder drafted for an invoice 30 days overdue</span><em>Held for you to send</em></li><li class="dl-r st-held"><time>10:02</time><b>Reviewer agent</b><span>Board pack figure not found in the ledger</span><em>Held for you</em></li></ol>
+    <ol class="dl-rows"><li class="dl-r st-log"><time>08:55</time><b>Bank agent</b><span>41 bank transactions matched to the ledger</span><em>Logged</em></li><li class="dl-r st-log"><time>09:03</time><b>Data scientist agent</b><span>13-week forecast refreshed. Lowest week is W7 at $52k</span><em>Logged</em></li><li class="dl-r st-held"><time>09:12</time><b>Payables agent</b><span>Quoll Electrical bill, $3,080: billed 22 hours, the timesheet shows 14</span><em>Held for you</em></li><li class="dl-r st-ok"><time>09:20</time><b>Payables agent</b><span>6 bills under $2,000 matched to orders and deliveries</span><em>Approved within limit</em></li><li class="dl-r st-stop"><time>09:31</time><b>Payables agent</b><span>Supplier email asks to change bank details</span><em>Blocked: agents can't change them</em></li><li class="dl-r st-held"><time>09:44</time><b>Accounting agent</b><span>Reminder drafted for an invoice 30 days overdue</span><em>Held for you to send</em></li><li class="dl-r st-held"><time>10:02</time><b>Reviewer agent</b><span>Board pack figure not found in the ledger</span><em>Held for you</em></li></ol>
     <figcaption class="dl-f"><span id="dlCount"></span><span>Sample data. In your business the log lives in your own accounts.</span></figcaption>
   </figure>
 <nav class="hz-offers" aria-label="What we do">
@@ -76,7 +76,7 @@ def home():
   <a href="/services/dashboards-and-models/"><b>Financial modelling</b><span>13-week cash, job margins and what-if scenarios.</span><em>from $5,000</em></a>
   <a href="/services/data-engineering/"><b>Data science &amp; analytics</b><span>Forecasts and analysis on your own data.</span><em>fixed quote</em></a>
   <a href="/services/privacy-sprint/"><b>AI governance &amp; Privacy Act</b><span>Agent register, decision log, disclosure wording.</span><em>from $3,500</em></a>
-  <a href="#check" class="hz-start"><b>Not sure where to start?</b><span>The two-week cash and data check.</span><em>$1,500 fixed</em></a>
+  <a href="/assets/beiz-sample-check-report.pdf" class="hz-start"><b>Not sure where to start?</b><span>The two-week cash and data check. See a sample report.</span><em>$1,500 fixed</em></a>
 </nav>
 </div></section>
 
@@ -85,7 +85,7 @@ def home():
   <p class="lede">An agent that only sees your accounting software checks what's on the bill. An agent set up properly checks it against what actually happened.</p>
   <div class="replay hz-replay" id="replay">
     <div class="hz-src">
-      <div><span>Bill in your accounting software</span><b>Carlton Electrical, job 2208</b><p>22 hours at $140 = <span class="mono">$3,080</span>. ABN, GST and bank details all as before.</p></div>
+      <div><span>Bill in your accounting software</span><b>Quoll Electrical, job 2208</b><p>22 hours at $140 = <span class="mono">$3,080</span>. ABN, GST and bank details all as before.</p></div>
       <div><span>Timesheet export</span><b>Job 2208</b><p><span class="mono">14 hours</span> logged on site.</p></div>
       <div><span>Quote in your inbox</span><b>Agreed rate</b><p>$140 an hour, capped at <span class="mono">16 hours</span>.</p></div>
     </div>
@@ -172,7 +172,7 @@ def home():
   <table class="hz-price">
     <thead><tr><th>Offer</th><th>What you get</th><th class="n">Price</th></tr></thead>
     <tbody>
-      <tr id="check"><td><a href="/contact/?topic=Two-week%20cash%20%26%20data%20check#form">Two-week cash &amp; data check</a></td><td>From your Xero and job or timesheet exports: unbilled work, margin leaks and manual bottlenecks, with the records behind each finding. Credited if you go ahead.</td><td class="n">$1,500 fixed</td></tr>
+      <tr id="check"><td><a href="/contact/?topic=Two-week%20cash%20%26%20data%20check#form">Two-week cash &amp; data check</a></td><td>From your Xero and job or timesheet exports: unbilled work, margin leaks and manual bottlenecks, with the records behind each finding. Credited if you go ahead. <a class="hz-dl" href="/assets/beiz-sample-check-report.pdf">See a sample report (PDF)</a> <a class="hz-dl" href="/assets/beiz-sample-findings-register.xlsx">and its findings register (Excel)</a></td><td class="n">$1,500 fixed</td></tr>
       <tr id="model"><td><a href="/services/dashboards-and-models/">Live cash &amp; job profit model</a></td><td>A 13-week rolling cash flow and profit by job against what you quoted, updated weekly, in your own Excel or Power BI.</td><td class="n">from $5,000</td></tr>
       <tr id="ai"><td><a href="/services/ai-readiness-sprint/">AI workforce setup</a></td><td>Agents with job descriptions, limits and a decision log, plus limits and approvers for the AI already inside your software. Planned as a three-week rollout: map and limit, shadow mode, live within limits, review at day 30.</td><td class="n">from $6,000</td></tr>
       <tr><td><a href="/services/privacy-sprint/">AI governance &amp; Privacy Act sprint</a></td><td>An agent register and the automated-decision disclosure wording for your privacy policy, before 10 December 2026.</td><td class="n">from $3,500</td></tr>

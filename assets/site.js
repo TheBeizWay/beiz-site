@@ -729,7 +729,7 @@
   function bills() {
     pane.innerHTML =
       card('ok', 'Verified · ready to pay', 'Timber Co', 'Matches purchase order PO-118 and the delivery docket.', '$4,380.00') +
-      card('hold', 'Held · bank details changed', 'Carlton Electrical', 'New bank account since the last bill. Confirm by phone before paying.', '$6,140.00', true) +
+      card('hold', 'Held · bank details changed', 'Quoll Electrical', 'New bank account since the last bill. Confirm by phone before paying.', '$6,140.00', true) +
       card('hold', 'Held · rate 18% above PO', 'Metro Hire', 'Charged $118 a day against $100 on purchase order PO-121.', '$3,540.00', true);
     let ready = 1, waiting = 2, held = 0;
     const show = () => { sum.innerHTML = `<span><b class="mono">${ready}</b> ready</span><span><b class="mono">${waiting}</b> waiting for your sign-off</span>${held ? `<span><b class="mono">${held}</b> held by you</span>` : ''}`; };
@@ -793,7 +793,7 @@
   const bills = [
     { id: 'B-2201', s: 'Timber Co', a: 4380, st: 'ok', why: 'Matches PO-118 and the delivery docket' },
     { id: 'B-2202', s: 'Fixings Direct', a: 812.5, st: 'ok', why: 'Matches PO-121' },
-    { id: 'B-2203', s: 'Carlton Electrical', a: 3080, st: 'hold', why: 'Billed 22 hours on job 2208; the timesheet shows 14' },
+    { id: 'B-2203', s: 'Quoll Electrical', a: 3080, st: 'hold', why: 'Billed 22 hours on job 2208; the timesheet shows 14' },
     { id: 'B-2205', s: 'Office Supplies AU', a: 386.9, st: 'ok', why: 'Matches PO-124' },
     { id: 'B-2206', s: 'Metro Hire', a: 3540, st: 'hold', why: 'Rate $118 a day against $100 on PO-121' },
     { id: 'B-2207', s: 'Fuel Card', a: 1240.6, st: 'ok', why: 'Matches the statement' }
