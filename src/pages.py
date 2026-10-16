@@ -973,7 +973,7 @@ def insights():
 
     def art(i, prose, topic):
         h, t, d, m = ARTICLES[i]
-        body = phero("Insights", t, d, [("/insights/", "Insights"), (h, t.split(",")[0].split("?")[0][:40])]) + f'<section style="padding-top:0"><div class="wrap"><p class="meta">{m}</p><div class="prose" style="margin-top:18px">{prose}</div></div></section>' + cta_band(topic=topic)
+        body = phero("Insights", t, d, [("/insights/", "Insights"), (h, t.split(",")[0].split("?")[0][:40])]) + f'<section style="padding-top:0"><div class="wrap"><p class="meta">By <a href="/about/#who">Purav Mehta</a>, Chartered Accountant · {m}</p><div class="prose" style="margin-top:18px">{prose}</div></div></section>' + cta_band(topic=topic)
         add(h, t, d, body)
 
     art(0, '''<p>On 10 December 2026, a new transparency obligation in the Privacy Act starts. It came in with the Privacy and Other Legislation Amendment Act 2024, and it's aimed squarely at software that makes decisions about people.</p>

@@ -117,7 +117,7 @@ def contact_form(heading="What are you trying to fix?", lede="Tell us what isn't
 </section>'''
 
 
-def cta_band(title="Not sure where to start?", text="Book a free 20-minute call, or send a few lines in writing. Either way you get a considered reply, not a sales pitch.", topic=None):
+def cta_band(title="Not sure where to start?", text="You'll talk to Purav, not a sales team. Bring the hard questions. If we're not the right fit, we'll say so.", topic=None):
     href = "/contact/" + (f"?topic={topic.replace(' ', '%20').replace('&', '%26')}" if topic else "") + "#form"
     return f'''<section class="band"><div class="wrap cta-band"><div><h2>{title}</h2><p class="muted">{text}</p></div>
   <div class="cta" style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a call</a><a class="btn" href="{href}">Start in writing</a><button class="btn" type="button" data-open-bot>Ask Bei-zAI</button></div></div></section>'''
