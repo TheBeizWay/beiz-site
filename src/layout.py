@@ -3,7 +3,7 @@ import json
 import os
 
 SITE = "https://beiz.com.au"
-ASSET_V = "111"  # bump to bust caches when CSS/JS change
+ASSET_V = "113"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" aria-hidden="true" class="logo"><rect x="1" y="1" width="34" height="34" rx="7" fill="#15181D" stroke="#30353D" stroke-width="1.5"/><rect x="7" y="9" width="16" height="3.5" rx="1.75" fill="#43B581"/><circle cx="27.5" cy="10.75" r="1.75" fill="#43B581"/><rect x="7" y="16.25" width="11" height="3.5" rx="1.75" fill="#E9A93B"/><rect x="21" y="16.25" width="8" height="3.5" rx="1.75" fill="none" stroke="#E9A93B" stroke-width="1.2"/><rect x="7" y="23.5" width="22" height="3.5" rx="1.75" fill="#A6A49D"/></svg>')
 
@@ -268,6 +268,7 @@ def page(path, title, desc, body, extra_head=""):
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/sora-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/site.css?v={ASSET_V}">
+<script>(function(){{try{{var q=new URLSearchParams(location.search).get("theme");if(q)localStorage.setItem("beizTheme",q);var t=q||localStorage.getItem("beizTheme");if(t==="neon"){{document.documentElement.classList.add("neon");["refine","future-neon"].forEach(function(n){{var l=document.createElement("link");l.rel="stylesheet";l.href="/assets/"+n+".css?v={ASSET_V}";document.head.appendChild(l)}});var s=document.createElement("script");s.src="/assets/future-fx.js?v={ASSET_V}";s.defer=true;document.head.appendChild(s)}}}}catch(e){{}}}})();</script>
 {ld}{extra_head}
 </head>
 <body>
