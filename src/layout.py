@@ -2,9 +2,9 @@
 import json
 
 SITE = "https://beiz.com.au"
-ASSET_V = "85"  # bump to bust caches when CSS/JS change
+ASSET_V = "86"  # bump to bust caches when CSS/JS change
 
-LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true" class="logo"><defs><linearGradient id="hg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#2DD4BF"/><stop offset="1" stop-color="#818CF8"/><animateTransform attributeName="gradientTransform" type="rotate" values="0 .5 .5;360 .5 .5" dur="9s" repeatCount="indefinite"/></linearGradient><mask id="mH" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"><rect width="200" height="200" fill="#fff"/><circle cx="126.4" cy="69.9" r="6.5" fill="#000"/></mask></defs><rect x="5" y="5" width="190" height="190" rx="44" fill="#0D1115" stroke="url(#hg)" stroke-width="6"/><g stroke="#818CF8" stroke-width="3" fill="none" stroke-linecap="round"><path d="M113.0 75.4 L150 75.4 L165 53.4"/><path d="M150 75.4 L165 97.4"/></g><g fill="#818CF8"><circle cx="165" cy="53.4" r="6"><animate attributeName="r" values="6;8.5;6" dur="2.4s" repeatCount="indefinite"/></circle><circle cx="165" cy="97.4" r="6"><animate attributeName="r" values="6;8.5;6" dur="2.4s" begin="1.2s" repeatCount="indefinite"/></circle></g><circle cx="150" cy="75.4" r="4" fill="#5EEAD4"><animate attributeName="opacity" values="1;.35;1" dur="1.6s" repeatCount="indefinite"/></circle><circle r="3.2" fill="#fff"><animateMotion dur="2.4s" repeatCount="indefinite" path="M113 75.4 L150 75.4 L165 53.4"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.1;.85;1" dur="2.4s" repeatCount="indefinite"/></circle><g transform="translate(16,25.1) scale(.72)"><g mask="url(#mH)" fill="none" stroke="url(#hg)" stroke-width="27" stroke-linejoin="round"><path d="M58 120 L110 120 A33 33 0 0 1 110 186 L58 186 L58 22 L102 58 A31 31 0 0 1 102 120 L58 120"/></g></g></svg>')
+LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" aria-hidden="true" class="logo"><rect x="1" y="1" width="34" height="34" rx="7" fill="#15181D" stroke="#30353D" stroke-width="1.5"/><rect x="7" y="9" width="16" height="3.5" rx="1.75" fill="#43B581"/><circle cx="27.5" cy="10.75" r="1.75" fill="#43B581"/><rect x="7" y="16.25" width="11" height="3.5" rx="1.75" fill="#E9A93B"/><rect x="21" y="16.25" width="8" height="3.5" rx="1.75" fill="none" stroke="#E9A93B" stroke-width="1.2"/><rect x="7" y="23.5" width="22" height="3.5" rx="1.75" fill="#A6A49D"/></svg>')
 
 NAV = [
     ("/try/", "Try it", "60-second demos with your own numbers"),
@@ -162,14 +162,14 @@ def _footer():
     return f'''<footer class="site">
   <div class="wrap">
     <div class="fcols">
-      <div><a class="mark" href="/" aria-label="Beiz home">{LOGO.replace('id="hg"', 'id="fg"').replace('url(#hg)', 'url(#fg)').replace('id="mH"', 'id="fM"').replace('url(#mH)', 'url(#fM)')}<span class="wm">Beiz<small>Data · AI · Accounting</small></span></a>
+      <div><a class="mark" href="/" aria-label="Beiz home">{LOGO.replace('id="hg"', 'id="fg"').replace('url(#hg)', 'url(#fg)').replace('id="mH"', 'id="fM"').replace('url(#mH)', 'url(#fM)')}<span class="wm"><span class="wn">BEIZ</span><small>Data &amp; Accounting</small></span></a>
         <p style="margin-top:14px;max-width:34ch">Governed AI, automation, dashboards and financial models for Australian businesses. Led by an Australian Chartered Accountant.</p>
         <p style="margin-top:10px"><a href="mailto:hello@beiz.com.au">hello@beiz.com.au</a></p></div>
       <div><h4>Services</h4><ul>{s}</ul></div>
       <div><h4>Start here</h4><ul>{i}</ul><h4 style="margin-top:18px">Who I work with</h4><ul><li><a href="/industries/">Industries</a></li></ul></div>
       <div><h4>Company</h4><ul><li><a href="/about/">About us</a></li><li><a href="/try/">Try it: demos</a></li><li><a href="/examples/">Examples</a></li><li><a href="/live/">Live data</a></li><li><a href="/how-we-work/">How we work</a></li><li><a href="/ai-check/">Privacy Act AI check</a></li><li><a href="/insights/">Insights</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy/">Privacy policy</a></li></ul></div>
     </div>
-    <div class="legal"><span>&copy; <span data-yr>2026</span> Beiz Data &amp; Accounting Pty Ltd · ABN 53 691 755 496 · All rights reserved. Content, examples and methods may not be copied or reused without permission.</span><span>Australia-wide · Fixed-scope finance systems &amp; AI governance</span>
+    <div class="legal"><span>&copy; <span data-yr>2026</span> Beiz Data &amp; Accounting Pty Ltd · ABN 53 691 755 496 · ACN 691 755 496 · Canberra, ACT · All rights reserved. Content, examples and methods may not be copied or reused without permission.</span><span>Australia-wide · Fixed-scope finance systems &amp; AI governance</span>
       <p>Beiz does not prepare tax returns or BAS, does not provide tax agent or BAS agent services, statutory audit or assurance, legal advice or financial product advice.</p>
       <p class="pss">Liability limited by a scheme approved under Professional Standards Legislation.</p></div>
   </div>
@@ -186,7 +186,7 @@ _WIDGETS = '''<button class="bot-btn" type="button" data-open-bot aria-controls=
 ORG = {
     "@context": "https://schema.org", "@type": "ProfessionalService",
     "name": "Beiz Data & Accounting", "legalName": "Beiz Data & Accounting Pty Ltd", "url": SITE + "/",
-    "email": "hello@beiz.com.au", "logo": SITE + "/assets/icon-512.png", "areaServed": {"@type": "Country", "name": "Australia"},
+    "email": "hello@beiz.com.au", "taxID": "ABN 53 691 755 496", "identifier": [{"@type": "PropertyValue", "propertyID": "ABN", "value": "53691755496"}, {"@type": "PropertyValue", "propertyID": "ACN", "value": "691755496"}], "address": {"@type": "PostalAddress", "addressLocality": "Canberra", "addressRegion": "ACT", "addressCountry": "AU"}, "logo": SITE + "/assets/icon-512.png", "areaServed": {"@type": "Country", "name": "Australia"},
     "description": "Australian Chartered Accountant and GAICD led firm helping businesses grow with control: cash flow, automation, dashboards, data and responsible AI.",
     "taxID": "53 691 755 496",
     "slogan": "AI you can sign off on.",

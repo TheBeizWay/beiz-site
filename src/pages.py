@@ -168,7 +168,7 @@ def home():
 
 <section class="hz-sec" id="pricing"><div class="wrap">
   <h2>Prices, and how to start</h2>
-  <p class="lede">Fixed prices, agreed in writing before we start. All prices exclude GST.</p>
+  <p class="lede">Fixed prices, agreed in writing before we start. Prices are in Australian dollars. Beiz isn't registered for GST, so no GST is added.</p>
   <table class="hz-price">
     <thead><tr><th>Offer</th><th>What you get</th><th class="n">Price</th></tr></thead>
     <tbody>
@@ -195,7 +195,7 @@ START_HERE = '''<section style="padding-top:8px"><div class="wrap"><p class="eye
 <a class="card" href="/#check"><span class="k">$1,500 fixed · credited if you go ahead</span><h3>Two-week cash &amp; data check</h3><p>From your Xero and job or timesheet exports, we find unbilled work, margin leaks and manual bottlenecks, with a fixed-price next step.</p><span class="go">About the check →</span></a>
 <a class="card" href="/services/dashboards-and-models/"><span class="k">From $5,000</span><h3>Live cash &amp; job profit model</h3><p>A 13-week rolling cash flow and weekly job profitability your team can actually read.</p><span class="go">How the model works →</span></a>
 <a class="card" href="/services/ai-readiness-sprint/"><span class="k">From $6,000</span><h3>AI workforce setup</h3><p>AI agents for supplier bills, quotes, reporting and admin, each with a job description and a person who approves anything touching money or customers.</p><span class="go">How the setup works →</span></a>
-</div><p class="fine" style="margin-top:14px">Then monthly support from $750 a month, if you want it. All prices exclude GST and are confirmed in writing before work starts.</p></div></section>'''
+</div><p class="fine" style="margin-top:14px">Then monthly support from $750 a month, if you want it. Prices are confirmed in writing before work starts. Beiz isn't registered for GST, so no GST is added.</p></div></section>'''
 
 
 def services_hub():
@@ -764,7 +764,7 @@ FAQ = [
     ("Can we see profit by job without hiring a management accountant?", "Often, yes. In most small project businesses the numbers already exist in the accounting software and the job or timesheet app; they just don't agree. We join them, agree one definition of margin, and set up a monthly report reconciled to your accounts, in Power BI or Excel."),
     ("Who owns what you build?", "You own the outcome: the automations, dashboards and models run inside your own accounts, with your logins. Our reusable templates, frameworks and code libraries remain our intellectual property, licensed to you for your business. That's how we keep delivery fast and prices fixed."),
     ("Do I need a board or a big business?", "No. Much of what we do is built for sole traders and owner-operators who are flat out and just want the admin to stop eating their evenings. We size the work to the business."),
-    ("How much does it cost?", "Every job is fixed price, quoted in writing before work starts. The two-week cash and data check is $1,500 fixed and credited if you go ahead. A live cash and job profit model starts from $5,000, AI workforce setup from $6,000, and monthly monitoring and review from $750. All prices exclude GST. No hourly meter and no lock-in contracts."),
+    ("How much does it cost?", "Every job is fixed price, quoted in writing before work starts. The two-week cash and data check is $1,500 fixed and credited if you go ahead. A live cash and job profit model starts from $5,000, AI workforce setup from $6,000, and monthly monitoring and review from $750. Beiz isn't registered for GST, so no GST is added. No hourly meter and no lock-in contracts."),
     ("Do you work with crypto businesses?", "Yes: reconciliations, stablecoin payment matching, treasury reporting and controls. We don't give tax, financial product or licensing advice."),
     ("Where are you based?", "Australia. We work remotely with clients across the country."),
 ]
@@ -1084,7 +1084,7 @@ def about():
 <p>Beiz sits in that gap. We're accountants who build. The systems we deliver save real hours, and they're built with the controls, sign-offs and audit trail a Chartered Accountant would expect.</p>
 <h2>Why the name, and the dog</h2>
 <p>Beiz is named after Purav's chocolate-and-white Border Collie, who is also the reason he works the way he does. The name comes from <span lang="zh">贝仔</span> (bèi zǎi). <span lang="zh">贝</span> is short for <span lang="zh">宝贝</span>, “baby” or “treasure”, and <span lang="zh">仔</span> is an affectionate word for a little boy or a young animal. Put together: little treasure, or baby boy.</p>
-<p>Collies are working dogs. They turn up every day, stay on the job until it's done, and nothing slips past them through the gate. That's how Purav works, it's the standard we hold our systems to, and it's why there's a collie's ear in the B of our logo.</p>
+<p>Collies are working dogs. They turn up every day, stay on the job until it's done, and nothing slips past them through the gate. That's how Purav works, and it's the standard we hold our systems to.</p>
 <h2 id="who">Who's behind it</h2>
 <figure class="founderfig"><img src="/assets/media/purav-mehta-2.jpg?v=43" alt="Purav Mehta" width="480" height="640" loading="lazy"><figcaption><b>Purav Mehta</b> CA · GAICD</figcaption></figure>
 <p>Beiz is led by Purav Mehta, a Chartered Accountant holding a CA ANZ Certificate of Public Practice and a graduate of the Australian Institute of Company Directors.</p>
