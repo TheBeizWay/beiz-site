@@ -1268,8 +1268,8 @@ def about():
 <p>Beiz is named after Purav's chocolate-and-white Border Collie, who is also the reason he works the way he does. The name comes from <span lang="zh">贝仔</span> (bèi zǎi). <span lang="zh">贝</span> is short for <span lang="zh">宝贝</span>, “baby” or “treasure”, and <span lang="zh">仔</span> is an affectionate word for a little boy or a young animal. Put together: little treasure, or baby boy.</p>
 <p>Collies are working dogs. They turn up every day, stay on the job until it's done, and nothing slips past them through the gate. That's how Purav works, and it's the standard we hold our systems to.</p>
 <h2 id="who">Who's behind it</h2>
-<figure class="founderfig"><img src="/assets/media/purav-mehta-2.jpg?v=43" alt="Purav Mehta" width="480" height="640" loading="lazy"><figcaption><b>Purav Mehta</b> CA · GAICD</figcaption></figure>
-<p>Beiz is led by Purav Mehta, an Australian Chartered Accountant (CA ANZ) and a graduate of the Australian Institute of Company Directors.</p>
+<figure class="founderfig"><img src="/assets/media/purav-mehta-2.jpg?v=43" alt="Purav Mehta" width="480" height="640" loading="lazy"><figcaption><b>Purav Mehta</b> CA · GAICD · Certificate of Public Practice</figcaption></figure>
+<p>Beiz is led by Purav Mehta, an Australian Chartered Accountant (CA ANZ) who holds a CA ANZ Certificate of Public Practice, and a graduate of the Australian Institute of Company Directors.</p>
 <p>His background: internal audit, fraud and controls; corporate finance and enterprise finance systems, including SAP; governance and reporting for large project portfolios; and data analysis, dashboards and automation. He's based in Canberra and works with businesses Australia-wide.</p>
 <p>When you work with Beiz, you work with him. Your written proposal confirms who does what, and you can verify his credentials before you sign anything. <a href="https://www.linkedin.com/in/puravmehtaca/" rel="noopener">Purav on LinkedIn</a>.</p>
 <h2>How we're set up</h2>
@@ -1278,7 +1278,7 @@ def about():
 <p>We don't do tax returns, BAS, SMSF advice or audits, business valuations, legal advice or financial product advice. Those need licences, registrations or specialist standards, and we'd rather do one thing properly. We work alongside the people who do them, and make their jobs easier with clean, reconciled data.</p>
 </div>
 <aside class="aside"><h3>At a glance</h3>
-<ul class="ticks"><li>Led by Purav Mehta</li><li>Australian Chartered Accountant (CA ANZ)</li><li>GAICD</li><li>Bound by the APES 110 code of ethics</li><li>Beiz Data &amp; Accounting Pty Ltd · ABN 53 691 755 496</li><li>Australia-wide, remote-first</li></ul>
+<ul class="ticks"><li>Led by Purav Mehta</li><li>Australian Chartered Accountant (CA ANZ)</li><li>CA ANZ Certificate of Public Practice</li><li>GAICD</li><li>Bound by the APES 110 code of ethics</li><li>Beiz Data &amp; Accounting Pty Ltd · ABN 53 691 755 496</li><li>Australia-wide, remote-first</li></ul>
 <a class="btn primary" href="/how-we-work/">How we work</a></aside></div></section>
 <section><div class="wrap"><p class="eyebrow">What we believe</p><h2>Five rules we don't bend.</h2><div class="cards">{pr}</div></div></section>''' + cta_band("Sound like the kind of firm you want?", "Tell us what you're trying to fix. A few lines in writing is enough.")
     add("/about/", "About us", "About Beiz Data & Accounting: a Chartered Accountant and GAICD led firm helping Australian businesses use AI, automation and data without losing control of their numbers.", body)
