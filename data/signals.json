@@ -1,0 +1,13 @@
+{
+ "note": "Approved news for the BEIZ PULSE ticker. Edited by the daily site agent through a pull request that Purav reviews. Primary sources only. date = when it happened; expires = when to stop showing it. Max 4 shown.",
+ "items": [
+  {
+   "date": "2026-07-01",
+   "source": "AUSTRAC",
+   "title": "AML/CTF obligations now apply to accountants providing caught services",
+   "why": "Client checks, screening, monitoring and records",
+   "url": "https://www.austrac.gov.au/new-and-media/news/austrac-opens-enrolment-new-professions-next-step-aml-reforms",
+   "expires": "2027-01-31"
+  }
+ ]
+}

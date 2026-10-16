@@ -116,7 +116,7 @@
   const dleft = Math.round((new Date(2026, 11, 10) - today) / 864e5);
   $$("[data-adm-days]").forEach(e => (e.textContent = dleft > 0 ? dleft + " days" : "now in force"));
   // Regulatory countdown, the AI gap (sourced, static) and Australian benchmarks (live, below).
-  const T = (k, txt) => `<em class="tk tk-${k}">${{risk: "RISK", mkt: "MARKET", beiz: "BEIZ", demo: "DEMO"}[k]}</em>${txt}`;
+  const T = (k, txt) => `<em class="tk tk-${k}">${{risk: "RISK", mkt: "MARKET", beiz: "BEIZ", demo: "DEMO", news: "NEWS"}[k]}</em>${txt}`;
   const privacy = dleft > 0 ? T("risk", `Privacy Act automated-decision disclosures start <b>10 Dec 2026</b>. <b>${dleft} days</b> left. We map what your software decides about people.`)
                             : T("risk", `Privacy Act automated-decision disclosures are <b>in force</b>. We map what your software decides about people.`);
   const aiGap = [
@@ -162,7 +162,14 @@
       : i.sym && i.sym.includes("=X") ? Number(i.price).toFixed(4)
       : Number(i.price).toLocaleString("en-AU", { maximumFractionDigits: 1 })
   });
-  const marketsReady = J("/data/markets.json?" + Math.floor(Date.now() / 6e5)).then(d => {
+  // Approved news signals: data/signals.json is updated by a daily agent through a reviewed pull request, never published unchecked
+  let news = [], tickerDone = false;
+  const signalsReady = J("/data/signals.json?" + Math.floor(Date.now() / 6e5)).then(sg => {
+    news = (sg.items || []).filter(i => i.title && i.url && /^https:\/\//.test(i.url) && !(i.expires && Date.parse(i.expires) < Date.now())).slice(0, 4)
+      .map(i => T("news", `<b>${esc(i.source || "")}</b>${i.date ? " · " + esc(new Date(i.date).toLocaleDateString("en-AU", { day: "numeric", month: "short" })) : ""}: ${esc(i.title)}${i.why ? ". " + esc(i.why) : ""} <a class="note" href="${esc(i.url)}" target="_blank" rel="noopener">source</a>`));
+  }).catch(() => {});
+  signalsReady.then(() => setTimeout(() => { if (!tickerDone && news.length) renderTicker([privacy, ...news, ...aiGap]); }, 2500));
+  const marketsReady = Promise.all([J("/data/markets.json?" + Math.floor(Date.now() / 6e5)), signalsReady]).then(([d]) => {
     const asx = (d.items || []).map(i => fmtMk({ ...i, group: "ASX & AUD · delayed" }));
     const cr = (d.crypto || []).map(i => fmtMk({ ...i, cur: "AUD", group: "Crypto · 24h" }));
     data.markets = [...asx, ...cr];
@@ -178,12 +185,12 @@
     const impact = d12 ? T("mkt", `What ${d12 > 0 ? "+" : "−"}${Math.abs(d12).toFixed(2)} pts means: about <b>$${Math.round(Math.abs(d12) * 5000).toLocaleString("en-AU")}</b> a year ${d12 > 0 ? "more" : "less"} interest on a $500k business loan <i class="note">illustration</i>`) : "";
     $$("[data-rba]").forEach(e => { if (d.rba) e.textContent = Number(d.rba.rate).toFixed(2) + "%"; });
     $$("[data-rba-note]").forEach(e => { if (r && r.lastChange) e.textContent = `${r.lastChange.by >= 0 ? "Raised" : "Cut"} ${Math.abs(r.lastChange.by).toFixed(2)} on ${String(r.lastChange.date).replace(/-/g, " ")}` + (d12 ? ` · ${d12 > 0 ? "+" : "−"}${Math.abs(d12).toFixed(2)} pts in a year` : ""); });
-    const parts = [privacy];
+    const parts = [privacy, ...news];
     if (rba) parts.push(rba);
     parts.push(...aiGap.slice(0, 3));
     if (impact) parts.push(impact);
     parts.push(...aiGap.slice(3));
-    if (rba) renderTicker(parts);
+    if (rba || news.length) { tickerDone = true; renderTicker(parts); }
   }).catch(() => {});
 
   // ---------- Live data engine (drawer + /live/ page) ----------
