@@ -61,8 +61,8 @@ def home():
 <section class="hz-hero dark" id="top"><div class="wrap hero32">
   <div class="hz-copy">
     <p class="bz-kick"><svg class="au-flag" viewBox="0 0 120 60" width="27" height="14" role="img" aria-label="Australian flag"><clipPath id="auS1"><rect width="60" height="30"/></clipPath><clipPath id="auT1"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="120" height="60" fill="#012169"/><g clip-path="url(#auS1)"><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#auT1)" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g><g fill="#fff"><polygon points="30.00,36.00 31.74,41.40 37.04,39.39 33.90,44.11 38.77,47.00 33.13,47.49 33.90,53.11 30.00,49.00 26.10,53.11 26.87,47.49 21.23,47.00 26.10,44.11 22.96,39.39 28.26,41.40"/><polygon points="90.00,45.50 90.87,48.20 93.52,47.19 91.95,49.55 94.39,51.00 91.56,51.25 91.95,54.05 90.00,52.00 88.05,54.05 88.44,51.25 85.61,51.00 88.05,49.55 86.48,47.19 89.13,48.20"/><polygon points="75.00,24.50 75.87,27.20 78.52,26.19 76.95,28.55 79.39,30.00 76.56,30.25 76.95,33.05 75.00,31.00 73.05,33.05 73.44,30.25 70.61,30.00 73.05,28.55 71.48,26.19 74.13,27.20"/><polygon points="90.00,4.50 90.87,7.20 93.52,6.19 91.95,8.55 94.39,10.00 91.56,10.25 91.95,13.05 90.00,11.00 88.05,13.05 88.44,10.25 85.61,10.00 88.05,8.55 86.48,6.19 89.13,7.20"/><polygon points="102.50,19.50 103.37,22.20 106.02,21.19 104.45,23.55 106.89,25.00 104.06,25.25 104.45,28.05 102.50,26.00 100.55,28.05 100.94,25.25 98.11,25.00 100.55,23.55 98.98,21.19 101.63,22.20"/><polygon points="96.50,31.40 97.15,33.11 98.97,33.20 97.55,34.34 98.03,36.10 96.50,35.10 94.97,36.10 95.45,34.34 94.03,33.20 95.85,33.11"/></g></svg>Beiz Data &amp; Accounting</p>
-    <h1><span>The Chartered Accountant</span> <span>who builds your AI.</span> <span class="h1-2">Code. Financial models. Data. Governance. One Australian CA.</span></h1>
-    <p class="hz-sub">Purav Mehta, Australian Chartered Accountant · GAICD, writes the code, builds the models and sets up the AI agents himself. Your data connected, your numbers modelled, the routine work automated, with checks you agree and a person who approves what matters.</p>
+    <h1><span>The Chartered Accountant</span> <span>who builds your AI workforce.</span> <span class="h1-2">Code. Financial models. Data. Governance. One Australian CA.</span></h1>
+    <p class="hz-sub">Purav Mehta, Australian Chartered Accountant · GAICD, writes the code, builds the models and sets up the AI agents himself. An unchecked AI agent can pay the wrong bill, leak client data or miss a deadline, at scale and before anyone notices. Ours work inside limits you agree, a person approves what matters, and every action is traceable.</p>
     <div class="hz-ctas"><a class="btn primary" href="#model-demo">Try the cash model</a><a class="btn ghost" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-minute call</a></div>
     <p class="hz-alt">Or take the <a href="/workshop/">free 5-minute workshop</a> and leave with a written plan.</p>
   </div>
@@ -128,8 +128,18 @@ def home():
 <section class="hz-sec xdemo" id="limits"><div class="wrap">
   <p class="demo-k">Your work · Automate it</p>
   <h2>AI without controls is a risk. AI with controls is a workforce.</h2>
-  <p class="lede">AI agents don't fail quietly. They fail at scale. Here are five requests a payables agent might face in a week. You decide: allow it, hold it for a person, or block it. Then see what we'd set, and why. A simulation, not connected to any real accounts.</p>
+  <p class="lede">Everyone talks about AI. Few understand its limits. AI agents don't fail quietly; they fail at scale. Here are five requests a payables agent might face in a week. You decide: allow it, hold it for a person, or block it. Then see what we'd set, and why. A simulation, not connected to any real accounts.</p>
   <div class="lm" id="lm"></div>
+</div></section>
+
+<section class="hz-sec xdemo" id="trace"><div class="wrap">
+  <p class="demo-k">How we work with you</p>
+  <h2>Watch your project as it happens</h2>
+  <p class="lede">No black box and no chasing us for news. You see the plan, a short update every Friday, and every action the agents took, with who approved it. A sample project:</p>
+  <div class="tr" id="tr">
+    <div class="tr-tabs" role="tablist"><button role="tab" aria-selected="true" data-t="plan">Project plan</button><button role="tab" aria-selected="false" data-t="upd">Friday update</button><button role="tab" aria-selected="false" data-t="act">Every action</button></div>
+    <div class="tr-body" id="trBody"></div>
+  </div>
 </div></section>
 
 <section class="hz-sec" id="ca"><div class="wrap ca-grid">
@@ -151,6 +161,19 @@ def home():
   </figure>
 </div></section>
 
+<section class="hz-sec" id="cover"><div class="wrap">
+  <p class="demo-k">New · Leave cover</p>
+  <h2>Someone's going on leave. The work doesn't have to stop.</h2>
+  <p class="lede">Parental leave, long service leave, a month in Europe. Bills still arrive, invoices still need to go out and someone has to watch the cash. We set up an agent to carry the routine part of their role, with an Australian Chartered Accountant reviewing its work, and hand everything back the day they return.</p>
+  <ol class="cv">
+    <li><b>Before they go</b><span>We shadow them for a week and write the agent's job description from how they actually do the work. They sign it off.</span></li>
+    <li><b>While they're away</b><span>The agent matches bills, drafts invoices and reminders and keeps the reconciliation current. Anything unusual is held for a named person. You get a one-page update every Friday.</span></li>
+    <li><b>When they're back</b><span>A handover note: what was done, what was held and what's waiting. The agent can stay on to help them, or be switched off.</span></li>
+  </ol>
+  <div class="cv-foot"><p><b>Their job stays theirs.</b> The agent covers routine work only. Decisions, customers and anything about people stay with your team. Best booked three to four weeks before the leave starts.</p><div class="cv-price"><span>Setup from</span><b>$3,500</b><span>then from $2,000 a month of cover</span></div></div>
+  <div class="hz-ctas"><a class="btn primary" href="/contact/?topic=Discovery%20call#form" data-topic="Discovery call">Plan cover for someone's leave</a></div>
+</div></section>
+
 <section class="hz-sec" id="pricing"><div class="wrap">
   <h2>Prices, and how to start</h2>
   <p class="lede">Fixed prices, agreed in writing before we start. Prices are in Australian dollars. Beiz isn't registered for GST, so no GST is added.</p>
@@ -161,6 +184,7 @@ def home():
       <tr id="model"><td><a href="/services/dashboards-and-models/">Live cash &amp; job profit model</a></td><td>A 13-week rolling cash flow and profit by job against what you quoted, updated weekly, in your own Excel or Power BI.</td><td class="n">from $5,000</td></tr>
       <tr id="ai"><td><a href="/services/ai-readiness-sprint/">AI workforce setup</a></td><td>Your first agent with its job description, limits and decision log, plus limits and approvers for the AI already inside your software. Each further agent is quoted in writing. Planned as a three-week rollout: map and limit, shadow mode, live within limits. Includes a review at day 30; ongoing monitoring is the monthly service below.</td><td class="n">from $6,000</td></tr>
       <tr><td><a href="/services/privacy-sprint/">AI governance &amp; Privacy Act sprint</a></td><td>An agent register, and a check of whether the automated-decision transparency rules starting 10 December 2026 apply to you, with draft wording for your lawyer to review where they do.</td><td class="n">from $3,500</td></tr>
+      <tr><td><a href="#cover">Leave cover</a></td><td>An agent carries the routine part of a role while someone is on leave, reviewed by an Australian Chartered Accountant, with a handover note when they return.</td><td class="n">from $3,500 setup, then from $2,000 a month</td></tr>
       <tr><td>Monthly monitoring and review</td><td>We review the agents' decisions, re-test before changes, keep the model current and send you one page on what was caught and what changed.</td><td class="n">from $750 a month</td></tr>
     </tbody>
   </table>
@@ -171,7 +195,7 @@ def home():
 </div></section>
 </div>
 {contact_form(heading="Tell us what you're trying to fix", lede="A few lines is plenty. By the next business day you'll get a written reply: what the problem looks like, what information it would need, and whether a fixed-scope job makes sense. Rather talk? Pick “Discovery call” or “Demo request” and we'll arrange a free 20 minutes, early morning or after 5pm.")}'''
-    add("/", "Beiz Data & Accounting | The Chartered Accountant who builds your AI",
+    add("/", "Beiz Data & Accounting | The Chartered Accountant who builds your AI workforce",
         "Beiz connects your data, models your cash and job profit, and sets up AI agents with limits and approvals. Led by Purav Mehta, Australian Chartered Accountant and GAICD. Fixed prices from $1,500.", body)
 
 # ------------------------------------------------------------------ services

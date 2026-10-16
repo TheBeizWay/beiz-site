@@ -1219,3 +1219,33 @@
     render();
   }
 })();
+
+/* v33: client project view (sample data) */
+(() => {
+  const tr = document.getElementById('tr'); if (!tr) return;
+  const body = document.getElementById('trBody');
+  const V = {
+    plan: `<ol class="tr-plan">
+      <li class="done"><b>Week 1 · Map and limit</b><em>Done, 7 Oct</em><span>Work mapped with your team. Job descriptions and limits for two agents signed off by you.</span></li>
+      <li class="done"><b>Week 2 · Shadow mode</b><em>Done, 14 Oct</em><span>Agents ran alongside your team on 212 bills and matched your decisions on 205. The 7 differences were reviewed and two rules tightened.</span></li>
+      <li class="now"><b>Week 3 · Live, within limits</b><em>In progress</em><span>Agents now act on matched bills under $2,000. Everything else waits for your approver.</span></li>
+      <li><b>Day 30 · Review</b><em>13 Nov</em><span>Errors, time saved and exceptions, measured against week 2. We fix what isn't working.</span></li></ol>`,
+    upd: `<div class="tr-mail"><p class="tr-mh"><b>Beiz update, week 3</b><span>Friday 17 Oct · to you and your finance lead</span></p>
+      <h4>61 bills checked, 4 held for you, nothing paid without approval</h4>
+      <p><b>What the agents did.</b> Matched 57 bills to orders and deliveries ($48,210). Drafted 9 invoices and 3 payment reminders, all waiting for your send.</p>
+      <p><b>Waiting for you (4).</b> Including a bill charged at 22 hours against 14 on the timesheet, and a new supplier asking to be paid by Monday.</p>
+      <p><b>What we changed.</b> Tightened the duplicate check after two weekly orders were flagged by mistake.</p>
+      <p><b>Next week.</b> Switch on overdue reminders for customers over 30 days, as agreed.</p>
+      <p class="tr-sig">Purav Mehta, Australian Chartered Accountant</p></div>`,
+    act: `<table class="tr-t"><thead><tr><th>When</th><th>What happened</th><th>Decided by</th></tr></thead><tbody>
+      <tr><td>Fri 09:12</td><td>Bill held: 22 hours billed, 14 on the timesheet</td><td><span class="tr-h">Waiting for your approver</span></td></tr>
+      <tr><td>Fri 09:20</td><td>6 matched bills approved within the $2,000 limit</td><td>Payables agent, within limits</td></tr>
+      <tr><td>Thu 16:40</td><td>Bank details change request blocked</td><td>Rule: agents can't change bank details</td></tr>
+      <tr><td>Thu 11:05</td><td>Duplicate rule tightened after review</td><td>Purav Mehta CA, agreed with you</td></tr>
+      <tr><td>Wed 08:30</td><td>Reminder sent to a customer 34 days overdue</td><td>Sent by you, drafted by the agent</td></tr></tbody></table>
+      <p class="tr-note">Every line links back to the record it came from, in a log kept in your own accounts.</p>`
+  };
+  const show = k => { tr.querySelectorAll('[data-t]').forEach(b => b.setAttribute('aria-selected', b.dataset.t === k)); body.innerHTML = V[k]; };
+  tr.addEventListener('click', e => { const b = e.target.closest('[data-t]'); if (b) show(b.dataset.t); });
+  show('plan');
+})();
