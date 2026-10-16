@@ -1044,15 +1044,16 @@
   render();
 })();
 
-/* v29: hero decision log writes itself once, then stays (sample data) */
+/* v31: ledger decision log: rows post, then the CA's red-pen review appears */
 (() => {
   const dl = document.getElementById('dlog'); if (!dl) return;
-  const rows = [...dl.querySelectorAll('.dl-r')], cnt = document.getElementById('dlCount');
+  const rows = [...dl.querySelectorAll('.lg-r')], cnt = document.getElementById('dlCount');
   const tally = n => {
     const seen = rows.slice(0, n), c = k => seen.filter(r => r.classList.contains('st-' + k)).length;
-    cnt.innerHTML = `<b class="c-held">${c('held')} held</b><b class="c-stop">${c('stop')} blocked</b><b class="c-ok">${c('ok')} approved</b><b>${c('log')} logged</b>`;
+    cnt.innerHTML = `<b class="c-held">Held for a person ${c('held')}</b><b class="c-stop">Blocked ${c('stop')}</b><b class="c-ok">Approved ${c('ok')}</b><b>Logged ${c('log')}</b>`;
   };
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) { tally(rows.length); return; }
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) { tally(rows.length); dl.classList.add('inked'); return; }
   dl.classList.add('dl-anim'); tally(0);
-  rows.forEach((r, i) => setTimeout(() => { r.classList.add('in'); tally(i + 1); }, 500 + i * 900));
+  rows.forEach((r, i) => setTimeout(() => { r.classList.add('in'); tally(i + 1); }, 400 + i * 650));
+  setTimeout(() => dl.classList.add('inked'), 400 + rows.length * 650 + 500);
 })();
