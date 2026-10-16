@@ -1,0 +1,44 @@
+name: calm-build
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [calm-readable-skin]
+    paths: ['assets/calm.css', '.github/workflows/calm-build.yml']
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: calm-readable-skin
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Link calm.css and bump cache version
+        run: |
+          python3 - <<'PY'
+          p = 'src/layout.py'
+          s = open(p, encoding='utf-8').read()
+          marker = '<link rel="stylesheet" href="/assets/future-neon.css?v={ASSET_V}" id="thB">'
+          add = '\n<link rel="stylesheet" href="/assets/calm.css?v={ASSET_V}" id="thC">'
+          if 'calm.css' not in s:
+              assert marker in s, 'marker not found'
+              s = s.replace(marker, marker + add)
+              s = s.replace('["thA","thB"]', '["thA","thB","thC"]')
+              s = s.replace('ASSET_V = "114"', 'ASSET_V = "115"')
+              open(p, 'w', encoding='utf-8').write(s)
+          PY
+      - name: Build site
+        run: python3 src/build.py
+      - name: Commit result
+        run: |
+          git config user.name "beiz-build"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "Link calm.css and rebuild pages"
+          git push
