@@ -217,3 +217,10 @@ html{overflow-x:clip}
 .wfl-r.st-log em{color:var(--muted);background:var(--panel2)}.wfl-r.st-ok em{color:#7BE3BB;background:rgba(79,209,160,.14)}
 .wfl-r.st-held em{color:#F5C76B;background:rgba(242,184,75,.14)}.wfl-r.st-stop em{color:#FF8A8A;background:rgba(255,107,107,.14)}
 @media(max-width:760px){.wfl-k{grid-template-columns:1fr 1fr}.wfl-k div:nth-child(2){border-right:0}.wfl-r{grid-template-columns:44px 1fr auto}.wfl-r em{grid-column:3;grid-row:1}.wfl-x{grid-column:2/-1}}
+.wfl-sc{display:inline-flex;border:1px solid var(--line2)}
+.wfl-sc button{background:none;border:0;color:var(--muted);padding:4px 12px;font:500 .8rem var(--sans,inherit);cursor:pointer}
+.wfl-sc button+button{border-left:1px solid var(--line2)}
+.wfl-sc button[aria-pressed="true"]{background:var(--signal);color:#06201B}
+.wfl-sc button:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+.wfl-k .wfl-zero{background:rgba(127,214,194,.07);box-shadow:inset 0 2px 0 var(--signal)}
+.wfl-zero b{color:var(--signal)!important}.wfl-zero small{display:block;font-size:.75rem;color:var(--faint);margin-top:2px}

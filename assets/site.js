@@ -1383,7 +1383,7 @@
   const cards = [...document.querySelectorAll(".wf6 [data-ag]")];
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const N = ["Data scientist", "Financial controller", "CFO desk", "Systems", "Compliance", "Risk officer"];
-  const EV = [
+  const DAYS = { ok: [
     [1, "41 bank lines matched to the ledger", "log"],
     [0, "13-week cash refreshed. Low point week 7, $52,000", "log"],
     [1, "Quoll Electrical bill: 22 h billed, 14 h on the timesheet", "held"],
@@ -1398,9 +1398,22 @@
     [2, "Variance note drafted: wages 6% over budget", "log"],
     [4, "Possible match cleared by the compliance officer. Reason recorded", "ok"],
     [1, "Duplicate bill from a materials supplier. Not paid", "stop"],
-  ];
+  ], bad: [
+    [3, "Email from the 'director' asks for an urgent $18,400 transfer today", "stop"],
+    [1, "Supplier's new bank account doesn't match the one on file", "stop"],
+    [1, "Same bill sent twice with a different invoice number, $3,960", "stop"],
+    [1, "Bill from a supplier whose ABN doesn't match the business register", "held"],
+    [4, "Client plans three cash payments of $9,800 this week", "held"],
+    [3, "Staff member uploaded the payroll file to an unapproved AI tool", "held"],
+    [0, "Cash low point moved from week 7 to week 3", "held"],
+    [4, "New client's trust deed missing. Onboarding paused", "held"],
+    [5, "Three exceptions in one day. Risk report drafted for the owner", "log"],
+    [2, "Lender asks for numbers today. Draft held until the owner signs off", "held"],
+  ] };
+  let EV = DAYS.ok;
   const ST = { log: "Logged", held: "Held", stop: "Blocked", ok: "Approved" };
   let i = 0, t = 8 * 60 + 2, n = { A: 0, H: 0, B: 0 }, timer = 0, paused = false, seen = false;
+  const reset = () => { i = 0; t = 8 * 60 + 2; n = { A: 0, H: 0, B: 0 }; log.innerHTML = ""; };
   const fmt = m => String(Math.floor(m / 60)).padStart(2, "0") + ":" + String(m % 60).padStart(2, "0");
   const step = () => {
     const [ag, txt, st] = EV[i % EV.length]; i++; t += 3 + (i * 7) % 9; if (t > 17 * 60) t = 8 * 60 + 2;
@@ -1411,7 +1424,12 @@
     log.prepend(li); while (log.children.length > 6) log.lastChild.remove();
     cards.forEach(c => c.classList.toggle("live", +c.dataset.ag === ag));
   };
-  if (reduce) { for (let k = 0; k < 6; k++) step(); btn.hidden = true; return; }
+  const fill = () => { for (let k = 0; k < 6; k++) step(); };
+  box.querySelectorAll("[data-sc]").forEach(b => b.addEventListener("click", () => {
+    EV = DAYS[b.dataset.sc]; box.querySelectorAll("[data-sc]").forEach(x => x.setAttribute("aria-pressed", x === b));
+    reset(); if (reduce) fill(); else { step(); step(); run(); }
+  }));
+  if (reduce) { fill(); btn.hidden = true; return; }
   const run = () => { clearInterval(timer); if (!paused && seen) timer = setInterval(step, 2200); };
   new IntersectionObserver(es => { seen = es[0].isIntersecting; if (seen && !log.children.length) { step(); step(); } run(); }, { threshold: 0.2 }).observe(box);
   btn.addEventListener("click", () => { paused = !paused; btn.textContent = paused ? "Resume" : "Pause"; btn.setAttribute("aria-pressed", paused); run(); });
