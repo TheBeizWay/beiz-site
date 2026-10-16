@@ -33,9 +33,9 @@ Key facts:
 - [Hospitality & retail](https://beiz.com.au/industries/hospitality-retail/)
 
 ## Start here
-- [Compliance controls sprint](https://beiz.com.au/#sprint): from $3,500, two weeks, one focus: AI use, AML/CTF Tranche 2 or the Privacy Act
+- [Compliance controls sprint](https://beiz.com.au/compliance-sprint/): from $3,500, two weeks, one focus: AI use, AML/CTF Tranche 2 or the Privacy Act
 - [AML/CTF Tranche 2 for accounting firms](https://beiz.com.au/aml-ctf-accounting-firms/): which services are caught, what firms must do, where agents help and where they stop
-- [AML/CTF client onboarding check (interactive demo)](https://beiz.com.au/#aml): customer due diligence, screening and the decision a person has to make
+- [AML/CTF client onboarding check (interactive demo)](https://beiz.com.au/aml-ctf-accounting-firms/#aml): customer due diligence, screening and the decision a person has to make
 - [Free bill check on your own data](https://beiz.com.au/bill-check/): drop in a bills export; possible duplicates, bank detail changes, split bills and ABN problems; runs in the browser, nothing is sent
 
 ## See it working

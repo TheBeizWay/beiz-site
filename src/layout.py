@@ -3,7 +3,7 @@ import json
 import os
 
 SITE = "https://beiz.com.au"
-ASSET_V = "125"  # bump to bust caches when CSS/JS change
+ASSET_V = "126"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" aria-hidden="true" class="logo"><rect x="1" y="1" width="34" height="34" rx="7" fill="#15181D" stroke="#30353D" stroke-width="1.5"/><rect x="7" y="9" width="16" height="3.5" rx="1.75" fill="#43B581"/><circle cx="27.5" cy="10.75" r="1.75" fill="#43B581"/><rect x="7" y="16.25" width="11" height="3.5" rx="1.75" fill="#E9A93B"/><rect x="21" y="16.25" width="8" height="3.5" rx="1.75" fill="none" stroke="#E9A93B" stroke-width="1.2"/><rect x="7" y="23.5" width="22" height="3.5" rx="1.75" fill="#A6A49D"/></svg>')
 
@@ -156,18 +156,18 @@ def _header(path):
                 f'<div class="ddm" id="dd-{key}">{top}{links}</div></div>')
     see = [(h, t) for h, t, _ in NAV]
     sname = dict(SERVICES)
-    TOP = [("/services/", "AI workforce"), ("/#sprint", "Compliance sprint"), ("/aml-ctf-accounting-firms/", "AML/CTF"), ("/bill-check/", "Free bill check"), ("/#pricing", "Prices"), ("/about/", "Meet Purav")]
-    mm_start = [("/#check", "Two-week cash &amp; data check", "$1,500 fixed", "Unbilled work, margin leaks and manual bottlenecks, from your exports."),
+    TOP = [("/services/", "AI workforce"), ("/compliance-sprint/", "Compliance sprint"), ("/aml-ctf-accounting-firms/", "AML/CTF"), ("/bill-check/", "Free bill check"), ("/prices/", "Prices"), ("/about/", "Meet Purav")]
+    mm_start = [("/prices/#check", "Two-week cash &amp; data check", "$1,500 fixed", "Unbilled work, margin leaks and manual bottlenecks, from your exports."),
                 ("/services/ai-readiness-sprint/", "AI workforce setup", "from $8,500", "Agents with job descriptions and limits, including the AI already in your software."),
                 ("/services/dashboards-and-models/", "Financial modelling", "from $5,000", "13-week cash, job margins and what-if scenarios."),
-                ("/#sprint", "Compliance controls sprint", "from $3,500", "Start here. One focus: AI use, AML/CTF Tranche 2 or the Privacy Act.")]
+                ("/compliance-sprint/", "Compliance controls sprint", "from $3,500", "Start here. One focus: AI use, AML/CTF Tranche 2 or the Privacy Act.")]
     mmp = ('<div class="mmp" role="group" aria-label="Services"><div class="mm-start">'
            + "".join(f'<a href="{h}"><b>{t}</b><em>{pr}</em><span>{d}</span></a>' for h, t, pr, d in mm_start)
-           + '</div><div class="mm-foot"><a href="/#workforce">Meet the six agents</a><a href="/aml-ctf-accounting-firms/">AML/CTF for accounting firms</a><a href="/bill-check/">Free bill check</a><a href="/#cover">Finance leave cover</a><a href="/services/data-engineering/">Data science &amp; analytics</a><a href="/services/">All services</a><a class="mm-ws" href="/workshop/">Free 5-minute workshop</a></div></div>')
+           + '</div><div class="mm-foot"><a href="/services/ai-readiness-sprint/#agents">Meet the six agents</a><a href="/aml-ctf-accounting-firms/">AML/CTF for accounting firms</a><a href="/bill-check/">Free bill check</a><a href="/leave-cover/">Finance leave cover</a><a href="/services/data-engineering/">Data science &amp; analytics</a><a href="/services/">All services</a><a class="mm-ws" href="/workshop/">Free 5-minute workshop</a></div></div>')
     nav = "".join((f'<div class="mm"><a href="{h}"{cur(h)} aria-haspopup="true">{t}<span class="mm-c" aria-hidden="true"></span></a>{mmp}</div>' if h == "/services/" else f'<a href="{h}"{cur(h)}>{t}</a>') for h, t in TOP)
     grp = lambda title, items: f'<p class="mg">{title}</p>' + "".join(f'<a href="{h}">{t}</a>' for h, t in items)
-    START = [("/#sprint", "Compliance controls sprint · from $3,500"), ("/#aml", "AML/CTF onboarding check (demo)"), ("/#check", "Two-week cash &amp; data check · $1,500"), ("/services/dashboards-and-models/", "Live cash &amp; job profit model · from $5,000"), ("/services/ai-readiness-sprint/", "AI workforce setup · from $8,500")]
-    mnav = (grp("Start here", START) + grp("Menu", TOP + [("/#cover", "Finance leave cover"), ("/workshop/", "Free workshop"), ("/contact/", "Contact")]) + grp("More", [("/try/", "Try the demos"), ("/ai-check/", "Privacy Act AI check"), ("/insights/", "Insights"), ("/faq/", "FAQ")]))
+    START = [("/compliance-sprint/", "Compliance controls sprint · from $3,500"), ("/aml-ctf-accounting-firms/#aml", "AML/CTF onboarding check (demo)"), ("/prices/#check", "Two-week cash &amp; data check · $1,500"), ("/services/dashboards-and-models/", "Live cash &amp; job profit model · from $5,000"), ("/services/ai-readiness-sprint/", "AI workforce setup · from $8,500")]
+    mnav = (grp("Start here", START) + grp("Menu", TOP + [("/leave-cover/", "Finance leave cover"), ("/workshop/", "Free workshop"), ("/contact/", "Contact")]) + grp("More", [("/try/", "Try the demos"), ("/ai-check/", "Privacy Act AI check"), ("/insights/", "Insights"), ("/faq/", "FAQ")]))
     return f'''<div class="ticker" role="region" aria-label="Beiz Pulse: Australian business indicators">
   <div class="label">BEIZ PULSE</div>
   <div class="track" id="pulse"></div>
@@ -185,7 +185,7 @@ def _header(path):
 
 def _footer():
     s = "".join(f'<li><a href="{h}">{t}</a></li>' for h, t in SERVICES)
-    i = "".join(f'<li><a href="{h}">{t}</a></li>' for h, t in [("/#check", "Two-week cash &amp; data check · $1,500"), ("/services/dashboards-and-models/", "Live cash &amp; job profit model · from $5,000"), ("/services/ai-readiness-sprint/", "AI workforce setup · from $8,500"), ("/#pricing", "Monthly controls operations · from $1,250")])
+    i = "".join(f'<li><a href="{h}">{t}</a></li>' for h, t in [("/prices/#check", "Two-week cash &amp; data check · $1,500"), ("/services/dashboards-and-models/", "Live cash &amp; job profit model · from $5,000"), ("/services/ai-readiness-sprint/", "AI workforce setup · from $8,500"), ("/prices/#ops", "Monthly controls operations · from $1,250")])
     return f'''<footer class="site">
   <div class="wrap">
     <div class="fcols">
@@ -225,11 +225,11 @@ ORG = {
                       {"@type": "EducationalOccupationalCredential", "credentialCategory": "Graduate, Australian Institute of Company Directors (GAICD)"}],
     "makesOffer": [{"@type": "Offer", "name": n, "url": SITE + h, "priceCurrency": "AUD", "price": p, "description": d,
                     "priceSpecification": {"@type": "PriceSpecification", "priceCurrency": "AUD", "minPrice": p, "valueAddedTaxIncluded": False}}
-                   for n, h, p, d in [("Two-week cash and data check", "/#check", 1500, "Fixed price. Unbilled work, margin leaks and manual bottlenecks found from Xero and timesheet exports, with a findings register and two-page report."),
+                   for n, h, p, d in [("Two-week cash and data check", "/prices/#check", 1500, "Fixed price. Unbilled work, margin leaks and manual bottlenecks found from Xero and timesheet exports, with a findings register and two-page report."),
                                       ("Live cash and job profit model", "/services/dashboards-and-models/", 5000, "From price. A 13-week rolling cash forecast and profit by job, updated weekly."),
                                       ("AI workforce setup", "/services/ai-readiness-sprint/", 8500, "From price. The first AI agent with its job description, limits, approvals and decision log."),
-                                      ("Compliance controls sprint", "/#sprint", 3500, "From price. Two weeks, one focus (AI use, AML/CTF Tranche 2 or the Privacy Act): register, data map, named owners, rules and approval points, and a 90-day plan."),
-                                      ("Monthly controls operations", "/#pricing", 1250, "From price per month. Agent decision review, AML/CTF screening, monitoring and records where they apply, and a one-page monthly report.")]],
+                                      ("Compliance controls sprint", "/compliance-sprint/", 3500, "From price. Two weeks, one focus (AI use, AML/CTF Tranche 2 or the Privacy Act): register, data map, named owners, rules and approval points, and a 90-day plan."),
+                                      ("Monthly controls operations", "/prices/#ops", 1250, "From price per month. Agent decision review, AML/CTF screening, monitoring and records where they apply, and a one-page monthly report.")]],
     "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Services",
                         "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": n, "url": SITE + h}} for h, n in SERVICES]},
 }

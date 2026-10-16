@@ -123,7 +123,7 @@
     T("risk", `<b>43%</b> of SMEs now use AI and <b>65%</b> of the rest want human control <a class="note" href="https://www.industry.gov.au/publications/ai-adoption-tracker" target="_blank" rel="noopener">NAIC 2026</a>. Every Beiz agent reports to a person.`),
     T("risk", `<b>19%</b> of SMEs using AI have none of the recommended responsible AI practices in place <a class="note" href="https://www.industry.gov.au/publications/ai-adoption-tracker" target="_blank" rel="noopener">NAIC, Q4 2025</a>. Who is accountable for yours?`),
     T("risk", `AML/CTF obligations for accountants started <b>1 Jul 2026</b>: client checks, screening, monitoring and records for caught services <a class="note" href="https://www.austrac.gov.au/new-and-media/news/austrac-opens-enrolment-new-professions-next-step-aml-reforms" target="_blank" rel="noopener">AUSTRAC</a>. Run our onboarding check.`),
-    T("beiz", `Someone going on leave? An AI agent covers the routine part of their role, checked by a Chartered Accountant. <b>Their job stays theirs.</b> <a class="note" href="/#cover">Finance leave cover</a>`),
+    T("beiz", `Someone going on leave? An AI agent covers the routine part of their role, checked by a Chartered Accountant. <b>Their job stays theirs.</b> <a class="note" href="/leave-cover/">Finance leave cover</a>`),
     T("beiz", `Every agent we build has a job description, a delegation limit and a human it reports to.`),
     T("demo", `Payables agent held a <b>$3,080</b> bill: 22 hours billed, 14 on the timesheet. Waiting for your yes.`),
     T("risk", `Only <b>about 1 in 2</b> SMEs check AI output before customers see it <a class="note" href="https://www.industry.gov.au/publications/ai-adoption-tracker" target="_blank" rel="noopener">NAIC</a>. Ours can't send without a human yes.`),
@@ -1326,7 +1326,7 @@
   const node = sel => map.querySelector(sel);
   const stages = [
     [0.00, "arr", "In", "$3,080", "A supplier bill arrives: Quoll Electrical, $3,080 for 22 hours.", null],
-    [0.12, "chk", "Checking", "$3,080", "The payables agent checks it against the order and the timesheet.", 'a[href="#limits"]'],
+    [0.12, "chk", "Checking", "$3,080", "The payables agent checks it against the order and the timesheet.", 'a[href="/bill-check/"]'],
     [0.50, "held", "Held", "$3,080", "Held: 22 hours billed, 14 on the timesheet. A person asks the supplier why.", ".bm-ca"],
     [0.68, "ok", "Approved", "$1,960", "Supplier sends a corrected bill for 14 hours. Approved by a person: $1,960.", ".bm-ca"],
     [0.90, "log", "Logged", "$1,960", "Paid on the next run and logged: who checked it, who approved it, why.", ".bm-end"],

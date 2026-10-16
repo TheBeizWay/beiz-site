@@ -63,8 +63,8 @@ def home():
     <p class="bz-kick"><svg class="au-flag" viewBox="0 0 120 60" width="27" height="14" role="img" aria-label="Australian flag"><clipPath id="auS1"><rect width="60" height="30"/></clipPath><clipPath id="auT1"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="120" height="60" fill="#012169"/><g clip-path="url(#auS1)"><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#auT1)" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g><g fill="#fff"><polygon points="30.00,36.00 31.74,41.40 37.04,39.39 33.90,44.11 38.77,47.00 33.13,47.49 33.90,53.11 30.00,49.00 26.10,53.11 26.87,47.49 21.23,47.00 26.10,44.11 22.96,39.39 28.26,41.40"/><polygon points="90.00,45.50 90.87,48.20 93.52,47.19 91.95,49.55 94.39,51.00 91.56,51.25 91.95,54.05 90.00,52.00 88.05,54.05 88.44,51.25 85.61,51.00 88.05,49.55 86.48,47.19 89.13,48.20"/><polygon points="75.00,24.50 75.87,27.20 78.52,26.19 76.95,28.55 79.39,30.00 76.56,30.25 76.95,33.05 75.00,31.00 73.05,33.05 73.44,30.25 70.61,30.00 73.05,28.55 71.48,26.19 74.13,27.20"/><polygon points="90.00,4.50 90.87,7.20 93.52,6.19 91.95,8.55 94.39,10.00 91.56,10.25 91.95,13.05 90.00,11.00 88.05,13.05 88.44,10.25 85.61,10.00 88.05,8.55 86.48,6.19 89.13,7.20"/><polygon points="102.50,19.50 103.37,22.20 106.02,21.19 104.45,23.55 106.89,25.00 104.06,25.25 104.45,28.05 102.50,26.00 100.55,28.05 100.94,25.25 98.11,25.00 100.55,23.55 98.98,21.19 101.63,22.20"/><polygon points="96.50,31.40 97.15,33.11 98.97,33.20 97.55,34.34 98.03,36.10 96.50,35.10 94.97,36.10 95.45,34.34 94.03,33.20 95.85,33.11"/></g></svg>The AI workforce is here<!--CA_HERO--></p>
     <h1><span>Your AI workforce</span> <span>for compliance and finance.</span> <span class="h1-2">Checked by an Australian Chartered Accountant.</span></h1>
     <p class="hz-sub">Agents prepare your AML/CTF client checks, privacy and AI controls, cash models and month-end work. Purav Mehta, Chartered Accountant · GAICD, sets their limits and reviews every exception. Nothing is paid or sent without a person.</p>
-    <div class="hz-ctas"><a class="btn primary" href="/contact/?topic=Compliance%20controls%20sprint#form" data-topic="Compliance controls sprint">Book a 20-minute fit check</a><a class="btn ghost" href="#aml">Run a client onboarding check</a></div>
-    <p class="hz-alt">Or <a href="/bill-check/">check your own bills for duplicates</a> in two minutes. Nothing leaves your browser.</p>
+    <div class="hz-ctas"><a class="btn primary" href="/contact/?topic=Compliance%20controls%20sprint#form" data-topic="Compliance controls sprint">Book a 20-minute fit check</a><a class="btn ghost" href="/bill-check/">Try the free bill check</a></div>
+    <p class="hz-who"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="" width="48" height="48"><span><b>Purav Mehta</b>, CA · GAICD · Certificate of Public Practice. The person you talk to, and the one who checks every limit.</span></p>
   </div>
   <figure class="bmap" id="bmap" aria-label="How Beiz works across your business">
     <svg viewBox="0 0 560 470" role="group">
@@ -80,12 +80,12 @@ def home():
         <circle r="4" fill="#1E6B44"><animateMotion dur="3.2s" repeatCount="indefinite" begin="-2.6s"><mpath href="#bl6"/></animateMotion></circle>
       </g>
       <g class="bm-node bm-top"><rect x="190" y="22" width="180" height="48" rx="2"/><text x="280" y="52">Your business</text></g>
-      <a href="#lineage" class="bm-node bm-go" data-cap="Your data: connected, cleaned and traced, so every number on a dashboard can be followed back to its source."><rect x="20" y="150" width="160" height="72" rx="2"/><text x="100" y="180" class="t1">Your data</text><text x="100" y="204" class="t2">Connect it</text></a>
-      <a href="#model-demo" class="bm-node bm-go" data-cap="Your numbers: a live 13-week cash and job profit model you can question, with every assumption written down."><rect x="200" y="150" width="160" height="72" rx="2"/><text x="280" y="180" class="t1">Your numbers</text><text x="280" y="204" class="t2">Model it</text></a>
-      <a href="#limits" class="bm-node bm-go" data-cap="Your work: AI agents that check bills, prepare admin and chase payments, each with a job description and limits."><rect x="380" y="150" width="160" height="72" rx="2"/><text x="460" y="180" class="t1">Your work</text><text x="460" y="204" class="t2">Automate it</text></a>
-      <a href="#ca" class="bm-node bm-go bm-ca" data-cap="Checks and approvals: limits you agree, a person who approves what matters, and an Australian Chartered Accountant who designs the controls and reviews the work."><rect x="150" y="300" width="260" height="72" rx="2"/><text x="280" y="330" class="t1">Checks &amp; approvals</text><text x="280" y="354" class="t2">You approve. A CA reviews.</text><ellipse class="pen" cx="392" cy="306" rx="26" ry="16" transform="rotate(-8 392 306)"/><text x="392" y="312" class="pen-t">CA</text></a>
+      <a href="/try/#lineage" class="bm-node bm-go" data-cap="Your data: connected, cleaned and traced, so every number on a dashboard can be followed back to its source."><rect x="20" y="150" width="160" height="72" rx="2"/><text x="100" y="180" class="t1">Your data</text><text x="100" y="204" class="t2">Connect it</text></a>
+      <a href="/try/#model-demo" class="bm-node bm-go" data-cap="Your numbers: a live 13-week cash and job profit model you can question, with every assumption written down."><rect x="200" y="150" width="160" height="72" rx="2"/><text x="280" y="180" class="t1">Your numbers</text><text x="280" y="204" class="t2">Model it</text></a>
+      <a href="/bill-check/" class="bm-node bm-go" data-cap="Your work: AI agents that check bills, prepare admin and chase payments, each with a job description and limits."><rect x="380" y="150" width="160" height="72" rx="2"/><text x="460" y="180" class="t1">Your work</text><text x="460" y="204" class="t2">Automate it</text></a>
+      <a href="#how" class="bm-node bm-go bm-ca" data-cap="Checks and approvals: limits you agree, a person who approves what matters, and an Australian Chartered Accountant who designs the controls and reviews the work."><rect x="150" y="300" width="260" height="72" rx="2"/><text x="280" y="330" class="t1">Checks &amp; approvals</text><text x="280" y="354" class="t2">You approve. A CA reviews.</text><ellipse class="pen" cx="392" cy="306" rx="26" ry="16" transform="rotate(-8 392 306)"/><text x="392" y="312" class="pen-t">CA</text></a>
       <path id="bmRoute" d="M280 40 L280 70 C280 110 460 110 460 150 L460 222 C460 270 280 262 280 300 L280 386" fill="none" stroke="none"/>
-      <a href="#pricing" class="bm-node bm-go bm-end" data-cap="Better decisions: clearer cash, profit you can see by job, and less admin, at a fixed price agreed in writing."><rect x="180" y="400" width="200" height="48" rx="2"/><text x="280" y="430">Better decisions</text></a>
+      <a href="#offers" class="bm-node bm-go bm-end" data-cap="Better decisions: clearer cash, profit you can see by job, and less admin, at a fixed price agreed in writing."><rect x="180" y="400" width="200" height="48" rx="2"/><text x="280" y="430">Better decisions</text></a>
       <g class="bm-bill" id="bmBill" aria-hidden="true"><rect class="bb-doc" x="-40" y="-14" width="80" height="28" rx="4"/><text class="bb-amt" y="5">$3,080</text><text class="bb-st" x="52" y="5"></text></g>
     </svg>
     <p class="bm-story" aria-live="polite"><span id="bmStory">Scroll to follow one supplier bill through the checks.</span> <button type="button" class="bm-replay" id="bmReplay">Replay</button></p>
@@ -93,177 +93,51 @@ def home():
   </figure>
 </div></section>
 
-<nav class="caps" aria-label="What Beiz does"><div class="wrap caps4">
-  <a href="#workforce"><b>AI workforce</b><span>Six agents, each with a job description, a limit and a person it reports to.</span></a>
-  <a href="/services/ai-agents/"><b>AI agents &amp; automation</b><span>Built in your own systems, run beside your people first, then live within limits.</span></a>
-  <a href="#model-demo"><b>Financial modelling</b><span>13-week cash, job margins and what-if scenarios you can question.</span></a>
-  <a href="#sprint"><b>Compliance controls</b><span>AI use, AML/CTF Tranche 2 and the Privacy Act, with a CA in the loop.</span></a>
-</div></nav>
-
-<section class="hz-sec sp" id="sprint"><div class="wrap">
-  <p class="demo-k">Start here</p>
-  <h2>Two weeks to know where you stand.</h2>
-  <p class="sp-line">Find every obligation. Name an owner. Set the limit. Keep the evidence.</p>
-  <p class="lede">The compliance controls sprint. Pick the obligation that matters most right now. We map what's in scope, who owns it and where a person must approve, then set the rules and choose the first workflow worth running under controls. It starts with short interviews and the documents you already have. We don't need access to your ledger.</p>
-  <ul class="sp3" aria-label="Pick one focus">
-    <li><b>AI use</b><span>The AI tools your people use, what client data goes in, and the rules around them.</span></li>
-    <li><b>AML/CTF Tranche 2</b><span>Which of your services are caught, how new clients are checked, and the records you keep.</span></li>
-    <li><b>Privacy Act, 10 December</b><span>Whether the automated-decision rules look relevant, with draft wording for your lawyer to review.</span></li>
-  </ul>
-  <ul class="sp5">
-    <li><b>Register</b><span>What's in scope: tools, services or decisions, and who uses them.</span></li>
-    <li><b>Data map</b><span>Which client, staff, financial or confidential information is involved.</span></li>
-    <li><b>Named owners</b><span>One accountable person for each obligation that matters.</span></li>
-    <li><b>Rules and approvals</b><span>What's allowed, what's never done, when a person must check and who to escalate to.</span></li>
-    <li><b>90-day plan</b><span>The first controlled workflow, its owner, how it's measured and the next decision.</span></li>
-  </ul>
-  <div class="cv-foot"><p><b>One focus per sprint.</b> A second focus is quoted in writing. We don't give legal advice: AML/CTF program wording and privacy policy wording stay with your adviser or lawyer, and we hand them the facts.</p><div class="cv-price"><span>Fixed price from</span><b>$3,500</b><span>two weeks, agreed in writing</span></div></div>
-  <div class="hz-ctas"><a class="btn primary" href="/contact/?topic=Compliance%20controls%20sprint#form" data-topic="Compliance controls sprint">Book a 20-minute fit check</a><a class="btn ghost" href="#aml">Run a client onboarding check</a></div>
-</div></section>
-
-<section class="hz-sec xdemo aml" id="aml"><div class="wrap">
-  <p class="demo-k">AML/CTF · Tranche 2</p>
-  <h2>A new client walks in. Is your firm ready to say yes?</h2>
-  <p class="lede">Since 1 July 2026, accountants who form companies and trusts, act as directors or trustees, or buy and sell businesses for clients have AML/CTF obligations: customer due diligence, screening, ongoing monitoring and records. Run a sample onboarding check and see where a person has to decide.</p>
-  <div class="am" id="am"></div>
-  <div class="am-split">
-    <div><b>What the agents do</b><span>Check whether the service is caught, confirm the client and its owners, run the screening, draft the risk rating, file the evidence and set the next monitoring date.</span></div>
-    <div><b>What stays with your people</b><span>Every possible match, every high-risk client and the decision to take the work on. Your AML/CTF compliance officer stays accountable; we prepare, check and keep the record.</span></div>
-  </div>
-  <p class="nx">Not sure which of your services are caught? <a href="/aml-ctf-accounting-firms/">Read the guide for accounting firms</a>, or <a href="#sprint">pick AML/CTF as your sprint focus.</a> Then <a href="#pricing">monthly controls operations</a> keep the screening, monitoring and evidence current.</p>
-  <p class="fine">Simulation with made-up data, not connected to any real system. Not legal advice: your AML/CTF program sets the actual rules. Obligations as described by <a href="https://www.austrac.gov.au/new-and-media/news/austrac-opens-enrolment-new-professions-next-step-aml-reforms" rel="noopener">AUSTRAC</a>.</p>
-</div></section>
-
 <section class="hz-sec wf" id="workforce"><div class="wrap">
-  <p class="demo-k">Your AI workforce</p>
-  <h2>Six roles. Every one reports to a person.</h2>
-  <p class="lede">Each agent we set up gets a written job description, a limit it stops at and a named person it reports to. They prepare; your people decide. None of them holds a qualification or signs anything off.</p>
-  <ul class="wf6"><li data-ag="0"><h3><i class="wf-dot" aria-hidden="true"></i>Data scientist agent</h3><dl><dt>Does</dt><dd>Cleans your exports, joins the records, builds the cash and margin models and flags outliers.</dd><dt>Never</dt><dd>Change a source record.</dd><dt>Reports to</dt><dd>Your finance lead</dd></dl></li><li data-ag="1"><h3><i class="wf-dot" aria-hidden="true"></i>Financial controller agent</h3><dl><dt>Does</dt><dd>Reconciles bank to ledger, matches bills to orders and timesheets, and prepares the month-end checklist.</dd><dt>Never</dt><dd>Post a journal or release a payment.</dd><dt>Reports to</dt><dd>Your financial controller or owner</dd></dl></li><li data-ag="2"><h3><i class="wf-dot" aria-hidden="true"></i>CFO desk agent</h3><dl><dt>Does</dt><dd>Drafts the weekly cash view, the board pack numbers and the variance notes.</dd><dt>Never</dt><dd>Send anything to your board, bank or investors.</dd><dt>Reports to</dt><dd>Your CFO or owner</dd></dl></li><li data-ag="3"><h3><i class="wf-dot" aria-hidden="true"></i>Systems agent</h3><dl><dt>Does</dt><dd>Watches your integrations, data feeds and who has access. Flags failures and new AI tools staff start using.</dd><dt>Never</dt><dd>Change a permission or a setting.</dd><dt>Reports to</dt><dd>Your IT provider or operations lead</dd></dl></li><li data-ag="4"><h3><i class="wf-dot" aria-hidden="true"></i>Compliance agent</h3><dl><dt>Does</dt><dd>Prepares AML/CTF client checks and screening, sets monitoring dates and files the evidence.</dd><dt>Never</dt><dd>Clear a possible match or accept a high-risk client.</dd><dt>Reports to</dt><dd>Your AML/CTF compliance officer</dd></dl></li><li data-ag="5"><h3><i class="wf-dot" aria-hidden="true"></i>Risk officer agent</h3><dl><dt>Does</dt><dd>Keeps the controls register current, logs every exception and drafts the monthly risk report.</dd><dt>Never</dt><dd>Sign off its own controls.</dd><dt>Reports to</dt><dd>Your risk owner or board</dd></dl></li></ul>
+  <p class="demo-k">See it working</p>
+  <h2>Watch an agent&rsquo;s day.</h2>
+  <p class="lede">Nothing is paid or sent without a person. This is a day in a made-up business. Switch to a bad day to see what gets held for a person and what gets blocked outright.</p>
   <div class="wfl" id="wfl">
     <div class="wfl-h"><b>Control room</b><span>Simulation with a made-up business. Not connected to anything.</span><div class="wfl-sc" role="group" aria-label="Choose a day"><button type="button" data-sc="ok" aria-pressed="true">Ordinary day</button><button type="button" data-sc="bad" aria-pressed="false">Bad day</button></div><button type="button" class="wfl-p" id="wflP" aria-pressed="false">Pause</button></div>
     <div class="wfl-k"><div><span>Actions logged</span><b id="wflA">0</b></div><div><span>Held for a person</span><b id="wflH">0</b></div><div><span>Blocked</span><b id="wflB">0</b></div><div class="wfl-zero"><span>Paid or sent without a person</span><b>0</b><small>Fixed at zero. No agent can pay or send.</small></div></div>
     <ol class="wfl-log" id="wflLog" aria-live="off"></ol>
   </div>
-  <div class="cv-foot"><p><b>Start with one.</b> We set up your first agent in a three-week rollout: map and limit, a test on your past records and shadow mode beside your person, then live within limits. Each further agent is quoted in writing.</p><div class="cv-price"><span>First agent from</span><b>$8,500</b><span>then monthly controls operations from $1,250</span></div></div>
+  
+  <p class="nx">Six roles, each with a job description, a limit and a person it reports to. <a href="/services/ai-readiness-sprint/#agents">Meet the agents and their limits</a>.</p>
 </div></section>
 
-<section class="diff" id="different"><div class="wrap">
-  <h2>The AI is the same. The setup isn't.</h2>
-  <p class="lede">Every firm can buy the same AI models we use. What makes a Beiz agent different is the rules it runs under. A human is always in the loop.</p>
-  <ol class="diff4">
-    <li><b>A written policy for every agent</b><span>What it may do, what it must never do, and the limit it stops at. Signed off by you before it goes live.</span></li>
-    <li><b>Human approval, every time it matters</b><span>Payments, anything sent to a customer and any decision about a person wait for a named approver. No exceptions.</span></li>
-    <li><b>Every action traceable</b><span>What the agent did, why, and who approved it, recorded in a log kept in your own accounts.</span></li>
-    <li><b>Reviewed by an Australian Chartered Accountant</b><span>Decisions are reviewed and re-tested before any change goes live, against the policy you agreed.</span></li>
+<section class="hz-sec" id="offers"><div class="wrap">
+  <p class="demo-k">Fixed prices, agreed in writing</p>
+  <h2>Three ways to start.</h2>
+  <div class="off3">
+    <a class="off" href="/compliance-sprint/"><span class="off-p">from $3,500</span><h3>Compliance controls sprint</h3><p>Two weeks, one focus: AI use, AML/CTF Tranche 2 or the Privacy Act. You get a register, named owners, the rules and approval points, and a 90-day plan.</p><span class="go">About the sprint</span></a>
+    <a class="off" href="/prices/#check"><span class="off-p">$1,500 fixed</span><h3>Two-week cash &amp; data check</h3><p>Unbilled work, margin leaks and manual bottlenecks found in your Xero and job exports, with the records behind each finding. Credited if you go ahead.</p><span class="go">About the check</span></a>
+    <a class="off" href="/services/ai-readiness-sprint/"><span class="off-p">from $8,500</span><h3>AI workforce setup</h3><p>Your first agent, tested on your past records, then live within its limits in three weeks.</p><span class="go">About the setup</span></a>
+  </div>
+  <p class="off-more">Also: <a href="/leave-cover/">finance leave cover</a> from $3,500, a <a href="/services/dashboards-and-models/">live cash &amp; job profit model</a> from $5,000, and monthly controls operations from $1,250. <a href="/prices/">See all prices</a>. Beiz isn't registered for GST, so no GST is added.</p>
+</div></section>
+
+<section class="hz-sec" id="how"><div class="wrap">
+  <p class="demo-k">How every agent is set up</p>
+  <h2>Written down, locked down, tested, watched.</h2>
+  <ol class="how4">
+    <li><b>Declare</b><p>One job, written down and signed off by you: what the agent does, what it never does, the limit it stops at and the person it reports to.</p></li>
+    <li><b>Contain</b><p>It can only reach what that job needs. No agent has permission to pay anyone or send anything outside your business.</p></li>
+    <li><b>Test</b><p>Before it touches live work, it runs over a few months of your past records and each result is checked against what actually happened. It goes live only at a pass mark agreed with you in writing.</p></li>
+    <li><b>Watch</b><p>Every action is logged in your own accounts. We review the log monthly and re-test before any change.</p></li>
   </ol>
+  <p class="nx">For accounting firms, AML/CTF client checks run the same way. <a href="/aml-ctf-accounting-firms/">Read the guide and try a sample onboarding check</a>.</p>
 </div></section>
 
-<section class="hz-sec xdemo" id="model-demo"><div class="wrap">
-  <p class="demo-k">Your numbers · Model it</p>
-  <h2>Make the decision before the cash runs out</h2>
-  <p class="lede">A 13-week cash model for a made-up trade business. Move the sliders and watch the low point move. Every number can be opened up.</p>
-  <div class="cm-grid">
-    <div class="cm-ctl">
-      <label>Customers on account pay in <output id="cmDelayV"></output><input type="range" id="cmDelay" min="7" max="90" step="1" value="45"></label>
-      <label>Wages per fortnight <output id="cmWageV"></output><input type="range" id="cmWage" min="20000" max="60000" step="1000" value="32000"></label>
-      <label>Sales growth per month <output id="cmGrowV"></output><input type="range" id="cmGrow" min="-15" max="25" step="1" value="5"></label>
-      <div class="cm-fixed"><b>Held steady in this demo</b><span>Opening cash $50,000 · sales $48,000 a week: 60% paid within a week, 40% on account (30-day terms until now) · suppliers 40% of sales, paid after 30 days · overheads $6,000 a week · super 12% with each pay run · buffer $40,000</span></div>
-    </div>
-    <div class="cm-out">
-      <div class="cm-kpis"><div><span>Lowest point</span><b id="cmLow"></b><small id="cmLowWk"></small></div><div><span>Weeks under buffer</span><b id="cmUnder"></b></div><div><span>Cash in week 13</span><b id="cmEnd"></b></div></div>
-      <svg id="cmChart" viewBox="0 0 640 260" role="img" aria-label="13-week cash forecast"></svg>
-      <p class="cm-why" id="cmWhy"></p>
-      <button type="button" class="btn ghost" id="cmOpen" aria-expanded="false" aria-controls="cmBehind">Show me what sits behind this number</button>
-    </div>
-  </div>
-  <div class="cm-behind" id="cmBehind" hidden>
-    <div class="lg-scroll"><table class="cm-t" id="cmTable"></table></div>
-    <div class="cm-notes"><div><b>How each week is calculated</b><span>Closing cash = opening cash + customer receipts − supplier payments − wages and super − overheads. 60% of each week's sales arrive the following week. Invoices already sent arrive on the old 30-day terms; new invoices on account arrive on the terms you set.</span></div><div><b>What this demo leaves out</b><span>GST and BAS, tax, loans, one-off costs and seasonality. A real model is built from your ledger with assumptions we agree and write down.</span></div></div>
-  </div>
-  <p class="nx">Not sure how close your own buffer is? <a href="#check">The two-week cash &amp; data check</a> works it out from your exports. $1,500 fixed.</p>
-</div></section>
-
-<section class="hz-sec xdemo" id="lineage"><div class="wrap">
-  <p class="demo-k">Your data · Connect it</p>
-  <h2>Follow the number back to where it came from</h2>
-  <p class="lede">A dashboard is only as good as the records under it. Click the margin, then keep going until you reach the raw exports. Switch between the data as it arrived and after cleaning.</p>
-  <div class="lnx" id="ln">
-    <div class="ln-bar"><ol class="ln-steps" id="lnSteps"><li><button type="button" data-s="0">Dashboard</button></li><li><button type="button" data-s="1">Calculation</button></li><li><button type="button" data-s="2">Cleaned records</button></li><li><button type="button" data-s="3">Source data</button></li></ol>
-      <div class="ln-sw" role="group" aria-label="Which data"><button type="button" data-v="raw">As it arrived</button><button type="button" data-v="clean" aria-pressed="true">After cleaning</button></div></div>
-    <div class="ln-stage" id="lnStage" aria-live="polite"></div>
-  </div>
-  <p class="nx">Can't trace a number like this in your business? <a href="#check">Start with the cash &amp; data check.</a> Every finding comes with the records behind it.</p>
-</div></section>
-
-<section class="hz-sec xdemo" id="limits"><div class="wrap">
-  <p class="demo-k">Your work · Automate it</p>
-  <h2>AI without controls is a risk. AI with controls is a workforce.</h2>
-  <p class="lede">Everyone talks about AI. Few understand its limits. AI agents don't fail quietly; they fail at scale. Here are five requests a payables agent might face in a week. You decide: allow it, hold it for a person, or block it. Then see what we'd set, and why. A simulation, not connected to any real accounts.</p>
-  <div class="lm" id="lm"></div>
-  <p class="nx">You just set the limits for one agent. <a href="#sprint">The compliance controls sprint</a> does this for every AI tool your team already uses.</p>
-</div></section>
-
-<section class="hz-sec xdemo" id="trace"><div class="wrap">
-  <p class="demo-k">How we work with you</p>
-  <h2>Watch your project as it happens</h2>
-  <p class="lede">No black box and no chasing us for news. You see the plan, a short update every Friday, and every action the agents took, with who approved it. A sample project:</p>
-  <div class="tr" id="tr">
-    <div class="tr-tabs" role="tablist"><button role="tab" aria-selected="true" data-t="plan">Project plan</button><button role="tab" aria-selected="false" data-t="upd">Friday update</button><button role="tab" aria-selected="false" data-t="act">Every action</button></div>
-    <div class="tr-body" id="trBody"></div>
-  </div>
-</div></section>
-
-<section class="hz-sec" id="ca"><div class="wrap ca-grid">
+<section class="hz-sec" id="ca"><div class="wrap talk">
+  <img src="/assets/media/purav-mehta-2.jpg?v=43" alt="Purav Mehta" width="480" height="640" loading="lazy">
   <div>
-    <p class="demo-k">Checks &amp; approvals</p>
-    <h2>What an Australian Chartered Accountant adds</h2>
-    <p class="lede">The agents do the matching. A Chartered Accountant designs the limits and asks the questions the software can't. Red ink below shows the kind of review notes we write.</p>
-    <p class="au-line"><svg class="au-flag" viewBox="0 0 120 60" width="27" height="14" role="img" aria-label="Australian flag"><clipPath id="auS2"><rect width="60" height="30"/></clipPath><clipPath id="auT2"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="120" height="60" fill="#012169"/><g clip-path="url(#auS2)"><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#auT2)" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g><g fill="#fff"><polygon points="30.00,36.00 31.74,41.40 37.04,39.39 33.90,44.11 38.77,47.00 33.13,47.49 33.90,53.11 30.00,49.00 26.10,53.11 26.87,47.49 21.23,47.00 26.10,44.11 22.96,39.39 28.26,41.40"/><polygon points="90.00,45.50 90.87,48.20 93.52,47.19 91.95,49.55 94.39,51.00 91.56,51.25 91.95,54.05 90.00,52.00 88.05,54.05 88.44,51.25 85.61,51.00 88.05,49.55 86.48,47.19 89.13,48.20"/><polygon points="75.00,24.50 75.87,27.20 78.52,26.19 76.95,28.55 79.39,30.00 76.56,30.25 76.95,33.05 75.00,31.00 73.05,33.05 73.44,30.25 70.61,30.00 73.05,28.55 71.48,26.19 74.13,27.20"/><polygon points="90.00,4.50 90.87,7.20 93.52,6.19 91.95,8.55 94.39,10.00 91.56,10.25 91.95,13.05 90.00,11.00 88.05,13.05 88.44,10.25 85.61,10.00 88.05,8.55 86.48,6.19 89.13,7.20"/><polygon points="102.50,19.50 103.37,22.20 106.02,21.19 104.45,23.55 106.89,25.00 104.06,25.25 104.45,28.05 102.50,26.00 100.55,28.05 100.94,25.25 98.11,25.00 100.55,23.55 98.98,21.19 101.63,22.20"/><polygon points="96.50,31.40 97.15,33.11 98.97,33.20 97.55,34.34 98.03,36.10 96.50,35.10 94.97,36.10 95.45,34.34 94.03,33.20 95.85,33.11"/></g></svg><span>Your agents work under Australian rules: AML/CTF, the Privacy Act, GST and BAS, super and payroll. An Australian Chartered Accountant works under those rules every day and is bound by the APES 110 Code of Ethics.</span></p>
-    <div class="ca-who"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="" width="64" height="64"><p><b>Purav Mehta, Australian Chartered Accountant · GAICD</b><br>Builds the data models and agents himself, with a background in internal audit, corporate finance and SAP systems. Canberra, working Australia-wide.</p></div><!--CA_WHO-->
-    <p class="partner-line">Works alongside your accountant, or inside your firm. Beiz doesn&rsquo;t do tax, BAS or statutory audit work, so there&rsquo;s nothing to compete with.</p>
-    <dl class="hz-four"><dt>CA</dt><dd>financial judgement and reconciliation</dd><dt>GAICD</dt><dd>governance, risk and what a board needs to see</dd><dt>Data</dt><dd>models, and where each number came from</dd><dt>AI</dt><dd>how the agents are set up and limited</dd></dl>
-    <p><a class="textlink" href="/about/">More about Beiz</a></p>
-  </div>
-  <figure class="lg" id="dlog">
-    <div class="lg-h"><b>Decision log</b><span>Sample records · illustrative review, not client work</span></div>
-    <div class="lg-scroll"><table class="lg-t"><thead><tr><th>Time</th><th>Agent</th><th>Entry</th><th class="a">$</th><th class="s">Status</th></tr></thead>
-    <tbody><tr class="lg-r st-log"><td class="t">08:55</td><td class="w">Bank agent</td><td class="x">41 bank lines matched to the ledger</td><td class="a"></td><td class="s"><em>Logged</em><svg class="pen-tick" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 10 L8 16 L22 2"/></svg></td></tr><tr class="lg-r st-log"><td class="t">09:03</td><td class="w">Data scientist agent</td><td class="x">13-week forecast refreshed. Low point week 7</td><td class="a">52,000.00</td><td class="s"><em>Logged</em><svg class="pen-tick" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 10 L8 16 L22 2"/></svg></td></tr><tr class="lg-r st-held"><td class="t">09:12</td><td class="w">Payables agent</td><td class="x">Quoll Electrical bill: <span class="pen-ring">22 h</span> billed, timesheet shows 14 h<span class="pen-note">Only 14 h recorded on the timesheet. Ask the supplier why. PM</span></td><td class="a">3,080.00</td><td class="s"><em>Held</em></td></tr><tr class="lg-r st-ok"><td class="t">09:20</td><td class="w">Payables agent</td><td class="x">6 bills matched to orders and deliveries</td><td class="a">7,412.60</td><td class="s"><em>Approved</em><svg class="pen-tick" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 10 L8 16 L22 2"/></svg></td></tr><tr class="lg-r st-stop"><td class="t">09:31</td><td class="w">Payables agent</td><td class="x">Email asks to change a supplier's bank details<span class="pen-note">Never by email. Call them on the known number.</span></td><td class="a"></td><td class="s"><em>Blocked</em></td></tr><tr class="lg-r st-held"><td class="t">09:44</td><td class="w">Accounting agent</td><td class="x">Reminder drafted, invoice 30 days overdue</td><td class="a">4,350.00</td><td class="s"><em>Held</em></td></tr><tr class="lg-r st-held"><td class="t">10:02</td><td class="w">Reviewer agent</td><td class="x">Board pack figure not found in the ledger<span class="pen-note">Agree to the trial balance first.</span></td><td class="a"></td><td class="s"><em>Held</em></td></tr></tbody>
-    <tfoot><tr><td colspan="5"><span id="dlCount"></span></td></tr></tfoot></table></div>
-    <figcaption class="lg-f"><span class="pen-sig">Example review notes, P. Mehta CA</span><span>Red ink shows the kind of questions a Chartered Accountant asks. In your business the log sits in your own accounts.</span></figcaption>
-    <p class="nx">Every agent we set up keeps a log like this. <a href="#ai">See AI workforce setup.</a></p>
-  </figure>
-</div></section>
-
-<section class="hz-sec" id="cover"><div class="wrap">
-  <p class="demo-k">Finance leave cover</p>
-  <h2>Someone's going on leave. The work doesn't have to stop.</h2>
-  <p class="lede">Parental leave, long service leave, a month in Europe. Bills still arrive, invoices still need to go out and someone has to watch the cash. We set up an agent to carry the routine part of their role, with an Australian Chartered Accountant reviewing its work, and hand everything back the day they return.</p>
-  <ol class="cv">
-    <li><b>Before they go</b><span>We shadow them for a week and write the agent's job description from how they actually do the work. They sign it off.</span></li>
-    <li><b>While they're away</b><span>The agent matches bills, drafts invoices and reminders and keeps the reconciliation current. Anything unusual is held for a named person. You get a one-page update every Friday.</span></li>
-    <li><b>When they're back</b><span>A handover note: what was done, what was held and what's waiting. The agent can stay on to help them, or be switched off.</span></li>
-  </ol>
-  <div class="cv-foot"><p><b>Their job stays theirs.</b> The agent covers routine work only. Decisions, customers and anything about people stay with your team. Best booked three to four weeks before the leave starts.</p><div class="cv-price"><span>Setup from</span><b>$3,500</b><span>then from $2,000 a month of cover</span></div></div>
-  <div class="hz-ctas"><a class="btn primary" href="/contact/?topic=Discovery%20call#form" data-topic="Discovery call">Plan cover for someone's leave</a></div>
-</div></section>
-
-<section class="hz-sec" id="pricing"><div class="wrap">
-  <h2>Prices, and how to start</h2>
-  <p class="lede">Fixed prices, agreed in writing before we start. Prices are in Australian dollars. Beiz isn't registered for GST, so no GST is added.</p>
-  <table class="hz-price">
-    <thead><tr><th>Offer</th><th>What you get</th><th class="n">Price</th></tr></thead>
-    <tbody>
-      <tr id="sprint-row" class="start"><td><a href="#sprint">Compliance controls sprint</a><small>Start here</small></td><td>Two weeks, one focus: AI use, AML/CTF Tranche 2 or the Privacy Act. A register, data map, named owners, rules and approval points, and a 90-day plan for the first controlled workflow. Legal wording stays with your adviser or lawyer. No ledger access needed.</td><td class="n">from $3,500</td></tr>
-      <tr id="check"><td><a href="/contact/?topic=Two-week%20cash%20%26%20data%20check#form">Two-week cash &amp; data check</a></td><td>From your Xero and job or timesheet exports: unbilled work, margin leaks and manual bottlenecks, with the records behind each finding. One business, up to 12 months of exports. You get a findings register, a two-page report and a 30-minute walkthrough. Doesn't include fixing the records, tax or BAS. Credited if you go ahead. <a class="hz-dl" href="/assets/beiz-sample-check-report.pdf">See a sample report (PDF)</a> <a class="hz-dl" href="/assets/beiz-sample-findings-register.xlsx">and its findings register (Excel)</a></td><td class="n">$1,500 fixed</td></tr>
-      <tr id="model"><td><a href="/services/dashboards-and-models/">Live cash &amp; job profit model</a></td><td>A 13-week rolling cash flow and profit by job against what you quoted, updated weekly, in your own Excel or Power BI.</td><td class="n">from $5,000</td></tr>
-      <tr id="ai"><td><a href="/services/ai-readiness-sprint/">AI workforce setup</a></td><td>Your first agent with its job description, limits and decision log, plus limits and approvers for the AI already inside your software. Each further agent is quoted in writing. Planned as a three-week rollout: map and limit, shadow mode, live within limits. Includes a review at day 30; ongoing monitoring is the monthly service below.</td><td class="n">from $8,500</td></tr>
-      <tr><td><a href="#cover">Leave cover</a></td><td>An agent carries the routine part of a role while someone is on leave, reviewed by an Australian Chartered Accountant, with a handover note when they return.</td><td class="n">from $3,500 setup, then from $2,000 a month</td></tr>
-      <tr id="ops"><td>Monthly controls operations</td><td>We run the monthly checks: review the agents' decisions, re-test before changes, keep AML/CTF screening, monitoring and records current where they apply, and send you one page on what was caught and what changed.</td><td class="n">from $1,250 a month</td></tr>
-    </tbody>
-  </table>
-  <div class="hz-ws">
-    <div><h3>Confused by AI? We're not.</h3><p>Take the free 5-minute workshop: map your week, set your first agent's limits and leave with a written plan. Or apply for a seat at a live small-group session.</p></div>
-    <div class="hz-ctas"><a class="btn primary" href="/workshop/">Take the workshop</a><a class="btn ghost" href="/workshop/#live">Join a live session</a></div>
+    <p class="demo-k">Who you'll work with</p>
+    <h2>You'll talk to Purav, not a sales team.</h2>
+    <p class="talk-cred">Australian Chartered Accountant (CA ANZ) · Certificate of Public Practice · GAICD</p>
+    <p>I set up and test every agent myself, and I check the limits before anything goes live. My background is internal audit, fraud and controls, corporate finance and SAP systems, governance and reporting for large project portfolios, and data analysis and automation. I'm bound by the APES 110 Code of Ethics.</p>
+    <p>Beiz works alongside your accountant, or inside your firm. We don't do tax, BAS or statutory audit work, so there's nothing to compete with.</p><!--CA_WHO-->
+    <div class="hz-ctas"><a class="btn primary" href="/contact/?topic=Discovery%20call#form" data-topic="Discovery call">Book a 20-minute fit check</a><a class="btn ghost" href="/about/">More about Beiz</a></div>
   </div>
 </div></section>
 </div>
@@ -274,7 +148,7 @@ def home():
 # ------------------------------------------------------------------ services
 START_HERE = '''<section style="padding-top:8px"><div class="wrap"><p class="eyebrow">Start here</p><h2>Three ways to start, with fixed prices.</h2>
 <div class="cards" style="margin-top:22px">
-<a class="card" href="/#check"><span class="k">$1,500 fixed · credited if you go ahead</span><h3>Two-week cash &amp; data check</h3><p>From your Xero and job or timesheet exports, we find unbilled work, margin leaks and manual bottlenecks, with a fixed-price next step.</p><span class="go">About the check →</span></a>
+<a class="card" href="/prices/#check"><span class="k">$1,500 fixed · credited if you go ahead</span><h3>Two-week cash &amp; data check</h3><p>From your Xero and job or timesheet exports, we find unbilled work, margin leaks and manual bottlenecks, with a fixed-price next step.</p><span class="go">About the check →</span></a>
 <a class="card" href="/services/dashboards-and-models/"><span class="k">From $5,000</span><h3>Live cash &amp; job profit model</h3><p>A 13-week rolling cash flow and weekly job profitability your team can actually read.</p><span class="go">How the model works →</span></a>
 <a class="card" href="/services/ai-readiness-sprint/"><span class="k">From $8,500</span><h3>AI workforce setup</h3><p>AI agents for supplier bills, quotes, reporting and admin, each with a job description and a person who approves anything touching money or customers.</p><span class="go">How the setup works →</span></a>
 </div><p class="fine" style="margin-top:14px">Then monthly support from $1,250 a month, if you want it. Prices are confirmed in writing before work starts. Beiz isn't registered for GST, so no GST is added.</p></div></section>'''
@@ -289,7 +163,7 @@ def services_hub():
         ("/services/data-engineering/", "Connect", "Data engineering", "Your systems connected, cleaned and flowing into one source your reports, models and AI can trust."),
         ("/services/dashboards-and-models/", "See", "Dashboards & financial models", "Cash forecasts, runway scenarios, job profitability and board or investor dashboards."),
         ("/services/project-delivery/", "Deliver", "AI & tech project delivery", "Scope, vendors, milestones and honest reporting, so your tech project actually lands."),
-        ("/#sprint", "Start here", "Compliance controls sprint", "One focus: AI use, AML/CTF Tranche 2 or the Privacy Act. Name owners, set limits and pick the first controlled workflow. From $3,500, two weeks."),
+        ("/compliance-sprint/", "Start here", "Compliance controls sprint", "One focus: AI use, AML/CTF Tranche 2 or the Privacy Act. Name owners, set limits and pick the first controlled workflow. From $3,500, two weeks."),
         ("/services/ai-readiness-sprint/", "Start here", "AI workforce setup", "AI agents with job descriptions, limits, a decision log and a person who approves what matters. Planned as a three-week rollout. From $8,500."),
         ("/services/quick-wins/", "Small business", "Quick wins", "Small, fixed-price fixes from $1,200 that give you back evenings and bring cash in faster. Built for sole traders and small teams who don't have time for admin. Most are scoped in days, not months, with no lock-in. Your BAS and tax stay with your tax or BAS agent; we make their job easier."),
     ]
@@ -487,12 +361,14 @@ def services():
     svc("/services/ai-readiness-sprint/", "AI workforce", "AI workforce setup",
         "Your AI workforce, set up properly, on a three-week rollout plan.",
         "We set up AI agents that do real finance and admin work inside the tools you already use: a data scientist agent, an accounting agent, a reviewer agent and a governance agent. Each one has a job description, limits and a person it reports to. We also set the limits, approvers and decision log for the AI already inside your software, like Xero and Microsoft 365. Then we keep them all in check every month.",
-        '''<h2>The agents</h2>
-<ul><li><strong>Data scientist agent:</strong> forecasts cash for the next 13 weeks, spots margin drift by job, and flags what's unusual.</li>
-<li><strong>Accounting agent:</strong> reconciles transactions, matches bills to orders and deliveries, and drafts invoices and reminders.</li>
-<li><strong>Reviewer agent:</strong> traces figures back to the ledger and holds anything it can't trace for a person to check.</li>
-<li><strong>Governance agent:</strong> keeps the decision log, the register of AI in use and the monthly board or owner report.</li></ul>
-<p>You don't need all four on day one. Most businesses start with the one or two that save the most hours, and add the rest once those are working.</p>
+        '''<h2 id="agents">The agents</h2>
+<ul><li><strong>Data scientist agent:</strong> cleans your exports, joins the records, builds the cash and margin models and flags outliers. Never changes a source record.</li>
+<li><strong>Financial controller agent:</strong> reconciles bank to ledger, matches bills to orders and timesheets, and prepares the month-end checklist. Never posts a journal or releases a payment.</li>
+<li><strong>CFO desk agent:</strong> drafts the weekly cash view, board pack numbers and variance notes. Never sends anything to your board, bank or investors.</li>
+<li><strong>Systems agent:</strong> watches integrations, data feeds and who has access, and flags new AI tools staff start using. Never changes a permission or a setting.</li>
+<li><strong>Compliance agent:</strong> prepares AML/CTF client checks and screening, sets monitoring dates and files the evidence. Never clears a possible match or accepts a high-risk client.</li>
+<li><strong>Risk officer agent:</strong> keeps the controls register current, logs every exception and drafts the monthly risk report. Never signs off its own controls.</li></ul>
+<p>You don't need all six on day one. Most businesses start with the one or two that save the most hours, and add the rest once those are working.</p>
 <h2>Six controls every agent gets</h2>
 <ol><li><strong>A named role and owner.</strong> A written job description: what the agent does, the tools it may use, and the person it reports to.</li>
 <li><strong>Limits it can't cross.</strong> Read-only access where possible, and a delegation limit. Changed bank details, new suppliers and anything over the limit always go to a person.</li>
@@ -510,7 +386,7 @@ def services():
         [("Agent job descriptions", "Role, tools, limits and owner for each agent, agreed with you."), ("Working agents", "Built in your own accounts and tools."), ("Approval steps", "Money, customers and people always need a human yes."), ("Test results", "How each agent did on your past records, before it went live."),
          ("Decision log", "Every action recorded, in your accounts."), ("AI use policy and training", "One page your team can follow, plus a session on the agents."), ("Day-30 review", "Errors, time saved and exceptions, measured.")],
         aside("The fine print", ["Setup from $8,500, fixed and quoted in writing", "Three-week rollout plan, subject to scope and system access", "Monthly monitoring and review from $1,250", "Built in your accounts. No lock-in."], "AI workforce setup"),
-        "", [("/services/ai-governance/", "AI governance"), ("/services/automation/", "Workflow automation"), ("/#wrong", "What goes wrong without controls")],
+        "", [("/services/ai-governance/", "AI governance"), ("/services/automation/", "Workflow automation"), ("/compliance-sprint/#limits", "Set an agent's limits (demo)")],
         "AI workforce setup", "AI workforce setup: AI agents with a Chartered Accountant in the loop",
         "Fixed-price AI workforce setup for Australian businesses: data scientist, accounting, reviewer and governance agents with job descriptions, limits, a decision log and monthly review. From $8,500.")
 
@@ -538,7 +414,7 @@ def services():
 def privacy_sprint():
     svc("/services/privacy-sprint/", "Privacy Act module", "Before 10 December 2026",
         "The Privacy Act module of the controls sprint.",
-        "For organisations covered by the Privacy Act, including health and allied health providers and businesses over $3 million. It runs inside the <a href=\"/#sprint\">compliance controls sprint</a>: we find what your software decides about people, and hand your lawyer what they need to update your privacy policy before 10 December 2026.",
+        "For organisations covered by the Privacy Act, including health and allied health providers and businesses over $3 million. It runs inside the <a href=\"/compliance-sprint/\">compliance controls sprint</a>: we find what your software decides about people, and hand your lawyer what they need to update your privacy policy before 10 December 2026.",
         """<h2>Why now</h2>
 <p>From 10 December 2026, if the Privacy Act covers you, your privacy policy has to say when computer programs make, or substantially help make, decisions that could significantly affect people, and what personal information they use. Most businesses don't yet know which of their tools do that. It's often buried inside booking, finance, HR and fraud software.</p>
 <h2>Who it's for</h2>
@@ -795,7 +671,7 @@ def ai_check():
 <h2>What you'll need to do</h2>
 <p>Update your privacy policy to describe the kinds of personal information used and the kinds of decisions involved. That means knowing which of your tools do this, which most businesses don't yet.</p>
 <p><a href="/insights/privacy-act-automated-decisions/">Read the plain-English guide</a></p>
-</div><aside class="aside"><h3>Days until 10 December 2026</h3><p class="price" data-adm-days>&nbsp;</p><p class="muted">The obligation applies to organisations covered by the Privacy Act. Many small businesses are exempt, but health service providers and several other kinds of business are covered regardless of size.</p><a class="btn primary" href="/#sprint">The controls sprint, with the Privacy Act module</a></aside></div></section>''' + contact_form("Want the written version?", "Send your result and we'll reply with a short written action list.", "Next step")
+</div><aside class="aside"><h3>Days until 10 December 2026</h3><p class="price" data-adm-days>&nbsp;</p><p class="muted">The obligation applies to organisations covered by the Privacy Act. Many small businesses are exempt, but health service providers and several other kinds of business are covered regardless of size.</p><a class="btn primary" href="/compliance-sprint/">The controls sprint, with the Privacy Act module</a></aside></div></section>''' + contact_form("Want the written version?", "Send your result and we'll reply with a short written action list.", "Next step")
     add("/ai-check/", "Privacy Act AI check (free, 2 minutes)", "Free 2-minute check: will the Privacy Act automated-decision transparency rules starting 10 December 2026 apply to your business? Runs in your browser; nothing is sent.", body)
 
 
@@ -910,6 +786,7 @@ def how_we_work():
 <h2>Who owns what</h2>
 <p>You own the outcome: everything runs in your accounts, with your logins, and it keeps running if we part ways. Our reusable templates, frameworks and code libraries stay our intellectual property, licensed to you. That's what keeps delivery fast and prices fixed.</p>
 </div><aside class="aside"><h3>Working with your accountant</h3><p class="muted">Already have a tax accountant or bookkeeper? Good. We work alongside them and hand over clean, reconciled data.</p><a class="btn primary" href="/insights/we-feed-your-tax-accountant/">How that works</a></aside></div></section>''' + cta_band()
+    body += wrapbz('<section class="hz-sec" id="ca"><div class="wrap"><p class="demo-k">Checks &amp; approvals</p><h2>What a Chartered Accountant adds</h2><p class="lede">The agents do the matching. A Chartered Accountant designs the limits and asks the questions software can\'t. Red ink shows the kind of review notes we write.</p>' + MOVED["dlog"] + '</div></section>')
     add("/how-we-work/", "How we work", "How a Beiz engagement runs: written brief, fixed-price proposal, weekly updates and a full handover. Human sign-off, audit trail, confidentiality and conflict checks.", body)
 
 
@@ -1137,7 +1014,7 @@ def try_page():
   <div><div id="dHrsOut"></div><button class="btn primary" type="button" id="dHrsSend">Send me this with a fix</button></div></div>
 
 <p class="fine" style="margin-top:18px">Demos are simplified estimates from the numbers you enter. They're illustrations, not financial advice. The real versions are built from your own data.</p>
-</div></section>''' + WATCH + cta_band("Found your problem?", "Tell us in a few lines. You'll get a written, fixed-price way to fix it.")
+</div></section>''' + wrapbz(MOVED["model"] + MOVED["lineage"] + MOVED["trace"]) + WATCH + cta_band("Found your problem?", "Tell us in a few lines. You'll get a written, fixed-price way to fix it.")
     add("/try/", "Try it: 60-second demos", "Four 60-second demos using your own numbers: what late payers cost you, a 13-week cash forecast, an AI bill checker and admin hours. Runs in your browser.", body)
 
 
@@ -1213,7 +1090,7 @@ def aml_firms():
     body = phero("AML/CTF Tranche 2 · accounting firms", "AML/CTF for accounting firms, without a compliance team.",
                  "Since 1 July 2026, accounting firms that set up companies and trusts, act as directors or trustees, or help clients buy and sell businesses have AML/CTF obligations. Agents can do the routine checks and paperwork. Your compliance officer keeps every decision.",
                  [("/aml-ctf-accounting-firms/", "AML/CTF for accounting firms")],
-                 [("/contact/?topic=AML%2FCTF%20Tranche%202#form", "Book a 20-minute fit check"), ("/#aml", "Run a sample onboarding check")]) + f"""
+                 [("/contact/?topic=AML%2FCTF%20Tranche%202#form", "Book a 20-minute fit check"), ("#aml", "Run a sample onboarding check")]) + wrapbz(MOVED["aml"]) + f"""
 <section style="padding-top:8px"><div class="wrap split"><div class="prose">
 <h2>Is your firm caught?</h2>
 <p>It depends on the services you provide, not on being an accountant. The regulated services accounting firms most often provide are:</p>
@@ -1226,7 +1103,7 @@ def aml_firms():
 <section style="padding-top:0"><div class="wrap"><h2>Where an agent helps, and where it stops</h2>
 <p class="lede">The agent does the collecting, checking and filing. Your people make every decision that carries risk.</p>
 <div class="tblw"><table class="tbl"><thead><tr><th>Step</th><th>The agent</th><th>Your people</th></tr></thead><tbody>{rows}</tbody></table></div>
-<p style="margin-top:16px"><a class="btn" href="/#aml">Run a sample onboarding check</a></p></div></section>
+<p style="margin-top:16px"><a class="btn" href="#aml">Run the sample onboarding check</a></p></div></section>
 <section style="padding-top:0"><div class="wrap split"><div class="prose">
 <h2>What it costs</h2>
 <p><b>Compliance controls sprint, AML/CTF focus: from $3,500.</b> Two weeks. Which of your services are caught, how new clients are checked today, who owns each step, where a person must approve, the records you keep, and a 90-day plan for the first controlled workflow.</p>
@@ -1238,6 +1115,34 @@ def aml_firms():
 </div><aside class="aside"><h3>Questions firms ask</h3>{faq_html(faqs)}</aside></div></section>
 <section style="padding-top:0"><div class="wrap"><p class="fine">Sources: <a href="https://austrac.gov.au/node/1158" rel="noopener">AUSTRAC, summary of AML/CTF obligations for tranche 2 entities</a>; <a href="https://www.austrac.gov.au/new-and-media/news/austrac-opens-enrolment-new-professions-next-step-aml-reforms" rel="noopener">AUSTRAC, enrolment for new professions</a>; <a href="https://www.austrac.gov.au/sites/default/files/2025-12/AUSTRAC%20Suspicious%20Matter%20Reporting%20-%20Reference%20Guide%20December%202025.pdf" rel="noopener">AUSTRAC, suspicious matter reporting reference guide</a>. Checked 16 October 2026.</p></div></section>""" + cta_band("Not sure which of your services are caught?", "Send a few lines on what your firm does. You'll get a written reply on where AML/CTF applies and what we'd check first.", "AML/CTF Tranche 2")
     add("/aml-ctf-accounting-firms/", "AML/CTF Tranche 2 for accounting firms | Beiz", "Which accounting services AML/CTF Tranche 2 catches, what your firm must do, and how agents prepare client checks while your compliance officer decides.", body)
+
+
+MOVED = {'sprint': '<section class="hz-sec sp" id="sprint"><div class="wrap">\n  <p class="demo-k">Start here</p>\n  <h2>Two weeks to know where you stand.</h2>\n  <p class="sp-line">Find every obligation. Name an owner. Set the limit. Keep the evidence.</p>\n  <p class="lede">The compliance controls sprint. Pick the obligation that matters most right now. We map what\'s in scope, who owns it and where a person must approve, then set the rules and choose the first workflow worth running under controls. It starts with short interviews and the documents you already have. We don\'t need access to your ledger.</p>\n  <ul class="sp3" aria-label="Pick one focus">\n    <li><b>AI use</b><span>The AI tools your people use, what client data goes in, and the rules around them.</span></li>\n    <li><b>AML/CTF Tranche 2</b><span>Which of your services are caught, how new clients are checked, and the records you keep.</span></li>\n    <li><b>Privacy Act, 10 December</b><span>Whether the automated-decision rules look relevant, with draft wording for your lawyer to review.</span></li>\n  </ul>\n  <ul class="sp5">\n    <li><b>Register</b><span>What\'s in scope: tools, services or decisions, and who uses them.</span></li>\n    <li><b>Data map</b><span>Which client, staff, financial or confidential information is involved.</span></li>\n    <li><b>Named owners</b><span>One accountable person for each obligation that matters.</span></li>\n    <li><b>Rules and approvals</b><span>What\'s allowed, what\'s never done, when a person must check and who to escalate to.</span></li>\n    <li><b>90-day plan</b><span>The first controlled workflow, its owner, how it\'s measured and the next decision.</span></li>\n  </ul>\n  <div class="cv-foot"><p><b>One focus per sprint.</b> A second focus is quoted in writing. We don\'t give legal advice: AML/CTF program wording and privacy policy wording stay with your adviser or lawyer, and we hand them the facts.</p><div class="cv-price"><span>Fixed price from</span><b>$3,500</b><span>two weeks, agreed in writing</span></div></div>\n  <div class="hz-ctas"><a class="btn primary" href="/contact/?topic=Compliance%20controls%20sprint#form" data-topic="Compliance controls sprint">Book a 20-minute fit check</a><a class="btn ghost" href="/aml-ctf-accounting-firms/#aml">Run a client onboarding check</a></div>\n</div></section>', 'limits': '<section class="hz-sec xdemo" id="limits"><div class="wrap">\n  <p class="demo-k">Your work · Automate it</p>\n  <h2>AI without controls is a risk. AI with controls is a workforce.</h2>\n  <p class="lede">Everyone talks about AI. Few understand its limits. AI agents don\'t fail quietly; they fail at scale. Here are five requests a payables agent might face in a week. You decide: allow it, hold it for a person, or block it. Then see what we\'d set, and why. A simulation, not connected to any real accounts.</p>\n  <div class="lm" id="lm"></div>\n  <p class="nx">You just set the limits for one agent. <a href="#sprint">The compliance controls sprint</a> does this for every AI tool your team already uses.</p>\n</div></section>', 'aml': '<section class="hz-sec xdemo aml" id="aml"><div class="wrap">\n  <p class="demo-k">AML/CTF · Tranche 2</p>\n  <h2>A new client walks in. Is your firm ready to say yes?</h2>\n  <p class="lede">Since 1 July 2026, accountants who form companies and trusts, act as directors or trustees, or buy and sell businesses for clients have AML/CTF obligations: customer due diligence, screening, ongoing monitoring and records. Run a sample onboarding check and see where a person has to decide.</p>\n  <div class="am" id="am"></div>\n  <div class="am-split">\n    <div><b>What the agents do</b><span>Check whether the service is caught, confirm the client and its owners, run the screening, draft the risk rating, file the evidence and set the next monitoring date.</span></div>\n    <div><b>What stays with your people</b><span>Every possible match, every high-risk client and the decision to take the work on. Your AML/CTF compliance officer stays accountable; we prepare, check and keep the record.</span></div>\n  </div>\n  <p class="nx">Not sure which of your services are caught? <a href="/compliance-sprint/">Pick AML/CTF as your sprint focus.</a> Then <a href="/prices/#ops">monthly controls operations</a> keep the screening, monitoring and evidence current.</p>\n  <p class="fine">Simulation with made-up data, not connected to any real system. Not legal advice: your AML/CTF program sets the actual rules. Obligations as described by <a href="https://www.austrac.gov.au/new-and-media/news/austrac-opens-enrolment-new-professions-next-step-aml-reforms" rel="noopener">AUSTRAC</a>.</p>\n</div></section>', 'model': '<section class="hz-sec xdemo" id="model-demo"><div class="wrap">\n  <p class="demo-k">Your numbers · Model it</p>\n  <h2>Make the decision before the cash runs out</h2>\n  <p class="lede">A 13-week cash model for a made-up trade business. Move the sliders and watch the low point move. Every number can be opened up.</p>\n  <div class="cm-grid">\n    <div class="cm-ctl">\n      <label>Customers on account pay in <output id="cmDelayV"></output><input type="range" id="cmDelay" min="7" max="90" step="1" value="45"></label>\n      <label>Wages per fortnight <output id="cmWageV"></output><input type="range" id="cmWage" min="20000" max="60000" step="1000" value="32000"></label>\n      <label>Sales growth per month <output id="cmGrowV"></output><input type="range" id="cmGrow" min="-15" max="25" step="1" value="5"></label>\n      <div class="cm-fixed"><b>Held steady in this demo</b><span>Opening cash $50,000 · sales $48,000 a week: 60% paid within a week, 40% on account (30-day terms until now) · suppliers 40% of sales, paid after 30 days · overheads $6,000 a week · super 12% with each pay run · buffer $40,000</span></div>\n    </div>\n    <div class="cm-out">\n      <div class="cm-kpis"><div><span>Lowest point</span><b id="cmLow"></b><small id="cmLowWk"></small></div><div><span>Weeks under buffer</span><b id="cmUnder"></b></div><div><span>Cash in week 13</span><b id="cmEnd"></b></div></div>\n      <svg id="cmChart" viewBox="0 0 640 260" role="img" aria-label="13-week cash forecast"></svg>\n      <p class="cm-why" id="cmWhy"></p>\n      <button type="button" class="btn ghost" id="cmOpen" aria-expanded="false" aria-controls="cmBehind">Show me what sits behind this number</button>\n    </div>\n  </div>\n  <div class="cm-behind" id="cmBehind" hidden>\n    <div class="lg-scroll"><table class="cm-t" id="cmTable"></table></div>\n    <div class="cm-notes"><div><b>How each week is calculated</b><span>Closing cash = opening cash + customer receipts − supplier payments − wages and super − overheads. 60% of each week\'s sales arrive the following week. Invoices already sent arrive on the old 30-day terms; new invoices on account arrive on the terms you set.</span></div><div><b>What this demo leaves out</b><span>GST and BAS, tax, loans, one-off costs and seasonality. A real model is built from your ledger with assumptions we agree and write down.</span></div></div>\n  </div>\n  <p class="nx">Not sure how close your own buffer is? <a href="/prices/#check">The two-week cash &amp; data check</a> works it out from your exports. $1,500 fixed.</p>\n</div></section>', 'lineage': '<section class="hz-sec xdemo" id="lineage"><div class="wrap">\n  <p class="demo-k">Your data · Connect it</p>\n  <h2>Follow the number back to where it came from</h2>\n  <p class="lede">A dashboard is only as good as the records under it. Click the margin, then keep going until you reach the raw exports. Switch between the data as it arrived and after cleaning.</p>\n  <div class="lnx" id="ln">\n    <div class="ln-bar"><ol class="ln-steps" id="lnSteps"><li><button type="button" data-s="0">Dashboard</button></li><li><button type="button" data-s="1">Calculation</button></li><li><button type="button" data-s="2">Cleaned records</button></li><li><button type="button" data-s="3">Source data</button></li></ol>\n      <div class="ln-sw" role="group" aria-label="Which data"><button type="button" data-v="raw">As it arrived</button><button type="button" data-v="clean" aria-pressed="true">After cleaning</button></div></div>\n    <div class="ln-stage" id="lnStage" aria-live="polite"></div>\n  </div>\n  <p class="nx">Can\'t trace a number like this in your business? <a href="/prices/#check">Start with the cash &amp; data check.</a> Every finding comes with the records behind it.</p>\n</div></section>', 'trace': '<section class="hz-sec xdemo" id="trace"><div class="wrap">\n  <p class="demo-k">How we work with you</p>\n  <h2>Watch your project as it happens</h2>\n  <p class="lede">No black box and no chasing us for news. You see the plan, a short update every Friday, and every action the agents took, with who approved it. A sample project:</p>\n  <div class="tr" id="tr">\n    <div class="tr-tabs" role="tablist"><button role="tab" aria-selected="true" data-t="plan">Project plan</button><button role="tab" aria-selected="false" data-t="upd">Friday update</button><button role="tab" aria-selected="false" data-t="act">Every action</button></div>\n    <div class="tr-body" id="trBody"></div>\n  </div>\n</div></section>', 'dlog': '<figure class="lg" id="dlog">\n    <div class="lg-h"><b>Decision log</b><span>Sample records · illustrative review, not client work</span></div>\n    <div class="lg-scroll"><table class="lg-t"><thead><tr><th>Time</th><th>Agent</th><th>Entry</th><th class="a">$</th><th class="s">Status</th></tr></thead>\n    <tbody><tr class="lg-r st-log"><td class="t">08:55</td><td class="w">Bank agent</td><td class="x">41 bank lines matched to the ledger</td><td class="a"></td><td class="s"><em>Logged</em><svg class="pen-tick" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 10 L8 16 L22 2"/></svg></td></tr><tr class="lg-r st-log"><td class="t">09:03</td><td class="w">Data scientist agent</td><td class="x">13-week forecast refreshed. Low point week 7</td><td class="a">52,000.00</td><td class="s"><em>Logged</em><svg class="pen-tick" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 10 L8 16 L22 2"/></svg></td></tr><tr class="lg-r st-held"><td class="t">09:12</td><td class="w">Payables agent</td><td class="x">Quoll Electrical bill: <span class="pen-ring">22 h</span> billed, timesheet shows 14 h<span class="pen-note">Only 14 h recorded on the timesheet. Ask the supplier why. PM</span></td><td class="a">3,080.00</td><td class="s"><em>Held</em></td></tr><tr class="lg-r st-ok"><td class="t">09:20</td><td class="w">Payables agent</td><td class="x">6 bills matched to orders and deliveries</td><td class="a">7,412.60</td><td class="s"><em>Approved</em><svg class="pen-tick" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 10 L8 16 L22 2"/></svg></td></tr><tr class="lg-r st-stop"><td class="t">09:31</td><td class="w">Payables agent</td><td class="x">Email asks to change a supplier\'s bank details<span class="pen-note">Never by email. Call them on the known number.</span></td><td class="a"></td><td class="s"><em>Blocked</em></td></tr><tr class="lg-r st-held"><td class="t">09:44</td><td class="w">Accounting agent</td><td class="x">Reminder drafted, invoice 30 days overdue</td><td class="a">4,350.00</td><td class="s"><em>Held</em></td></tr><tr class="lg-r st-held"><td class="t">10:02</td><td class="w">Reviewer agent</td><td class="x">Board pack figure not found in the ledger<span class="pen-note">Agree to the trial balance first.</span></td><td class="a"></td><td class="s"><em>Held</em></td></tr></tbody>\n    <tfoot><tr><td colspan="5"><span id="dlCount"></span></td></tr></tfoot></table></div>\n    <figcaption class="lg-f"><span class="pen-sig">Example review notes, P. Mehta CA</span><span>Red ink shows the kind of questions a Chartered Accountant asks. In your business the log sits in your own accounts.</span></figcaption>\n    <p class="nx">Every agent we set up keeps a log like this. <a href="/services/ai-readiness-sprint/">See AI workforce setup.</a></p>\n  </figure>', 'cover': '<section class="hz-sec" id="cover"><div class="wrap">\n  <p class="demo-k">Finance leave cover</p>\n  <h2>Someone\'s going on leave. The work doesn\'t have to stop.</h2>\n  <p class="lede">Parental leave, long service leave, a month in Europe. Bills still arrive, invoices still need to go out and someone has to watch the cash. We set up an agent to carry the routine part of their role, with an Australian Chartered Accountant reviewing its work, and hand everything back the day they return.</p>\n  <ol class="cv">\n    <li><b>Before they go</b><span>We shadow them for a week and write the agent\'s job description from how they actually do the work. They sign it off.</span></li>\n    <li><b>While they\'re away</b><span>The agent matches bills, drafts invoices and reminders and keeps the reconciliation current. Anything unusual is held for a named person. You get a one-page update every Friday.</span></li>\n    <li><b>When they\'re back</b><span>A handover note: what was done, what was held and what\'s waiting. The agent can stay on to help them, or be switched off.</span></li>\n  </ol>\n  <div class="cv-foot"><p><b>Their job stays theirs.</b> The agent covers routine work only. Decisions, customers and anything about people stay with your team. Best booked three to four weeks before the leave starts.</p><div class="cv-price"><span>Setup from</span><b>$3,500</b><span>then from $2,000 a month of cover</span></div></div>\n  <div class="hz-ctas"><a class="btn primary" href="/contact/?topic=Discovery%20call#form" data-topic="Discovery call">Plan cover for someone\'s leave</a></div>\n</div></section>', 'pricing': '<section class="hz-sec" id="pricing"><div class="wrap">\n  <h2>Prices, and how to start</h2>\n  <p class="lede">Fixed prices, agreed in writing before we start. Prices are in Australian dollars. Beiz isn\'t registered for GST, so no GST is added.</p>\n  <table class="hz-price">\n    <thead><tr><th>Offer</th><th>What you get</th><th class="n">Price</th></tr></thead>\n    <tbody>\n      <tr id="sprint-row" class="start"><td><a href="/compliance-sprint/">Compliance controls sprint</a><small>Start here</small></td><td>Two weeks, one focus: AI use, AML/CTF Tranche 2 or the Privacy Act. A register, data map, named owners, rules and approval points, and a 90-day plan for the first controlled workflow. Legal wording stays with your adviser or lawyer. No ledger access needed.</td><td class="n">from $3,500</td></tr>\n      <tr id="check"><td><a href="/contact/?topic=Two-week%20cash%20%26%20data%20check#form">Two-week cash &amp; data check</a></td><td>From your Xero and job or timesheet exports: unbilled work, margin leaks and manual bottlenecks, with the records behind each finding. One business, up to 12 months of exports. You get a findings register, a two-page report and a 30-minute walkthrough. Doesn\'t include fixing the records, tax or BAS. Credited if you go ahead. <a class="hz-dl" href="/assets/beiz-sample-check-report.pdf">See a sample report (PDF)</a> <a class="hz-dl" href="/assets/beiz-sample-findings-register.xlsx">and its findings register (Excel)</a></td><td class="n">$1,500 fixed</td></tr>\n      <tr id="model"><td><a href="/services/dashboards-and-models/">Live cash &amp; job profit model</a></td><td>A 13-week rolling cash flow and profit by job against what you quoted, updated weekly, in your own Excel or Power BI.</td><td class="n">from $5,000</td></tr>\n      <tr id="ai"><td><a href="/services/ai-readiness-sprint/">AI workforce setup</a></td><td>Your first agent with its job description, limits and decision log, plus limits and approvers for the AI already inside your software. Each further agent is quoted in writing. Planned as a three-week rollout: map and limit, shadow mode, live within limits. Includes a review at day 30; ongoing monitoring is the monthly service below.</td><td class="n">from $8,500</td></tr>\n      <tr><td><a href="/leave-cover/">Leave cover</a></td><td>An agent carries the routine part of a role while someone is on leave, reviewed by an Australian Chartered Accountant, with a handover note when they return.</td><td class="n">from $3,500 setup, then from $2,000 a month</td></tr>\n      <tr id="ops"><td>Monthly controls operations</td><td>We run the monthly checks: review the agents\' decisions, re-test before changes, keep AML/CTF screening, monitoring and records current where they apply, and send you one page on what was caught and what changed.</td><td class="n">from $1,250 a month</td></tr>\n    </tbody>\n  </table>\n  <div class="hz-ws">\n    <div><h3>Confused by AI? We\'re not.</h3><p>Take the free 5-minute workshop: map your week, set your first agent\'s limits and leave with a written plan. Or apply for a seat at a live small-group session.</p></div>\n    <div class="hz-ctas"><a class="btn primary" href="/workshop/">Take the workshop</a><a class="btn ghost" href="/workshop/#live">Join a live session</a></div>\n  </div>\n</div></section>', 'roles': '<ul class="wf6"><li data-ag="0"><h3><i class="wf-dot" aria-hidden="true"></i>Data scientist agent</h3><dl><dt>Does</dt><dd>Cleans your exports, joins the records, builds the cash and margin models and flags outliers.</dd><dt>Never</dt><dd>Change a source record.</dd><dt>Reports to</dt><dd>Your finance lead</dd></dl></li><li data-ag="1"><h3><i class="wf-dot" aria-hidden="true"></i>Financial controller agent</h3><dl><dt>Does</dt><dd>Reconciles bank to ledger, matches bills to orders and timesheets, and prepares the month-end checklist.</dd><dt>Never</dt><dd>Post a journal or release a payment.</dd><dt>Reports to</dt><dd>Your financial controller or owner</dd></dl></li><li data-ag="2"><h3><i class="wf-dot" aria-hidden="true"></i>CFO desk agent</h3><dl><dt>Does</dt><dd>Drafts the weekly cash view, the board pack numbers and the variance notes.</dd><dt>Never</dt><dd>Send anything to your board, bank or investors.</dd><dt>Reports to</dt><dd>Your CFO or owner</dd></dl></li><li data-ag="3"><h3><i class="wf-dot" aria-hidden="true"></i>Systems agent</h3><dl><dt>Does</dt><dd>Watches your integrations, data feeds and who has access. Flags failures and new AI tools staff start using.</dd><dt>Never</dt><dd>Change a permission or a setting.</dd><dt>Reports to</dt><dd>Your IT provider or operations lead</dd></dl></li><li data-ag="4"><h3><i class="wf-dot" aria-hidden="true"></i>Compliance agent</h3><dl><dt>Does</dt><dd>Prepares AML/CTF client checks and screening, sets monitoring dates and files the evidence.</dd><dt>Never</dt><dd>Clear a possible match or accept a high-risk client.</dd><dt>Reports to</dt><dd>Your AML/CTF compliance officer</dd></dl></li><li data-ag="5"><h3><i class="wf-dot" aria-hidden="true"></i>Risk officer agent</h3><dl><dt>Does</dt><dd>Keeps the controls register current, logs every exception and drafts the monthly risk report.</dd><dt>Never</dt><dd>Sign off its own controls.</dd><dt>Reports to</dt><dd>Your risk owner or board</dd></dl></li></ul>'}
+
+
+def wrapbz(x):
+    return '<div class="bz hx hz">' + x + '</div>'
+
+
+def compliance_sprint():
+    body = phero("Compliance controls sprint", "Two weeks to know where you stand.",
+                 "One obligation, mapped properly: AI use, AML/CTF Tranche 2 or the Privacy Act. Fixed price from $3,500.",
+                 [("/compliance-sprint/", "Compliance controls sprint")]) + wrapbz(MOVED["sprint"] + MOVED["limits"]) + cta_band("Which obligation worries you most?", "Tell us in a few lines. You'll get a written reply on where to start.", "Compliance controls sprint")
+    add("/compliance-sprint/", "Compliance controls sprint: AI, AML/CTF, Privacy | Beiz", "Two weeks, one focus: AI use, AML/CTF Tranche 2 or the Privacy Act. A register, named owners, rules and approval points and a 90-day plan. From $3,500.", body)
+
+
+def prices_page():
+    body = phero("Prices", "Fixed prices, agreed in writing.",
+                 "Every engagement is scoped and priced in writing before it starts. Australian dollars. Beiz isn't registered for GST, so no GST is added.",
+                 [("/prices/", "Prices")]) + wrapbz(MOVED["pricing"]) + cta_band()
+    add("/prices/", "Prices | Beiz Data & Accounting", "Fixed prices for the compliance controls sprint, cash & data check, cash model, AI workforce setup, leave cover and monthly controls operations.", body)
+
+
+def leave_cover():
+    body = phero("Finance leave cover", "Someone's going on leave. The work doesn't have to stop.",
+                 "An agent carries the routine part of their role, an Australian Chartered Accountant reviews its work, and everything is handed back the day they return.",
+                 [("/leave-cover/", "Finance leave cover")]) + wrapbz(MOVED["cover"]) + cta_band("Someone away soon?", "Tell us the role and the dates. Best booked three to four weeks ahead.", "Discovery call")
+    add("/leave-cover/", "Finance leave cover | Beiz Data & Accounting", "An AI agent carries the routine part of a finance role while someone is on leave, reviewed by an Australian Chartered Accountant. Setup from $3,500.", body)
 
 
 # ------------------------------------------------------------------ about
@@ -1293,5 +1198,5 @@ def not_found():
 
 def build_all():
     home(); services_hub(); services(); privacy_sprint(); industries_hub(); industries(); examples(); ai_check(); workshop()
-    how_we_work(); faq(); contact(); privacy(); insights(); live_page(); try_page(); bill_check(); aml_firms(); about(); not_found()
+    how_we_work(); faq(); contact(); privacy(); insights(); live_page(); try_page(); bill_check(); aml_firms(); compliance_sprint(); prices_page(); leave_cover(); about(); not_found()
     return PAGES

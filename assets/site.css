@@ -2209,3 +2209,27 @@ img.ca-who-mark{display:block;height:40px;width:auto;margin:4px 0 18px}
 .bck-err{color:var(--warn);margin:8px 0}.bck-ok{color:var(--accent);margin:8px 0}
 .btn[disabled]{opacity:.45;cursor:not-allowed}
 @media(max-width:760px){.bck-in{grid-template-columns:1fr}.bck-drop{min-height:140px}.bck-k{grid-template-columns:1fr 1fr}.bck-k div:nth-child(2){border-right:0}.bck-k div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+/* v43 homepage restructure */
+.hz-who{display:flex;gap:12px;align-items:center;margin-top:22px;max-width:520px;font-size:.92rem;color:var(--muted)}
+.hz-who img{width:48px;height:48px;border-radius:50%;object-fit:cover;flex:none;border:1px solid var(--line2)}
+.hz-who b{color:var(--text)}
+.off3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+.off{display:flex;flex-direction:column;gap:8px;padding:22px;border:1px solid var(--line2);background:var(--panel);border-radius:var(--r);text-decoration:none!important;color:var(--text);transition:border-color .2s}
+.off:hover,.off:focus-visible{border-color:var(--text)}
+.off-p{font-size:1.5rem;font-weight:600;color:var(--text)}
+.off h3{margin:0;font-size:1.08rem}
+.off p{margin:0;color:var(--muted);font-size:.95rem;line-height:1.55;flex:1}
+.off .go{margin-top:6px;font-weight:600;font-size:.92rem;text-decoration:underline;text-underline-offset:3px}
+.off-more{margin-top:18px;color:var(--muted);max-width:80ch}
+.how4{list-style:none;counter-reset:hw;display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:26px 0 0;padding:0;border-top:1px solid var(--line2)}
+.how4 li{counter-increment:hw;padding:20px 22px 6px 0;margin-right:22px}
+.how4 li b{display:block;font-size:1.15rem;margin-bottom:8px}
+.how4 li b::before{content:counter(hw) ". ";color:var(--muted);font-weight:500}
+.how4 li p{margin:0;color:var(--muted);font-size:.95rem;line-height:1.6}
+.talk{display:grid;grid-template-columns:280px 1fr;gap:40px;align-items:start}
+.talk img{width:100%;height:auto;border-radius:var(--r);border:1px solid var(--line2)}
+.talk-cred{font-weight:600;color:var(--text)!important;margin:-4px 0 14px}
+.talk p{max-width:68ch}
+@media(max-width:900px){.off3{grid-template-columns:1fr}.how4{grid-template-columns:1fr 1fr}.talk{grid-template-columns:1fr}.talk img{max-width:220px}}
+@media(max-width:560px){.how4{grid-template-columns:1fr}.how4 li{margin-right:0}}
+.talk p+p{margin-top:12px}
