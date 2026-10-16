@@ -194,7 +194,7 @@ def home():
 </div></section>
 
 <section class="hz-sec" id="cover"><div class="wrap">
-  <p class="demo-k">New · Leave cover</p>
+  <p class="demo-k">Finance leave cover</p>
   <h2>Someone's going on leave. The work doesn't have to stop.</h2>
   <p class="lede">Parental leave, long service leave, a month in Europe. Bills still arrive, invoices still need to go out and someone has to watch the cash. We set up an agent to carry the routine part of their role, with an Australian Chartered Accountant reviewing its work, and hand everything back the day they return.</p>
   <ol class="cv">

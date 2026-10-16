@@ -2116,3 +2116,6 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--brand)!important
 .ca-who img.ca-who-mark{width:auto;height:40px;border-radius:0;object-fit:contain;box-shadow:none;border:0}
 img.ca-who-mark{display:block;height:40px;width:auto;margin:4px 0 18px}
 .partner-line{margin:0 0 16px;padding:10px 14px;border-left:3px solid var(--brand);background:var(--panel2);color:var(--muted);font-size:.95rem}
+/* v37: tighter hero top so the map's second row shows on laptop screens; ticker respects reduced motion */
+.hz-hero.dark{padding-top:32px}
+@media(prefers-reduced-motion:reduce){.ticker .track{animation:none}}
