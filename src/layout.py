@@ -156,14 +156,14 @@ def _header(path):
                 f'<div class="ddm" id="dd-{key}">{top}{links}</div></div>')
     see = [(h, t) for h, t, _ in NAV]
     sname = dict(SERVICES)
-    TOP = [("/services/", "AI workforce"), ("/#sprint", "Compliance sprint"), ("/#aml", "AML/CTF"), ("/#model-demo", "Try the demos"), ("/#pricing", "Prices"), ("/about/", "Meet Purav")]
+    TOP = [("/services/", "AI workforce"), ("/#sprint", "Compliance sprint"), ("/aml-ctf-accounting-firms/", "AML/CTF"), ("/bill-check/", "Free bill check"), ("/#pricing", "Prices"), ("/about/", "Meet Purav")]
     mm_start = [("/#check", "Two-week cash &amp; data check", "$1,500 fixed", "Unbilled work, margin leaks and manual bottlenecks, from your exports."),
                 ("/services/ai-readiness-sprint/", "AI workforce setup", "from $8,500", "Agents with job descriptions and limits, including the AI already in your software."),
                 ("/services/dashboards-and-models/", "Financial modelling", "from $5,000", "13-week cash, job margins and what-if scenarios."),
                 ("/#sprint", "Compliance controls sprint", "from $3,500", "Start here. One focus: AI use, AML/CTF Tranche 2 or the Privacy Act.")]
     mmp = ('<div class="mmp" role="group" aria-label="Services"><div class="mm-start">'
            + "".join(f'<a href="{h}"><b>{t}</b><em>{pr}</em><span>{d}</span></a>' for h, t, pr, d in mm_start)
-           + '</div><div class="mm-foot"><a href="/#workforce">Meet the six agents</a><a href="/#cover">Finance leave cover</a><a href="/services/data-engineering/">Data science &amp; analytics</a><a href="/services/">All services</a><a class="mm-ws" href="/workshop/">Free 5-minute workshop</a></div></div>')
+           + '</div><div class="mm-foot"><a href="/#workforce">Meet the six agents</a><a href="/aml-ctf-accounting-firms/">AML/CTF for accounting firms</a><a href="/bill-check/">Free bill check</a><a href="/#cover">Finance leave cover</a><a href="/services/data-engineering/">Data science &amp; analytics</a><a href="/services/">All services</a><a class="mm-ws" href="/workshop/">Free 5-minute workshop</a></div></div>')
     nav = "".join((f'<div class="mm"><a href="{h}"{cur(h)} aria-haspopup="true">{t}<span class="mm-c" aria-hidden="true"></span></a>{mmp}</div>' if h == "/services/" else f'<a href="{h}"{cur(h)}>{t}</a>') for h, t in TOP)
     grp = lambda title, items: f'<p class="mg">{title}</p>' + "".join(f'<a href="{h}">{t}</a>' for h, t in items)
     START = [("/#sprint", "Compliance controls sprint · from $3,500"), ("/#aml", "AML/CTF onboarding check (demo)"), ("/#check", "Two-week cash &amp; data check · $1,500"), ("/services/dashboards-and-models/", "Live cash &amp; job profit model · from $5,000"), ("/services/ai-readiness-sprint/", "AI workforce setup · from $8,500")]

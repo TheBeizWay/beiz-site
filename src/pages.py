@@ -130,7 +130,7 @@ def home():
     <div><b>What the agents do</b><span>Check whether the service is caught, confirm the client and its owners, run the screening, draft the risk rating, file the evidence and set the next monitoring date.</span></div>
     <div><b>What stays with your people</b><span>Every possible match, every high-risk client and the decision to take the work on. Your AML/CTF compliance officer stays accountable; we prepare, check and keep the record.</span></div>
   </div>
-  <p class="nx">Not sure which of your services are caught? <a href="#sprint">Pick AML/CTF as your sprint focus.</a> Then <a href="#pricing">monthly controls operations</a> keep the screening, monitoring and evidence current.</p>
+  <p class="nx">Not sure which of your services are caught? <a href="/aml-ctf-accounting-firms/">Read the guide for accounting firms</a>, or <a href="#sprint">pick AML/CTF as your sprint focus.</a> Then <a href="#pricing">monthly controls operations</a> keep the screening, monitoring and evidence current.</p>
   <p class="fine">Simulation with made-up data, not connected to any real system. Not legal advice: your AML/CTF program sets the actual rules. Obligations as described by <a href="https://www.austrac.gov.au/new-and-media/news/austrac-opens-enrolment-new-professions-next-step-aml-reforms" rel="noopener">AUSTRAC</a>.</p>
 </div></section>
 
@@ -1182,6 +1182,63 @@ def bill_check():
         f'<script src="/assets/billcheck.js?v={ASSET_V}" defer></script>')
 
 
+def aml_firms():
+    caught = ["Setting up or restructuring companies, trusts and partnerships",
+              "Acting as a director, company secretary, trustee or partner for a client, or arranging for someone else to",
+              "Acting as a nominee shareholder, or arranging one",
+              "Providing a registered office or principal place of business address",
+              "Helping a client buy, sell or transfer a business, or interests in a company or trust",
+              "Helping with equity or debt financing",
+              "Receiving, holding or controlling client money or property as part of those services",
+              "Helping a client buy, sell or transfer real estate"]
+    duties = [("Enrol with AUSTRAC", "Within 28 days of first providing a regulated service."),
+              ("An AML/CTF program", "A written risk assessment and policies, approved by a senior manager, kept up to date and independently evaluated at least every three years."),
+              ("A compliance officer", "A fit and proper person who runs the program day to day. In a sole practice, that can be the principal."),
+              ("Customer due diligence", "Identify and verify the client, and the people who own or control it, before you provide the service. Then keep monitoring."),
+              ("Reports", "A suspicious matter report within three business days (24 hours for terrorism financing), and a threshold transaction report for physical cash of $10,000 or more."),
+              ("Records and an annual report", "Keep records for at least seven years, and report each year on how you met your obligations.")]
+    split = [("Is this engagement a regulated service?", "Asks the intake questions and suggests the answer", "Decides"),
+             ("Identify the client and its owners", "Collects and checks documents, drafts the ownership chart", "Reviews anything that doesn't match"),
+             ("Screening for politically exposed persons and sanctions", "Runs the screen and records the result", "Clears or escalates every possible match"),
+             ("Risk rating", "Drafts the rating with its reasons", "Approves it, and decides on every high-risk client"),
+             ("Ongoing monitoring", "Sets review dates, chases expired documents, flags changes", "Decides what changes the risk"),
+             ("Unusual activity", "Flags it to the compliance officer and never contacts the client about it", "Decides whether to report"),
+             ("Records", "Files the evidence: who did what, when and why", "Owns them")]
+    rows = "".join(f"<tr><td><b>{a}</b></td><td>{b}</td><td>{c}</td></tr>" for a, b, c in split)
+    faqs = [("We only do tax returns, BAS and bookkeeping. Are we caught?", "Probably not, on those services alone. It turns on what you do, not on being an accountant. If you provide any of the services listed above, even occasionally, check them with AUSTRAC's guidance or your adviser."),
+            ("Can an AI agent be our AML/CTF compliance officer?", "No. The compliance officer has to be a fit and proper person. The agent prepares the checks; your officer makes the decisions and signs off."),
+            ("What about clients we had before 1 July 2026?", "AUSTRAC's summary says you generally only need to do due diligence on existing clients when a suspicious matter report is due or their risk changes significantly to medium or high."),
+            ("Do you need access to our ledger or client files?", "Not for the sprint. It runs on short interviews and the documents you already have. If you go on to set up an agent, it works inside your own systems and screening service, with access agreed in writing.")]
+    body = phero("AML/CTF Tranche 2 · accounting firms", "AML/CTF for accounting firms, without a compliance team.",
+                 "Since 1 July 2026, accounting firms that set up companies and trusts, act as directors or trustees, or help clients buy and sell businesses have AML/CTF obligations. Agents can do the routine checks and paperwork. Your compliance officer keeps every decision.",
+                 [("/aml-ctf-accounting-firms/", "AML/CTF for accounting firms")],
+                 [("/contact/?topic=AML%2FCTF%20Tranche%202#form", "Book a 20-minute fit check"), ("/#aml", "Run a sample onboarding check")]) + f"""
+<section style="padding-top:8px"><div class="wrap split"><div class="prose">
+<h2>Is your firm caught?</h2>
+<p>It depends on the services you provide, not on being an accountant. The regulated services accounting firms most often provide are:</p>
+{ticks(caught)}
+<p>A practice that only does tax returns, BAS and bookkeeping is probably outside scope. If you provide any of the services above, even occasionally, check them against <a href="https://austrac.gov.au/node/1158" rel="noopener">AUSTRAC's guidance for tranche 2 entities</a> or with your adviser.</p>
+</div><aside class="aside"><h3>Key dates</h3>
+<ul class="ticks"><li>1 July 2026: obligations started</li><li>Within 28 days of first providing a regulated service: enrol with AUSTRAC</li><li>Every three years: independent evaluation of your program</li></ul>
+<a class="btn primary" href="/contact/?topic=AML%2FCTF%20Tranche%202#form">Book a 20-minute fit check</a></aside></div></section>
+<section style="padding-top:0"><div class="wrap"><h2>What your firm has to do</h2>{deliv(duties)}</div></section>
+<section style="padding-top:0"><div class="wrap"><h2>Where an agent helps, and where it stops</h2>
+<p class="lede">The agent does the collecting, checking and filing. Your people make every decision that carries risk.</p>
+<div class="tblw"><table class="tbl"><thead><tr><th>Step</th><th>The agent</th><th>Your people</th></tr></thead><tbody>{rows}</tbody></table></div>
+<p style="margin-top:16px"><a class="btn" href="/#aml">Run a sample onboarding check</a></p></div></section>
+<section style="padding-top:0"><div class="wrap split"><div class="prose">
+<h2>What it costs</h2>
+<p><b>Compliance controls sprint, AML/CTF focus: from $3,500.</b> Two weeks. Which of your services are caught, how new clients are checked today, who owns each step, where a person must approve, the records you keep, and a 90-day plan for the first controlled workflow.</p>
+<p><b>AI workforce setup, compliance agent: from $8,500.</b> The agent's job description, limits and decision log, rolled out over three weeks: map and limit, shadow mode, live within limits.</p>
+<p><b>Monthly controls operations: from $1,250 a month.</b> We keep screening, monitoring dates and records current, review the agent's decisions and send you one page a month.</p>
+<p class="fine">Fixed prices, agreed in writing. Beiz isn't registered for GST.</p>
+<h2>What we don't do</h2>
+<p>We don't act as your AML/CTF compliance officer, write the legal wording of your program or decide whether to report. Program wording stays with your adviser or lawyer; we hand them the facts. This page is general information, not legal advice.</p>
+</div><aside class="aside"><h3>Questions firms ask</h3>{faq_html(faqs)}</aside></div></section>
+<section style="padding-top:0"><div class="wrap"><p class="fine">Sources: <a href="https://austrac.gov.au/node/1158" rel="noopener">AUSTRAC, summary of AML/CTF obligations for tranche 2 entities</a>; <a href="https://www.austrac.gov.au/new-and-media/news/austrac-opens-enrolment-new-professions-next-step-aml-reforms" rel="noopener">AUSTRAC, enrolment for new professions</a>; <a href="https://www.austrac.gov.au/sites/default/files/2025-12/AUSTRAC%20Suspicious%20Matter%20Reporting%20-%20Reference%20Guide%20December%202025.pdf" rel="noopener">AUSTRAC, suspicious matter reporting reference guide</a>. Checked 16 October 2026.</p></div></section>""" + cta_band("Not sure which of your services are caught?", "Send a few lines on what your firm does. You'll get a written reply on where AML/CTF applies and what we'd check first.", "AML/CTF Tranche 2")
+    add("/aml-ctf-accounting-firms/", "AML/CTF Tranche 2 for accounting firms | Beiz", "Which accounting services AML/CTF Tranche 2 catches, what your firm must do, and how agents prepare client checks while your compliance officer decides.", body)
+
+
 # ------------------------------------------------------------------ about
 def about():
     principles = [
@@ -1235,5 +1292,5 @@ def not_found():
 
 def build_all():
     home(); services_hub(); services(); privacy_sprint(); industries_hub(); industries(); examples(); ai_check(); workshop()
-    how_we_work(); faq(); contact(); privacy(); insights(); live_page(); try_page(); bill_check(); about(); not_found()
+    how_we_work(); faq(); contact(); privacy(); insights(); live_page(); try_page(); bill_check(); aml_firms(); about(); not_found()
     return PAGES
