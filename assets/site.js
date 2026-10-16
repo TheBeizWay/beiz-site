@@ -1299,3 +1299,56 @@
   };
   go.addEventListener("click", start);
 })();
+
+/* v40 hero: one supplier bill travels the map as you scroll (or plays once if you don't) */
+(() => {
+  const map = document.getElementById("bmap"), route = document.getElementById("bmRoute"), bill = document.getElementById("bmBill");
+  if (!map || !route || !bill) return;
+  const story = document.getElementById("bmStory"), replay = document.getElementById("bmReplay");
+  const amt = bill.querySelector(".bb-amt"), st = bill.querySelector(".bb-st");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const L = route.getTotalLength();
+  const node = sel => map.querySelector(sel);
+  const stages = [
+    [0.00, "arr", "In", "$3,080", "A supplier bill arrives: Quoll Electrical, $3,080 for 22 hours.", null],
+    [0.12, "chk", "Checking", "$3,080", "The payables agent checks it against the order and the timesheet.", 'a[href="#limits"]'],
+    [0.50, "held", "Held", "$3,080", "Held: 22 hours billed, 14 on the timesheet. A person asks the supplier why.", ".bm-ca"],
+    [0.68, "ok", "Approved", "$1,960", "Supplier sends a corrected bill for 14 hours. Approved by a person: $1,960.", ".bm-ca"],
+    [0.90, "log", "Logged", "$1,960", "Paid on the next run and logged: who checked it, who approved it, why.", ".bm-end"],
+  ];
+  const svgNS = "http://www.w3.org/2000/svg";
+  const lenOf = d => { const t = document.createElementNS(svgNS, "path"); t.setAttribute("d", d); t.setAttribute("fill", "none"); route.parentNode.appendChild(t); const v = t.getTotalLength(); t.remove(); return v; };
+  const P1 = "M280 40 L280 70 C280 110 460 110 460 150", P2 = P1 + " L460 222", P3 = P2 + " C460 270 280 262 280 300";
+  const keys = [[0, 52], [0.12, lenOf(P1)], [0.40, lenOf(P2)], [0.50, lenOf(P3) - 16], [0.80, lenOf(P3) - 16], [0.92, L], [1, L]];
+  const at = p => { for (let k = 1; k < keys.length; k++) if (p <= keys[k][0]) { const [p0, l0] = keys[k - 1], [p1, l1] = keys[k]; return l0 + (l1 - l0) * ((p - p0) / (p1 - p0 || 1)); } return L; };
+  let shown = -1, best = 0, raf = 0;
+  const draw = p => {
+    p = Math.max(0, Math.min(1, p));
+    const pt = route.getPointAtLength(at(p));
+    bill.setAttribute("transform", `translate(${pt.x.toFixed(1)} ${pt.y.toFixed(1)})`);
+    let i = 0; while (i + 1 < stages.length && p >= stages[i + 1][0]) i++;
+    const left = pt.x > 360;
+    st.setAttribute("x", left ? -52 : 52); st.setAttribute("text-anchor", left ? "end" : "start");
+    if (i !== shown) {
+      shown = i; const [, cls, label, money, line, sel] = stages[i];
+      bill.setAttribute("class", "bm-bill bb-" + cls); st.textContent = label; amt.textContent = money; story.textContent = line;
+      map.querySelectorAll(".bm-go").forEach(n => n.classList.remove("flow"));
+      if (sel) node(sel)?.classList.add("flow");
+    }
+  };
+  const set = p => { if (p > best) { best = p; draw(best); } };
+  if (reduce) { best = 1; draw(1); story.textContent = stages[4][4]; return; }
+  draw(0);
+  const anchor = map.getBoundingClientRect().top + scrollY, vh = innerHeight, h = map.offsetHeight;
+  const fromScroll = () => anchor < vh * 0.6 ? scrollY / 380 : (scrollY + vh * 0.8 - anchor) / (h * 0.85);
+  let manual = false;
+  addEventListener("scroll", () => { if (scrollY > 8) { manual = true; cancelAnimationFrame(raf); } set(fromScroll()); }, { passive: true });
+  const play = (from = 0) => {
+    const t0 = performance.now(), dur = 7000;
+    const tick = t => { const p = from + (1 - from) * Math.min(1, (t - t0) / dur); best = Math.max(best, p); draw(best); if (p < 1) raf = requestAnimationFrame(tick); };
+    raf = requestAnimationFrame(tick);
+  };
+  const io = new IntersectionObserver(es => { if (es[0].isIntersecting) { io.disconnect(); setTimeout(() => { if (!manual && best < 0.05) play(); }, 1800); } }, { threshold: 0.5 });
+  io.observe(map);
+  replay.addEventListener("click", () => { cancelAnimationFrame(raf); best = 0; shown = -1; draw(0); manual = false; setTimeout(() => play(), 300); });
+})();

@@ -84,8 +84,11 @@ def home():
       <a href="#model-demo" class="bm-node bm-go" data-cap="Your numbers: a live 13-week cash and job profit model you can question, with every assumption written down."><rect x="200" y="150" width="160" height="72" rx="2"/><text x="280" y="180" class="t1">Your numbers</text><text x="280" y="204" class="t2">Model it</text></a>
       <a href="#limits" class="bm-node bm-go" data-cap="Your work: AI agents that check bills, prepare admin and chase payments, each with a job description and limits."><rect x="380" y="150" width="160" height="72" rx="2"/><text x="460" y="180" class="t1">Your work</text><text x="460" y="204" class="t2">Automate it</text></a>
       <a href="#ca" class="bm-node bm-go bm-ca" data-cap="Checks and approvals: limits you agree, a person who approves what matters, and an Australian Chartered Accountant who designs the controls and reviews the work."><rect x="150" y="300" width="260" height="72" rx="2"/><text x="280" y="330" class="t1">Checks &amp; approvals</text><text x="280" y="354" class="t2">You approve. A CA reviews.</text><ellipse class="pen" cx="392" cy="306" rx="26" ry="16" transform="rotate(-8 392 306)"/><text x="392" y="312" class="pen-t">CA</text></a>
+      <path id="bmRoute" d="M280 40 L280 70 C280 110 460 110 460 150 L460 222 C460 270 280 262 280 300 L280 386" fill="none" stroke="none"/>
       <a href="#pricing" class="bm-node bm-go bm-end" data-cap="Better decisions: clearer cash, profit you can see by job, and less admin, at a fixed price agreed in writing."><rect x="180" y="400" width="200" height="48" rx="2"/><text x="280" y="430">Better decisions</text></a>
+      <g class="bm-bill" id="bmBill" aria-hidden="true"><rect class="bb-doc" x="-40" y="-14" width="80" height="28" rx="4"/><text class="bb-amt" y="5">$3,080</text><text class="bb-st" x="52" y="5"></text></g>
     </svg>
+    <p class="bm-story" aria-live="polite"><span id="bmStory">Scroll to follow one supplier bill through the checks.</span> <button type="button" class="bm-replay" id="bmReplay">Replay</button></p>
     <figcaption id="bmCap">Click any part of the map to try it.</figcaption>
   </figure>
 </div></section>
