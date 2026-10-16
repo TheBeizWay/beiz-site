@@ -2049,3 +2049,4 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--brand)!important
 .hz-hero.dark .bm-ca .pen{stroke:#FF6B5E}.hz-hero.dark .bm-ca .pen-t{fill:#FF6B5E}
 .hz-hero.dark .bmap figcaption{color:#C9C7C0;border-color:#5BD49B}
 .hz-hero{padding:48px 0 48px}
+@media(min-width:1021px){.bz.hz h1{font-size:clamp(2.4rem,4vw,3.6rem)}}

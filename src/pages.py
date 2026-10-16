@@ -61,8 +61,8 @@ def home():
 <section class="hz-hero dark" id="top"><div class="wrap hero32">
   <div class="hz-copy">
     <p class="bz-kick"><svg class="au-flag" viewBox="0 0 120 60" width="27" height="14" role="img" aria-label="Australian flag"><clipPath id="auS1"><rect width="60" height="30"/></clipPath><clipPath id="auT1"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="120" height="60" fill="#012169"/><g clip-path="url(#auS1)"><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#auT1)" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g><g fill="#fff"><polygon points="30.00,36.00 31.74,41.40 37.04,39.39 33.90,44.11 38.77,47.00 33.13,47.49 33.90,53.11 30.00,49.00 26.10,53.11 26.87,47.49 21.23,47.00 26.10,44.11 22.96,39.39 28.26,41.40"/><polygon points="90.00,45.50 90.87,48.20 93.52,47.19 91.95,49.55 94.39,51.00 91.56,51.25 91.95,54.05 90.00,52.00 88.05,54.05 88.44,51.25 85.61,51.00 88.05,49.55 86.48,47.19 89.13,48.20"/><polygon points="75.00,24.50 75.87,27.20 78.52,26.19 76.95,28.55 79.39,30.00 76.56,30.25 76.95,33.05 75.00,31.00 73.05,33.05 73.44,30.25 70.61,30.00 73.05,28.55 71.48,26.19 74.13,27.20"/><polygon points="90.00,4.50 90.87,7.20 93.52,6.19 91.95,8.55 94.39,10.00 91.56,10.25 91.95,13.05 90.00,11.00 88.05,13.05 88.44,10.25 85.61,10.00 88.05,8.55 86.48,6.19 89.13,7.20"/><polygon points="102.50,19.50 103.37,22.20 106.02,21.19 104.45,23.55 106.89,25.00 104.06,25.25 104.45,28.05 102.50,26.00 100.55,28.05 100.94,25.25 98.11,25.00 100.55,23.55 98.98,21.19 101.63,22.20"/><polygon points="96.50,31.40 97.15,33.11 98.97,33.20 97.55,34.34 98.03,36.10 96.50,35.10 94.97,36.10 95.45,34.34 94.03,33.20 95.85,33.11"/></g></svg>Beiz Data &amp; Accounting</p>
-    <h1><span>AI. Data.</span> <span>Financial modelling.</span> <span class="h1-2">See what they can do together.</span></h1>
-    <p class="hz-sub">Led by Purav Mehta, Australian Chartered Accountant · GAICD. We connect your data, model your numbers and set up AI agents for the routine work, with checks you agree and a person who approves what matters.</p>
+    <h1><span>The Chartered Accountant</span> <span>who builds your AI.</span> <span class="h1-2">Code. Financial models. Data. Governance. One Australian CA.</span></h1>
+    <p class="hz-sub">Purav Mehta, Australian Chartered Accountant · GAICD, writes the code, builds the models and sets up the AI agents himself. Your data connected, your numbers modelled, the routine work automated, with checks you agree and a person who approves what matters.</p>
     <div class="hz-ctas"><a class="btn primary" href="#model-demo">Try the cash model</a><a class="btn ghost" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-minute call</a></div>
     <p class="hz-alt">Or take the <a href="/workshop/">free 5-minute workshop</a> and leave with a written plan.</p>
   </div>
@@ -171,7 +171,7 @@ def home():
 </div></section>
 </div>
 {contact_form(heading="Tell us what you're trying to fix", lede="A few lines is plenty. By the next business day you'll get a written reply: what the problem looks like, what information it would need, and whether a fixed-scope job makes sense. Rather talk? Pick “Discovery call” or “Demo request” and we'll arrange a free 20 minutes, early morning or after 5pm.")}'''
-    add("/", "Beiz Data & Accounting | AI, data and financial modelling, led by an Australian Chartered Accountant",
+    add("/", "Beiz Data & Accounting | The Chartered Accountant who builds your AI",
         "Beiz connects your data, models your cash and job profit, and sets up AI agents with limits and approvals. Led by Purav Mehta, Australian Chartered Accountant and GAICD. Fixed prices from $1,500.", body)
 
 # ------------------------------------------------------------------ services
