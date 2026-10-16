@@ -1,10 +1,37 @@
 """Shared layout for beiz.com.au. Pages are plain HTML fragments wrapped by page()."""
 import json
+import os
 
 SITE = "https://beiz.com.au"
-ASSET_V = "105"  # bump to bust caches when CSS/JS change
+ASSET_V = "106"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" aria-hidden="true" class="logo"><rect x="1" y="1" width="34" height="34" rx="7" fill="#15181D" stroke="#30353D" stroke-width="1.5"/><rect x="7" y="9" width="16" height="3.5" rx="1.75" fill="#43B581"/><circle cx="27.5" cy="10.75" r="1.75" fill="#43B581"/><rect x="7" y="16.25" width="11" height="3.5" rx="1.75" fill="#E9A93B"/><rect x="21" y="16.25" width="8" height="3.5" rx="1.75" fill="none" stroke="#E9A93B" stroke-width="1.2"/><rect x="7" y="23.5" width="22" height="3.5" rx="1.75" fill="#A6A49D"/></svg>')
+
+# CA logo: shown only once the official CA ANZ artwork is saved in assets/media
+# (ca-logo.svg/png for light backgrounds, ca-logo-reversed.svg/png for dark).
+# Use requires the firm to meet CA ANZ's Chartered Firm conditions under CR9.
+_MEDIA = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "assets", "media")
+
+
+def _media(stem):
+    for ext in ("svg", "png"):
+        if os.path.exists(os.path.join(_MEDIA, f"{stem}.{ext}")):
+            return f"/assets/media/{stem}.{ext}"
+    return None
+
+
+CA_LOGO, CA_LOGO_REV = _media("ca-logo"), _media("ca-logo-reversed")
+
+
+def ca_img(src, cls):
+    return f'<img class="{cls}" src="{src}" alt="Chartered Accountants Australia and New Zealand" height="44" loading="lazy">' if src else ""
+
+
+def ca_fill(html):
+    """Swap the CA markers in page bodies for the logo, or nothing if the file isn't there yet."""
+    return (html.replace("<!--CA_HERO-->", ca_img(CA_LOGO_REV, "ca-mark ca-hero"))
+                .replace("<!--CA_WHO-->", ca_img(CA_LOGO, "ca-mark ca-who-mark")))
+
 
 NAV = [
     ("/try/", "Try it", "60-second demos with your own numbers"),
@@ -171,7 +198,7 @@ def _footer():
     </div>
     <div class="legal"><span>&copy; <span data-yr>2026</span> Beiz Data &amp; Accounting Pty Ltd · ABN 53 691 755 496 · ACN 691 755 496 · Canberra, ACT · All rights reserved. Content, examples and methods may not be copied or reused without permission.</span><span>Australia-wide · Fixed-scope finance systems &amp; AI governance</span>
       <p>Beiz does not prepare tax returns or BAS, does not provide tax agent or BAS agent services, statutory audit or assurance, legal advice or financial product advice.</p>
-      <p class="pss">Liability limited by a scheme approved under Professional Standards Legislation.</p></div>
+      <p class="pss">Liability limited by a scheme approved under Professional Standards Legislation.</p>{f'<p class="ca-firm">{ca_img(CA_LOGO, "ca-mark")}<span>Beiz Data &amp; Accounting Pty Ltd, Chartered Accountants</span></p>' if CA_LOGO else ''}</div>
   </div>
 </footer>'''
 
@@ -219,6 +246,7 @@ def _trim(desc, n=158):
 
 def page(path, title, desc, body, extra_head=""):
     desc = _trim(desc)
+    body = ca_fill(body)
     full_title = title if "Beiz" in title else (f"{title} | Beiz Data & Accounting" if len(title) <= 40 else f"{title} | Beiz")
     canon = SITE + path
     ld = f'<script type="application/ld+json">{json.dumps(ORG)}</script>' if path == "/" else ""

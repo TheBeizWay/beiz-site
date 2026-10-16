@@ -2106,3 +2106,13 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--brand)!important
 .hz-price tr.start td{background:var(--panel2)}
 .hz-price tr.start small{display:block;margin-top:4px;font-size:.78rem;color:var(--brand);font-weight:600}
 @media(max-width:720px){.hz-price,.hz-price tbody{display:block}.hz-price tr{grid-template-columns:1fr}.hz-price .n{white-space:normal;text-align:left;padding-top:8px}.hz-price .hz-dl{white-space:normal}.hz-price tr.start{padding:14px 12px;background:var(--panel2)}.hz-price tr.start td{background:none}}
+/* v36 CA logo slots (render only when official artwork is present) + sprint line */
+.sp-line{margin:6px 0 0;font:600 1.15rem var(--head,inherit);color:var(--brand)}
+.ca-mark{height:44px;width:auto;display:inline-block;vertical-align:middle}
+.ca-hero{height:30px;margin-left:14px;padding-left:14px;border-left:1px solid #2A2F37}
+.ca-who-mark{display:block;height:40px;margin-left:auto;align-self:center;flex:none}
+.ca-firm{display:flex;align-items:center;gap:12px;margin-top:12px}
+.sp .sp-line{font-size:1.15rem;font-weight:600;color:var(--brand);margin:8px 0 4px}
+.ca-who img.ca-who-mark{width:auto;height:40px;border-radius:0;object-fit:contain;box-shadow:none;border:0}
+img.ca-who-mark{display:block;height:40px;width:auto;margin:4px 0 18px}
+.partner-line{margin:0 0 16px;padding:10px 14px;border-left:3px solid var(--brand);background:var(--panel2);color:var(--muted);font-size:.95rem}
