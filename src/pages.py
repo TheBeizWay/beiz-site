@@ -144,7 +144,7 @@ def home():
     <div class="wfl-k"><div><span>Actions logged</span><b id="wflA">0</b></div><div><span>Held for a person</span><b id="wflH">0</b></div><div><span>Blocked</span><b id="wflB">0</b></div><div class="wfl-zero"><span>Paid or sent without a person</span><b>0</b><small>Fixed at zero. No agent can pay or send.</small></div></div>
     <ol class="wfl-log" id="wflLog" aria-live="off"></ol>
   </div>
-  <div class="cv-foot"><p><b>Start with one.</b> We set up your first agent in a three-week rollout: map and limit, shadow mode beside your person, then live within limits. Each further agent is quoted in writing.</p><div class="cv-price"><span>First agent from</span><b>$8,500</b><span>then monthly controls operations from $1,250</span></div></div>
+  <div class="cv-foot"><p><b>Start with one.</b> We set up your first agent in a three-week rollout: map and limit, a test on your past records and shadow mode beside your person, then live within limits. Each further agent is quoted in writing.</p><div class="cv-price"><span>First agent from</span><b>$8,500</b><span>then monthly controls operations from $1,250</span></div></div>
 </div></section>
 
 <section class="diff" id="different"><div class="wrap">
@@ -493,20 +493,21 @@ def services():
 <li><strong>Reviewer agent:</strong> traces figures back to the ledger and holds anything it can't trace for a person to check.</li>
 <li><strong>Governance agent:</strong> keeps the decision log, the register of AI in use and the monthly board or owner report.</li></ul>
 <p>You don't need all four on day one. Most businesses start with the one or two that save the most hours, and add the rest once those are working.</p>
-<h2>Five controls every agent gets</h2>
+<h2>Six controls every agent gets</h2>
 <ol><li><strong>A named role and owner.</strong> A written job description: what the agent does, the tools it may use, and the person it reports to.</li>
 <li><strong>Limits it can't cross.</strong> Read-only access where possible, and a delegation limit. Changed bank details, new suppliers and anything over the limit always go to a person.</li>
 <li><strong>Human checkpoints.</strong> Anything that moves money, reaches a customer or decides something about a person waits for a human yes.</li>
 <li><strong>A log of every decision.</strong> What the agent did, why, and who approved it, kept in your own accounts.</li>
+<li><strong>Tested before it goes live.</strong> We run the agent over a few months of your past records and check each result against what actually happened. It moves on only when it meets a pass mark agreed with you in writing, and it's re-tested before any change.</li>
 <li><strong>Monthly monitoring and review.</strong> We read the log, check for drift and errors, and adjust the limits. Rules like the Privacy Act's automated-decision disclosures are covered as they apply to you.</li></ol>
 <h2>How it runs</h2>
 <ol><li><strong>Week 1, map and limit:</strong> we list the repetitive work, pick the agents worth having, and write each job description with you.</li>
-<li><strong>Week 2, shadow mode:</strong> the agents run alongside your team without acting. We compare their answers with yours.</li>
+<li><strong>Week 2, test and shadow:</strong> first the agents run over your past records and we check their results against what actually happened. Then they run alongside your team without acting, and we compare their answers with yours.</li>
 <li><strong>Week 3, live within limits:</strong> the agents start work. Anything over a limit comes to a person.</li>
 <li><strong>Day 30, review:</strong> errors, time saved and exceptions, measured. We fix what isn't working and tell you plainly whether to add more.</li></ol>
 <h2>What it isn't</h2>
 <p>It isn't an audit or assurance engagement, custom software that needs a development team, or a licence sale. You buy any subscriptions directly, in your name. We don't do tax returns or BAS.</p>''',
-        [("Agent job descriptions", "Role, tools, limits and owner for each agent, agreed with you."), ("Working agents", "Built in your own accounts and tools."), ("Approval steps", "Money, customers and people always need a human yes."),
+        [("Agent job descriptions", "Role, tools, limits and owner for each agent, agreed with you."), ("Working agents", "Built in your own accounts and tools."), ("Approval steps", "Money, customers and people always need a human yes."), ("Test results", "How each agent did on your past records, before it went live."),
          ("Decision log", "Every action recorded, in your accounts."), ("AI use policy and training", "One page your team can follow, plus a session on the agents."), ("Day-30 review", "Errors, time saved and exceptions, measured.")],
         aside("The fine print", ["Setup from $8,500, fixed and quoted in writing", "Three-week rollout plan, subject to scope and system access", "Monthly monitoring and review from $1,250", "Built in your accounts. No lock-in."], "AI workforce setup"),
         "", [("/services/ai-governance/", "AI governance"), ("/services/automation/", "Workflow automation"), ("/#wrong", "What goes wrong without controls")],
@@ -1229,7 +1230,7 @@ def aml_firms():
 <section style="padding-top:0"><div class="wrap split"><div class="prose">
 <h2>What it costs</h2>
 <p><b>Compliance controls sprint, AML/CTF focus: from $3,500.</b> Two weeks. Which of your services are caught, how new clients are checked today, who owns each step, where a person must approve, the records you keep, and a 90-day plan for the first controlled workflow.</p>
-<p><b>AI workforce setup, compliance agent: from $8,500.</b> The agent's job description, limits and decision log, rolled out over three weeks: map and limit, shadow mode, live within limits.</p>
+<p><b>AI workforce setup, compliance agent: from $8,500.</b> The agent's job description, limits and decision log, rolled out over three weeks: map and limit, a test on your past records and shadow mode, then live within limits.</p>
 <p><b>Monthly controls operations: from $1,250 a month.</b> We keep screening, monitoring dates and records current, review the agent's decisions and send you one page a month.</p>
 <p class="fine">Fixed prices, agreed in writing. Beiz isn't registered for GST.</p>
 <h2>What we don't do</h2>
