@@ -167,14 +167,22 @@ html{overflow-x:clip}
 .am-r.st-held .am-s{background:rgba(242,184,75,.14);color:#F5C76B}
 .am-r.st-stop .am-s{background:rgba(255,107,107,.14);color:#FF8A8A}
 .am-r.st-log .am-s{background:var(--panel2);color:var(--muted)}
-.am-split div{border-top-color:#2EF2E2}
+.am-split div{border-top-color:var(--signal)}
 .lm-b.best.lm-allow{background:rgba(79,209,160,.14)!important;border-color:#4FD1A0!important}
 .lm-b.best.lm-hold{background:rgba(242,184,75,.14)!important;border-color:#F2B84B!important}
 .lm-b.best.lm-block{background:rgba(255,107,107,.14)!important;border-color:#FF6B6B!important}
 .hz-price tr.start td{background:rgba(46,242,226,.05)!important}
-.hz-price tr.start small{color:#2EF2E2}
-.partner-line{background:var(--panel)!important;border-left-color:#2EF2E2!important}
-.wf6 li{border-top-color:#2EF2E2!important}
+.hz-price tr.start small{color:var(--signal)}
+.partner-line{background:var(--panel)!important;border-left-color:var(--signal)!important}
+.wf6 li{border-top-color:var(--signal)!important}
 .bm-story{color:#EAF1FB!important}
-.hz-hero.dark .bm-end.flow rect{fill:#2EF2E2!important;stroke:#fff!important}
+.hz-hero.dark .bm-end.flow rect{fill:var(--signal)!important;stroke:#fff!important}
 .bot-btn i{background:#050A14!important;width:10px!important;height:10px!important}
+/* no white fade next to BEIZ PULSE */
+.ticker .label::after{display:none!important}
+/* motion turned off: still network, one-at-a-time ticker */
+@media (prefers-reduced-motion:reduce){.fx-canvas{display:block!important}}
+.ticker .track.tk-step{animation:none!important}
+.ticker .track.tk-step>span:not([hidden]){animation:tkIn .5s ease both}
+.ticker .track>span[hidden]{display:none!important}
+@keyframes tkIn{from{opacity:0}to{opacity:1}}

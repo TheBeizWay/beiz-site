@@ -33,7 +33,7 @@
 
   /* 1. agent network */
   var hero = document.querySelector('.hz-hero');
-  if (!hero || reduce || innerWidth < 760) return; /* no canvas on phones: battery and speed */
+  if (!hero || innerWidth < 760) return; /* no canvas on phones: battery and speed */
   var cv = document.createElement('canvas'); cv.className = 'fx-canvas'; cv.setAttribute('aria-hidden','true'); hero.insertBefore(cv, hero.firstChild);
   var ctx = cv.getContext('2d'), W, H, dpr, pts = [], agents = [], mouse = {x:-9999, y:-9999}, run = true, t = 0;
   function size(){
@@ -46,7 +46,7 @@
   size(); addEventListener('resize', size);
   hero.addEventListener('pointermove', function(e){ var r = hero.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
   hero.addEventListener('pointerleave', function(){ mouse.x = mouse.y = -9999; });
-  new IntersectionObserver(function(es){ run = es[0].isIntersecting; if (run) requestAnimationFrame(frame); }).observe(hero);
+  if (!reduce) new IntersectionObserver(function(es){ run = es[0].isIntersecting; if (run) requestAnimationFrame(frame); }).observe(hero);
 
   function frame(){
     if (!run) return;
@@ -69,7 +69,7 @@
       ctx.fillStyle = 'rgba(' + CYAN + ',.55)'; ctx.fillRect(p.x-1, p.y-1, 2, 2);
     }
     /* the hero map already shows the agents and the human check, so the canvas stays a quiet network */
-    requestAnimationFrame(frame);
+    if (!reduce) requestAnimationFrame(frame);
   }
-  requestAnimationFrame(frame);
+  requestAnimationFrame(frame); /* with motion turned off this draws one still frame */
 })();

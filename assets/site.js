@@ -142,8 +142,15 @@
     if (!track) return;
     const html = items.map(i => `<span>${i}</span>`).join("");
     track.innerHTML = reduce ? html : html + html;
-    // Constant, readable speed (~32px a second) however long the feed is
-    if (!reduce) requestAnimationFrame(() => { track.style.animationDuration = Math.max(60, Math.round(track.scrollWidth / 2 / 32)) + "s"; });
+    // Constant, readable speed (~48px a second) however long the feed is
+    if (!reduce) requestAnimationFrame(() => { track.style.animationDuration = Math.max(60, Math.round(track.scrollWidth / 2 / 48)) + "s"; });
+    else {
+      // Motion turned off on this device: show one item at a time and swap every 5 seconds instead of scrolling
+      const spans = [...track.children]; let k = 0;
+      track.classList.add("tk-step"); spans.forEach((e, i) => { e.hidden = i !== 0; });
+      clearInterval(renderTicker.timer);
+      renderTicker.timer = setInterval(() => { spans[k].hidden = true; k = (k + 1) % spans.length; spans[k].hidden = false; }, 5000);
+    }
   };
   renderTicker(base);
 
@@ -463,7 +470,7 @@
     const tz = document.createElement("div");
     tz.className = "bot-tease"; tz.setAttribute("role", "dialog"); tz.setAttribute("aria-label", "Ways Beiz can help");
     tz.innerHTML = '<button class="tx" type="button" aria-label="Close">&times;</button><p>Hi, I\'m Bei-zAI. How can I help?<small>Bei-zAI is Beiz plus AI, named after our Border Collie. Pick one and I\'ll walk you through it.</small></p><div class="tc">'
-      + [["aiw", "Set up an AI workforce", "from $6k"], ["chk", "Cash &amp; data check", "$1,500"], ["dash", "Cash &amp; job profit model", "from $5k"], ["story", "The Bei-zAI story", ""]]
+      + [["aiw", "Set up an AI workforce", "from $8.5k"], ["chk", "Cash &amp; data check", "$1,500"], ["dash", "Cash &amp; job profit model", "from $5k"], ["story", "The Bei-zAI story", ""]]
         .map(([k, l, p]) => `<button type="button" data-k="${k}">${l}<span>${p}</span></button>`).join("") + "</div>";
     document.body.appendChild(tz);
     const hideTz = () => { tz.classList.remove("show"); mark(); };
@@ -1337,7 +1344,14 @@
     }
   };
   const set = p => { if (p > best) { best = p; draw(best); } };
-  if (reduce) { best = 1; draw(1); story.textContent = stages[4][4]; return; }
+  if (reduce) {
+    // Motion turned off: step through the stages without gliding, then stop at the end
+    const steps = [0, 0.3, 0.6, 0.78, 1]; let n = 0;
+    const step = () => { best = steps[n]; draw(best); if (++n < steps.length) setTimeout(step, 2400); };
+    draw(0); setTimeout(step, 1200);
+    replay.addEventListener("click", () => { n = 0; shown = -1; step(); });
+    return;
+  }
   draw(0);
   const anchor = map.getBoundingClientRect().top + scrollY, vh = innerHeight, h = map.offsetHeight;
   const fromScroll = () => anchor < vh * 0.6 ? scrollY / 380 : (scrollY + vh * 0.8 - anchor) / (h * 0.85);
