@@ -122,3 +122,4 @@ section.hz-sec.wf::before{display:none!important}
 .hz-hero.dark .bm-node.bm-end text{fill:var(--bg)!important}
 .hz-hero .btn:not(.primary),.phero .btn:not(.primary){border-color:var(--line2)!important;color:var(--hi)!important;background:transparent!important}
 @media(max-width:1099px){.hz-hero.dark,.phero{background-image:repeating-linear-gradient(180deg,transparent 0,transparent 31px,rgba(236,230,216,.05) 31px,rgba(236,230,216,.05) 32px)!important}}
+svg text{font-family:var(--sans)!important}

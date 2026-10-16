@@ -3,7 +3,7 @@ import json
 import os
 
 SITE = "https://beiz.com.au"
-ASSET_V = "124"  # bump to bust caches when CSS/JS change
+ASSET_V = "125"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" aria-hidden="true" class="logo"><rect x="1" y="1" width="34" height="34" rx="7" fill="#15181D" stroke="#30353D" stroke-width="1.5"/><rect x="7" y="9" width="16" height="3.5" rx="1.75" fill="#43B581"/><circle cx="27.5" cy="10.75" r="1.75" fill="#43B581"/><rect x="7" y="16.25" width="11" height="3.5" rx="1.75" fill="#E9A93B"/><rect x="21" y="16.25" width="8" height="3.5" rx="1.75" fill="none" stroke="#E9A93B" stroke-width="1.2"/><rect x="7" y="23.5" width="22" height="3.5" rx="1.75" fill="#A6A49D"/></svg>')
 
@@ -258,7 +258,7 @@ def page(path, title, desc, body, extra_head=""):
 <title>{esc(full_title)}</title>
 <meta name="description" content="{esc(desc)}">
 <link rel="canonical" href="{canon}">
-<meta name="theme-color" content="#05070B">{f'<meta name="google-site-verification" content="{GOOGLE_SITE_VERIFICATION}">' if GOOGLE_SITE_VERIFICATION else ""}
+<meta name="theme-color" content="#0F1613">{f'<meta name="google-site-verification" content="{GOOGLE_SITE_VERIFICATION}">' if GOOGLE_SITE_VERIFICATION else ""}
 <meta property="og:type" content="website"><meta property="og:site_name" content="Beiz Data &amp; Accounting">
 <meta property="og:title" content="{esc(full_title)}"><meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{canon}"><meta property="og:image" content="{SITE}/assets/og-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Beiz Data &amp; Accounting: AI you can sign off on. Led by an Australian Chartered Accountant.">
@@ -271,8 +271,8 @@ def page(path, title, desc, body, extra_head=""):
 <link rel="stylesheet" href="/assets/refine.css?v={ASSET_V}" id="thA">
 <link rel="stylesheet" href="/assets/future-neon.css?v={ASSET_V}" id="thB">
 <link rel="stylesheet" href="/assets/calm.css?v={ASSET_V}" id="thC">
-<link rel="stylesheet" href="/assets/ledger.css?v={ASSET_V}" id="thD" media="not all">
-<script>(function(){{try{{var q=new URLSearchParams(location.search).get("theme");if(q)localStorage.setItem("beizTheme",q);var t=q||localStorage.getItem("beizTheme");if(t==="ledger"){{document.documentElement.classList.add("ledger");var d=document.getElementById("thD");d&&(d.media="all")}}if(t==="classic"){{document.documentElement.classList.add("classic");["thA","thB","thC","thD"].forEach(function(i){{var l=document.getElementById(i);l&&l.parentNode.removeChild(l)}})}}}}catch(e){{}}}})();</script>
+<link rel="stylesheet" href="/assets/ledger.css?v={ASSET_V}" id="thD">
+<script>(function(){{try{{var q=new URLSearchParams(location.search).get("theme");if(q)localStorage.setItem("beizTheme",q);var t=q||localStorage.getItem("beizTheme");if(t!=="classic"){{document.documentElement.classList.add("ledger")}}if(t==="classic"){{document.documentElement.classList.add("classic");["thA","thB","thC","thD"].forEach(function(i){{var l=document.getElementById(i);l&&l.parentNode.removeChild(l)}})}}}}catch(e){{}}}})();</script>
 {ld}{extra_head}
 </head>
 <body>
