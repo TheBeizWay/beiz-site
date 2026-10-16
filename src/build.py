@@ -24,10 +24,11 @@ open(os.path.join(ROOT, "robots.txt"), "w").write(
     + f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n")
 # llms.txt: a plain summary for AI search assistants (https://llmstxt.org)
 llms = ["# Beiz Data & Accounting", "",
-        "> Chartered Accountant-led practice in Australia that makes business information reliable, reporting useful and automation accountable. "
-        "Data, AI, accounting and governance for private-sector small and mid-sized businesses, with a person signing off anything that touches money, customers or data.", "",
+        "> AI, data and financial modelling for Australian businesses, led by Purav Mehta, an Australian Chartered Accountant and GAICD. "
+        "Beiz connects a business's data, builds cash and job profit models, and sets up AI agents for routine finance work with limits, approvals and a decision log. "
+        "A person approves anything that touches money, customers or decisions about people.", "",
         "Key facts:",
-        "- Beiz Data & Accounting Pty Ltd, ABN 53 691 755 496. Led by Purav Mehta, CA (Certificate of Public Practice), GAICD. Based in Canberra, working Australia-wide.",
+        "- Beiz Data & Accounting Pty Ltd, ABN 53 691 755 496. Led by Purav Mehta, Australian Chartered Accountant, GAICD. Based in Canberra, working Australia-wide.",
         "- Fixed scope and fixed price, agreed in writing before work starts. Ways to start: two-week cash & data check $1,500 fixed (credited if the client goes ahead), live cash & job profit model from $5,000, AI workforce setup from $6,000, then monthly support from $750 a month. Other work: quick wins from $1,200, Privacy Act automated-decision sprint from $3,500. Beiz is not registered for GST, so no GST is added to prices. A written proposal with the exact price follows within three business days.",
         "- Independent: no software of its own to sell. Builds inside the client's own accounts (e.g. Xero, MYOB, Microsoft 365, Google Workspace) using AI plans whose terms exclude training on client data.",
         "- Four disciplines: Data (reconciliation, reporting, forecasting), AI (automation with approval steps), Accounting (management reports, cash forecasts, financial and economic models, profit by job), Governance (board reporting, risk, AI use policy, Privacy Act automated-decision readiness).",
@@ -37,6 +38,9 @@ llms = ["# Beiz Data & Accounting", "",
         "- Contact: hello@beiz.com.au, or book a discovery call at https://beiz.com.au/contact/", "",
         "## Services"] + [f"- [{t}]({SITE}{h})" for h, t in SERVICES] + ["", "## Who we help"] + [f"- [{t}]({SITE}{h})" for h, t in INDUSTRIES] + [
         "", "## See it working",
+        f"- [Homepage demonstrations]({SITE}/): an interactive 13-week cash model, a data lineage walk-through from dashboard to source records, and an AI controls simulation (allow, hold or block)",
+        f"- [Free 5-minute AI workforce workshop]({SITE}/workshop/): map the week, set an agent's limits, get a written plan",
+        f"- [Sample two-week check report (PDF)]({SITE}/assets/beiz-sample-check-report.pdf) on made-up data",
         f"- [60-second demos]({SITE}/try/): late payers, 13-week cash forecast, an agent checking bills, admin hours",
         f"- [Example outputs]({SITE}/examples/): made-up businesses, real formats",
         f"- [Free Privacy Act AI check]({SITE}/ai-check/): for the automated-decision disclosure rules starting 10 December 2026",

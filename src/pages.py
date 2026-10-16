@@ -58,13 +58,89 @@ PLAIN = '''<section id="plain">
 
 def home():
     body = f'''<div class="bz hx hz">
-<section class="hz-hero" id="top"><div class="wrap hz-hgrid">
+<section class="hz-hero dark" id="top"><div class="wrap hero32">
   <div class="hz-copy">
-    <p class="bz-kick"><svg class="au-flag" viewBox="0 0 120 60" width="27" height="14" role="img" aria-label="Australian flag"><clipPath id="auS1"><rect width="60" height="30"/></clipPath><clipPath id="auT1"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="120" height="60" fill="#012169"/><g clip-path="url(#auS1)"><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#auT1)" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g><g fill="#fff"><polygon points="30.00,36.00 31.74,41.40 37.04,39.39 33.90,44.11 38.77,47.00 33.13,47.49 33.90,53.11 30.00,49.00 26.10,53.11 26.87,47.49 21.23,47.00 26.10,44.11 22.96,39.39 28.26,41.40"/><polygon points="90.00,45.50 90.87,48.20 93.52,47.19 91.95,49.55 94.39,51.00 91.56,51.25 91.95,54.05 90.00,52.00 88.05,54.05 88.44,51.25 85.61,51.00 88.05,49.55 86.48,47.19 89.13,48.20"/><polygon points="75.00,24.50 75.87,27.20 78.52,26.19 76.95,28.55 79.39,30.00 76.56,30.25 76.95,33.05 75.00,31.00 73.05,33.05 73.44,30.25 70.61,30.00 73.05,28.55 71.48,26.19 74.13,27.20"/><polygon points="90.00,4.50 90.87,7.20 93.52,6.19 91.95,8.55 94.39,10.00 91.56,10.25 91.95,13.05 90.00,11.00 88.05,13.05 88.44,10.25 85.61,10.00 88.05,8.55 86.48,6.19 89.13,7.20"/><polygon points="102.50,19.50 103.37,22.20 106.02,21.19 104.45,23.55 106.89,25.00 104.06,25.25 104.45,28.05 102.50,26.00 100.55,28.05 100.94,25.25 98.11,25.00 100.55,23.55 98.98,21.19 101.63,22.20"/><polygon points="96.50,31.40 97.15,33.11 98.97,33.20 97.55,34.34 98.03,36.10 96.50,35.10 94.97,36.10 95.45,34.34 94.03,33.20 95.85,33.11"/></g></svg>Led by an Australian Chartered Accountant</p>
-    <h1><span>Less finance admin.</span> <span>Clearer cash.</span> <span>AI with limits.</span></h1>
-    <p class="hz-sub">We set up AI agents that check supplier bills against timesheets and quotes, keep your cash forecast current and prepare admin for your team to approve. They work in your own Xero, inbox and team chat, within limits you agree, with a record of what they did.</p>
-    <div class="hz-ctas"><a class="btn primary" href="/workshop/">Take the free 5-minute workshop</a><a class="btn ghost" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-minute call</a></div>
-    <div class="hz-who"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="" width="56" height="56"><p><b>Purav Mehta CA, GAICD</b><br>Chartered Accountant, company director graduate, and the builder of the data models and agents. Canberra, working Australia-wide.</p></div>
+    <p class="bz-kick"><svg class="au-flag" viewBox="0 0 120 60" width="27" height="14" role="img" aria-label="Australian flag"><clipPath id="auS1"><rect width="60" height="30"/></clipPath><clipPath id="auT1"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="120" height="60" fill="#012169"/><g clip-path="url(#auS1)"><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#auT1)" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g><g fill="#fff"><polygon points="30.00,36.00 31.74,41.40 37.04,39.39 33.90,44.11 38.77,47.00 33.13,47.49 33.90,53.11 30.00,49.00 26.10,53.11 26.87,47.49 21.23,47.00 26.10,44.11 22.96,39.39 28.26,41.40"/><polygon points="90.00,45.50 90.87,48.20 93.52,47.19 91.95,49.55 94.39,51.00 91.56,51.25 91.95,54.05 90.00,52.00 88.05,54.05 88.44,51.25 85.61,51.00 88.05,49.55 86.48,47.19 89.13,48.20"/><polygon points="75.00,24.50 75.87,27.20 78.52,26.19 76.95,28.55 79.39,30.00 76.56,30.25 76.95,33.05 75.00,31.00 73.05,33.05 73.44,30.25 70.61,30.00 73.05,28.55 71.48,26.19 74.13,27.20"/><polygon points="90.00,4.50 90.87,7.20 93.52,6.19 91.95,8.55 94.39,10.00 91.56,10.25 91.95,13.05 90.00,11.00 88.05,13.05 88.44,10.25 85.61,10.00 88.05,8.55 86.48,6.19 89.13,7.20"/><polygon points="102.50,19.50 103.37,22.20 106.02,21.19 104.45,23.55 106.89,25.00 104.06,25.25 104.45,28.05 102.50,26.00 100.55,28.05 100.94,25.25 98.11,25.00 100.55,23.55 98.98,21.19 101.63,22.20"/><polygon points="96.50,31.40 97.15,33.11 98.97,33.20 97.55,34.34 98.03,36.10 96.50,35.10 94.97,36.10 95.45,34.34 94.03,33.20 95.85,33.11"/></g></svg>Beiz Data &amp; Accounting</p>
+    <h1><span>AI. Data.</span> <span>Financial modelling.</span> <span class="h1-2">See what they can do together.</span></h1>
+    <p class="hz-sub">Led by Purav Mehta, Australian Chartered Accountant · GAICD. We connect your data, model your numbers and set up AI agents for the routine work, with checks you agree and a person who approves what matters.</p>
+    <div class="hz-ctas"><a class="btn primary" href="#model-demo">Try the cash model</a><a class="btn ghost" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-minute call</a></div>
+    <p class="hz-alt">Or take the <a href="/workshop/">free 5-minute workshop</a> and leave with a written plan.</p>
+  </div>
+  <figure class="bmap" id="bmap" aria-label="How Beiz works across your business">
+    <svg viewBox="0 0 560 470" role="group">
+      <defs><marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#17201B"/></marker></defs>
+      <g class="bm-lines" fill="none" stroke="#17201B" stroke-width="1.6">
+        <path id="bl1" d="M280 70 C280 110 100 110 100 150"/><path id="bl2" d="M280 70 L280 150"/><path id="bl3" d="M280 70 C280 110 460 110 460 150"/>
+        <path id="bl4" d="M100 222 C100 270 280 262 280 300" marker-end="url(#arw)"/><path id="bl5" d="M280 222 L280 300" marker-end="url(#arw)"/><path id="bl6" d="M460 222 C460 270 280 262 280 300" marker-end="url(#arw)"/>
+        <path id="bl7" d="M280 372 L280 398" marker-end="url(#arw)"/>
+      </g>
+      <g class="bm-dots">
+        <circle r="4" fill="#1E6B44"><animateMotion dur="3.2s" repeatCount="indefinite" begin="-0.4s"><mpath href="#bl4"/></animateMotion></circle>
+        <circle r="4" fill="#1E6B44"><animateMotion dur="3.2s" repeatCount="indefinite" begin="-1.5s"><mpath href="#bl5"/></animateMotion></circle>
+        <circle r="4" fill="#1E6B44"><animateMotion dur="3.2s" repeatCount="indefinite" begin="-2.6s"><mpath href="#bl6"/></animateMotion></circle>
+      </g>
+      <g class="bm-node bm-top"><rect x="190" y="22" width="180" height="48" rx="2"/><text x="280" y="52">Your business</text></g>
+      <a href="#lineage" class="bm-node bm-go" data-cap="Your data: connected, cleaned and traced, so every number on a dashboard can be followed back to its source."><rect x="20" y="150" width="160" height="72" rx="2"/><text x="100" y="180" class="t1">Your data</text><text x="100" y="204" class="t2">Connect it</text></a>
+      <a href="#model-demo" class="bm-node bm-go" data-cap="Your numbers: a live 13-week cash and job profit model you can question, with every assumption written down."><rect x="200" y="150" width="160" height="72" rx="2"/><text x="280" y="180" class="t1">Your numbers</text><text x="280" y="204" class="t2">Model it</text></a>
+      <a href="#limits" class="bm-node bm-go" data-cap="Your work: AI agents that check bills, prepare admin and chase payments, each with a job description and limits."><rect x="380" y="150" width="160" height="72" rx="2"/><text x="460" y="180" class="t1">Your work</text><text x="460" y="204" class="t2">Automate it</text></a>
+      <a href="#ca" class="bm-node bm-go bm-ca" data-cap="Checks and approvals: limits you agree, a person who approves what matters, and an Australian Chartered Accountant who designs the controls and reviews the work."><rect x="150" y="300" width="260" height="72" rx="2"/><text x="280" y="330" class="t1">Checks &amp; approvals</text><text x="280" y="354" class="t2">You approve. A CA reviews.</text><ellipse class="pen" cx="392" cy="306" rx="26" ry="16" transform="rotate(-8 392 306)"/><text x="392" y="312" class="pen-t">CA</text></a>
+      <a href="#pricing" class="bm-node bm-go bm-end" data-cap="Better decisions: clearer cash, profit you can see by job, and less admin, at a fixed price agreed in writing."><rect x="180" y="400" width="200" height="48" rx="2"/><text x="280" y="430">Better decisions</text></a>
+    </svg>
+    <figcaption id="bmCap">Click any part of the map to try it.</figcaption>
+  </figure>
+</div></section>
+
+<section class="hz-sec xdemo" id="model-demo"><div class="wrap">
+  <p class="demo-k">Your numbers · Model it</p>
+  <h2>Make the decision before the cash runs out</h2>
+  <p class="lede">A 13-week cash model for a made-up trade business. Move the sliders and watch the low point move. Every number can be opened up.</p>
+  <div class="cm-grid">
+    <div class="cm-ctl">
+      <label>Customers on account pay in <output id="cmDelayV"></output><input type="range" id="cmDelay" min="7" max="90" step="1" value="45"></label>
+      <label>Wages per fortnight <output id="cmWageV"></output><input type="range" id="cmWage" min="20000" max="60000" step="1000" value="32000"></label>
+      <label>Sales growth per month <output id="cmGrowV"></output><input type="range" id="cmGrow" min="-15" max="25" step="1" value="5"></label>
+      <div class="cm-fixed"><b>Held steady in this demo</b><span>Opening cash $50,000 · sales $48,000 a week: 60% paid within a week, 40% on account (30-day terms until now) · suppliers 40% of sales, paid after 30 days · overheads $6,000 a week · super 12% with each pay run · buffer $40,000</span></div>
+    </div>
+    <div class="cm-out">
+      <div class="cm-kpis"><div><span>Lowest point</span><b id="cmLow"></b><small id="cmLowWk"></small></div><div><span>Weeks under buffer</span><b id="cmUnder"></b></div><div><span>Cash in week 13</span><b id="cmEnd"></b></div></div>
+      <svg id="cmChart" viewBox="0 0 640 260" role="img" aria-label="13-week cash forecast"></svg>
+      <p class="cm-why" id="cmWhy"></p>
+      <button type="button" class="btn ghost" id="cmOpen" aria-expanded="false" aria-controls="cmBehind">Show me what sits behind this number</button>
+    </div>
+  </div>
+  <div class="cm-behind" id="cmBehind" hidden>
+    <div class="lg-scroll"><table class="cm-t" id="cmTable"></table></div>
+    <div class="cm-notes"><div><b>How each week is calculated</b><span>Closing cash = opening cash + customer receipts − supplier payments − wages and super − overheads. 60% of each week's sales arrive the following week. Invoices already sent arrive on the old 30-day terms; new invoices on account arrive on the terms you set.</span></div><div><b>What this demo leaves out</b><span>GST and BAS, tax, loans, one-off costs and seasonality. A real model is built from your ledger with assumptions we agree and write down.</span></div></div>
+  </div>
+</div></section>
+
+<section class="hz-sec xdemo" id="lineage"><div class="wrap">
+  <p class="demo-k">Your data · Connect it</p>
+  <h2>Follow the number back to where it came from</h2>
+  <p class="lede">A dashboard is only as good as the records under it. Click the margin, then keep going until you reach the raw exports. Switch between the data as it arrived and after cleaning.</p>
+  <div class="lnx" id="ln">
+    <div class="ln-bar"><ol class="ln-steps" id="lnSteps"><li><button type="button" data-s="0">Dashboard</button></li><li><button type="button" data-s="1">Calculation</button></li><li><button type="button" data-s="2">Cleaned records</button></li><li><button type="button" data-s="3">Source data</button></li></ol>
+      <div class="ln-sw" role="group" aria-label="Which data"><button type="button" data-v="raw">As it arrived</button><button type="button" data-v="clean" aria-pressed="true">After cleaning</button></div></div>
+    <div class="ln-stage" id="lnStage" aria-live="polite"></div>
+  </div>
+</div></section>
+
+<section class="hz-sec xdemo" id="limits"><div class="wrap">
+  <p class="demo-k">Your work · Automate it</p>
+  <h2>AI without controls is a risk. AI with controls is a workforce.</h2>
+  <p class="lede">AI agents don't fail quietly. They fail at scale. Here are five requests a payables agent might face in a week. You decide: allow it, hold it for a person, or block it. Then see what we'd set, and why. A simulation, not connected to any real accounts.</p>
+  <div class="lm" id="lm"></div>
+</div></section>
+
+<section class="hz-sec" id="ca"><div class="wrap ca-grid">
+  <div>
+    <p class="demo-k">Checks &amp; approvals</p>
+    <h2>What an Australian Chartered Accountant adds</h2>
+    <p class="lede">The agents do the matching. A Chartered Accountant designs the limits and asks the questions the software can't. Red ink below shows the kind of review notes we write.</p>
+    <p class="au-line"><svg class="au-flag" viewBox="0 0 120 60" width="27" height="14" role="img" aria-label="Australian flag"><clipPath id="auS2"><rect width="60" height="30"/></clipPath><clipPath id="auT2"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="120" height="60" fill="#012169"/><g clip-path="url(#auS2)"><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#auT2)" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g><g fill="#fff"><polygon points="30.00,36.00 31.74,41.40 37.04,39.39 33.90,44.11 38.77,47.00 33.13,47.49 33.90,53.11 30.00,49.00 26.10,53.11 26.87,47.49 21.23,47.00 26.10,44.11 22.96,39.39 28.26,41.40"/><polygon points="90.00,45.50 90.87,48.20 93.52,47.19 91.95,49.55 94.39,51.00 91.56,51.25 91.95,54.05 90.00,52.00 88.05,54.05 88.44,51.25 85.61,51.00 88.05,49.55 86.48,47.19 89.13,48.20"/><polygon points="75.00,24.50 75.87,27.20 78.52,26.19 76.95,28.55 79.39,30.00 76.56,30.25 76.95,33.05 75.00,31.00 73.05,33.05 73.44,30.25 70.61,30.00 73.05,28.55 71.48,26.19 74.13,27.20"/><polygon points="90.00,4.50 90.87,7.20 93.52,6.19 91.95,8.55 94.39,10.00 91.56,10.25 91.95,13.05 90.00,11.00 88.05,13.05 88.44,10.25 85.61,10.00 88.05,8.55 86.48,6.19 89.13,7.20"/><polygon points="102.50,19.50 103.37,22.20 106.02,21.19 104.45,23.55 106.89,25.00 104.06,25.25 104.45,28.05 102.50,26.00 100.55,28.05 100.94,25.25 98.11,25.00 100.55,23.55 98.98,21.19 101.63,22.20"/><polygon points="96.50,31.40 97.15,33.11 98.97,33.20 97.55,34.34 98.03,36.10 96.50,35.10 94.97,36.10 95.45,34.34 94.03,33.20 95.85,33.11"/></g></svg><span>Your agents work under Australian rules: the Privacy Act, GST and BAS, super and payroll. An Australian Chartered Accountant works under those rules every day and is bound by the APES 110 Code of Ethics.</span></p>
+    <div class="ca-who"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="" width="64" height="64"><p><b>Purav Mehta, Australian Chartered Accountant · GAICD</b><br>Builds the data models and agents himself, with a background in internal audit, corporate finance and SAP systems. Canberra, working Australia-wide.</p></div>
+    <dl class="hz-four"><dt>CA</dt><dd>financial judgement and reconciliation</dd><dt>GAICD</dt><dd>governance, risk and what a board needs to see</dd><dt>Data</dt><dd>models, and where each number came from</dd><dt>AI</dt><dd>how the agents are set up and limited</dd></dl>
+    <p><a class="textlink" href="/about/">More about Beiz</a></p>
   </div>
   <figure class="lg" id="dlog">
     <div class="lg-h"><b>Decision log</b><span>Sample records · illustrative review, not client work</span></div>
@@ -73,100 +149,6 @@ def home():
     <tfoot><tr><td colspan="5"><span id="dlCount"></span></td></tr></tfoot></table></div>
     <figcaption class="lg-f"><span class="pen-sig">Example review notes, P. Mehta CA</span><span>Red ink shows the kind of questions a Chartered Accountant asks. In your business the log sits in your own accounts.</span></figcaption>
   </figure>
-<nav class="hz-offers" aria-label="What we do">
-  <a href="/services/ai-readiness-sprint/"><b>AI workforce setup</b><span>Agents with job descriptions and limits, including the AI already in your software.</span><em>from $6,000</em></a>
-  <a href="/services/dashboards-and-models/"><b>Financial modelling</b><span>13-week cash, job margins and what-if scenarios.</span><em>from $5,000</em></a>
-  <a href="/services/data-engineering/"><b>Data science &amp; analytics</b><span>Forecasts and analysis on your own data.</span><em>fixed quote</em></a>
-  <a href="/services/privacy-sprint/"><b>AI governance &amp; Privacy Act</b><span>Agent register, and whether the new privacy rules apply to you.</span><em>from $3,500</em></a>
-  <a href="/assets/beiz-sample-check-report.pdf" class="hz-start"><b>Not sure where to start?</b><span>The two-week cash and data check. See a sample report.</span><em>$1,500 fixed</em></a>
-</nav>
-</div></section>
-
-<section class="hz-sec" id="wrong"><div class="wrap">
-  <h2>The invoice looks right. The hours don't.</h2>
-  <p class="lede">AI agents don't fail quietly. They fail at scale. An agent that only checks the accounting software sees a valid bill. An agent that can also see the timesheet and the quote sees a question worth asking.</p>
-  <div class="replay hz-replay" id="replay">
-    <div class="hz-src">
-      <div><span>Bill in your accounting software</span><b>Quoll Electrical, job 2208</b><p><span class="pen-ring">22 hours</span> at $140 = <span class="mono">$3,080</span>. ABN, GST and bank details all as before.</p></div>
-      <div><span>Timesheet export</span><b>Job 2208</b><p><span class="mono">14 hours</span> logged on site.</p></div>
-      <div><span>Quote in your inbox</span><b>Agreed rate</b><p>$140 an hour, capped at <span class="mono">16 hours</span>.</p></div>
-    </div>
-    <div class="rp-lanes">
-      <div class="rp-lane bad"><h3>Agent that only sees the accounting software</h3><ol>
-        <li>ABN matches the supplier record</li><li>GST is calculated correctly</li><li>Bank details haven't changed</li><li>Approves <span class="mono">$3,080</span> for Friday's pay run</li></ol>
-        <p class="rp-out">$3,080 paid. Eight billed hours aren't supported by the timesheet, and nobody asks why.</p></div>
-      <div class="rp-lane good"><h3>Agent set up by Beiz</h3><ol>
-        <li>Runs the same checks in the accounting software</li><li>Compares the hours with the timesheet: 14, not 22</li><li>Checks the quote: capped at 16 hours</li><li>Holds the bill and logs why for your approver</li></ol>
-        <p class="rp-out">Held until someone checks why. If the hours weren't worked, a corrected bill for $1,960 keeps $1,120 in your account.</p></div>
-    </div>
-    <div class="rp-foot"><span>Illustration on sample data</span><button type="button" class="btn ghost" id="rpAgain">Play again</button></div>
-  </div>
-  <div class="gov-band">
-    <h3>AI without controls is a risk. AI with controls is a workforce.</h3>
-    <p>An agent can only check the records it has access to. We set the limits, approvers and decision log for the AI you already use, and connect it to your timesheets, quotes and inbox, so the actions you agree on are:</p>
-    <ul><li><b>Based on your own records</b><span>Figures trace back to your ledger, timesheets and quotes.</span></li><li><b>Inside limits you set</b><span>Each agent has a job description and a delegation limit.</span></li><li><b>Logged where you can see it</b><span>Who decided what, and why, in a log you own.</span></li></ul>
-    <p class="gov-k">You ask. The agents act, within the limits you set.</p>
-  </div>
-  <ul class="hz-fails">
-    <li><b>It makes up a number.</b> A forecast built on a figure that isn't in your books. <i>Beiz: figures are traced to the ledger, and anything that can't be is held.</i></li>
-    <li><b>It promises a customer something you don't offer.</b> In <i>Moffatt v Air Canada</i> (2024 BCCRT 149) a tribunal held an airline liable for a refund policy its chatbot made up. <i>Beiz: anything going to a customer stays a draft until a person sends it.</i></li>
-    <li><b>It leaks your data.</b> Staff paste client files into free AI tools. <i>Beiz: only AI plans whose terms exclude training on your data, and least access.</i></li>
-    <li><b>It drifts and nobody notices.</b> Supplier formats, prices and AI models change. <i>Beiz: we review the decision log every month and re-test before any change goes live.</i></li>
-  </ul>
-</div></section>
-
-<section class="hz-sec" id="demo"><div class="wrap">
-  <h2>Try the sandbox</h2>
-  <p class="lede">A made-up business on sample data. The agents work in its inbox, accounting software and team chat. Approve or hold the bills yourself and watch the decision log fill in.</p>
-  <div class="env" id="env">
-    <div class="env-tabs" role="tablist" aria-label="Sandbox business">
-      <button role="tab" aria-selected="true" data-e="inbox">Inbox</button>
-      <button role="tab" aria-selected="false" data-e="ledger">Accounting software</button>
-      <button role="tab" aria-selected="false" data-e="chat">Team chat</button>
-      <button role="tab" aria-selected="false" data-e="log">Decision log</button>
-    </div>
-    <div class="env-win">
-      <div class="env-bar"><i></i><i></i><i></i><span id="envTitle">Inbox · finance@yourbusiness.com.au</span><em>Sample data</em></div>
-      <div class="env-body" id="envBody"></div>
-    </div>
-  </div>
-  <div class="jd-grid hz-jd">
-    <div>
-      <h3>Every agent gets a job description, like any new hire</h3>
-      <p>A role, the tools it may use, a delegation limit and someone it reports to. That's the difference between an AI workforce and a pile of chatbots.</p>
-      <p><b>Co-pilot:</b> the agent drafts and a person approves. Used for payments, customer emails and anything about a person.</p>
-      <p><b>Autopilot, within limits:</b> the agent acts alone on rule-based work like matching and reconciling, and stops at the limit.</p>
-    </div>
-    <div class="jd">
-      <div class="jd-h"><b>Payables agent</b><span>Job description, sample</span></div>
-      <dl>
-        <dt>Role</dt><dd>Check supplier bills before anyone pays them.</dd>
-        <dt>Tools</dt><dd>Read-only ledger, the bills inbox, purchase orders, timesheets and quotes.</dd>
-        <dt>Works alone on</dt><dd>Matching bills to orders, deliveries and hours, up to an agreed limit ($2,000 in this example).</dd>
-        <dt>Needs a person for</dt><dd>Hours or rates that don't match, possible duplicates, new suppliers and anything over $2,000.</dd>
-        <dt>Can never</dt><dd>Change bank details or release a payment.</dd>
-        <dt>Reports to</dt><dd>Your finance lead. Reviewed at day 30, then monthly if you take the monthly review.</dd>
-      </dl>
-      <p class="hz-jd-note">An example. Limits and approvers are agreed with each client.</p>
-    </div>
-  </div>
-</div></section>
-
-<section class="hz-sec" id="ca"><div class="wrap hz-ca">
-  <div class="photo"><img src="/assets/media/purav-mehta-2.jpg?v=43" alt="Purav Mehta" width="480" height="640" loading="lazy"></div>
-  <div>
-    <h2>Why an Australian Chartered Accountant in the loop</h2>
-    <p class="au-line"><svg class="au-flag" viewBox="0 0 120 60" width="27" height="14" role="img" aria-label="Australian flag"><clipPath id="auS2"><rect width="60" height="30"/></clipPath><clipPath id="auT2"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="120" height="60" fill="#012169"/><g clip-path="url(#auS2)"><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#auT2)" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g><g fill="#fff"><polygon points="30.00,36.00 31.74,41.40 37.04,39.39 33.90,44.11 38.77,47.00 33.13,47.49 33.90,53.11 30.00,49.00 26.10,53.11 26.87,47.49 21.23,47.00 26.10,44.11 22.96,39.39 28.26,41.40"/><polygon points="90.00,45.50 90.87,48.20 93.52,47.19 91.95,49.55 94.39,51.00 91.56,51.25 91.95,54.05 90.00,52.00 88.05,54.05 88.44,51.25 85.61,51.00 88.05,49.55 86.48,47.19 89.13,48.20"/><polygon points="75.00,24.50 75.87,27.20 78.52,26.19 76.95,28.55 79.39,30.00 76.56,30.25 76.95,33.05 75.00,31.00 73.05,33.05 73.44,30.25 70.61,30.00 73.05,28.55 71.48,26.19 74.13,27.20"/><polygon points="90.00,4.50 90.87,7.20 93.52,6.19 91.95,8.55 94.39,10.00 91.56,10.25 91.95,13.05 90.00,11.00 88.05,13.05 88.44,10.25 85.61,10.00 88.05,8.55 86.48,6.19 89.13,7.20"/><polygon points="102.50,19.50 103.37,22.20 106.02,21.19 104.45,23.55 106.89,25.00 104.06,25.25 104.45,28.05 102.50,26.00 100.55,28.05 100.94,25.25 98.11,25.00 100.55,23.55 98.98,21.19 101.63,22.20"/><polygon points="96.50,31.40 97.15,33.11 98.97,33.20 97.55,34.34 98.03,36.10 96.50,35.10 94.97,36.10 95.45,34.34 94.03,33.20 95.85,33.11"/></g></svg><span>Your agents will work under Australian rules: the Privacy Act, GST and BAS, super and payroll. An Australian Chartered Accountant works under those rules every day and is bound by the APES 110 Code of Ethics.</span></p>
-    <p>Most AI projects put someone in the loop who understands only part of the problem. At Beiz the person who designs and reviews the loop is Purav Mehta, and he covers all four parts:</p>
-    <dl class="hz-four"><dt>CA</dt><dd>financial judgement and reconciliation</dd><dt>GAICD</dt><dd>governance, risk and what a board needs to see</dd><dt>Data</dt><dd>models, and where each number came from</dd><dt>AI</dt><dd>how the agents are set up and limited</dd></dl>
-    <h3>Three questions to ask anyone setting up your AI</h3>
-    <ul class="hz-q">
-      <li><b>Who is responsible for how the agents behave?</b><span>A named Chartered Accountant designs each agent's limits and reviews its work. Your people approve the decisions that matter.</span></li>
-      <li><b>What can each agent touch, and who set that limit?</b><span>A written job description and delegation limit for every agent, agreed with you before it goes live.</span></li>
-      <li><b>What happens if the builder moves on?</b><span>You own the configurations, documentation, logs and any custom code we write, in accounts you control. Third-party software stays under its own licence.</span></li>
-    </ul>
-    <p><a class="textlink" href="/about/">More about Beiz</a></p>
-  </div>
 </div></section>
 
 <section class="hz-sec" id="pricing"><div class="wrap">
@@ -189,8 +171,8 @@ def home():
 </div></section>
 </div>
 {contact_form(heading="Tell us what you're trying to fix", lede="A few lines is plenty. By the next business day you'll get a written reply: what the problem looks like, what information it would need, and whether a fixed-scope job makes sense. Rather talk? Pick “Discovery call” or “Demo request” and we'll arrange a free 20 minutes, early morning or after 5pm.")}'''
-    add("/", "Beiz Data & Accounting | AI agents with controls, led by an Australian Chartered Accountant",
-        "Beiz sets up AI agents for bills, cash, reporting and admin inside your own systems, with limits you set, a person approving what matters and a decision log. Led by an Australian Chartered Accountant (CA, GAICD). Fixed prices from $1,500.", body)
+    add("/", "Beiz Data & Accounting | AI, data and financial modelling, led by an Australian Chartered Accountant",
+        "Beiz connects your data, models your cash and job profit, and sets up AI agents with limits and approvals. Led by Purav Mehta, Australian Chartered Accountant and GAICD. Fixed prices from $1,500.", body)
 
 # ------------------------------------------------------------------ services
 START_HERE = '''<section style="padding-top:8px"><div class="wrap"><p class="eyebrow">Start here</p><h2>Three ways to start, with fixed prices.</h2>
@@ -751,7 +733,7 @@ FAQ = [
     ("Are you an AI company?", "We don't make or sell AI software, and we're not tied to any vendor. We set AI up properly for your business: we pick the right tools, connect them to your systems and your team, build the automations, dashboards and agents, and put the controls an accountant would expect around them."),
     ("What does Beiz actually do?", "We're accountants who build the systems behind a business's money: automation that does the grunt work, dashboards and forecasts that show what's coming, and the controls that keep AI safe. We don't do tax."),
     ("Isn't a Chartered Accountant just a tax accountant?", "Tax is one thing a Chartered Accountant can do, and we don't do it at all. A Chartered Accountant is trained in audit, risk, systems, forecasting and business advice. GAICD means we're also trained in how boards govern a business and oversee risk."),
-    ("Who's behind Beiz?", "Beiz is led by Purav Mehta, a Chartered Accountant holding a Certificate of Public Practice and a graduate of the Australian Institute of Company Directors, with a background in internal audit, fraud and controls, corporate finance, project portfolio governance and data science. Your written proposal confirms who does the work, and you can verify his credentials before you sign anything."),
+    ("Who's behind Beiz?", "Beiz is led by Purav Mehta, an Australian Chartered Accountant and a graduate of the Australian Institute of Company Directors, with a background in internal audit, fraud and controls, corporate finance, project portfolio governance and data science. Your written proposal confirms who does the work, and you can verify his credentials before you sign anything."),
     ("Is my data safe with AI?", "We only use business-grade AI services whose terms stop your data being used to train models, and we build inside your own Microsoft, Google or Xero accounts wherever we can. Sensitive steps stay with a human."),
     ("What happens if the AI gets it wrong?", "It will, sometimes. That's why every build has approval steps, limits and a log. The AI prepares the work, a person signs it off, and anything unusual gets flagged rather than actioned."),
     ("Do you replace my accountant or bookkeeper?", "No. We don't replace your tax accountant, we feed them. They keep you right with the ATO, looking back at what happened. We work on what happens next week. At year end they get clean, reconciled data and do their job faster."),
@@ -822,7 +804,7 @@ def how_we_work():
 <li><strong>Jargon.</strong> If we can't explain it simply, we haven't understood it well enough.</li>
 <li><strong>Tax or BAS work.</strong> We leave that to your tax agent and make their job easier.</li></ul>
 <h2>Who's behind Beiz</h2>
-<p>Beiz is led by Purav Mehta, a Chartered Accountant (CA ANZ, Certificate of Public Practice) and graduate of the Australian Institute of Company Directors. His background: internal audit, fraud and controls, corporate finance, large-portfolio governance and data science. Your written proposal confirms who does the work, and you can verify his credentials before signing. <a href="https://www.linkedin.com/in/puravmehtaca/" rel="noopener">Purav on LinkedIn</a>.</p>
+<p>Beiz is led by Purav Mehta, an Australian Chartered Accountant (CA ANZ) and graduate of the Australian Institute of Company Directors. His background: internal audit, fraud and controls, corporate finance, large-portfolio governance and data science. Your written proposal confirms who does the work, and you can verify his credentials before signing. <a href="https://www.linkedin.com/in/puravmehtaca/" rel="noopener">Purav on LinkedIn</a>.</p>
 <p>We're bound by the CA ANZ Code of Ethics (APES 110).</p>
 <h2>Led in Australia</h2>
 <p>All strategy, architecture, governance and sign-off happen in Australia, by a Chartered Accountant and GAICD. For some build work we use a small, vetted delivery team, only with your written consent and always under our direct review. Your engagement letter says where any of your information will be handled, before you sign.</p>
@@ -1075,7 +1057,7 @@ def about():
                  [("/about/", "About us")], [("/contact/#form", "Start in writing"), ("/examples/", "See our work")]) + f'''
 <section style="padding-top:8px"><div class="wrap"><h2 style="margin-top:0">Four disciplines, one firm.</h2>
 <ul class="why" style="grid-template-columns:repeat(4,1fr)">
-<li><span class="ic">CA</span><b>Chartered Accountant</b><p>CA ANZ member with a Certificate of Public Practice. Numbers that reconcile to your ledger, and professional standards you can hold us to.</p></li>
+<li><span class="ic">CA</span><b>Chartered Accountant</b><p>Australian Chartered Accountant, CA ANZ member. Numbers that reconcile to your ledger, and professional standards you can hold us to.</p></li>
 <li><span class="ic">GAICD</span><b>GAICD governance</b><p>Trained by the Australian Institute of Company Directors in how boards oversee risk. AI policies, controls and board reporting that directors can sign off.</p></li>
 <li><span class="ic">DM</span><b>Data, financial and economic modelling</b><p>Financial models, economic and cost-benefit modelling, forecasts, dashboards and AI agents, built on your own data.</p></li>
 <li><span class="ic">🔒</span><b>Your data, secured</b><p>Built inside your own accounts, with two-factor access, least-privilege permissions and only AI plans whose terms say your data isn't used for training. Covered by professional confidentiality under the CA ANZ code of ethics.</p></li>
@@ -1090,7 +1072,7 @@ def about():
 <p>Collies are working dogs. They turn up every day, stay on the job until it's done, and nothing slips past them through the gate. That's how Purav works, and it's the standard we hold our systems to.</p>
 <h2 id="who">Who's behind it</h2>
 <figure class="founderfig"><img src="/assets/media/purav-mehta-2.jpg?v=43" alt="Purav Mehta" width="480" height="640" loading="lazy"><figcaption><b>Purav Mehta</b> CA · GAICD</figcaption></figure>
-<p>Beiz is led by Purav Mehta, a Chartered Accountant holding a CA ANZ Certificate of Public Practice and a graduate of the Australian Institute of Company Directors.</p>
+<p>Beiz is led by Purav Mehta, an Australian Chartered Accountant (CA ANZ) and a graduate of the Australian Institute of Company Directors.</p>
 <p>His background: internal audit, fraud and controls; corporate finance and enterprise finance systems, including SAP; governance and reporting for large project portfolios; and data analysis, dashboards and automation. He's based in Canberra and works with businesses Australia-wide.</p>
 <p>When you work with Beiz, you work with him. Your written proposal confirms who does what, and you can verify his credentials before you sign anything. <a href="https://www.linkedin.com/in/puravmehtaca/" rel="noopener">Purav on LinkedIn</a>.</p>
 <h2>How we're set up</h2>
@@ -1099,7 +1081,7 @@ def about():
 <p>We don't do tax returns, BAS, SMSF advice or audits, business valuations, legal advice or financial product advice. Those need licences, registrations or specialist standards, and we'd rather do one thing properly. We work alongside the people who do them, and make their jobs easier with clean, reconciled data.</p>
 </div>
 <aside class="aside"><h3>At a glance</h3>
-<ul class="ticks"><li>Led by Purav Mehta</li><li>Chartered Accountant, CA ANZ Certificate of Public Practice</li><li>GAICD</li><li>Bound by the APES 110 code of ethics</li><li>Beiz Data &amp; Accounting Pty Ltd · ABN 53 691 755 496</li><li>Australia-wide, remote-first</li></ul>
+<ul class="ticks"><li>Led by Purav Mehta</li><li>Australian Chartered Accountant (CA ANZ)</li><li>GAICD</li><li>Bound by the APES 110 code of ethics</li><li>Beiz Data &amp; Accounting Pty Ltd · ABN 53 691 755 496</li><li>Australia-wide, remote-first</li></ul>
 <a class="btn primary" href="/how-we-work/">How we work</a></aside></div></section>
 <section><div class="wrap"><p class="eyebrow">What we believe</p><h2>Five rules we don't bend.</h2><div class="cards">{pr}</div></div></section>''' + cta_band("Sound like the kind of firm you want?", "Tell us what you're trying to fix. A few lines in writing is enough.")
     add("/about/", "About us", "About Beiz Data & Accounting: a Chartered Accountant and GAICD led firm helping Australian businesses use AI, automation and data without losing control of their numbers.", body)

@@ -2,7 +2,7 @@
 import json
 
 SITE = "https://beiz.com.au"
-ASSET_V = "94"  # bump to bust caches when CSS/JS change
+ASSET_V = "100"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" aria-hidden="true" class="logo"><rect x="1" y="1" width="34" height="34" rx="7" fill="#15181D" stroke="#30353D" stroke-width="1.5"/><rect x="7" y="9" width="16" height="3.5" rx="1.75" fill="#43B581"/><circle cx="27.5" cy="10.75" r="1.75" fill="#43B581"/><rect x="7" y="16.25" width="11" height="3.5" rx="1.75" fill="#E9A93B"/><rect x="21" y="16.25" width="8" height="3.5" rx="1.75" fill="none" stroke="#E9A93B" stroke-width="1.2"/><rect x="7" y="23.5" width="22" height="3.5" rx="1.75" fill="#A6A49D"/></svg>')
 
@@ -189,13 +189,20 @@ ORG = {
     "email": "hello@beiz.com.au", "taxID": "ABN 53 691 755 496", "identifier": [{"@type": "PropertyValue", "propertyID": "ABN", "value": "53691755496"}, {"@type": "PropertyValue", "propertyID": "ACN", "value": "691755496"}], "address": {"@type": "PostalAddress", "addressLocality": "Canberra", "addressRegion": "ACT", "addressCountry": "AU"}, "logo": SITE + "/assets/icon-512.png", "areaServed": {"@type": "Country", "name": "Australia"},
     "description": "Australian Chartered Accountant and GAICD led firm helping businesses grow with control: cash flow, automation, dashboards, data and responsible AI.",
     "taxID": "53 691 755 496",
-    "slogan": "AI you can sign off on.",
-    "founder": {"@type": "Person", "name": "Purav Mehta", "jobTitle": "Chartered Accountant, GAICD",
+    "slogan": "AI. Data. Financial modelling. Led by an Australian Chartered Accountant.",
+    "founder": {"@type": "Person", "name": "Purav Mehta", "jobTitle": "Australian Chartered Accountant, GAICD",
                 "sameAs": ["https://www.linkedin.com/in/puravmehtaca/"]},
     "knowsAbout": ["AI governance", "Privacy Act automated decision-making", "responsible AI", "workflow automation", "13-week cash flow forecasting",
                    "management reporting and dashboards", "month-end close automation", "data engineering", "Power BI", "financial modelling", "economic modelling", "cost-benefit analysis"],
-    "hasCredential": [{"@type": "EducationalOccupationalCredential", "credentialCategory": "Chartered Accountant, CA ANZ Certificate of Public Practice"},
+    "hasCredential": [{"@type": "EducationalOccupationalCredential", "credentialCategory": "Australian Chartered Accountant (CA ANZ)"},
                       {"@type": "EducationalOccupationalCredential", "credentialCategory": "Graduate, Australian Institute of Company Directors (GAICD)"}],
+    "makesOffer": [{"@type": "Offer", "name": n, "url": SITE + h, "priceCurrency": "AUD", "price": p, "description": d,
+                    "priceSpecification": {"@type": "PriceSpecification", "priceCurrency": "AUD", "minPrice": p, "valueAddedTaxIncluded": False}}
+                   for n, h, p, d in [("Two-week cash and data check", "/#check", 1500, "Fixed price. Unbilled work, margin leaks and manual bottlenecks found from Xero and timesheet exports, with a findings register and two-page report."),
+                                      ("Live cash and job profit model", "/services/dashboards-and-models/", 5000, "From price. A 13-week rolling cash forecast and profit by job, updated weekly."),
+                                      ("AI workforce setup", "/services/ai-readiness-sprint/", 6000, "From price. The first AI agent with its job description, limits, approvals and decision log."),
+                                      ("AI governance and Privacy Act sprint", "/services/privacy-sprint/", 3500, "From price. Agent register and a check of whether the automated-decision transparency rules apply."),
+                                      ("Monthly monitoring and review", "/#pricing", 750, "From price per month. Review of agent decisions and a one-page monthly report.")]],
     "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Services",
                         "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": n, "url": SITE + h}} for h, n in SERVICES]},
 }
