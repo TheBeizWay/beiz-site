@@ -392,7 +392,7 @@
       chk: { topic: "Two-week cash & data check", say: ["You send exports from Xero and your job or timesheet app. No logins needed.", "Within two weeks you get written findings (unbilled work, margin leaks, manual bottlenecks) with the records and arithmetic behind each one, plus a fixed-price next step.", "$1,500 fixed, credited if you go ahead."], next: "size" },
       aiw: { topic: "Controlled AI workflows", say: ["Which job would you hand to AI first?"],
         opts: [["Checking supplier bills", "a2"], ["Quotes and admin", "aiq"], ["Chasing payments", "sb1"], ["Staff already use ChatGPT or Copilot", "ai1"]] },
-      aiq: { topic: "Controlled AI workflows", say: ["Quotes and admin are good first jobs. AI drafts, and a person approves before anything reaches a customer.", "Controlled AI workflows start from $6,000, quoted in writing."], next: "size" },
+      aiq: { topic: "Controlled AI workflows", say: ["Quotes and admin are good first jobs. AI drafts, and a person approves before anything reaches a customer.", "Controlled AI workflows start from $8,500, quoted in writing."], next: "size" },
       ai: { topic: "AI readiness & governance", say: ["Good place to start. Which is closest?"],
         opts: [["Staff already use ChatGPT or Copilot", "ai1"], ["The board is asking about AI risk", "ai2"], ["The new Privacy Act rules", "ai4"], ["We want to build our first agent", "ai3"]] },
       ai1: { topic: "AI workforce setup", say: ["That's the most common one. Free AI tools often mean business data leaving without anyone noticing.", "AI workforce setup finds what's already in use, sets limits people will follow, and puts agents to work with a person approving what matters."], next: "size" },
@@ -991,7 +991,7 @@
     if (g.privacy && g.privacy !== "No") out.push(["Check the Privacy Act rule", `Map which tools make decisions about people before 10 December 2026. Our <a href="/ai-check/">free 2-minute check</a> is a start; the sprint is from $3,500.`]);
     const offer = !f ? ["Start with the two-week check", "$1,500 fixed, credited if you go ahead. We find where your time and cash actually go, from exports."]
       : (f.k === "cash" || f.k === "rep") ? ["Then a live cash and job profit model", "From $5,000. Your data scientist and reporting agents run on it."]
-      : ["Then AI workforce setup", "From $6,000, on a three-week rollout plan, with monthly review from $750."];
+      : ["Then AI workforce setup", "From $8,500, on a three-week rollout plan, with monthly review from $1,250."];
     const who = st.biz ? esc(st.biz) + "'s" : "Your";
     return `<div class="ws-plan" id="wsPlan"><h2>${who} AI workforce plan</h2>
       <div class="pl-stats"><div><b>${tot}</b><span>hours a week mapped</span></div><div><b>${ah ? "about " + Math.round(ah) : 0}</b><span>hours an agent could take on*</span></div><div><b>${chosen().filter(t => t.m === "keep").length}</b><span>${chosen().filter(t => t.m === "keep").length === 1 ? "job stays" : "jobs stay"} with a person</span></div></div>
