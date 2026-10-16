@@ -63,7 +63,7 @@ def home():
     <p class="bz-kick"><svg class="au-flag" viewBox="0 0 120 60" width="27" height="14" role="img" aria-label="Australian flag"><clipPath id="auS1"><rect width="60" height="30"/></clipPath><clipPath id="auT1"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="120" height="60" fill="#012169"/><g clip-path="url(#auS1)"><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#auT1)" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g><g fill="#fff"><polygon points="30.00,36.00 31.74,41.40 37.04,39.39 33.90,44.11 38.77,47.00 33.13,47.49 33.90,53.11 30.00,49.00 26.10,53.11 26.87,47.49 21.23,47.00 26.10,44.11 22.96,39.39 28.26,41.40"/><polygon points="90.00,45.50 90.87,48.20 93.52,47.19 91.95,49.55 94.39,51.00 91.56,51.25 91.95,54.05 90.00,52.00 88.05,54.05 88.44,51.25 85.61,51.00 88.05,49.55 86.48,47.19 89.13,48.20"/><polygon points="75.00,24.50 75.87,27.20 78.52,26.19 76.95,28.55 79.39,30.00 76.56,30.25 76.95,33.05 75.00,31.00 73.05,33.05 73.44,30.25 70.61,30.00 73.05,28.55 71.48,26.19 74.13,27.20"/><polygon points="90.00,4.50 90.87,7.20 93.52,6.19 91.95,8.55 94.39,10.00 91.56,10.25 91.95,13.05 90.00,11.00 88.05,13.05 88.44,10.25 85.61,10.00 88.05,8.55 86.48,6.19 89.13,7.20"/><polygon points="102.50,19.50 103.37,22.20 106.02,21.19 104.45,23.55 106.89,25.00 104.06,25.25 104.45,28.05 102.50,26.00 100.55,28.05 100.94,25.25 98.11,25.00 100.55,23.55 98.98,21.19 101.63,22.20"/><polygon points="96.50,31.40 97.15,33.11 98.97,33.20 97.55,34.34 98.03,36.10 96.50,35.10 94.97,36.10 95.45,34.34 94.03,33.20 95.85,33.11"/></g></svg>Beiz Data &amp; Accounting<!--CA_HERO--></p>
     <h1><span>The Chartered Accountant</span> <span>who builds your AI workforce.</span> <span class="h1-2">Code. Financial models. Data. Governance. One Australian CA.</span></h1>
     <p class="hz-sub">Purav Mehta, Australian Chartered Accountant · GAICD, writes the code, builds the models and sets up the AI agents himself. An unchecked AI agent can pay the wrong bill, leak client data or miss a deadline, at scale and before anyone notices. Ours work inside limits you agree, a person approves what matters, and every action is traceable.</p>
-    <div class="hz-ctas"><a class="btn primary" href="#model-demo">Try the cash model</a><a class="btn ghost" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-minute call</a></div>
+    <div class="hz-ctas"><a class="btn primary" href="/contact/?topic=AI%20readiness%20%26%20governance#form" data-topic="AI readiness &amp; governance">Book a 20-minute sprint fit check</a><a class="btn ghost" href="#model-demo">Try the cash model</a></div>
     <p class="hz-alt">Or take the <a href="/workshop/">free 5-minute workshop</a> and leave with a written plan.</p>
   </div>
   <figure class="bmap" id="bmap" aria-label="How Beiz works across your business">
@@ -248,7 +248,7 @@ def services_hub():
         ("/services/data-engineering/", "Connect", "Data engineering", "Your systems connected, cleaned and flowing into one source your reports, models and AI can trust."),
         ("/services/dashboards-and-models/", "See", "Dashboards & financial models", "Cash forecasts, runway scenarios, job profitability and board or investor dashboards."),
         ("/services/project-delivery/", "Deliver", "AI & tech project delivery", "Scope, vendors, milestones and honest reporting, so your tech project actually lands."),
-        ("/services/privacy-sprint/", "Before 10 Dec", "Automated-Decision Privacy Sprint", "Map what your software decides about people and hand your lawyer the policy wording. Fixed price from $3,500, 5 to 10 days."),
+        ("/#sprint", "Start here", "AI workflow & controls sprint", "Find the AI your team uses, name owners, set limits and pick the first controlled workflow. Includes the Privacy Act check. From $3,500, two weeks."),
         ("/services/ai-readiness-sprint/", "Start here", "AI workforce setup", "AI agents with job descriptions, limits, a decision log and a person who approves what matters. Planned as a three-week rollout. From $6,000."),
         ("/services/quick-wins/", "Small business", "Quick wins", "Small, fixed-price fixes from $1,200 that give you back evenings and bring cash in faster. Built for sole traders and small teams who don't have time for admin. Most are scoped in days, not months, with no lock-in. Your BAS and tax stay with your tax or BAS agent; we make their job easier."),
     ]
@@ -494,30 +494,31 @@ def services():
 
 
 def privacy_sprint():
-    svc("/services/privacy-sprint/", "Privacy Sprint", "Before 10 December 2026",
-        "Automated-Decision Privacy Sprint.",
-        "A fixed-price sprint for organisations covered by the Privacy Act, including health and allied health providers and businesses over $3 million. We find what your software decides about people, and hand your lawyer what they need to update your privacy policy before 10 December 2026.",
+    svc("/services/privacy-sprint/", "Privacy Act module", "Before 10 December 2026",
+        "The Privacy Act module of the controls sprint.",
+        "For organisations covered by the Privacy Act, including health and allied health providers and businesses over $3 million. It runs inside the <a href=\"/#sprint\">AI workflow &amp; controls sprint</a>: we find what your software decides about people, and hand your lawyer what they need to update your privacy policy before 10 December 2026.",
         """<h2>Why now</h2>
 <p>From 10 December 2026, if the Privacy Act covers you, your privacy policy has to say when computer programs make, or substantially help make, decisions that could significantly affect people, and what personal information they use. Most businesses don't yet know which of their tools do that. It's often buried inside booking, finance, HR and fraud software.</p>
 <h2>Who it's for</h2>
-<ul><li>Health and allied health providers, who are generally covered regardless of turnover</li><li>Businesses with annual turnover over $3 million</li><li>Businesses that trade in personal information</li></ul>
+<ul><li>Health and allied health providers, who are generally covered regardless of turnover</li><li>Businesses with annual turnover over $3 million</li><li>Businesses that trade in personal information</li><li>Commonwealth contractors, AML/CTF reporting entities, credit reporting bodies, businesses related to a covered business, and those that opt in. The <a href="https://www.oaic.gov.au/privacy/privacy-guidance-for-organisations-and-government-agencies/organisations/small-business" rel="noopener">OAIC has the full list</a></li></ul>
 <p>Not sure you're covered? Take the <a href="/ai-check/">free 2-minute check</a> first.</p>
-<h2>How the sprint runs</h2>
+<h2>How the module runs</h2>
+<p>Every controls sprint checks whether the rule looks relevant. Where it does, the sprint goes deeper:</p>
 <ol><li><strong>Inventory:</strong> every system and AI tool that touches customer, patient, staff or applicant information, the free ones included.</li>
 <li><strong>Decision map:</strong> for each, what it decides or shapes, what personal information it uses, and how significant the outcome is for the person.</li>
 <li><strong>Human review:</strong> where a person genuinely reviews outcomes, and where they should.</li>
 <li><strong>Handover to your lawyer:</strong> plain-English draft wording describing your automated decisions, with the evidence behind it, ready for legal review.</li></ol>
-<p class="fine">We don't give legal advice. The sprint produces the facts and draft wording; your lawyer confirms the final privacy policy.</p>""",
+<p class="fine">We don't give legal advice. The module produces the facts and draft wording; your lawyer confirms the final privacy policy.</p>""",
         [("System & AI tool inventory", "Including tools staff adopted on their own."), ("Automated-decision map", "What decides what, using which personal information."),
          ("Significance assessment", "Which decisions could significantly affect people."), ("Human-review design", "Where a person must genuinely check outcomes."),
          ("Draft policy wording", "Plain English, for your lawyer to finalise."), ("One-page summary", "For the board, the owner or the practice manager.")],
-        aside("The fine print", ["Fixed price from $3,500, quoted in writing", "About 5 to 10 business days", "A call if you want one, never required", "Built to finish before 10 December 2026"], "Privacy Act automated-decision check",
+        aside("The fine print", ["Part of the controls sprint, fixed price from $3,500", "Two weeks; quoted in writing if your systems need more", "Built to finish before 10 December 2026"], "AI readiness & governance",
               "General information and process support only, not legal advice."),
         before_after("An allied health practice, 12 staff", ["Booking system auto-declines repeat no-shows", "Billing software sets payment plans automatically", "Privacy policy silent on automation", "No one knows what the tools decide"],
                      ["Both decisions mapped, with the data they use", "Human review added for payment plans", "Draft wording with the lawyer", "One-page summary for the practice owner"], "Illustrative example, not a client"),
         [("/ai-check/", "Free 2-minute check"), ("/insights/privacy-act-automated-decisions/", "The rule in plain English"), ("/services/ai-governance/", "Wider AI governance")],
-        "Privacy Act automated-decision check", "Automated-Decision Privacy Sprint",
-        "Fixed-price sprint to map automated decisions and prepare privacy policy wording for your lawyer before the Privacy Act transparency obligation starts on 10 December 2026.")
+        "AI readiness & governance", "The Privacy Act module",
+        "The Privacy Act module of the AI workflow & controls sprint: map automated decisions and prepare privacy policy wording for your lawyer before the transparency obligation starts on 10 December 2026.")
 
 
 # ------------------------------------------------------------------ industries
@@ -743,7 +744,7 @@ def ai_check():
                  "From 10 December 2026, organisations covered by the Privacy Act must explain in their privacy policy when computer programs make, or substantially help make, decisions that significantly affect people. Nine questions tell you where you stand.",
                  [("/ai-check/", "Privacy Act AI check")]) + '''<section style="padding-top:8px"><div class="wrap">
     <div class="chk"><ol id="chkQ"></ol><div class="res" id="chkRes" aria-live="polite"><p class="muted">Answer the questions to see where you stand.</p></div></div>
-    <p class="fine">General information only, not legal advice. Your answers stay in your browser unless you choose to send them to us.</p>
+    <p class="fine">An initial screen, not a full coverage decision. General information only, not legal advice. Your answers stay in your browser unless you choose to send them to us. For the complete list of when small businesses are covered, see the <a href="https://www.oaic.gov.au/privacy/privacy-guidance-for-organisations-and-government-agencies/organisations/small-business" rel="noopener">OAIC small business guidance and checklist</a>.</p>
   </div></section>
 <section><div class="wrap split"><div class="prose">
 <h2>What counts as an automated decision?</h2>
@@ -752,7 +753,7 @@ def ai_check():
 <h2>What you'll need to do</h2>
 <p>Update your privacy policy to describe the kinds of personal information used and the kinds of decisions involved. That means knowing which of your tools do this, which most businesses don't yet.</p>
 <p><a href="/insights/privacy-act-automated-decisions/">Read the plain-English guide</a></p>
-</div><aside class="aside"><h3>Days until 10 December 2026</h3><p class="price" data-adm-days>&nbsp;</p><p class="muted">The obligation applies to organisations covered by the Privacy Act. Many small businesses are exempt today, but health service providers are generally covered regardless of size.</p><a class="btn primary" href="/services/privacy-sprint/">The Privacy Sprint</a></aside></div></section>''' + contact_form("Want the written version?", "Send your result and we'll reply with a short written action list.", "Next step")
+</div><aside class="aside"><h3>Days until 10 December 2026</h3><p class="price" data-adm-days>&nbsp;</p><p class="muted">The obligation applies to organisations covered by the Privacy Act. Many small businesses are exempt, but health service providers and several other kinds of business are covered regardless of size.</p><a class="btn primary" href="/#sprint">The controls sprint, with the Privacy Act module</a></aside></div></section>''' + contact_form("Want the written version?", "Send your result and we'll reply with a short written action list.", "Next step")
     add("/ai-check/", "Privacy Act AI check (free, 2 minutes)", "Free 2-minute check: will the Privacy Act automated-decision transparency rules starting 10 December 2026 apply to your business? Runs in your browser; nothing is sent.", body)
 
 

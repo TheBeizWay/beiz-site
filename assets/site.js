@@ -340,7 +340,7 @@
   const ol = $("#chkQ"), res = $("#chkRes");
   if (ol && res) {
     const Q = [
-      ["cov", "Are you a health or allied health provider, trade in personal information, or turn over more than $3 million a year?", "Health service providers, including allied health practices, are generally covered regardless of turnover."],
+      ["cov", "Is your annual turnover over $3 million, or are you any of these: a health service provider, a business that trades in personal information, a Commonwealth contractor, an AML/CTF reporting entity, a credit reporting body, related to a business the Privacy Act covers, or opted in?", "These are the most common ways a business is covered. The OAIC lists a few more, so treat this as a first screen, not a final answer."],
       ["dec", "Does any software or AI make or recommend decisions about individual people?", "e.g. credit terms, pricing, bookings, screening applicants, fraud flags, rosters"],
       ["pi", "Does it use personal information to do that?", ""],
       ["sig", "Could the outcome significantly affect someone: their money, access to a service, or a job?", ""],

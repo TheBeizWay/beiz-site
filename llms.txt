@@ -20,7 +20,7 @@ Key facts:
 - [Data engineering](https://beiz.com.au/services/data-engineering/)
 - [Dashboards & financial models](https://beiz.com.au/services/dashboards-and-models/)
 - [AI & tech project delivery](https://beiz.com.au/services/project-delivery/)
-- [Automated-Decision Privacy Sprint](https://beiz.com.au/services/privacy-sprint/)
+- [Privacy Act module (10 Dec 2026)](https://beiz.com.au/services/privacy-sprint/)
 - [AI workforce setup](https://beiz.com.au/services/ai-readiness-sprint/)
 - [Quick wins for sole traders & small teams](https://beiz.com.au/services/quick-wins/)
 
