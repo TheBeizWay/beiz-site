@@ -1,0 +1,124 @@
+/* Beiz LEDGER — dark theme. Loads last, after calm.css.
+   Idea: an accountant's ledger at night. Bottle-green ledger cloth, paper-coloured type,
+   a brass lamp accent, the auditor's red pencil. Serif headlines, plain sans everything else,
+   no monospace labels, no glow, no grid, no crop marks. The one bold move: the hero is ruled
+   like a ledger page, with the red margin rules. */
+
+@font-face{font-family:"Source Serif 4";font-weight:500;font-display:swap;src:url(/assets/fonts/source-serif-4-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Source Serif 4";font-weight:600;font-display:swap;src:url(/assets/fonts/source-serif-4-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Source Serif 4";font-weight:700;font-display:swap;src:url(/assets/fonts/source-serif-4-latin-700-normal.woff2) format("woff2")}
+
+:root{
+  --bg:#0F1613; --panel:#16201C; --panel2:#121A17; --line:#25332D; --line2:#344640;
+  --text:#ECE6D8; --hi:#F7F2E7; --muted:#C9C2B3; --faint:#9F998C;
+  --paper:#ECE6D8; --brass:#CFAE6E;
+  --brand:#CFAE6E; --accent:#CFAE6E; --teal:#CFAE6E; --g:#CFAE6E; --signal:#CFAE6E;
+  --deep:#0C1210; --on-signal:#0F1613;
+  --ok:#8EC79C; --held:#E9A84F; --stop:#EE7A68; --pencil:#EE7A68;
+  --head:"Source Serif 4",Georgia,serif;
+  --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Public Sans",system-ui,sans-serif;
+  --r:4px;
+}
+
+/* ---------- base ---------- */
+html,body{background-color:var(--bg)!important;color:var(--text)!important}
+body{background-image:none!important;font-family:var(--sans)!important;font-feature-settings:"tnum" 1}
+body,p,li,td,dd,input,select,textarea,button{font-family:var(--sans)}
+h1,h2,.bz.hz h1{font-family:var(--head)!important;font-weight:600!important;letter-spacing:-.012em!important;color:var(--hi)!important}
+h3,h4{font-family:var(--sans)!important;font-weight:600!important;letter-spacing:0!important;color:var(--hi)!important}
+h2{font-size:clamp(1.8rem,3.4vw,2.7rem)!important;line-height:1.12!important}
+.hz-hero h1,.phero h1{font-size:clamp(2.3rem,4.8vw,3.9rem)!important;line-height:1.06!important;text-shadow:none!important}
+.hz-hero h1 .h1-2{font-family:var(--sans)!important;font-weight:500!important;color:var(--brass)!important;letter-spacing:0!important}
+
+/* every monospace label becomes plain sans with tabular figures */
+.cv-price b,.hz-price .n,.hz-price td:last-child,.dl-r time,.dl-r b,.dl-r em,.wfl-k b,.wfl-r time,.wfl-r em,.mm-start a em,
+.clr-stat b,.bz-snap em,.tk-row output,.hz-offers em,.hz-four dt,.ticker,.ticker *,.am *,.bm-story,code,kbd{font-family:var(--sans)!important;letter-spacing:0!important}
+.clr-signal b,.mmp .mm-h,.pull p,.gov-band h3,.gov-band .gov-k{font-family:var(--head)!important}
+
+/* labels above headings: sentence case, no square, no rule, no tracking */
+.demo-k,.eyebrow,.bz-kick{font-family:var(--sans)!important;font-weight:600!important;font-size:.92rem!important;letter-spacing:0!important;text-transform:none!important;color:var(--brass)!important;display:block!important}
+.demo-k::before,.eyebrow::before,.demo-k::after,.eyebrow::after{content:none!important;display:none!important}
+
+/* ---------- surfaces ---------- */
+.card,.tier,.sp,.jd,.dl,.rp-lane,.gov-band,.hz-ws,.env-win,.replay,.au-line,.panel,.scene,.ex,.offer,.am>div,.hz-src>div{background-image:none!important}
+.card,.tier,.jd,.dl,.panel,.scene,.ex,.offer,.aside,.demo,.wfl,.bck-k,.bck-f,.bck-map,.bck-drop,.res,.chk ol>li,.wf6 li,.am>div{border-radius:var(--r)!important}
+.fx-glow,.fx-bar,.fx-canvas{display:none!important}
+.fx-r{opacity:1!important;transform:none!important}
+.fx-host:hover{border-color:var(--line2)!important}
+
+/* ---------- header, ticker, footer ---------- */
+header.site{background:rgba(15,22,19,.94)!important;border-bottom:1px solid var(--line)!important}
+nav.main.flat a{color:var(--muted)!important;font-family:var(--sans)!important}
+nav.main.flat a:hover,nav.main.flat a[aria-current]{color:var(--hi)!important}
+.mark .wm .wn{color:var(--hi)!important}
+.ticker{background:var(--deep)!important;color:var(--muted)!important;border-bottom:1px solid var(--line)!important}
+.ticker .label{background:var(--paper)!important;color:var(--bg)!important;text-transform:none!important;letter-spacing:0!important;font-weight:600!important}
+.ticker .track em{font-style:normal}
+footer.site{background:var(--deep)!important;border-top:1px solid var(--line)!important}
+
+/* ---------- buttons and links ---------- */
+.btn{border-radius:var(--r)!important;font-family:var(--sans)!important;letter-spacing:0!important}
+.btn.primary,.btn.primary:hover,.hz-hero.dark .btn.primary{background:var(--paper)!important;border-color:var(--paper)!important;color:var(--bg)!important;box-shadow:none!important;transform:none!important}
+.btn.primary:hover,.hz-hero.dark .btn.primary:hover{background:var(--brass)!important;border-color:var(--brass)!important}
+.btn.ghost,.btn:not(.primary){background:transparent!important;border-color:var(--line2)!important;color:var(--hi)!important}
+.btn:not(.primary):hover{border-color:var(--paper)!important}
+.btn:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--brass)!important;outline-offset:2px}
+main a:not(.btn){color:var(--hi);text-decoration-color:var(--brass);text-underline-offset:3px}
+main a:not(.btn):hover{background:none!important;color:var(--brass)!important}
+.bot-btn{background:var(--paper)!important;color:var(--bg)!important;border-radius:var(--r)!important}
+.bot-btn i{background:var(--bg)!important}
+
+/* ---------- the hero: a ledger page at night ---------- */
+.hz-hero.dark,.phero{
+  background-color:var(--panel2)!important;
+  background-image:
+    linear-gradient(90deg,transparent 0,transparent calc(4vw + 6px),rgba(238,122,104,.22) calc(4vw + 6px),rgba(238,122,104,.22) calc(4vw + 7px),transparent calc(4vw + 7px),transparent calc(4vw + 11px),rgba(238,122,104,.22) calc(4vw + 11px),rgba(238,122,104,.22) calc(4vw + 12px),transparent calc(4vw + 12px)),
+    repeating-linear-gradient(180deg,transparent 0,transparent 31px,rgba(236,230,216,.055) 31px,rgba(236,230,216,.055) 32px)!important;
+  background-size:auto!important;border-bottom:1px solid var(--line)!important}
+.hz-hero .bz-kick{color:var(--brass)!important}
+
+/* hero map */
+.hz-hero.dark .bm-end rect,.hz-hero.dark .bm-end.flow rect{fill:var(--paper)!important;stroke:var(--paper)!important}
+.hz-hero.dark .bm-end text{fill:var(--bg)!important}
+.pen-note,.pen-sig,.pen-t{color:var(--pencil)!important;fill:var(--pencil)!important}
+.bm-ca .pen{stroke:var(--pencil)!important}
+
+/* ---------- sections ---------- */
+.hz-sec{border-top-color:var(--line)!important}
+#demo.hz-sec,#pricing.hz-sec{background-color:var(--panel2)!important}
+p,li,dd,td,.lede{color:var(--muted)!important}
+.sp-line{color:var(--brass)!important;font-family:var(--head)!important;font-weight:500!important}
+
+/* status colours stay meaningful: brass is never a status */
+.wfl-r.st-ok em{color:var(--ok)!important;background:rgba(142,199,156,.12)!important}
+.wfl-r.st-held em{color:var(--held)!important;background:rgba(233,168,79,.12)!important}
+.wfl-r.st-stop em{color:var(--stop)!important;background:rgba(238,122,104,.12)!important}
+.wfl-k .wfl-zero{background:rgba(207,174,110,.07)!important;box-shadow:inset 0 2px 0 var(--brass)!important}
+.wfl-zero b{color:var(--brass)!important}
+.wfl-sc button[aria-pressed="true"]{background:var(--paper)!important;color:var(--bg)!important}
+.wf6 li.live{border-color:var(--brass)!important}
+.wf6 li.live .wf-dot{background:var(--brass)!important;box-shadow:0 0 0 4px rgba(207,174,110,.18)!important}
+.hz-price tr.start td{background:rgba(207,174,110,.06)!important}
+.ticker .track em.tk-news{background:rgba(207,174,110,.16)!important;color:var(--brass)!important}
+
+/* forms */
+input,select,textarea{background:var(--panel2)!important;color:var(--text)!important;border-color:var(--line2)!important;border-radius:var(--r)!important}
+
+/* ---------- fixes after first look ---------- */
+.hz-hero h1{font-size:clamp(2.2rem,4vw,3.35rem)!important}
+section.hz-sec.wf{border-radius:0!important;box-shadow:none!important;border-left:0!important;border-right:0!important;background:var(--panel2)!important}
+section.hz-sec.wf::before{display:none!important}
+.wf6 li,.am-split div{border-top-color:var(--line2)!important}
+.hz-hero.dark .bm-node rect{fill:var(--panel)!important;stroke:var(--line2)!important}
+.hz-hero.dark .bm-top rect{fill:var(--paper)!important;stroke:var(--paper)!important}
+.hz-hero.dark .bm-top text{fill:var(--bg)!important}
+.hz-hero.dark .bm-node .t2{fill:var(--brass)!important}
+.hz-hero.dark .bm-go:hover rect,.hz-hero.dark .bm-go.on rect{fill:#1D2A25!important;stroke:var(--brass)!important}
+.hz-hero.dark .bm-dots circle{fill:var(--brass)!important}
+.hz-hero.dark .bm-lines path{stroke:var(--faint)}
+.bm-node text{font-family:var(--sans)!important}
+.hz-hero.dark .bm-node.bm-end rect,.hz-hero.dark .bm-node.bm-end.flow rect{fill:var(--paper)!important;stroke:var(--paper)!important}
+.hz-hero.dark .bm-node.bm-end text{fill:var(--bg)!important}
+.hz-hero .btn:not(.primary),.phero .btn:not(.primary){border-color:var(--line2)!important;color:var(--hi)!important;background:transparent!important}
+@media(max-width:1099px){.hz-hero.dark,.phero{background-image:repeating-linear-gradient(180deg,transparent 0,transparent 31px,rgba(236,230,216,.05) 31px,rgba(236,230,216,.05) 32px)!important}}

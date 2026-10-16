@@ -24,3 +24,5 @@ p,li,dd,td,.lede{color:var(--muted)!important}
 .mm-start a em{font-family:"IBM Plex Mono",monospace;font-style:normal;font-size:.8rem;color:var(--faint);margin:2px 0 4px}
 .mm-start a span{color:var(--muted);line-height:1.45}
 .mmp{width:min(760px,92vw)}
+section.hz-sec.wf{border-radius:0!important;box-shadow:none!important;border-left:0!important;border-right:0!important}
+section.hz-sec.wf::before{display:none!important}
