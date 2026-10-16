@@ -90,6 +90,17 @@ def home():
   </figure>
 </div></section>
 
+<section class="diff" id="different"><div class="wrap">
+  <h2>The AI is the same. The setup isn't.</h2>
+  <p class="lede">Every firm can buy the same AI models we use. What makes a Beiz agent different is the rules it runs under. A human is always in the loop.</p>
+  <ol class="diff4">
+    <li><b>A written policy for every agent</b><span>What it may do, what it must never do, and the limit it stops at. Signed off by you before it goes live.</span></li>
+    <li><b>Human approval, every time it matters</b><span>Payments, anything sent to a customer and any decision about a person wait for a named approver. No exceptions.</span></li>
+    <li><b>Every action traceable</b><span>What the agent did, why, and who approved it, recorded in a log kept in your own accounts.</span></li>
+    <li><b>Reviewed by an Australian Chartered Accountant</b><span>Decisions are reviewed and re-tested before any change goes live, against the policy you agreed.</span></li>
+  </ol>
+</div></section>
+
 <section class="hz-sec xdemo" id="model-demo"><div class="wrap">
   <p class="demo-k">Your numbers · Model it</p>
   <h2>Make the decision before the cash runs out</h2>
