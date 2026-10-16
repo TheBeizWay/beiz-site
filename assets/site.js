@@ -122,6 +122,7 @@
   const aiGap = [
     T("risk", `<b>43%</b> of SMEs now use AI and <b>65%</b> of the rest want human control <a class="note" href="https://www.industry.gov.au/publications/ai-adoption-tracker" target="_blank" rel="noopener">NAIC 2026</a>. Every Beiz agent reports to a person.`),
     T("risk", `<b>19%</b> of SMEs using AI have none of the recommended responsible AI practices in place <a class="note" href="https://www.industry.gov.au/publications/ai-adoption-tracker" target="_blank" rel="noopener">NAIC, Q4 2025</a>. Who is accountable for yours?`),
+    T("risk", `AML/CTF obligations for accountants started <b>1 Jul 2026</b>: client checks, screening, monitoring and records for caught services <a class="note" href="https://www.austrac.gov.au/new-and-media/news/austrac-opens-enrolment-new-professions-next-step-aml-reforms" target="_blank" rel="noopener">AUSTRAC</a>. Run our onboarding check.`),
     T("beiz", `Every agent we build has a job description, a delegation limit and a human it reports to.`),
     T("demo", `Payables agent held a <b>$3,080</b> bill: 22 hours billed, 14 on the timesheet. Waiting for your yes.`),
     T("risk", `Only <b>about 1 in 2</b> SMEs check AI output before customers see it <a class="note" href="https://www.industry.gov.au/publications/ai-adoption-tracker" target="_blank" rel="noopener">NAIC</a>. Ours can't send without a human yes.`),
@@ -1248,4 +1249,53 @@
   const show = k => { tr.querySelectorAll('[data-t]').forEach(b => b.setAttribute('aria-selected', b.dataset.t === k)); body.innerHTML = V[k]; };
   tr.addEventListener('click', e => { const b = e.target.closest('[data-t]'); if (b) show(b.dataset.t); });
   show('plan');
+})();
+
+/* v38 AML/CTF client onboarding check (sample data, runs in the browser) */
+(() => {
+  const root = document.getElementById("am"); if (!root) return;
+  const quick = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const keep = new Date(); keep.setFullYear(keep.getFullYear() + 7);
+  const keepTxt = keep.toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" });
+  const next = new Date(); next.setMonth(next.getMonth() + 1);
+  const nextTxt = next.toLocaleDateString("en-AU", { day: "numeric", month: "short" });
+  const pre = [
+    ["Is the service caught?", "Forming a company and a family trust for a new client. Yes, a designated service.", "Caught", "st-held"],
+    ["Who is the client?", "Company details checked against the business register. Address matches.", "Verified", "st-ok"],
+    ["Who owns or controls it?", "Two people own or control 25% or more, one through the trust.", "2 identified", "st-ok"],
+    ["Are they who they say?", "Both verified with the firm's ID check.", "Verified", "st-ok"],
+    ["Sanctions screening", "No match on the sanctions lists.", "Clear", "st-ok"],
+    ["Politically exposed?", "Possible match: Owner B shares a name with a foreign official.", "Held", "st-stop"],
+  ];
+  root.innerHTML = `<div class="am-h"><div><b>Client onboarding check</b><span>Sample file · Wattle Ridge Holdings (made up)</span></div><button type="button" class="btn primary" id="amGo">Run the check</button></div>
+    <ol class="am-l" id="amL" aria-live="polite"></ol><div class="am-d" id="amD"></div>`;
+  const L = root.querySelector("#amL"), D = root.querySelector("#amD"), go = root.querySelector("#amGo");
+  const row = ([q, x, st, cls]) => { const li = document.createElement("li"); li.className = "am-r " + cls; li.innerHTML = `<span class="am-q">${q}</span><span class="am-x">${x}</span><em class="am-s">${st}</em>`; L.appendChild(li); };
+  const seq = (items, done) => { let i = 0; const step = () => { if (i < items.length) { row(items[i++]); quick ? step() : setTimeout(step, 420); } else done && done(); }; step(); };
+  const finish = (cleared) => {
+    D.innerHTML = "";
+    const rest = cleared
+      ? [["Possible match reviewed", "Date of birth and country don't match the official. Cleared by a person, reason recorded.", "Cleared", "st-ok"],
+         ["Risk rating", "Medium: new client, trust structure, cleared match.", "Medium", "st-held"],
+         ["Decision", "Approved to start work by the compliance officer.", "Approved", "st-ok"]]
+      : [["Possible match escalated", "Sent to the compliance officer with the screening result and ID records.", "Escalated", "st-held"],
+         ["Decision", "Work doesn't start until the compliance officer decides.", "Waiting", "st-stop"]];
+    rest.push(["Record kept", `Evidence filed for each step. Keep until ${keepTxt}.`, "Filed", "st-log"],
+              ["Ongoing monitoring", `Re-screen and review on ${nextTxt}, then monthly.`, "Scheduled", "st-log"]);
+    seq(rest, () => {
+      D.innerHTML = `<div class="am-end"><p><b>${cleared ? "The agents did the checking. A person made both decisions." : "The agents stopped and asked. Nothing moves without a person."}</b> That's what monthly controls operations look like: screening, monitoring and records kept current, every exception decided by your people.</p><button type="button" class="btn ghost" id="amAgain">Run it again</button></div>`;
+      D.querySelector("#amAgain").onclick = start;
+    });
+  };
+  const start = () => {
+    L.innerHTML = ""; D.innerHTML = ""; go.disabled = true; go.textContent = "Checking…";
+    seq(pre, () => {
+      go.textContent = "Waiting for a person";
+      D.innerHTML = `<div class="am-ask"><p><b>Possible match held for a person.</b> The screening shows a name match only. Your compliance officer decides.</p>
+        <div class="am-btns"><button type="button" class="btn primary" id="amClear">Dates of birth differ: clear it</button><button type="button" class="btn ghost" id="amEsc">Escalate</button></div></div>`;
+      D.querySelector("#amClear").onclick = () => { go.textContent = "Done"; finish(true); };
+      D.querySelector("#amEsc").onclick = () => { go.textContent = "Done"; finish(false); };
+    });
+  };
+  go.addEventListener("click", start);
 })();

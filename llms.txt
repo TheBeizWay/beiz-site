@@ -1,10 +1,10 @@
 # Beiz Data & Accounting
 
-> AI, data and financial modelling for Australian businesses, led by Purav Mehta, an Australian Chartered Accountant and GAICD. Beiz connects a business's data, builds cash and job profit models, and sets up AI agents for routine finance work with limits, approvals and a decision log. A person approves anything that touches money, customers or decisions about people.
+> An AI workforce for compliance and finance work, checked by an Australian Chartered Accountant. AML/CTF, privacy and AI controls, cash models and finance automation for Australian accounting firms and growing businesses, led by Purav Mehta, an Australian Chartered Accountant and GAICD. Beiz connects a business's data, builds cash and job profit models, and sets up AI agents for routine finance work with limits, approvals and a decision log. A person approves anything that touches money, customers or decisions about people.
 
 Key facts:
 - Beiz Data & Accounting Pty Ltd, ABN 53 691 755 496. Led by Purav Mehta, Australian Chartered Accountant, GAICD. Based in Canberra, working Australia-wide.
-- Fixed scope and fixed price, agreed in writing before work starts. Ways to start: AI workflow & controls sprint from $3,500 (two weeks: register of the AI tools a team uses, data map, named owners, use rules, a 90-day plan for the first controlled workflow, and a check of whether the Privacy Act automated-decision transparency rules starting 10 December 2026 apply; no ledger access needed), two-week cash & data check $1,500 fixed (credited if the client goes ahead), live cash & job profit model from $5,000, AI workforce setup from $8,500 (first agent), leave cover from $3,500 setup then from $2,000 a month, then monthly monitoring from $1,250 a month. Other work: quick wins from $1,200. Beiz is not registered for GST, so no GST is added to prices. A written proposal with the exact price follows within three business days.
+- Fixed scope and fixed price, agreed in writing before work starts. Ways to start: compliance controls sprint from $3,500 (two weeks, one focus: AI use, AML/CTF Tranche 2 or the Privacy Act automated-decision rules starting 10 December 2026; register, data map, named owners, rules and approval points, and a 90-day plan; legal wording stays with the client's adviser or lawyer; no ledger access needed), two-week cash & data check $1,500 fixed (credited if the client goes ahead), live cash & job profit model from $5,000, AI workforce setup from $8,500 (first agent), leave cover from $3,500 setup then from $2,000 a month, then monthly controls operations from $1,250 a month (agent decision review, and AML/CTF screening, monitoring and records where they apply). Other work: quick wins from $1,200. Beiz is not registered for GST, so no GST is added to prices. A written proposal with the exact price follows within three business days.
 - Independent: no software of its own to sell. Builds inside the client's own accounts (e.g. Xero, MYOB, Microsoft 365, Google Workspace) using AI plans whose terms exclude training on client data.
 - Four disciplines: Data (reconciliation, reporting, forecasting), AI (automation with approval steps), Accounting (management reports, cash forecasts, financial and economic models, profit by job), Governance (board reporting, risk, AI use policy, Privacy Act automated-decision readiness).
 - Also offered: a fixed-price billing review of three completed jobs. Timesheets, job list and invoices are reconciled from exports (no logins) into a findings register where each item is Confirmed, Needs information or Explained, with source records and arithmetic. Sample register (made-up data): https://beiz.com.au/assets/media/sample-findings.xlsx
@@ -33,7 +33,8 @@ Key facts:
 - [Hospitality & retail](https://beiz.com.au/industries/hospitality-retail/)
 
 ## Start here
-- [AI workflow & controls sprint](https://beiz.com.au/#sprint): from $3,500, two weeks, no ledger access needed
+- [Compliance controls sprint](https://beiz.com.au/#sprint): from $3,500, two weeks, one focus: AI use, AML/CTF Tranche 2 or the Privacy Act
+- [AML/CTF client onboarding check (interactive demo)](https://beiz.com.au/#aml): customer due diligence, screening and the decision a person has to make
 
 ## See it working
 - [Homepage demonstrations](https://beiz.com.au/): an interactive 13-week cash model, a data lineage walk-through from dashboard to source records, and an AI controls simulation (allow, hold or block)

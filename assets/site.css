@@ -2119,3 +2119,36 @@ img.ca-who-mark{display:block;height:40px;width:auto;margin:4px 0 18px}
 /* v37: tighter hero top so the map's second row shows on laptop screens; ticker respects reduced motion */
 .hz-hero.dark{padding-top:32px}
 @media(prefers-reduced-motion:reduce){.ticker .track{animation:none}}
+/* v38 compliance sprint focus + AML onboarding check */
+.sp3{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.sp3 li{padding:14px 16px;border:1px solid var(--line2);border-radius:10px;background:var(--bg)}
+.sp3 b{display:block;color:var(--hi);margin-bottom:4px}.sp3 span{color:var(--muted);font-size:.95rem}
+@media(max-width:860px){.sp3{grid-template-columns:1fr}}
+.am{margin-top:26px;border:1px solid var(--line2);border-radius:12px;background:var(--bg);overflow:hidden;max-width:900px}
+.am-h{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:16px 20px;border-bottom:1px solid var(--line2);background:var(--panel2)}
+.am-h b{display:block;color:var(--hi)}.am-h span{font-size:.85rem;color:var(--muted)}
+.am-h .btn:disabled{opacity:.75;cursor:default}
+.am-l{list-style:none;margin:0;padding:0}
+.am-r{display:grid;grid-template-columns:200px 1fr auto;gap:14px;align-items:baseline;padding:12px 20px;border-bottom:1px solid var(--line);animation:amIn .35s ease both}
+.am-q{font-weight:600;color:var(--hi)}.am-x{color:var(--muted)}
+.am-s{font:600 .8rem var(--mono,monospace);font-style:normal;padding:3px 8px;border-radius:4px;white-space:nowrap}
+.am-r.st-ok .am-s{color:var(--ok);background:#E7F3EC}.am-r.st-held .am-s{color:var(--held);background:#FFF4E0}
+.am-r.st-stop .am-s{color:var(--stop);background:#FEF0EE}.am-r.st-log .am-s{color:var(--muted);background:var(--panel)}
+.am-d:empty{display:none}.am-ask,.am-end{padding:18px 20px}.am-ask p,.am-end p{margin:0 0 12px;max-width:66ch;color:var(--muted)}.am-ask b,.am-end b{color:var(--hi)}
+.am-ask{border-left:3px solid var(--stop);background:#FFFAF9}
+.am-btns{display:flex;gap:10px;flex-wrap:wrap}
+.am-split{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px;max-width:900px}
+.am-split div{padding:14px 16px;border-top:2px solid var(--hi)}.am-split b{display:block;color:var(--hi);margin-bottom:4px}.am-split span{color:var(--muted);font-size:.95rem}
+@keyframes amIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.am-r{animation:none}}
+@media(max-width:720px){.am-r{grid-template-columns:1fr auto}.am-x{grid-column:1/-1;grid-row:2}.am-split{grid-template-columns:1fr}}
+/* v39 AI workforce roster */
+.wf{background:var(--panel)}
+.wf6{list-style:none;margin:26px 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.wf6 li{background:var(--bg);border:1px solid var(--line2);border-radius:12px;padding:18px 20px;border-top:3px solid var(--brand)}
+.wf6 h3{font:600 1.08rem var(--head,inherit);color:var(--hi);margin:0 0 10px}
+.wf6 dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:.93rem}
+.wf6 dt{font:600 .74rem var(--mono,monospace);color:var(--muted);padding-top:3px;white-space:nowrap}
+.wf6 dd{margin:0;color:var(--text)}
+.wf6 dt:nth-of-type(2){color:var(--stop)}.wf6 dt:nth-of-type(3){color:var(--held)}
+@media(max-width:980px){.wf6{grid-template-columns:1fr 1fr}}@media(max-width:620px){.wf6{grid-template-columns:1fr}}

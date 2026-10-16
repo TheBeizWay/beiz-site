@@ -61,9 +61,9 @@ def home():
 <section class="hz-hero dark" id="top"><div class="wrap hero32">
   <div class="hz-copy">
     <p class="bz-kick"><svg class="au-flag" viewBox="0 0 120 60" width="27" height="14" role="img" aria-label="Australian flag"><clipPath id="auS1"><rect width="60" height="30"/></clipPath><clipPath id="auT1"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="120" height="60" fill="#012169"/><g clip-path="url(#auS1)"><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#auT1)" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g><g fill="#fff"><polygon points="30.00,36.00 31.74,41.40 37.04,39.39 33.90,44.11 38.77,47.00 33.13,47.49 33.90,53.11 30.00,49.00 26.10,53.11 26.87,47.49 21.23,47.00 26.10,44.11 22.96,39.39 28.26,41.40"/><polygon points="90.00,45.50 90.87,48.20 93.52,47.19 91.95,49.55 94.39,51.00 91.56,51.25 91.95,54.05 90.00,52.00 88.05,54.05 88.44,51.25 85.61,51.00 88.05,49.55 86.48,47.19 89.13,48.20"/><polygon points="75.00,24.50 75.87,27.20 78.52,26.19 76.95,28.55 79.39,30.00 76.56,30.25 76.95,33.05 75.00,31.00 73.05,33.05 73.44,30.25 70.61,30.00 73.05,28.55 71.48,26.19 74.13,27.20"/><polygon points="90.00,4.50 90.87,7.20 93.52,6.19 91.95,8.55 94.39,10.00 91.56,10.25 91.95,13.05 90.00,11.00 88.05,13.05 88.44,10.25 85.61,10.00 88.05,8.55 86.48,6.19 89.13,7.20"/><polygon points="102.50,19.50 103.37,22.20 106.02,21.19 104.45,23.55 106.89,25.00 104.06,25.25 104.45,28.05 102.50,26.00 100.55,28.05 100.94,25.25 98.11,25.00 100.55,23.55 98.98,21.19 101.63,22.20"/><polygon points="96.50,31.40 97.15,33.11 98.97,33.20 97.55,34.34 98.03,36.10 96.50,35.10 94.97,36.10 95.45,34.34 94.03,33.20 95.85,33.11"/></g></svg>Beiz Data &amp; Accounting<!--CA_HERO--></p>
-    <h1><span>The Chartered Accountant</span> <span>who builds your AI workforce.</span> <span class="h1-2">Code. Financial models. Data. Governance. One Australian CA.</span></h1>
-    <p class="hz-sub">Purav Mehta, Australian Chartered Accountant · GAICD, writes the code, builds the models and sets up the AI agents himself. An unchecked AI agent can pay the wrong bill, leak client data or miss a deadline, at scale and before anyone notices. Ours work inside limits you agree, a person approves what matters, and every action is traceable.</p>
-    <div class="hz-ctas"><a class="btn primary" href="/contact/?topic=AI%20readiness%20%26%20governance#form" data-topic="AI readiness &amp; governance">Book a 20-minute sprint fit check</a><a class="btn ghost" href="#model-demo">Try the cash model</a></div>
+    <h1><span>Your AI workforce</span> <span>for compliance and finance.</span> <span class="h1-2">Checked by an Australian Chartered Accountant.</span></h1>
+    <p class="hz-sub">AML/CTF, privacy and AI controls, cash models and finance automation for Australian accounting firms and growing businesses. Agents prepare the checks and the paperwork. Purav Mehta, Chartered Accountant · GAICD, sets their limits, reviews the exceptions and keeps the evidence. An unchecked agent fails at scale; ours stop and ask a person.</p>
+    <div class="hz-ctas"><a class="btn primary" href="/contact/?topic=Compliance%20controls%20sprint#form" data-topic="Compliance controls sprint">Book a 20-minute fit check</a><a class="btn ghost" href="#aml">Run a client onboarding check</a></div>
     <p class="hz-alt">Or take the <a href="/workshop/">free 5-minute workshop</a> and leave with a written plan.</p>
   </div>
   <figure class="bmap" id="bmap" aria-label="How Beiz works across your business">
@@ -92,18 +92,44 @@ def home():
 
 <section class="hz-sec sp" id="sprint"><div class="wrap">
   <p class="demo-k">Start here</p>
-  <h2>Your team is already using AI. Make it accountable.</h2>
-  <p class="sp-line">Find every tool. Name an owner. Set the limit. Keep the evidence.</p>
-  <p class="lede">The AI workflow &amp; controls sprint. In two weeks we find the AI tools your people actually use, what data goes into them and who owns each one. Then we set practical limits and pick the first workflow worth running under controls. It starts with short interviews and a list of tools. We don't need access to your ledger.</p>
+  <h2>Two weeks to know where you stand.</h2>
+  <p class="sp-line">Find every obligation. Name an owner. Set the limit. Keep the evidence.</p>
+  <p class="lede">The compliance controls sprint. Pick the obligation that matters most right now. We map what's in scope, who owns it and where a person must approve, then set the rules and choose the first workflow worth running under controls. It starts with short interviews and the documents you already have. We don't need access to your ledger.</p>
+  <ul class="sp3" aria-label="Pick one focus">
+    <li><b>AI use</b><span>The AI tools your people use, what client data goes in, and the rules around them.</span></li>
+    <li><b>AML/CTF Tranche 2</b><span>Which of your services are caught, how new clients are checked, and the records you keep.</span></li>
+    <li><b>Privacy Act, 10 December</b><span>Whether the automated-decision rules look relevant, with draft wording for your lawyer to review.</span></li>
+  </ul>
   <ul class="sp5">
-    <li><b>Tool register</b><span>What's in use, by whom and for what.</span></li>
-    <li><b>Data map</b><span>Which customer, staff, financial or confidential data goes into each tool.</span></li>
-    <li><b>Named owners</b><span>One accountable person for each use that matters.</span></li>
-    <li><b>Use rules</b><span>Approved tools, data that never goes in, when a person must check and who to escalate to.</span></li>
+    <li><b>Register</b><span>What's in scope: tools, services or decisions, and who uses them.</span></li>
+    <li><b>Data map</b><span>Which client, staff, financial or confidential information is involved.</span></li>
+    <li><b>Named owners</b><span>One accountable person for each obligation that matters.</span></li>
+    <li><b>Rules and approvals</b><span>What's allowed, what's never done, when a person must check and who to escalate to.</span></li>
     <li><b>90-day plan</b><span>The first controlled workflow, its owner, how it's measured and the next decision.</span></li>
   </ul>
-  <div class="cv-foot"><p><b>Includes a Privacy Act check.</b> From 10 December 2026, some organisations covered by the Privacy Act must update their privacy policy when personal information is used in computer-assisted decisions that could significantly affect a person. We check whether that threshold looks relevant to you and draft wording for your lawyer to review. We don't give legal advice.</p><div class="cv-price"><span>Fixed price from</span><b>$3,500</b><span>two weeks, agreed in writing</span></div></div>
-  <div class="hz-ctas"><a class="btn primary" href="/contact/?topic=AI%20readiness%20%26%20governance#form" data-topic="AI readiness &amp; governance">Book a 20-minute fit check</a><a class="btn ghost" href="#limits">Try setting an agent's limits</a></div>
+  <div class="cv-foot"><p><b>One focus per sprint.</b> A second focus is quoted in writing. We don't give legal advice: AML/CTF program wording and privacy policy wording stay with your adviser or lawyer, and we hand them the facts.</p><div class="cv-price"><span>Fixed price from</span><b>$3,500</b><span>two weeks, agreed in writing</span></div></div>
+  <div class="hz-ctas"><a class="btn primary" href="/contact/?topic=Compliance%20controls%20sprint#form" data-topic="Compliance controls sprint">Book a 20-minute fit check</a><a class="btn ghost" href="#aml">Run a client onboarding check</a></div>
+</div></section>
+
+<section class="hz-sec xdemo aml" id="aml"><div class="wrap">
+  <p class="demo-k">AML/CTF · Tranche 2</p>
+  <h2>A new client walks in. Is your firm ready to say yes?</h2>
+  <p class="lede">Since 1 July 2026, accountants who form companies and trusts, act as directors or trustees, or buy and sell businesses for clients have AML/CTF obligations: customer due diligence, screening, ongoing monitoring and records. Run a sample onboarding check and see where a person has to decide.</p>
+  <div class="am" id="am"></div>
+  <div class="am-split">
+    <div><b>What the agents do</b><span>Check whether the service is caught, confirm the client and its owners, run the screening, draft the risk rating, file the evidence and set the next monitoring date.</span></div>
+    <div><b>What stays with your people</b><span>Every possible match, every high-risk client and the decision to take the work on. Your AML/CTF compliance officer stays accountable; we prepare, check and keep the record.</span></div>
+  </div>
+  <p class="nx">Not sure which of your services are caught? <a href="#sprint">Pick AML/CTF as your sprint focus.</a> Then <a href="#pricing">monthly controls operations</a> keep the screening, monitoring and evidence current.</p>
+  <p class="fine">Simulation with made-up data, not connected to any real system. Not legal advice: your AML/CTF program sets the actual rules. Obligations as described by <a href="https://www.austrac.gov.au/new-and-media/news/austrac-opens-enrolment-new-professions-next-step-aml-reforms" rel="noopener">AUSTRAC</a>.</p>
+</div></section>
+
+<section class="hz-sec wf" id="workforce"><div class="wrap">
+  <p class="demo-k">Your AI workforce</p>
+  <h2>Six roles. Every one reports to a person.</h2>
+  <p class="lede">Each agent we set up gets a written job description, a limit it stops at and a named person it reports to. They prepare; your people decide. None of them holds a qualification or signs anything off.</p>
+  <ul class="wf6"><li><h3>Data scientist agent</h3><dl><dt>Does</dt><dd>Cleans your exports, joins the records, builds the cash and margin models and flags outliers.</dd><dt>Never</dt><dd>Change a source record.</dd><dt>Reports to</dt><dd>Your finance lead</dd></dl></li><li><h3>Financial controller agent</h3><dl><dt>Does</dt><dd>Reconciles bank to ledger, matches bills to orders and timesheets, and prepares the month-end checklist.</dd><dt>Never</dt><dd>Post a journal or release a payment.</dd><dt>Reports to</dt><dd>Your financial controller or owner</dd></dl></li><li><h3>CFO desk agent</h3><dl><dt>Does</dt><dd>Drafts the weekly cash view, the board pack numbers and the variance notes.</dd><dt>Never</dt><dd>Send anything to your board, bank or investors.</dd><dt>Reports to</dt><dd>Your CFO or owner</dd></dl></li><li><h3>Systems agent</h3><dl><dt>Does</dt><dd>Watches your integrations, data feeds and who has access. Flags failures and new AI tools staff start using.</dd><dt>Never</dt><dd>Change a permission or a setting.</dd><dt>Reports to</dt><dd>Your IT provider or operations lead</dd></dl></li><li><h3>Compliance agent</h3><dl><dt>Does</dt><dd>Prepares AML/CTF client checks and screening, sets monitoring dates and files the evidence.</dd><dt>Never</dt><dd>Clear a possible match or accept a high-risk client.</dd><dt>Reports to</dt><dd>Your AML/CTF compliance officer</dd></dl></li><li><h3>Risk officer agent</h3><dl><dt>Does</dt><dd>Keeps the controls register current, logs every exception and drafts the monthly risk report.</dd><dt>Never</dt><dd>Sign off its own controls.</dd><dt>Reports to</dt><dd>Your risk owner or board</dd></dl></li></ul>
+  <div class="cv-foot"><p><b>Start with one.</b> We set up your first agent in a three-week rollout: map and limit, shadow mode beside your person, then live within limits. Each further agent is quoted in writing.</p><div class="cv-price"><span>First agent from</span><b>$8,500</b><span>then monthly controls operations from $1,250</span></div></div>
 </div></section>
 
 <section class="diff" id="different"><div class="wrap">
@@ -159,7 +185,7 @@ def home():
   <h2>AI without controls is a risk. AI with controls is a workforce.</h2>
   <p class="lede">Everyone talks about AI. Few understand its limits. AI agents don't fail quietly; they fail at scale. Here are five requests a payables agent might face in a week. You decide: allow it, hold it for a person, or block it. Then see what we'd set, and why. A simulation, not connected to any real accounts.</p>
   <div class="lm" id="lm"></div>
-  <p class="nx">You just set the limits for one agent. <a href="#sprint">The controls sprint</a> does this for every AI tool your team already uses.</p>
+  <p class="nx">You just set the limits for one agent. <a href="#sprint">The compliance controls sprint</a> does this for every AI tool your team already uses.</p>
 </div></section>
 
 <section class="hz-sec xdemo" id="trace"><div class="wrap">
@@ -177,7 +203,7 @@ def home():
     <p class="demo-k">Checks &amp; approvals</p>
     <h2>What an Australian Chartered Accountant adds</h2>
     <p class="lede">The agents do the matching. A Chartered Accountant designs the limits and asks the questions the software can't. Red ink below shows the kind of review notes we write.</p>
-    <p class="au-line"><svg class="au-flag" viewBox="0 0 120 60" width="27" height="14" role="img" aria-label="Australian flag"><clipPath id="auS2"><rect width="60" height="30"/></clipPath><clipPath id="auT2"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="120" height="60" fill="#012169"/><g clip-path="url(#auS2)"><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#auT2)" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g><g fill="#fff"><polygon points="30.00,36.00 31.74,41.40 37.04,39.39 33.90,44.11 38.77,47.00 33.13,47.49 33.90,53.11 30.00,49.00 26.10,53.11 26.87,47.49 21.23,47.00 26.10,44.11 22.96,39.39 28.26,41.40"/><polygon points="90.00,45.50 90.87,48.20 93.52,47.19 91.95,49.55 94.39,51.00 91.56,51.25 91.95,54.05 90.00,52.00 88.05,54.05 88.44,51.25 85.61,51.00 88.05,49.55 86.48,47.19 89.13,48.20"/><polygon points="75.00,24.50 75.87,27.20 78.52,26.19 76.95,28.55 79.39,30.00 76.56,30.25 76.95,33.05 75.00,31.00 73.05,33.05 73.44,30.25 70.61,30.00 73.05,28.55 71.48,26.19 74.13,27.20"/><polygon points="90.00,4.50 90.87,7.20 93.52,6.19 91.95,8.55 94.39,10.00 91.56,10.25 91.95,13.05 90.00,11.00 88.05,13.05 88.44,10.25 85.61,10.00 88.05,8.55 86.48,6.19 89.13,7.20"/><polygon points="102.50,19.50 103.37,22.20 106.02,21.19 104.45,23.55 106.89,25.00 104.06,25.25 104.45,28.05 102.50,26.00 100.55,28.05 100.94,25.25 98.11,25.00 100.55,23.55 98.98,21.19 101.63,22.20"/><polygon points="96.50,31.40 97.15,33.11 98.97,33.20 97.55,34.34 98.03,36.10 96.50,35.10 94.97,36.10 95.45,34.34 94.03,33.20 95.85,33.11"/></g></svg><span>Your agents work under Australian rules: the Privacy Act, GST and BAS, super and payroll. An Australian Chartered Accountant works under those rules every day and is bound by the APES 110 Code of Ethics.</span></p>
+    <p class="au-line"><svg class="au-flag" viewBox="0 0 120 60" width="27" height="14" role="img" aria-label="Australian flag"><clipPath id="auS2"><rect width="60" height="30"/></clipPath><clipPath id="auT2"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="120" height="60" fill="#012169"/><g clip-path="url(#auS2)"><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#auT2)" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g><g fill="#fff"><polygon points="30.00,36.00 31.74,41.40 37.04,39.39 33.90,44.11 38.77,47.00 33.13,47.49 33.90,53.11 30.00,49.00 26.10,53.11 26.87,47.49 21.23,47.00 26.10,44.11 22.96,39.39 28.26,41.40"/><polygon points="90.00,45.50 90.87,48.20 93.52,47.19 91.95,49.55 94.39,51.00 91.56,51.25 91.95,54.05 90.00,52.00 88.05,54.05 88.44,51.25 85.61,51.00 88.05,49.55 86.48,47.19 89.13,48.20"/><polygon points="75.00,24.50 75.87,27.20 78.52,26.19 76.95,28.55 79.39,30.00 76.56,30.25 76.95,33.05 75.00,31.00 73.05,33.05 73.44,30.25 70.61,30.00 73.05,28.55 71.48,26.19 74.13,27.20"/><polygon points="90.00,4.50 90.87,7.20 93.52,6.19 91.95,8.55 94.39,10.00 91.56,10.25 91.95,13.05 90.00,11.00 88.05,13.05 88.44,10.25 85.61,10.00 88.05,8.55 86.48,6.19 89.13,7.20"/><polygon points="102.50,19.50 103.37,22.20 106.02,21.19 104.45,23.55 106.89,25.00 104.06,25.25 104.45,28.05 102.50,26.00 100.55,28.05 100.94,25.25 98.11,25.00 100.55,23.55 98.98,21.19 101.63,22.20"/><polygon points="96.50,31.40 97.15,33.11 98.97,33.20 97.55,34.34 98.03,36.10 96.50,35.10 94.97,36.10 95.45,34.34 94.03,33.20 95.85,33.11"/></g></svg><span>Your agents work under Australian rules: AML/CTF, the Privacy Act, GST and BAS, super and payroll. An Australian Chartered Accountant works under those rules every day and is bound by the APES 110 Code of Ethics.</span></p>
     <div class="ca-who"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="" width="64" height="64"><p><b>Purav Mehta, Australian Chartered Accountant · GAICD</b><br>Builds the data models and agents himself, with a background in internal audit, corporate finance and SAP systems. Canberra, working Australia-wide.</p></div><!--CA_WHO-->
     <p class="partner-line">Works alongside your accountant, or inside your firm. Beiz doesn&rsquo;t do tax, BAS or statutory audit work, so there&rsquo;s nothing to compete with.</p>
     <dl class="hz-four"><dt>CA</dt><dd>financial judgement and reconciliation</dd><dt>GAICD</dt><dd>governance, risk and what a board needs to see</dd><dt>Data</dt><dd>models, and where each number came from</dd><dt>AI</dt><dd>how the agents are set up and limited</dd></dl>
@@ -212,12 +238,12 @@ def home():
   <table class="hz-price">
     <thead><tr><th>Offer</th><th>What you get</th><th class="n">Price</th></tr></thead>
     <tbody>
-      <tr id="sprint-row" class="start"><td><a href="#sprint">AI workflow &amp; controls sprint</a><small>Start here</small></td><td>Two weeks. A register of the AI tools your team uses, the data going into them, named owners, use rules and a 90-day plan for the first controlled workflow. Includes a check of whether the privacy-policy changes for computer-assisted decisions starting 10 December 2026 look relevant to you, with draft wording for your lawyer to review. No ledger access needed.</td><td class="n">from $3,500</td></tr>
+      <tr id="sprint-row" class="start"><td><a href="#sprint">Compliance controls sprint</a><small>Start here</small></td><td>Two weeks, one focus: AI use, AML/CTF Tranche 2 or the Privacy Act. A register, data map, named owners, rules and approval points, and a 90-day plan for the first controlled workflow. Legal wording stays with your adviser or lawyer. No ledger access needed.</td><td class="n">from $3,500</td></tr>
       <tr id="check"><td><a href="/contact/?topic=Two-week%20cash%20%26%20data%20check#form">Two-week cash &amp; data check</a></td><td>From your Xero and job or timesheet exports: unbilled work, margin leaks and manual bottlenecks, with the records behind each finding. One business, up to 12 months of exports. You get a findings register, a two-page report and a 30-minute walkthrough. Doesn't include fixing the records, tax or BAS. Credited if you go ahead. <a class="hz-dl" href="/assets/beiz-sample-check-report.pdf">See a sample report (PDF)</a> <a class="hz-dl" href="/assets/beiz-sample-findings-register.xlsx">and its findings register (Excel)</a></td><td class="n">$1,500 fixed</td></tr>
       <tr id="model"><td><a href="/services/dashboards-and-models/">Live cash &amp; job profit model</a></td><td>A 13-week rolling cash flow and profit by job against what you quoted, updated weekly, in your own Excel or Power BI.</td><td class="n">from $5,000</td></tr>
       <tr id="ai"><td><a href="/services/ai-readiness-sprint/">AI workforce setup</a></td><td>Your first agent with its job description, limits and decision log, plus limits and approvers for the AI already inside your software. Each further agent is quoted in writing. Planned as a three-week rollout: map and limit, shadow mode, live within limits. Includes a review at day 30; ongoing monitoring is the monthly service below.</td><td class="n">from $8,500</td></tr>
       <tr><td><a href="#cover">Leave cover</a></td><td>An agent carries the routine part of a role while someone is on leave, reviewed by an Australian Chartered Accountant, with a handover note when they return.</td><td class="n">from $3,500 setup, then from $2,000 a month</td></tr>
-      <tr><td>Monthly monitoring and review</td><td>We review the agents' decisions, re-test before changes, keep the model current and send you one page on what was caught and what changed.</td><td class="n">from $1,250 a month</td></tr>
+      <tr id="ops"><td>Monthly controls operations</td><td>We run the monthly checks: review the agents' decisions, re-test before changes, keep AML/CTF screening, monitoring and records current where they apply, and send you one page on what was caught and what changed.</td><td class="n">from $1,250 a month</td></tr>
     </tbody>
   </table>
   <div class="hz-ws">
@@ -227,8 +253,8 @@ def home():
 </div></section>
 </div>
 {contact_form(heading="Tell us what you're trying to fix", lede="A few lines is plenty. By the next business day you'll get a written reply: what the problem looks like, what information it would need, and whether a fixed-scope job makes sense. Rather talk? Pick “Discovery call” or “Demo request” and we'll arrange a free 20 minutes, early morning or after 5pm.")}'''
-    add("/", "Beiz Data & Accounting | The Chartered Accountant who builds your AI workforce",
-        "Beiz connects your data, models your cash and job profit, and sets up AI agents with limits and approvals. Led by Purav Mehta, Australian Chartered Accountant and GAICD. Fixed prices from $1,500.", body)
+    add("/", "Beiz Data & Accounting | AI workforce for compliance and finance, checked by a Chartered Accountant",
+        "AML/CTF, privacy and AI controls, cash models and finance automation for Australian accounting firms and growing businesses. AI agents do the checks; an Australian Chartered Accountant reviews the exceptions. Fixed prices from $1,500.", body)
 
 # ------------------------------------------------------------------ services
 START_HERE = '''<section style="padding-top:8px"><div class="wrap"><p class="eyebrow">Start here</p><h2>Three ways to start, with fixed prices.</h2>
@@ -248,7 +274,7 @@ def services_hub():
         ("/services/data-engineering/", "Connect", "Data engineering", "Your systems connected, cleaned and flowing into one source your reports, models and AI can trust."),
         ("/services/dashboards-and-models/", "See", "Dashboards & financial models", "Cash forecasts, runway scenarios, job profitability and board or investor dashboards."),
         ("/services/project-delivery/", "Deliver", "AI & tech project delivery", "Scope, vendors, milestones and honest reporting, so your tech project actually lands."),
-        ("/#sprint", "Start here", "AI workflow & controls sprint", "Find the AI your team uses, name owners, set limits and pick the first controlled workflow. Includes the Privacy Act check. From $3,500, two weeks."),
+        ("/#sprint", "Start here", "Compliance controls sprint", "One focus: AI use, AML/CTF Tranche 2 or the Privacy Act. Name owners, set limits and pick the first controlled workflow. From $3,500, two weeks."),
         ("/services/ai-readiness-sprint/", "Start here", "AI workforce setup", "AI agents with job descriptions, limits, a decision log and a person who approves what matters. Planned as a three-week rollout. From $8,500."),
         ("/services/quick-wins/", "Small business", "Quick wins", "Small, fixed-price fixes from $1,200 that give you back evenings and bring cash in faster. Built for sole traders and small teams who don't have time for admin. Most are scoped in days, not months, with no lock-in. Your BAS and tax stay with your tax or BAS agent; we make their job easier."),
     ]
@@ -496,7 +522,7 @@ def services():
 def privacy_sprint():
     svc("/services/privacy-sprint/", "Privacy Act module", "Before 10 December 2026",
         "The Privacy Act module of the controls sprint.",
-        "For organisations covered by the Privacy Act, including health and allied health providers and businesses over $3 million. It runs inside the <a href=\"/#sprint\">AI workflow &amp; controls sprint</a>: we find what your software decides about people, and hand your lawyer what they need to update your privacy policy before 10 December 2026.",
+        "For organisations covered by the Privacy Act, including health and allied health providers and businesses over $3 million. It runs inside the <a href=\"/#sprint\">compliance controls sprint</a>: we find what your software decides about people, and hand your lawyer what they need to update your privacy policy before 10 December 2026.",
         """<h2>Why now</h2>
 <p>From 10 December 2026, if the Privacy Act covers you, your privacy policy has to say when computer programs make, or substantially help make, decisions that could significantly affect people, and what personal information they use. Most businesses don't yet know which of their tools do that. It's often buried inside booking, finance, HR and fraud software.</p>
 <h2>Who it's for</h2>
@@ -518,7 +544,7 @@ def privacy_sprint():
                      ["Both decisions mapped, with the data they use", "Human review added for payment plans", "Draft wording with the lawyer", "One-page summary for the practice owner"], "Illustrative example, not a client"),
         [("/ai-check/", "Free 2-minute check"), ("/insights/privacy-act-automated-decisions/", "The rule in plain English"), ("/services/ai-governance/", "Wider AI governance")],
         "AI readiness & governance", "The Privacy Act module",
-        "The Privacy Act module of the AI workflow & controls sprint: map automated decisions and prepare privacy policy wording for your lawyer before the transparency obligation starts on 10 December 2026.")
+        "The Privacy Act module of the compliance controls sprint: map automated decisions and prepare privacy policy wording for your lawyer before the transparency obligation starts on 10 December 2026.")
 
 
 # ------------------------------------------------------------------ industries
