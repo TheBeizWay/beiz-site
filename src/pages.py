@@ -72,94 +72,103 @@ PLAIN = '''<section id="plain">
 </section>'''
 
 
+CHK_ROWS = [("Subcontractor bills that don't match timesheets or quotes", 2, "$1,480"),
+            ("Hours worked but never invoiced", 2, "$3,180"),
+            ("A bill entered twice", 1, "$485"),
+            ("An invoice below your current rates", 1, "$600"),
+            ("A supplier credit nobody applied", 1, "$1,420"),
+            ("A customer invoice more than 30 days overdue", 1, "$4,350")]
+
+
+def chk_example(cls=""):
+    rows = "".join(f'<tr><td>{t}</td><td class="n">{n}</td><td class="n">{a}</td></tr>' for t, n, a in CHK_ROWS)
+    return f'''<figure class="hx-ex{cls}" aria-labelledby="hxExT">
+  <figcaption><b id="hxExT">Worked example</b><span>What the check found in three months of records from a made-up trade business</span></figcaption>
+  <table><thead><tr><th>Finding</th><th class="n">Items</th><th class="n">Amount</th></tr></thead><tbody>{rows}</tbody></table>
+  <div class="hx-tot"><div><b>$5,745</b><span>to recover: bills that shouldn't be paid as they stand, and work not billed</span></div><div><b>$5,770</b><span>of cash to free up: a credit and an overdue invoice</span></div></div>
+  <p class="hx-note">Made-up business and figures, showing the format. <a href="/assets/beiz-sample-check-report.pdf">Open the full sample report (PDF)</a></p>
+</figure>'''
+
+
 def home():
     body = f'''<div class="bz hx hz">
 <section class="hz-hero dark" id="top"><div class="wrap hero32">
   <div class="hz-copy">
-    <p class="bz-kick"><svg class="au-flag" viewBox="0 0 120 60" width="27" height="14" role="img" aria-label="Australian flag"><clipPath id="auS1"><rect width="60" height="30"/></clipPath><clipPath id="auT1"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="120" height="60" fill="#012169"/><g clip-path="url(#auS1)"><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#auT1)" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g><g fill="#fff"><polygon points="30.00,36.00 31.74,41.40 37.04,39.39 33.90,44.11 38.77,47.00 33.13,47.49 33.90,53.11 30.00,49.00 26.10,53.11 26.87,47.49 21.23,47.00 26.10,44.11 22.96,39.39 28.26,41.40"/><polygon points="90.00,45.50 90.87,48.20 93.52,47.19 91.95,49.55 94.39,51.00 91.56,51.25 91.95,54.05 90.00,52.00 88.05,54.05 88.44,51.25 85.61,51.00 88.05,49.55 86.48,47.19 89.13,48.20"/><polygon points="75.00,24.50 75.87,27.20 78.52,26.19 76.95,28.55 79.39,30.00 76.56,30.25 76.95,33.05 75.00,31.00 73.05,33.05 73.44,30.25 70.61,30.00 73.05,28.55 71.48,26.19 74.13,27.20"/><polygon points="90.00,4.50 90.87,7.20 93.52,6.19 91.95,8.55 94.39,10.00 91.56,10.25 91.95,13.05 90.00,11.00 88.05,13.05 88.44,10.25 85.61,10.00 88.05,8.55 86.48,6.19 89.13,7.20"/><polygon points="102.50,19.50 103.37,22.20 106.02,21.19 104.45,23.55 106.89,25.00 104.06,25.25 104.45,28.05 102.50,26.00 100.55,28.05 100.94,25.25 98.11,25.00 100.55,23.55 98.98,21.19 101.63,22.20"/><polygon points="96.50,31.40 97.15,33.11 98.97,33.20 97.55,34.34 98.03,36.10 96.50,35.10 94.97,36.10 95.45,34.34 94.03,33.20 95.85,33.11"/></g></svg>The AI workforce is here<!--CA_HERO--></p>
-    <h1><span>Your AI workforce</span> <span>for compliance and finance.</span> <span class="h1-2">Checked by an Australian Chartered Accountant.</span></h1>
-    <p class="hz-sub">Agents prepare your AML/CTF client checks, privacy and AI controls, cash models and month-end work. Purav Mehta, Chartered Accountant · GAICD, sets their limits and reviews every exception. Nothing is paid or sent without a person.</p>
-    <div class="hz-ctas"><a class="btn primary" href="/contact/?topic=Compliance%20controls%20sprint#form" data-topic="Compliance controls sprint">Book a 20-minute fit check</a><a class="btn ghost" href="/bill-check/">Try the free bill check</a></div>
-    <p class="hz-who"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="" width="48" height="48"><span><b>Purav Mehta</b>, CA · GAICD · Certificate of Public Practice. The person you talk to, and the one who checks every limit.</span></p>
+    <p class="bz-kick"><svg class="au-flag" viewBox="0 0 120 60" width="27" height="14" role="img" aria-label="Australian flag"><clipPath id="auS1"><rect width="60" height="30"/></clipPath><clipPath id="auT1"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="120" height="60" fill="#012169"/><g clip-path="url(#auS1)"><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#auT1)" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g><g fill="#fff"><polygon points="30.00,36.00 31.74,41.40 37.04,39.39 33.90,44.11 38.77,47.00 33.13,47.49 33.90,53.11 30.00,49.00 26.10,53.11 26.87,47.49 21.23,47.00 26.10,44.11 22.96,39.39 28.26,41.40"/><polygon points="90.00,45.50 90.87,48.20 93.52,47.19 91.95,49.55 94.39,51.00 91.56,51.25 91.95,54.05 90.00,52.00 88.05,54.05 88.44,51.25 85.61,51.00 88.05,49.55 86.48,47.19 89.13,48.20"/><polygon points="75.00,24.50 75.87,27.20 78.52,26.19 76.95,28.55 79.39,30.00 76.56,30.25 76.95,33.05 75.00,31.00 73.05,33.05 73.44,30.25 70.61,30.00 73.05,28.55 71.48,26.19 74.13,27.20"/><polygon points="90.00,4.50 90.87,7.20 93.52,6.19 91.95,8.55 94.39,10.00 91.56,10.25 91.95,13.05 90.00,11.00 88.05,13.05 88.44,10.25 85.61,10.00 88.05,8.55 86.48,6.19 89.13,7.20"/><polygon points="102.50,19.50 103.37,22.20 106.02,21.19 104.45,23.55 106.89,25.00 104.06,25.25 104.45,28.05 102.50,26.00 100.55,28.05 100.94,25.25 98.11,25.00 100.55,23.55 98.98,21.19 101.63,22.20"/><polygon points="96.50,31.40 97.15,33.11 98.97,33.20 97.55,34.34 98.03,36.10 96.50,35.10 94.97,36.10 95.45,34.34 94.03,33.20 95.85,33.11"/></g></svg>For Australian business owners</p>
+    <h1><span>Find the money your business is losing.</span> <span class="h1-2">Then make sure it stops.</span></h1>
+    <p class="hz-sub">Bills paid twice, work done but never invoiced, jobs charged below your rates, credits nobody applied. In two weeks we go through your Xero and job records and show you each one, with the records behind it and what to do first.</p>
+    <div class="hz-ctas"><a class="btn primary" href="/cash-data-check/">The $1,500 cash &amp; data check</a><a class="btn ghost" href="/bill-check/">Try the free bill check</a></div>
+    <p class="hz-who"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="" width="48" height="48"><span><b>Purav Mehta</b>, Chartered Accountant · GAICD. You deal with him from the first call to the handover.</span></p>
   </div>
-  <figure class="bmap" id="bmap" aria-label="How Beiz works across your business">
-    <svg viewBox="0 0 560 470" role="group">
-      <defs><marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#17201B"/></marker></defs>
-      <g class="bm-lines" fill="none" stroke="#17201B" stroke-width="1.6">
-        <path id="bl1" d="M280 70 C280 110 100 110 100 150"/><path id="bl2" d="M280 70 L280 150"/><path id="bl3" d="M280 70 C280 110 460 110 460 150"/>
-        <path id="bl4" d="M100 222 C100 270 280 262 280 300" marker-end="url(#arw)"/><path id="bl5" d="M280 222 L280 300" marker-end="url(#arw)"/><path id="bl6" d="M460 222 C460 270 280 262 280 300" marker-end="url(#arw)"/>
-        <path id="bl7" d="M280 372 L280 398" marker-end="url(#arw)"/>
-      </g>
-      <g class="bm-dots">
-        <circle r="4" fill="#1E6B44"><animateMotion dur="3.2s" repeatCount="indefinite" begin="-0.4s"><mpath href="#bl4"/></animateMotion></circle>
-        <circle r="4" fill="#1E6B44"><animateMotion dur="3.2s" repeatCount="indefinite" begin="-1.5s"><mpath href="#bl5"/></animateMotion></circle>
-        <circle r="4" fill="#1E6B44"><animateMotion dur="3.2s" repeatCount="indefinite" begin="-2.6s"><mpath href="#bl6"/></animateMotion></circle>
-      </g>
-      <g class="bm-node bm-top"><rect x="190" y="22" width="180" height="48" rx="2"/><text x="280" y="52">Your business</text></g>
-      <a href="/try/#lineage" class="bm-node bm-go" data-cap="Your data: connected, cleaned and traced, so every number on a dashboard can be followed back to its source."><rect x="20" y="150" width="160" height="72" rx="2"/><text x="100" y="180" class="t1">Your data</text><text x="100" y="204" class="t2">Connect it</text></a>
-      <a href="/try/#model-demo" class="bm-node bm-go" data-cap="Your numbers: a live 13-week cash and job profit model you can question, with every assumption written down."><rect x="200" y="150" width="160" height="72" rx="2"/><text x="280" y="180" class="t1">Your numbers</text><text x="280" y="204" class="t2">Model it</text></a>
-      <a href="/bill-check/" class="bm-node bm-go" data-cap="Your work: AI agents that check bills, prepare admin and chase payments, each with a job description and limits."><rect x="380" y="150" width="160" height="72" rx="2"/><text x="460" y="180" class="t1">Your work</text><text x="460" y="204" class="t2">Automate it</text></a>
-      <a href="#how" class="bm-node bm-go bm-ca" data-cap="Checks and approvals: limits you agree, a person who approves what matters, and an Australian Chartered Accountant who designs the controls and reviews the work."><rect x="150" y="300" width="260" height="72" rx="2"/><text x="280" y="330" class="t1">Checks &amp; approvals</text><text x="280" y="354" class="t2">You approve. A CA reviews.</text><ellipse class="pen" cx="392" cy="306" rx="26" ry="16" transform="rotate(-8 392 306)"/><text x="392" y="312" class="pen-t">CA</text></a>
-      <path id="bmRoute" d="M280 40 L280 70 C280 110 460 110 460 150 L460 222 C460 270 280 262 280 300 L280 386" fill="none" stroke="none"/>
-      <a href="#offers" class="bm-node bm-go bm-end" data-cap="Better decisions: clearer cash, profit you can see by job, and less admin, at a fixed price agreed in writing."><rect x="180" y="400" width="200" height="48" rx="2"/><text x="280" y="430">Better decisions</text></a>
-      <g class="bm-bill" id="bmBill" aria-hidden="true"><rect class="bb-doc" x="-40" y="-14" width="80" height="28" rx="4"/><text class="bb-amt" y="5">$3,080</text><text class="bb-st" x="52" y="5"></text></g>
-    </svg>
-    <p class="bm-story" aria-live="polite"><span id="bmStory">Scroll to follow one supplier bill through the checks.</span> <button type="button" class="bm-replay" id="bmReplay">Replay</button></p>
-    <figcaption id="bmCap">Click any part of the map to try it.</figcaption>
-  </figure>
+  {chk_example()}
 </div></section>
 
-<section class="hz-sec wf" id="workforce"><div class="wrap">
-  <p class="demo-k">See it working</p>
-  <h2>Watch an agent&rsquo;s day.</h2>
-  <p class="lede">Nothing is paid or sent without a person. This is a day in a made-up business. Switch to a bad day to see what gets held for a person and what gets blocked outright.</p>
-  <div class="wfl" id="wfl">
-    <div class="wfl-h"><b>Control room</b><span>Simulation with a made-up business. Not connected to anything.</span><div class="wfl-sc" role="group" aria-label="Choose a day"><button type="button" data-sc="ok" aria-pressed="true">Ordinary day</button><button type="button" data-sc="bad" aria-pressed="false">Bad day</button></div><button type="button" class="wfl-p" id="wflP" aria-pressed="false">Pause</button></div>
-    <div class="wfl-k"><div><span>Actions logged</span><b id="wflA">0</b></div><div><span>Held for a person</span><b id="wflH">0</b></div><div><span>Blocked</span><b id="wflB">0</b></div><div class="wfl-zero"><span>Paid or sent without a person</span><b>0</b><small>Fixed at zero. No agent can pay or send.</small></div></div>
-    <ol class="wfl-log" id="wflLog" aria-live="off"></ol>
-  </div>
-  
-  <p class="nx">Six roles, each with a job description, a limit and a person it reports to. <a href="/services/ai-readiness-sprint/#agents">Meet the agents and their limits</a>.</p>
+<section class="hz-sec" id="steps"><div class="wrap">
+  <p class="demo-k">How the check works</p>
+  <h2>Two weeks, three steps, one fixed price.</h2>
+  <ol class="how3">
+    <li><b>You send exports</b><p>Bills, invoices and timesheets from Xero and your job software, up to 12 months. Exports only: no logins, nothing installed.</p></li>
+    <li><b>We check them against each other</b><p>Bills against timesheets and quotes, hours worked against invoices, invoices against your rate card, credits and overdue accounts.</p></li>
+    <li><b>You get the answers</b><p>A findings register with the record behind every item, a two-page report and a 30-minute walkthrough. $1,500, credited if you go ahead with anything else.</p></li>
+  </ol>
 </div></section>
 
 <section class="hz-sec" id="offers"><div class="wrap">
   <p class="demo-k">Fixed prices, agreed in writing</p>
-  <h2>Three ways to start.</h2>
+  <h2>Start with the check. Keep what works.</h2>
   <div class="off3">
-    <a class="off" href="/compliance-sprint/"><span class="off-p">from $3,500</span><h3>Compliance controls sprint</h3><p>Two weeks, one focus: AI use, AML/CTF Tranche 2 or the Privacy Act. You get a register, named owners, the rules and approval points, and a 90-day plan.</p><span class="go">About the sprint</span></a>
-    <a class="off" href="/prices/#check"><span class="off-p">$1,500 fixed</span><h3>Two-week cash &amp; data check</h3><p>Unbilled work, margin leaks and manual bottlenecks found in your Xero and job exports, with the records behind each finding. Credited if you go ahead.</p><span class="go">About the check</span></a>
-    <a class="off" href="/services/ai-readiness-sprint/"><span class="off-p">from $8,500</span><h3>AI workforce setup</h3><p>Your first agent, tested on your past records, then live within its limits in three weeks.</p><span class="go">About the setup</span></a>
+    <a class="off off-start" href="/cash-data-check/"><span class="off-p">$1,500 fixed</span><h3>Two-week cash &amp; data check</h3><p>Where money is leaking, from your own records, with what to fix first.</p><span class="go">About the check</span></a>
+    <a class="off" href="/services/dashboards-and-models/"><span class="off-p">from $5,000</span><h3>Live cash &amp; job profit model</h3><p>13 weeks of cash ahead and profit by job against what you quoted, updated weekly in your own Excel or Power BI.</p><span class="go">About the model</span></a>
+    <a class="off" href="/services/ai-readiness-sprint/"><span class="off-p">from $8,500</span><h3>AI agents that keep watch</h3><p>The checks from your report, run before every pay run and every Friday. Each agent is tested on your past records first and holds anything odd for you to approve.</p><span class="go">About the agents</span></a>
   </div>
-  <p class="off-more">Also: <a href="/leave-cover/">finance leave cover</a> from $3,500, a <a href="/services/dashboards-and-models/">live cash &amp; job profit model</a> from $5,000, and monthly controls operations from $1,250. <a href="/prices/">See all prices</a>. Beiz isn't registered for GST, so no GST is added.</p>
-</div></section>
-
-<section class="hz-sec" id="how"><div class="wrap">
-  <p class="demo-k">How every agent is set up</p>
-  <h2>Written down, locked down, tested, watched.</h2>
-  <ol class="how4">
-    <li><b>Declare</b><p>One job, written down and signed off by you: what the agent does, what it never does, the limit it stops at and the person it reports to.</p></li>
-    <li><b>Contain</b><p>It can only reach what that job needs. Logins stay in your own password manager, and no agent has permission to pay anyone or send anything outside your business.</p></li>
-    <li><b>Test</b><p>Before it touches live work, it runs over a few months of your past records and each result is checked against what actually happened. It goes live only at a pass mark agreed with you in writing.</p></li>
-    <li><b>Watch</b><p>Every action is logged in your own accounts. We review the log monthly and re-test before any change.</p></li>
-  </ol>
-  <p class="nx">For accounting firms, AML/CTF client checks run the same way. <a href="/aml-ctf-accounting-firms/">Read the guide and try a sample onboarding check</a>.</p>
+  <p class="off-more">Accounting firm? See <a href="/aml-ctf-accounting-firms/">AML/CTF Tranche 2</a> and the <a href="/compliance-sprint/">compliance controls sprint</a>. Also <a href="/leave-cover/">finance leave cover</a>. <a href="/prices/">All prices</a>.</p>
 </div></section>
 
 <section class="hz-sec" id="ca"><div class="wrap talk">
   <img src="/assets/media/purav-mehta-2.jpg?v=43" alt="Purav Mehta" width="480" height="640" loading="lazy">
   <div>
     <p class="demo-k">Who you'll work with</p>
-    <h2>You'll talk to Purav, not a sales team.</h2>
+    <h2>A Chartered Accountant who also builds the tools.</h2>
     <p class="talk-cred">Australian Chartered Accountant (CA ANZ) · Certificate of Public Practice · GAICD</p>
-    <p>I set up and test every agent myself, and I check the limits before anything goes live. My background is internal audit, fraud and controls, corporate finance and SAP systems, governance and reporting for large project portfolios, and data analysis and automation. I'm bound by the APES 110 Code of Ethics.</p>
-    <p>Beiz works alongside your accountant, or inside your firm. We don't do tax, BAS or statutory audit work, so there's nothing to compete with.</p><!--CA_WHO-->
-    <div class="hz-ctas"><a class="btn primary" href="/contact/?topic=Discovery%20call#form" data-topic="Discovery call">Book a 20-minute fit check</a><a class="btn ghost" href="/about/">More about Beiz</a></div>
+    <p>I'm Purav. My background is internal audit, fraud and controls, corporate finance and SAP systems, and I've spent the last few years on data, automation and AI. I do the check myself, and I set up and test every agent myself.</p>
+    <p>Beiz works alongside your accountant. We don't do tax, BAS or statutory audit, so there's nothing to compete with. If we're not the right fit, we'll say so.</p><!--CA_WHO-->
+    <div class="hz-ctas"><a class="btn ghost" href="/how-we-work/">How we work</a><a class="btn ghost" href="/about/">More about Purav</a></div>
   </div>
 </div></section>
 </div>
-{contact_form(heading="Tell us what you're trying to fix", lede="A few lines is plenty. By the next business day you'll get a written reply: what the problem looks like, what information it would need, and whether a fixed-scope job makes sense. Rather talk? Pick “Discovery call” or “Demo request” and we'll arrange a free 20 minutes, early morning or after 5pm.")}'''
-    add("/", "AI workforce for compliance and finance | Beiz Data & Accounting",
-        "AML/CTF Tranche 2 client checks, AI and privacy controls, and finance agents for Australian firms. Set up and checked by a Chartered Accountant. Fixed prices.", body)
+{contact_form(heading="Tell us what's costing you money", lede="A few lines is plenty. By the next business day you'll get a written reply: whether the check is the right start, or what would be. Rather talk? Pick “Discovery call” and we'll arrange a free 20 minutes, early morning or after 5pm.", sel="Two-week cash & data check")}'''
+    add("/", "Find the money your business is losing | Beiz Data & Accounting",
+        "A two-week cash & data check for Australian businesses: bills paid twice, unbilled work, under-priced invoices and stuck cash, found in your Xero and job records by a Chartered Accountant. $1,500 fixed.", body)
+
+
+def cash_data_check():
+    q = [("What do you need from us?", "Exports of your bills, invoices and timesheets or job records, for up to 12 months, plus your rate card and any quotes or purchase orders for the jobs we look at. Exports only: we don't need logins and nothing gets installed."),
+         ("Which software does it work with?", "Xero is the most common, alongside job or timesheet software. MYOB and QuickBooks exports work too. If your records are in spreadsheets, that's fine."),
+         ("What does it cost?", "$1,500, fixed and agreed in writing before we start. It's credited against the next piece of work if you go ahead. Beiz isn't registered for GST, so no GST is added."),
+         ("How long does it take?", "Two weeks from when we receive the exports, including a 30-minute walkthrough of what we found."),
+         ("What isn't included?", "Fixing the records, tax, BAS or GST work, and statutory audit. The check finds and explains; you decide what to do, and we can quote for the fixes."),
+         ("Who sees our data?", "Purav does the work himself. Your files are used only for the check, under a written engagement, and returned or deleted at the end.")]
+    body = phero("Two-week cash &amp; data check · $1,500 fixed", "Find where your business is losing money.",
+                 "We join your bills, invoices and timesheets and check them against each other. You get every finding with the record behind it, and what to do first.",
+                 [("/cash-data-check/", "Cash & data check")],
+                 [("/contact/?topic=Two-week%20cash%20%26%20data%20check#form", "Book the check"), ("/assets/beiz-sample-check-report.pdf", "See a sample report")]) + f'''
+<section style="padding-top:8px"><div class="wrap split"><div class="prose">
+<h2>What we check</h2>
+<ol><li><strong>Bills against timesheets and quotes.</strong> Subcontractors billing more hours than were worked, or above the agreed rate.</li>
+<li><strong>Hours worked against invoices.</strong> Work your team logged that never made it onto an invoice.</li>
+<li><strong>Possible duplicate bills.</strong> The same bill entered twice, sometimes with a different number.</li>
+<li><strong>Invoices against your rate card.</strong> Old rates or wrong item codes.</li>
+<li><strong>Credits and overdue accounts.</strong> Supplier credits nobody applied, and customer invoices more than 30 days overdue.</li></ol>
+<p>Your accounting software checks what's on each bill. These checks compare it with what actually happened on the job.</p>
+<h2>What you get</h2>
+<ul class="ticks"><li>A findings register: every item, the record it came from, the amount and what to do</li><li>A two-page report, written for the owner</li><li>A 30-minute walkthrough</li><li>What would stop each problem coming back, with a fixed-price quote if you want help</li></ul>
+<p><a href="/assets/beiz-sample-check-report.pdf">Sample report (PDF)</a> · <a href="/assets/beiz-sample-findings-register.xlsx">sample findings register (Excel)</a>. Both use a made-up business.</p>
+</div><aside class="aside"><h3>The fine print</h3><ul class="ticks"><li>$1,500 fixed, agreed in writing</li><li>Credited if you go ahead</li><li>One business, up to 12 months of exports</li><li>Two weeks from receiving the exports</li><li>No GST: Beiz isn't registered for GST</li></ul>
+<a class="btn primary" href="/contact/?topic=Two-week%20cash%20%26%20data%20check#form">Book the check</a>
+<p class="fine" style="margin-top:12px">Not ready yet? <a href="/bill-check/">Try the free bill check</a> on your own bills export.</p></aside></div></section>
+<section style="padding-top:0"><div class="wrap">{chk_example(" hx-wide")}</div></section>
+<section style="padding-top:8px"><div class="wrap"><h2>Common questions</h2>{faq_html(q)}</div></section>''' + cta_band("Want to know what your records would show?", "Send a few lines about your business and the software you use. You'll get a written reply by the next business day.", "Two-week cash & data check")
+    add("/cash-data-check/", "Two-week cash & data check: $1,500 fixed | Beiz", "Duplicate bills, unbilled hours, invoices below your rates, unapplied credits and overdue accounts, found in your Xero and job records by a Chartered Accountant. Two weeks, $1,500 fixed.", body, faq_ld(q))
 
 # ------------------------------------------------------------------ services
 START_HERE = '''<section style="padding-top:8px"><div class="wrap"><p class="eyebrow">Start here</p><h2>Three ways to start, with fixed prices.</h2>
@@ -763,6 +772,18 @@ def how_we_work():
             ("06 · Conflict checks", "Every enquiry is checked for conflicts of interest", "before we respond with a proposal.")]
     p = "".join(f'<div class="card"><span class="k">{k}</span><p><strong>{a}</strong> {b}</p></div>' for k, a, b in prot)
     body = phero("How we work", "Everything in writing. Nothing without your sign-off.", "How an engagement runs, how we protect you, and what you won't get from us.", [("/how-we-work/", "How we work")]) + f'''
+<div class="bz hx hz"><section class="hz-sec wf" id="control-room"><div class="wrap">
+  <p class="demo-k">See it working</p>
+  <h2>A bad day in the control room.</h2>
+  <p class="lede">A made-up business on a day when things go wrong: a fake request from the "director", a changed bank account, a bill sent twice. See what the agents hold for a person and what they block outright. Switch to an ordinary day to compare.</p>
+  <div class="wfl bad" id="wfl">
+    <div class="wfl-h"><b>Control room</b><span>Simulation with a made-up business. Not connected to anything.</span><div class="wfl-sc" role="group" aria-label="Choose a day"><button type="button" data-sc="ok" aria-pressed="false">Ordinary day</button><button type="button" data-sc="bad" aria-pressed="true">Bad day</button></div><button type="button" class="wfl-p" id="wflP" aria-pressed="false">Pause</button></div>
+    <div class="wfl-k"><div><span>Actions logged</span><b id="wflA">0</b></div><div><span>Held for a person</span><b id="wflH">0</b></div><div><span>Blocked</span><b id="wflB">0</b></div><div class="wfl-zero"><span>Paid or sent without a person</span><b>0</b><small>Fixed at zero. No agent can pay or send.</small></div></div>
+    <ol class="wfl-log" id="wflLog" aria-live="off"></ol>
+  </div>
+  <p class="nx">Each agent has a job description, a limit and a person it reports to. <a href="/services/ai-readiness-sprint/#agents">Meet the agents and their limits</a>.</p>
+</div></section>
+</div>
 {WIRING}
 
 <section style="padding-top:8px"><div class="wrap">
@@ -1239,5 +1260,5 @@ def not_found():
 
 def build_all():
     home(); services_hub(); services(); privacy_sprint(); industries_hub(); industries(); examples(); ai_check(); workshop()
-    how_we_work(); faq(); contact(); privacy(); insights(); live_page(); try_page(); bill_check(); aml_firms(); compliance_sprint(); prices_page(); leave_cover(); about(); not_found()
+    how_we_work(); faq(); contact(); privacy(); insights(); live_page(); try_page(); bill_check(); cash_data_check(); aml_firms(); compliance_sprint(); prices_page(); leave_cover(); about(); not_found()
     return PAGES

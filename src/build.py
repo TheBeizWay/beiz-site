@@ -24,28 +24,26 @@ open(os.path.join(ROOT, "robots.txt"), "w").write(
     + f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n")
 # llms.txt: a plain summary for AI search assistants (https://llmstxt.org)
 llms = ["# Beiz Data & Accounting", "",
-        "> An AI workforce for compliance and finance work, checked by an Australian Chartered Accountant. AML/CTF, privacy and AI controls, cash models and finance automation for Australian accounting firms and growing businesses, led by Purav Mehta, an Australian Chartered Accountant and GAICD. "
-        "Beiz connects a business's data, builds cash and job profit models, and sets up AI agents for routine finance work with limits, approvals and a decision log. "
-        "A person approves anything that touches money, customers or decisions about people.", "",
+        "> Beiz finds where an Australian business is losing money, then keeps watch with AI agents that a Chartered Accountant sets up and checks. Led by Purav Mehta, Australian Chartered Accountant (Certificate of Public Practice) and GAICD.", "",
         "Key facts:",
-        "- Beiz Data & Accounting Pty Ltd, ABN 53 691 755 496. Led by Purav Mehta, Australian Chartered Accountant, GAICD. Based in Canberra, working Australia-wide.",
-        "- Fixed scope and fixed price, agreed in writing before work starts. Ways to start: compliance controls sprint from $3,500 (two weeks, one focus: AI use, AML/CTF Tranche 2 or the Privacy Act automated-decision rules starting 10 December 2026; register, data map, named owners, rules and approval points, and a 90-day plan; legal wording stays with the client's adviser or lawyer; no ledger access needed), two-week cash & data check $1,500 fixed (credited if the client goes ahead), live cash & job profit model from $5,000, AI workforce setup from $8,500 (first agent), leave cover from $3,500 setup then from $2,000 a month, then monthly controls operations from $1,250 a month (agent decision review, and AML/CTF screening, monitoring and records where they apply). Other work: quick wins from $1,200. Beiz is not registered for GST, so no GST is added to prices. A written proposal with the exact price follows within three business days.",
-        "- Independent: no software of its own to sell. Builds inside the client's own accounts (e.g. Xero, MYOB, Microsoft 365, Google Workspace) using AI plans whose terms exclude training on client data.",
-        "- Four disciplines: Data (reconciliation, reporting, forecasting), AI (automation with approval steps), Accounting (management reports, cash forecasts, financial and economic models, profit by job), Governance (board reporting, risk, AI use policy, Privacy Act automated-decision readiness).",
-        "- Also offered: a fixed-price billing review of three completed jobs. Timesheets, job list and invoices are reconciled from exports (no logins) into a findings register where each item is Confirmed, Needs information or Explained, with source records and arithmetic. Sample register (made-up data): " + SITE + "/assets/media/sample-findings.xlsx",
-        "- Typical clients: private-sector businesses of about 5 to 50 staff, especially project businesses that bill time or fixed fees (engineering, IT, consulting, trades).",
-        "- Does not provide tax agent, BAS agent, legal, audit or financial product advice services.",
-        "- Contact: hello@beiz.com.au, or book a discovery call at https://beiz.com.au/contact/", "",
-        "## Services"] + [f"- [{t}]({SITE}{h})" for h, t in SERVICES] + ["", "## Who we help"] + [f"- [{t}]({SITE}{h})" for h, t in INDUSTRIES] + [
-        "", "## Start here", f"- [Compliance controls sprint]({SITE}/compliance-sprint/): from $3,500, two weeks, one focus: AI use, AML/CTF Tranche 2 or the Privacy Act", f"- [AML/CTF Tranche 2 for accounting firms]({SITE}/aml-ctf-accounting-firms/): which services are caught, what firms must do, where agents help and where they stop", f"- [AML/CTF client onboarding check (interactive demo)]({SITE}/aml-ctf-accounting-firms/#aml): customer due diligence, screening and the decision a person has to make",
-        f"- [Free bill check on your own data]({SITE}/bill-check/): drop in a bills export; possible duplicates, bank detail changes, split bills and ABN problems; runs in the browser, nothing is sent",
-        "", "## See it working",
-        f"- [Homepage demonstrations]({SITE}/): an interactive 13-week cash model, a data lineage walk-through from dashboard to source records, and an AI controls simulation (allow, hold or block)",
-        f"- [Free 5-minute AI workforce workshop]({SITE}/workshop/): map the week, set an agent's limits, get a written plan",
-        f"- [Sample two-week check report (PDF)]({SITE}/assets/beiz-sample-check-report.pdf) on made-up data",
-        f"- [60-second demos]({SITE}/try/): late payers, 13-week cash forecast, an agent checking bills, admin hours",
-        f"- [Example outputs]({SITE}/examples/): made-up businesses, real formats",
-        f"- [Free Privacy Act AI check]({SITE}/ai-check/): for the automated-decision disclosure rules starting 10 December 2026",
-        "", "## About", f"- [About Beiz]({SITE}/about/)", f"- [How we work]({SITE}/how-we-work/)", f"- [FAQ]({SITE}/faq/)", ""]
+        "- Beiz Data & Accounting Pty Ltd, ABN 53 691 755 496. Canberra, working Australia-wide. Not registered for GST, so no GST is added to prices.",
+        "- Start here: the two-week cash & data check, $1,500 fixed, credited if the client goes ahead. From exports of bills, invoices and timesheets (no logins), it checks bills against timesheets and quotes, hours worked against invoices, invoices against the rate card, duplicate bills, unapplied credits and overdue invoices. Output: a findings register, a two-page report and a 30-minute walkthrough.",
+        "- Then: a live cash & job profit model from $5,000; AI agents (AI workforce setup) from $8,500, each tested on the client's past records, run in shadow mode first, with limits, a named approver and a decision log; finance leave cover from $3,500 setup; monthly support from $1,250.",
+        "- For accounting firms: AML/CTF Tranche 2 guidance and a two-week compliance controls sprint from $3,500 (AI use, AML/CTF or the Privacy Act automated-decision rules).",
+        "- Nothing is paid or sent by an agent without a person. Builds inside the client's own accounts.",
+        "- Does not provide tax agent, BAS agent, statutory audit or assurance, legal or financial product advice services.",
+        "- Proposal within three business days of a call. Contact: hello@beiz.com.au or https://beiz.com.au/contact/", "",
+        "## Main pages",
+        f"- [Two-week cash & data check]({SITE}/cash-data-check/): $1,500 fixed",
+        f"- [Sample check report (PDF)]({SITE}/assets/beiz-sample-check-report.pdf): made-up business",
+        f"- [Free bill check]({SITE}/bill-check/): runs in the browser on a bills export; nothing is sent",
+        f"- [AI agents]({SITE}/services/ai-readiness-sprint/): AI workforce setup from $8,500",
+        f"- [Live cash & job profit model]({SITE}/services/dashboards-and-models/): from $5,000",
+        f"- [How we work]({SITE}/how-we-work/): including a control room simulation",
+        f"- [Prices]({SITE}/prices/)",
+        f"- [AML/CTF Tranche 2 for accounting firms]({SITE}/aml-ctf-accounting-firms/)",
+        f"- [Compliance controls sprint]({SITE}/compliance-sprint/)",
+        f"- [Finance leave cover]({SITE}/leave-cover/)",
+        f"- [About Purav Mehta]({SITE}/about/)", f"- [FAQ]({SITE}/faq/)", ""]
 open(os.path.join(ROOT, "llms.txt"), "w").write("\n".join(llms))
 print(f"built {len(pages)} pages")

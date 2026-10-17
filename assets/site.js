@@ -1418,7 +1418,7 @@
     [5, "Three exceptions in one day. Risk report drafted for the owner", "log"],
     [2, "Lender asks for numbers today. Draft held until the owner signs off", "held"],
   ] };
-  let EV = DAYS.ok;
+  let EV = box.classList.contains("bad") ? DAYS.bad : DAYS.ok;
   const ST = { log: "Logged", held: "Held", stop: "Blocked", ok: "Approved" };
   let i = 0, t = 8 * 60 + 2, n = { A: 0, H: 0, B: 0 }, timer = 0, paused = false, seen = false;
   const reset = () => { i = 0; t = 8 * 60 + 2; n = { A: 0, H: 0, B: 0 }; log.innerHTML = ""; };
@@ -1440,7 +1440,7 @@
   }));
   if (reduce) { fill(); btn.hidden = true; return; }
   const run = () => { clearInterval(timer); if (!paused && seen) timer = setInterval(step, 2200); };
-  new IntersectionObserver(es => { seen = es[0].isIntersecting; if (seen && !log.children.length) { step(); step(); } run(); }, { threshold: 0.2 }).observe(box);
+  new IntersectionObserver(es => { seen = es[0].isIntersecting; if (seen && !log.children.length) fill(); run(); }, { threshold: 0.2 }).observe(box);
   btn.addEventListener("click", () => { paused = !paused; btn.textContent = paused ? "Resume" : "Pause"; btn.setAttribute("aria-pressed", paused); run(); });
 })();
 

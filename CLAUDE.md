@@ -7,10 +7,10 @@ Read this before changing anything in this repo. It describes the site as it is,
 ## 0. The anchor: every page traces back to these three sentences
 
 1. **Who:** an Australian Chartered Accountant (Certificate of Public Practice) and GAICD, who has worked in audit, controls and finance. Not a development shop or a prompt agency.
-2. **What:** Beiz sets up and runs an AI workforce for compliance and finance. Agents do the routine checking and preparation: bills, cash, reconciliations, client checks.
+2. **What:** for Australian business owners, Beiz finds where the business is losing money (the $1,500 cash & data check), then keeps watch with AI agents that do the routine checking: bills, cash, reconciliations. Accounting firms are a secondary audience (AML/CTF, compliance sprint) with their own pages.
 3. **Why it's safe:** nothing runs on its own on day one. Each agent is tested on the client's past records, runs alongside staff in shadow mode first, and needs a person's sign-off for anything that matters, with every decision logged.
 
-The homepage runs in this order: what it is (hero), proof it works (control room and bill check), what it costs (three offers), why it won't break anything (how agents are set up), and who you'll talk to. Explain how it's built (models, workflow tools, schemas) only when a buyer asks. Never call any of this "audit".
+The homepage speaks to SME owners only and runs: hero with one outcome and the worked example, how the check works, three offers, who you'll talk to, the form. One call to action (the check), with the free bill check as the alternative. The safety line ("nothing is paid or sent without a person") appears once per page at most. Explain how it's built (models, workflow tools, schemas) only when a buyer asks. Never call any of this "audit".
 
 ---
 
@@ -99,15 +99,17 @@ Avoid the tells of generated copy: a word or phrase singled out in a headline, a
 - The theme is chosen in the head script in `src/layout.py`, and the choice is stored in `localStorage.beizTheme`.
 - Status colours mean something and are never decoration: ok (green), held (amber), stop (red). Respect `prefers-reduced-motion`.
 
-### Homepage, in five sections (keep it at five)
+### Homepage, in five blocks (keep it at five)
 
-1. **Hero:** the bill map, Purav's credentials line, "Book a 20-minute fit check" and "Try the free bill check".
-2. **#workforce:** the control room, with an ordinary-day and bad-day switch.
-3. **#offers:** three priced offers (sprint, check, AI workforce) and a line linking the rest.
-4. **#how:** declare, contain, test, watch.
-5. **#ca:** who you'll talk to, and the contact form.
+1. **Hero:** "Find the money your business is losing." with the worked example from the sample check report (made-up trade business: $5,745 to recover, $5,770 cash to free up). Buttons: the $1,500 check, the free bill check.
+2. **#steps:** how the check works, in three steps.
+3. **#offers:** the check, the cash & job profit model, AI agents. One line for accounting firms, leave cover and prices.
+4. **#ca:** who you'll work with.
+5. The contact form, preset to the check.
 
-Detail lives on its own page: `/compliance-sprint/`, `/aml-ctf-accounting-firms/`, `/bill-check/`, `/prices/`, `/leave-cover/`, `/try/`, `/how-we-work/` and `/about/`. Don't move anchors without updating every link to them: `src/layout.py` (menus, footer, JSON-LD), `assets/site.js` (chatbot, bill journey) and `llms.txt`.
+No ticker, no chatbot, no animated diagram on the homepage. The control room lives on /how-we-work/ and opens on a full bad day. The top nav has six items: Cash & data check, Free bill check, AI agents, How we work, Prices, About.
+
+Detail lives on its own page: `/cash-data-check/`, `/compliance-sprint/`, `/aml-ctf-accounting-firms/`, `/bill-check/`, `/prices/`, `/leave-cover/`, `/try/`, `/how-we-work/` and `/about/`. Don't move anchors without updating every link to them: `src/layout.py` (menus, footer, JSON-LD), `assets/site.js` (chatbot, bill journey) and `llms.txt`.
 
 ### Search and AI answers
 

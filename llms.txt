@@ -1,52 +1,26 @@
 # Beiz Data & Accounting
 
-> An AI workforce for compliance and finance work, checked by an Australian Chartered Accountant. AML/CTF, privacy and AI controls, cash models and finance automation for Australian accounting firms and growing businesses, led by Purav Mehta, an Australian Chartered Accountant and GAICD. Beiz connects a business's data, builds cash and job profit models, and sets up AI agents for routine finance work with limits, approvals and a decision log. A person approves anything that touches money, customers or decisions about people.
+> Beiz finds where an Australian business is losing money, then keeps watch with AI agents that a Chartered Accountant sets up and checks. Led by Purav Mehta, Australian Chartered Accountant (Certificate of Public Practice) and GAICD.
 
 Key facts:
-- Beiz Data & Accounting Pty Ltd, ABN 53 691 755 496. Led by Purav Mehta, Australian Chartered Accountant, GAICD. Based in Canberra, working Australia-wide.
-- Fixed scope and fixed price, agreed in writing before work starts. Ways to start: compliance controls sprint from $3,500 (two weeks, one focus: AI use, AML/CTF Tranche 2 or the Privacy Act automated-decision rules starting 10 December 2026; register, data map, named owners, rules and approval points, and a 90-day plan; legal wording stays with the client's adviser or lawyer; no ledger access needed), two-week cash & data check $1,500 fixed (credited if the client goes ahead), live cash & job profit model from $5,000, AI workforce setup from $8,500 (first agent), leave cover from $3,500 setup then from $2,000 a month, then monthly controls operations from $1,250 a month (agent decision review, and AML/CTF screening, monitoring and records where they apply). Other work: quick wins from $1,200. Beiz is not registered for GST, so no GST is added to prices. A written proposal with the exact price follows within three business days.
-- Independent: no software of its own to sell. Builds inside the client's own accounts (e.g. Xero, MYOB, Microsoft 365, Google Workspace) using AI plans whose terms exclude training on client data.
-- Four disciplines: Data (reconciliation, reporting, forecasting), AI (automation with approval steps), Accounting (management reports, cash forecasts, financial and economic models, profit by job), Governance (board reporting, risk, AI use policy, Privacy Act automated-decision readiness).
-- Also offered: a fixed-price billing review of three completed jobs. Timesheets, job list and invoices are reconciled from exports (no logins) into a findings register where each item is Confirmed, Needs information or Explained, with source records and arithmetic. Sample register (made-up data): https://beiz.com.au/assets/media/sample-findings.xlsx
-- Typical clients: private-sector businesses of about 5 to 50 staff, especially project businesses that bill time or fixed fees (engineering, IT, consulting, trades).
-- Does not provide tax agent, BAS agent, legal, audit or financial product advice services.
-- Contact: hello@beiz.com.au, or book a discovery call at https://beiz.com.au/contact/
+- Beiz Data & Accounting Pty Ltd, ABN 53 691 755 496. Canberra, working Australia-wide. Not registered for GST, so no GST is added to prices.
+- Start here: the two-week cash & data check, $1,500 fixed, credited if the client goes ahead. From exports of bills, invoices and timesheets (no logins), it checks bills against timesheets and quotes, hours worked against invoices, invoices against the rate card, duplicate bills, unapplied credits and overdue invoices. Output: a findings register, a two-page report and a 30-minute walkthrough.
+- Then: a live cash & job profit model from $5,000; AI agents (AI workforce setup) from $8,500, each tested on the client's past records, run in shadow mode first, with limits, a named approver and a decision log; finance leave cover from $3,500 setup; monthly support from $1,250.
+- For accounting firms: AML/CTF Tranche 2 guidance and a two-week compliance controls sprint from $3,500 (AI use, AML/CTF or the Privacy Act automated-decision rules).
+- Nothing is paid or sent by an agent without a person. Builds inside the client's own accounts.
+- Does not provide tax agent, BAS agent, statutory audit or assurance, legal or financial product advice services.
+- Proposal within three business days of a call. Contact: hello@beiz.com.au or https://beiz.com.au/contact/
 
-## Services
-- [AI governance & Privacy Act readiness](https://beiz.com.au/services/ai-governance/)
-- [Offshore & AI oversight](https://beiz.com.au/services/human-in-the-loop/)
-- [AI agents, chatbots & integration](https://beiz.com.au/services/ai-agents/)
-- [Workflow automation](https://beiz.com.au/services/automation/)
-- [Data engineering](https://beiz.com.au/services/data-engineering/)
-- [Dashboards & financial models](https://beiz.com.au/services/dashboards-and-models/)
-- [AI & tech project delivery](https://beiz.com.au/services/project-delivery/)
-- [Privacy Act module (10 Dec 2026)](https://beiz.com.au/services/privacy-sprint/)
-- [AI workforce setup](https://beiz.com.au/services/ai-readiness-sprint/)
-- [Quick wins for sole traders & small teams](https://beiz.com.au/services/quick-wins/)
-
-## Who we help
-- [Trades & construction](https://beiz.com.au/industries/trades/)
-- [Health & allied health](https://beiz.com.au/industries/health/)
-- [Startups & tech agencies](https://beiz.com.au/industries/startups/)
-- [Crypto & digital assets](https://beiz.com.au/industries/crypto/)
-- [Not-for-profits](https://beiz.com.au/industries/not-for-profits/)
-- [Hospitality & retail](https://beiz.com.au/industries/hospitality-retail/)
-
-## Start here
-- [Compliance controls sprint](https://beiz.com.au/compliance-sprint/): from $3,500, two weeks, one focus: AI use, AML/CTF Tranche 2 or the Privacy Act
-- [AML/CTF Tranche 2 for accounting firms](https://beiz.com.au/aml-ctf-accounting-firms/): which services are caught, what firms must do, where agents help and where they stop
-- [AML/CTF client onboarding check (interactive demo)](https://beiz.com.au/aml-ctf-accounting-firms/#aml): customer due diligence, screening and the decision a person has to make
-- [Free bill check on your own data](https://beiz.com.au/bill-check/): drop in a bills export; possible duplicates, bank detail changes, split bills and ABN problems; runs in the browser, nothing is sent
-
-## See it working
-- [Homepage demonstrations](https://beiz.com.au/): an interactive 13-week cash model, a data lineage walk-through from dashboard to source records, and an AI controls simulation (allow, hold or block)
-- [Free 5-minute AI workforce workshop](https://beiz.com.au/workshop/): map the week, set an agent's limits, get a written plan
-- [Sample two-week check report (PDF)](https://beiz.com.au/assets/beiz-sample-check-report.pdf) on made-up data
-- [60-second demos](https://beiz.com.au/try/): late payers, 13-week cash forecast, an agent checking bills, admin hours
-- [Example outputs](https://beiz.com.au/examples/): made-up businesses, real formats
-- [Free Privacy Act AI check](https://beiz.com.au/ai-check/): for the automated-decision disclosure rules starting 10 December 2026
-
-## About
-- [About Beiz](https://beiz.com.au/about/)
-- [How we work](https://beiz.com.au/how-we-work/)
+## Main pages
+- [Two-week cash & data check](https://beiz.com.au/cash-data-check/): $1,500 fixed
+- [Sample check report (PDF)](https://beiz.com.au/assets/beiz-sample-check-report.pdf): made-up business
+- [Free bill check](https://beiz.com.au/bill-check/): runs in the browser on a bills export; nothing is sent
+- [AI agents](https://beiz.com.au/services/ai-readiness-sprint/): AI workforce setup from $8,500
+- [Live cash & job profit model](https://beiz.com.au/services/dashboards-and-models/): from $5,000
+- [How we work](https://beiz.com.au/how-we-work/): including a control room simulation
+- [Prices](https://beiz.com.au/prices/)
+- [AML/CTF Tranche 2 for accounting firms](https://beiz.com.au/aml-ctf-accounting-firms/)
+- [Compliance controls sprint](https://beiz.com.au/compliance-sprint/)
+- [Finance leave cover](https://beiz.com.au/leave-cover/)
+- [About Purav Mehta](https://beiz.com.au/about/)
 - [FAQ](https://beiz.com.au/faq/)
