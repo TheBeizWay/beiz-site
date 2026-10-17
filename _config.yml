@@ -1,0 +1,7 @@
+# GitHub Pages build settings. The site is plain HTML; this only keeps working files off beiz.com.au.
+exclude:
+  - CLAUDE.md
+  - README.md
+  - notes/
+  - src/
+  - scripts/
