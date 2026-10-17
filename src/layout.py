@@ -3,7 +3,7 @@ import json
 import os
 
 SITE = "https://beiz.com.au"
-ASSET_V = "132"  # bump to bust caches when CSS/JS change
+ASSET_V = "131"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" aria-hidden="true" class="logo"><rect x="1" y="1" width="34" height="34" rx="7" fill="#15181D" stroke="#30353D" stroke-width="1.5"/><rect x="7" y="9" width="16" height="3.5" rx="1.75" fill="#43B581"/><circle cx="27.5" cy="10.75" r="1.75" fill="#43B581"/><rect x="7" y="16.25" width="11" height="3.5" rx="1.75" fill="#E9A93B"/><rect x="21" y="16.25" width="8" height="3.5" rx="1.75" fill="none" stroke="#E9A93B" stroke-width="1.2"/><rect x="7" y="23.5" width="22" height="3.5" rx="1.75" fill="#A6A49D"/></svg>')
 
@@ -82,7 +82,9 @@ BOOKING_URL = ""
 CALL_HREF = BOOKING_URL or "/contact/?topic=Discovery%20call#form"
 CALL_ATTR = ' target="_blank" rel="noopener"' if BOOKING_URL else ""
 
-TOPICS = ["Two-week cash & data check", "Discovery call", "Cash & job profit model", "AI workforce setup", "Compliance controls sprint", "AML/CTF Tranche 2", "Live workshop", "Referral partnership (accountants, bookkeepers, IT providers)", "Something else"]
+TOPICS = ["Discovery call", "Compliance controls sprint", "AML/CTF Tranche 2", "Demo request", "Live workshop", "Two-week cash & data check", "Cash & job profit model", "Controlled AI workflows", "13-week cash forecast", "AI readiness & governance", "AI workforce setup", "Privacy Act automated-decision check",
+          "Automation & AI agents", "Offshore & AI oversight", "Dashboards & analytics", "Financial modelling", "Tech project delivery",
+          "Small business quick win", "Referral partnership (accountants, bookkeepers, IT providers)", "Something else"]
 
 
 def esc(s):
@@ -154,7 +156,7 @@ def _header(path):
                 f'<div class="ddm" id="dd-{key}">{top}{links}</div></div>')
     see = [(h, t) for h, t, _ in NAV]
     sname = dict(SERVICES)
-    TOP = [("/cash-data-check/", "Cash &amp; data check"), ("/bill-check/", "Free bill check"), ("/services/ai-readiness-sprint/", "AI agents"), ("/how-we-work/", "How we work"), ("/prices/", "Prices"), ("/about/", "About")]
+    TOP = [("/services/", "AI workforce"), ("/compliance-sprint/", "Compliance sprint"), ("/aml-ctf-accounting-firms/", "AML/CTF"), ("/bill-check/", "Free bill check"), ("/prices/", "Prices"), ("/about/", "Meet Purav")]
     mm_start = [("/prices/#check", "Two-week cash &amp; data check", "$1,500 fixed", "Unbilled work, margin leaks and manual bottlenecks, from your exports."),
                 ("/services/ai-readiness-sprint/", "AI workforce setup", "from $8,500", "Agents with job descriptions and limits, including the AI already in your software."),
                 ("/services/dashboards-and-models/", "Financial modelling", "from $5,000", "13-week cash, job margins and what-if scenarios."),
@@ -164,9 +166,13 @@ def _header(path):
            + '</div><div class="mm-foot"><a href="/services/ai-readiness-sprint/#agents">Meet the six agents</a><a href="/aml-ctf-accounting-firms/">AML/CTF for accounting firms</a><a href="/bill-check/">Free bill check</a><a href="/leave-cover/">Finance leave cover</a><a href="/services/data-engineering/">Data science &amp; analytics</a><a href="/services/">All services</a><a class="mm-ws" href="/workshop/">Free 5-minute workshop</a></div></div>')
     nav = "".join((f'<div class="mm"><a href="{h}"{cur(h)} aria-haspopup="true">{t}<span class="mm-c" aria-hidden="true"></span></a>{mmp}</div>' if h == "/services/" else f'<a href="{h}"{cur(h)}>{t}</a>') for h, t in TOP)
     grp = lambda title, items: f'<p class="mg">{title}</p>' + "".join(f'<a href="{h}">{t}</a>' for h, t in items)
-    START = [("/cash-data-check/", "Two-week cash &amp; data check · $1,500"), ("/services/dashboards-and-models/", "Live cash &amp; job profit model · from $5,000"), ("/services/ai-readiness-sprint/", "AI agents · from $8,500")]
-    mnav = (grp("Start here", START) + grp("Menu", TOP + [("/aml-ctf-accounting-firms/", "For accounting firms"), ("/leave-cover/", "Finance leave cover"), ("/contact/", "Contact")]) + grp("More", [("/compliance-sprint/", "Compliance controls sprint"), ("/try/", "Try the demos"), ("/insights/", "Insights"), ("/faq/", "FAQ")]))
-    return f'''<header class="site">
+    START = [("/compliance-sprint/", "Compliance controls sprint · from $3,500"), ("/aml-ctf-accounting-firms/#aml", "AML/CTF onboarding check (demo)"), ("/prices/#check", "Two-week cash &amp; data check · $1,500"), ("/services/dashboards-and-models/", "Live cash &amp; job profit model · from $5,000"), ("/services/ai-readiness-sprint/", "AI workforce setup · from $8,500")]
+    mnav = (grp("Start here", START) + grp("Menu", TOP + [("/leave-cover/", "Finance leave cover"), ("/workshop/", "Free workshop"), ("/contact/", "Contact")]) + grp("More", [("/try/", "Try the demos"), ("/ai-check/", "Privacy Act AI check"), ("/insights/", "Insights"), ("/faq/", "FAQ")]))
+    return f'''<div class="ticker" role="region" aria-label="Beiz Pulse: Australian business indicators">
+  <div class="label">BEIZ PULSE</div>
+  <div class="track" id="pulse"></div>
+</div>
+<header class="site">
   <div class="wrap">
     <a class="mark" href="/" aria-label="Beiz home">{LOGO}<span class="wm"><span class="wn">BEIZ</span><small>Data &amp; Accounting</small></span></a>
     <nav class="main flat" aria-label="Main">{nav}</nav>
@@ -179,18 +185,18 @@ def _header(path):
 
 
 def _footer():
-    s = "".join(f'<li><a href="{h}">{t}</a></li>' for h, t in [("/cash-data-check/", "Two-week cash &amp; data check · $1,500"), ("/services/dashboards-and-models/", "Live cash &amp; job profit model · from $5,000"), ("/services/ai-readiness-sprint/", "AI agents · from $8,500"), ("/leave-cover/", "Finance leave cover"), ("/prices/#ops", "Monthly support · from $1,250")])
-    i = "".join(f'<li><a href="{h}">{t}</a></li>' for h, t in [("/bill-check/", "Free bill check"), ("/assets/beiz-sample-check-report.pdf", "Sample check report (PDF)"), ("/aml-ctf-accounting-firms/", "AML/CTF for accounting firms"), ("/compliance-sprint/", "Compliance controls sprint · from $3,500")])
+    s = "".join(f'<li><a href="{h}">{t}</a></li>' for h, t in SERVICES)
+    i = "".join(f'<li><a href="{h}">{t}</a></li>' for h, t in [("/bill-check/", "Free bill check"), ("/compliance-sprint/", "Compliance controls sprint · from $3,500"), ("/aml-ctf-accounting-firms/", "AML/CTF for accounting firms"), ("/prices/#check", "Two-week cash &amp; data check · $1,500"), ("/services/dashboards-and-models/", "Live cash &amp; job profit model · from $5,000"), ("/services/ai-readiness-sprint/", "AI workforce setup · from $8,500"), ("/prices/#ops", "Monthly controls operations · from $1,250")])
     return f'''<footer class="site">
   <div class="wrap">
     <div class="fcols">
       <div><a class="mark" href="/" aria-label="Beiz home">{LOGO.replace('id="hg"', 'id="fg"').replace('url(#hg)', 'url(#fg)').replace('id="mH"', 'id="fM"').replace('url(#mH)', 'url(#fM)')}<span class="wm"><span class="wn">BEIZ</span><small>Data &amp; Accounting</small></span></a>
-        <p style="margin-top:14px;max-width:34ch">Find where your business is losing money, then keep watch with AI agents a Chartered Accountant sets up and checks.</p>
+        <p style="margin-top:14px;max-width:34ch">An AI workforce for compliance and finance, set up and checked by an Australian Chartered Accountant.</p>
         <p style="margin-top:10px"><a href="mailto:hello@beiz.com.au">hello@beiz.com.au</a></p>
         <p class="ask-ai">Ask an AI about Beiz: {ASK_AI}</p></div>
-      <div><h4>What we do</h4><ul>{s}</ul></div>
-      <div><h4>Try first</h4><ul>{i}</ul></div>
-      <div><h4>Company</h4><ul><li><a href="/about/">About us</a></li><li><a href="/try/">Try it: demos</a></li><li><a href="/examples/">Examples</a></li><li><a href="/how-we-work/">How we work</a></li><li><a href="/insights/">Insights</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy/">Privacy policy</a></li></ul></div>
+      <div><h4>Services</h4><ul>{s}</ul></div>
+      <div><h4>Start here</h4><ul>{i}</ul><h4 style="margin-top:18px">Who I work with</h4><ul><li><a href="/industries/">Industries</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="/about/">About us</a></li><li><a href="/try/">Try it: demos</a></li><li><a href="/examples/">Examples</a></li><li><a href="/live/">Live data</a></li><li><a href="/how-we-work/">How we work</a></li><li><a href="/ai-check/">Privacy Act AI check</a></li><li><a href="/insights/">Insights</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy/">Privacy policy</a></li></ul></div>
     </div>
     <div class="legal"><span>&copy; <span data-yr>2026</span> Beiz Data &amp; Accounting Pty Ltd · ABN 53 691 755 496 · ACN 691 755 496 · Canberra, ACT · All rights reserved. Content, examples and methods may not be copied or reused without permission.</span><span>Australia-wide · Fixed-scope finance systems &amp; AI governance</span>
       <p>Beiz does not prepare tax returns or BAS, does not provide tax agent or BAS agent services, statutory audit or assurance, legal advice or financial product advice.</p>
@@ -214,9 +220,9 @@ ORG = {
     "@context": "https://schema.org", "@type": "ProfessionalService",
     "name": "Beiz Data & Accounting", "legalName": "Beiz Data & Accounting Pty Ltd", "url": SITE + "/",
     "email": "hello@beiz.com.au", "taxID": "ABN 53 691 755 496", "identifier": [{"@type": "PropertyValue", "propertyID": "ABN", "value": "53691755496"}, {"@type": "PropertyValue", "propertyID": "ACN", "value": "691755496"}], "address": {"@type": "PostalAddress", "addressLocality": "Canberra", "addressRegion": "ACT", "addressCountry": "AU"}, "logo": SITE + "/assets/icon-512.png", "areaServed": {"@type": "Country", "name": "Australia"},
-    "description": "Two-week cash & data checks, cash and job profit models, and AI agents for Australian businesses, set up and checked by a Chartered Accountant (GAICD).",
+    "description": "Australian Chartered Accountant and GAICD led firm helping businesses grow with control: cash flow, automation, dashboards, data and responsible AI.",
     "taxID": "53 691 755 496",
-    "slogan": "Find the money your business is losing. Then make sure it stops.",
+    "slogan": "An AI workforce for compliance and finance, checked by an Australian Chartered Accountant.",
     "founder": {"@type": "Person", "name": "Purav Mehta", "jobTitle": "Australian Chartered Accountant, GAICD",
                 "sameAs": ["https://www.linkedin.com/in/puravmehtaca/"]},
     "knowsAbout": ["AI governance", "Privacy Act automated decision-making", "responsible AI", "workflow automation", "13-week cash flow forecasting",
@@ -284,7 +290,7 @@ def page(path, title, desc, body, extra_head=""):
 {body}
 </main>
 {_footer()}
-<a class="mcall btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a call</a>
+<a class="mcall btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a call</a>{_WIDGETS}
 <script src="/assets/site.js?v={ASSET_V}" defer></script>
 <script src="/assets/future-fx.js?v={ASSET_V}" defer></script>
 </body>
