@@ -82,7 +82,18 @@ def home():
     <div class="hz-ctas"><a class="btn primary" href="/contact/?topic=Compliance%20controls%20sprint#form" data-topic="Compliance controls sprint">Book a 20-minute fit check</a><a class="btn ghost" href="/bill-check/">Try the free bill check</a></div>
     <p class="hz-who"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="" width="48" height="48"><span><b>Purav Mehta</b>, CA · GAICD · Certificate of Public Practice. The person you talk to, and the one who checks every limit.</span></p>
   </div>
-  <figure class="bmap" id="bmap" aria-label="How Beiz works across your business">
+  <div class="hz-room"><div class="wfl" id="wfl">
+    <div class="wfl-h"><b>Control room</b><span>Simulation with a made-up business. Not connected to anything.</span><div class="wfl-sc" role="group" aria-label="Choose a day"><button type="button" data-sc="ok" aria-pressed="true">Ordinary day</button><button type="button" data-sc="bad" aria-pressed="false">Bad day</button></div><button type="button" class="wfl-p" id="wflP" aria-pressed="false">Pause</button></div>
+    <div class="wfl-k"><div><span>Actions logged</span><b id="wflA">0</b></div><div><span>Held for a person</span><b id="wflH">0</b></div><div><span>Blocked</span><b id="wflB">0</b></div><div class="wfl-zero"><span>Paid or sent without a person</span><b>0</b><small>Fixed at zero. No agent can pay or send.</small></div></div>
+    <ol class="wfl-log" id="wflLog" aria-live="off"></ol>
+  </div></div>
+</div></section>
+
+<section class="hz-sec wf" id="workforce"><div class="wrap">
+  <p class="demo-k">See it working</p>
+  <h2>Follow one bill through the checks.</h2>
+  <p class="lede">A supplier bill arrives. The agent checks it against the order and the timesheet, holds it for a person, and logs what happened. Nothing is paid or sent without a person.</p>
+  <div class="bm-host"><figure class="bmap" id="bmap" aria-label="How Beiz works across your business">
     <svg viewBox="0 0 560 470" role="group">
       <defs><marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#17201B"/></marker></defs>
       <g class="bm-lines" fill="none" stroke="#17201B" stroke-width="1.6">
@@ -106,18 +117,7 @@ def home():
     </svg>
     <p class="bm-story" aria-live="polite"><span id="bmStory">Scroll to follow one supplier bill through the checks.</span> <button type="button" class="bm-replay" id="bmReplay">Replay</button></p>
     <figcaption id="bmCap">Click any part of the map to try it.</figcaption>
-  </figure>
-</div></section>
-
-<section class="hz-sec wf" id="workforce"><div class="wrap">
-  <p class="demo-k">See it working</p>
-  <h2>Watch an agent&rsquo;s day.</h2>
-  <p class="lede">Nothing is paid or sent without a person. This is a day in a made-up business. Switch to a bad day to see what gets held for a person and what gets blocked outright.</p>
-  <div class="wfl" id="wfl">
-    <div class="wfl-h"><b>Control room</b><span>Simulation with a made-up business. Not connected to anything.</span><div class="wfl-sc" role="group" aria-label="Choose a day"><button type="button" data-sc="ok" aria-pressed="true">Ordinary day</button><button type="button" data-sc="bad" aria-pressed="false">Bad day</button></div><button type="button" class="wfl-p" id="wflP" aria-pressed="false">Pause</button></div>
-    <div class="wfl-k"><div><span>Actions logged</span><b id="wflA">0</b></div><div><span>Held for a person</span><b id="wflH">0</b></div><div><span>Blocked</span><b id="wflB">0</b></div><div class="wfl-zero"><span>Paid or sent without a person</span><b>0</b><small>Fixed at zero. No agent can pay or send.</small></div></div>
-    <ol class="wfl-log" id="wflLog" aria-live="off"></ol>
-  </div>
+  </figure></div>
   
   <p class="nx">Six roles, each with a job description, a limit and a person it reports to. <a href="/services/ai-readiness-sprint/#agents">Meet the agents and their limits</a>.</p>
 </div></section>

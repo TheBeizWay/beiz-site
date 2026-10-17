@@ -70,13 +70,20 @@ main a:not(.btn):hover{background:var(--signal);color:var(--hi)}
 .hz-hero.dark .btn.primary:hover{background:#F7F9FC!important;border-color:#F7F9FC!important}
 .hz-hero.dark .btn.ghost{border-color:#22344F!important;color:#F7F9FC!important}
 .hz-hero.dark .hz-alt a{color:#F7F9FC}
-.hz-hero.dark .bm-node rect{fill:#0A1222;stroke:#5E7391}
-.hz-hero.dark .bm-top rect{fill:#F7F9FC;stroke:#F7F9FC}
-.hz-hero.dark .bm-node .t2{fill:var(--signal)}
-.hz-hero.dark .bm-go:hover rect,.hz-hero.dark .bm-go.on rect{fill:#0E2A33;stroke:var(--signal)}
-.hz-hero.dark .bm-end rect{fill:var(--signal);stroke:var(--signal)}.hz-hero.dark .bm-end text{fill:var(--deep)}
-.hz-hero.dark .bm-dots circle{fill:var(--signal)}
-.hz-hero.dark .bmap figcaption{border-color:var(--signal)}
+.hz-hero.dark .bm-node rect,
+.bm-host .bm-node rect{fill:#0A1222;stroke:#5E7391}
+.hz-hero.dark .bm-top rect,
+.bm-host .bm-top rect{fill:#F7F9FC;stroke:#F7F9FC}
+.hz-hero.dark .bm-node .t2,
+.bm-host .bm-node .t2{fill:var(--signal)}
+.hz-hero.dark .bm-go:hover rect,.hz-hero.dark .bm-go.on rect,
+.bm-host .bm-go:hover rect,.bm-host .bm-go.on rect{fill:#0E2A33;stroke:var(--signal)}
+.hz-hero.dark .bm-end rect,
+.bm-host .bm-end rect{fill:var(--signal);stroke:var(--signal)}.hz-hero.dark .bm-end text,.bm-host .bm-end text{fill:var(--deep)}
+.hz-hero.dark .bm-dots circle,
+.bm-host .bm-dots circle{fill:var(--signal)}
+.hz-hero.dark .bmap figcaption,
+.bm-host .bmap figcaption{border-color:var(--signal)}
 .bm-node rect{rx:0}
 
 /* Section rhythm */
@@ -176,7 +183,8 @@ html{overflow-x:clip}
 .partner-line{background:var(--panel)!important;border-left-color:var(--signal)!important}
 .wf6 li{border-top-color:var(--signal)!important}
 .bm-story{color:#EAF1FB!important}
-.hz-hero.dark .bm-end.flow rect{fill:var(--signal)!important;stroke:#fff!important}
+.hz-hero.dark .bm-end.flow rect,
+.bm-host .bm-end.flow rect{fill:var(--signal)!important;stroke:#fff!important}
 .bot-btn i{background:var(--on-signal)!important;width:10px!important;height:10px!important}
 /* no white fade next to BEIZ PULSE */
 .ticker .label::after{display:none!important}

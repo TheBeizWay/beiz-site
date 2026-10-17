@@ -104,8 +104,8 @@ Avoid the tells of generated copy: a word or phrase singled out in a headline, a
 Purav's plan is the brief: hero "Use AI in your business, with guardrails. Set up, tested and checked by an Australian Chartered Accountant." (changed 17 Oct 2026 with Purav's yes), a "What we don't do" box under the offers, an "AI on its own vs AI set up by Beiz" table in #how, and a flat header menu (What we do, Prices, Free bill check, How it works, About; no dropdown, no prices), the control room and bill check as proof, three priced offers ($1,500 check, from $3,500 sprint, from $8,500 AI workforce), the four-step setup, then Purav and the form. Keep the ticker, chatbot, hero map and control room. Reviews from other AI tools are suggestions only: never remove or replace an existing section, the tagline or a feature without Purav's explicit yes.
 
 
-1. **Hero:** the bill map, Purav's credentials line, "Book a 20-minute fit check" and "Try the free bill check".
-2. **#workforce:** the control room, with an ordinary-day and bad-day switch.
+1. **Hero:** the control room (ordinary-day and bad-day switch, labelled as a made-up business) beside the headline, Purav's credentials line, "Book a 20-minute fit check" and "Try the free bill check". (Swapped with the bill map on 18 Oct 2026, Purav's yes.)
+2. **#workforce:** "Follow one bill through the checks": the bill map, wrapped in `.bm-host` (its styles mirror the old `.hz-hero.dark .bm-*` rules).
 3. **#offers:** three priced offers (sprint, check, AI workforce) and a line linking the rest.
 4. **#how:** declare, contain, test, watch.
 5. **#ca:** who you'll talk to, and the contact form.
