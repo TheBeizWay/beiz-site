@@ -1457,6 +1457,7 @@
   b.addEventListener("click", () => {
     const on = !h.classList.contains("paper");
     h.classList.toggle("paper", on); h.classList.add("ledger"); h.classList.remove("neon");
+    h.classList.remove("warm"); if (L("thW")) L("thW").media = "not all";
     if (L("thE")) L("thE").media = on ? "all" : "not all";
     if (L("thD")) L("thD").media = "all";
     if (L("thN")) L("thN").media = "not all";

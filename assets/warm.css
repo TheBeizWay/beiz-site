@@ -1,0 +1,18 @@
+/* Beiz WARM: a calmer take on Ledger, reached at ?theme=warm. Loads after ledger.css.
+   Warm near-black instead of green, ivory type, a lighter serif, no ruled lines, more air. */
+html.warm{
+  --bg:#141413; --panel:#1C1C1A; --panel2:#181816; --deep:#101010; --line:#2A2A27; --line2:#3A3934;
+  --text:#ECEAE3; --hi:#FAF9F5; --muted:#B4B1A8; --faint:#8C8A82;
+  --paper:#FAF9F5; --on-signal:#141413; --r:8px;
+}
+html.warm header.site{background:rgba(20,20,19,.94)!important;border-bottom-color:var(--line)!important}
+html.warm .hz-hero.dark,html.warm .phero{background-image:none!important}
+html.warm h1,html.warm h2,html.warm .bz.hz h1{font-weight:500!important;letter-spacing:-.02em!important}
+html.warm .hz-hero h1{line-height:1.06!important}
+html.warm .hz-sub,html.warm .lede{color:var(--muted)!important}
+html.warm .btn,html.warm .th-tog,html.warm .menu-btn{border-radius:8px!important}
+html.warm .btn.primary:hover,html.warm .hz-hero.dark .btn.primary:hover{background:#E8E6DE!important;border-color:#E8E6DE!important}
+html.warm .ticker{background:var(--deep)!important}
+html.warm .ticker .label{background:transparent!important;color:var(--faint)!important;border-right:1px solid var(--line)!important}
+html.warm .hz-sec{padding-top:clamp(64px,8vw,112px)!important;padding-bottom:clamp(64px,8vw,112px)!important}
+html.warm .mcta .btn.primary{color:#141413!important}

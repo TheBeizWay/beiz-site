@@ -3,7 +3,7 @@ import json
 import os
 
 SITE = "https://beiz.com.au"
-ASSET_V = "139"  # bump to bust caches when CSS/JS change
+ASSET_V = "140"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" aria-hidden="true" class="logo"><rect x="1" y="1" width="34" height="34" rx="7" fill="#15181D" stroke="#30353D" stroke-width="1.5"/><rect x="7" y="9" width="16" height="3.5" rx="1.75" fill="#43B581"/><circle cx="27.5" cy="10.75" r="1.75" fill="#43B581"/><rect x="7" y="16.25" width="11" height="3.5" rx="1.75" fill="#E9A93B"/><rect x="21" y="16.25" width="8" height="3.5" rx="1.75" fill="none" stroke="#E9A93B" stroke-width="1.2"/><rect x="7" y="23.5" width="22" height="3.5" rx="1.75" fill="#A6A49D"/></svg>')
 
@@ -280,7 +280,8 @@ def page(path, title, desc, body, extra_head=""):
 <link rel="stylesheet" href="/assets/neon-on.css?v={ASSET_V}" id="thN">
 <link rel="stylesheet" href="/assets/ledger.css?v={ASSET_V}" id="thD" media="not all">
 <link rel="stylesheet" href="/assets/paper.css?v={ASSET_V}" id="thE" media="not all">
-<script>(function(){{try{{var q=new URLSearchParams(location.search).get("theme");if(q)localStorage.setItem("beizTheme",q);var t=q||localStorage.getItem("beizTheme"),h=document.documentElement,on=function(i){{var l=document.getElementById(i);l&&(l.media="all")}};if(t!=="neon"&&t!=="paper"&&t!=="classic")t="ledger";if(t==="ledger"||t==="paper"){{h.classList.add("ledger");on("thD");var n=document.getElementById("thN");n&&(n.media="not all")}}if(t==="paper"){{h.classList.add("paper");on("thE")}}if(t!=="ledger"&&t!=="paper"&&t!=="classic"){{h.classList.add("neon")}}if(t==="classic"){{document.documentElement.classList.add("classic");["thA","thB","thC","thD","thE","thN"].forEach(function(i){{var l=document.getElementById(i);l&&l.parentNode.removeChild(l)}})}}}}catch(e){{}}}})();</script>
+<link rel="stylesheet" href="/assets/warm.css?v={ASSET_V}" id="thW" media="not all">
+<script>(function(){{try{{var q=new URLSearchParams(location.search).get("theme");if(q)localStorage.setItem("beizTheme",q);var t=q||localStorage.getItem("beizTheme"),h=document.documentElement,on=function(i){{var l=document.getElementById(i);l&&(l.media="all")}};if(t==="warm"){{h.classList.add("warm");on("thW")}}if(t!=="neon"&&t!=="paper"&&t!=="classic")t="ledger";if(t==="ledger"||t==="paper"){{h.classList.add("ledger");on("thD");var n=document.getElementById("thN");n&&(n.media="not all")}}if(t==="paper"){{h.classList.add("paper");on("thE")}}if(t!=="ledger"&&t!=="paper"&&t!=="classic"){{h.classList.add("neon")}}if(t==="classic"){{document.documentElement.classList.add("classic");["thA","thB","thC","thD","thE","thN","thW"].forEach(function(i){{var l=document.getElementById(i);l&&l.parentNode.removeChild(l)}})}}}}catch(e){{}}}})();</script>
 {ld}{extra_head}
 </head>
 <body>

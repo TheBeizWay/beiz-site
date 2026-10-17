@@ -2306,7 +2306,8 @@ html.ledger .hx-ex figcaption b{font-family:var(--sans);letter-spacing:0;text-tr
 /* Homepage #offers: what Beiz doesn't do */
 .nodo{margin-top:26px;border:1px solid var(--line2);border-left:3px solid var(--stop);border-radius:6px;background:var(--panel);padding:18px 22px}
 .nodo h3{margin:0 0 10px;font-size:1.05rem}
-.nodo ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:6px 22px}
+.nodo ul{list-style:none;margin:0;padding:0;columns:2 300px;column-gap:28px}
+.nodo li{break-inside:avoid;margin-bottom:6px}
 .nodo li{position:relative;padding-left:20px;font-size:.93rem}
 .nodo li::before{content:"×";position:absolute;left:0;top:-1px;color:var(--stop);font-weight:700}
 .nodo p{margin:12px 0 0;font-size:.9rem;color:var(--muted)}
