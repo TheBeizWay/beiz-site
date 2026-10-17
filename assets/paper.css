@@ -81,3 +81,6 @@ html.paper .am,html.paper .lm,html.paper .lnx,html.paper .tr,html.paper .lg{
   --text:#ECE6D8; --hi:#F7F2E7; --muted:#C9C2B3; --faint:#9F998C; --brass:#CFAE6E; --paper:#ECE6D8}
 html.paper :is(.am,.lm,.lnx,.tr,.lg,.wfl) .btn.primary{color:#0F1613!important}
 html.paper :is(.am,.lm,.lnx,.tr,.lg,.wfl) .btn:not(.primary){color:var(--hi)!important;border-color:var(--line2)!important}
+
+/* Light: no ruled lines (17 Oct 2026). Plain paper reads cleaner; Ledger keeps its lines. */
+html.paper body .hz-hero.dark,html.paper body .phero{background-image:none!important}

@@ -16,3 +16,8 @@ html.warm .ticker{background:var(--deep)!important}
 html.warm .ticker .label{background:transparent!important;color:var(--faint)!important;border-right:1px solid var(--line)!important}
 html.warm .hz-sec{padding-top:clamp(64px,8vw,112px)!important;padding-bottom:clamp(64px,8vw,112px)!important}
 html.warm .mcta .btn.primary{color:#141413!important}
+/* A faint dot grid behind the hero, fading out from the right: precision without glow */
+html.warm .hz-hero.dark{position:relative;isolation:isolate}
+html.warm .hz-hero.dark::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:radial-gradient(rgba(250,249,245,.09) 1px,transparent 1.3px);background-size:24px 24px;
+  -webkit-mask-image:radial-gradient(ellipse 55% 75% at 75% 45%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse 55% 75% at 75% 45%,#000 20%,transparent 75%)}
