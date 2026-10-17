@@ -95,7 +95,7 @@ WIRING = '''<section id="wiring" class="band">
   </div>
 </section>'''
 
-_V = "?v=70"
+_V = "?v=71"
 _VIDS = [
     ("room-bad-day", "A bad day in the control room.", "A fake director, changed bank details, a bill sent twice. Each one is held or blocked."),
     ("bill-check-sample", "The bill check on six months of bills.", "Duplicates, a bank-detail change and split bills, found in seconds in the browser."),

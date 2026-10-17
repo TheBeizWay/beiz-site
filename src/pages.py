@@ -564,7 +564,7 @@ def examples():
                  "Every example here uses a made-up business and made-up numbers. What's real is the format: this is what lands in your inbox or on your screen. How it's built is what you're paying for, so that part stays with us.",
                  [("/examples/", "Examples")]) + f'''<section style="padding-top:8px"><div class="wrap">
 
-<figure class="vid" style="max-width:760px;margin-bottom:28px"><video src="/assets/media/cash-13-weeks.mp4?v=70" poster="/assets/media/cash-13-weeks.jpg?v=70" autoplay muted loop playsinline preload="none" aria-label="Screen recording: a 13-week cash forecast redraws as a large bill moves between weeks"></video><figcaption><b>A 13-week cash forecast.</b> Move one big bill and see which week drops below your buffer. <a href="/try/#cash">Try it with your numbers</a></figcaption></figure>
+<figure class="vid" style="max-width:760px;margin-bottom:28px"><video src="/assets/media/cash-13-weeks.mp4?v=71" poster="/assets/media/cash-13-weeks.jpg?v=71" autoplay muted loop playsinline preload="none" aria-label="Screen recording: a 13-week cash forecast redraws as a large bill moves between weeks"></video><figcaption><b>A 13-week cash forecast.</b> Move one big bill and see which week drops below your buffer. <a href="/try/#cash">Try it with your numbers</a></figcaption></figure>
 
 <div class="ex"><div class="exh"><b>1. The Monday cash email</b><span>Sample · fictional joinery business</span></div>
 <div class="exb"><div class="mail"><div class="mh">From: Beiz reports · To: Sam · Monday 6:00am<br><b>Subject: Cash this week: $42,000 in the bank, one thing to watch</b></div>
