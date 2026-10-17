@@ -409,7 +409,7 @@
     const openers = $$("[data-open-bot]");
     const flow = {
       start: { say: ["Hi, I'm Bei-zAI. How can I help?", "I'm a guided helper rather than a chatbot, so nothing you click is stored. Pick what's closest."],
-        opts: [["I'm confused about AI", "cz"], ["Set up an AI workforce", "aiw"], ["Two-week cash & data check ($1,500)", "chk"], ["Cash & job profit model", "dash"], ["A model for a big decision", "model"], ["Automating a finance process", "auto"], ["Using AI safely", "ai"], ["The Bei-zAI story", "story"], ["Not sure yet", "unsure"]] },
+        opts: [["I'm confused about AI", "cz"], ["Set up an AI workforce", "aiw"], ["Two-week cash & data check", "chk"], ["Cash & job profit model", "dash"], ["A model for a big decision", "model"], ["Automating a finance process", "auto"], ["Using AI safely", "ai"], ["The Bei-zAI story", "story"], ["Not sure yet", "unsure"]] },
       cz: { topic: "Discovery call", say: ["Fair enough. There's a new model, tool or headline every week, and most of it doesn't matter to a business your size.", "Three questions cut through it: which job should an agent do first, what could go wrong, and who checks its work.", "We answer those with you in a 20-minute call, in plain English. No slide deck, nothing to prepare."], opts: [["Take the 5-minute workshop", "ws"], ["Show me a demo first", "demo"], ["Book a 20-minute call", "go"]] },
       demo: { topic: "Demo request", say: ["On a 20-minute video call we'll run the agents on a sample business: a scam bill held for approval, a cash warning, and the decision log showing who decided what.", "Bring one job you'd like to hand over and we'll show how it would work for you."], opts: [["Book my demo", "go"], ["Back to the start", "start"]] },
       story: { topic: "Discovery call", say: ["Bei-zAI is Beiz plus AI. Beiz is Purav's chocolate-and-white Border Collie, and the name comes from 贝仔 (bèi zǎi): little treasure.", "Collies are working dogs. They turn up every day, stay on the job until it's done, and nothing slips past them through the gate.", "That's the standard for every agent we build. We work hard for our clients because we love that dog."], opts: [["How can Beiz help me?", "start"], ["Book a 20-minute call", "go"]] },
@@ -486,8 +486,8 @@
     const tz = document.createElement("div");
     tz.className = "bot-tease"; tz.setAttribute("role", "dialog"); tz.setAttribute("aria-label", "Ways Beiz can help");
     tz.innerHTML = '<button class="tx" type="button" aria-label="Close">&times;</button><p>Hi, I\'m Bei-zAI. How can I help?<small>Bei-zAI is Beiz plus AI, named after our Border Collie. Pick one and I\'ll walk you through it.</small></p><div class="tc">'
-      + [["aiw", "Set up an AI workforce", "from $8.5k"], ["chk", "Cash &amp; data check", "$1,500"], ["dash", "Cash &amp; job profit model", "from $5k"], ["story", "The Bei-zAI story", ""]]
-        .map(([k, l, p]) => `<button type="button" data-k="${k}">${l}<span>${p}</span></button>`).join("") + "</div>";
+      + [["aiw", "Set up an AI workforce"], ["chk", "Cash &amp; data check"], ["dash", "Cash &amp; job profit model"], ["story", "The Bei-zAI story"]]
+        .map(([k, l]) => `<button type="button" data-k="${k}">${l}</button>`).join("") + "</div>";
     document.body.appendChild(tz);
     const hideTz = () => { tz.classList.remove("show"); mark(); };
     tz.querySelector(".tx").onclick = hideTz;

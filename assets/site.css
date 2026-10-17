@@ -2302,3 +2302,35 @@ html.ledger .hx-ex figcaption b{font-family:var(--sans);letter-spacing:0;text-tr
   .cm-m li.held{border-color:var(--held)}.cm-m li.held span{color:var(--held)}
   .cm-m li.stop{border-color:var(--stop)}.cm-m li.stop span{color:var(--stop)}}
 @media (prefers-reduced-motion:reduce){.cm .cm-d{display:none}}
+
+/* Homepage #offers: what Beiz doesn't do */
+.nodo{margin-top:26px;border:1px solid var(--line2);border-left:3px solid var(--stop);border-radius:6px;background:var(--panel);padding:18px 22px}
+.nodo h3{margin:0 0 10px;font-size:1.05rem}
+.nodo ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:6px 22px}
+.nodo li{position:relative;padding-left:20px;font-size:.93rem}
+.nodo li::before{content:"×";position:absolute;left:0;top:-1px;color:var(--stop);font-weight:700}
+.nodo p{margin:12px 0 0;font-size:.9rem;color:var(--muted)}
+
+/* Services hub: four services */
+.four{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:16px;counter-reset:fs}
+.four li{counter-increment:fs}
+.four a{display:block;height:100%;border:1px solid var(--line2);border-radius:8px;background:var(--panel);padding:20px 22px;text-decoration:none;color:var(--text)}
+.four a:hover{border-color:var(--accent)}
+.four .k{display:block;font-size:.82rem;color:var(--muted);margin-bottom:6px}
+.four h3{margin:0 0 8px;font-size:1.2rem}
+.four h3::before{content:counter(fs) ". ";color:var(--muted);font-weight:500}
+.four p{margin:0;color:var(--muted);font-size:.95rem;line-height:1.55}
+@media(max-width:720px){.four{grid-template-columns:1fr}}
+/* Homepage #how: AI on its own vs set up by Beiz */
+.vsai{margin-top:30px}
+.vsai h3{margin:0 0 12px;font-size:1.15rem}
+.vsai table{width:100%;border-collapse:collapse;font-size:.93rem}
+.vsai th,.vsai td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+.vsai thead th{font-size:.8rem;color:var(--muted);font-weight:600}
+.vsai tbody th{font-weight:600;width:20%}
+.vsai td:nth-child(2){color:var(--muted)}
+.vsai td:nth-child(3){color:var(--text)}
+@media(max-width:560px){.vsai thead{display:none}.vsai tr{display:block;border-bottom:1px solid var(--line2);padding:8px 0}.vsai th,.vsai td{display:block;border:0;padding:3px 0;width:auto}.vsai td:nth-child(2)::before{content:"AI on its own: ";color:var(--muted)}.vsai td:nth-child(3)::before{content:"With Beiz: ";font-weight:600}}
+
+/* Ledger: the phone menu "Book a call" button is cream, so its text must be dark (overrides .mcta rule above) */
+html.ledger:not(.paper) .mcta .btn.primary{color:#0F1613!important}

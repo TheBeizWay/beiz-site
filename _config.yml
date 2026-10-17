@@ -5,3 +5,4 @@ exclude:
   - notes/
   - src/
   - scripts/
+  - docs/
