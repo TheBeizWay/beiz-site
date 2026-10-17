@@ -1435,6 +1435,7 @@
   const fill = () => { for (let k = 0; k < 6; k++) step(); };
   box.querySelectorAll("[data-sc]").forEach(b => b.addEventListener("click", () => {
     EV = DAYS[b.dataset.sc]; box.querySelectorAll("[data-sc]").forEach(x => x.setAttribute("aria-pressed", x === b));
+    box.classList.toggle("bad", b.dataset.sc === "bad");
     reset(); if (reduce) fill(); else { step(); step(); run(); }
   }));
   if (reduce) { fill(); btn.hidden = true; return; }
