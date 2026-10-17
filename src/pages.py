@@ -122,7 +122,7 @@ def home():
   <h2>Written down, locked down, tested, watched.</h2>
   <ol class="how4">
     <li><b>Declare</b><p>One job, written down and signed off by you: what the agent does, what it never does, the limit it stops at and the person it reports to.</p></li>
-    <li><b>Contain</b><p>It can only reach what that job needs. No agent has permission to pay anyone or send anything outside your business.</p></li>
+    <li><b>Contain</b><p>It can only reach what that job needs. Logins stay in your own password manager, and no agent has permission to pay anyone or send anything outside your business.</p></li>
     <li><b>Test</b><p>Before it touches live work, it runs over a few months of your past records and each result is checked against what actually happened. It goes live only at a pass mark agreed with you in writing.</p></li>
     <li><b>Watch</b><p>Every action is logged in your own accounts. We review the log monthly and re-test before any change.</p></li>
   </ol>
@@ -564,7 +564,7 @@ def examples():
                  "Every example here uses a made-up business and made-up numbers. What's real is the format: this is what lands in your inbox or on your screen. How it's built is what you're paying for, so that part stays with us.",
                  [("/examples/", "Examples")]) + f'''<section style="padding-top:8px"><div class="wrap">
 
-<figure class="vid" style="max-width:760px;margin-bottom:28px"><video src="/assets/media/cash-forecast-dark.mp4?v=60" poster="/assets/media/cash-forecast-dark.jpg?v=60" autoplay muted loop playsinline preload="none" aria-label="Screen recording: a 13-week cash forecast redraws as a large bill moves between weeks"></video><figcaption><b>A 13-week cash forecast.</b> Move one big bill and see which week drops below your buffer. <a href="/try/#cash">Try it with your numbers</a></figcaption></figure>
+<figure class="vid" style="max-width:760px;margin-bottom:28px"><video src="/assets/media/cash-13-weeks.mp4?v=70" poster="/assets/media/cash-13-weeks.jpg?v=70" autoplay muted loop playsinline preload="none" aria-label="Screen recording: a 13-week cash forecast redraws as a large bill moves between weeks"></video><figcaption><b>A 13-week cash forecast.</b> Move one big bill and see which week drops below your buffer. <a href="/try/#cash">Try it with your numbers</a></figcaption></figure>
 
 <div class="ex"><div class="exh"><b>1. The Monday cash email</b><span>Sample · fictional joinery business</span></div>
 <div class="exb"><div class="mail"><div class="mh">From: Beiz reports · To: Sam · Monday 6:00am<br><b>Subject: Cash this week: $42,000 in the bank, one thing to watch</b></div>
