@@ -1,0 +1,24 @@
+/* Beiz NEON ON — default theme. Loads after calm.css when html.neon is set.
+   Puts back full cyan signal, glow, scroll reveal and the agent-network canvas that calm.css switched off. */
+html.neon{
+  --bg:#050A14; --panel:#0A1222; --panel2:#070E1B; --line:#16233A; --line2:#22344F;
+  --text:#EAF1FB; --hi:#FFFFFF; --muted:#A9BAD3; --faint:#8EA2C2;
+  --brand:#2EF2E2; --accent:#2EF2E2; --teal:#2EF2E2; --g:#2EF2E2; --signal:#2EF2E2;
+  --ok:#4FD1A0; --held:#F2B84B; --stop:#FF6B6B; --pencil:#FF8A7A;
+}
+html.neon .fx-glow,html.neon .fx-bar{display:block!important}
+html.neon .fx-r{opacity:0!important;transform:translateY(28px)!important}
+html.neon .fx-r.fx-in{opacity:1!important;transform:none!important}
+html.neon .btn.primary,html.neon .hz-hero.dark .btn.primary{background:#2EF2E2!important;border-color:#2EF2E2!important;color:#050A14!important;box-shadow:0 0 0 1px rgba(46,242,226,.45),0 0 28px rgba(46,242,226,.28)!important}
+html.neon .btn.primary:hover{background:#fff!important;border-color:#fff!important;box-shadow:0 0 0 1px #2EF2E2,0 0 44px rgba(46,242,226,.55)!important}
+html.neon .bot-btn{background:#2EF2E2!important;color:#050A14!important}
+html.neon .hz-hero h1{text-shadow:0 0 40px rgba(46,242,226,.14)!important}
+html.neon .hz-hero h1 .h1-2{color:#2EF2E2!important}
+html.neon .demo-k::before,html.neon .eyebrow::before{background:#2EF2E2!important;box-shadow:0 0 10px #2EF2E2!important}
+html.neon .off:hover,html.neon .off:focus-visible{border-color:#2EF2E2!important;box-shadow:0 0 24px rgba(46,242,226,.12)}
+html.neon .off .go,html.neon .how4 li b::before{color:#2EF2E2!important}
+html.neon .wfl-zero b{color:#2EF2E2!important}
+html.neon .wfl-sc button[aria-pressed="true"]{background:#2EF2E2!important;color:#050A14!important}
+html.neon .wf6 li.live .wf-dot{background:#2EF2E2!important;box-shadow:0 0 0 4px rgba(46,242,226,.2)!important}
+html.neon .th-tog:hover{border-color:#2EF2E2;color:#2EF2E2}
+@media (prefers-reduced-motion:reduce){html.neon .fx-r{opacity:1!important;transform:none!important}html.neon .fx-bar{display:none!important}}

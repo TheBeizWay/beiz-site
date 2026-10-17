@@ -1435,18 +1435,21 @@
   btn.addEventListener("click", () => { paused = !paused; btn.textContent = paused ? "Resume" : "Pause"; btn.setAttribute("aria-pressed", paused); run(); });
 })();
 
-/* v43 light/dark switch (light = paper theme) */
+/* v43 light/dark switch: dark = neon (default), light = paper */
 (() => {
   const b = document.getElementById("thTog"); if (!b) return;
-  const h = document.documentElement, link = document.getElementById("thE");
+  const h = document.documentElement, L = id => document.getElementById(id);
   if (h.classList.contains("classic")) { b.hidden = true; return; }
   const sync = () => { const on = h.classList.contains("paper"); b.textContent = on ? "Dark" : "Light"; b.setAttribute("aria-pressed", on); b.title = on ? "Switch to the dark version" : "Switch to the light version"; };
   sync();
   b.addEventListener("click", () => {
     const on = !h.classList.contains("paper");
-    h.classList.toggle("paper", on); if (link) link.media = on ? "all" : "not all";
+    h.classList.toggle("paper", on); h.classList.toggle("ledger", on); h.classList.toggle("neon", !on);
+    if (L("thE")) L("thE").media = on ? "all" : "not all";
+    if (L("thD")) L("thD").media = on ? "all" : "not all";
+    if (L("thN")) L("thN").media = on ? "not all" : "all";
     try { localStorage.setItem("beizTheme", on ? "paper" : "default"); } catch (e) {}
-    const m = document.querySelector('meta[name="theme-color"]'); if (m) m.content = on ? "#F8F8F4" : "#0F1613";
+    const m = document.querySelector('meta[name="theme-color"]'); if (m) m.content = on ? "#F8F8F4" : "#050A14";
     sync();
   });
 })();
