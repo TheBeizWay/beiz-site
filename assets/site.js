@@ -1444,7 +1444,7 @@
   btn.addEventListener("click", () => { paused = !paused; btn.textContent = paused ? "Resume" : "Pause"; btn.setAttribute("aria-pressed", paused); run(); });
 })();
 
-/* v43 light/dark switch: dark = neon (default), light = paper */
+/* light/dark switch: dark = ledger (default), light = paper. Neon stays reachable at ?theme=neon */
 (() => {
   const b = document.getElementById("thTog"); if (!b) return;
   const h = document.documentElement, L = id => document.getElementById(id);
@@ -1453,12 +1453,12 @@
   sync();
   b.addEventListener("click", () => {
     const on = !h.classList.contains("paper");
-    h.classList.toggle("paper", on); h.classList.toggle("ledger", on); h.classList.toggle("neon", !on);
+    h.classList.toggle("paper", on); h.classList.add("ledger"); h.classList.remove("neon");
     if (L("thE")) L("thE").media = on ? "all" : "not all";
-    if (L("thD")) L("thD").media = on ? "all" : "not all";
-    if (L("thN")) L("thN").media = on ? "not all" : "all";
-    try { localStorage.setItem("beizTheme", on ? "paper" : "default"); } catch (e) {}
-    const m = document.querySelector('meta[name="theme-color"]'); if (m) m.content = on ? "#F8F8F4" : "#050A14";
+    if (L("thD")) L("thD").media = "all";
+    if (L("thN")) L("thN").media = "not all";
+    try { localStorage.setItem("beizTheme", on ? "paper" : "ledger"); } catch (e) {}
+    const m = document.querySelector('meta[name="theme-color"]'); if (m) m.content = on ? "#F8F8F4" : "#0F1613";
     sync();
   });
 })();
