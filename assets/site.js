@@ -500,7 +500,7 @@
       hideTz(); bot.classList.add("open"); openers.forEach(x => x.setAttribute("aria-expanded", "true"));
       msgs.innerHTML = ""; path = []; topic = "Something else"; add(b.dataset.say || "I'm confused about AI", "u"); step(b.dataset.botStep);
     }));
-    if (!seen() && !matchMedia("(max-width: 760px)").matches && !document.getElementById("dlog")) setTimeout(() => { if (!bot.classList.contains("open") && !document.body.classList.contains("menu-open")) tz.classList.add("show"); }, 6000);
+    // The greeting no longer opens by itself; visitors open the helper with the Ask Bei-zAI button.
   }
 })();
 
@@ -1353,7 +1353,7 @@
     bill.setAttribute("transform", `translate(${pt.x.toFixed(1)} ${pt.y.toFixed(1)})`);
     bill.style.opacity = len > l1 - 15 && len < l2 + 15 ? "0" : "";
     let i = 0; while (i + 1 < stages.length && p >= stages[i + 1][0]) i++;
-    const left = pt.x > 360;
+    const left = pt.x > 360 || pt.y > 260;
     st.setAttribute("x", left ? -52 : 52); st.setAttribute("text-anchor", left ? "end" : "start");
     if (i !== shown) {
       shown = i; const [, cls, label, money, line, sel] = stages[i];
