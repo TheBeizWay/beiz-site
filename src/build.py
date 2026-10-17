@@ -2,10 +2,14 @@
 import os, sys, datetime
 sys.path.insert(0, os.path.dirname(__file__))
 from pages import build_all
+from trust import trust_pages
+from oversight import oversight_pages
 from layout import SITE, SERVICES, INDUSTRIES
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 pages = build_all()
+pages.update(trust_pages())
+pages.update(oversight_pages())
 urls = []
 for path, html in pages.items():
     out = os.path.join(ROOT, path.lstrip("/")) if path.endswith(".html") else os.path.join(ROOT, path.lstrip("/"), "index.html")
@@ -46,6 +50,6 @@ llms = ["# Beiz Data & Accounting", "",
         f"- [60-second demos]({SITE}/try/): late payers, 13-week cash forecast, an agent checking bills, admin hours",
         f"- [Example outputs]({SITE}/examples/): made-up businesses, real formats",
         f"- [Free Privacy Act AI check]({SITE}/ai-check/): for the automated-decision disclosure rules starting 10 December 2026",
-        "", "## About", f"- [About Beiz]({SITE}/about/)", f"- [How we work]({SITE}/how-we-work/)", f"- [FAQ]({SITE}/faq/)", ""]
+        "", "## About", f"- [About Beiz]({SITE}/about/)", f"- [Why trust Beiz: commitments and limits]({SITE}/trust/)", f"- [Human and organisation in the loop]({SITE}/oversight/)", f"- [How we work]({SITE}/how-we-work/)", f"- [FAQ]({SITE}/faq/)", ""]
 open(os.path.join(ROOT, "llms.txt"), "w").write("\n".join(llms))
 print(f"built {len(pages)} pages")
