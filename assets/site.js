@@ -81,6 +81,14 @@
           form.reset();
           fmsg.style.color = "var(--accent)";
           fmsg.textContent = "Received. You'll get a written reply by the next business day.";
+          const thx = document.createElement("div");
+          thx.className = "thx"; thx.tabIndex = -1;
+          thx.innerHTML = `<h3>Thanks. Here's what happens next.</h3>
+            <p>Purav reads every message himself and replies in writing by the next business day. If a call makes sense, it's 20 minutes, early morning or after 5pm.</p>
+            <p>To make that reply useful, have a think about these three:</p>
+            <ol><li>What does the problem cost you now, in hours a week or dollars?</li><li>Which systems hold the records: your accounting software, job or practice software, spreadsheets?</li><li>Who would approve the work, and is there a date it has to be done by?</li></ol>
+            <p class="fine">You can reply to our email with the answers. Please don't send passwords or bank details.</p>`;
+          form.replaceWith(thx); thx.focus();
           return;
         } catch (_) {}
       }

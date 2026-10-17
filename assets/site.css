@@ -2236,3 +2236,20 @@ img.ca-who-mark{display:block;height:40px;width:auto;margin:4px 0 18px}
 .th-tog{background:none;border:1px solid var(--line2);color:var(--muted);font:500 .85rem var(--sans);padding:7px 12px;border-radius:var(--r);cursor:pointer;margin-left:auto;margin-right:10px;white-space:nowrap}
 .th-tog:hover,.th-tog:focus-visible{color:var(--text);border-color:var(--text)}
 @media(max-width:1100px){.th-tog{margin-right:8px;padding:6px 10px}}
+/* v44 routing block, ask-AI footer row, bill check next step, form thanks */
+.route{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:14px 0 10px}
+.route>div{border:1px solid var(--line2);border-radius:var(--r,6px);padding:18px 20px;background:var(--panel)}
+.route h3{margin:0 0 10px;font-size:1.05rem}
+@media(max-width:760px){.route{grid-template-columns:1fr}}
+.ask-ai{margin-top:14px;font-size:.86rem;color:var(--faint);max-width:34ch}
+.ask-ai a{margin-right:10px;white-space:nowrap}
+.bck-next{margin-top:22px;border:1px solid var(--line2);border-radius:var(--r,6px);padding:20px 22px;background:var(--panel)}
+.bck-next h3{margin:0 0 8px}
+.bck-next p{margin:0 0 14px;max-width:70ch}
+.bck-next .hz-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.thx{border:1px solid var(--line2);border-radius:var(--r,6px);padding:22px 24px;background:var(--panel);margin-top:8px}
+.thx h3{margin:0 0 8px}
+.thx ol{margin:10px 0 0;padding-left:1.2em}
+.thx li{margin:6px 0}
+.ask-ai a{text-decoration:underline;text-underline-offset:3px}
+.thx p+p{margin-top:10px}

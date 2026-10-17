@@ -171,6 +171,9 @@
         ${fs.length > 40 ? `<p class="fine">And ${fs.length - 40} more in the download.</p>` : ""}</details>`;
     }
     h += `<div class="bck-act"><button type="button" class="btn" id="bcCsv"${r.F.length ? "" : " disabled"}>Download the findings (CSV)</button><button type="button" class="btn ghost" id="bcClear">Clear everything</button></div>`;
+    h += `<div class="bck-next"><h3>${r.F.length ? "Want these checks on every bill, before it's paid?" : "Want the checks these eight can't do?"}</h3>
+      <p>The two-week cash &amp; data check goes further, from your full exports: unbilled work, margin leaks and manual bottlenecks, with the records behind each finding. $1,500 fixed, credited if you go ahead. Or set up a financial controller agent that runs these checks on every bill and holds anything odd for you.</p>
+      <div class="hz-ctas"><a class="btn primary" href="/contact/?topic=Two-week%20cash%20%26%20data%20check#form">Ask about the check</a><a class="btn ghost" href="/services/ai-readiness-sprint/">About the agent</a></div></div>`;
     out.innerHTML = h;
     $("#bcCsv").onclick = () => {
       const q = s => `"${String(s ?? "").replace(/"/g, '""')}"`;

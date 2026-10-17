@@ -11,6 +11,17 @@ def add(path, title, desc, body, extra_head=""):
     PAGES[path] = page(path, title, desc, body, extra_head)
 
 
+ROUTE = """<div class="route"><div><h3>Use what you already have</h3><ul class="ticks">
+<li>The work happens in one system, on a simple rule: the bank rules and bill approvals built into your accounting software.</li>
+<li>One person needs help drafting, summarising or searching: the AI licence your team already pays for.</li>
+<li>It happens a few times a month and a checklist would do.</li></ul></div>
+<div><h3>An agent is worth setting up</h3><ul class="ticks">
+<li>The work crosses systems: ledger, job or practice software, inbox and screening service.</li>
+<li>Records have to be checked against each other before anyone acts.</li>
+<li>Your limits and approvers have to be enforced every time, with a log someone can review later.</li></ul></div></div>
+<p class="fine">If your own software can do it, we'll say so on the fit call and you won't pay for a build.</p>"""
+
+
 def faq_ld(items):
     import json
     return '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in items]}) + "</script>"
@@ -376,7 +387,7 @@ def services():
 <p>You don't need all six on day one. Most businesses start with the one or two that save the most hours, and add the rest once those are working.</p>
 <h2>Six controls every agent gets</h2>
 <ol><li><strong>A named role and owner.</strong> A written job description: what the agent does, the tools it may use, and the person it reports to.</li>
-<li><strong>Limits it can't cross.</strong> Read-only access where possible, and a delegation limit. Changed bank details, new suppliers and anything over the limit always go to a person.</li>
+<li><strong>Limits it can't cross.</strong> Read-only access where possible, and a delegation limit. Changed bank details, new suppliers and anything over the limit always go to a person. AI usage is billed by volume, so each agent also gets a monthly spending cap, logged usage and an off switch you control.</li>
 <li><strong>Human checkpoints.</strong> Anything that moves money, reaches a customer or decides something about a person waits for a human yes.</li>
 <li><strong>A log of every decision.</strong> What the agent did, why, and who approved it, kept in your own accounts.</li>
 <li><strong>Tested before it goes live.</strong> We run the agent over a few months of your past records and check each result against what actually happened. It moves on only when it meets a pass mark agreed with you in writing, and it's re-tested before any change.</li>
@@ -386,6 +397,10 @@ def services():
 <li><strong>Week 2, test and shadow:</strong> first the agents run over your past records and we check their results against what actually happened. Then they run alongside your team without acting, and we compare their answers with yours.</li>
 <li><strong>Week 3, live within limits:</strong> the agents start work. Anything over a limit comes to a person.</li>
 <li><strong>Day 30, review:</strong> errors, time saved and exceptions, measured. We fix what isn't working and tell you plainly whether to add more.</li></ol>
+<h2>The part demos skip</h2>
+<p>Getting an agent to work in a demo is the easy part. Most of the setup is what keeps it working after week one: checking inputs before it acts, holding anything it isn't sure about, logging every decision, failing safely when a supplier sends a scanned PDF or a system is down, and a person reviewing the exceptions. Purav is the one on your calls and the one who builds those checks.</p>
+<h2>When you don't need an agent</h2>
+''' + ROUTE + '''
 <h2>What it isn't</h2>
 <p>It isn't an audit or assurance engagement, custom software that needs a development team, or a licence sale. You buy any subscriptions directly, in your name. We don't do tax returns or BAS.</p>''',
         [("Agent job descriptions", "Role, tools, limits and owner for each agent, agreed with you."), ("Working agents", "Built in your own accounts and tools."), ("Approval steps", "Money, customers and people always need a human yes."), ("Test results", "How each agent did on your past records, before it went live."), ("Your operating folder", "Plain files you own: your business context, your procedures written as skills, and the agent's memory. Any major AI tool can read them, so you're not locked in."),
@@ -1152,7 +1167,15 @@ def compliance_sprint():
 def prices_page():
     body = phero("Prices", "Fixed prices, agreed in writing.",
                  "Every engagement is scoped and priced in writing before it starts. Australian dollars. Beiz isn't registered for GST, so no GST is added.",
-                 [("/prices/", "Prices")]) + wrapbz(MOVED["pricing"]) + cta_band()
+                 [("/prices/", "Prices")]) + wrapbz(MOVED["pricing"]) + f"""<section style="padding-top:8px"><div class="wrap split"><div class="prose">
+<h2>How a quote works</h2>
+<ol><li><strong>A 20-minute fit call</strong>, early morning or after 5pm.</li>
+<li><strong>A written proposal within three business days:</strong> what we'll do, the fixed price, the timeline, what we need from you and what's excluded.</li>
+<li><strong>A definition of done.</strong> Every proposal lists the things that will exist at the end and how we'll both check them, so the job has a finish line.</li>
+<li><strong>Changes in writing.</strong> Anything outside the scope is quoted before any work on it starts.</li></ol>
+<p>The $1,500 cash &amp; data check is credited against the next piece of work if you go ahead.</p>
+</div><aside class="aside"><h3>Never in scope</h3><ul class="ticks"><li>Tax returns, BAS or GST lodgements</li><li>Statutory audit or assurance</li><li>Payments released without a person</li><li>Legal advice or program wording</li></ul></aside></div></section>
+<section style="padding-top:0"><div class="wrap"><h2>When you don't need us</h2>{ROUTE}</div></section>""" + cta_band()
     add("/prices/", "Prices | Beiz Data & Accounting", "Fixed prices for the compliance controls sprint, cash & data check, cash model, AI workforce setup, leave cover and monthly controls operations.", body)
 
 

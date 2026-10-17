@@ -3,7 +3,7 @@ import json
 import os
 
 SITE = "https://beiz.com.au"
-ASSET_V = "129"  # bump to bust caches when CSS/JS change
+ASSET_V = "130"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" aria-hidden="true" class="logo"><rect x="1" y="1" width="34" height="34" rx="7" fill="#15181D" stroke="#30353D" stroke-width="1.5"/><rect x="7" y="9" width="16" height="3.5" rx="1.75" fill="#43B581"/><circle cx="27.5" cy="10.75" r="1.75" fill="#43B581"/><rect x="7" y="16.25" width="11" height="3.5" rx="1.75" fill="#E9A93B"/><rect x="21" y="16.25" width="8" height="3.5" rx="1.75" fill="none" stroke="#E9A93B" stroke-width="1.2"/><rect x="7" y="23.5" width="22" height="3.5" rx="1.75" fill="#A6A49D"/></svg>')
 
@@ -186,13 +186,14 @@ def _header(path):
 
 def _footer():
     s = "".join(f'<li><a href="{h}">{t}</a></li>' for h, t in SERVICES)
-    i = "".join(f'<li><a href="{h}">{t}</a></li>' for h, t in [("/prices/#check", "Two-week cash &amp; data check · $1,500"), ("/services/dashboards-and-models/", "Live cash &amp; job profit model · from $5,000"), ("/services/ai-readiness-sprint/", "AI workforce setup · from $8,500"), ("/prices/#ops", "Monthly controls operations · from $1,250")])
+    i = "".join(f'<li><a href="{h}">{t}</a></li>' for h, t in [("/bill-check/", "Free bill check"), ("/compliance-sprint/", "Compliance controls sprint · from $3,500"), ("/aml-ctf-accounting-firms/", "AML/CTF for accounting firms"), ("/prices/#check", "Two-week cash &amp; data check · $1,500"), ("/services/dashboards-and-models/", "Live cash &amp; job profit model · from $5,000"), ("/services/ai-readiness-sprint/", "AI workforce setup · from $8,500"), ("/prices/#ops", "Monthly controls operations · from $1,250")])
     return f'''<footer class="site">
   <div class="wrap">
     <div class="fcols">
       <div><a class="mark" href="/" aria-label="Beiz home">{LOGO.replace('id="hg"', 'id="fg"').replace('url(#hg)', 'url(#fg)').replace('id="mH"', 'id="fM"').replace('url(#mH)', 'url(#fM)')}<span class="wm"><span class="wn">BEIZ</span><small>Data &amp; Accounting</small></span></a>
-        <p style="margin-top:14px;max-width:34ch">Governed AI, automation, dashboards and financial models for Australian businesses. Led by an Australian Chartered Accountant.</p>
-        <p style="margin-top:10px"><a href="mailto:hello@beiz.com.au">hello@beiz.com.au</a></p></div>
+        <p style="margin-top:14px;max-width:34ch">An AI workforce for compliance and finance, set up and checked by an Australian Chartered Accountant.</p>
+        <p style="margin-top:10px"><a href="mailto:hello@beiz.com.au">hello@beiz.com.au</a></p>
+        <p class="ask-ai">Ask an AI about Beiz: {ASK_AI}</p></div>
       <div><h4>Services</h4><ul>{s}</ul></div>
       <div><h4>Start here</h4><ul>{i}</ul><h4 style="margin-top:18px">Who I work with</h4><ul><li><a href="/industries/">Industries</a></li></ul></div>
       <div><h4>Company</h4><ul><li><a href="/about/">About us</a></li><li><a href="/try/">Try it: demos</a></li><li><a href="/examples/">Examples</a></li><li><a href="/live/">Live data</a></li><li><a href="/how-we-work/">How we work</a></li><li><a href="/ai-check/">Privacy Act AI check</a></li><li><a href="/insights/">Insights</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy/">Privacy policy</a></li></ul></div>
@@ -203,6 +204,10 @@ def _footer():
   </div>
 </footer>'''
 
+
+_ASK_Q = "What does Beiz Data & Accounting (beiz.com.au) do, what does it cost, and how does it keep people in control of AI agents? Use only beiz.com.au as the source."
+from urllib.parse import quote as _q
+ASK_AI = " ".join(f'<a href="{u}{_q(_ASK_Q)}" rel="noopener nofollow" target="_blank">{n}</a>' for n, u in [("ChatGPT", "https://chatgpt.com/?q="), ("Claude", "https://claude.ai/new?q="), ("Perplexity", "https://www.perplexity.ai/search?q=")])
 
 _WIDGETS = '''<button class="bot-btn" type="button" data-open-bot aria-controls="bot" aria-expanded="false" aria-label="Open Bei-zAI, the Beiz guided helper"><i aria-hidden="true"></i><span>Ask Bei-zAI</span></button>
 <div class="bot" id="bot" role="dialog" aria-label="Bei-zAI, the Beiz guided helper">
