@@ -42,15 +42,26 @@ html.paper .hz-hero h1 .h1-2{color:var(--paper)!important}
 html.paper .hz-sub,html.paper .hz-hero p{color:var(--muted)!important}
 
 /* hero map */
-html.paper .hz-hero.dark .bm-node rect{fill:#fff!important;stroke:var(--line2)!important}
-html.paper .hz-hero.dark .bm-node text,html.paper .bm-node .t1{fill:var(--hi)!important}
-html.paper .hz-hero.dark .bm-node .t2{fill:var(--brass)!important}
-html.paper .hz-hero.dark .bm-top rect{fill:var(--hi)!important;stroke:var(--hi)!important}
-html.paper .hz-hero.dark .bm-top text{fill:#fff!important}
-html.paper .hz-hero.dark .bm-node.bm-end rect,html.paper .hz-hero.dark .bm-node.bm-end.flow rect{fill:var(--paper)!important;stroke:var(--paper)!important}
-html.paper .hz-hero.dark .bm-node.bm-end text{fill:#fff!important}
-html.paper .hz-hero.dark .bm-lines path{stroke:var(--faint)!important}
-html.paper .hz-hero.dark .bm-go:hover rect,html.paper .hz-hero.dark .bm-go.on rect{fill:#EAF0EC!important;stroke:var(--paper)!important}
+html.paper .hz-hero.dark .bm-node rect,
+
+/* hero map */
+html.paper .bm-host .bm-node rect{fill:#fff!important;stroke:var(--line2)!important}
+html.paper .hz-hero.dark .bm-node text,html.paper .bm-node .t1,
+html.paper .bm-host .bm-node text{fill:var(--hi)!important}
+html.paper .hz-hero.dark .bm-node .t2,
+html.paper .bm-host .bm-node .t2{fill:var(--brass)!important}
+html.paper .hz-hero.dark .bm-top rect,
+html.paper .bm-host .bm-top rect{fill:var(--hi)!important;stroke:var(--hi)!important}
+html.paper .hz-hero.dark .bm-top text,
+html.paper .bm-host .bm-top text{fill:#fff!important}
+html.paper .hz-hero.dark .bm-node.bm-end rect,html.paper .hz-hero.dark .bm-node.bm-end.flow rect,
+html.paper .bm-host .bm-node.bm-end rect,html.paper .bm-host .bm-node.bm-end.flow rect{fill:var(--paper)!important;stroke:var(--paper)!important}
+html.paper .hz-hero.dark .bm-node.bm-end text,
+html.paper .bm-host .bm-node.bm-end text{fill:#fff!important}
+html.paper .hz-hero.dark .bm-lines path,
+html.paper .bm-host .bm-lines path{stroke:var(--faint)!important}
+html.paper .hz-hero.dark .bm-go:hover rect,html.paper .hz-hero.dark .bm-go.on rect,
+html.paper .bm-host .bm-go:hover rect,html.paper .bm-host .bm-go.on rect{fill:#EAF0EC!important;stroke:var(--paper)!important}
 html.paper .bm-story,html.paper #bmCap{color:var(--muted)!important}
 
 /* sections and surfaces */

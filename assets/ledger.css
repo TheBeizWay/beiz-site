@@ -79,8 +79,12 @@ main a:not(.btn):hover{background:none!important;color:var(--brass)!important}
 .hz-hero .bz-kick{color:var(--brass)!important}
 
 /* hero map */
-.hz-hero.dark .bm-end rect,.hz-hero.dark .bm-end.flow rect{fill:var(--paper)!important;stroke:var(--paper)!important}
-.hz-hero.dark .bm-end text{fill:var(--bg)!important}
+.hz-hero.dark .bm-end rect,.hz-hero.dark .bm-end.flow rect,
+
+/* hero map */
+.bm-host .bm-end rect,.bm-host .bm-end.flow rect{fill:var(--paper)!important;stroke:var(--paper)!important}
+.hz-hero.dark .bm-end text,
+.bm-host .bm-end text{fill:var(--bg)!important}
 .pen-note,.pen-sig,.pen-t{color:var(--pencil)!important;fill:var(--pencil)!important}
 .bm-ca .pen{stroke:var(--pencil)!important}
 
@@ -110,16 +114,25 @@ input,select,textarea{background:var(--panel2)!important;color:var(--text)!impor
 section.hz-sec.wf{border-radius:0!important;box-shadow:none!important;border-left:0!important;border-right:0!important;background:var(--panel2)!important}
 section.hz-sec.wf::before{display:none!important}
 .wf6 li,.am-split div{border-top-color:var(--line2)!important}
-.hz-hero.dark .bm-node rect{fill:var(--panel)!important;stroke:var(--line2)!important}
-.hz-hero.dark .bm-top rect{fill:var(--paper)!important;stroke:var(--paper)!important}
-.hz-hero.dark .bm-top text{fill:var(--bg)!important}
-.hz-hero.dark .bm-node .t2{fill:var(--brass)!important}
-.hz-hero.dark .bm-go:hover rect,.hz-hero.dark .bm-go.on rect{fill:#1D2A25!important;stroke:var(--brass)!important}
-.hz-hero.dark .bm-dots circle{fill:var(--brass)!important}
-.hz-hero.dark .bm-lines path{stroke:var(--faint)}
+.hz-hero.dark .bm-node rect,
+.bm-host .bm-node rect{fill:var(--panel)!important;stroke:var(--line2)!important}
+.hz-hero.dark .bm-top rect,
+.bm-host .bm-top rect{fill:var(--paper)!important;stroke:var(--paper)!important}
+.hz-hero.dark .bm-top text,
+.bm-host .bm-top text{fill:var(--bg)!important}
+.hz-hero.dark .bm-node .t2,
+.bm-host .bm-node .t2{fill:var(--brass)!important}
+.hz-hero.dark .bm-go:hover rect,.hz-hero.dark .bm-go.on rect,
+.bm-host .bm-go:hover rect,.bm-host .bm-go.on rect{fill:#1D2A25!important;stroke:var(--brass)!important}
+.hz-hero.dark .bm-dots circle,
+.bm-host .bm-dots circle{fill:var(--brass)!important}
+.hz-hero.dark .bm-lines path,
+.bm-host .bm-lines path{stroke:var(--faint)}
 .bm-node text{font-family:var(--sans)!important}
-.hz-hero.dark .bm-node.bm-end rect,.hz-hero.dark .bm-node.bm-end.flow rect{fill:var(--paper)!important;stroke:var(--paper)!important}
-.hz-hero.dark .bm-node.bm-end text{fill:var(--bg)!important}
+.hz-hero.dark .bm-node.bm-end rect,.hz-hero.dark .bm-node.bm-end.flow rect,
+.bm-host .bm-node.bm-end rect,.bm-host .bm-node.bm-end.flow rect{fill:var(--paper)!important;stroke:var(--paper)!important}
+.hz-hero.dark .bm-node.bm-end text,
+.bm-host .bm-node.bm-end text{fill:var(--bg)!important}
 .hz-hero .btn:not(.primary),.phero .btn:not(.primary){border-color:var(--line2)!important;color:var(--hi)!important;background:transparent!important}
 @media(max-width:1099px){.hz-hero.dark,.phero{background-image:repeating-linear-gradient(180deg,transparent 0,transparent 31px,rgba(236,230,216,.05) 31px,rgba(236,230,216,.05) 32px)!important}}
 svg text{font-family:var(--sans)!important}
