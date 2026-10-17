@@ -3,7 +3,7 @@ import json
 import os
 
 SITE = "https://beiz.com.au"
-ASSET_V = "140"  # bump to bust caches when CSS/JS change
+ASSET_V = "141"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" aria-hidden="true" class="logo"><rect x="1" y="1" width="34" height="34" rx="7" fill="#15181D" stroke="#30353D" stroke-width="1.5"/><rect x="7" y="9" width="16" height="3.5" rx="1.75" fill="#43B581"/><circle cx="27.5" cy="10.75" r="1.75" fill="#43B581"/><rect x="7" y="16.25" width="11" height="3.5" rx="1.75" fill="#E9A93B"/><rect x="21" y="16.25" width="8" height="3.5" rx="1.75" fill="none" stroke="#E9A93B" stroke-width="1.2"/><rect x="7" y="23.5" width="22" height="3.5" rx="1.75" fill="#A6A49D"/></svg>')
 
@@ -191,7 +191,7 @@ def _footer():
   <div class="wrap">
     <div class="fcols">
       <div><a class="mark" href="/" aria-label="Beiz home">{LOGO.replace('id="hg"', 'id="fg"').replace('url(#hg)', 'url(#fg)').replace('id="mH"', 'id="fM"').replace('url(#mH)', 'url(#fM)')}<span class="wm"><span class="wn">BEIZ</span><small>Data &amp; Accounting</small></span></a>
-        <p style="margin-top:14px;max-width:34ch">An AI workforce for compliance and finance, set up and checked by an Australian Chartered Accountant.</p>
+        <p style="margin-top:14px;max-width:34ch">AI for real work, with guardrails, set up and checked by an Australian Chartered Accountant.</p>
         <p style="margin-top:10px"><a href="mailto:hello@beiz.com.au">hello@beiz.com.au</a></p>
         <p class="ask-ai">Ask an AI about Beiz: {ASK_AI}</p></div>
       <div><h4>Services</h4><ul>{s}</ul></div>
@@ -222,7 +222,7 @@ ORG = {
     "email": "hello@beiz.com.au", "taxID": "ABN 53 691 755 496", "identifier": [{"@type": "PropertyValue", "propertyID": "ABN", "value": "53691755496"}, {"@type": "PropertyValue", "propertyID": "ACN", "value": "691755496"}], "address": {"@type": "PostalAddress", "addressLocality": "Canberra", "addressRegion": "ACT", "addressCountry": "AU"}, "logo": SITE + "/assets/icon-512.png", "areaServed": {"@type": "Country", "name": "Australia"},
     "description": "Australian Chartered Accountant and GAICD led firm helping businesses grow with control: cash flow, automation, dashboards, data and responsible AI.",
     "taxID": "53 691 755 496",
-    "slogan": "An AI workforce for compliance and finance, checked by an Australian Chartered Accountant.",
+    "slogan": "AI for real work, with guardrails, checked by an Australian Chartered Accountant.",
     "founder": {"@type": "Person", "name": "Purav Mehta", "jobTitle": "Australian Chartered Accountant, GAICD",
                 "sameAs": ["https://www.linkedin.com/in/puravmehtaca/"]},
     "knowsAbout": ["AI governance", "Privacy Act automated decision-making", "responsible AI", "workflow automation", "13-week cash flow forecasting",
@@ -264,7 +264,7 @@ def page(path, title, desc, body, extra_head=""):
 <title>{esc(full_title)}</title>
 <meta name="description" content="{esc(desc)}">
 <link rel="canonical" href="{canon}">
-<meta name="theme-color" content="#0F1613">{f'<meta name="google-site-verification" content="{GOOGLE_SITE_VERIFICATION}">' if GOOGLE_SITE_VERIFICATION else ""}
+<meta name="theme-color" content="#141413">{f'<meta name="google-site-verification" content="{GOOGLE_SITE_VERIFICATION}">' if GOOGLE_SITE_VERIFICATION else ""}
 <meta property="og:type" content="website"><meta property="og:site_name" content="Beiz Data &amp; Accounting">
 <meta property="og:title" content="{esc(full_title)}"><meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{canon}"><meta property="og:image" content="{SITE}/assets/og-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Beiz Data &amp; Accounting: AI you can sign off on. Led by an Australian Chartered Accountant.">
@@ -281,7 +281,7 @@ def page(path, title, desc, body, extra_head=""):
 <link rel="stylesheet" href="/assets/ledger.css?v={ASSET_V}" id="thD" media="not all">
 <link rel="stylesheet" href="/assets/paper.css?v={ASSET_V}" id="thE" media="not all">
 <link rel="stylesheet" href="/assets/warm.css?v={ASSET_V}" id="thW" media="not all">
-<script>(function(){{try{{var q=new URLSearchParams(location.search).get("theme");if(q)localStorage.setItem("beizTheme",q);var t=q||localStorage.getItem("beizTheme"),h=document.documentElement,on=function(i){{var l=document.getElementById(i);l&&(l.media="all")}};if(t==="warm"){{h.classList.add("warm");on("thW")}}if(t!=="neon"&&t!=="paper"&&t!=="classic")t="ledger";if(t==="ledger"||t==="paper"){{h.classList.add("ledger");on("thD");var n=document.getElementById("thN");n&&(n.media="not all")}}if(t==="paper"){{h.classList.add("paper");on("thE")}}if(t!=="ledger"&&t!=="paper"&&t!=="classic"){{h.classList.add("neon")}}if(t==="classic"){{document.documentElement.classList.add("classic");["thA","thB","thC","thD","thE","thN","thW"].forEach(function(i){{var l=document.getElementById(i);l&&l.parentNode.removeChild(l)}})}}}}catch(e){{}}}})();</script>
+<script>(function(){{try{{var q=new URLSearchParams(location.search).get("theme");if(q)localStorage.setItem("beizTheme",q);var t=q||localStorage.getItem("beizTheme"),h=document.documentElement,on=function(i){{var l=document.getElementById(i);l&&(l.media="all")}};if(t!=="neon"&&t!=="paper"&&t!=="classic"&&t!=="ledger"){{t="ledger";h.classList.add("warm");on("thW")}}if(t==="ledger"||t==="paper"){{h.classList.add("ledger");on("thD");var n=document.getElementById("thN");n&&(n.media="not all")}}if(t==="paper"){{h.classList.add("paper");on("thE")}}if(t!=="ledger"&&t!=="paper"&&t!=="classic"){{h.classList.add("neon")}}if(t==="classic"){{document.documentElement.classList.add("classic");["thA","thB","thC","thD","thE","thN","thW"].forEach(function(i){{var l=document.getElementById(i);l&&l.parentNode.removeChild(l)}})}}}}catch(e){{}}}})();</script>
 {ld}{extra_head}
 </head>
 <body>
