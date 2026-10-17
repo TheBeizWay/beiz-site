@@ -1,7 +1,7 @@
 """Page content for beiz.com.au. Australian English, plain words. Published prices are "from" anchors only."""
 import json
 from layout import (SITE, ASSET_V, page, phero, related, cta_band, contact_form, SERVICES, INDUSTRIES, CALL_HREF, CALL_ATTR)
-from charts import cash13, job_margins, runway, runway_facts
+from charts import cash13, job_margins, runway, runway_facts, contain_map
 from agents import CONSOLE, PIPELINE, WIRING, WATCH, FLOW, WATCH_HOME, AGENT_TEAM
 
 PAGES = {}
@@ -142,6 +142,7 @@ def home():
     <li><b>Test</b><p>Before it touches live work, it runs over a few months of your past records and each result is checked against what actually happened. It goes live only at a pass mark agreed with you in writing.</p></li>
     <li><b>Watch</b><p>Every action is logged in your own accounts. We review the log monthly and re-test before any change.</p></li>
   </ol>
+  {contain_map()}
   <p class="nx">For accounting firms, AML/CTF client checks run the same way. <a href="/aml-ctf-accounting-firms/">Read the guide and try a sample onboarding check</a>.</p>
 </div></section>
 
@@ -424,7 +425,7 @@ def services():
 
     svc("/services/ai-readiness-sprint/", "AI workforce", "AI workforce setup",
         "Your AI workforce, set up properly, on a three-week rollout plan.",
-        "We set up AI agents that do real finance and admin work inside the tools you already use: a data scientist agent, an accounting agent, a reviewer agent and a governance agent. Each one has a job description, limits and a person it reports to. We also set the limits, approvers and decision log for the AI already inside your software, like Xero and Microsoft 365. Then we keep them all in check every month.",
+        "We set up AI agents that do real finance and admin work inside the tools you already use. There are six roles: data scientist, financial controller, CFO desk, systems, compliance and risk officer. Each one has a job description, limits and a person it reports to. We also set the limits, approvers and decision log for the AI already inside your software, like Xero and Microsoft 365. Then we keep them all in check every month.",
         '''<h2 id="agents">The agents</h2>
 <ul><li><strong>Data scientist agent:</strong> cleans your exports, joins the records, builds the cash and margin models and flags outliers. Never changes a source record.</li>
 <li><strong>Financial controller agent:</strong> reconciles bank to ledger, matches bills to orders and timesheets, and prepares the month-end checklist. Never posts a journal or releases a payment.</li>
@@ -456,7 +457,7 @@ def services():
         aside("The fine print", ["Setup from $8,500, fixed and quoted in writing", "Three-week rollout plan, subject to scope and system access", "Monthly monitoring and review from $1,250", "Built in your accounts. No lock-in."], "AI workforce setup"),
         "", [("/services/ai-governance/", "AI governance"), ("/services/automation/", "Workflow automation"), ("/compliance-sprint/#limits", "Set an agent's limits (demo)")],
         "AI workforce setup", "AI workforce setup: AI agents with a Chartered Accountant in the loop",
-        "Fixed-price AI workforce setup for Australian businesses: data scientist, accounting, reviewer and governance agents with job descriptions, limits, a decision log and monthly review. From $8,500.")
+        "Fixed-price AI workforce setup for Australian businesses: six agent roles, each with a job description, limits, a decision log and monthly review. From $8,500.")
 
     quick = [("Invoices that chase themselves", "Automatic reminders and pay-now links, so you stop ringing late payers."),
              ("Quote to invoice, automatically", "Finished jobs get invoiced the same day, not three weeks later."),
