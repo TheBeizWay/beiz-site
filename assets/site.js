@@ -1440,7 +1440,7 @@
   }));
   if (reduce) { fill(); btn.hidden = true; return; }
   const run = () => { clearInterval(timer); if (!paused && seen) timer = setInterval(step, 2200); };
-  new IntersectionObserver(es => { seen = es[0].isIntersecting; if (seen && !log.children.length) { step(); step(); } run(); }, { threshold: 0.2 }).observe(box);
+  new IntersectionObserver(es => { seen = es[0].isIntersecting; if (seen && !log.children.length) fill(); run(); }, { threshold: 0.2 }).observe(box);
   btn.addEventListener("click", () => { paused = !paused; btn.textContent = paused ? "Resume" : "Pause"; btn.setAttribute("aria-pressed", paused); run(); });
 })();
 

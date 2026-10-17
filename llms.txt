@@ -33,6 +33,7 @@ Key facts:
 - [Hospitality & retail](https://beiz.com.au/industries/hospitality-retail/)
 
 ## Start here
+- [Two-week cash & data check](https://beiz.com.au/cash-data-check/): $1,500 fixed; duplicate bills, unbilled hours, invoices below the rate card, unapplied credits and overdue invoices, from exports
 - [Compliance controls sprint](https://beiz.com.au/compliance-sprint/): from $3,500, two weeks, one focus: AI use, AML/CTF Tranche 2 or the Privacy Act
 - [AML/CTF Tranche 2 for accounting firms](https://beiz.com.au/aml-ctf-accounting-firms/): which services are caught, what firms must do, where agents help and where they stop
 - [AML/CTF client onboarding check (interactive demo)](https://beiz.com.au/aml-ctf-accounting-firms/#aml): customer due diligence, screening and the decision a person has to make

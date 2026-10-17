@@ -77,7 +77,7 @@ def home():
 <section class="hz-hero dark" id="top"><div class="wrap hero32">
   <div class="hz-copy">
     <p class="bz-kick"><svg class="au-flag" viewBox="0 0 120 60" width="27" height="14" role="img" aria-label="Australian flag"><clipPath id="auS1"><rect width="60" height="30"/></clipPath><clipPath id="auT1"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="120" height="60" fill="#012169"/><g clip-path="url(#auS1)"><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#auT1)" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g><g fill="#fff"><polygon points="30.00,36.00 31.74,41.40 37.04,39.39 33.90,44.11 38.77,47.00 33.13,47.49 33.90,53.11 30.00,49.00 26.10,53.11 26.87,47.49 21.23,47.00 26.10,44.11 22.96,39.39 28.26,41.40"/><polygon points="90.00,45.50 90.87,48.20 93.52,47.19 91.95,49.55 94.39,51.00 91.56,51.25 91.95,54.05 90.00,52.00 88.05,54.05 88.44,51.25 85.61,51.00 88.05,49.55 86.48,47.19 89.13,48.20"/><polygon points="75.00,24.50 75.87,27.20 78.52,26.19 76.95,28.55 79.39,30.00 76.56,30.25 76.95,33.05 75.00,31.00 73.05,33.05 73.44,30.25 70.61,30.00 73.05,28.55 71.48,26.19 74.13,27.20"/><polygon points="90.00,4.50 90.87,7.20 93.52,6.19 91.95,8.55 94.39,10.00 91.56,10.25 91.95,13.05 90.00,11.00 88.05,13.05 88.44,10.25 85.61,10.00 88.05,8.55 86.48,6.19 89.13,7.20"/><polygon points="102.50,19.50 103.37,22.20 106.02,21.19 104.45,23.55 106.89,25.00 104.06,25.25 104.45,28.05 102.50,26.00 100.55,28.05 100.94,25.25 98.11,25.00 100.55,23.55 98.98,21.19 101.63,22.20"/><polygon points="96.50,31.40 97.15,33.11 98.97,33.20 97.55,34.34 98.03,36.10 96.50,35.10 94.97,36.10 95.45,34.34 94.03,33.20 95.85,33.11"/></g></svg>The AI workforce is here<!--CA_HERO--></p>
-    <h1><span>Your AI workforce</span> <span>for compliance and finance.</span> <span class="h1-2">Checked by an Australian Chartered Accountant.</span></h1>
+    <h1><span>Your AI workforce</span> <span>for compliance and finance.</span> <span class="h1-2">Built by an Australian Chartered Accountant.</span></h1>
     <p class="hz-sub">Agents prepare your AML/CTF client checks, privacy and AI controls, cash models and month-end work. Purav Mehta, Chartered Accountant · GAICD, sets their limits and reviews every exception. Nothing is paid or sent without a person.</p>
     <div class="hz-ctas"><a class="btn primary" href="/contact/?topic=Compliance%20controls%20sprint#form" data-topic="Compliance controls sprint">Book a 20-minute fit check</a><a class="btn ghost" href="/bill-check/">Try the free bill check</a></div>
     <p class="hz-who"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="" width="48" height="48"><span><b>Purav Mehta</b>, CA · GAICD · Certificate of Public Practice. The person you talk to, and the one who checks every limit.</span></p>
@@ -126,8 +126,8 @@ def home():
   <p class="demo-k">Fixed prices, agreed in writing</p>
   <h2>Three ways to start.</h2>
   <div class="off3">
+    <a class="off" href="/cash-data-check/"><span class="off-p">$1,500 fixed</span><h3>Two-week cash &amp; data check</h3><p>Unbilled work, margin leaks and manual bottlenecks found in your Xero and job exports, with the records behind each finding. Credited if you go ahead.</p><span class="go">About the check</span></a>
     <a class="off" href="/compliance-sprint/"><span class="off-p">from $3,500</span><h3>Compliance controls sprint</h3><p>Two weeks, one focus: AI use, AML/CTF Tranche 2 or the Privacy Act. You get a register, named owners, the rules and approval points, and a 90-day plan.</p><span class="go">About the sprint</span></a>
-    <a class="off" href="/prices/#check"><span class="off-p">$1,500 fixed</span><h3>Two-week cash &amp; data check</h3><p>Unbilled work, margin leaks and manual bottlenecks found in your Xero and job exports, with the records behind each finding. Credited if you go ahead.</p><span class="go">About the check</span></a>
     <a class="off" href="/services/ai-readiness-sprint/"><span class="off-p">from $8,500</span><h3>AI workforce setup</h3><p>Your first agent, tested on your past records, then live within its limits in three weeks.</p><span class="go">About the setup</span></a>
   </div>
   <p class="off-more">Also: <a href="/leave-cover/">finance leave cover</a> from $3,500, a <a href="/services/dashboards-and-models/">live cash &amp; job profit model</a> from $5,000, and monthly controls operations from $1,250. <a href="/prices/">See all prices</a>. Beiz isn't registered for GST, so no GST is added.</p>
@@ -160,6 +160,54 @@ def home():
 {contact_form(heading="Tell us what you're trying to fix", lede="A few lines is plenty. By the next business day you'll get a written reply: what the problem looks like, what information it would need, and whether a fixed-scope job makes sense. Rather talk? Pick “Discovery call” or “Demo request” and we'll arrange a free 20 minutes, early morning or after 5pm.")}'''
     add("/", "AI workforce for compliance and finance | Beiz Data & Accounting",
         "AML/CTF Tranche 2 client checks, AI and privacy controls, and finance agents for Australian firms. Set up and checked by a Chartered Accountant. Fixed prices.", body)
+
+CHK_ROWS = [("Subcontractor bills that don't match timesheets or quotes", 2, "$1,480"),
+            ("Hours worked but never invoiced", 2, "$3,180"),
+            ("A bill entered twice", 1, "$485"),
+            ("An invoice below your current rates", 1, "$600"),
+            ("A supplier credit nobody applied", 1, "$1,420"),
+            ("A customer invoice more than 30 days overdue", 1, "$4,350")]
+
+
+def chk_example(cls=""):
+    rows = "".join(f'<tr><td>{t}</td><td class="n">{n}</td><td class="n">{a}</td></tr>' for t, n, a in CHK_ROWS)
+    return f'''<figure class="hx-ex{cls}" aria-labelledby="hxExT">
+  <figcaption><b id="hxExT">Worked example</b><span>What the check found in three months of records from a made-up trade business</span></figcaption>
+  <table><thead><tr><th>Finding</th><th class="n">Items</th><th class="n">Amount</th></tr></thead><tbody>{rows}</tbody></table>
+  <div class="hx-tot"><div><b>$5,745</b><span>to recover: bills that shouldn't be paid as they stand, and work not billed</span></div><div><b>$5,770</b><span>of cash to free up: a credit and an overdue invoice</span></div></div>
+  <p class="hx-note">Made-up business and figures, showing the format. <a href="/assets/beiz-sample-check-report.pdf">Open the full sample report (PDF)</a></p>
+</figure>'''
+
+
+def cash_data_check():
+    q = [("What do you need from us?", "Exports of your bills, invoices and timesheets or job records, for up to 12 months, plus your rate card and any quotes or purchase orders for the jobs we look at. Exports only: we don't need logins and nothing gets installed."),
+         ("Which software does it work with?", "Xero is the most common, alongside job or timesheet software. MYOB and QuickBooks exports work too. If your records are in spreadsheets, that's fine."),
+         ("What does it cost?", "$1,500, fixed and agreed in writing before we start. It's credited against the next piece of work if you go ahead. Beiz isn't registered for GST, so no GST is added."),
+         ("How long does it take?", "Two weeks from when we receive the exports, including a 30-minute walkthrough of what we found."),
+         ("What isn't included?", "Fixing the records, tax, BAS or GST work, and statutory audit. The check finds and explains; you decide what to do, and we can quote for the fixes."),
+         ("Who sees our data?", "Purav does the work himself. Your files are used only for the check, under a written engagement, and returned or deleted at the end.")]
+    body = phero("Two-week cash &amp; data check · $1,500 fixed", "Find where your business is losing money.",
+                 "We join your bills, invoices and timesheets and check them against each other. You get every finding with the record behind it, and what to do first.",
+                 [("/cash-data-check/", "Cash & data check")],
+                 [("/contact/?topic=Two-week%20cash%20%26%20data%20check#form", "Book the check"), ("/assets/beiz-sample-check-report.pdf", "See a sample report")]) + f'''
+<section style="padding-top:8px"><div class="wrap split"><div class="prose">
+<h2>What we check</h2>
+<ol><li><strong>Bills against timesheets and quotes.</strong> Subcontractors billing more hours than were worked, or above the agreed rate.</li>
+<li><strong>Hours worked against invoices.</strong> Work your team logged that never made it onto an invoice.</li>
+<li><strong>Possible duplicate bills.</strong> The same bill entered twice, sometimes with a different number.</li>
+<li><strong>Invoices against your rate card.</strong> Old rates or wrong item codes.</li>
+<li><strong>Credits and overdue accounts.</strong> Supplier credits nobody applied, and customer invoices more than 30 days overdue.</li></ol>
+<p>Your accounting software checks what's on each bill. These checks compare it with what actually happened on the job.</p>
+<h2>What you get</h2>
+<ul class="ticks"><li>A findings register: every item, the record it came from, the amount and what to do</li><li>A two-page report, written for the owner</li><li>A 30-minute walkthrough</li><li>What would stop each problem coming back, with a fixed-price quote if you want help</li></ul>
+<p><a href="/assets/beiz-sample-check-report.pdf">Sample report (PDF)</a> · <a href="/assets/beiz-sample-findings-register.xlsx">sample findings register (Excel)</a>. Both use a made-up business.</p>
+</div><aside class="aside"><h3>The fine print</h3><ul class="ticks"><li>$1,500 fixed, agreed in writing</li><li>Credited if you go ahead</li><li>One business, up to 12 months of exports</li><li>Two weeks from receiving the exports</li><li>No GST: Beiz isn't registered for GST</li></ul>
+<a class="btn primary" href="/contact/?topic=Two-week%20cash%20%26%20data%20check#form">Book the check</a>
+<p class="fine" style="margin-top:12px">Not ready yet? <a href="/bill-check/">Try the free bill check</a> on your own bills export.</p></aside></div></section>
+<section style="padding-top:0"><div class="wrap">{chk_example(" hx-wide")}</div></section>
+<section style="padding-top:8px"><div class="wrap"><h2>Common questions</h2>{faq_html(q)}</div></section>''' + cta_band("Want to know what your records would show?", "Send a few lines about your business and the software you use. You'll get a written reply by the next business day.", "Two-week cash & data check")
+    add("/cash-data-check/", "Two-week cash & data check: $1,500 fixed | Beiz", "Duplicate bills, unbilled hours, invoices below your rates, unapplied credits and overdue accounts, found in your Xero and job records by a Chartered Accountant. Two weeks, $1,500 fixed.", body, faq_ld(q))
+
 
 # ------------------------------------------------------------------ services
 START_HERE = '''<section style="padding-top:8px"><div class="wrap"><p class="eyebrow">Start here</p><h2>Three ways to start, with fixed prices.</h2>
@@ -1239,5 +1287,5 @@ def not_found():
 
 def build_all():
     home(); services_hub(); services(); privacy_sprint(); industries_hub(); industries(); examples(); ai_check(); workshop()
-    how_we_work(); faq(); contact(); privacy(); insights(); live_page(); try_page(); bill_check(); aml_firms(); compliance_sprint(); prices_page(); leave_cover(); about(); not_found()
+    how_we_work(); faq(); contact(); privacy(); insights(); live_page(); try_page(); bill_check(); cash_data_check(); aml_firms(); compliance_sprint(); prices_page(); leave_cover(); about(); not_found()
     return PAGES

@@ -2257,3 +2257,21 @@ img.ca-who-mark{display:block;height:40px;width:auto;margin:4px 0 18px}
 .wfl{transition:border-color .4s, box-shadow .4s}
 .wfl.bad,html.paper .wfl.bad{border-color:var(--held)!important;border-top-width:3px!important}
 @media (prefers-reduced-motion:reduce){.wfl{transition:none}}
+/* v47 worked example readout (cash & data check page) */
+.hx-ex{position:relative;border:1px solid var(--line2);background:var(--panel);border-radius:6px;padding:20px 22px 16px;font-variant-numeric:tabular-nums;max-width:760px}
+.hx-ex figcaption{display:block;margin-bottom:12px}
+.hx-ex figcaption b{display:block;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--signal);font-weight:600}
+.hx-ex figcaption span{display:block;color:var(--muted);font-size:.92rem;margin-top:4px}
+.hx-ex table{width:100%;border-collapse:collapse;font-size:.93rem}
+.hx-ex th{font-weight:500;color:var(--faint);font-size:.78rem;text-align:left;padding:6px 0;border-bottom:1px solid var(--line2)}
+.hx-ex td{padding:9px 0;border-bottom:1px solid var(--line);color:var(--text);vertical-align:top}
+.hx-ex .n{text-align:right;white-space:nowrap;padding-left:14px;font-family:"IBM Plex Mono",ui-monospace,monospace}
+.hx-tot{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.hx-tot div{border:1px solid var(--line2);border-radius:4px;padding:12px 14px;background:var(--panel2)}
+.hx-tot b{display:block;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:1.5rem;color:var(--hi)}
+.hx-tot div:first-child b{color:var(--held)}
+.hx-tot span{display:block;color:var(--muted);font-size:.82rem;margin-top:6px}
+.hx-note{margin:12px 0 0;font-size:.82rem;color:var(--faint)}
+html.neon .hx-ex{border-color:rgba(46,242,226,.35)}
+html.ledger .hx-ex figcaption b{font-family:var(--sans);letter-spacing:0;text-transform:none;color:var(--brass)}
+@media(max-width:560px){.hx-tot{grid-template-columns:1fr}}

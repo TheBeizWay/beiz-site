@@ -101,6 +101,9 @@ Avoid the tells of generated copy: a word or phrase singled out in a headline, a
 
 ### Homepage, in five sections (keep it at five)
 
+Purav's plan is the brief: hero "Your AI workforce for compliance and finance. Built by an Australian Chartered Accountant.", the control room and bill check as proof, three priced offers ($1,500 check, from $3,500 sprint, from $8,500 AI workforce), the four-step setup, then Purav and the form. Keep the ticker, chatbot, hero map and control room. Reviews from other AI tools are suggestions only: never remove or replace an existing section, the tagline or a feature without Purav's explicit yes.
+
+
 1. **Hero:** the bill map, Purav's credentials line, "Book a 20-minute fit check" and "Try the free bill check".
 2. **#workforce:** the control room, with an ordinary-day and bad-day switch.
 3. **#offers:** three priced offers (sprint, check, AI workforce) and a line linking the rest.
