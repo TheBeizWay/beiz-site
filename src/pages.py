@@ -76,9 +76,9 @@ def home():
     body = f'''<div class="bz hx hz">
 <section class="hz-hero dark" id="top"><div class="wrap hero32">
   <div class="hz-copy">
-    <p class="bz-kick"><svg class="au-flag" viewBox="0 0 120 60" width="27" height="14" role="img" aria-label="Australian flag"><clipPath id="auS1"><rect width="60" height="30"/></clipPath><clipPath id="auT1"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="120" height="60" fill="#012169"/><g clip-path="url(#auS1)"><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#auT1)" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g><g fill="#fff"><polygon points="30.00,36.00 31.74,41.40 37.04,39.39 33.90,44.11 38.77,47.00 33.13,47.49 33.90,53.11 30.00,49.00 26.10,53.11 26.87,47.49 21.23,47.00 26.10,44.11 22.96,39.39 28.26,41.40"/><polygon points="90.00,45.50 90.87,48.20 93.52,47.19 91.95,49.55 94.39,51.00 91.56,51.25 91.95,54.05 90.00,52.00 88.05,54.05 88.44,51.25 85.61,51.00 88.05,49.55 86.48,47.19 89.13,48.20"/><polygon points="75.00,24.50 75.87,27.20 78.52,26.19 76.95,28.55 79.39,30.00 76.56,30.25 76.95,33.05 75.00,31.00 73.05,33.05 73.44,30.25 70.61,30.00 73.05,28.55 71.48,26.19 74.13,27.20"/><polygon points="90.00,4.50 90.87,7.20 93.52,6.19 91.95,8.55 94.39,10.00 91.56,10.25 91.95,13.05 90.00,11.00 88.05,13.05 88.44,10.25 85.61,10.00 88.05,8.55 86.48,6.19 89.13,7.20"/><polygon points="102.50,19.50 103.37,22.20 106.02,21.19 104.45,23.55 106.89,25.00 104.06,25.25 104.45,28.05 102.50,26.00 100.55,28.05 100.94,25.25 98.11,25.00 100.55,23.55 98.98,21.19 101.63,22.20"/><polygon points="96.50,31.40 97.15,33.11 98.97,33.20 97.55,34.34 98.03,36.10 96.50,35.10 94.97,36.10 95.45,34.34 94.03,33.20 95.85,33.11"/></g></svg>The AI workforce is here<!--CA_HERO--></p>
-    <h1><span>Compliance and finance work,</span> <span>done by AI agents.</span> <span class="h1-2">Checked by an Australian Chartered Accountant.</span></h1>
-    <p class="hz-sub">We set up AI agents that check your bills, reconcile your bank to your books, keep your cash forecast current and prepare your AML/CTF client checks. Purav Mehta, Chartered Accountant · GAICD, sets their limits and reviews every exception. Nothing is paid or sent without a person.</p>
+    <p class="bz-kick"><svg class="au-flag" viewBox="0 0 120 60" width="27" height="14" role="img" aria-label="Australian flag"><clipPath id="auS1"><rect width="60" height="30"/></clipPath><clipPath id="auT1"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="120" height="60" fill="#012169"/><g clip-path="url(#auS1)"><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#auT1)" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g><g fill="#fff"><polygon points="30.00,36.00 31.74,41.40 37.04,39.39 33.90,44.11 38.77,47.00 33.13,47.49 33.90,53.11 30.00,49.00 26.10,53.11 26.87,47.49 21.23,47.00 26.10,44.11 22.96,39.39 28.26,41.40"/><polygon points="90.00,45.50 90.87,48.20 93.52,47.19 91.95,49.55 94.39,51.00 91.56,51.25 91.95,54.05 90.00,52.00 88.05,54.05 88.44,51.25 85.61,51.00 88.05,49.55 86.48,47.19 89.13,48.20"/><polygon points="75.00,24.50 75.87,27.20 78.52,26.19 76.95,28.55 79.39,30.00 76.56,30.25 76.95,33.05 75.00,31.00 73.05,33.05 73.44,30.25 70.61,30.00 73.05,28.55 71.48,26.19 74.13,27.20"/><polygon points="90.00,4.50 90.87,7.20 93.52,6.19 91.95,8.55 94.39,10.00 91.56,10.25 91.95,13.05 90.00,11.00 88.05,13.05 88.44,10.25 85.61,10.00 88.05,8.55 86.48,6.19 89.13,7.20"/><polygon points="102.50,19.50 103.37,22.20 106.02,21.19 104.45,23.55 106.89,25.00 104.06,25.25 104.45,28.05 102.50,26.00 100.55,28.05 100.94,25.25 98.11,25.00 100.55,23.55 98.98,21.19 101.63,22.20"/><polygon points="96.50,31.40 97.15,33.11 98.97,33.20 97.55,34.34 98.03,36.10 96.50,35.10 94.97,36.10 95.45,34.34 94.03,33.20 95.85,33.11"/></g></svg>For accounting firms and growing Australian businesses<!--CA_HERO--></p>
+    <h1><span>We fix the gap between</span> <span>your work apps and your ledger.</span> <span class="h1-2">AI agents do the checking. A Chartered Accountant sets the limits.</span></h1>
+    <p class="hz-sub">Your bills, timesheets, bank feed and client files sit in different apps. We set up agents that check them against each other and your books, keep your cash forecast current and prepare your AML/CTF client checks. Purav Mehta, Chartered Accountant · GAICD, reviews every exception. Nothing is paid or sent without a person.</p>
     <div class="hz-ctas"><a class="btn primary" href="/contact/?topic=Compliance%20controls%20sprint#form" data-topic="Compliance controls sprint">Book a 20-minute fit check</a><a class="btn ghost" href="/bill-check/">Try the free bill check</a></div>
     <p class="hz-who"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="" width="48" height="48"><span><b>Purav Mehta</b>, CA · GAICD · Certificate of Public Practice. The person you talk to, and the one who checks every limit.</span></p>
   </div>
@@ -131,6 +131,7 @@ def home():
     <a class="off" href="/services/ai-readiness-sprint/"><span class="off-p">from $8,500</span><h3>AI workforce setup</h3><p>Your first agent, tested on your past records, then live within its limits in three weeks.</p><span class="go">About the setup</span></a>
   </div>
   <p class="off-more">Also: <a href="/leave-cover/">finance leave cover</a> from $3,500, a <a href="/services/dashboards-and-models/">live cash &amp; job profit model</a> from $5,000, and monthly controls operations from $1,250. <a href="/prices/">See all prices</a>. Beiz isn't registered for GST, so no GST is added.</p>
+  <div class="nodo"><h3>What we don't do</h3><ul><li>Tax returns, BAS or GST lodgements</li><li>Tax agent or BAS agent services</li><li>Statutory audit or assurance</li><li>Legal or financial product advice</li><li>Pay anyone or send anything without a person's yes</li></ul><p>Your accountant keeps that work. We work alongside them, or inside your firm. <a href="/trust/">What we commit to</a></p></div>
 </div></section>
 
 <section class="hz-sec" id="how"><div class="wrap">
@@ -143,6 +144,15 @@ def home():
     <li><b>Watch</b><p>Every action is logged in your own accounts. We review the log monthly and re-test before any change.</p></li>
   </ol>
   {contain_map()}
+  <div class="vsai"><h3>What you get that AI on its own won't give you</h3>
+  <table><thead><tr><th></th><th>AI on its own</th><th>AI set up by Beiz</th></tr></thead><tbody>
+  <tr><th>Your rules</th><td>Only what you type into the chat</td><td>A written job description and limits you sign off</td></tr>
+  <tr><th>Testing</th><td>Used on live work from day one</td><td>Tested on months of your own past records, against a pass mark agreed in writing</td></tr>
+  <tr><th>Money and messages</th><td>Acts on whatever it's connected to</td><td>Nothing is paid or sent without a person's yes</td></tr>
+  <tr><th>When it's unsure</th><td>Answers anyway</td><td>Holds the item for a person</td></tr>
+  <tr><th>The record</th><td>A chat history</td><td>A decision log in your own accounts, read monthly</td></tr>
+  <tr><th>Who answers for it</th><td>Nobody</td><td>An Australian Chartered Accountant, bound by the APES 110 Code of Ethics</td></tr>
+  </tbody></table></div>
   <p class="nx">For accounting firms, AML/CTF client checks run the same way. <a href="/aml-ctf-accounting-firms/">Read the guide and try a sample onboarding check</a>.</p>
 </div></section>
 
@@ -219,6 +229,16 @@ START_HERE = '''<section style="padding-top:8px"><div class="wrap"><p class="eye
 </div><p class="fine" style="margin-top:14px">Then monthly support from $1,250 a month, if you want it. Prices are confirmed in writing before work starts. Beiz isn't registered for GST, so no GST is added.</p></div></section>'''
 
 
+FOUR = '''<section style="padding-top:8px"><div class="wrap"><p class="eyebrow">Fixed prices, agreed in writing</p><h2>Four services.</h2>
+<ol class="four">
+<li><a href="/cash-data-check/"><span class="k">$1,500 fixed · credited if you go ahead</span><h3>Find the money you're losing</h3><p>Two-week cash &amp; data check. From your Xero and job or timesheet exports we find unbilled work, margin leaks and manual bottlenecks, with the records behind each finding.</p></a></li>
+<li><a href="/compliance-sprint/"><span class="k">From $3,500 · two weeks</span><h3>Get your compliance controls in place</h3><p>Compliance controls sprint. One focus: AI use, AML/CTF Tranche 2 or the Privacy Act. You get a register, named owners, the rules and approval points, and a 90-day plan.</p></a></li>
+<li><a href="/services/dashboards-and-models/"><span class="k">From $5,000</span><h3>See your cash 13 weeks ahead</h3><p>Live cash &amp; job profit model. A 13-week rolling cash flow and profit by job against what you quoted, updated weekly, in your own Excel or Power BI.</p></a></li>
+<li><a href="/services/ai-readiness-sprint/"><span class="k">From $8,500 · three-week rollout</span><h3>Put AI agents to work in your accounts</h3><p>AI workforce setup. Your first agent checks bills, reconciles or prepares client checks inside your own accounts, tested on your past records, with a person approving what matters.</p></a></li>
+</ol>
+<p class="fine" style="margin-top:14px">Not sure yet? Start with the <a href="/bill-check/">free bill check</a>. After setup, monthly controls operations from $1,250 a month and <a href="/leave-cover/">finance leave cover</a> from $3,500. Prices are confirmed in writing before work starts. Beiz isn't registered for GST, so no GST is added.</p></div></section>'''
+
+
 def services_hub():
     cards = [
         ("/services/ai-governance/", "Govern", "AI governance & Privacy Act readiness", "Know what AI is in use, what it decides and who's accountable. Ready for 10 December 2026."),
@@ -233,9 +253,9 @@ def services_hub():
         ("/services/quick-wins/", "Small business", "Quick wins", "Small, fixed-price fixes from $1,200 that give you back evenings and bring cash in faster. Built for sole traders and small teams who don't have time for admin. Most are scoped in days, not months, with no lock-in. Your BAS and tax stay with your tax or BAS agent; we make their job easier."),
     ]
     c = "".join(f'<a class="card" href="{h}"><span class="k">{k}</span><h3>{t}</h3><p>{d}</p><span class="go">Learn more →</span></a>' for h, k, t, d in cards)
-    body = phero("Services", "What we build and fix.", "Every engagement is fixed price, agreed in writing, and ends with something your team can run. Pick the one closest to your problem, or tell us the problem and we'll pick.",
-                 [("/services/", "Services")]) + START_HERE + f'<section style="padding-top:8px"><div class="wrap"><p class="eyebrow">Everything else</p><h2>Other fixed-price work.</h2><div class="cards" style="margin-top:22px">{c}</div></div></section>' + cta_band()
-    add("/services/", "Services", "AI governance, automation, dashboards and financial models, tech project delivery and small business quick wins. Fixed price, in writing.", body)
+    body = phero("What we do", "We fix the gap between your work apps and your ledger.", "AI agents do the routine checking and preparation. An Australian Chartered Accountant sets their limits and reviews every exception. Every engagement is fixed price, agreed in writing, and ends with something your team can run.",
+                 [("/services/", "What we do")]) + FOUR + f'<section style="padding-top:8px"><div class="wrap"><p class="eyebrow">In more detail</p><h2>The pages behind each service.</h2><div class="cards" style="margin-top:22px">{c}</div></div></section>' + cta_band()
+    add("/services/", "What we do: four fixed-price services | Beiz", "Cash & data check ($1,500), compliance controls sprint (from $3,500), cash & job profit model (from $5,000) and AI workforce setup (from $8,500). Fixed price, in writing, checked by a Chartered Accountant.", body)
 
 
 FRAMEWORKS = '''<section id="frameworks"><div class="wrap">
