@@ -4,6 +4,16 @@ Read this before changing anything in this repo. It describes the site as it is,
 
 ---
 
+## 0. The anchor: every page traces back to these three sentences
+
+1. **Who:** an Australian Chartered Accountant (Certificate of Public Practice) and GAICD, who has worked in audit, controls and finance. Not a development shop or a prompt agency.
+2. **What:** Beiz sets up and runs an AI workforce for compliance and finance. Agents do the routine checking and preparation: bills, cash, reconciliations, client checks.
+3. **Why it's safe:** nothing runs on its own on day one. Each agent is tested on the client's past records, runs alongside staff in shadow mode first, and needs a person's sign-off for anything that matters, with every decision logged.
+
+The homepage runs in this order: what it is (hero), proof it works (control room and bill check), what it costs (three offers), why it won't break anything (how agents are set up), and who you'll talk to. Explain how it's built (models, workflow tools, schemas) only when a buyer asks. Never call any of this "audit".
+
+---
+
 ## 1. Facts the site may state
 
 Use only these. Never substitute, round or "improve" them.
