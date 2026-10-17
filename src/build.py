@@ -28,7 +28,7 @@ open(os.path.join(ROOT, "robots.txt"), "w").write(
     + f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n")
 # llms.txt: a plain summary for AI search assistants (https://llmstxt.org)
 llms = ["# Beiz Data & Accounting", "",
-        "> An AI workforce for compliance and finance work, checked by an Australian Chartered Accountant. AML/CTF, privacy and AI controls, cash models and finance automation for Australian accounting firms and growing businesses, led by Purav Mehta, an Australian Chartered Accountant and GAICD. "
+        "> AI for real work in Australian businesses, with guardrails, set up and checked by an Australian Chartered Accountant. AI agents with written limits and a person approving what matters, plus AML/CTF, privacy and AI controls, cash models and finance automation, led by Purav Mehta, an Australian Chartered Accountant and GAICD. "
         "Beiz connects a business's data, builds cash and job profit models, and sets up AI agents for routine finance work with limits, approvals and a decision log. "
         "A person approves anything that touches money, customers or decisions about people.", "",
         "Key facts:",

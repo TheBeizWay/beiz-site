@@ -25,8 +25,8 @@ Use only these. Never substitute, round or "improve" them.
 | GST | Not registered. Prices are AUD with no GST added |
 | Location | Canberra, ACT. Works Australia-wide |
 | Principal | Purav Mehta: Chartered Accountant (CA ANZ) with a Certificate of Public Practice, GAICD |
-| Positioning | An AI workforce for compliance and finance, set up and checked by an Australian Chartered Accountant |
-| Buyers | Accounting and bookkeeping firms, and growing Australian businesses (owners, finance leads, operations leads) |
+| Positioning | AI for real work, with guardrails, set up and checked by an Australian Chartered Accountant (widened 17 Oct 2026) |
+| Buyers | Any Australian business that wants to use AI for real work but needs guardrails; accounting and bookkeeping firms and finance teams remain the core |
 | Email | hello@beiz.com.au |
 
 ### Prices (change only when Purav says so)
@@ -93,7 +93,7 @@ Avoid the tells of generated copy: a word or phrase singled out in a headline, a
 
 ### Themes
 
-- **Default: ledger** (since 17 Oct 2026, Purav's choice). Bottle green with a serif; the header button switches between ledger and light. **Neon** is reached at `?theme=neon`: dark navy with cyan `#2EF2E2`, glow on primary buttons, cursor glow, scroll progress bar, sections that fade in, and the agent-network canvas in the hero on desktop only. Files: `refine.css`, `future-neon.css`, `calm.css` (structural fixes) and `neon-on.css`. Effects come from `future-fx.js`.
+- **Default: warm** (since 17 Oct 2026, Purav's choice, claude.com feel): `warm.css` on top of `ledger.css`, warm near-black, ivory type, no ruled lines. The header button switches between warm and light. Bottle-green **Ledger** is at `?theme=ledger`. **Neon** is reached at `?theme=neon`: dark navy with cyan `#2EF2E2`, glow on primary buttons, cursor glow, scroll progress bar, sections that fade in, and the agent-network canvas in the hero on desktop only. Files: `refine.css`, `future-neon.css`, `calm.css` (structural fixes) and `neon-on.css`. Effects come from `future-fx.js`.
 - **Light:** the header button switches to `paper.css` (with `ledger.css`). The control room and demo panels stay dark inside it.
 - **Classic:** `?theme=classic`.
 - The theme is chosen in the head script in `src/layout.py`, and the choice is stored in `localStorage.beizTheme`.
@@ -101,7 +101,7 @@ Avoid the tells of generated copy: a word or phrase singled out in a headline, a
 
 ### Homepage, in five sections (keep it at five)
 
-Purav's plan is the brief: hero "We fix the gap between your work apps and your ledger. AI agents do the checking. A Chartered Accountant sets the limits." (changed 17 Oct 2026 with Purav's yes), a "What we don't do" box under the offers, an "AI on its own vs AI set up by Beiz" table in #how, and a flat header menu (What we do, Prices, Free bill check, How it works, About; no dropdown, no prices), the control room and bill check as proof, three priced offers ($1,500 check, from $3,500 sprint, from $8,500 AI workforce), the four-step setup, then Purav and the form. Keep the ticker, chatbot, hero map and control room. Reviews from other AI tools are suggestions only: never remove or replace an existing section, the tagline or a feature without Purav's explicit yes.
+Purav's plan is the brief: hero "Use AI in your business, with guardrails. Set up, tested and checked by an Australian Chartered Accountant." (changed 17 Oct 2026 with Purav's yes), a "What we don't do" box under the offers, an "AI on its own vs AI set up by Beiz" table in #how, and a flat header menu (What we do, Prices, Free bill check, How it works, About; no dropdown, no prices), the control room and bill check as proof, three priced offers ($1,500 check, from $3,500 sprint, from $8,500 AI workforce), the four-step setup, then Purav and the form. Keep the ticker, chatbot, hero map and control room. Reviews from other AI tools are suggestions only: never remove or replace an existing section, the tagline or a feature without Purav's explicit yes.
 
 
 1. **Hero:** the bill map, Purav's credentials line, "Book a 20-minute fit check" and "Try the free bill check".
