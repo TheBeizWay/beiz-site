@@ -156,3 +156,40 @@ def runway():
 
 def runway_facts():
     return {n: _runway(s) for n, _, s in SCEN}
+
+
+def contain_map():
+    """Homepage #how: what an agent can reach, and where each kind of action ends up. Facts only from CLAUDE.md section 1."""
+    def box(x, y, w, h, t, s, cls=""):
+        return (f'<g class="cm-b {cls}"><rect x="{x}" y="{y}" width="{w}" height="{h}" rx="6"/>'
+                f'<text x="{x + w / 2}" y="{y + h / 2 - 3}" text-anchor="middle" class="h">{t}</text>'
+                f'<text x="{x + w / 2}" y="{y + h / 2 + 17}" text-anchor="middle" class="s">{s}</text></g>')
+    paths = [("cm1", "M184,150 L228,150", ""), ("cm2", "M390,150 L434,150", ""),
+             ("cmOk", "M586,132 C622,132 622,76 658,76", "ok"),
+             ("cmHeld", "M586,150 L658,150", "held"),
+             ("cmStop", "M586,168 C622,168 622,224 658,224", "stop")]
+    p = "".join(f'<path id="{i}" class="cm-l {c}" d="{d}" marker-end="url(#cmA{c or "n"})"/>' for i, d, c in paths)
+    marks = "".join(f'<marker id="cmA{c}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="cm-ah {c}"/></marker>' for c in ("n", "ok", "held", "stop"))
+    dots = "".join(f'<circle class="cm-d {c}" r="4"><animateMotion dur="{d}s" begin="{b}s" repeatCount="indefinite"><mpath href="#{i}"/></animateMotion></circle>'
+                   for i, c, d, b in (("cm1", "", 1.6, 0), ("cm2", "", 1.6, .8), ("cmOk", "ok", 1.8, 1.6), ("cmHeld", "held", 1.8, 2.4), ("cmStop", "stop", 1.8, 3.2)))
+    svg = (f'<svg class="cm" viewBox="0 0 960 330" role="img" aria-label="Diagram: inside your own systems, an agent reads your records and prepares the work, then checks it against limits agreed with you in writing. Work within its limits is done and logged. Anything over a limit, or anything it is unsure about, is held for a person to approve. Paying anyone or sending anything outside your business is blocked, because no agent has that permission. Every step goes into a decision log in your own accounts.">'
+           f'<defs>{marks}</defs>'
+           '<rect class="cm-wall" x="10" y="26" width="940" height="250" rx="10"/>'
+           '<text x="28" y="54" class="cap">Inside your own systems. The agent only reaches what its job needs.</text>'
+           f'{p}'
+           + box(34, 118, 150, 64, "Your records", "Bills, bank feed, files")
+           + box(228, 118, 162, 64, "Agent", "Prepares the work", "ag")
+           + box(434, 110, 152, 80, "Its limits", "Agreed with you", "lim")
+           + box(658, 48, 270, 56, "Within its limits", "Done and logged", "ok")
+           + box(658, 122, 270, 56, "Over a limit, or unsure", "Held for a person to approve", "held")
+           + box(658, 196, 270, 56, "Pay anyone or send anything", "Blocked. No agent has permission", "stop")
+           + f'{dots}'
+           '<text x="480" y="312" text-anchor="middle" class="s">Every step goes into a decision log in your own accounts. We read it monthly and re-test before any change.</text>'
+           '</svg>')
+    mob = ('<ol class="cm-m" aria-hidden="true">'
+           '<li><small>Inside your own systems</small><span>Your records</span><span>Agent prepares the work</span><span>Checked against limits agreed with you</span></li>'
+           '<li class="ok"><small>Within its limits</small><span>Done and logged</span></li>'
+           '<li class="held"><small>Over a limit, or unsure</small><span>Held for a person to approve</span></li>'
+           '<li class="stop"><small>Pay anyone or send anything</small><span>Blocked. No agent has permission</span></li>'
+           '<li class="cm-lg"><small>Every step</small><span>Logged in your own accounts, read monthly</span></li></ol>')
+    return f'<figure class="cm-fig">{svg}{mob}</figure>'

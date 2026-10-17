@@ -1,7 +1,7 @@
 """Page content for beiz.com.au. Australian English, plain words. Published prices are "from" anchors only."""
 import json
 from layout import (SITE, ASSET_V, page, phero, related, cta_band, contact_form, SERVICES, INDUSTRIES, CALL_HREF, CALL_ATTR)
-from charts import cash13, job_margins, runway, runway_facts
+from charts import cash13, job_margins, runway, runway_facts, contain_map
 from agents import CONSOLE, PIPELINE, WIRING, WATCH, FLOW, WATCH_HOME, AGENT_TEAM
 
 PAGES = {}
@@ -77,8 +77,8 @@ def home():
 <section class="hz-hero dark" id="top"><div class="wrap hero32">
   <div class="hz-copy">
     <p class="bz-kick"><svg class="au-flag" viewBox="0 0 120 60" width="27" height="14" role="img" aria-label="Australian flag"><clipPath id="auS1"><rect width="60" height="30"/></clipPath><clipPath id="auT1"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="120" height="60" fill="#012169"/><g clip-path="url(#auS1)"><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#auT1)" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g><g fill="#fff"><polygon points="30.00,36.00 31.74,41.40 37.04,39.39 33.90,44.11 38.77,47.00 33.13,47.49 33.90,53.11 30.00,49.00 26.10,53.11 26.87,47.49 21.23,47.00 26.10,44.11 22.96,39.39 28.26,41.40"/><polygon points="90.00,45.50 90.87,48.20 93.52,47.19 91.95,49.55 94.39,51.00 91.56,51.25 91.95,54.05 90.00,52.00 88.05,54.05 88.44,51.25 85.61,51.00 88.05,49.55 86.48,47.19 89.13,48.20"/><polygon points="75.00,24.50 75.87,27.20 78.52,26.19 76.95,28.55 79.39,30.00 76.56,30.25 76.95,33.05 75.00,31.00 73.05,33.05 73.44,30.25 70.61,30.00 73.05,28.55 71.48,26.19 74.13,27.20"/><polygon points="90.00,4.50 90.87,7.20 93.52,6.19 91.95,8.55 94.39,10.00 91.56,10.25 91.95,13.05 90.00,11.00 88.05,13.05 88.44,10.25 85.61,10.00 88.05,8.55 86.48,6.19 89.13,7.20"/><polygon points="102.50,19.50 103.37,22.20 106.02,21.19 104.45,23.55 106.89,25.00 104.06,25.25 104.45,28.05 102.50,26.00 100.55,28.05 100.94,25.25 98.11,25.00 100.55,23.55 98.98,21.19 101.63,22.20"/><polygon points="96.50,31.40 97.15,33.11 98.97,33.20 97.55,34.34 98.03,36.10 96.50,35.10 94.97,36.10 95.45,34.34 94.03,33.20 95.85,33.11"/></g></svg>The AI workforce is here<!--CA_HERO--></p>
-    <h1><span>Your AI workforce</span> <span>for compliance and finance.</span> <span class="h1-2">Built by an Australian Chartered Accountant.</span></h1>
-    <p class="hz-sub">Agents prepare your AML/CTF client checks, privacy and AI controls, cash models and month-end work. Purav Mehta, Chartered Accountant · GAICD, sets their limits and reviews every exception. Nothing is paid or sent without a person.</p>
+    <h1><span>Compliance and finance work,</span> <span>done by AI agents.</span> <span class="h1-2">Checked by an Australian Chartered Accountant.</span></h1>
+    <p class="hz-sub">We set up AI agents that check your bills, reconcile your bank to your books, keep your cash forecast current and prepare your AML/CTF client checks. Purav Mehta, Chartered Accountant · GAICD, sets their limits and reviews every exception. Nothing is paid or sent without a person.</p>
     <div class="hz-ctas"><a class="btn primary" href="/contact/?topic=Compliance%20controls%20sprint#form" data-topic="Compliance controls sprint">Book a 20-minute fit check</a><a class="btn ghost" href="/bill-check/">Try the free bill check</a></div>
     <p class="hz-who"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="" width="48" height="48"><span><b>Purav Mehta</b>, CA · GAICD · Certificate of Public Practice. The person you talk to, and the one who checks every limit.</span></p>
   </div>
@@ -142,6 +142,7 @@ def home():
     <li><b>Test</b><p>Before it touches live work, it runs over a few months of your past records and each result is checked against what actually happened. It goes live only at a pass mark agreed with you in writing.</p></li>
     <li><b>Watch</b><p>Every action is logged in your own accounts. We review the log monthly and re-test before any change.</p></li>
   </ol>
+  {contain_map()}
   <p class="nx">For accounting firms, AML/CTF client checks run the same way. <a href="/aml-ctf-accounting-firms/">Read the guide and try a sample onboarding check</a>.</p>
 </div></section>
 
@@ -424,7 +425,7 @@ def services():
 
     svc("/services/ai-readiness-sprint/", "AI workforce", "AI workforce setup",
         "Your AI workforce, set up properly, on a three-week rollout plan.",
-        "We set up AI agents that do real finance and admin work inside the tools you already use: a data scientist agent, an accounting agent, a reviewer agent and a governance agent. Each one has a job description, limits and a person it reports to. We also set the limits, approvers and decision log for the AI already inside your software, like Xero and Microsoft 365. Then we keep them all in check every month.",
+        "We set up AI agents that do real finance and admin work inside the tools you already use. There are six roles: data scientist, financial controller, CFO desk, systems, compliance and risk officer. Each one has a job description, limits and a person it reports to. We also set the limits, approvers and decision log for the AI already inside your software, like Xero and Microsoft 365. Then we keep them all in check every month.",
         '''<h2 id="agents">The agents</h2>
 <ul><li><strong>Data scientist agent:</strong> cleans your exports, joins the records, builds the cash and margin models and flags outliers. Never changes a source record.</li>
 <li><strong>Financial controller agent:</strong> reconciles bank to ledger, matches bills to orders and timesheets, and prepares the month-end checklist. Never posts a journal or releases a payment.</li>
@@ -456,7 +457,7 @@ def services():
         aside("The fine print", ["Setup from $8,500, fixed and quoted in writing", "Three-week rollout plan, subject to scope and system access", "Monthly monitoring and review from $1,250", "Built in your accounts. No lock-in."], "AI workforce setup"),
         "", [("/services/ai-governance/", "AI governance"), ("/services/automation/", "Workflow automation"), ("/compliance-sprint/#limits", "Set an agent's limits (demo)")],
         "AI workforce setup", "AI workforce setup: AI agents with a Chartered Accountant in the loop",
-        "Fixed-price AI workforce setup for Australian businesses: data scientist, accounting, reviewer and governance agents with job descriptions, limits, a decision log and monthly review. From $8,500.")
+        "Fixed-price AI workforce setup for Australian businesses: six agent roles, each with a job description, limits, a decision log and monthly review. From $8,500.")
 
     quick = [("Invoices that chase themselves", "Automatic reminders and pay-now links, so you stop ringing late payers."),
              ("Quote to invoice, automatically", "Finished jobs get invoiced the same day, not three weeks later."),

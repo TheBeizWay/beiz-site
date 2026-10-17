@@ -93,15 +93,15 @@ Avoid the tells of generated copy: a word or phrase singled out in a headline, a
 
 ### Themes
 
-- **Default: neon.** Dark navy with cyan `#2EF2E2`, glow on primary buttons, cursor glow, scroll progress bar, sections that fade in, and the agent-network canvas in the hero on desktop only. Files: `refine.css`, `future-neon.css`, `calm.css` (structural fixes) and `neon-on.css`. Effects come from `future-fx.js`.
+- **Default: ledger** (since 17 Oct 2026, Purav's choice). Bottle green with a serif; the header button switches between ledger and light. **Neon** is reached at `?theme=neon`: dark navy with cyan `#2EF2E2`, glow on primary buttons, cursor glow, scroll progress bar, sections that fade in, and the agent-network canvas in the hero on desktop only. Files: `refine.css`, `future-neon.css`, `calm.css` (structural fixes) and `neon-on.css`. Effects come from `future-fx.js`.
 - **Light:** the header button switches to `paper.css` (with `ledger.css`). The control room and demo panels stay dark inside it.
-- **Ledger:** bottle green with a serif, reached at `?theme=ledger`. **Classic:** `?theme=classic`.
+- **Classic:** `?theme=classic`.
 - The theme is chosen in the head script in `src/layout.py`, and the choice is stored in `localStorage.beizTheme`.
 - Status colours mean something and are never decoration: ok (green), held (amber), stop (red). Respect `prefers-reduced-motion`.
 
 ### Homepage, in five sections (keep it at five)
 
-Purav's plan is the brief: hero "Your AI workforce for compliance and finance. Built by an Australian Chartered Accountant.", the control room and bill check as proof, three priced offers ($1,500 check, from $3,500 sprint, from $8,500 AI workforce), the four-step setup, then Purav and the form. Keep the ticker, chatbot, hero map and control room. Reviews from other AI tools are suggestions only: never remove or replace an existing section, the tagline or a feature without Purav's explicit yes.
+Purav's plan is the brief: hero "Compliance and finance work, done by AI agents. Checked by an Australian Chartered Accountant." (changed 17 Oct 2026 with Purav's yes), the control room and bill check as proof, three priced offers ($1,500 check, from $3,500 sprint, from $8,500 AI workforce), the four-step setup, then Purav and the form. Keep the ticker, chatbot, hero map and control room. Reviews from other AI tools are suggestions only: never remove or replace an existing section, the tagline or a feature without Purav's explicit yes.
 
 
 1. **Hero:** the bill map, Purav's credentials line, "Book a 20-minute fit check" and "Try the free bill check".

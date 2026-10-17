@@ -2275,3 +2275,30 @@ img.ca-who-mark{display:block;height:40px;width:auto;margin:4px 0 18px}
 html.neon .hx-ex{border-color:rgba(46,242,226,.35)}
 html.ledger .hx-ex figcaption b{font-family:var(--sans);letter-spacing:0;text-transform:none;color:var(--brass)}
 @media(max-width:560px){.hx-tot{grid-template-columns:1fr}}
+
+/* Homepage #how: containment diagram (contain_map in src/charts.py) */
+.cm-fig{margin:30px 0 4px}
+.cm{display:block;width:100%;height:auto}
+.cm .cm-wall{fill:none;stroke:var(--line2);stroke-width:1.5;stroke-dasharray:6 5}
+.cm .cap{font:600 13px var(--sans);fill:var(--muted)}
+.cm .cm-b rect{fill:var(--panel);stroke:var(--line2);stroke-width:1.5}
+.cm .cm-b.ag rect,.cm .cm-b.lim rect{stroke:var(--accent)}
+.cm .cm-b.ok rect{stroke:var(--ok)}.cm .cm-b.held rect{stroke:var(--held)}.cm .cm-b.stop rect{stroke:var(--stop);stroke-width:2}
+.cm .h{font:600 16px var(--sans);fill:var(--text)}
+.cm .s{font:400 13.5px var(--sans);fill:var(--muted)}
+.cm .cm-b.ok .s{fill:var(--ok)}.cm .cm-b.held .s{fill:var(--held)}.cm .cm-b.stop .s{fill:var(--stop)}
+.cm .cm-l{fill:none;stroke:var(--line2);stroke-width:1.6}
+.cm .cm-l.ok{stroke:var(--ok)}.cm .cm-l.held{stroke:var(--held)}.cm .cm-l.stop{stroke:var(--stop);stroke-dasharray:4 4}
+.cm .cm-ah{fill:var(--line2)}.cm .cm-ah.ok{fill:var(--ok)}.cm .cm-ah.held{fill:var(--held)}.cm .cm-ah.stop{fill:var(--stop)}
+.cm .cm-d{fill:var(--accent)}.cm .cm-d.ok{fill:var(--ok)}.cm .cm-d.held{fill:var(--held)}.cm .cm-d.stop{fill:var(--stop)}
+.cm-m{display:none}
+@media(max-width:720px){
+  .cm{display:none}
+  .cm-m{display:grid;list-style:none;padding:0;margin:0;gap:10px}
+  .cm-m li{border:1px solid var(--line2);border-radius:6px;background:var(--panel);padding:10px 12px;display:flex;flex-wrap:wrap;gap:6px}
+  .cm-m small{flex:1 1 100%;font-size:.72rem;letter-spacing:.04em;color:var(--muted);font-weight:600}
+  .cm-m span{font-size:.85rem;border:1px solid var(--line);border-radius:999px;padding:3px 10px;background:var(--panel2);color:var(--text)}
+  .cm-m li.ok{border-color:var(--ok)}.cm-m li.ok span{color:var(--ok)}
+  .cm-m li.held{border-color:var(--held)}.cm-m li.held span{color:var(--held)}
+  .cm-m li.stop{border-color:var(--stop)}.cm-m li.stop span{color:var(--stop)}}
+@media (prefers-reduced-motion:reduce){.cm .cm-d{display:none}}
