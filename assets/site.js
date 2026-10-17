@@ -1342,13 +1342,16 @@
   const svgNS = "http://www.w3.org/2000/svg";
   const lenOf = d => { const t = document.createElementNS(svgNS, "path"); t.setAttribute("d", d); t.setAttribute("fill", "none"); route.parentNode.appendChild(t); const v = t.getTotalLength(); t.remove(); return v; };
   const P1 = "M280 40 L280 70 C280 110 460 110 460 150", P2 = P1 + " L460 222", P3 = P2 + " C460 270 280 262 280 300";
-  const keys = [[0, 52], [0.12, lenOf(P1)], [0.40, lenOf(P2)], [0.50, lenOf(P3) - 16], [0.80, lenOf(P3) - 16], [0.92, L], [1, L]];
+  // The bill waits just above "Your work" while it's checked, and is hidden while it passes through the box, so it never covers the box's text
+  const l1 = lenOf(P1), l2 = lenOf(P2);
+  const keys = [[0, 52], [0.12, l1 - 16], [0.36, l1 - 16], [0.40, l2 + 16], [0.50, lenOf(P3) - 16], [0.80, lenOf(P3) - 16], [0.92, L], [1, L]];
   const at = p => { for (let k = 1; k < keys.length; k++) if (p <= keys[k][0]) { const [p0, l0] = keys[k - 1], [p1, l1] = keys[k]; return l0 + (l1 - l0) * ((p - p0) / (p1 - p0 || 1)); } return L; };
   let shown = -1, best = 0, raf = 0;
   const draw = p => {
     p = Math.max(0, Math.min(1, p));
-    const pt = route.getPointAtLength(at(p));
+    const len = at(p), pt = route.getPointAtLength(len);
     bill.setAttribute("transform", `translate(${pt.x.toFixed(1)} ${pt.y.toFixed(1)})`);
+    bill.style.opacity = len > l1 - 15 && len < l2 + 15 ? "0" : "";
     let i = 0; while (i + 1 < stages.length && p >= stages[i + 1][0]) i++;
     const left = pt.x > 360;
     st.setAttribute("x", left ? -52 : 52); st.setAttribute("text-anchor", left ? "end" : "start");
