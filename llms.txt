@@ -11,6 +11,7 @@ Key facts:
 - Typical clients: private-sector businesses of about 5 to 50 staff, especially project businesses that bill time or fixed fees (engineering, IT, consulting, trades).
 - Does not provide tax agent, BAS agent, legal, audit or financial product advice services.
 - Contact: hello@beiz.com.au, or book a discovery call at https://beiz.com.au/contact/
+- LinkedIn: https://www.linkedin.com/company/beiz-data-accounting/
 
 ## Services
 - [AI governance & Privacy Act readiness](https://beiz.com.au/services/ai-governance/)

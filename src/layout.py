@@ -225,6 +225,7 @@ ORG = {
     "@context": "https://schema.org", "@type": "ProfessionalService",
     "name": "Beiz Data & Accounting", "legalName": "Beiz Data & Accounting Pty Ltd", "url": SITE + "/",
     "email": "hello@beiz.com.au", "taxID": "ABN 53 691 755 496", "identifier": [{"@type": "PropertyValue", "propertyID": "ABN", "value": "53691755496"}, {"@type": "PropertyValue", "propertyID": "ACN", "value": "691755496"}], "address": {"@type": "PostalAddress", "addressLocality": "Canberra", "addressRegion": "ACT", "addressCountry": "AU"}, "logo": SITE + "/assets/icon-512.png", "areaServed": {"@type": "Country", "name": "Australia"},
+    "sameAs": ["https://www.linkedin.com/company/beiz-data-accounting/"],
     "description": "Australian Chartered Accountant and GAICD led firm helping businesses grow with control: cash flow, automation, dashboards, data and responsible AI.",
     "taxID": "53 691 755 496",
     "slogan": "AI for real work, with guardrails, checked by an Australian Chartered Accountant.",
