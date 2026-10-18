@@ -119,6 +119,8 @@ Purav's plan is the brief: hero "Use AI in your business, with guardrails. Set u
 4. **#how:** declare, contain, test, watch.
 5. **#ca:** who you'll talk to, and the contact form.
 
+AI running-cost calculator (added 18 Oct 2026, Purav's yes): `/ai-cost-calculator/`, linked from the footer, `/try/` and the Bei-zAI helper ("What an agent costs to run"). Model prices, the exchange rate and job assumptions live in one place, `assets/aicost-core.js`, loaded on every page; recheck the vendor pages monthly, update the date, and bump `ASSET_V`.
+
 Detail lives on its own page: `/compliance-sprint/`, `/aml-ctf-accounting-firms/`, `/bill-check/`, `/prices/`, `/leave-cover/`, `/try/`, `/how-we-work/` and `/about/`. Don't move anchors without updating every link to them: `src/layout.py` (menus, footer, JSON-LD), `assets/site.js` (chatbot, bill journey) and `llms.txt`.
 
 ### Search and AI answers

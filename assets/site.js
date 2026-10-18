@@ -407,9 +407,19 @@
   const bot = $("#bot"), msgs = $("#msgs"), opts = $("#opts");
   if (bot && msgs && opts) {
     const openers = $$("[data-open-bot]");
+    // Running-cost answers come from the same prices and assumptions as /ai-cost-calculator/ (assets/aicost-core.js)
+    const COST_OPTS = [["Change the assumptions", "calc"], ["Another job", "cost"], ["Book a 20-minute call", "go"]];
+    const costSay = k => {
+      const C = window.BeizAICost, e = C && C.estimate(k, "sonnet");
+      if (!e) return ["The full calculator works this out with your own figures."];
+      const runs = e.job.runs.toLocaleString("en-AU"), hrs = (e.job.runs * e.job.mins / 60).toLocaleString("en-AU", { maximumFractionDigits: 1 });
+      return [`${e.job.label}, about ${runs} ${e.job.runs === 1 ? "time" : "times"} a month, on a mid-range model (${e.model.name}): roughly ${C.aud(e.aiMonth)} a month in AI usage.`,
+        `Your people checking the work: about ${hrs} hours, or ${C.aud(e.people)} a month at $60 an hour. ${e.share < 0.5 ? "That's usually the bigger cost." : "Here the model is the bigger cost."}`,
+        `These are rough starting assumptions, not a quote. Prices checked ${C.CHECKED}.`];
+    };
     const flow = {
       start: { say: ["Hi, I'm Bei-zAI. How can I help?", "I'm a guided helper rather than a chatbot, so nothing you click is stored. Pick what's closest."],
-        opts: [["I'm confused about AI", "cz"], ["Set up an AI workforce", "aiw"], ["Two-week cash & data check", "chk"], ["Cash & job profit model", "dash"], ["A model for a big decision", "model"], ["Automating a finance process", "auto"], ["Using AI safely", "ai"], ["The Bei-zAI story", "story"], ["Not sure yet", "unsure"]] },
+        opts: [["I'm confused about AI", "cz"], ["Set up an AI workforce", "aiw"], ["What an agent costs to run", "cost"], ["Two-week cash & data check", "chk"], ["Cash & job profit model", "dash"], ["A model for a big decision", "model"], ["Automating a finance process", "auto"], ["Using AI safely", "ai"], ["The Bei-zAI story", "story"], ["Not sure yet", "unsure"]] },
       cz: { topic: "Discovery call", say: ["Fair enough. There's a new model, tool or headline every week, and most of it doesn't matter to a business your size.", "Three questions cut through it: which job should an agent do first, what could go wrong, and who checks its work.", "We answer those with you in a 20-minute call, in plain English. No slide deck, nothing to prepare."], opts: [["Take the 5-minute workshop", "ws"], ["Show me a demo first", "demo"], ["Book a 20-minute call", "go"]] },
       demo: { topic: "Demo request", say: ["On a 20-minute video call we'll run the agents on a sample business: a scam bill held for approval, a cash warning, and the decision log showing who decided what.", "Bring one job you'd like to hand over and we'll show how it would work for you."], opts: [["Book my demo", "go"], ["Back to the start", "start"]] },
       story: { topic: "Discovery call", say: ["Bei-zAI is Beiz plus AI. Beiz is Purav's chocolate-and-white Border Collie, and the name comes from 贝仔 (bèi zǎi): little treasure.", "Collies are working dogs. They turn up every day, stay on the job until it's done, and nothing slips past them through the gate.", "That's the standard for every agent we build. We work hard for our clients because we love that dog."], opts: [["How can Beiz help me?", "start"], ["Book a 20-minute call", "go"]] },
@@ -447,6 +457,13 @@
       m3: { say: ["Driver-based forecasts over 6, 12 and 24 months, so you can see what a new hire or a bigger ad budget does to your runway before you commit."], next: "size" },
       pm: { topic: "Tech project delivery", say: ["Stalled projects usually have the same three problems: fuzzy scope, no one owning the vendor, and nobody reporting honestly.", "We take over delivery, reset the plan in writing and get it landing."], next: "size" },
       unsure: { topic: "Something else", say: ["That's fine. Most people start with a vague itch. Describe the problem in plain words and we'll suggest where to begin."], next: "size" },
+      cost: { topic: "AI workforce setup", say: ["Which job would you hand to an agent? I'll work out a rough monthly running cost."],
+        opts: [["Checking supplier bills", "cbill"], ["Drafting replies to customer emails", "cemail"], ["Matching bank lines to the ledger", "cbank"], ["New client checks (AML/CTF)", "cclient"], ["Monthly report commentary", "creport"]] },
+      cbill: { say: () => costSay("bill"), opts: COST_OPTS },
+      cemail: { say: () => costSay("email"), opts: COST_OPTS },
+      cbank: { say: () => costSay("bank"), opts: COST_OPTS },
+      cclient: { say: () => costSay("client"), opts: COST_OPTS },
+      creport: { say: () => costSay("report"), opts: COST_OPTS },
       size: { say: ["Roughly how big is the organisation?"], opts: [["Just me", "s"], ["2–20 people", "s"], ["20–200 people", "s"], ["200+ people", "s"], ["Not-for-profit", "s"]] },
       s: { say: ["Thanks. Last step: send us a short written brief. I'll fill in what you've told me so far, and you add the details."], opts: [["Write my brief", "go"], ["Start again", "start"]] }
     };
@@ -464,9 +481,10 @@
     function step(key) {
       if (key === "go") { closeBot(); prefill(topic, path.join(" → ") + "\n\n"); return; }
       if (key === "ws") { location.href = "/workshop/"; return; }
+      if (key === "calc") { location.href = "/ai-cost-calculator/"; return; }
       if (key === "start") { path = []; topic = "Something else"; msgs.innerHTML = ""; }
       const n = flow[key]; if (n.topic) topic = n.topic;
-      let says = [...n.say], o = n.opts;
+      let says = typeof n.say === "function" ? n.say() : [...n.say], o = n.opts;
       if (n.next) { const nx = flow[n.next]; says = says.concat(nx.say); o = nx.opts; }
       opts.innerHTML = "";
       says.forEach((t, i) => setTimeout(() => add(t, "b"), reduce ? 0 : i * 350));
@@ -486,7 +504,7 @@
     const tz = document.createElement("div");
     tz.className = "bot-tease"; tz.setAttribute("role", "dialog"); tz.setAttribute("aria-label", "Ways Beiz can help");
     tz.innerHTML = '<button class="tx" type="button" aria-label="Close">&times;</button><p>Hi, I\'m Bei-zAI. How can I help?<small>Bei-zAI is Beiz plus AI, named after our Border Collie. Pick one and I\'ll walk you through it.</small></p><div class="tc">'
-      + [["aiw", "Set up an AI workforce"], ["chk", "Cash &amp; data check"], ["dash", "Cash &amp; job profit model"], ["story", "The Bei-zAI story"]]
+      + [["aiw", "Set up an AI workforce"], ["cost", "What an agent costs to run"], ["chk", "Cash &amp; data check"], ["dash", "Cash &amp; job profit model"], ["story", "The Bei-zAI story"]]
         .map(([k, l]) => `<button type="button" data-k="${k}">${l}</button>`).join("") + "</div>";
     document.body.appendChild(tz);
     const hideTz = () => { tz.classList.remove("show"); mark(); };
