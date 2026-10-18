@@ -2364,3 +2364,13 @@ html.ledger:not(.paper) .mcta .btn.primary{color:#0F1613!important}
 .hz-room .wfl-k b{font-size:1.2rem}
 .hz-room .wfl-k small{font-size:.72rem}
 .hz-room .wfl-log{min-height:0;max-height:300px;overflow:hidden}
+/* v48 small polish: stronger logo descriptor, quieter theme switch, control room rows that don't wrap names */
+.mark .wm small{opacity:1!important;color:var(--muted)!important}
+html.paper .mark .wm small{color:#3F4A44!important}
+.th-tog{border-color:transparent!important;background:transparent!important;font-size:.82rem!important;padding:6px 8px!important;color:var(--faint)!important}
+.th-tog:hover{color:var(--hi)!important;border-color:var(--line2)!important}
+.hz-room .wfl-r{display:grid!important;grid-template-columns:auto 1fr auto;grid-template-areas:"t w s" "t x s";column-gap:14px;row-gap:2px;align-items:start}
+.hz-room .wfl-r time{grid-area:t;color:var(--faint)!important;opacity:.75;font-size:.8rem}
+.hz-room .wfl-r .wfl-w{grid-area:w;font-size:.78rem;font-weight:600;color:var(--faint)!important;white-space:nowrap;width:auto!important;min-width:0}
+.hz-room .wfl-r .wfl-x{grid-area:x;width:auto!important}
+.hz-room .wfl-r em{grid-area:s;align-self:start}

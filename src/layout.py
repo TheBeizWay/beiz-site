@@ -3,7 +3,7 @@ import json
 import os
 
 SITE = "https://beiz.com.au"
-ASSET_V = "143"  # bump to bust caches when CSS/JS change
+ASSET_V = "144"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" aria-hidden="true" class="logo"><rect x="1" y="1" width="34" height="34" rx="7" fill="#15181D" stroke="#30353D" stroke-width="1.5"/><rect x="7" y="9" width="16" height="3.5" rx="1.75" fill="#43B581"/><circle cx="27.5" cy="10.75" r="1.75" fill="#43B581"/><rect x="7" y="16.25" width="11" height="3.5" rx="1.75" fill="#E9A93B"/><rect x="21" y="16.25" width="8" height="3.5" rx="1.75" fill="none" stroke="#E9A93B" stroke-width="1.2"/><rect x="7" y="23.5" width="22" height="3.5" rx="1.75" fill="#A6A49D"/></svg>')
 
@@ -120,7 +120,7 @@ def contact_form(heading="What are you trying to fix?", lede="Tell us what isn't
 def cta_band(title="Not sure where to start?", text="You'll talk to Purav, not a sales team. Bring the hard questions. If we're not the right fit, we'll say so.", topic=None):
     href = "/contact/" + (f"?topic={topic.replace(' ', '%20').replace('&', '%26')}" if topic else "") + "#form"
     return f'''<section class="band"><div class="wrap cta-band"><div><h2>{title}</h2><p class="muted">{text}</p></div>
-  <div class="cta" style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a call</a><a class="btn" href="{href}">Start in writing</a><button class="btn" type="button" data-open-bot>Ask Bei-zAI</button></div></div></section>'''
+  <div class="cta" style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a fit check</a><a class="btn" href="{href}">Start in writing</a><button class="btn" type="button" data-open-bot>Ask Bei-zAI</button></div></div></section>'''
 
 
 def crumbs(items):
@@ -177,10 +177,10 @@ def _header(path):
     <a class="mark" href="/" aria-label="Beiz home">{LOGO}<span class="wm"><span class="wn">BEIZ</span><small>Data &amp; Accounting</small></span></a>
     <nav class="main flat" aria-label="Main">{nav}</nav>
     <button class="th-tog" id="thTog" type="button" aria-pressed="false" title="Switch between light and dark">Light</button>
-    <a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a call</a>
+    <a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a fit check</a>
     <button class="menu-btn" id="menuBtn" type="button" aria-controls="mnav" aria-expanded="false">MENU</button>
   </div>
-  <div class="mnav" id="mnav"><div class="wrap"><div class="mcta"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a call</a><a class="btn" href="/contact/#form">Start in writing</a></div>{mnav}</div></div>
+  <div class="mnav" id="mnav"><div class="wrap"><div class="mcta"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a fit check</a><a class="btn" href="/contact/#form">Start in writing</a></div>{mnav}</div></div>
 </header>'''
 
 
@@ -291,7 +291,7 @@ def page(path, title, desc, body, extra_head=""):
 {body}
 </main>
 {_footer()}
-<a class="mcall btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a call</a>{_WIDGETS}
+<a class="mcall btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a fit check</a>{_WIDGETS}
 <script src="/assets/site.js?v={ASSET_V}" defer></script>
 <script src="/assets/future-fx.js?v={ASSET_V}" defer></script>
 </body>
