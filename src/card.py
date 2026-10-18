@@ -1,0 +1,59 @@
+"""Digital business card at /card/ (standalone page, not indexed). The QR code points here."""
+from layout import LOGO, SITE
+
+CARD_URL = SITE + "/card/"
+
+
+def card_page(asset_v):
+    return f'''<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Purav Mehta · Beiz Data &amp; Accounting</title>
+<meta name="description" content="Purav Mehta, Chartered Accountant and GAICD, Beiz Data &amp; Accounting. Save my contact details.">
+<meta name="robots" content="noindex"><link rel="canonical" href="{CARD_URL}">
+<meta name="theme-color" content="#F8F8F4"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<style>
+@font-face{{font-family:"Source Serif 4";font-weight:600;font-display:swap;src:url(/assets/fonts/source-serif-4-latin-600-normal.woff2) format("woff2")}}
+:root{{--bg:#F8F8F4;--card:#FFFFFF;--ink:#1B2420;--muted:#45504A;--faint:#68716B;--line:#DEDFD6;--green:#1F4D3A;--green2:#173B2C}}
+*{{box-sizing:border-box}}html,body{{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}}
+main{{max-width:440px;margin:0 auto;padding:28px 16px 40px}}
+.c{{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 22px;box-shadow:0 12px 40px rgba(27,36,32,.08)}}
+.brand{{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none}}.brand .logo{{width:34px;height:34px}}
+.brand b{{letter-spacing:.18em;font-size:1.05rem}}.brand small{{display:block;color:var(--faint);font-size:.78rem;letter-spacing:.04em}}
+.who{{display:flex;gap:16px;align-items:center;margin:24px 0 10px}}
+.who img{{width:76px;height:76px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}}
+h1{{font-family:"Source Serif 4",Georgia,serif;font-weight:600;font-size:1.7rem;line-height:1.1;margin:0}}
+.cred{{margin:4px 0 0;color:var(--green);font-weight:600;font-size:.95rem}}
+.line{{color:var(--muted);margin:14px 0 22px}}
+.a{{display:block;text-align:center;text-decoration:none;font-weight:600;padding:14px 16px;border-radius:10px;margin-top:10px;border:1px solid var(--line);color:var(--ink);background:var(--bg)}}
+.a.p{{background:var(--green);border-color:var(--green);color:#fff}}.a.p:active,.a.p:hover{{background:var(--green2)}}
+.a:focus-visible,button:focus-visible{{outline:3px solid #7E5F1C;outline-offset:2px}}
+.meta{{margin:22px 0 0;padding-top:16px;border-top:1px solid var(--line);font-size:.9rem;color:var(--muted)}}
+.meta a{{color:var(--ink)}}.meta p{{margin:4px 0}}
+.qr{{margin-top:16px;text-align:center}}
+.qr button{{font:inherit;font-size:.9rem;background:none;border:0;color:var(--green);text-decoration:underline;cursor:pointer;padding:6px}}
+.qr figure{{margin:12px auto 0;background:#fff;padding:14px;border:1px solid var(--line);border-radius:10px;width:max-content}}
+.qr img{{display:block;width:220px;height:220px}}.qr figcaption{{font-size:.8rem;color:var(--faint);margin-top:6px}}
+.fine{{text-align:center;font-size:.75rem;color:var(--faint);margin-top:18px}}
+</style></head>
+<body><main>
+<div class="c">
+  <a class="brand" href="/">{LOGO}<span><b>BEIZ</b><small>Data &amp; Accounting</small></span></a>
+  <div class="who"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="Purav Mehta" width="76" height="76">
+    <div><h1>Purav Mehta</h1><p class="cred">Chartered Accountant (CA ANZ) · GAICD</p></div></div>
+  <p class="line">AI, data and financial judgement, applied to your business. Set up, tested and checked by an Australian Chartered Accountant.</p>
+  <a class="a p" href="/assets/purav-mehta.vcf?v={asset_v}" download="Purav Mehta.vcf">Save contact</a>
+  <a class="a" href="/services/">See what Beiz can build</a>
+  <a class="a" href="/contact/?topic=Discovery%20call#form">Request a fit check</a>
+  <a class="a" href="mailto:purav@beiz.com.au">Email Purav</a>
+  <div class="meta">
+    <p><a href="mailto:purav@beiz.com.au">purav@beiz.com.au</a></p>
+    <p><a href="/">beiz.com.au</a> · <a href="https://www.linkedin.com/in/puravmehtaca/" rel="noopener">LinkedIn</a></p>
+    <p>Beiz Data &amp; Accounting Pty Ltd · <span style="white-space:nowrap">ABN 53 691 755 496</span> · Canberra, ACT</p>
+  </div>
+  <div class="qr"><button type="button" id="qrB" aria-expanded="false" aria-controls="qrF">Show my QR code</button>
+    <figure id="qrF" hidden><img src="/assets/beiz-card-qr.svg?v={asset_v}" alt="QR code for beiz.com.au/card" width="220" height="220"><figcaption>beiz.com.au/card</figcaption></figure></div>
+</div>
+<p class="fine">Liability limited by a scheme approved under Professional Standards Legislation.</p>
+</main>
+<script>document.getElementById("qrB").addEventListener("click",function(){{var f=document.getElementById("qrF"),o=f.hidden;f.hidden=!o;this.setAttribute("aria-expanded",o);this.textContent=o?"Hide my QR code":"Show my QR code"}});</script>
+</body></html>'''

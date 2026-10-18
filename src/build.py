@@ -4,13 +4,16 @@ sys.path.insert(0, os.path.dirname(__file__))
 from pages import build_all
 from trust import trust_pages
 from oversight import oversight_pages
-from layout import SITE, SERVICES, INDUSTRIES
+from layout import SITE, SERVICES, INDUSTRIES, ASSET_V
+from card import card_page
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 pages = build_all()
 pages.update(trust_pages())
 pages.update(oversight_pages())
 urls = []
+os.makedirs(os.path.join(ROOT, 'card'), exist_ok=True)
+open(os.path.join(ROOT, 'card', 'index.html'), 'w', encoding='utf-8').write(card_page(ASSET_V))
 for path, html in pages.items():
     out = os.path.join(ROOT, path.lstrip("/")) if path.endswith(".html") else os.path.join(ROOT, path.lstrip("/"), "index.html")
     os.makedirs(os.path.dirname(out), exist_ok=True)
