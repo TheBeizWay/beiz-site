@@ -24,9 +24,10 @@ sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitem
 sm += [f"  <url><loc>{SITE}{u}</loc><lastmod>{datetime.date.today().isoformat()}</lastmod></url>" for u in sorted(urls) if not u.startswith("/preview/")]
 sm.append("</urlset>")
 open(os.path.join(ROOT, "sitemap.xml"), "w").write("\n".join(sm) + "\n")
-AI_TRAINING_BOTS = ["GPTBot", "Google-Extended", "CCBot", "ClaudeBot", "anthropic-ai", "Applebot-Extended", "Bytespider", "meta-externalagent"]
+AI_TRAINING_BOTS = ["GPTBot", "CCBot", "ClaudeBot", "anthropic-ai", "Applebot-Extended", "Bytespider", "meta-externalagent"]
 open(os.path.join(ROOT, "robots.txt"), "w").write(
-    "# Search engines and AI search assistants are welcome. AI model-training crawlers are not.\n"
+    "# Search engines and AI search assistants are welcome (Googlebot, Bingbot, OAI-SearchBot, ChatGPT-User, Claude-SearchBot, Claude-User, PerplexityBot, Perplexity-User).\n"
+    "# Google-Extended is allowed so the Gemini app can cite and link beiz.com.au. Other AI model-training crawlers are not.\n"
     + "".join(f"User-agent: {b}\nDisallow: /\n\n" for b in AI_TRAINING_BOTS)
     + f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n")
 # llms.txt: a plain summary for AI search assistants (https://llmstxt.org)
@@ -54,6 +55,6 @@ llms = ["# Beiz Data & Accounting", "",
         f"- [60-second demos]({SITE}/try/): late payers, 13-week cash forecast, an agent checking bills, admin hours",
         f"- [Example outputs]({SITE}/examples/): made-up businesses, real formats",
         f"- [Free Privacy Act AI check]({SITE}/ai-check/): for the automated-decision disclosure rules starting 10 December 2026",
-        "", "## About", f"- [About Beiz]({SITE}/about/)", f"- [Why trust Beiz: commitments and limits]({SITE}/trust/)", f"- [Human and organisation in the loop]({SITE}/oversight/)", f"- [How we work]({SITE}/how-we-work/)", f"- [FAQ]({SITE}/faq/)", ""]
+        "", "## About", f"- [About Beiz]({SITE}/about/)", f"- [Ask an AI about Beiz]({SITE}/ask-ai/): the key facts in one table, and links to ask ChatGPT, Claude, Perplexity, Gemini or Copilot", f"- [Why trust Beiz: commitments and limits]({SITE}/trust/)", f"- [Human and organisation in the loop]({SITE}/oversight/)", f"- [How we work]({SITE}/how-we-work/)", f"- [FAQ]({SITE}/faq/)", ""]
 open(os.path.join(ROOT, "llms.txt"), "w").write("\n".join(llms))
 print(f"built {len(pages)} pages")

@@ -1,0 +1,15 @@
+/* Ask an AI about Beiz (/ask-ai/). Uses the site's colour variables so it follows every theme. */
+.askai{margin-top:8px}
+.askai fieldset{border:0;padding:0;margin:0 0 16px;display:grid;gap:8px}
+.askai legend{font-weight:600;margin-bottom:8px;color:var(--text)}
+.askai label{display:flex;gap:10px;align-items:flex-start;padding:10px 14px;border:1px solid var(--line2);background:var(--panel);border-radius:var(--r,6px);cursor:pointer;color:var(--text)}
+.askai label:has(input:checked){border-color:var(--accent);background:color-mix(in srgb,var(--accent) 8%,var(--panel))}
+.askai input[type=radio]{accent-color:var(--accent);margin-top:4px}
+.askai-q{border-left:3px solid var(--accent);padding:10px 14px;margin:0 0 10px;background:var(--panel2);color:var(--text);font-size:.95rem}
+.askai-btns{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 6px}
+.askai-btns .btn small{display:block;font-size:.72rem;font-weight:500;opacity:.75}
+.askai-status{min-height:1.4em;color:var(--muted);font-size:.9rem}
+.askai :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.facts{width:100%;border-collapse:collapse;font-size:.95rem;margin:8px 0 6px}
+.facts th,.facts td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--line)}
+.facts th{width:32%;color:var(--muted);font-weight:600}

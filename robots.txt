@@ -1,8 +1,6 @@
-# Search engines and AI search assistants are welcome. AI model-training crawlers are not.
+# Search engines and AI search assistants are welcome (Googlebot, Bingbot, OAI-SearchBot, ChatGPT-User, Claude-SearchBot, Claude-User, PerplexityBot, Perplexity-User).
+# Google-Extended is allowed so the Gemini app can cite and link beiz.com.au. Other AI model-training crawlers are not.
 User-agent: GPTBot
-Disallow: /
-
-User-agent: Google-Extended
 Disallow: /
 
 User-agent: CCBot

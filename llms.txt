@@ -50,6 +50,7 @@ Key facts:
 
 ## About
 - [About Beiz](https://beiz.com.au/about/)
+- [Ask an AI about Beiz](https://beiz.com.au/ask-ai/): the key facts in one table, and links to ask ChatGPT, Claude, Perplexity, Gemini or Copilot
 - [Why trust Beiz: commitments and limits](https://beiz.com.au/trust/)
 - [Human and organisation in the loop](https://beiz.com.au/oversight/)
 - [How we work](https://beiz.com.au/how-we-work/)

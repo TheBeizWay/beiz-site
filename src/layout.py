@@ -3,7 +3,7 @@ import json
 import os
 
 SITE = "https://beiz.com.au"
-ASSET_V = "157"  # bump to bust caches when CSS/JS change
+ASSET_V = "158"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" aria-hidden="true" class="logo"><rect x="1" y="1" width="34" height="34" rx="7" fill="#15181D" stroke="#30353D" stroke-width="1.5"/><rect x="7" y="9" width="16" height="3.5" rx="1.75" fill="#43B581"/><circle cx="27.5" cy="10.75" r="1.75" fill="#43B581"/><rect x="7" y="16.25" width="11" height="3.5" rx="1.75" fill="#E9A93B"/><rect x="21" y="16.25" width="8" height="3.5" rx="1.75" fill="none" stroke="#E9A93B" stroke-width="1.2"/><rect x="7" y="23.5" width="22" height="3.5" rx="1.75" fill="#A6A49D"/></svg>')
 
@@ -197,7 +197,8 @@ def _footer():
       <div><a class="mark" href="/" aria-label="Beiz home">{LOGO.replace('id="hg"', 'id="fg"').replace('url(#hg)', 'url(#fg)').replace('id="mH"', 'id="fM"').replace('url(#mH)', 'url(#fM)')}<span class="wm"><span class="wn">BEIZ</span><small>Data &amp; Accounting</small></span></a>
         <p style="margin-top:14px;max-width:34ch">AI for real work, with guardrails, set up and checked by an Australian Chartered Accountant.</p>
         <p style="margin-top:10px"><a href="mailto:hello@beiz.com.au">hello@beiz.com.au</a></p>
-        <p style="margin-top:10px"><a href="/card/">Purav's card: save my contact</a></p></div>
+        <p style="margin-top:10px"><a href="/card/">Purav's card: save my contact</a></p>
+        <p style="margin-top:10px"><a href="/ask-ai/">Ask an AI about Beiz</a></p></div>
       <div><h4>Services</h4><ul>{s}</ul></div>
       <div><h4>Start here</h4><ul>{i}</ul><h4 style="margin-top:18px">Who I work with</h4><ul><li><a href="/industries/">Industries</a></li></ul></div>
       <div><h4>Company</h4><ul><li><a href="/about/">About us</a></li><li><a href="/try/">Try it: demos</a></li><li><a href="/examples/">Examples</a></li><li><a href="/live/">Live data</a></li><li><a href="/how-we-work/">How we work</a></li><li><a href="/ai-check/">Privacy Act AI check</a></li><li><a href="/insights/">Insights</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy/">Privacy policy</a></li></ul></div>
