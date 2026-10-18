@@ -144,14 +144,15 @@ def home():
     <li><b>Watch</b><p>Every action is logged in your own accounts. We review the log monthly and re-test before any change.</p></li>
   </ol>
   {contain_map()}
-  <div class="vsai"><h3>What you get that AI on its own won't give you</h3>
-  <table><thead><tr><th></th><th>AI on its own</th><th>AI set up by Beiz</th></tr></thead><tbody>
-  <tr><th>Your rules</th><td>Only what you type into the chat</td><td>A written job description and limits you sign off</td></tr>
-  <tr><th>Testing</th><td>Used on live work from day one</td><td>Tested on months of your own past records, against a pass mark agreed in writing</td></tr>
-  <tr><th>Money and messages</th><td>Acts on whatever it's connected to</td><td>Nothing is paid or sent without a person's yes</td></tr>
-  <tr><th>When it's unsure</th><td>Answers anyway</td><td>Holds the item for a person</td></tr>
-  <tr><th>The record</th><td>A chat history</td><td>A decision log in your own accounts, read monthly</td></tr>
-  <tr><th>Who answers for it</th><td>Nobody</td><td>An Australian Chartered Accountant, bound by the APES 110 Code of Ethics</td></tr>
+  <div class="vsai"><h3>What every Beiz build includes</h3>
+  <table><thead><tr><th>Included</th><th>What it means for you</th></tr></thead><tbody>
+  <tr><th>Written scope and permissions</th><td>A job description and limits you sign off, and access to only what that job needs</td></tr>
+  <tr><th>Agreed test cases</th><td>The agent runs over your own past records before it touches live work</td></tr>
+  <tr><th>Release criteria</th><td>A pass mark agreed in writing before the test, and a re-test before any change</td></tr>
+  <tr><th>Human approval</th><td>Anything that pays, sends or decides something about a person waits for a named person</td></tr>
+  <tr><th>Decision records</th><td>Every action logged in your own accounts: what, why, when and who approved it</td></tr>
+  <tr><th>Handover</th><td>Your operating folder, test results, a one-page operator guide and a way to pause it</td></tr>
+  <tr><th>Support boundaries</th><td>What monthly support covers, in writing, and what gets quoted separately</td></tr>
   </tbody></table></div>
   <p class="nx">For accounting firms, AML/CTF client checks run the same way. <a href="/aml-ctf-accounting-firms/">Read the guide and try a sample onboarding check</a>.</p>
 </div></section>
@@ -1324,7 +1325,7 @@ def about():
 </div>
 <aside class="aside"><h3>At a glance</h3>
 <ul class="ticks"><li>Led by Purav Mehta</li><li>Australian Chartered Accountant (CA ANZ)</li><li>CA ANZ Certificate of Public Practice</li><li>GAICD</li><li>Bound by the APES 110 code of ethics</li><li>Beiz Data &amp; Accounting Pty Ltd · ABN 53 691 755 496</li><li>Australia-wide, remote-first</li></ul>
-<a class="btn primary" href="/how-we-work/">How we work</a></aside></div></section>
+<a class="btn primary" href="/how-we-work/">How we work</a><a class="btn" href="/card/" style="margin-top:10px">Purav's card: save my contact</a></aside></div></section>
 <section><div class="wrap"><p class="eyebrow">What we believe</p><h2>Five rules we don't bend.</h2><div class="cards">{pr}</div></div></section>''' + cta_band("Sound like the kind of firm you want?", "Tell us what you're trying to fix. A few lines in writing is enough.")
     add("/about/", "About us", "About Beiz Data & Accounting: a Chartered Accountant and GAICD led firm helping Australian businesses use AI, automation and data without losing control of their numbers.", body)
 
