@@ -127,6 +127,7 @@ Detail lives on its own page: `/compliance-sprint/`, `/aml-ctf-accounting-firms/
 
 - Visible FAQs on the AML/CTF, bill check and compliance sprint pages carry `FAQPage` JSON-LD (`faq_ld()` in `src/pages.py`). Any new FAQ must be visible on the page as well as in the markup.
 - The `ProfessionalService` JSON-LD is in `src/layout.py`. `llms.txt` lists the main pages and must be updated when pages are added.
+- IndexNow: `.github/workflows/indexnow.yml` pings Bing and other IndexNow engines with the changed pages after each push to `main`. The key file in the repo root (a 32-character hex name ending `.txt`) must stay where it is.
 - Publish at most one to three articles a week, each answering a real question first and then showing a worked example from Beiz's own test data.
 
 ---

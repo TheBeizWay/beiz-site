@@ -137,6 +137,7 @@ def home():
 <section class="hz-sec" id="how"><div class="wrap">
   <p class="demo-k">How every agent is set up</p>
   <h2>Written down, locked down, tested, watched.</h2>
+  <p class="lede">New AI tools, agent templates and AI courses arrive every week. Few are tested on records like yours, or have a person who answers for what they do. Every Beiz agent starts there. <a href="/insights/shortcut-to-a-good-ai-tool/">Six questions to ask any AI tool</a>.</p>
   <ol class="how4">
     <li><b>Declare</b><p>One job, written down and signed off by you: what the agent does, what it never does, the limit it stops at and the person it reports to.</p></li>
     <li><b>Contain</b><p>It can only reach what that job needs. Logins stay in your own password manager, and no agent has permission to pay anyone or send anything outside your business.</p></li>
@@ -960,6 +961,7 @@ ARTICLES = [
     ("/insights/why-13-weeks/", "Why 13 weeks? Your cash cycle in plain English", "Why a weekly view of the next quarter catches the problems a monthly report hides, and what Xero's own forecast leaves out.", "1 October 2026 · 4 minute read"),
     ("/insights/check-bills-before-you-pay/", "Five checks to run on every supplier bill before you pay it", "Duplicate bills, changed bank details and quiet price rises cost small businesses real money. Here's how to catch them, by hand or automatically in Xero or MYOB.", "6 October 2026 · 4 minute read"),
     ("/insights/we-feed-your-tax-accountant/", "We don't replace your tax accountant. We feed them.", "Why compliance and finance systems are different jobs, and how clean data makes both better.", "1 October 2026 · 3 minute read"),
+    ("/insights/shortcut-to-a-good-ai-tool/", "Don't let a shortcut to a good AI tool fool you", "AI tools, agent templates and AI courses for finance are arriving every week. Six questions to ask before any of them touches your money.", "19 October 2026 · 4 minute read"),
 ]
 
 
@@ -1071,6 +1073,26 @@ def insights():
 <h2>Why we don't do tax</h2>
 <p>Focus. Tax is a specialist field with its own registration. We'd rather be very good at the systems and the numbers that run your business, and let your tax agent be very good at theirs.</p>''', "Something else")
 
+    art(5, '''<p>Every week there's a new AI tool for finance, a new agent template, a new course promising AI skills in a weekend. Some of them are good. The demo almost always works.</p>
+<p>The demo is the easy part. The work is what happens next: a supplier changes their bank details, a bill arrives as a scanned PDF, the same invoice turns up twice with a new number, or a data feed fails halfway through a run. What the tool does then is the product you're buying.</p>
+<h2>What a shortcut usually skips</h2>
+<ul class="ticks">
+<li><b>A person who answers for it.</b> Someone at your business approves what matters, by name, and someone who built it is still around when it goes wrong.</li>
+<li><b>A test on records like yours.</b> Run it over a few months of your past work, where you already know the right answer, and look at every result, including the ones it got wrong.</li>
+<li><b>Experience of where finance goes wrong.</b> Duplicate payments, changed bank details, bills split to stay under a limit, numbers that add up and still mislead. Knowing these comes from years of checking real records, and a weekend course won't give it to you.</li>
+</ul>
+<h2>Six questions to ask before any AI tool touches your money</h2>
+<ol>
+<li><b>Who approves what it does, by name?</b> If the answer is "it's automatic", ask what happens when it's wrong.</li>
+<li><b>What can it never do?</b> And is that a permission it doesn't have, or just an instruction it's been given? A prompt that says "don't pay" can be ignored or misread. A tool with no permission to pay can't pay.</li>
+<li><b>Was it tested on your past records?</b> Ask to see the results, including the failures, and the pass mark it had to meet.</li>
+<li><b>What does it do when it isn't sure?</b> A good tool holds the item for a person and says why. A risky one guesses.</li>
+<li><b>Can you see what it did last Tuesday?</b> Every action, the reason, and who approved it, kept in your own accounts.</li>
+<li><b>If the person who built it disappears, can you switch it off and keep running?</b> You should own the logins, the instructions and the log.</li>
+</ol>
+<p>You don't need us to ask these. Ask them of any tool, agency or course before you rely on it. If the answers are vague, treat it as a demo until they aren't.</p>
+<h2>How we set agents up</h2>
+<p>Every Beiz agent starts with those six answers written down: a job description, limits it can't cross, a named approver, a test on your past records against a pass mark agreed with you, a few weeks running beside your team before it acts, and a log you can read. <a href="/services/ai-readiness-sprint/#agents">See the controls every agent gets</a>, or <a href="/bill-check/">try the free bill check</a> on your own bills.</p>''', "AI workforce setup")
 
 
 # ------------------------------------------------------------------ live data page

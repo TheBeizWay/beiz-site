@@ -1,0 +1,48 @@
+name: indexnow
+
+# Tells Bing (and so Copilot and ChatGPT search), Yandex and other IndexNow
+# engines which pages changed, straight after GitHub Pages publishes them.
+on:
+  push:
+    branches: [main]
+    paths: ['**.html', 'sitemap.xml', 'llms.txt']
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Wait for GitHub Pages to publish
+        run: sleep 90
+      - name: Send changed URLs to IndexNow
+        env:
+          KEY: adc12a745436706a60668a669be20e18
+        run: |
+          python3 - <<'PY'
+          import json, os, subprocess, urllib.request
+          SITE = "https://beiz.com.au"
+          try:
+              changed = subprocess.check_output(["git", "diff", "--name-only", "HEAD~1", "HEAD"], text=True).split()
+          except subprocess.CalledProcessError:
+              changed = []
+          urls = set()
+          for f in changed:
+              if f.endswith("index.html") and not f.startswith("preview/"):
+                  urls.add(SITE + "/" + f[: -len("index.html")])
+              elif f in ("sitemap.xml", "llms.txt"):
+                  urls.add(SITE + "/" + f)
+          if os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch" or not urls:
+              import re
+              urls |= set(re.findall(r"<loc>([^<]+)</loc>", open("sitemap.xml").read()))
+          body = {"host": "beiz.com.au", "key": os.environ["KEY"], "keyLocation": f"{SITE}/{os.environ['KEY']}.txt", "urlList": sorted(urls)[:10000]}
+          req = urllib.request.Request("https://api.indexnow.org/indexnow", data=json.dumps(body).encode(), headers={"Content-Type": "application/json; charset=utf-8"})
+          try:
+              with urllib.request.urlopen(req, timeout=30) as r:
+                  print("IndexNow", r.status, len(urls), "URLs")
+          except urllib.error.HTTPError as e:
+              print("IndexNow", e.code, e.read()[:300])
+              if e.code not in (200, 202): raise SystemExit(1)
+          PY
