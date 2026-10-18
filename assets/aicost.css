@@ -1,0 +1,28 @@
+/* AI running-cost calculator. Uses the site's own colour variables so it follows every theme. */
+.aic{margin-top:8px}
+.aic-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;margin-bottom:14px}
+.aic label{display:grid;gap:5px;font-size:.86rem;color:var(--muted);align-content:end}
+.aic label small{color:var(--muted);opacity:.85;font-size:.78rem}
+.aic input[type=number],.aic select{width:100%;background:var(--panel2);border:1px solid var(--line2);color:var(--text);padding:9px 11px;font:500 1rem var(--sans);border-radius:var(--r,6px)}
+.aic input:focus-visible,.aic select:focus-visible,.aic button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.aic-job-fields{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px;margin:0 0 6px}
+.aic-jobsay{margin:4px 0 16px;color:var(--muted);font-size:.9rem}
+.aic-more{margin:4px 0 18px;border:1px solid var(--line);background:var(--panel)}
+.aic-more>summary{cursor:pointer;padding:10px 14px;color:var(--muted);font-size:.9rem}
+.aic-more .aic-job-fields,.aic-more .aic-adv{padding:0 14px 14px}
+.aic-adv{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}
+.aic-check{display:flex!important;gap:8px;align-items:center;grid-column:1/-1;color:var(--text)!important}
+.aic-check input{width:auto;accent-color:var(--accent)}
+.aic-say{border-left:3px solid var(--accent);padding:10px 14px;margin:0 0 16px;background:var(--panel);color:var(--text)}
+.aic-tbl td small{display:block;color:var(--muted);font-size:.78rem;margin-top:2px}
+.aic-tbl td button{background:none;border:0;padding:0;font:600 .95rem var(--sans);color:var(--text);cursor:pointer;text-align:left}
+.aic-tbl td button:hover{text-decoration:underline}
+.aic-tbl tr.on td{background:color-mix(in srgb,var(--accent) 9%,transparent)}
+.aic-tbl tr.on td button::after{content:"  selected";font-weight:500;font-size:.75rem;color:var(--accent)}
+.aic-tbl th,.aic-tbl td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.aic-tbl th{font-size:.78rem;color:var(--muted);font-weight:600}
+.aic-tbl .n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.aic-src{font-size:.82rem;color:var(--muted);margin-top:10px}
+@media (max-width:720px){.aic-top{grid-template-columns:1fr}.aic .bck-k{grid-template-columns:1fr 1fr}.aic .bck-k div:nth-child(2){border-right:0}.aic .bck-k div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.aic-tbl{width:100%;border-collapse:collapse;font-size:.92rem}

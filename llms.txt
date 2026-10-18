@@ -38,6 +38,7 @@ Key facts:
 - [AML/CTF Tranche 2 for accounting firms](https://beiz.com.au/aml-ctf-accounting-firms/): which services are caught, what firms must do, where agents help and where they stop
 - [AML/CTF client onboarding check (interactive demo)](https://beiz.com.au/aml-ctf-accounting-firms/#aml): customer due diligence, screening and the decision a person has to make
 - [Free bill check on your own data](https://beiz.com.au/bill-check/): drop in a bills export; possible duplicates, bank detail changes, split bills and ABN problems; runs in the browser, nothing is sent
+- [AI running-cost calculator](https://beiz.com.au/ai-cost-calculator/): monthly AI usage cost of an agent in AUD by model, next to the cost of the person who checks its work; vendor prices dated on the page
 
 ## See it working
 - [Homepage demonstrations](https://beiz.com.au/): an interactive 13-week cash model, a data lineage walk-through from dashboard to source records, and an AI controls simulation (allow, hold or block)

@@ -1114,7 +1114,7 @@ def try_page():
     body = phero("Try it · 60 seconds each", "Find your problem in 60 seconds.",
                  "Four quick demos using your own numbers. They run entirely in your browser: nothing is sent to us unless you press send. Pick the one that sounds like your week.",
                  [("/try/", "Try it")]) + f'''<section style="padding-top:0"><div class="wrap">
-<nav class="trynav" aria-label="Demos"><a href="#late">Late payers</a><a href="#cash">Cash forecast</a><a href="#bills">Bill checker</a><a href="/bill-check/">Your own bills</a><a href="#hours">Admin hours</a><a href="/ai-check/">Privacy Act check</a></nav>
+<nav class="trynav" aria-label="Demos"><a href="#late">Late payers</a><a href="#cash">Cash forecast</a><a href="#bills">Bill checker</a><a href="/bill-check/">Your own bills</a><a href="#hours">Admin hours</a><a href="/ai-cost-calculator/">AI running cost</a><a href="/ai-check/">Privacy Act check</a></nav>
 
 <div class="demo" id="late"><div><span class="k">Demo 1 · Getting paid</span><h2>What are late payers costing you?</h2><p class="muted">Enter your rough numbers. We'll show how much of your money is sitting with customers.</p>
   <div class="fields" id="dLate">{n("lpN","Invoices you send a month",40)}{n("lpAvg","Average invoice ($)",2500,"50")}{n("lpTerms","Your payment terms (days)",14)}{n("lpActual","How long customers actually take (days)",38)}{n("lpHrs","Hours a week spent chasing",3)}</div></div>
@@ -1183,6 +1183,96 @@ def bill_check():
 <p class="fine">Not registered for GST.</p></aside></div></section>""" + cta_band("Found something?", "Tell us what the check flagged, in a few lines. We'll reply with what we'd look at next.")
     add("/bill-check/", "Bill check: duplicates and red flags (free, in your browser)", "Free bill check: drop in a Xero, MYOB or QuickBooks bills export and see possible duplicates, bank detail changes, split bills and ABN problems. Runs in your browser; nothing is sent.", body,
         f'<script src="/assets/billcheck.js?v={ASSET_V}" defer></script>' + faq_ld(bfaqs))
+
+
+def ai_cost():
+    afaqs = [("Is anything I type sent or saved?", "No. The calculator runs in your browser. Nothing you enter is stored or sent to Beiz."),
+             ("Why is my people's time in an AI cost calculator?", "Because every agent Beiz sets up has a person who approves anything that moves money, reaches a customer or decides something about a person. That checking is part of what the agent costs to run, and for most finance jobs it's the larger part."),
+             ("How accurate is it?", "It's an estimate to within a factor of two or so. Each vendor counts tokens differently, so the same page is a different number of tokens on each model, and real agents vary from run to run. The test on your past records gives the measured figure."),
+             ("Do you resell AI subscriptions?", "No. You buy any AI plan or API account directly, in your name, and pay the vendor. Beiz's fees are separate and fixed in writing.")]
+    body = phero("Free · runs in your browser · nothing is stored", "Work out what an AI agent costs to run each month.",
+                 "Pick the job, how often it runs and which model does it. You'll see the AI usage bill in Australian dollars, next to the cost of the person who checks the work. For most finance and admin jobs, the second number is the bigger one.",
+                 [("/try/", "Try it"), ("/ai-cost-calculator/", "AI running cost")]) + f"""<section style="padding-top:0"><div class="wrap">
+<div class="aic" id="aic">
+  <div class="aic-top">
+    <label>The job
+      <select id="aicJob">
+        <option value="bill">Check supplier bills</option>
+        <option value="email">Draft replies to customer emails</option>
+        <option value="bank">Match bank lines to the ledger</option>
+        <option value="client">New client check (AML/CTF)</option>
+        <option value="report">Monthly report commentary</option>
+        <option value="custom">My own figures</option>
+      </select>
+    </label>
+    <label>The model
+      <select id="aicModel"></select>
+    </label>
+  </div>
+  <p class="aic-jobsay" id="aicJobSay"></p>
+  <div class="aic-job-fields">
+    <label>Runs a month<input id="aicRuns" type="number" min="0" step="1" inputmode="numeric"></label>
+    <label>Pages it reads each run<small>Bill, email, statement or file</small><input id="aicPages" type="number" min="0" step="1" inputmode="decimal"></label>
+    <label>Words it writes each run<small>Notes, drafts, commentary</small><input id="aicWords" type="number" min="0" step="10" inputmode="numeric"></label>
+    <label>Model steps each run<small>An agent calls the model several times</small><input id="aicSteps" type="number" min="1" step="1" inputmode="numeric"></label>
+    <label>Person-minutes each run<small>Average, including held items</small><input id="aicMins" type="number" min="0" step="0.5" inputmode="decimal"></label>
+    <label>Cost of that person, A$ an hour<small>Your figure. Starts at $60</small><input id="aicRate" type="number" min="0" step="1" value="60" inputmode="decimal"></label>
+  </div>
+  <details class="aic-more">
+    <summary>The finer assumptions</summary>
+    <div class="aic-adv">
+      <label>Standing instructions, words<small>Job description, rules and examples sent each step</small><input id="aicInstr" type="number" min="0" step="100" value="2500" inputmode="numeric"></label>
+      <label>Model working per step, tokens<small>Reasoning is billed as output</small><input id="aicThink" type="number" min="0" step="50" value="400" inputmode="numeric"></label>
+      <label>Margin for retries, %<small>Re-runs after an error or a timeout</small><input id="aicMargin" type="number" min="0" step="5" value="25" inputmode="numeric"></label>
+      <label>US$ per A$1<small>16 Oct 2026 rate. Change it if it's moved</small><input id="aicFx" type="number" min="0.3" step="0.0001" value="0.6946" inputmode="decimal"></label>
+      <label class="aic-check"><input id="aicCache" type="checkbox" checked>Reuse the standing instructions from the model's cache after the first step</label>
+    </div>
+  </details>
+
+  <div class="bck-k" aria-live="polite">
+    <div><span>AI usage a month</span><b id="aicK1">–</b><small id="aicK1s"></small></div>
+    <div><span>AI usage per run</span><b id="aicK2">–</b><small id="aicK2s"></small></div>
+    <div><span>Your people checking, a month</span><b id="aicK3">–</b><small id="aicK3s"></small></div>
+    <div><span>Model's share</span><b id="aicK4">–</b><small id="aicK4s"></small></div>
+  </div>
+  <p class="aic-say" id="aicSay" aria-live="polite"></p>
+
+  <div class="tblw"><table class="aic-tbl">
+    <caption class="sr-only">AI usage cost by model for this job, cheapest first</caption>
+    <thead><tr><th scope="col">Model, cheapest first</th><th scope="col" class="n">Per run</th><th scope="col" class="n">A month</th></tr></thead>
+    <tbody id="aicRows"></tbody>
+  </table></div>
+  <p class="aic-src">Standard API prices for text, checked <span id="aicChecked"></span> on each vendor's own pricing page, converted at the rate above. Where a vendor has announced a dated price rise, the table uses the price in force today. Amounts are estimates, excluding GST.</p>
+</div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap split"><div class="prose">
+<h2>How the estimate works</h2>
+<p>Models charge by the token, roughly three-quarters of a word, with separate rates for what goes in and what comes out. Each run, the agent sends its standing instructions and the documents it's working on, and it does that at every step. It also pays for what it writes and for its own working, which is billed as output.</p>
+<p>The calculator counts a page as 500 words and a word as 1.4 tokens. Documents are counted as fresh at every step, which errs on the high side. The standing instructions are counted at the cheaper cached rate after the first step, if you leave that box ticked. The retry margin covers runs that fail and go again.</p>
+<h2>What it leaves out</h2>
+<ul class="ticks">
+<li>Per-person AI subscriptions your team may already pay for, such as Copilot or a business ChatGPT or Claude plan</li>
+<li>The workflow or automation tool the agent runs in</li>
+<li>Extra tools the model calls, such as web search, and batch discounts for work that can wait overnight</li>
+<li>OpenAI's higher rate for very long prompts, which its pricing page doesn't put a token figure on</li>
+<li>Setting up, testing and monitoring the agent</li>
+</ul>
+<h2>Price isn't the test</h2>
+<p>The cheapest model that gets your work right is the one to use, and only your own records can tell you which that is. Before any Beiz agent goes live, it runs over a few months of your past records and every result is checked against what actually happened. That run also gives the real usage figure, and the agent's monthly spending cap is set from it.</p>
+<h2>Common questions</h2>
+{faq_html(afaqs)}
+<h2>What this isn't</h2>
+<p>It's general information to help you size a decision, not a quote, and not financial advice. Model names and prices belong to their vendors and change often; check the vendor's own page before you rely on a figure. Beiz isn't affiliated with Anthropic, OpenAI or Google.</p>
+</div><aside class="aside"><h3>Want the real number?</h3>
+<p class="muted">The AI workforce setup runs your first agent over your past records before it goes live. You get the measured cost per run, the time your people spend checking, and a monthly spending cap set from those figures.</p>
+<ul class="ticks"><li>AI workforce setup, first agent: from $8,500</li><li>Monthly controls operations: from $1,250 a month</li></ul>
+<a class="btn primary" href="/contact/?topic=AI%20workforce%20setup#form">Ask about a first agent</a>
+<p class="fine">Not registered for GST.</p></aside></div></section>
+<section style="padding-top:0"><div class="wrap"><p class="aic-src">Sources, checked 18 October 2026: <a href="https://platform.claude.com/docs/en/about-claude/pricing" rel="noopener">Anthropic API pricing</a> · <a href="https://developers.openai.com/api/docs/pricing" rel="noopener">OpenAI API pricing</a> · <a href="https://ai.google.dev/gemini-api/docs/pricing" rel="noopener">Google Gemini API pricing</a>. Exchange rate: Barchart AUD/USD close, 16 October 2026.</p></div></section>
+""" + cta_band("Got a job in mind?", "Tell us what the job is and roughly how often it happens. We'll reply in writing with whether an agent is worth it, or whether your existing software already does it.", "AI workforce setup")
+    add("/ai-cost-calculator/", "AI running-cost calculator: what an agent costs each month", "Free calculator: the monthly AI usage cost of an agent in Australian dollars, by model, next to the cost of the person who checks its work. Runs in your browser; nothing is stored.", body,
+        f'<link rel="stylesheet" href="/assets/aicost.css?v={ASSET_V}"><script src="/assets/aicost.js?v={ASSET_V}" defer></script>' + faq_ld(afaqs))
 
 
 def aml_firms():
@@ -1338,5 +1428,5 @@ def not_found():
 
 def build_all():
     home(); services_hub(); services(); privacy_sprint(); industries_hub(); industries(); examples(); ai_check(); workshop()
-    how_we_work(); faq(); contact(); privacy(); insights(); live_page(); try_page(); bill_check(); cash_data_check(); aml_firms(); compliance_sprint(); prices_page(); leave_cover(); about(); not_found()
+    how_we_work(); faq(); contact(); privacy(); insights(); live_page(); try_page(); bill_check(); ai_cost(); cash_data_check(); aml_firms(); compliance_sprint(); prices_page(); leave_cover(); about(); not_found()
     return PAGES
