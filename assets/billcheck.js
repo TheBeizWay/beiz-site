@@ -85,7 +85,7 @@
     limit: ["Bills just under the approval limit", "md", "Within 5% under your limit. One on its own is usually nothing; a pattern is worth a question."],
     news: ["Large first bill from a supplier first seen in this file", "md", "A supplier that first appears in this export, more than 30 days in, with a first bill at least twice your approval limit. It may not be new to your business. Check the supplier is real and the work was done."],
     wkd: ["Paid on a weekend", "md", "Payments released on a Saturday or Sunday. Normal for some businesses; unusual for most."],
-    abn: ["ABN missing or failing the check-digit test", "md", "An ABN that fails the official check-digit test is a typo or made up. Passing the test doesn't confirm the ABN is registered or who owns it. If a supplier doesn't quote an ABN, you may need to withhold 47% of the payment under the ATO's no-ABN withholding rules."],
+    abn: ["ABN missing or failing the check-digit test", "md", "An ABN that fails the official check-digit test is a typo or made up. Passing the test doesn't confirm the ABN is registered or who owns it. If a supplier doesn't quote an ABN, you may need to withhold 47% of the payment under the ATO's no-ABN withholding rules, unless an exception applies, such as a payment of $75 or less excluding GST. General information, not tax advice."],
   };
   function run(rows, map, limit) {
     const hdr = rows[0].map(norm);

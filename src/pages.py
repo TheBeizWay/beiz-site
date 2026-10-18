@@ -1175,7 +1175,7 @@ def bill_check():
 <h2>Common questions</h2>
 {faq_html(bfaqs)}
 <h2>What it doesn't do</h2>
-<p>It's eight quick checks, not an audit. A flag is a prompt for a person to look, and plenty will have an innocent explanation. It can't see your bank, your emails or the bills you never entered, and it doesn't tell you whether anyone did anything wrong.</p>
+<p>It's eight quick checks, not an audit. A flag is a prompt for a person to look, and plenty will have an innocent explanation. It can't see your bank, your emails or the bills you never entered, and it doesn't tell you whether anyone did anything wrong. It's general information, not tax, legal or accounting advice, and you decide what to do with any flag. Supplier names and Xero, MYOB and QuickBooks are mentioned only to describe file formats; Beiz isn't affiliated with them.</p>
 </div><aside class="aside"><h3>Want this every week?</h3>
 <p class="muted">These checks are a small slice of the two-week cash &amp; data check, and of the financial controller agent, which runs them on every bill before it's paid and holds anything odd for you.</p>
 <ul class="ticks"><li>Two-week cash &amp; data check: $1,500 fixed</li><li>AI workforce setup, first agent: from $8,500</li></ul>
