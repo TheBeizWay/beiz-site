@@ -154,11 +154,11 @@
     // Constant, readable speed (~48px a second) however long the feed is
     if (!reduce) requestAnimationFrame(() => { track.style.animationDuration = Math.max(60, Math.round(track.scrollWidth / 2 / 48)) + "s"; });
     else {
-      // Motion turned off on this device: show one item at a time and swap every 5 seconds instead of scrolling
+      // Motion turned off on this device: show one item, still. Click or tap to see the next one.
       const spans = [...track.children]; let k = 0;
       track.classList.add("tk-step"); spans.forEach((e, i) => { e.hidden = i !== 0; });
-      clearInterval(renderTicker.timer);
-      renderTicker.timer = setInterval(() => { spans[k].hidden = true; k = (k + 1) % spans.length; spans[k].hidden = false; }, 5000);
+      track.title = "Click for the next item";
+      track.onclick = e => { if (e.target.closest("a")) return; spans[k].hidden = true; k = (k + 1) % spans.length; spans[k].hidden = false; };
     }
   };
   renderTicker(base);
@@ -1432,10 +1432,48 @@
     cnt.A.textContent = n.A; cnt.H.textContent = n.H; cnt.B.textContent = n.B;
     const li = document.createElement("li"); li.className = "wfl-r st-" + st;
     li.innerHTML = `<time>${fmt(t)}</time><span class="wfl-w">${N[ag]} agent</span><span class="wfl-x">${txt}</span><em>${ST[st]}</em>`;
+    if (PV) { li.tabIndex = 0; li.setAttribute("role", "button"); li.setAttribute("aria-label", `${txt}. Show why and the records behind it`); li.dataset.ag = ag; li.dataset.txt = txt; li.dataset.st = st; }
     log.prepend(li); while (log.children.length > 6) log.lastChild.remove();
     cards.forEach(c => c.classList.toggle("live", +c.dataset.ag === ag));
   };
   const fill = () => { for (let k = 0; k < 6; k++) step(); };
+  /* open a row to see why it happened and the records behind it */
+  const PV = true;
+  const NEVER = ["change a source record", "post a journal or release a payment", "send anything to your board, bank or investors", "change a permission or a setting", "clear a possible match or accept a high-risk client", "sign off its own controls"];
+  const T = (h, rows) => `<table><thead><tr>${h.map(x => `<th>${x}</th>`).join("")}</tr></thead><tbody>${rows.map(r => `<tr>${r.map(x => `<td>${x}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+  const EVD = {
+    "6 bills matched to orders and deliveries, $7,412.60. Approved by the owner": ["The agent compared six supplier bills with their purchase orders and delivery dockets. Supplier, quantity and price matched on all six, so they went to the owner as one prepared batch. The owner checked the batch instead of opening eighteen documents.",
+      T(["Bill", "Supplier", "Order", "Docket", "Amount"], [["B-4410", "Brolga Switchgear", "PO 2231", "D-118", "$1,240.00"], ["B-4412", "Gangway Trade Supplies", "PO 2234", "D-121", "$2,186.40"], ["B-4415", "Ironbark Supply", "PO 2236", "D-124", "$865.20"], ["B-4417", "Kestrel Hire", "PO 2238", "D-126", "$1,530.00"], ["B-4418", "Wattle Fixings", "PO 2240", "D-127", "$412.00"], ["B-4421", "Brolga Switchgear", "PO 2243", "D-131", "$1,179.00"]])],
+    "Quoll Electrical bill: 22 h billed, 14 h on the timesheet": ["The bill doesn't match the other two records, so it's held. It's a possible discrepancy, not proof of an error. The owner asks the supplier before anything is paid. <a href=\"/how-we-work/#bill-review\">Walk through this bill step by step</a>.",
+      T(["Record", "Hours", "Amount"], [["Supplier bill", "22", "$3,080.00"], ["Quote (cap)", "16", "$2,240.00"], ["Timesheet", "14", "$1,960.00"]])],
+    "Email asks to change a supplier's bank details": ["Bank details are never changed from an email. The agent has no permission to change them anyway, so it blocked the request and flagged it. A person calls the supplier on the number already on file.",
+      T(["Detail", "On file", "In the email"], [["Supplier", "Ironbark Supply", "Ironbark Supply"], ["Sender domain", "ironbarksupply.com.au", "ironbark-supp1y.com"], ["Account", "ending 4471", "ending 9082"]])],
+    "Possible politically exposed person match on the new client": ["Screening found a possible match on a director's name. The agent can't clear a match. Your AML/CTF compliance officer reviews the evidence and decides whether to take the client on.",
+      T(["Check", "Result"], [["Company and trust confirmed", "Yes"], ["Director name screening", "Possible match"], ["Date of birth confirmed", "Not yet"], ["Decision", "With the compliance officer"]])],
+    "13-week cash refreshed. Low point week 7, $52,000": ["The agent refreshed the forecast from this week's exports. Actuals tie to the ledger and the assumptions are unchanged. Nothing was sent: the owner sees it in Monday's pack.",
+      T(["Week", "Opening", "In", "Out", "Closing"], [["5", "$71,400", "$48,200", "$59,600", "$60,000"], ["6", "$60,000", "$44,900", "$47,300", "$57,600"], ["7", "$57,600", "$41,700", "$47,300", "$52,000"]])],
+    "Email from the 'director' asks for an urgent $18,400 transfer today": ["Urgent payment requests by email are a common scam pattern. No agent can make a payment, so the request was blocked and flagged. The owner confirms with the director by phone.",
+      T(["Detail", "Value"], [["Sent from", "director@beiz-mail.co (not your domain)"], ["Asked for", "$18,400 today, to a new account"], ["Action", "Blocked and flagged to the owner"]])],
+    "Board pack numbers drafted. Waiting for the owner's review": ["The agent drafted the board pack figures from the closed month. Nothing goes to the board until the owner reviews it. Open questions are listed, not guessed.",
+      T(["Item", "Source or status"], [["Revenue, costs, cash", "Ledger, September close"], ["Forecast", "13-week model; assumptions unchanged"], ["Open question", "Wages 6% over budget: one-off or ongoing?"], ["Approval", "Waiting for the owner"]])],
+    "Same bill sent twice with a different invoice number, $3,960": ["Same supplier, same amount, same delivery docket, two invoice numbers. The second one was blocked and the owner asked the supplier to void it.",
+      T(["Bill", "Supplier", "Docket", "Amount"], [["INV-7731", "Gangway Trade Supplies", "D-140", "$3,960.00"], ["INV-7736", "Gangway Trade Supplies", "D-140", "$3,960.00"]])]
+  };
+  let evBox = null;
+  const showEv = li => {
+    if (!evBox) { evBox = document.createElement("div"); evBox.className = "wfl-ev"; evBox.setAttribute("role", "region"); evBox.setAttribute("aria-live", "polite"); log.after(evBox); }
+    const ag = +li.dataset.ag, txt = li.dataset.txt, d = EVD[txt];
+    const body = d ? `<p>${d[0]}</p>${d[1]}` : `<p>The ${N[ag].toLowerCase()} agent logged this as routine work within its limits. It can never ${NEVER[ag]}.</p>`;
+    evBox.innerHTML = `<div class="wfl-ev-h"><b>${txt}</b><button type="button" class="wfl-ev-x">Close</button></div>${body}<p class="wfl-ev-f">Made-up business and records, amounts excluding GST.</p>`;
+    evBox.hidden = false;
+    if (!paused) { paused = true; btn.textContent = "Resume"; btn.setAttribute("aria-pressed", true); clearInterval(timer); }
+    evBox.querySelector(".wfl-ev-x").onclick = () => { evBox.hidden = true; li.isConnected && li.focus(); };
+  };
+  if (PV) {
+    box.classList.add("wfl-pv");
+    log.addEventListener("click", e => { const li = e.target.closest("li[role=button]"); if (li) showEv(li); });
+    log.addEventListener("keydown", e => { const li = e.target.closest("li[role=button]"); if (li && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); showEv(li); } });
+  }
   box.querySelectorAll("[data-sc]").forEach(b => b.addEventListener("click", () => {
     EV = DAYS[b.dataset.sc]; box.querySelectorAll("[data-sc]").forEach(x => x.setAttribute("aria-pressed", x === b));
     box.classList.toggle("bad", b.dataset.sc === "bad");

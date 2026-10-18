@@ -3,7 +3,7 @@ import json
 import os
 
 SITE = "https://beiz.com.au"
-ASSET_V = "144"  # bump to bust caches when CSS/JS change
+ASSET_V = "150"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" aria-hidden="true" class="logo"><rect x="1" y="1" width="34" height="34" rx="7" fill="#15181D" stroke="#30353D" stroke-width="1.5"/><rect x="7" y="9" width="16" height="3.5" rx="1.75" fill="#43B581"/><circle cx="27.5" cy="10.75" r="1.75" fill="#43B581"/><rect x="7" y="16.25" width="11" height="3.5" rx="1.75" fill="#E9A93B"/><rect x="21" y="16.25" width="8" height="3.5" rx="1.75" fill="none" stroke="#E9A93B" stroke-width="1.2"/><rect x="7" y="23.5" width="22" height="3.5" rx="1.75" fill="#A6A49D"/></svg>')
 
@@ -144,6 +144,9 @@ def related(links):
     return '<div class="related">' + "".join(f'<a href="{h}">{t}</a>' for h, t in links) + "</div>"
 
 
+WWD_PANEL = ""  # set by pages.py: the problem-led "What we do" dropdown panel
+
+
 def _header(path):
     def cur(h):
         return ' aria-current="page"' if (path == h or (h != "/" and path.startswith(h))) else ""
@@ -164,7 +167,7 @@ def _header(path):
     mmp = ('<div class="mmp" role="group" aria-label="Services"><div class="mm-start">'
            + "".join(f'<a href="{h}"><b>{t}</b><em>{pr}</em><span>{d}</span></a>' for h, t, pr, d in mm_start)
            + '</div><div class="mm-foot"><a href="/services/ai-readiness-sprint/#agents">Meet the six agents</a><a href="/aml-ctf-accounting-firms/">AML/CTF for accounting firms</a><a href="/bill-check/">Free bill check</a><a href="/leave-cover/">Finance leave cover</a><a href="/services/data-engineering/">Data science &amp; analytics</a><a href="/services/">All services</a><a class="mm-ws" href="/workshop/">Free 5-minute workshop</a></div></div>')
-    nav = "".join(f'<a href="{h}"{cur(h)}>{t}</a>' for h, t in TOP)
+    nav = "".join((f'<div class="wwd-mm"><a href="{h}"{cur(h)} data-wwd-open aria-expanded="false">{t}</a><div class="wwd-pop" hidden>{WWD_PANEL}</div></div>' if h == "/services/" and WWD_PANEL else f'<a href="{h}"{cur(h)}>{t}</a>') for h, t in TOP)
     grp = lambda title, items: f'<p class="mg">{title}</p>' + "".join(f'<a href="{h}">{t}</a>' for h, t in items)
     START = [("/compliance-sprint/", "Compliance controls sprint · from $3,500"), ("/aml-ctf-accounting-firms/#aml", "AML/CTF onboarding check (demo)"), ("/cash-data-check/", "Two-week cash &amp; data check · $1,500"), ("/services/dashboards-and-models/", "Live cash &amp; job profit model · from $5,000"), ("/services/ai-readiness-sprint/", "AI workforce setup · from $8,500")]
     mnav = (grp("Menu", TOP + [("/compliance-sprint/", "Compliance controls sprint"), ("/aml-ctf-accounting-firms/", "AML/CTF for accounting firms"), ("/leave-cover/", "Finance leave cover"), ("/contact/", "Contact")]) + grp("More", [("/try/", "Try the demos"), ("/ai-check/", "Privacy Act AI check"), ("/insights/", "Insights"), ("/faq/", "FAQ")]))
@@ -274,6 +277,7 @@ def page(path, title, desc, body, extra_head=""):
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/sora-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/site.css?v={ASSET_V}">
+<link rel="stylesheet" href="/assets/wwd.css?v={ASSET_V}">
 <link rel="stylesheet" href="/assets/refine.css?v={ASSET_V}" id="thA">
 <link rel="stylesheet" href="/assets/future-neon.css?v={ASSET_V}" id="thB">
 <link rel="stylesheet" href="/assets/calm.css?v={ASSET_V}" id="thC">
@@ -293,6 +297,7 @@ def page(path, title, desc, body, extra_head=""):
 {_footer()}
 <a class="mcall btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a fit check</a>{_WIDGETS}
 <script src="/assets/site.js?v={ASSET_V}" defer></script>
+<script src="/assets/wwd.js?v={ASSET_V}" defer></script>
 <script src="/assets/future-fx.js?v={ASSET_V}" defer></script>
 </body>
 </html>

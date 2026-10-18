@@ -21,3 +21,4 @@ html.warm .hz-hero.dark{position:relative;isolation:isolate}
 html.warm .hz-hero.dark::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
   background-image:radial-gradient(rgba(250,249,245,.09) 1px,transparent 1.3px);background-size:24px 24px;
   -webkit-mask-image:radial-gradient(ellipse 55% 75% at 75% 45%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse 55% 75% at 75% 45%,#000 20%,transparent 75%)}
+html.warm .ticker .label{position:relative;z-index:2;background:var(--deep)!important}

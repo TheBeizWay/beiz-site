@@ -2374,3 +2374,21 @@ html.paper .mark .wm small{color:#3F4A44!important}
 .hz-room .wfl-r .wfl-w{grid-area:w;font-size:.78rem;font-weight:600;color:var(--faint)!important;white-space:nowrap;width:auto!important;min-width:0}
 .hz-room .wfl-r .wfl-x{grid-area:x;width:auto!important}
 .hz-room .wfl-r em{grid-area:s;align-self:start}
+/* v49 control room evidence (preview) */
+.wfl-pv .wfl-log li[role=button]{cursor:pointer}
+.wfl-pv .wfl-log li[role=button]:hover{background:color-mix(in srgb,var(--hi) 5%,transparent)}
+.wfl-pv .wfl-log li[role=button]:focus-visible{outline:2px solid var(--held);outline-offset:-2px}
+.wfl-ev{border-top:1px solid var(--line2);padding:14px 18px 16px;background:var(--panel2);font-size:.9rem}
+.wfl-ev[hidden]{display:none}
+.wfl-ev-h{display:flex;gap:12px;justify-content:space-between;align-items:flex-start;margin-bottom:6px}
+.wfl-ev-h b{color:var(--hi)}
+.wfl-ev-x{cursor:pointer;font:inherit;font-size:.82rem;padding:4px 10px;border-radius:6px;border:1px solid var(--line2);background:transparent;color:var(--hi);flex:none}
+.wfl-ev p{margin:0 0 10px;color:var(--muted);line-height:1.5}
+.wfl-ev a{color:var(--hi)}
+.wfl-ev table{width:100%;border-collapse:collapse;font-size:.82rem;font-variant-numeric:tabular-nums;margin-bottom:8px}
+.wfl-ev th{text-align:left;color:var(--faint);font-weight:500;padding:4px 6px;border-bottom:1px solid var(--line2)}
+.wfl-ev td{padding:5px 6px;border-bottom:1px solid var(--line);color:var(--text)}
+.wfl-ev .wfl-ev-f{font-size:.78rem;color:var(--faint);margin:0}
+.wfl-pv .wfl-h::after{content:"Click a row to see why";display:block;width:100%;font-size:.78rem;color:var(--faint);margin-top:4px}
+.bck-na{border-left:3px solid var(--held);padding:8px 12px;margin:12px 0;color:var(--muted);background:color-mix(in srgb,var(--held) 7%,transparent)}
+.bck-na b{color:var(--hi)}

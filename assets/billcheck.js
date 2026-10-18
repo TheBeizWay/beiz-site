@@ -57,8 +57,10 @@
     else if ((m = s.match(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{2,4})/))) [d, mo, y] = [+m[1], +m[2], +m[3]];
     else if ((m = s.match(/^(\d{1,2})[\s-]([A-Za-z]{3})[A-Za-z]*[\s-](\d{2,4})/))) [d, mo, y] = [+m[1], MON.indexOf(m[2].toLowerCase()) + 1, +m[3]];
     else return null;
-    if (y < 100) y += 2000; if (!mo || mo > 12 || d > 31) return null;
-    return Math.floor(Date.UTC(y, mo - 1, d) / DAY);
+    if (y < 100) y += 2000; if (!mo || mo > 12 || !d || d > 31) return null;
+    const t = new Date(Date.UTC(y, mo - 1, d));
+    if (t.getUTCFullYear() !== y || t.getUTCMonth() !== mo - 1 || t.getUTCDate() !== d) return null; // e.g. 31/02 doesn't roll into March
+    return Math.floor(t.getTime() / DAY);
   }
   function pAmt(s) {
     s = String(s || "").trim(); if (!s) return null;
@@ -81,9 +83,9 @@
     bank: ["Supplier bank details changed", "hi", "Payment redirection fraud starts with a request to update bank details. Each change should be confirmed by phone, on a number you already had."],
     split: ["Bills that look split to stay under the approval limit", "md", "Same supplier, same day, each under your limit but over it together."],
     limit: ["Bills just under the approval limit", "md", "Within 5% under your limit. One on its own is usually nothing; a pattern is worth a question."],
-    news: ["New supplier with a large first bill", "md", "A supplier you haven't paid before whose first bill is at least twice your approval limit. Check the supplier is real and the work was done."],
+    news: ["Large first bill from a supplier first seen in this file", "md", "A supplier that first appears in this export, more than 30 days in, with a first bill at least twice your approval limit. It may not be new to your business. Check the supplier is real and the work was done."],
     wkd: ["Paid on a weekend", "md", "Payments released on a Saturday or Sunday. Normal for some businesses; unusual for most."],
-    abn: ["ABN missing or not valid", "md", "An ABN that fails the official check-digit test is a typo or made up. If a supplier doesn't quote an ABN, you may need to withhold 47% of the payment under the ATO's no-ABN withholding rules."],
+    abn: ["ABN missing or failing the check-digit test", "md", "An ABN that fails the official check-digit test is a typo or made up. Passing the test doesn't confirm the ABN is registered or who owns it. If a supplier doesn't quote an ABN, you may need to withhold 47% of the payment under the ATO's no-ABN withholding rules."],
   };
   function run(rows, map, limit) {
     const hdr = rows[0].map(norm);
@@ -98,6 +100,7 @@
       bills.push(b);
     }
     const F = [], add = (type, items, detail, risk = 0) => F.push({ type, items, detail, risk });
+    const twice = new Map(); // row -> amount: each extra bill counted once, even if two checks flag it
     const by = {}; bills.forEach(b => (by[b.sk] ||= []).push(b));
     const start = Math.min(...bills.map(b => b.date));
     for (const list of Object.values(by)) {
@@ -107,12 +110,12 @@
       for (let i = 0; i < list.length; i++) for (let j = i + 1; j < list.length && list[j].date - list[i].date <= 14; j++) {
         const a = list[i], b = list[j];
         if (a.amount > 0 && a.amount === b.amount && !done.has(j) && !(a.invoice && b.invoice && iKey(a.invoice) === iKey(b.invoice))) {
-          done.add(j); add("dup", [a, b], `${b.date - a.date} days apart`, b.amount);
+          done.add(j); add("dup", [a, b], `${b.date - a.date} days apart`, b.amount); twice.set(b.row, b.amount);
         }
       }
       // same invoice number
       const ig = {}; list.forEach(b => { const k = iKey(b.invoice); if (k) (ig[k] ||= []).push(b); });
-      for (const g of Object.values(ig)) if (g.length > 1) add("inv", g, g[0].amount === g[1].amount ? "Same amount" : "Different amounts", Math.min(...g.map(b => b.amount)) * (g.length - 1));
+      for (const g of Object.values(ig)) if (g.length > 1) { const lo = Math.min(...g.map(b => b.amount)); add("inv", g, g[0].amount === g[1].amount ? "Same amount" : "Different amounts", lo * (g.length - 1)); g.slice(1).forEach(b => { if (!twice.has(b.row)) twice.set(b.row, Math.min(lo, b.amount)); }); }
       // bank changes
       const banks = [...new Set(list.map(b => b.bank).filter(Boolean))];
       if (banks.length > 1) { const firstNew = list.find(b => b.bank === banks[1]); add("bank", [firstNew], `${banks.length} different accounts: ${banks.join(" → ")}`); }
@@ -128,7 +131,8 @@
       if (b.amount >= limit * 0.95 && b.amount < limit) add("limit", [b], `${aud(limit - b.amount)} under your ${aud0(limit)} limit`);
       if (b.paid != null) { const wd = new Date(b.paid * DAY).getUTCDay(); if (wd === 0 || wd === 6) add("wkd", [b], `Paid ${wd === 6 ? "Saturday" : "Sunday"} ${fmtD(b.paid)}`); }
     });
-    return { bills, skipped, merged, F };
+    const NA = [["inv", "invoice", "no bill-number column"], ["bank", "bank", "no bank-account column"], ["wkd", "paid", "no date-paid column"], ["abn", "abn", "no ABN column"]].filter(([, k]) => map[k] < 0);
+    return { bills, skipped, merged, F, risk: [...twice.values()].reduce((s, a) => s + Math.max(0, a), 0), na: NA };
   }
 
   /* ---------- UI ---------- */
@@ -153,7 +157,7 @@
     if (miss.length) { out.innerHTML = `<p class="bck-err">We couldn't find the ${miss.length > 1 ? miss.slice(0, -1).join(", ") + " and " + miss.at(-1) + " columns" : miss[0] + " column"}. Pick ${miss.length > 1 ? "them" : "it"} in the lists above.</p>`; status.textContent = ""; return; }
     const t0 = performance.now(), r = run(data, map, limit), ms = Math.round(performance.now() - t0);
     if (!r.bills.length) { out.innerHTML = `<p class="bck-err">No rows had a supplier, an amount and a date we could read. Check the columns above.</p>`; return; }
-    const value = r.bills.reduce((s, b) => s + b.amount, 0), risk = r.F.reduce((s, f) => s + f.risk, 0);
+    const value = r.bills.reduce((s, b) => s + b.amount, 0), risk = r.risk;
     const sup = new Set(r.bills.map(b => b.sk)).size;
     const span = `${fmtD(Math.min(...r.bills.map(b => b.date)))} to ${fmtD(Math.max(...r.bills.map(b => b.date)))}`;
     status.textContent = `Checked ${r.bills.length} bills in ${ms} ms. Your file stayed on this device.`;
@@ -162,7 +166,10 @@
       <div class="${r.F.length ? "w" : ""}"><span>Worth a look</span><b>${r.F.length}</b><small>Prompts for a person, not conclusions</small></div>
       <div class="${risk ? "r" : ""}"><span>Could have been paid twice</span><b>${aud0(risk)}</b><small>Duplicates and repeated invoice numbers</small></div></div>`;
     if (r.skipped || r.merged) h += `<p class="fine">${r.skipped ? `${r.skipped} ${r.skipped === 1 ? "row" : "rows"} skipped (no supplier, amount or date). ` : ""}${r.merged ? `${r.merged} line-item ${r.merged === 1 ? "row" : "rows"} combined into ${r.merged === 1 ? "its bill" : "their bills"}.` : ""}</p>`;
-    if (!r.F.length) h += `<p class="bck-ok">Nothing flagged by these eight checks. That's a good sign, not a clean bill of health: these are the quick checks, not all of them.</p>`;
+    const ran = 8 - r.na.length;
+    if (r.na.length) h += `<p class="bck-na"><b>Not assessed:</b> ${r.na.map(([t, , why]) => `${CHECKS[t][0].toLowerCase()} (${why})`).join("; ")}. Add those columns to run ${r.na.length === 1 ? "it" : "them"}.</p>`;
+    if (!r.F.length) h += `<p class="bck-ok">Nothing flagged by the ${ran} checks that ran. That's a good sign, not a clean bill of health: these are the quick checks, not all of them.</p>`;
+    h += `<p class="fine">Dates are read as day/month/year. "Could have been paid twice" counts each extra bill once.</p>`;
     for (const [type, [title, lvl, why]] of Object.entries(CHECKS)) {
       const fs = r.F.filter(f => f.type === type); if (!fs.length) continue;
       const rowsH = fs.slice(0, 40).map(f => f.items.map((b, i) => `<tr${i ? ' class="c"' : ""}><td>${i ? "" : esc(b.supplier)}</td><td>${esc(b.invoice) || "<i>none</i>"}</td><td>${fmtD(b.date)}</td><td class="n">${aud(b.amount)}</td><td>${i ? "" : esc(f.detail)}</td></tr>`).join("")).join("");
@@ -176,7 +183,7 @@
       <div class="hz-ctas"><a class="btn primary" href="/contact/?topic=Two-week%20cash%20%26%20data%20check#form">Ask about the check</a><a class="btn ghost" href="/contact/?topic=Discovery%20call#form">Book a 20-minute fit check</a><a class="btn ghost" href="/services/ai-readiness-sprint/">About the agent</a></div></div>`;
     out.innerHTML = h;
     $("#bcCsv").onclick = () => {
-      const q = s => `"${String(s ?? "").replace(/"/g, '""')}"`;
+      const q = s => { let v = String(s ?? ""); if (/^[=+@\t\r]/.test(v) || (/^-/.test(v) && isNaN(+v))) v = "'" + v; return `"${v.replace(/"/g, '""')}"`; }; // stop spreadsheet formulas
       const lines = [["Check", "Supplier", "Bill no.", "Bill date", "Amount", "Row in file", "Why"].join(",")];
       r.F.forEach(f => f.items.forEach(b => lines.push([CHECKS[f.type][0], b.supplier, b.invoice, fmtD(b.date), b.amount.toFixed(2), b.row, f.detail].map(q).join(","))));
       const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([lines.join("\r\n")], { type: "text/csv" }));

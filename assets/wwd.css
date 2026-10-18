@@ -28,3 +28,16 @@
 .wwd-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:12px 20px;justify-content:space-between;padding:14px 22px;border-top:1px solid var(--line);font-size:.9rem}
 .wwd-foot a{color:var(--hi)}
 @media(max-width:760px){.wwd{grid-template-columns:1fr}.wwd-tabs{border-right:0;border-bottom:1px solid var(--line);flex-direction:row;overflow-x:auto}.wwd-tabs button{flex:0 0 72%}}
+/* header dropdown (preview only: .wwd-on is set by wwd.js) */
+.wwd-mm{display:inline-flex}
+.wwd-pop[hidden]{display:none!important}
+header.site .wrap{position:relative}
+.wwd-pop{position:absolute;left:0;right:0;top:calc(100% + 1px);z-index:80;padding-top:8px}
+.wwd-pop .wwd{box-shadow:0 30px 70px rgba(0,0,0,.45)}
+.wwd-on>[data-wwd-open]::after{content:"";display:inline-block;width:6px;height:6px;margin-left:8px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-3px) rotate(45deg);opacity:.7}
+.wwd-on>[data-wwd-open][aria-expanded=true]::after{transform:translateY(0) rotate(-135deg)}
+.wwd-pop,.wwd-pop *{white-space:normal}
+.wwd-pop .wwd-tabs button{font-size:1rem;letter-spacing:0;text-transform:none}
+.wwd-pop .wwd-links a,.wwd-pop .wwd-foot a{text-decoration:underline;text-underline-offset:3px;color:var(--hi)!important}
+.wwd-pop .wwd-pane>p{max-width:56ch}
+.wwd-pop .wwd-links a,.wwd-pop .wwd-foot a{text-decoration:underline!important}
