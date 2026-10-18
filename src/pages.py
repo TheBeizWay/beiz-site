@@ -222,6 +222,25 @@ def cash_data_check():
     add("/cash-data-check/", "Two-week cash & data check: $1,500 fixed | Beiz", "Duplicate bills, unbilled hours, invoices below your rates, unapplied credits and overdue accounts, found in your Xero and job records by a Chartered Accountant. Two weeks, $1,500 fixed.", body, faq_ld(q))
 
 
+
+
+def bill_review_preview():
+    body = phero("Preview, not linked from the site yet", "One supplier bill, step by step.",
+                 "A fictional bill goes through the checks, gets held, and waits for a person. Use Next, the step bar or your arrow keys.",
+                 [("/preview/bill-review/", "Bill review preview")]) + f'''<section style="padding-top:8px"><div class="wrap">
+<div class="br" id="br" tabindex="-1" aria-label="Bill review walk-through">
+  <div class="br-head"><b>Bill review</b><span>Fictional business and figures, excluding GST. Not connected to anything.</span></div>
+  <ol class="br-dots"></ol>
+  <div class="br-stage" aria-live="polite"></div>
+  <div class="br-static"><ol><li>A bill, a quote and a timesheet for one job arrive from three places.</li><li>Rules check supplier, job, rate and hours.</li><li>Hours don't match: 22 billed, 14 on the timesheet, quote capped at 16. The bill is held.</li><li>Your approver sees the three records side by side.</li><li>The agent drafts a question to the supplier; a person decides.</li><li>The corrected bill ($1,960) passes the checks and is approved. Every step is logged.</li></ol></div>
+  <div class="br-foot"><p class="br-cap"></p><div class="br-ctl"><button type="button" data-a="back">Back</button><button type="button" data-a="next">Run the checks</button></div></div>
+</div>
+<p class="nx" style="margin-top:18px">Which workflow would you like to stop assembling by hand? <a href="/contact/?topic=Discovery%20call#form">Book a fit check</a>.</p>
+</div></section>'''
+    add("/preview/bill-review/", "Bill review preview | Beiz", "Preview of an interactive walk-through: one fictional supplier bill checked, held and decided by a person.", body,
+        f'<meta name="robots" content="noindex"><link rel="stylesheet" href="/assets/bill-review.css?v={ASSET_V}"><script src="/assets/bill-review.js?v={ASSET_V}" defer></script>')
+
+
 # ------------------------------------------------------------------ services
 START_HERE = '''<section style="padding-top:8px"><div class="wrap"><p class="eyebrow">Start here</p><h2>Three ways to start, with fixed prices.</h2>
 <div class="cards" style="margin-top:22px">
@@ -1310,5 +1329,5 @@ def not_found():
 
 def build_all():
     home(); services_hub(); services(); privacy_sprint(); industries_hub(); industries(); examples(); ai_check(); workshop()
-    how_we_work(); faq(); contact(); privacy(); insights(); live_page(); try_page(); bill_check(); cash_data_check(); aml_firms(); compliance_sprint(); prices_page(); leave_cover(); about(); not_found()
+    how_we_work(); faq(); contact(); privacy(); insights(); live_page(); try_page(); bill_check(); bill_review_preview(); cash_data_check(); aml_firms(); compliance_sprint(); prices_page(); leave_cover(); about(); not_found()
     return PAGES

@@ -18,7 +18,7 @@ for path, html in pages.items():
     if path != "/404.html":
         urls.append(path)
 sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-sm += [f"  <url><loc>{SITE}{u}</loc><lastmod>{datetime.date.today().isoformat()}</lastmod></url>" for u in sorted(urls)]
+sm += [f"  <url><loc>{SITE}{u}</loc><lastmod>{datetime.date.today().isoformat()}</lastmod></url>" for u in sorted(urls) if not u.startswith("/preview/")]
 sm.append("</urlset>")
 open(os.path.join(ROOT, "sitemap.xml"), "w").write("\n".join(sm) + "\n")
 AI_TRAINING_BOTS = ["GPTBot", "Google-Extended", "CCBot", "ClaudeBot", "anthropic-ai", "Applebot-Extended", "Bytespider", "meta-externalagent"]
