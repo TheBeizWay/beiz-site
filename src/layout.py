@@ -232,7 +232,7 @@ ORG = {
     "makesOffer": [{"@type": "Offer", "name": n, "url": SITE + h, "priceCurrency": "AUD", "price": p, "description": d,
                     "priceSpecification": {"@type": "PriceSpecification", "priceCurrency": "AUD", "minPrice": p, "valueAddedTaxIncluded": False}}
                    for n, h, p, d in [("Two-week cash and data check", "/prices/#check", 1500, "Fixed price. Unbilled work, margin leaks and manual bottlenecks found from Xero and timesheet exports, with a findings register and two-page report."),
-                                      ("Live cash and job profit model", "/services/dashboards-and-models/", 5000, "From price. A 13-week rolling cash forecast and profit by job, updated weekly."),
+                                      ("Live cash and job profit model", "/services/dashboards-and-models/", 5000, "From price. A 13-week rolling cash forecast and profit by job, refreshed weekly from the exports you provide."),
                                       ("AI workforce setup", "/services/ai-readiness-sprint/", 8500, "From price. The first AI agent with its job description, limits, approvals and decision log."),
                                       ("Compliance controls sprint", "/compliance-sprint/", 3500, "From price. Two weeks, one focus (AI use, AML/CTF Tranche 2 or the Privacy Act): register, data map, named owners, rules and approval points, and a 90-day plan."),
                                       ("Monthly controls operations", "/prices/#ops", 1250, "From price per month. Agent decision review, AML/CTF screening, monitoring and records where they apply, and a one-page monthly report.")]],

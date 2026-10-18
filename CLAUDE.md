@@ -48,6 +48,11 @@ Use only these. Never substitute, round or "improve" them.
 - Agents: written job description, limits, a named person they report to, tested on the client's past records against a pass mark agreed in writing, shadow mode before live, decision log in the client's own accounts, monthly spending cap and off switch, day-30 review.
 - The client keeps an operating folder: business context, procedures and agent memory, as plain files.
 - Nothing is paid or sent without a person.
+- Credit (agreed 18 Oct 2026): the $1,500 check is credited once against the next Beiz build (cash model, AI workforce setup, compliance sprint or leave cover setup) if the client accepts the proposal and pays the deposit within 60 days of the findings. Not redeemable for cash; not for monthly support.
+- Cash model: the client drops in fresh exports weekly and the model refreshes; Beiz builds it, ties actuals to the ledger, documents assumptions and hands over. A weekly Beiz review only under monthly support.
+- Monthly controls operations: up to two agreed agents or one model; monthly control review, log sample, test-set re-run, up to two hours of fixes in total; more is quoted. Requests acknowledged within two business days. Not round-the-clock monitoring or an emergency service.
+- Findings: "We report what the records support"; findings may need an explanation before action; weak records are reported as a limitation.
+- Demo figures are illustrative and exclude GST.
 
 ---
 
