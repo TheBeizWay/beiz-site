@@ -1,0 +1,30 @@
+/* "What we do" discovery panel (preview) */
+.wwd{border:1px solid var(--line2);border-radius:10px;background:var(--panel);display:grid;grid-template-columns:300px 1fr;overflow:hidden}
+.wwd-q{grid-column:1/-1;margin:0;padding:16px 22px;border-bottom:1px solid var(--line);color:var(--hi);font-size:1.05rem;font-weight:600}
+.wwd-tabs{display:flex;flex-direction:column;border-right:1px solid var(--line);padding:8px}
+.wwd-tabs button{all:unset;cursor:pointer;padding:14px 14px;border-radius:8px;color:var(--muted);line-height:1.35}
+.wwd-tabs button b{display:block;color:var(--text);font-weight:600;margin-bottom:2px}
+.wwd-tabs button span{font-size:.85rem}
+.wwd-tabs button[aria-selected=true]{background:var(--panel2);box-shadow:inset 3px 0 0 var(--held)}
+.wwd-tabs button[aria-selected=true] b{color:var(--hi)}
+.wwd-tabs button:focus-visible{outline:2px solid var(--held);outline-offset:-2px}
+.wwd-pane{padding:20px 24px}
+.wwd-pane h3{margin:0 0 6px;color:var(--hi)}
+.wwd-pane>p{margin:0 0 14px;color:var(--muted);max-width:62ch}
+.wwd-sw{display:inline-flex;border:1px solid var(--line2);border-radius:8px;overflow:hidden;margin-bottom:12px}
+.wwd-sw button{all:unset;cursor:pointer;padding:6px 12px;font-size:.82rem;color:var(--muted)}
+.wwd-sw button[aria-pressed=true]{background:var(--hi);color:var(--bg)}
+.wwd-sw button:focus-visible{outline:2px solid var(--held);outline-offset:-2px}
+.wwd-flow{list-style:none;margin:0 0 10px;padding:0;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.wwd-flow li{border:1px solid var(--line2);border-radius:6px;padding:7px 10px;font-size:.86rem;color:var(--text);background:var(--panel2)}
+.wwd-flow[hidden]{display:none}
+.wwd-flow{gap:8px 22px}
+.wwd-flow li{position:relative}
+.wwd-flow li+li::before{content:"→";color:var(--faint);position:absolute;left:-17px;top:50%;transform:translateY(-50%)}
+.wwd-flow li.p{border-color:var(--held);color:var(--hi)}
+.wwd-cap{margin:0 0 16px;color:var(--faint);font-size:.85rem}
+.wwd-links{display:flex;flex-wrap:wrap;gap:10px 18px}
+.wwd-links a{color:var(--hi)}
+.wwd-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:12px 20px;justify-content:space-between;padding:14px 22px;border-top:1px solid var(--line);font-size:.9rem}
+.wwd-foot a{color:var(--hi)}
+@media(max-width:760px){.wwd{grid-template-columns:1fr}.wwd-tabs{border-right:0;border-bottom:1px solid var(--line);flex-direction:row;overflow-x:auto}.wwd-tabs button{flex:0 0 72%}}

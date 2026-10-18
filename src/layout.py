@@ -156,7 +156,7 @@ def _header(path):
                 f'<div class="ddm" id="dd-{key}">{top}{links}</div></div>')
     see = [(h, t) for h, t, _ in NAV]
     sname = dict(SERVICES)
-    TOP = [("/services/", "What we do"), ("/prices/", "Prices"), ("/bill-check/", "Free bill check"), ("/how-we-work/", "How it works"), ("/about/", "About")]
+    TOP = [("/services/", "What we do"), ("/how-we-work/", "How it works"), ("/bill-check/", "Free bill check"), ("/prices/", "Prices"), ("/about/", "About")]
     mm_start = [("/cash-data-check/", "Two-week cash &amp; data check", "$1,500 fixed", "Unbilled work, margin leaks and manual bottlenecks, from your exports."),
                 ("/services/ai-readiness-sprint/", "AI workforce setup", "from $8,500", "Agents with job descriptions and limits, including the AI already in your software."),
                 ("/services/dashboards-and-models/", "Financial modelling", "from $5,000", "13-week cash, job margins and what-if scenarios."),
