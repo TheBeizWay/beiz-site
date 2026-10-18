@@ -96,6 +96,10 @@ Avoid the tells of generated copy: a word or phrase singled out in a headline, a
 - GitHub Pages deploys `main`. Pages are cached for about 10 minutes; check the live site with `curl "https://beiz.com.au/?nc=$RANDOM"`.
 - Test locally with `python3 -m http.server 8765` and Playwright, on desktop (1440 wide) and phone (390 wide). There must be no page errors and no horizontal scroll, and every internal link must resolve.
 
+### Logo (locked 18 Oct 2026, Purav's final call)
+
+The charcoal rounded square with green, amber and grey ledger marks, plus the spaced BEIZ wordmark and "Data & Accounting". No new concepts, no rebrand, no animation of the logo itself. Use the full lockup where there's room and the icon alone where space is tight. Files: `assets/brand/` (icon SVG and 512px PNG; lockups for light and dark backgrounds). The same mark is used on the site, proposals and the digital card at /card/.
+
 ### Themes
 
 - **Default: warm** (since 17 Oct 2026, Purav's choice, claude.com feel): `warm.css` on top of `ledger.css`, warm near-black, ivory type, no ruled lines. The header button switches between warm and light. Bottle-green **Ledger** is at `?theme=ledger`. **Neon** is reached at `?theme=neon`: dark navy with cyan `#2EF2E2`, glow on primary buttons, cursor glow, scroll progress bar, sections that fade in, and the agent-network canvas in the hero on desktop only. Files: `refine.css`, `future-neon.css`, `calm.css` (structural fixes) and `neon-on.css`. Effects come from `future-fx.js`.

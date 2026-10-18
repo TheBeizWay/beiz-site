@@ -80,7 +80,7 @@ def home():
     <h1>Use AI in your business, with guardrails. <span class="h1-2">Set up, tested and checked by an Australian Chartered Accountant.</span></h1>
     <p class="hz-sub">We set up AI agents for real work: checking bills, preparing client checks, drafting replies and keeping reports current. Each one has written limits and is tested on your own records first. Nothing is paid or sent until a person approves it.</p>
     <div class="hz-ctas"><a class="btn primary" href="/contact/?topic=Discovery%20call#form" data-topic="Discovery call">Book a 20-minute fit check</a><a class="btn ghost" href="/bill-check/">Try the free bill check</a></div>
-    <p class="hz-who"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="" width="48" height="48"><span><b>Purav Mehta</b>, CA · GAICD · Certificate of Public Practice. The person you talk to, and the one who checks every limit.</span></p>
+    <p class="hz-who"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="" width="48" height="48"><span><b>Purav Mehta</b>, CA · GAICD · Certificate of Public Practice. The person you talk to, and the one who checks every limit. <a href="/card/">Save my contact card</a></span></p>
   </div>
   <div class="hz-room"><div class="wfl" id="wfl">
     <div class="wfl-h"><b>Control room</b><span>Simulation with a made-up business. Not connected to anything.</span><div class="wfl-sc" role="group" aria-label="Choose a day"><button type="button" data-sc="ok" aria-pressed="true">Ordinary day</button><button type="button" data-sc="bad" aria-pressed="false">Bad day</button></div><button type="button" class="wfl-p" id="wflP" aria-pressed="false">Pause</button></div>
