@@ -21,6 +21,7 @@ def trust_pages():
     <div class="card"><span class="k">03 · Independence</span><h3>No software of our own to sell</h3><p>Work is built inside your own accounts, such as Xero, MYOB, Microsoft 365 or Google Workspace. If you leave, you keep what was built.</p></div>
     <div class="card"><span class="k">04 · Data</span><h3>AI plans that exclude training on your data</h3><p>We use AI plans whose terms exclude training on client data. Please do not send passwords or bank details; exports are enough for most checks.</p></div>
   </div>
+  <p class="fine" style="margin-top:14px">Beiz holds professional indemnity insurance, and Purav is bound by the CA ANZ Code of Ethics (APES 110).</p>
 </div></section>'''
 
     limits = '''<section class="band"><div class="wrap">

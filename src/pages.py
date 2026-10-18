@@ -163,7 +163,7 @@ def home():
   <div>
     <p class="demo-k">Who you'll work with</p>
     <h2>You'll talk to Purav, not a sales team.</h2>
-    <p class="talk-cred">Australian Chartered Accountant (CA ANZ) · Certificate of Public Practice · GAICD</p>
+    <p class="talk-cred">Australian Chartered Accountant (CA ANZ) · Certificate of Public Practice · GAICD · Professional indemnity insured</p>
     <p>I set up and test every agent myself, and I check the limits before anything goes live. My background is internal audit, fraud and controls, corporate finance and SAP systems, governance and reporting for large project portfolios, and data analysis and automation. I'm bound by the APES 110 Code of Ethics.</p>
     <p>Beiz works alongside your accountant, or inside your firm. We don't do tax, BAS or statutory audit work, so there's nothing to compete with.</p><!--CA_WHO-->
     <div class="hz-ctas"><a class="btn primary" href="/contact/?topic=Discovery%20call#form" data-topic="Discovery call">Book a 20-minute fit check</a><a class="btn ghost" href="/about/">More about Beiz</a></div>
@@ -818,6 +818,7 @@ FAQ = [
     ("What does Beiz actually do?", "We're accountants who build the systems behind a business's money: automation that does the grunt work, dashboards and forecasts that show what's coming, and the controls that keep AI safe. We don't do tax."),
     ("Isn't a Chartered Accountant just a tax accountant?", "Tax is one thing a Chartered Accountant can do, and we don't do it at all. A Chartered Accountant is trained in audit, risk, systems, forecasting and business advice. GAICD means we're also trained in how boards govern a business and oversee risk."),
     ("Who's behind Beiz?", "Beiz is led by Purav Mehta, an Australian Chartered Accountant and a graduate of the Australian Institute of Company Directors, with a background in internal audit, fraud and controls, corporate finance, project portfolio governance and data science. Your written proposal confirms who does the work, and you can verify his credentials before you sign anything."),
+    ("Are you insured?", "Yes. Beiz holds professional indemnity insurance. Your engagement letter confirms the cover that applies to your engagement."),
     ("Is my data safe with AI?", "We only use business-grade AI services whose terms stop your data being used to train models, and we build inside your own Microsoft, Google or Xero accounts wherever we can. Sensitive steps stay with a human."),
     ("What happens if the AI gets it wrong?", "It will, sometimes. That's why every build has approval steps, limits and a log. The AI prepares the work, a person signs it off, and anything unusual gets flagged rather than actioned."),
     ("Do you replace my accountant or bookkeeper?", "No. We don't replace your tax accountant, we feed them. They keep you right with the ATO, looking back at what happened. We work on what happens next week. At year end they get clean, reconciled data and do their job faster."),
@@ -1299,7 +1300,7 @@ def ai_cost():
 
 def ask_ai():
     qfaqs = [("What does Beiz Data & Accounting do?", "Beiz sets up AI agents for routine finance, compliance and admin work in Australian businesses: checking bills, preparing client checks, reconciliations, cash models and reports. Each agent has a written job description and limits, is tested on the client's past records, runs alongside staff first, and needs a person's approval for anything that moves money, reaches a customer or decides something about a person."),
-             ("Who runs Beiz?", "Purav Mehta, an Australian Chartered Accountant (CA ANZ) with a Certificate of Public Practice and a graduate of the Australian Institute of Company Directors (GAICD). He does the work and is the person clients talk to. Beiz Data & Accounting Pty Ltd is based in Canberra and works Australia-wide."),
+             ("Who runs Beiz?", "Purav Mehta, an Australian Chartered Accountant (CA ANZ) with a Certificate of Public Practice and a graduate of the Australian Institute of Company Directors (GAICD). He does the work and is the person clients talk to. Beiz Data & Accounting Pty Ltd is based in Canberra, works Australia-wide and holds professional indemnity insurance."),
              ("What does Beiz cost?", "Fixed prices, agreed in writing. A two-week cash and data check is $1,500. A compliance controls sprint is from $3,500. A live cash and job profit model is from $5,000. AI workforce setup is from $8,500. Monthly controls operations are from $1,250 a month. Beiz isn't registered for GST, so no GST is added."),
              ("Does Beiz do tax returns, BAS or audits?", "No. Beiz doesn't provide tax agent or BAS agent services, GST or BAS lodgements, statutory audit or assurance, legal advice or financial product advice, and it doesn't release payments without a person approving them."),
              ("What if an AI assistant's answer about Beiz is different from the website?", "Go with the website and what Beiz confirms in writing. AI assistants can be out of date or wrong. If you spot a wrong answer, tell us at hello@beiz.com.au.")]
@@ -1308,6 +1309,7 @@ def ask_ai():
              ("What it does", "Sets up AI agents for routine finance, compliance and admin work, with written limits, a test on your past records, shadow running first, a person's approval for anything that matters, and a decision log"),
              ("Where", "Canberra, ACT. Works Australia-wide"),
              ("Ways to start", 'Free <a href="/bill-check/">bill check</a> · two-week cash &amp; data check $1,500 · compliance controls sprint from $3,500 · live cash &amp; job profit model from $5,000 · AI workforce setup from $8,500 · monthly controls operations from $1,250 a month'),
+             ("Insurance", "Professional indemnity insurance"),
              ("GST", "Not registered, so no GST is added to prices"),
              ("Doesn't do", "Tax or BAS agent services, GST or BAS lodgements, statutory audit or assurance, legal advice, financial product advice, payments released without a person"),
              ("Contact", '<a href="mailto:hello@beiz.com.au">hello@beiz.com.au</a> · <a href="/contact/">contact form</a>')]
@@ -1476,7 +1478,7 @@ def about():
 <p>We don't do tax returns, BAS, SMSF advice or audits, business valuations, legal advice or financial product advice. Those need licences, registrations or specialist standards, and we'd rather do one thing properly. We work alongside the people who do them, and make their jobs easier with clean, reconciled data.</p>
 </div>
 <aside class="aside"><h3>At a glance</h3>
-<ul class="ticks"><li>Led by Purav Mehta</li><li>Australian Chartered Accountant (CA ANZ)</li><li>CA ANZ Certificate of Public Practice</li><li>GAICD</li><li>Bound by the APES 110 code of ethics</li><li>Beiz Data &amp; Accounting Pty Ltd · ABN 53 691 755 496</li><li>Australia-wide, remote-first</li></ul>
+<ul class="ticks"><li>Led by Purav Mehta</li><li>Australian Chartered Accountant (CA ANZ)</li><li>CA ANZ Certificate of Public Practice</li><li>GAICD</li><li>Professional indemnity insurance</li><li>Bound by the APES 110 code of ethics</li><li>Beiz Data &amp; Accounting Pty Ltd · ABN 53 691 755 496</li><li>Australia-wide, remote-first</li></ul>
 <a class="btn primary" href="/how-we-work/">How we work</a><a class="btn" href="/card/" style="margin-top:10px">Purav's card: save my contact</a></aside></div></section>
 <section><div class="wrap"><p class="eyebrow">What we believe</p><h2>Five rules we don't bend.</h2><div class="cards">{pr}</div></div></section>''' + cta_band("Sound like the kind of firm you want?", "Tell us what you're trying to fix. A few lines in writing is enough.")
     add("/about/", "About us", "About Beiz Data & Accounting: a Chartered Accountant and GAICD led firm helping Australian businesses use AI, automation and data without losing control of their numbers.", body)
