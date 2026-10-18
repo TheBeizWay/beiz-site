@@ -2392,3 +2392,9 @@ html.paper .mark .wm small{color:#3F4A44!important}
 .wfl-pv .wfl-h::after{content:"Click a row to see why";display:block;width:100%;font-size:.78rem;color:var(--faint);margin-top:4px}
 .bck-na{border-left:3px solid var(--held);padding:8px 12px;margin:12px 0;color:var(--muted);background:color-mix(in srgb,var(--held) 7%,transparent)}
 .bck-na b{color:var(--hi)}
+/* v50 header link to the digital card */
+.card-link{font-size:.85rem;color:var(--muted)!important;text-decoration:none;padding:6px 8px;border-radius:6px;white-space:nowrap}
+.card-link:hover{color:var(--hi)!important;background:color-mix(in srgb,var(--hi) 6%,transparent)}
+@media(max-width:999px){header.site .card-link{display:none}}
+header.site .card-link{margin-left:auto}
+header.site .card-link + .th-tog{margin-left:4px!important}
