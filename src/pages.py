@@ -968,8 +968,8 @@ ARTICLES = [
 
 def insights():
     c = "".join(f'<a class="card" href="{h}"><span class="k">{m}</span><h3>{t}</h3><p>{d}</p><span class="go">Read →</span></a>' for h, t, d, m in ARTICLES)
-    body = phero("Insights", "Plain-English articles.", "Short, practical and written for owners, not IT departments.", [("/insights/", "Insights")]) + f'<section style="padding-top:8px"><div class="wrap"><div class="cards">{c}</div></div></section>'
-    add("/insights/", "Insights", "Plain-English articles on AI governance, the Privacy Act automated-decision rules, finance automation and getting back control of your tech.", body)
+    body = phero("Insights", "Perspectives on finance, operations, data and AI.", "Analysis, implementation lessons and practical frameworks for better business decisions.", [("/insights/", "Insights")]) + f'<section style="padding-top:8px"><div class="wrap"><div class="cards">{c}</div></div></section>'
+    add("/insights/", "Insights", "Perspectives and analysis on AI governance, the Privacy Act automated-decision rules, finance automation and getting back control of your tech.", body)
 
     def art(i, prose, topic):
         h, t, d, m = ARTICLES[i]

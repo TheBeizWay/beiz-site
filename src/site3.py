@@ -482,7 +482,7 @@ def nav_html(mode, path, cat):
     return out
 
 
-def shell(mode, path, title, desc, body, ld, scripts=""):
+def shell(mode, path, title, desc, body, ld, scripts="", head_extra="", html_class=""):
     root = ROOTS[mode]
     cat = load(mode)
     prod_path = path.replace(root, "/", 1)
@@ -497,14 +497,14 @@ def shell(mode, path, title, desc, body, ld, scripts=""):
     flag = '<p class="flag">Review note: the liability-scheme line is unchanged from the live site. Its wording awaits your decision.</p>' if mode == "preview" else ""
     svc_links = "".join(f'<li><a href="{root}services/#{g["id"]}">{e(g["title"])}</a></li>' for g in cat["groups"][:4])
     return f'''<!doctype html>
-<html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en-AU"{f' class="{html_class}"' if html_class else ""}><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
 {robots}<link rel="canonical" href="{canon}">
 <meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{canon}"><meta property="og:image" content="{SITE}/assets/og-card.png"><meta property="og:type" content="website">
 <meta name="theme-color" content="#F6F4EF"><link rel="icon" href="/assets/brand/beiz-icon.svg">
 {logo_js}
-<style>{CSS}{SHELL_CSS}{PAGE_CSS}</style>
+{head_extra}<style>{CSS}{SHELL_CSS}{PAGE_CSS}</style>
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 </head><body>
 <a class="skip" href="#main">Skip to content</a>
@@ -1421,6 +1421,47 @@ def askai_block(mode, cat):
 <p class="note">Each button copies the question, then opens the assistant's normal page in a new tab for you to paste it in. Questions aren't pre-filled, because that works differently for each provider.{own}</p>
 </div></div></section>'''
     return html, ASKAI_JS
+
+
+
+# ---------- legacy pages in the approved shell ----------
+# Content from pages.py keeps its own styles (fixed light "paper" theme, no theme switcher) and the scripts that run its
+# tools and forms; header, footer, navigation and CTA come from shell() like every other page.
+LEGACY_CSS = ["site.css", "wwd.css", "refine.css", "future-neon.css", "calm.css", "ledger.css", "paper.css"]
+LEGACY_JS = ["site.js", "wwd.js"]
+LEGACY_FIX = """main{font-family:Inter,system-ui,sans-serif}
+main .wrap{max-width:1180px}
+"""
+# Shell elements must look identical to the new pages; these out-rank the legacy theme rules (html.legacy prefix).
+LEGACY_SHELL_FIX = """html.legacy body{background:#F6F4EF;color:#15181D;font:400 17px/1.6 Inter,system-ui,sans-serif}
+html.legacy .top{background:rgba(246,244,239,.94);border-bottom:1px solid #E2DED5}
+html.legacy .top .btn.p{background:#15181D;color:#fff;border:1px solid #15181D;transition:none}
+html.legacy .top .btn.p:hover{background:#2A2F37}
+html.legacy .top .nav a{font:400 15px Inter,sans-serif;color:#4C525C}
+html.legacy .top .nav a:hover,html.legacy .top .nav a[aria-current]{color:#15181D;background:#ECE9E2}
+html.legacy .top .nav .sub a{color:#15181D}
+html.legacy .navx{color:#15181D}
+html.legacy footer{background:#F6F4EF;color:#666C76;font:400 14px/1.6 Inter,sans-serif;border-top:1px solid #E2DED5}
+html.legacy footer .fcols h2{font:600 13px/1.4 Inter,sans-serif;letter-spacing:.02em;margin:0 0 10px;color:#15181D}
+html.legacy footer a{color:#4C525C}html.legacy footer p{font-size:14px;margin:8px 0 0}
+html.legacy footer .fcols b{font:600 14px Inter,sans-serif;color:#15181D}
+"""
+
+
+def _important(css):
+    """The legacy theme CSS sets global !important rules on h2 and .btn, so the scoped shell fixes must too."""
+    import re
+    return re.sub(r"([^{};]+:[^{};]+?)(?=[;}])", lambda m: m.group(1) if "!important" in m.group(1) else m.group(1) + "!important", css)
+
+
+def legacy_shell(path, title, desc, body, extra_head=""):
+    from layout import ASSET_V
+    head = ("".join(f'<link rel="stylesheet" href="/assets/{f}?v={ASSET_V}">' for f in LEGACY_CSS)
+            + f'<script src="/assets/aicost-core.js?v={ASSET_V}" defer></script>' + extra_head + f"<style>{LEGACY_FIX}</style>")
+    scripts = "".join(f'<script src="/assets/{f}?v={ASSET_V}" defer></script>' for f in LEGACY_JS)
+    scripts += f"<style>{_important(LEGACY_SHELL_FIX)}</style>"
+    return shell("prod", path if path.endswith("/") or path.endswith(".html") else path + "/", title, desc, body,
+                 {"@context": "https://schema.org", "@graph": [ORG]}, scripts, head_extra=head, html_class="ledger paper legacy")
 
 
 def build():
