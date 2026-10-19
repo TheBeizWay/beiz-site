@@ -28,7 +28,6 @@ Use only these. Never substitute, round or "improve" them.
 | Positioning | AI for real work, with guardrails, set up and checked by an Australian Chartered Accountant (widened 17 Oct 2026) |
 | Buyers | Any Australian business that wants to use AI for real work but needs guardrails; accounting and bookkeeping firms and finance teams remain the core |
 | Email | hello@beiz.com.au |
-| Insurance | Professional indemnity insurance, in force from 19 Oct 2026 |
 
 ### Prices (change only when Purav says so)
 
@@ -62,7 +61,7 @@ Use only these. Never substitute, round or "improve" them.
 - **Invent anything:** clients, results, testimonials, case studies, uptime figures, user counts, time savings or "studies show". Demo data is labelled as made-up where it appears.
 - **Unsourced statistics.** A number from outside Beiz needs a primary source linked on the page (AUSTRAC, OAIC, ABS, NAIC, legislation). AI-generated "research" doesn't count until the original has been read.
 - **Badges or certifications Beiz doesn't hold.** No "compliant", "certified", "audited" or "immutable". No CA ANZ logo until the official artwork file is supplied (the slot in `src/layout.py` renders it when `CA_LOGO` is set).
-- **Overstate insurance.** Professional indemnity insurance is in force from 19 Oct 2026 (Purav confirmed 18 Oct 2026). Say "holds professional indemnity insurance"; never name the insurer, the cover amount or "fully insured" unless Purav supplies them. Keep the Professional Standards line in the footer.
+- **Claim PI insurance** until Purav confirms the policy is in force. Keep the Professional Standards line in the footer.
 - **Scope Beiz doesn't do:** tax returns, BAS or GST lodgements, tax or BAS agent services, statutory audit or assurance, legal advice, financial product advice, payments released without a person.
 - **Call an AI agent a Chartered Accountant,** or imply an agent signs anything off.
 - **Mention DFAT, government employers or public-sector work.** Beiz is private sector only.
