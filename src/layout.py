@@ -3,7 +3,7 @@ import json
 import os
 
 SITE = "https://beiz.com.au"
-ASSET_V = "159"  # bump to bust caches when CSS/JS change
+ASSET_V = "160"  # bump to bust caches when CSS/JS change
 
 LOGO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" aria-hidden="true" class="logo"><rect x="1" y="1" width="34" height="34" rx="7" fill="#15181D" stroke="#30353D" stroke-width="1.5"/><rect x="7" y="9" width="16" height="3.5" rx="1.75" fill="#43B581"/><circle cx="27.5" cy="10.75" r="1.75" fill="#43B581"/><rect x="7" y="16.25" width="11" height="3.5" rx="1.75" fill="#E9A93B"/><rect x="21" y="16.25" width="8" height="3.5" rx="1.75" fill="none" stroke="#E9A93B" stroke-width="1.2"/><rect x="7" y="23.5" width="22" height="3.5" rx="1.75" fill="#A6A49D"/></svg>')
 
@@ -161,7 +161,7 @@ def _header(path):
     sname = dict(SERVICES)
     TOP = [("/services/", "What we do"), ("/how-we-work/", "How it works"), ("/bill-check/", "Free bill check"), ("/workshop/", "Free workshop"), ("/prices/", "Prices"), ("/about/", "About")]
     mm_start = [("/cash-data-check/", "Two-week cash &amp; data check", "$1,500 fixed", "Unbilled work, margin leaks and manual bottlenecks, from your exports."),
-                ("/services/ai-readiness-sprint/", "AI workforce setup", "from $8,500", "Agents with job descriptions and limits, including the AI already in your software."),
+                ("/services/ai-readiness-sprint/", "AI workforce setup", "scoped quote", "Agents with job descriptions and limits, including the AI already in your software."),
                 ("/services/dashboards-and-models/", "Financial modelling", "from $5,000", "13-week cash, job margins and what-if scenarios."),
                 ("/compliance-sprint/", "Compliance controls sprint", "from $3,500", "Start here. One focus: AI use, AML/CTF Tranche 2 or the Privacy Act.")]
     mmp = ('<div class="mmp" role="group" aria-label="Services"><div class="mm-start">'
@@ -169,7 +169,7 @@ def _header(path):
            + '</div><div class="mm-foot"><a href="/services/ai-readiness-sprint/#agents">Meet the six agents</a><a href="/aml-ctf-accounting-firms/">AML/CTF for accounting firms</a><a href="/bill-check/">Free bill check</a><a href="/leave-cover/">Finance leave cover</a><a href="/services/data-engineering/">Data science &amp; analytics</a><a href="/services/">All services</a><a class="mm-ws" href="/workshop/">Free 5-minute workshop</a></div></div>')
     nav = "".join((f'<div class="wwd-mm"><a href="{h}"{cur(h)} data-wwd-open aria-expanded="false">{t}</a><div class="wwd-pop" hidden>{WWD_PANEL}</div></div>' if h == "/services/" and WWD_PANEL else f'<a href="{h}"{cur(h)}>{t}</a>') for h, t in TOP)
     grp = lambda title, items: f'<p class="mg">{title}</p>' + "".join(f'<a href="{h}">{t}</a>' for h, t in items)
-    START = [("/compliance-sprint/", "Compliance controls sprint · from $3,500"), ("/aml-ctf-accounting-firms/#aml", "AML/CTF onboarding check (demo)"), ("/cash-data-check/", "Two-week cash &amp; data check · $1,500"), ("/services/dashboards-and-models/", "Live cash &amp; job profit model · from $5,000"), ("/services/ai-readiness-sprint/", "AI workforce setup · from $8,500")]
+    START = [("/compliance-sprint/", "Compliance controls sprint · from $3,500"), ("/aml-ctf-accounting-firms/#aml", "AML/CTF onboarding check (demo)"), ("/cash-data-check/", "Two-week cash &amp; data check · $1,500"), ("/services/dashboards-and-models/", "Live cash &amp; job profit model · from $5,000"), ("/services/ai-readiness-sprint/", "AI workforce setup · scoped quote")]
     mnav = grp("Menu", TOP)  # same five items as the desktop menu
     return f'''<div class="ticker" role="region" aria-label="Beiz Pulse: Australian business indicators">
   <div class="label">BEIZ PULSE</div>
@@ -190,7 +190,7 @@ def _header(path):
 
 def _footer():
     s = "".join(f'<li><a href="{h}">{t}</a></li>' for h, t in SERVICES)
-    i = "".join(f'<li><a href="{h}">{t}</a></li>' for h, t in [("/bill-check/", "Free bill check"), ("/workshop/", "Free 5-minute workshop"), ("/ai-cost-calculator/", "AI running-cost calculator"), ("/compliance-sprint/", "Compliance controls sprint · from $3,500"), ("/aml-ctf-accounting-firms/", "AML/CTF for accounting firms"), ("/cash-data-check/", "Two-week cash &amp; data check · $1,500"), ("/services/dashboards-and-models/", "Live cash &amp; job profit model · from $5,000"), ("/services/ai-readiness-sprint/", "AI workforce setup · from $8,500"), ("/prices/#ops", "Monthly controls operations · from $1,250")])
+    i = "".join(f'<li><a href="{h}">{t}</a></li>' for h, t in [("/bill-check/", "Free bill check"), ("/workshop/", "Free 5-minute workshop"), ("/ai-cost-calculator/", "AI running-cost calculator"), ("/compliance-sprint/", "Compliance controls sprint · from $3,500"), ("/aml-ctf-accounting-firms/", "AML/CTF for accounting firms"), ("/cash-data-check/", "Two-week cash &amp; data check · $1,500"), ("/services/dashboards-and-models/", "Live cash &amp; job profit model · from $5,000"), ("/services/ai-readiness-sprint/", "AI workforce setup · scoped quote"), ("/prices/#ops", "Monthly controls operations · from $1,250")])
     return f'''<footer class="site">
   <div class="wrap">
     <div class="fcols">
@@ -239,7 +239,6 @@ ORG = {
                     "priceSpecification": {"@type": "PriceSpecification", "priceCurrency": "AUD", "minPrice": p, "valueAddedTaxIncluded": False}}
                    for n, h, p, d in [("Two-week cash and data check", "/prices/#check", 1500, "Fixed price. Unbilled work, margin leaks and manual bottlenecks found from Xero and timesheet exports, with a findings register and two-page report."),
                                       ("Live cash and job profit model", "/services/dashboards-and-models/", 5000, "From price. A 13-week rolling cash forecast and profit by job, refreshed weekly from the exports you provide."),
-                                      ("AI workforce setup", "/services/ai-readiness-sprint/", 8500, "From price. The first AI agent with its job description, limits, approvals and decision log."),
                                       ("Compliance controls sprint", "/compliance-sprint/", 3500, "From price. Two weeks, one focus (AI use, AML/CTF Tranche 2 or the Privacy Act): register, data map, named owners, rules and approval points, and a 90-day plan."),
                                       ("Monthly controls operations", "/prices/#ops", 1250, "From price per month. Agent decision review, AML/CTF screening, monitoring and records where they apply, and a one-page monthly report.")]],
     "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Services",

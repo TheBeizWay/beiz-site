@@ -1,0 +1,16 @@
+Project_ID,Sector,Budget_Hours,Actual_Logged_Hours,Invoiced_Hours,Unbilled_WIP_Hours,Unbilled_WIP_Value_AUD,Realization_Pct
+PRJ-2026-01,Software Advisory,428,452.3,410.0,42.3,7393.97,90.7
+PRJ-2026-02,Environmental Consulting,182,201.9,162.0,39.9,6980.53,80.2
+PRJ-2026-03,Civil Engineering,167,181.5,149.3,32.1,5624.5,82.3
+PRJ-2026-04,Civil Engineering,229,236.2,218.1,18.1,3169.23,92.3
+PRJ-2026-05,IT Managed Services,271,330.2,255.2,75.0,13122.22,77.3
+PRJ-2026-06,IT Managed Services,101,103.2,89.1,14.0,2458.72,86.4
+PRJ-2026-07,Civil Engineering,138,151.8,122.1,29.7,5199.63,80.4
+PRJ-2026-08,Software Advisory,350,388.9,335.5,53.4,9352.65,86.3
+PRJ-2026-09,Civil Engineering,443,497.4,416.1,81.3,14234.01,83.6
+PRJ-2026-10,Civil Engineering,386,446.2,357.1,89.2,15604.83,80.0
+PRJ-2026-11,IT Managed Services,168,203.8,161.4,42.4,7417.23,79.2
+PRJ-2026-12,Infrastructure,425,441.8,403.1,38.7,6776.39,91.2
+PRJ-2026-13,Software Advisory,343,352.2,333.0,19.2,3358.14,94.6
+PRJ-2026-14,Software Advisory,129,148.7,117.5,31.1,5448.1,79.1
+PRJ-2026-15,IT Managed Services,339,358.3,331.2,27.1,4746.74,92.4
