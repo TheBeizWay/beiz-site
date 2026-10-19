@@ -409,5 +409,89 @@
  "demos": {
   "enquiry-assistant": "published",
   "ask-ai": "published"
+ },
+ "workshop_page": {
+  "_note": "Buyer-ready Workshops, coaching & speaking content (20 Oct 2026). Formats are options scoped in a written proposal; no fees, audience sizes, past-event claims or testimonials. Worked examples use synthetic data and Beiz's own tested demonstrations.",
+  "workshops": [
+   {
+    "id": "ws-ai-workflow",
+    "title": "From manual task to tested AI workflow",
+    "audience": "Owners, operations and finance staff in small businesses and startups who repeat the same admin every week.",
+    "outcomes": [
+     "Choose one workflow worth automating, and one to leave alone",
+     "Map its steps, data and exceptions",
+     "Decide where a person must approve, and the limits that apply",
+     "Estimate running cost and time released with your own figures",
+     "Leave with a completed Automation Candidate Canvas"
+    ],
+    "format": "Half day, or two 90-minute sessions. Online or in person. Small groups so everyone works on their own process.",
+    "agenda": [
+     "Where AI helps in admin and finance work, and where it doesn't: a live walk-through of the enquiry-assistant and missing-receipts demonstrations",
+     "Map one of your processes (exercise)",
+     "Exceptions, approval points and what gets logged (exercise)",
+     "Costs and value with the AI cost-and-value calculator",
+     "Your canvas and next steps"
+    ],
+    "takeaways": [
+     "Your completed Automation Candidate Canvas",
+     "A controls checklist: limits, approvals, logging, off switch",
+     "Slides and links to the demonstrations"
+    ],
+    "topic": "Live workshop",
+    "msg": "Workshop proposal: From manual task to tested AI workflow. Audience and format: "
+   },
+   {
+    "id": "ws-dashboards",
+    "title": "From spreadsheet reporting to decision-ready dashboards",
+    "audience": "Owners and finance leads who report from spreadsheets and want numbers they can act on.",
+    "outcomes": [
+     "Agree the handful of measures that drive your decisions",
+     "Define each measure so it means the same thing every month",
+     "Spot the data-quality problems that make reports untrustworthy",
+     "See a worked dashboard built on synthetic data",
+     "Set a simple refresh and review routine"
+    ],
+    "format": "Half day, online or in person. Works best with your finance lead and one person who uses the reports.",
+    "agenda": [
+     "What decisions your reports should support",
+     "Measures and definitions (exercise)",
+     "Data sources and quality checks (exercise on a sample export)",
+     "Worked example: from export to dashboard, on synthetic data",
+     "Your measure sheet and next steps"
+    ],
+    "takeaways": [
+     "A measure-definition sheet for your business",
+     "A data-quality checklist",
+     "The worked example's structure to reuse"
+    ],
+    "topic": "Live workshop",
+    "msg": "Workshop proposal: From spreadsheet reporting to decision-ready dashboards. Audience and format: "
+   }
+  ],
+  "coaching": {
+   "title": "Coaching for finance professionals",
+   "audience": "Accountants and finance leads building practical data and AI skills.",
+   "format": "A short series of one-to-one sessions, agreed in advance, each tied to something you're building.",
+   "outcomes": [
+    "A working model, report or automation built by you, on synthetic or approved data",
+    "Your build reviewed and explained, with the reasoning written down",
+    "A plan for the next skill to practise"
+   ],
+   "limits": "Skills coaching only: not career, financial or legal advice. No employer or client confidential data in sessions.",
+   "topic": "Something else",
+   "msg": "Coaching enquiry: what I want to build: "
+  },
+  "speaking": {
+   "title": "Speaking and panels",
+   "audience": "Event organisers, professional bodies, industry groups and boards.",
+   "topics": [
+    "What changes when AI enters the finance workflow, and what shouldn't",
+    "Testing, limits and approval points before an AI system goes live",
+    "Getting your data in shape before you automate anything"
+   ],
+   "formats": "Keynote, workshop-style session, panel or fireside Q&A, tailored to the audience, with worked examples on synthetic data.",
+   "topic": "Something else",
+   "msg": "Speaking or panel enquiry. Event, audience, date and length: "
+  }
  }
 }
