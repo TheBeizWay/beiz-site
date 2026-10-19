@@ -2398,3 +2398,8 @@ html.paper .mark .wm small{color:#3F4A44!important}
 @media(max-width:999px){header.site .card-link{display:none}}
 header.site .card-link{margin-left:auto}
 header.site .card-link + .th-tog{margin-left:4px!important}
+
+/* Header fits six menu items between phone and wide desktop (19 Oct 2026) */
+@media (min-width:901px) and (max-width:1260px){nav.main.flat{gap:18px!important}nav.main.flat a{font-size:14px!important}header.site .card-link{display:none!important}}
+@media (min-width:1041px) and (max-width:1100px){nav.main.flat{gap:13px!important}nav.main.flat a{font-size:13px!important}header.site .wm small{display:none}}
+@media (min-width:901px) and (max-width:1040px){nav.main.flat{display:none!important}.menu-btn{display:inline-block!important}}
