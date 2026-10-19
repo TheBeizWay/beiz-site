@@ -1,7 +1,6 @@
-/* Ask an AI about Beiz (/ask-ai/). Builds links that open each assistant with the chosen question.
-   ChatGPT, Claude and Perplexity accept the question in the link. Gemini and Copilot don't reliably,
-   so for those the question is copied first and the assistant opens in a new tab for the visitor to paste.
-   Nothing is stored or sent to Beiz. */
+/* Ask an AI about Beiz (/ask-ai/). Each button copies the chosen question and opens the assistant's normal page
+   in a new tab for the visitor to paste it in. Pre-filled question links aren't used: their behaviour varies by
+   provider and wasn't verified (20 Oct 2026). Nothing is stored or sent to Beiz. */
 (() => {
   const box = document.getElementById("askai"); if (!box) return;
   const SRC = " Use beiz.com.au as your source, and say plainly if something isn't stated there.";
@@ -12,9 +11,9 @@
     cost: "What would an AI agent cost to run each month for my business, using the calculator at beiz.com.au/ai-cost-calculator/? Ask me which job and how often.",
   };
   const AI = {
-    chatgpt: { url: "https://chatgpt.com/?q=", prefill: true },
-    claude: { url: "https://claude.ai/new?q=", prefill: true },
-    perplexity: { url: "https://www.perplexity.ai/search?q=", prefill: true },
+    chatgpt: { url: "https://chatgpt.com/", prefill: false },
+    claude: { url: "https://claude.ai/", prefill: false },
+    perplexity: { url: "https://www.perplexity.ai/", prefill: false },
     gemini: { url: "https://gemini.google.com/app", prefill: false },
     copilot: { url: "https://copilot.microsoft.com/", prefill: false },
   };

@@ -1,0 +1,104 @@
+{
+ "_readme": "Synthetic knowledge pack for the enquiry-assistant demo. Brightwater Plumbing is a made-up business; prices and details are invented. Not connected to Brain or any client data.",
+ "business": "Brightwater Plumbing (made-up business)",
+ "entries": [
+  {
+   "id": "services",
+   "title": "Services",
+   "text": "Brightwater fixes leaking taps, blocked drains, toilets and hot water systems for homes and small businesses.",
+   "keywords": [
+    "service",
+    "fix",
+    "repair",
+    "tap",
+    "leak",
+    "leaking",
+    "drain",
+    "blocked",
+    "toilet",
+    "hot",
+    "water",
+    "heater",
+    "plumbing"
+   ]
+  },
+  {
+   "id": "area",
+   "title": "Service area",
+   "text": "We cover Canberra and Queanbeyan. Travel outside that area is quoted separately.",
+   "keywords": [
+    "area",
+    "cover",
+    "suburb",
+    "where",
+    "canberra",
+    "queanbeyan",
+    "travel",
+    "location",
+    "come"
+   ]
+  },
+  {
+   "id": "hours",
+   "title": "Hours",
+   "text": "Office hours are 7am to 5pm, Monday to Friday. Urgent weekend call-outs are available at an after-hours rate, confirmed by a person.",
+   "keywords": [
+    "hour",
+    "open",
+    "time",
+    "when",
+    "weekend",
+    "saturday",
+    "sunday",
+    "monday",
+    "friday",
+    "today",
+    "tomorrow"
+   ]
+  },
+  {
+   "id": "pricing",
+   "title": "Call-out fee",
+   "text": "A standard weekday call-out is $120, including the first 30 minutes on site. Parts are extra and quoted before work starts.",
+   "keywords": [
+    "cost",
+    "price",
+    "much",
+    "fee",
+    "callout",
+    "call-out",
+    "charge",
+    "quote",
+    "rate",
+    "expensive"
+   ]
+  },
+  {
+   "id": "booking",
+   "title": "Booking",
+   "text": "To book, share your suburb, the problem and a good time. A person confirms every booking; this assistant can't book jobs itself.",
+   "keywords": [
+    "book",
+    "booking",
+    "appointment",
+    "schedule",
+    "visit",
+    "available",
+    "availability"
+   ]
+  },
+  {
+   "id": "urgent",
+   "title": "Burst pipes",
+   "text": "For a burst pipe, turn the water off at the meter if you can, then tell us it's urgent so a person can call you back.",
+   "keywords": [
+    "burst",
+    "pipe",
+    "flood",
+    "flooding",
+    "urgent",
+    "emergency"
+   ]
+  }
+ ]
+}

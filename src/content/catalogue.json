@@ -1,5 +1,5 @@
 {
- "_readme": "Website content, kept apart from layout (src/v3.py). status: draft = review preview only; proposed = shown in the release candidate, awaiting Purav's approval; published = live. availability (public label): available | service | pilot. Prices: only approved figures; anything disputed is a scoped quote. Research may propose changes here; it never edits this file on its own. slug: page path under the site root; existing live URLs are reused where one exists.",
+ "_readme": "Website content, kept apart from layout (src/v3.py). status: draft = review preview only; proposed = shown in the release candidate, awaiting Purav's approval; published = live. availability (public label): available | service | pilot. Prices: only approved figures; anything disputed is a scoped quote. Research may propose changes here; it never edits this file on its own. slug: page path under the site root; existing live URLs are reused where one exists. demos: publication status of demo pages that aren't always on (draft = review preview only). cta: optional button wording.",
  "groups": [
   {
    "id": "finance",
@@ -232,6 +232,37 @@
    "slug": "services/ai-agents/"
   },
   {
+   "id": "chatbots-assistants",
+   "group": "automation",
+   "status": "published",
+   "slug": "services/chatbots-ai-assistants/",
+   "title": "Chatbots & AI assistants",
+   "summary": "Help customers find answers, capture better enquiries and give your team easier access to approved business information, with clear limits and a hand-over to a person.",
+   "buyer": "Small businesses and startups answering the same questions by email, phone and chat, or whose team keeps searching for the same internal information.",
+   "problem": "Generic chat widgets guess when they don't know, can be talked into ignoring their rules, and leave staff to untangle half-captured enquiries.",
+   "deliverables": [
+    "One assistant for one defined task: a customer enquiry assistant, an internal knowledge assistant, or a workflow assistant that prepares actions for approval",
+    "An approved knowledge pack, with every answer linked to its source",
+    "Tested against real questions, including ones it should refuse, and attempts to override its instructions",
+    "A clear hand-over to a person, with an enquiry summary they can act on",
+    "A usage and cost cap, logging you control, and a written runbook"
+   ],
+   "boundaries": [
+    "Answers only from information you approve; says so when it doesn't know",
+    "Doesn't send messages, book jobs, take payments or change records without a person approving",
+    "No financial, legal or tax advice to your customers",
+    "Model, hosting and data-retention choices agreed with you before anything goes live"
+   ],
+   "duration": "",
+   "price": "Scoped quote",
+   "price_status": "quote",
+   "cta": "Request a scoped quote",
+   "detail": "",
+   "topic": "Automation & AI agents",
+   "msg": "Chatbot or AI assistant: ",
+   "demo": "products-demos/enquiry-assistant/"
+  },
+  {
    "id": "compliance-sprint",
    "group": "governance",
    "status": "published",
@@ -374,5 +405,9 @@
    "msg": "Speaking or panel enquiry: ",
    "slug": "services/speaking/"
   }
- ]
+ ],
+ "demos": {
+  "enquiry-assistant": "published",
+  "ask-ai": "published"
+ }
 }

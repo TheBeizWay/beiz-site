@@ -1317,12 +1317,12 @@ def ask_ai():
     radios = "".join(f'<label><input type="radio" name="askq" value="{v}"{" checked" if c else ""}><span>{t}</span></label>' for v, t, c in qs)
     btn = lambda k, n, note: f'<a class="btn" data-ai="{k}" href="#" target="_blank" rel="noopener nofollow">{n}<small>{note}</small></a>'
     body = phero("Ask the AI you already use", "Ask an AI about Beiz.",
-                 "Pick a question and open it in ChatGPT, Claude, Perplexity, Gemini or Copilot. Each one is asked to use beiz.com.au as its source and to say when something isn't stated there. Nothing you do here is stored or sent to us.",
+                 "Pick a question. Each button copies it and opens ChatGPT, Claude, Perplexity, Gemini or Copilot for you to paste it in; some need you to sign in. The question asks the assistant to use beiz.com.au as its source and to say when something isn't stated there. This is external AI research, not verification. Nothing you do here is stored or sent to us.",
                  [("/ask-ai/", "Ask an AI")]) + f"""<section style="padding-top:0"><div class="wrap split"><div>
 <div class="askai" id="askai">
   <fieldset><legend>What do you want to know?</legend>{radios}</fieldset>
   <p class="askai-q" id="askaiText"></p>
-  <div class="askai-btns">{btn("chatgpt", "ChatGPT", "opens with the question")}{btn("claude", "Claude", "opens with the question")}{btn("perplexity", "Perplexity", "opens with the question")}{btn("gemini", "Gemini", "copies, then you paste")}{btn("copilot", "Copilot", "copies, then you paste")}<button class="btn ghost" type="button" id="askaiCopy">Copy the question</button></div>
+  <div class="askai-btns">{btn("chatgpt", "ChatGPT", "copies, then you paste")}{btn("claude", "Claude", "copies, then you paste")}{btn("perplexity", "Perplexity", "copies, then you paste")}{btn("gemini", "Gemini", "copies, then you paste")}{btn("copilot", "Copilot", "copies, then you paste")}<button class="btn ghost" type="button" id="askaiCopy">Copy the question</button></div>
   <p class="askai-status" id="askaiStatus" aria-live="polite"></p>
 </div>
 <p class="fine">AI assistants can be out of date or wrong. Prices and terms on beiz.com.au, and what we confirm in writing, are the ones that count. Beiz isn't affiliated with OpenAI, Anthropic, Perplexity, Google or Microsoft.</p>
