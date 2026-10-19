@@ -1489,7 +1489,74 @@ def not_found():
     PAGES["/404.html"] = page("/404.html", "Page not found", "Page not found.", body)
 
 
+def home_simple():
+    cards = [("/services/ai-readiness-sprint/", "from $8,500", "AI agents for your finance work", "Agents that check bills, cash and reconciliations, each with written limits and a person they report to. Live in three weeks."),
+             ("/compliance-sprint/", "from $3,500", "Compliance controls sprint", "Two weeks on one focus: AI use, AML/CTF or the Privacy Act. Named owners, approval points and a 90-day plan."),
+             ("/cash-data-check/", "$1,500 fixed", "Two-week cash and data check", "Unbilled work, margin leaks and bottlenecks found in your exports. Credited if you go ahead."),
+             ("/services/dashboards-and-models/", "from $5,000", "Cash and job profit models", "A 13-week cash view and profit by job, in your own Excel or Power BI, refreshed from your data."),
+             ("/leave-cover/", "from $3,500 setup", "Finance leave cover", "When someone's away, an agent carries the routine work and hands it back when they return."),
+             ("/workshop/", "Free", "Start with a free workshop", "Five minutes online, or a live small-group session. See where AI fits in your week before you spend anything.")]
+    cg = "".join(f'<a href="{h}"><span class="p">{p}</span><h3>{t}</h3><p>{d}</p><span class="go">Find out more</span></a>' for h, p, t, d in cards)
+    body = f'''<div class="sh">
+<section class="sh-hero"><div class="wrap g">
+  <div>
+    <p class="sh-k">For Australian businesses putting AI to work</p>
+    <h1>We build the systems behind your numbers.</h1>
+    <p class="sub">AI agents, cash models and compliance controls, set up and checked by an Australian Chartered Accountant. Tested on your own records first. Nothing is paid or sent until a person approves it.</p>
+    <div class="ctas"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-minute call</a><a class="btn ghost" href="/bill-check/">Try the free bill check</a></div>
+    <p class="who"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="" width="44" height="44"><span><b>Purav Mehta</b>, CA · GAICD. The person you talk to.</span></p>
+  </div>
+  <div class="sh-log" aria-label="Example decision log">
+    <div class="h"><span>Decision log</span><span>Example, made-up business</span></div>
+    <div class="r ok"><span class="d"></span>Bill matched to order<span class="s">passed</span></div>
+    <div class="r held"><span class="d"></span>Supplier bank details changed<span class="s">held for a person</span></div>
+    <div class="r ok"><span class="d"></span>Bank account reconciled<span class="s">passed</span></div>
+    <div class="r held"><span class="d"></span>Same invoice, new number<span class="s">held for a person</span></div>
+    <p class="f">Every action logged in your own accounts.</p>
+  </div>
+</div></section>
+
+<section class="sh-alt"><div class="wrap">
+  <h2>How we help</h2>
+  <p class="lede">Fixed prices, agreed in writing before we start. No GST is added.</p>
+  <div class="sh-cards">{cg}</div>
+  <p class="nodo">We don't do tax returns, BAS, GST lodgements or statutory audit. Your tax agent keeps that work. <a href="/prices/">See all prices</a></p>
+</div></section>
+
+<section class="sh-alt"><div class="wrap">
+  <h2>AI can prepare the work. Your people approve the decisions.</h2>
+  <p class="lede">Every agent is set up the same way, before it touches anything real.</p>
+  <ol class="sh-steps">
+    <li><b>Written down</b><p>One job, its limits and the person it reports to, signed off by you.</p></li>
+    <li><b>Locked down</b><p>It reaches only what that job needs. It can't pay anyone or send anything.</p></li>
+    <li><b>Tested</b><p>It runs over your past records and goes live only at a pass mark you agree in writing.</p></li>
+    <li><b>Watched</b><p>Every action is logged. We review the log monthly and re-test before any change.</p></li>
+  </ol>
+</div></section>
+
+<section class="sh-alt"><div class="wrap sh-me">
+  <img src="/assets/media/purav-mehta-2.jpg?v=43" alt="Purav Mehta" width="480" height="640" loading="lazy">
+  <div>
+    <h2>You'll talk to Purav, not a sales team.</h2>
+    <p class="cred">Australian Chartered Accountant (CA ANZ) · Certificate of Public Practice · GAICD</p>
+    <p>Beiz is named after my border collie. He doesn't stop until the job is done, and done properly. That's the standard I hold every system to.</p>
+    <p>My background is audit, controls and finance, and I build the data and AI side myself. <a href="/about/">More about Beiz</a></p>
+  </div>
+</div></section>
+
+<section class="sh-alt sh-end"><div class="wrap">
+  <h2>Tell us what you're trying to fix.</h2>
+  <p class="lede">You'll get a written reply by the next business day. If we're not the right fit, we'll say so.</p>
+  <div class="ctas"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-minute call</a><a class="btn ghost" href="/contact/#form">Start in writing</a></div>
+</div></section>
+</div>'''
+    add("/preview/simple/", "Simple homepage preview | Beiz Data & Accounting",
+        "Preview of a simpler Beiz homepage.", body,
+        extra_head=f'<meta name="robots" content="noindex"><link rel="stylesheet" href="/assets/simple.css?v={ASSET_V}">')
+
+
 def build_all():
+    home_simple()
     home(); services_hub(); services(); privacy_sprint(); industries_hub(); industries(); examples(); ai_check(); workshop()
     how_we_work(); faq(); contact(); privacy(); insights(); live_page(); try_page(); bill_check(); ai_cost(); ask_ai(); cash_data_check(); aml_firms(); compliance_sprint(); prices_page(); leave_cover(); about(); not_found()
     return PAGES
