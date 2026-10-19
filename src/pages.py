@@ -80,6 +80,7 @@ def home():
     <h1>Use AI in your business, with guardrails. <span class="h1-2">Set up, tested and checked by an Australian Chartered Accountant.</span></h1>
     <p class="hz-sub">We set up AI agents for real work: checking bills, preparing client checks, drafting replies and keeping reports current. Each one has written limits and is tested on your own records first. Nothing is paid or sent until a person approves it.</p>
     <div class="hz-ctas"><a class="btn primary" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-minute fit check</a><a class="btn ghost" href="/bill-check/">Try the free bill check</a></div>
+    <p class="fine" style="margin:10px 0 0">New to AI? <a href="/workshop/">Take the free 5-minute workshop</a>, or <a href="/workshop/#live">join a live online session</a>.</p>
     <p class="hz-who"><img src="/assets/media/purav-mehta-2-160.jpg?v=43" alt="" width="48" height="48"><span><b>Purav Mehta</b>, CA · GAICD · Certificate of Public Practice. The person you talk to, and the one who checks every limit. <a href="/card/">Save my contact card</a></span></p>
   </div>
   <div class="hz-room"><div class="wfl" id="wfl">

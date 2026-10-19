@@ -190,7 +190,7 @@ def _header(path):
 
 def _footer():
     s = "".join(f'<li><a href="{h}">{t}</a></li>' for h, t in SERVICES)
-    i = "".join(f'<li><a href="{h}">{t}</a></li>' for h, t in [("/bill-check/", "Free bill check"), ("/ai-cost-calculator/", "AI running-cost calculator"), ("/compliance-sprint/", "Compliance controls sprint · from $3,500"), ("/aml-ctf-accounting-firms/", "AML/CTF for accounting firms"), ("/cash-data-check/", "Two-week cash &amp; data check · $1,500"), ("/services/dashboards-and-models/", "Live cash &amp; job profit model · from $5,000"), ("/services/ai-readiness-sprint/", "AI workforce setup · from $8,500"), ("/prices/#ops", "Monthly controls operations · from $1,250")])
+    i = "".join(f'<li><a href="{h}">{t}</a></li>' for h, t in [("/bill-check/", "Free bill check"), ("/workshop/", "Free 5-minute workshop"), ("/ai-cost-calculator/", "AI running-cost calculator"), ("/compliance-sprint/", "Compliance controls sprint · from $3,500"), ("/aml-ctf-accounting-firms/", "AML/CTF for accounting firms"), ("/cash-data-check/", "Two-week cash &amp; data check · $1,500"), ("/services/dashboards-and-models/", "Live cash &amp; job profit model · from $5,000"), ("/services/ai-readiness-sprint/", "AI workforce setup · from $8,500"), ("/prices/#ops", "Monthly controls operations · from $1,250")])
     return f'''<footer class="site">
   <div class="wrap">
     <div class="fcols">
