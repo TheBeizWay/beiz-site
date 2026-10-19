@@ -138,7 +138,7 @@ footer a{color:var(--soft)}
 def build():
     areas = [
       ("Your work", "AI agents that do the checking", "Routine finance and admin work, done by agents with written limits and a person they report to.",
-       [("/services/ai-readiness-sprint/", "AI workforce setup", "from $8,500"), ("/leave-cover/", "Finance leave cover", "from $3,500"), ("/bill-check/", "Free bill check", "Free")]),
+       [("/services/ai-readiness-sprint/", "AI workforce setup", "Scoped quote"), ("/leave-cover/", "Finance leave cover", "from $3,500"), ("/bill-check/", "Free bill check", "Free")]),
       ("Your numbers", "Cash and profit you can trust", "Models built on your own ledger and job data, with every assumption written down.",
        [("/cash-data-check/", "Two-week cash and data check", "$1,500"), ("/services/dashboards-and-models/", "Cash and job profit models", "from $5,000"), ("/ai-cost-calculator/", "AI running-cost calculator", "Free")]),
       ("Your controls", "AI and compliance that hold up", "Clear owners, approval points and evidence for AI use, AML/CTF and the Privacy Act.",

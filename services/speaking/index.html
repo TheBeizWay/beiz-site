@@ -33,6 +33,8 @@ h1,h2,h3{font-family:Serif4,Georgia,serif;font-weight:500;letter-spacing:-.015em
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex:none;color:var(--ink)}
 .brand .sym{width:36px;height:36px;flex:none;display:block}
 .brand b{display:block;font:600 15px/1.1 Inter,sans-serif;letter-spacing:.16em}
+.brand .bn{font:500 16px/1.2 Inter,sans-serif;white-space:nowrap}
+.brand .bn b{display:inline;font:700 17px Inter,sans-serif;letter-spacing:-.01em}
 .brand small{display:block;font-size:12px;color:var(--soft);margin-top:3px}
 .brand .lg{display:none}
 .brand .lg-cur{display:flex;align-items:center;gap:12px}
@@ -45,6 +47,11 @@ h1,h2,h3{font-family:Serif4,Georgia,serif;font-weight:500;letter-spacing:-.015em
 .nav{display:flex;gap:4px;margin:0 0 0 auto;list-style:none;padding:0}
 .nav a{display:block;text-decoration:none;font-size:15px;color:var(--soft);padding:8px 12px;border-radius:8px}
 .nav a:hover,.nav a[aria-current]{color:var(--ink);background:#ECE9E2}
+.navx{flex:none;font-size:15px;color:var(--ink);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line);padding:8px 4px}
+.navx:hover{text-decoration-color:var(--ink)}
+.navx[aria-current]{text-decoration-color:var(--acc)}
+.nav .mob{display:none}
+
 .menu{display:none;margin-left:auto;background:none;border:1px solid var(--line);border-radius:8px;font:500 14px Inter,sans-serif;padding:9px 14px;color:var(--ink);cursor:pointer}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:10px;font:500 15px Inter,sans-serif;text-decoration:none;border:1px solid var(--ink);transition:background .15s,color .15s;cursor:pointer}
 .btn.p{background:var(--ink);color:#fff}
@@ -259,12 +266,14 @@ footer p{margin:8px 0 0}
  .flow,.flow.f8{grid-template-columns:repeat(4,1fr)}
  .flow li:nth-child(5):before{display:none}
 }
-@media (max-width:1040px){
+@media (max-width:1200px){
  .nav{display:none}
  .menu{display:inline-flex}
  .top .w{flex-wrap:wrap}
  .nav.open{display:flex;flex-direction:column;width:100%;order:9;padding:8px 0 16px;gap:0}
  .nav.open a{padding:12px 4px;font-size:16px;border-top:1px solid var(--line);border-radius:0}
+}
+@media (max-width:1040px){
  .areas{grid-template-columns:repeat(2,1fr)}
  .paths{grid-template-columns:1fr}
 }
@@ -295,6 +304,11 @@ footer p{margin:8px 0 0}
 .nav .sub a{padding:9px 12px;font-size:14.5px;color:var(--ink)}
 .nav .sub a small{display:block;color:var(--faint);font-size:12.5px;margin-top:1px}
 .nav a[aria-current]{color:var(--ink);background:#ECE9E2}
+.navx{flex:none;font-size:15px;color:var(--ink);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line);padding:8px 4px}
+.navx:hover{text-decoration-color:var(--ink)}
+.navx[aria-current]{text-decoration-color:var(--acc)}
+.nav .mob{display:none}
+
 .crumbs{font-size:14px;color:var(--faint);margin:0 0 18px}
 .crumbs a{color:var(--soft)}
 .crumbs span{margin:0 8px}
@@ -303,10 +317,12 @@ footer p{margin:8px 0 0}
 .fcols ul{list-style:none;margin:0;padding:0}.fcols li{padding:4px 0}
 .fcols a{color:var(--soft);text-decoration:none}.fcols a:hover{text-decoration:underline}
 .legal{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);width:100%}
-@media (max-width:1040px){
+@media (max-width:1200px){
  .nav.open .sub{display:block;position:static;border:0;box-shadow:none;padding:0 0 6px 14px;min-width:0;background:transparent}
  .nav.open .sub a{border-top:0;padding:8px 4px;font-size:15px}
  .nav.open .sub a small{display:none}
+ .navx{display:none}
+ .nav.open .mob{display:block}
 }
 @media (max-width:860px){.fcols{grid-template-columns:1fr 1fr}}
 
@@ -358,9 +374,10 @@ footer p{margin:8px 0 0}
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="top"><div class="w">
-  <a class="brand" href="/" aria-label="Beiz Data &amp; Accounting, home"><span class="lg-cur"><img class="sym" src="/assets/brand/beiz-icon.svg" alt="" width="36" height="36"><span><b>BEIZ</b><small>Data &amp; Accounting</small></span></span></a>
+  <a class="brand" href="/" aria-label="Beiz Data &amp; Accounting, home"><span class="lg-cur"><img class="sym" src="/assets/brand/beiz-icon.svg" alt="" width="36" height="36"><span class="bn"><b>Beiz</b> Data &amp; Accounting</span></span></a>
   <button class="menu" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
-  <ul class="nav" id="nav" aria-label="Main"><li><a href="/services/" aria-current="page">Services</a><ul class="sub"><li><a href="/services/#finance">Finance & decision support<small>Know where cash and margin are going, from your own records.</small></a></li><li><a href="/services/#data">Data & dashboards<small>One trusted set of numbers, flowing on a schedule.</small></a></li><li><a href="/services/#automation">Automation & AI<small>Fewer handoffs and less re-keying, with a person signing off what matters.</small></a></li><li><a href="/services/#governance">Governance & controls<small>Know what is in scope, who owns it and where a person must approve.</small></a></li><li><a href="/services/">All services<small>Scope, limits and next step for each</small></a></li></ul></li><li><a href="/products-demos/">Products &amp; Demos</a><ul class="sub"><li><a href="/products-demos/ai-workflow/">AI workflow demo<small>Enquiry to approved reply, step by step</small></a></li><li><a href="/products-demos/missing-receipts/">Missing receipts demo<small>Rules, reminders and matching with sign-off</small></a></li><li><a href="/ai-value-calculator/">AI cost-and-value calculator<small>Is automating a task worth it?</small></a></li><li><a href="/products-demos/">All products and demos<small>Free tools, demos and pilots</small></a></li></ul></li><li><a href="/insights/">Insights</a></li><li><a href="/about/">Company</a><ul class="sub"><li><a href="/about/">About Beiz<small>Who we are and how we're set up</small></a></li><li><a href="/how-we-work/">How we work<small>From enquiry to handover</small></a></li><li><a href="/workshops-speaking/">Workshops, coaching &amp; speaking<small>Building your team's capability</small></a></li><li><a href="/contact/">Contact<small>Start in writing or book a call</small></a></li></ul></li></ul>
+  <ul class="nav" id="nav" aria-label="Main"><li><a href="/services/" aria-current="page">Services</a><ul class="sub"><li><a href="/services/#finance">Finance & decision support<small>Know where cash and margin are going, from your own records.</small></a></li><li><a href="/services/#data">Data & dashboards<small>One trusted set of numbers, flowing on a schedule.</small></a></li><li><a href="/services/#automation">Automation & AI<small>Fewer handoffs and less re-keying, with a person signing off what matters.</small></a></li><li><a href="/services/#governance">Governance & controls<small>Know what is in scope, who owns it and where a person must approve.</small></a></li><li><a href="/services/">All services<small>Scope, limits and next step for each</small></a></li></ul></li><li><a href="/products-demos/">Products &amp; Demos</a><ul class="sub"><li><a href="/products-demos/ai-workflow/">AI workflow demo<small>Enquiry to approved reply, step by step</small></a></li><li><a href="/products-demos/missing-receipts/">Missing receipts demo<small>Rules, reminders and matching with sign-off</small></a></li><li><a href="/ai-value-calculator/">AI cost-and-value calculator<small>Is automating a task worth it?</small></a></li><li><a href="/products-demos/">All products and demos<small>Free tools, demos and pilots</small></a></li></ul></li><li><a href="/insights/">Insights</a></li><li><a href="/about/">Company</a><ul class="sub"><li><a href="/about/">About Beiz<small>Who we are and how we're set up</small></a></li><li><a href="/how-we-work/">How we work<small>From enquiry to handover</small></a></li><li><a href="/workshops-speaking/">Workshops, coaching &amp; speaking<small>Building your team's capability</small></a></li><li><a href="/contact/">Contact<small>Start in writing or book a call</small></a></li></ul></li><li class="mob"><a href="/workshops-speaking/">Workshops &amp; Speaking</a></li></ul>
+  <a class="navx" href="/workshops-speaking/">Workshops &amp; Speaking</a>
   <a class="btn p" href="/contact/?topic=Discovery+call#form">Discuss your business</a>
 </div></header>
 <main id="main">

@@ -38,6 +38,8 @@ h1,h2,h3{font-family:Serif4,Georgia,serif;font-weight:500;letter-spacing:-.015em
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex:none;color:var(--ink)}
 .brand .sym{width:36px;height:36px;flex:none;display:block}
 .brand b{display:block;font:600 15px/1.1 Inter,sans-serif;letter-spacing:.16em}
+.brand .bn{font:500 16px/1.2 Inter,sans-serif;white-space:nowrap}
+.brand .bn b{display:inline;font:700 17px Inter,sans-serif;letter-spacing:-.01em}
 .brand small{display:block;font-size:12px;color:var(--soft);margin-top:3px}
 .brand .lg{display:none}
 .brand .lg-cur{display:flex;align-items:center;gap:12px}
@@ -50,6 +52,11 @@ h1,h2,h3{font-family:Serif4,Georgia,serif;font-weight:500;letter-spacing:-.015em
 .nav{display:flex;gap:4px;margin:0 0 0 auto;list-style:none;padding:0}
 .nav a{display:block;text-decoration:none;font-size:15px;color:var(--soft);padding:8px 12px;border-radius:8px}
 .nav a:hover,.nav a[aria-current]{color:var(--ink);background:#ECE9E2}
+.navx{flex:none;font-size:15px;color:var(--ink);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line);padding:8px 4px}
+.navx:hover{text-decoration-color:var(--ink)}
+.navx[aria-current]{text-decoration-color:var(--acc)}
+.nav .mob{display:none}
+
 .menu{display:none;margin-left:auto;background:none;border:1px solid var(--line);border-radius:8px;font:500 14px Inter,sans-serif;padding:9px 14px;color:var(--ink);cursor:pointer}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:10px;font:500 15px Inter,sans-serif;text-decoration:none;border:1px solid var(--ink);transition:background .15s,color .15s;cursor:pointer}
 .btn.p{background:var(--ink);color:#fff}
@@ -264,12 +271,14 @@ footer p{margin:8px 0 0}
  .flow,.flow.f8{grid-template-columns:repeat(4,1fr)}
  .flow li:nth-child(5):before{display:none}
 }
-@media (max-width:1040px){
+@media (max-width:1200px){
  .nav{display:none}
  .menu{display:inline-flex}
  .top .w{flex-wrap:wrap}
  .nav.open{display:flex;flex-direction:column;width:100%;order:9;padding:8px 0 16px;gap:0}
  .nav.open a{padding:12px 4px;font-size:16px;border-top:1px solid var(--line);border-radius:0}
+}
+@media (max-width:1040px){
  .areas{grid-template-columns:repeat(2,1fr)}
  .paths{grid-template-columns:1fr}
 }
@@ -301,11 +310,11 @@ SYM = {
     "b": '<rect x="3" y="21" width="13" height="5.2" rx="2.6" fill="currentColor"/><rect x="9.5" y="13.4" width="13" height="5.2" rx="2.6" fill="currentColor"/><rect x="16" y="5.8" width="13" height="5.2" rx="2.6" fill="var(--lg-acc)"/>',
     "c": '<g fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"><path d="M4 8.5h5.5c5.5 0 6 7.5 11.5 7.5"/><path d="M4 23.5h5.5c5.5 0 6-7.5 11.5-7.5"/></g><circle cx="25" cy="16" r="3.8" fill="var(--lg-acc)"/>',
 }
-WORD = {"a": '<span><span class="wm-a">beiz</span><span class="wm-sub">data &amp; accounting</span></span>',
+WORD = {"a": '<span><span class="wm-a">Beiz</span><span class="wm-sub">Data &amp; Accounting</span></span>',
         "b": '<span><span class="wm-b">BEIZ</span><span class="wm-sub">Data &amp; Accounting</span></span>',
-        "c": '<span><span class="wm-c">Beiz</span><span class="wm-sub">data · accounting · AI</span></span>'}
+        "c": '<span><span class="wm-c">Beiz</span><span class="wm-sub">Data &amp; Accounting</span></span>'}
 CONCEPTS = [
-    ("a", "Checkpoint", "A lowercase b drawn as one continuous workflow line, with the stem broken by a single node: the point where a person checks the work before it moves on. Judgement sits inside the system, not bolted on afterwards."),
+    ("a", "Checkpoint", "A letter b drawn as one continuous workflow line, with the stem broken by a single node: the point where a person checks the work before it moves on. Judgement sits inside the system, not bolted on afterwards."),
     ("b", "Ledger steps", "Three ledger rows stepping upwards: financial records turning into progress. It keeps the ledger marks people already associate with Beiz, but moves them from a static list to change over time. The top row carries the accent: the decision that moves the business."),
     ("c", "Confluence", "Two separate lines, finance and systems, merging into one flow that ends in a single point of record. It describes connected work: data from different places brought together into one outcome someone can rely on."),
 ]
@@ -322,7 +331,7 @@ def favicon(k, bg="#15181D", ink="#F6F4EF", acc="#5FC593"):
 
 
 def brand(mode, root):
-    cur = '<span class="lg-cur"><img class="sym" src="/assets/brand/beiz-icon.svg" alt="" width="36" height="36"><span><b>BEIZ</b><small>Data &amp; Accounting</small></span></span>'
+    cur = '<span class="lg-cur"><img class="sym" src="/assets/brand/beiz-icon.svg" alt="" width="36" height="36"><span class="bn"><b>Beiz</b> Data &amp; Accounting</span></span>'
     alts = "" if mode != "preview" else "".join(f'<span class="lg lg-{k}">{sym_svg(k)}{WORD[k]}</span>' for k in "abc")
     return f'<a class="brand" href="{root}" aria-label="Beiz Data &amp; Accounting, home">{cur}{alts}</a>'
 
@@ -368,6 +377,11 @@ SHELL_CSS = """
 .nav .sub a{padding:9px 12px;font-size:14.5px;color:var(--ink)}
 .nav .sub a small{display:block;color:var(--faint);font-size:12.5px;margin-top:1px}
 .nav a[aria-current]{color:var(--ink);background:#ECE9E2}
+.navx{flex:none;font-size:15px;color:var(--ink);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line);padding:8px 4px}
+.navx:hover{text-decoration-color:var(--ink)}
+.navx[aria-current]{text-decoration-color:var(--acc)}
+.nav .mob{display:none}
+
 .crumbs{font-size:14px;color:var(--faint);margin:0 0 18px}
 .crumbs a{color:var(--soft)}
 .crumbs span{margin:0 8px}
@@ -376,10 +390,12 @@ SHELL_CSS = """
 .fcols ul{list-style:none;margin:0;padding:0}.fcols li{padding:4px 0}
 .fcols a{color:var(--soft);text-decoration:none}.fcols a:hover{text-decoration:underline}
 .legal{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);width:100%}
-@media (max-width:1040px){
+@media (max-width:1200px){
  .nav.open .sub{display:block;position:static;border:0;box-shadow:none;padding:0 0 6px 14px;min-width:0;background:transparent}
  .nav.open .sub a{border-top:0;padding:8px 4px;font-size:15px}
  .nav.open .sub a small{display:none}
+ .navx{display:none}
+ .nav.open .mob{display:block}
 }
 @media (max-width:860px){.fcols{grid-template-columns:1fr 1fr}}
 """
@@ -429,6 +445,7 @@ def nav_html(mode, path, cat):
         if subs:
             sub = '<ul class="sub">' + "".join(f'<li><a href="{h}">{t}<small>{d}</small></a></li>' for h, t, d in subs) + "</ul>"
         out += f'<li><a href="{href}"{cur}>{label}</a>{sub}</li>'
+    out += f'<li class="mob"><a href="{root}workshops-speaking/">Workshops &amp; Speaking</a></li>'
     return out
 
 
@@ -463,6 +480,7 @@ def shell(mode, path, title, desc, body, ld, scripts=""):
   {brand(mode, root)}
   <button class="menu" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
   <ul class="nav" id="nav" aria-label="Main">{nav_html(mode, path, cat)}</ul>
+  <a class="navx" href="{root}workshops-speaking/"{' aria-current="page"' if path == root + "workshops-speaking/" else ""}>Workshops &amp; Speaking</a>
   <a class="btn p" href="{DISCUSS}">Discuss your business</a>
 </div></header>
 <main id="main">
