@@ -79,7 +79,7 @@ h1,h2,h3{font-family:Serif4,Georgia,serif;font-weight:500;letter-spacing:-.015em
 .hero h1{font-size:clamp(2.2rem,4.1vw,3.6rem);line-height:1.08;margin-bottom:24px;text-wrap:balance}
 .hero h1 span{display:block}
 .hero h1 .h1b{color:var(--acc);white-space:nowrap}
-@media (max-width:430px){.hero h1 .h1b{white-space:normal}}
+
 .hero .l{font-size:1.18rem;color:var(--soft);max-width:31em;margin:0 0 32px}
 .ctas{display:flex;gap:12px;flex-wrap:wrap}
 .cred{margin:32px 0 0;padding-top:20px;border-top:1px solid var(--line);font-size:15px;color:var(--soft);max-width:34em}
@@ -302,6 +302,38 @@ footer p{margin:8px 0 0}
  .jlist li .chip{grid-column:2;justify-self:start}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+/* phone-only refinements (20 Oct 2026); desktop unaffected */
+@media (max-width:560px){
+ .sec{padding:48px 0}
+ .sh{margin-bottom:28px}
+ .hero{padding:32px 0 44px}
+ .hero .l{font-size:1.06rem;margin-bottom:24px}
+ .hero .ctas .btn{flex:1 1 100%}
+ .hero .hcard{display:none}
+ .caps{gap:10px}
+ .cap{padding:16px 18px}
+ .cap h3{font-size:1.12rem;margin:6px 0 4px}
+ .cap p{font-size:14.5px;margin:0}
+ .cap u{display:none}
+ .path{padding:20px 18px}
+ .flow,.flow.f8{grid-template-columns:repeat(3,1fr);gap:6px}
+ .flow button{padding:8px 9px;font-size:12.5px;border-radius:10px;gap:3px}
+ .flow .lane{font-size:10px}
+ .stage{padding:16px;border-radius:12px}
+ .step h3{font-size:1.25rem}
+ .mail .mb{padding:12px;font-size:15px}
+ .dnav{position:sticky;bottom:0;background:#F6F4EF;margin:20px -16px -16px;padding:12px 16px;border-radius:0 0 12px 12px}
+ .roles{gap:18px}
+ .cta{padding:22px}
+ .band{padding:20px}
+ .svc{padding:20px 18px 18px}
+ footer{padding:36px 0 44px}
+}
+@media (max-width:430px){
+ .hero h1{font-size:1.9rem}
+ .hero h1 .h1b{white-space:nowrap}
+}
+@media (max-width:350px){.hero h1 .h1b{white-space:normal}}
 """
 
 # ---------- logo concepts (original vector work; wordmarks set in the site's self-hosted OFL fonts) ----------
@@ -910,14 +942,40 @@ def ai_workflow_page(mode, cat):
 
 def workshops_page(mode, cat):
     root = ROOTS[mode]
-    items = [s for s in cat["services"] if s["group"] == "workshops"]
-    cards = "".join(svc_card(s, mode) for s in items)
-    body = page_head(mode, [(root, "Home"), (root + "about/", "Company"), (None, "Workshops, coaching & speaking")], "Capability", "Workshops, coaching and speaking.",
-                     "Practical sessions on putting AI and data to work safely in finance and small business. Built on the same delivery work, so your people can run more of it themselves.") + f'''
-<section class="grp"><div class="w"><div class="svcs">{cards}</div>
-<div class="card band" style="margin-top:24px"><div><h2 style="font-size:1.4rem">Start with the free 5-minute workshop.</h2><p>Map your week, pick the first job worth automating and set its limits. It runs in your browser.</p></div><a class="btn g" href="/workshop/">Open the workshop</a></div></div></section>'''
+    W = cat["workshop_page"]
+    ul = lambda xs: "<ul>" + "".join(f"<li>{e(x)}</li>" for x in xs) + "</ul>"
+    ol = lambda xs: "<ol>" + "".join(f"<li>{e(x)}</li>" for x in xs) + "</ol>"
+
+    def ws(w):
+        return (f'<article class="card wsb" id="{w["id"]}" aria-labelledby="t-{w["id"]}"><span><span class="chip c-n">Workshop</span></span><h3 id="t-{w["id"]}">{e(w["title"])}</h3>'
+                f'<p class="for"><b>For:</b> {e(w["audience"])}</p>'
+                f'<div class="wcols"><div><h4>Participants will</h4>{ul(w["outcomes"])}</div><div><h4>Sample agenda</h4>{ol(w["agenda"])}</div></div>'
+                f'<div class="wcols"><div><h4>Format</h4><p>{e(w["format"])}</p></div><div><h4>Takeaways</h4>{ul(w["takeaways"])}</div></div>'
+                f'<div class="ft"><div class="price"><b>Scoped proposal</b><span>Priced after we understand your audience and format</span></div>'
+                f'<a class="btn p sm" href="{contact(w["topic"], w["msg"])}">Request a workshop proposal</a></div></article>')
+    C, S = W["coaching"], W["speaking"]
+    jump = '<ul class="jump" aria-label="On this page"><li><a href="#workshops">Workshops</a></li><li><a href="#coaching">Coaching</a></li><li><a href="#speaking">Speaking</a></li></ul>'
+    body = (page_head(mode, [(root, "Home"), (root + "about/", "Company"), (None, "Workshops, coaching & speaking")], "Capability", "Workshops, coaching and speaking.",
+                      "Practical sessions on putting AI and data to work in finance and small business. Worked examples use synthetic data and Beiz's own tested demonstrations, so your people can run more of it themselves.")
+            .replace("</p></div></section>", f"</p>{jump}</div></section>", 1) + f"""
+<style>.wsb{{padding:clamp(20px,3vw,32px)}}.wsb h3{{font-size:1.5rem;margin:10px 0 8px}}.wsb h4{{font:600 14px Inter,sans-serif;margin:16px 0 6px}}
+.wsb ul,.wsb ol{{margin:0;padding-left:20px;color:var(--soft);font-size:15.5px}}.wsb li{{padding:2px 0}}.wsb p{{color:var(--soft)}}
+.wcols{{display:grid;grid-template-columns:1fr 1fr;gap:8px 28px}}.wsb .ft{{margin-top:20px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid var(--line)}}
+.wsgrid{{display:grid;gap:16px}}.duo2{{display:grid;grid-template-columns:1fr 1fr;gap:16px}}
+@media (max-width:860px){{.wcols,.duo2{{grid-template-columns:1fr}}}}</style>
+<section class="grp" id="workshops" aria-labelledby="h-wsh"><div class="w"><header><h2 id="h-wsh">Workshops for teams</h2><p>Two sessions, each ending with something your team can use the next day.</p></header>
+<div class="wsgrid">{"".join(ws(w) for w in W["workshops"])}</div>
+<div class="card band" style="margin-top:16px"><div><h2 style="font-size:1.3rem">Not ready for a session? Start with the free 5-minute workshop.</h2><p>Map your week, pick a first job worth automating and set its limits. It runs in your browser.</p></div><a class="btn g" href="/workshop/">Open the free workshop</a></div></div></section>
+<section class="grp" aria-labelledby="h-cs"><div class="w duo2">
+<article class="card wsb" id="coaching" aria-labelledby="h-coach"><span><span class="chip c-n">Coaching</span></span><h3 id="h-coach">{e(C["title"])}</h3><p class="for"><b>For:</b> {e(C["audience"])}</p>
+<h4>Format</h4><p>{e(C["format"])}</p><h4>You'll leave with</h4>{ul(C["outcomes"])}<h4>Limits</h4><p>{e(C["limits"])}</p>
+<div class="ft"><div class="price"><b>Scoped proposal</b></div><a class="btn p sm" href="{contact(C["topic"], C["msg"])}">Ask about coaching</a></div></article>
+<article class="card wsb" id="speaking" aria-labelledby="h-speak"><span><span class="chip c-n">Speaking</span></span><h3 id="h-speak">{e(S["title"])}</h3><p class="for"><b>For:</b> {e(S["audience"])}</p>
+<h4>Topics</h4>{ul(S["topics"])}<h4>Formats</h4><p>{e(S["formats"])}</p>
+<div class="ft"><div class="price"><b>By arrangement</b><span>Tell us the event, audience, date and length</span></div><a class="btn p sm" href="{contact(S["topic"], S["msg"])}">Invite Beiz to speak</a></div></article>
+</div></section>""")
     return shell(mode, root + "workshops-speaking/", "Workshops, coaching and speaking | Beiz Data & Accounting",
-                 "Workshops for owners and finance teams, coaching for finance professionals, and talks on practical AI, data and controls in finance and small business.",
+                 "Two practical workshops (manual task to tested AI workflow; spreadsheet reporting to decision-ready dashboards), coaching for finance professionals, and talks on AI, data and controls in finance.",
                  body, {"@context": "https://schema.org", "@graph": [ORG, {"@type": "CollectionPage", "name": "Workshops, coaching and speaking", "url": SITE + "/workshops-speaking/"}]})
 
 
