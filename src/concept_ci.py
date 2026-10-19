@@ -201,7 +201,7 @@ def _standalone(cat):
 </div></section>
 
 <section class="sec" id="services" aria-labelledby="h-s"><div class="w">
- <div class="sh"><h2 id="h-s">Services you can buy now.</h2><p>Scope and price agreed in writing before work starts. Disputed or bespoke work is quoted after scoping.</p></div>
+ <div class="sh"><h2 id="h-s">Services you can buy now.</h2><p>Scope, deliverables and price agreed in writing. Custom implementations are quoted after discovery.</p></div>
  <div class="grid3">{services}</div>
  <p class="nodo"><a href="/services/">All services</a> · <a href="/products-demos/">Free tools and pilots</a></p>
 </div></section>
