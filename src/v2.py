@@ -102,7 +102,7 @@ footer a{color:var(--soft)}
 
 def build():
     offers = [
-        ("/services/ai-readiness-sprint/", "AI agents for your finance work", "Agents that check bills, cash and reconciliations. Each has a written job, hard limits and a person it reports to. Live in three weeks.", "from $8,500"),
+        ("/services/ai-readiness-sprint/", "AI agents for your finance work", "Agents that check bills, cash and reconciliations. Each has a written job, hard limits and a person it reports to. Live in three weeks.", "Scoped quote"),
         ("/compliance-sprint/", "Compliance controls sprint", "Two weeks on one focus: AI use, AML/CTF or the Privacy Act. Named owners, approval points and a 90-day plan.", "from $3,500"),
         ("/cash-data-check/", "Two-week cash and data check", "Unbilled work, margin leaks and bottlenecks, found in your own exports. Credited against your next build if you go ahead.", "$1,500 fixed"),
     ]

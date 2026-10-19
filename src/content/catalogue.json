@@ -1,0 +1,378 @@
+{
+ "_readme": "Website content, kept apart from layout (src/v3.py). status: draft = review preview only; proposed = shown in the release candidate, awaiting Purav's approval; published = live. availability (public label): available | service | pilot. Prices: only approved figures; anything disputed is a scoped quote. Research may propose changes here; it never edits this file on its own. slug: page path under the site root; existing live URLs are reused where one exists.",
+ "groups": [
+  {
+   "id": "finance",
+   "title": "Finance & decision support",
+   "intro": "Know where cash and margin are going, from your own records."
+  },
+  {
+   "id": "data",
+   "title": "Data & dashboards",
+   "intro": "One trusted set of numbers, flowing on a schedule."
+  },
+  {
+   "id": "automation",
+   "title": "Automation & AI",
+   "intro": "Fewer handoffs and less re-keying, with a person signing off what matters."
+  },
+  {
+   "id": "governance",
+   "title": "Governance & controls",
+   "intro": "Know what is in scope, who owns it and where a person must approve."
+  },
+  {
+   "id": "workshops",
+   "title": "Workshops, coaching & speaking",
+   "intro": "Build your own team's capability, not just a system."
+  }
+ ],
+ "tools": [
+  {
+   "status": "published",
+   "title": "Bill check",
+   "summary": "Possible duplicates, changed bank details and split bills in a bills export. Runs in your browser; nothing is uploaded.",
+   "href": "/bill-check/",
+   "label": "Free"
+  },
+  {
+   "status": "published",
+   "title": "AI running-cost calculator",
+   "summary": "What an agent costs to run each month, by job and model, in Australian dollars.",
+   "href": "/ai-cost-calculator/",
+   "label": "Free"
+  },
+  {
+   "status": "published",
+   "title": "5-minute AI workshop",
+   "summary": "Map your week, pick the first job worth automating and set its limits.",
+   "href": "/workshop/",
+   "label": "Free"
+  }
+ ],
+ "pilot": {
+  "status": "published",
+  "title": "Subscribe to a repeatable solution",
+  "summary": "Tools built from repeat project work, run for you with clear usage and support limits. None is on sale yet. Tell us the job you would want handled, and you will hear if a pilot opens.",
+  "topic": "Something else",
+  "msg": "Subscription pilot interest. The job I'd want handled: "
+ },
+ "services": [
+  {
+   "id": "cash-data-check",
+   "group": "finance",
+   "status": "published",
+   "title": "Cash & data check",
+   "summary": "Your bills, invoices and timesheets checked against each other, with every finding traced to its record.",
+   "buyer": "Owners and finance leads of businesses that bill time or fixed fees.",
+   "problem": "Bills, timesheets and invoices sit in different systems, so nobody can say which hours never reached an invoice or which bills don't match the job.",
+   "deliverables": [
+    "Bills, invoices and timesheets joined from your exports",
+    "A findings register: each item confirmed, needing information or explained, with the record behind it",
+    "A short read-out of what to look at first"
+   ],
+   "boundaries": [
+    "Works from exports, with no logins to your ledger",
+    "Reports what the records support; some findings need your explanation before action",
+    "No tax or BAS advice"
+   ],
+   "duration": "Two weeks",
+   "price": "$1,500 fixed",
+   "price_status": "agreed",
+   "detail": "/cash-data-check/",
+   "topic": "Two-week cash & data check",
+   "slug": "cash-data-check/"
+  },
+  {
+   "id": "cash-model",
+   "group": "finance",
+   "status": "published",
+   "title": "Cash & job profit model",
+   "summary": "A 13-week cash view and profit by job or client, tied back to the ledger.",
+   "buyer": "Businesses that need to see cash and job margins ahead, not after month-end.",
+   "problem": "The bank balance and last month's profit and loss don't show which week cash gets tight or which jobs make money.",
+   "deliverables": [
+    "A 13-week cash forecast that refreshes from your weekly exports",
+    "Profit by job or client, reconciled to the ledger",
+    "Written assumptions and a handover session"
+   ],
+   "boundaries": [
+    "A model and its assumptions, not financial product advice",
+    "You run it after handover; ongoing review only where agreed in writing"
+   ],
+   "duration": "",
+   "price": "From $5,000",
+   "price_status": "agreed",
+   "detail": "/services/dashboards-and-models/",
+   "topic": "Cash & job profit model",
+   "slug": "services/cash-and-job-profit-model/"
+  },
+  {
+   "id": "data-engineering",
+   "group": "data",
+   "status": "published",
+   "title": "Data engineering",
+   "summary": "Xero, your CRM, job app and spreadsheets connected into one clean source.",
+   "buyer": "Teams whose numbers live across several systems and spreadsheets.",
+   "problem": "Every report starts with copy and paste, and the same figure means different things in different systems.",
+   "deliverables": [
+    "A map of systems, owners and where the numbers disagree",
+    "A plain-English data dictionary",
+    "Scheduled pipelines with checks that flag missing or odd records",
+    "One clean source for reports, models and AI tools"
+   ],
+   "boundaries": [
+    "Built in your own accounts; you keep the code and documentation",
+    "Source records are never changed"
+   ],
+   "duration": "",
+   "price": "Scoped quote",
+   "price_status": "quote",
+   "detail": "/services/data-engineering/",
+   "topic": "Dashboards & analytics",
+   "slug": "services/data-engineering/"
+  },
+  {
+   "id": "dashboards",
+   "group": "data",
+   "status": "published",
+   "title": "Dashboards & management reporting",
+   "summary": "A reporting pack or dashboard on agreed definitions, reconciled to the ledger.",
+   "buyer": "Owners, boards and finance leads who want one view they can trust.",
+   "problem": "Reports arrive late, disagree with each other or answer last month's question.",
+   "deliverables": [
+    "A dashboard or report pack on agreed definitions",
+    "Reconciliation back to the ledger",
+    "Notes on what each measure means and where it comes from"
+   ],
+   "boundaries": [
+    "Built in tools you already use, such as Excel or Power BI, where practical",
+    "Commentary and decisions stay with your team"
+   ],
+   "duration": "",
+   "price": "Scoped quote",
+   "price_status": "quote",
+   "detail": "/services/dashboards-and-models/",
+   "topic": "Dashboards & analytics",
+   "slug": "services/dashboards-and-models/"
+  },
+  {
+   "id": "process-redesign",
+   "group": "automation",
+   "status": "published",
+   "title": "Workflow review & redesign",
+   "summary": "One process mapped end to end, with the handoffs, re-keying and waiting taken out before anything is automated.",
+   "buyer": "Small businesses, startups and solo operators whose admin keeps growing with the work.",
+   "problem": "The same information is typed into several places, jobs wait on one person, and nobody can see where time goes.",
+   "deliverables": [
+    "A map of the current process and where time and errors build up",
+    "A redesigned process with named owners and approval points",
+    "A short list of what to automate, what to simplify and what to leave alone"
+   ],
+   "boundaries": [
+    "Recommendations and design; building them is scoped separately",
+    "Your people decide what changes"
+   ],
+   "duration": "",
+   "price": "Scoped quote",
+   "price_status": "quote",
+   "detail": "/how-we-work/",
+   "topic": "Something else",
+   "msg": "Workflow review: the process I'd like to fix is ",
+   "slug": "services/workflow-redesign/"
+  },
+  {
+   "id": "automation",
+   "group": "automation",
+   "status": "published",
+   "title": "Workflow automation",
+   "summary": "One repetitive finance or admin workflow automated, tested and handed over.",
+   "buyer": "Teams doing the same matching, chasing and checking every week.",
+   "problem": "Routine steps take hours and errors surface late.",
+   "deliverables": [
+    "One workflow mapped, built and tested on your past records",
+    "Approval steps and limits for anything touching money or customers",
+    "A log of what ran and what was held for a person",
+    "A runbook and handover"
+   ],
+   "boundaries": [
+    "Nothing is paid or sent without a person",
+    "No payments initiated from your bank accounts by software"
+   ],
+   "duration": "",
+   "price": "Scoped quote",
+   "price_status": "quote",
+   "detail": "/services/automation/",
+   "topic": "Automation & AI agents",
+   "slug": "services/automation/"
+  },
+  {
+   "id": "ai-agents",
+   "group": "automation",
+   "status": "published",
+   "title": "AI workflows & integration",
+   "summary": "AI built into one defined piece of work, tested before it goes live, with a person approving the output.",
+   "buyer": "Businesses ready to put AI into a defined piece of real work.",
+   "problem": "People are already trying AI tools, but nobody has set the limits, the tests or who signs off.",
+   "deliverables": [
+    "A written job description and limits for the AI step",
+    "Tests on your past records against a pass mark agreed in writing",
+    "A trial run alongside your team before going live",
+    "A decision log in your own accounts, a spending cap and an off switch"
+   ],
+   "boundaries": [
+    "AI never signs anything off; a named person does",
+    "Independent tool advice: no software resold"
+   ],
+   "duration": "",
+   "price": "Scoped quote",
+   "price_status": "quote",
+   "detail": "/services/ai-agents/",
+   "topic": "AI workforce setup",
+   "slug": "services/ai-agents/"
+  },
+  {
+   "id": "compliance-sprint",
+   "group": "governance",
+   "status": "published",
+   "title": "Compliance controls sprint",
+   "summary": "One obligation mapped: AI use, AML/CTF Tranche 2 or the Privacy Act automated-decision rules.",
+   "buyer": "Businesses facing one specific obligation now.",
+   "problem": "It is unclear what is in scope, who owns it and where a person must approve.",
+   "deliverables": [
+    "A register of what is in scope",
+    "Named owners, rules and approval points",
+    "A 90-day plan and the first workflow worth running under controls"
+   ],
+   "boundaries": [
+    "General information and controls design, not legal advice; legal interpretation stays with your adviser",
+    "No ledger access needed"
+   ],
+   "duration": "Two weeks",
+   "price": "From $3,500",
+   "price_status": "agreed",
+   "detail": "/compliance-sprint/",
+   "topic": "Compliance controls sprint",
+   "slug": "compliance-sprint/"
+  },
+  {
+   "id": "ai-governance",
+   "group": "governance",
+   "status": "published",
+   "title": "AI governance for boards & owners",
+   "summary": "A register, policy and reporting line for the AI already in use.",
+   "buyer": "Boards, directors and owners who need to oversee AI use.",
+   "problem": "AI is already inside staff habits and software, with no register, policy or board reporting.",
+   "deliverables": [
+    "An AI register and automated-decision map",
+    "An AI use policy and control set",
+    "A board reporting format"
+   ],
+   "boundaries": [
+    "Not legal advice",
+    "Running the controls each month is a separate, scoped arrangement"
+   ],
+   "duration": "",
+   "price": "Scoped quote",
+   "price_status": "quote",
+   "detail": "/services/ai-governance/",
+   "topic": "AI readiness & governance",
+   "slug": "services/ai-governance/"
+  },
+  {
+   "id": "change-workstream",
+   "group": "governance",
+   "status": "published",
+   "title": "Defined change workstream",
+   "summary": "For larger organisations: one scoped workstream, from process and stakeholder mapping to tested controls and adoption.",
+   "buyer": "Project sponsors in larger organisations with a defined finance, data or AI change.",
+   "problem": "The change touches several teams and systems, and nobody owns how the process, data and controls fit together.",
+   "deliverables": [
+    "Scope, stakeholders and a current-process map",
+    "System integration plan and test approach",
+    "Controls tested before go-live, and adoption support afterwards"
+   ],
+   "boundaries": [
+    "One defined workstream, alongside your project lead and teams",
+    "Beiz is a small practice and agrees capacity up front"
+   ],
+   "duration": "",
+   "price": "Scoped quote",
+   "price_status": "quote",
+   "detail": "/services/project-delivery/",
+   "topic": "Tech project delivery",
+   "slug": "services/project-delivery/"
+  },
+  {
+   "id": "workshops",
+   "group": "workshops",
+   "status": "published",
+   "title": "Workshops for owners & teams",
+   "summary": "Small-group or in-house sessions on putting AI and data to work safely in day-to-day finance and admin.",
+   "buyer": "Owners, finance leads and small teams.",
+   "problem": "People want to use AI at work but don't know where to start, or what limits to set.",
+   "deliverables": [
+    "A small-group online session or an in-house workshop",
+    "A live walk-through on made-up data",
+    "A written plan for the first job worth automating"
+   ],
+   "boundaries": [
+    "General information, not financial or legal advice"
+   ],
+   "duration": "",
+   "price": "Scoped quote",
+   "price_status": "quote",
+   "detail": "/workshop/",
+   "topic": "Live workshop",
+   "slug": "services/workshops/"
+  },
+  {
+   "id": "coaching",
+   "group": "workshops",
+   "status": "published",
+   "title": "Coaching for finance professionals",
+   "summary": "One-to-one sessions for accountants and finance leads who want to build working data and AI skills.",
+   "buyer": "Accountants and finance leads.",
+   "problem": "Courses and articles don't turn into a working model or automation in your own job.",
+   "deliverables": [
+    "An agreed learning goal tied to a real piece of work",
+    "Hands-on sessions building a model, report or automation on synthetic or approved data",
+    "Your build reviewed, explained and documented"
+   ],
+   "boundaries": [
+    "Skills coaching, not career, financial or legal advice",
+    "No employer or client confidential data used in sessions"
+   ],
+   "duration": "",
+   "price": "On request",
+   "price_status": "quote",
+   "detail": "",
+   "topic": "Something else",
+   "msg": "Coaching enquiry: ",
+   "slug": "services/coaching/"
+  },
+  {
+   "id": "speaking",
+   "group": "workshops",
+   "status": "published",
+   "title": "Speaking & panels",
+   "summary": "Talks and panel sessions on practical AI, data and controls in finance and small business.",
+   "buyer": "Event organisers, professional bodies and boards.",
+   "problem": "Audiences hear a lot about AI and little about what it takes to make it work safely in a real business.",
+   "deliverables": [
+    "Topics such as: what changes when AI enters the finance workflow; testing and approval points before go-live; getting data in shape before automating",
+    "Tailored to the audience, with worked examples on synthetic data"
+   ],
+   "boundaries": [
+    "General information, not advice"
+   ],
+   "duration": "",
+   "price": "On request",
+   "price_status": "quote",
+   "detail": "",
+   "topic": "Something else",
+   "msg": "Speaking or panel enquiry: ",
+   "slug": "services/speaking/"
+  }
+ ]
+}
