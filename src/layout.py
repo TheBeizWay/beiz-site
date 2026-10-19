@@ -255,10 +255,15 @@ def _trim(desc, n=158):
     return cut[:end + 1] if end > 70 else cut[:cut.rfind(" ")].rstrip(",;:·") + "…"
 
 
+SHELL = None  # set by build.py to site3.legacy_shell: every legacy page gets the approved site shell
+
+
 def page(path, title, desc, body, extra_head=""):
     desc = _trim(desc)
     body = ca_fill(body)
     full_title = title if "Beiz" in title else (f"{title} | Beiz Data & Accounting" if len(title) <= 40 else f"{title} | Beiz")
+    if SHELL:
+        return SHELL(path, full_title, desc, body, extra_head)
     canon = SITE + path
     ld = f'<script type="application/ld+json">{json.dumps(ORG)}</script>' if path == "/" else ""
     return f'''<!doctype html>

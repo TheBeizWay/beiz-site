@@ -2,6 +2,8 @@
 import os, sys, datetime
 sys.path.insert(0, os.path.dirname(__file__))
 from pages import build_all
+import layout, site3
+layout.SHELL = site3.legacy_shell  # one approved shell for every public page
 from trust import trust_pages
 from oversight import oversight_pages
 from layout import SITE, SERVICES, INDUSTRIES, ASSET_V
