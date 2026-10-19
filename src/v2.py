@@ -1,0 +1,212 @@
+"""Standalone redesign preview at /preview/v2/ (19 Oct 2026). Light, founder-led, five numbered sections."""
+from layout import ASSET_V, CALL_HREF, CALL_ATTR
+
+CSS = """
+@font-face{font-family:Serif4;font-weight:500;font-display:swap;src:url(/assets/fonts/source-serif-4-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:Serif4;font-weight:600;font-display:swap;src:url(/assets/fonts/source-serif-4-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:Inter;font-weight:400;font-display:swap;src:url(/assets/fonts/inter-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:Inter;font-weight:500;font-display:swap;src:url(/assets/fonts/inter-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:Inter;font-weight:600;font-display:swap;src:url(/assets/fonts/inter-latin-600-normal.woff2) format('woff2')}
+:root{--bg:#F5F1E8;--card:#FBF9F4;--ink:#1C1B18;--soft:#5C5950;--faint:#8A867B;--line:#E2DCCD;--green:#1F5A40;--green2:#E3EDE6;--amber:#B9781B;--amber2:#F6EAD4;--dark:#1C1B18}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.w{max-width:1160px;margin:0 auto;padding:0 32px}
+h1,h2,h3{font-family:Serif4,Georgia,serif;font-weight:500;letter-spacing:-.015em;margin:0}
+.top{position:sticky;top:0;z-index:20;background:rgba(245,241,232,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .w{display:flex;align-items:center;gap:28px;height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:36px;height:36px;border-radius:8px}
+.brand b{font:600 15px/1.1 Inter,sans-serif;letter-spacing:.14em}
+.brand small{display:block;font-size:12px;color:var(--soft);letter-spacing:.02em;margin-top:3px}
+.top nav{display:flex;gap:26px;margin-left:auto}
+.top nav a{text-decoration:none;font-size:15px;color:var(--soft)}
+.top nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;font:500 15px Inter,sans-serif;text-decoration:none;border:1px solid var(--ink);transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.p{background:var(--ink);color:var(--bg)}
+.btn.g{background:transparent;color:var(--ink)}
+.top .btn{min-height:40px;padding:0 18px;font-size:14px}
+.hero{padding:88px 0 96px}
+.hero .w{display:grid;grid-template-columns:1.1fr .9fr;gap:72px;align-items:center}
+.pill{display:inline-flex;gap:8px;align-items:center;font-size:14px;color:var(--soft);border:1px solid var(--line);border-radius:999px;padding:6px 14px;margin-bottom:28px;background:var(--card)}
+.pill i{width:7px;height:7px;border-radius:50%;background:var(--green)}
+.hero h1{font-size:clamp(2.6rem,5.6vw,4.6rem);line-height:1.02;margin-bottom:28px}
+.hero p.l{font-size:1.2rem;color:var(--soft);max-width:31em;margin:0 0 36px}
+.hero p.l b{color:var(--ink);font-weight:500}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.ph{position:relative}
+.ph img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:24px}
+.log{position:absolute;left:-48px;bottom:-36px;width:330px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:0 18px 40px rgba(28,27,24,.12);font-size:14px}
+.log .h{display:flex;justify-content:space-between;font-size:12px;color:var(--faint);margin-bottom:6px}
+.log .r{display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px solid var(--line)}
+.log .s{margin-left:auto;font-size:12px;padding:2px 9px;border-radius:999px;white-space:nowrap}
+.log .ok .s{background:var(--green2);color:var(--green)}
+.log .held .s{background:var(--amber2);color:var(--amber)}
+.sec{padding:104px 0;border-top:1px solid var(--line)}
+.lab{font-size:14px;color:var(--faint);margin:0 0 18px;font-variant-numeric:tabular-nums}
+.lab b{color:var(--green);font-weight:600;margin-right:10px}
+.sec h2{font-size:clamp(2rem,3.6vw,3rem);line-height:1.1;max-width:20ch;margin-bottom:18px}
+.sec .lead{font-size:1.12rem;color:var(--soft);max-width:38em;margin:0 0 52px}
+.offers{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.off{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px;text-decoration:none;transition:border-color .2s,transform .2s}
+.off:hover{border-color:var(--ink);transform:translateY(-2px)}
+.off .n{font-size:13px;color:var(--faint)}
+.off h3{font-size:1.5rem;line-height:1.2;margin:22px 0 12px}
+.off p{color:var(--soft);margin:0 0 26px;flex:1}
+.off .pr{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);padding-top:18px}
+.off .pr b{font:600 1.1rem Inter,sans-serif}
+.off .pr span{font-size:14px;color:var(--soft);text-decoration:underline;text-underline-offset:3px}
+.more{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:20px}
+.more a{display:flex;justify-content:space-between;gap:12px;padding:18px 22px;border:1px solid var(--line);border-radius:14px;text-decoration:none;font-size:15px}
+.more a:hover{border-color:var(--ink)}
+.more a span{color:var(--soft)}
+.nodo{margin-top:28px;font-size:15px;color:var(--soft)}
+.quote{font-family:Serif4,Georgia,serif;font-size:clamp(1.7rem,3vw,2.5rem);line-height:1.2;max-width:24ch;margin:0 0 56px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;border-top:2px solid var(--ink);padding-top:22px}
+.steps li:before{content:"0" counter(s);font-size:13px;color:var(--faint);display:block;margin-bottom:14px}
+.steps b{display:block;font:500 1.15rem Inter,sans-serif;margin-bottom:8px}
+.steps p{margin:0;color:var(--soft);font-size:15.5px}
+.dark{background:var(--dark);color:#EEEAE0;border-top:0}
+.dark .lab{color:#9C978A}.dark .lab b{color:#7FC79D}
+.dark .lead{color:#B7B2A6}
+.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tool{display:block;border:1px solid #3A3833;border-radius:20px;padding:30px;text-decoration:none;transition:border-color .2s}
+.tool:hover{border-color:#EEEAE0}
+.tool .k{display:inline-block;font-size:12px;border:1px solid #4A4842;border-radius:999px;padding:3px 10px;color:#B7B2A6}
+.tool h3{font-size:1.4rem;margin:22px 0 10px;color:#FAF8F2}
+.tool p{margin:0 0 22px;color:#B7B2A6;font-size:15.5px}
+.tool span{text-decoration:underline;text-underline-offset:3px;font-size:15px}
+.me{display:grid;grid-template-columns:.8fr 1.2fr;gap:72px;align-items:start}
+.me .story p{font-size:1.1rem;color:var(--soft);margin:0 0 18px;max-width:34em}
+.me .story p:first-of-type{font-family:Serif4,Georgia,serif;font-size:1.5rem;line-height:1.35;color:var(--ink)}
+.facts{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.facts li{display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid var(--line);font-size:15px}
+.facts li span{color:var(--soft)}
+.contact .w{display:grid;grid-template-columns:1.1fr .9fr;gap:72px;align-items:end}
+.contact h2{max-width:14ch}
+.ways{display:grid;gap:12px}
+.ways a{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;background:var(--card);border:1px solid var(--line);border-radius:16px;text-decoration:none}
+.ways a:hover{border-color:var(--ink)}
+.ways a b{font-weight:500}
+.ways a span{font-size:14px;color:var(--soft)}
+footer{border-top:1px solid var(--line);padding:40px 0 56px;font-size:13px;color:var(--faint)}
+footer .w{display:grid;gap:8px}
+footer a{color:var(--soft)}
+@media (max-width:980px){.top nav{display:none}.top .btn{margin-left:auto}.hero .w,.me,.contact .w{grid-template-columns:1fr;gap:56px}.offers,.tools,.more{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.ph{max-width:460px}.log{left:16px;right:16px;width:auto;bottom:-44px}.hero{padding:56px 0 96px}.sec{padding:80px 0}}
+@media (max-width:560px){.w{padding:0 20px}.top .w{gap:12px}.brand small{display:none}.steps{grid-template-columns:1fr}.hero h1{font-size:2.5rem}.log .r{flex-wrap:wrap}.ctas{flex-direction:column}.ctas .btn{width:100%}.top .btn{margin-left:auto}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+"""
+
+def build():
+    offers = [
+        ("/services/ai-readiness-sprint/", "AI agents for your finance work", "Agents that check bills, cash and reconciliations. Each has a written job, hard limits and a person it reports to. Live in three weeks.", "from $8,500"),
+        ("/compliance-sprint/", "Compliance controls sprint", "Two weeks on one focus: AI use, AML/CTF or the Privacy Act. Named owners, approval points and a 90-day plan.", "from $3,500"),
+        ("/cash-data-check/", "Two-week cash and data check", "Unbilled work, margin leaks and bottlenecks, found in your own exports. Credited against your next build if you go ahead.", "$1,500 fixed"),
+    ]
+    off = "".join(f'<a class="off" href="{h}"><span class="n">0{i+1}</span><h3>{t}</h3><p>{d}</p><div class="pr"><b>{p}</b><span>Find out more</span></div></a>' for i, (h, t, d, p) in enumerate(offers))
+    more = [("/services/dashboards-and-models/", "Cash and job profit models", "from $5,000"), ("/leave-cover/", "Finance leave cover", "from $3,500"), ("/prices/#ops", "Monthly support", "from $1,250/mo")]
+    mo = "".join(f'<a href="{h}">{t}<span>{p}</span></a>' for h, t, p in more)
+    tools = [("/bill-check/", "Free · no upload", "Bill check", "Drop in a bills export and see duplicates and changed bank details. Runs in your browser; nothing leaves your computer.", "Check your bills"),
+             ("/workshop/", "Free · 5 minutes", "AI workshop", "Map your week, pick the first job worth handing to an agent, and set its limits. Or join a live online session.", "Take the workshop"),
+             ("/ai-cost-calculator/", "Free", "AI running-cost calculator", "What an agent actually costs to run each month, by job and model, in Australian dollars.", "Work it out")]
+    tl = "".join(f'<a class="tool" href="{h}"><span class="k">{k}</span><h3>{t}</h3><p>{d}</p><span>{c}</span></a>' for h, k, t, d, c in tools)
+    html = f'''<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Beiz Data &amp; Accounting · redesign preview</title>
+<meta name="robots" content="noindex"><meta name="theme-color" content="#F5F1E8">
+<link rel="icon" href="/assets/brand/beiz-icon.svg">
+<style>{CSS}</style></head>
+<body>
+<header class="top"><div class="w">
+  <a class="brand" href="/preview/v2/"><img src="/assets/brand/beiz-icon.svg" alt=""><span><b>BEIZ</b><small>Data &amp; Accounting</small></span></a>
+  <nav aria-label="Main"><a href="#work">What we do</a><a href="#how">How it works</a><a href="#try">Try it free</a><a href="#about">About</a><a href="/prices/">Prices</a></nav>
+  <a class="btn p" href="{CALL_HREF}"{CALL_ATTR}>Book a call</a>
+</div></header>
+<main>
+<section class="hero"><div class="w">
+  <div>
+    <span class="pill"><i></i>Canberra · working Australia-wide</span>
+    <h1>We build the systems behind your numbers.</h1>
+    <p class="l">I'm <b>Purav Mehta</b>, an Australian Chartered Accountant and GAICD. I set up AI agents, cash models and compliance controls for Australian businesses, and I test every one on your own records before it goes live.</p>
+    <div class="ctas"><a class="btn p" href="{CALL_HREF}"{CALL_ATTR}>Book a 20-minute call</a><a class="btn g" href="/bill-check/">Try the free bill check</a></div>
+  </div>
+  <div class="ph">
+    <img src="/assets/media/purav-mehta-2.jpg?v=43" alt="Purav Mehta" width="480" height="640">
+    <div class="log" aria-label="Example decision log">
+      <div class="h"><span>Decision log</span><span>Example, made-up business</span></div>
+      <div class="r ok">Bill matched to order<span class="s">passed</span></div>
+      <div class="r held">Supplier bank details changed<span class="s">held for a person</span></div>
+      <div class="r held">Same invoice, new number<span class="s">held for a person</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec" id="work"><div class="w">
+  <p class="lab"><b>01</b>What we do</p>
+  <h2>Three ways to start.</h2>
+  <p class="lead">Fixed prices, agreed in writing before we start. Beiz isn't registered for GST, so no GST is added.</p>
+  <div class="offers">{off}</div>
+  <div class="more">{mo}</div>
+  <p class="nodo">We don't do tax returns, BAS, GST lodgements or statutory audit. Your tax agent keeps that work; we fix the engine underneath.</p>
+</div></section>
+
+<section class="sec" id="how"><div class="w">
+  <p class="lab"><b>02</b>How it works</p>
+  <p class="quote">AI can prepare the work. Your people approve the decisions.</p>
+  <ol class="steps">
+    <li><b>Written down</b><p>One job, its limits and the person it reports to, signed off by you.</p></li>
+    <li><b>Locked down</b><p>It reaches only what that job needs, and it can't pay anyone or send anything.</p></li>
+    <li><b>Tested</b><p>It runs in shadow mode over your past records and goes live only at a pass mark you agree in writing.</p></li>
+    <li><b>Watched</b><p>Every action is logged in your own accounts. We review it monthly and re-test before any change.</p></li>
+  </ol>
+</div></section>
+
+<section class="sec dark" id="try"><div class="w">
+  <p class="lab"><b>03</b>Try it first</p>
+  <h2>See how it works before you talk to anyone.</h2>
+  <p class="lead">Three free tools. No sign-up, and nothing to install.</p>
+  <div class="tools">{tl}</div>
+</div></section>
+
+<section class="sec" id="about"><div class="w me">
+  <div>
+    <p class="lab"><b>04</b>Why Beiz</p>
+    <h2>Named after a border collie.</h2>
+  </div>
+  <div class="story">
+    <p>Beiz is my border collie. He doesn't stop until the job is done, and done properly. That's the standard I hold every system to.</p>
+    <p>Accounting has moved well past tax returns. The work now lives in the data: how the numbers move, where they break, and the controls that keep them right. My background is audit, controls and finance, and I build the data and AI side myself, so one person owns the whole thing.</p>
+    <ul class="facts">
+      <li>Chartered Accountant<span>CA ANZ, Certificate of Public Practice</span></li>
+      <li>Governance<span>GAICD</span></li>
+      <li>Company<span>Beiz Data &amp; Accounting Pty Ltd</span></li>
+      <li>Location<span>Canberra, working Australia-wide</span></li>
+    </ul>
+    <p style="margin-top:22px"><a href="/about/">More about Beiz</a></p>
+  </div>
+</div></section>
+
+<section class="sec contact" id="contact"><div class="w">
+  <div>
+    <p class="lab"><b>05</b>Get in touch</p>
+    <h2>Tell me what you're trying to fix.</h2>
+    <p class="lead" style="margin-bottom:0">You'll get a written reply by the next business day, and a fixed-price proposal within three if it's a fit. If we're not the right fit, I'll say so.</p>
+  </div>
+  <div class="ways">
+    <a href="{CALL_HREF}"{CALL_ATTR}><b>Book a 20-minute call</b><span>Early morning or after 5pm</span></a>
+    <a href="/contact/#form"><b>Start in writing</b><span>A few lines is plenty</span></a>
+    <a href="mailto:hello@beiz.com.au"><b>hello@beiz.com.au</b><span>Email</span></a>
+    <a href="https://www.linkedin.com/company/beiz-data-accounting/" rel="noopener"><b>LinkedIn</b><span>Follow the page</span></a>
+  </div>
+</div></section>
+</main>
+<footer><div class="w">
+  <p>© 2026 Beiz Data &amp; Accounting Pty Ltd · ABN 53 691 755 496 · Canberra, ACT · <a href="/privacy/">Privacy</a></p>
+  <p>Beiz doesn't provide tax agent or BAS agent services, GST or BAS lodgements, tax advice, legal advice, financial product advice, or statutory audit and assurance services. We don't release payments without a person.</p>
+  <p>Liability limited by a scheme approved under Professional Standards Legislation.</p>
+</div></footer>
+</body></html>'''
+    return html

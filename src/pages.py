@@ -1557,6 +1557,7 @@ def home_simple():
 
 def build_all():
     home_simple()
+    import v2; PAGES['/preview/v2/'] = v2.build()
     home(); services_hub(); services(); privacy_sprint(); industries_hub(); industries(); examples(); ai_check(); workshop()
     how_we_work(); faq(); contact(); privacy(); insights(); live_page(); try_page(); bill_check(); ai_cost(); ask_ai(); cash_data_check(); aml_firms(); compliance_sprint(); prices_page(); leave_cover(); about(); not_found()
     return PAGES
