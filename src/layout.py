@@ -78,7 +78,7 @@ INDUSTRIES = [
 GOOGLE_SITE_VERIFICATION = ""
 
 # Google Calendar appointment schedule link. Until it's set, "Book a call" opens the form with "Discovery call" selected.
-BOOKING_URL = ""
+BOOKING_URL = "https://calendar.app.google/cNdbhY7JLJxroVfA8"
 CALL_HREF = BOOKING_URL or "/contact/?topic=Discovery%20call#form"
 CALL_ATTR = ' target="_blank" rel="noopener"' if BOOKING_URL else ""
 
