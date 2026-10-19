@@ -432,6 +432,25 @@ SHELL_CSS = """
 @media (max-width:860px){.fcols{grid-template-columns:1fr 1fr}}
 """
 
+CI_SHELL_CSS = """
+:root{--acc:#17664A;--g0:#0E1316;--g1:#141B1F;--g2:#1B2429;--gl:#2A353B;--gt:#ECF0EE;--gs:#AAB5B1;--em:#34C28F;--am:#F2B35B}
+h1,h2,h3{font-family:Inter,system-ui,sans-serif;font-weight:600;letter-spacing:-.025em}
+:focus-visible{outline-color:var(--em)}
+.top{background:rgba(14,19,22,.94);border-bottom:1px solid var(--gl);color:var(--gt)}
+.top .brand,.top .brand .bn{color:var(--gt)}
+.top .nav a{color:var(--gs)}
+.top .nav a:hover,.top .nav a[aria-current]{color:var(--gt);background:var(--g2)}
+.top .nav .sub a{color:var(--ink);background:none}.top .nav .sub a:hover{background:#F2EFE8;color:var(--ink)}
+.top .navx{color:var(--gt);text-decoration-color:#46545B}.top .navx:hover{text-decoration-color:var(--gt)}.top .navx[aria-current]{text-decoration-color:var(--em)}
+.top .menu{border-color:#46545B;color:var(--gt)}
+.top .btn.p{background:var(--em);color:#06221A;border-color:var(--em)}.top .btn.p:hover{background:#4FD3A1}
+footer{background:var(--g0);color:var(--gs);border-top:0}
+footer a,footer .fcols a{color:var(--gs)}footer a:hover,footer .fcols a:hover{color:var(--gt)}
+footer .fcols h2,footer .fb{color:var(--gt)}
+footer .legal{border-top-color:var(--gl)}
+@media (max-width:1200px){.top .nav.open .sub a{color:var(--gs)}.top .nav.open .sub a:hover{background:var(--g2);color:var(--gt)}}
+"""
+
 DISCUSS = contact("Discovery call")
 
 
@@ -502,9 +521,9 @@ def shell(mode, path, title, desc, body, ld, scripts="", head_extra="", html_cla
 <meta name="description" content="{e(desc)}">
 {robots}<link rel="canonical" href="{canon}">
 <meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{canon}"><meta property="og:image" content="{SITE}/assets/og-card.png"><meta property="og:type" content="website">
-<meta name="theme-color" content="#F6F4EF"><link rel="icon" href="/assets/brand/beiz-icon.svg">
+<meta name="theme-color" content="#0E1316"><link rel="icon" href="/assets/brand/beiz-icon.svg">
 {logo_js}
-{head_extra}<style>{CSS}{SHELL_CSS}{PAGE_CSS}</style>
+{head_extra}<style>{CSS}{SHELL_CSS}{PAGE_CSS}{CI_SHELL_CSS}</style>
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 </head><body>
 <a class="skip" href="#main">Skip to content</a>
@@ -521,7 +540,7 @@ def shell(mode, path, title, desc, body, ld, scripts="", head_extra="", html_cla
 </main>
 <footer><div class="w">
   <div class="fcols">
-    <div><b style="color:var(--ink)">Beiz Data &amp; Accounting</b><p>Finance, data and AI for small businesses, startups and solo operators. Canberra, working Australia-wide.</p><p><a href="/contact/">hello@beiz.com.au</a></p></div>
+    <div><b class="fb">Beiz Data &amp; Accounting</b><p>Finance, data and AI for small businesses, startups and solo operators. Canberra, working Australia-wide.</p><p><a href="/contact/">hello@beiz.com.au</a></p></div>
     <div><h2>Services</h2><ul>{svc_links}<li><a href="{root}services/">All services</a></li></ul></div>
     <div><h2>Products &amp; demos</h2><ul><li><a href="{root}products-demos/ai-workflow/">AI workflow demo</a></li><li><a href="{root}products-demos/missing-receipts/">Missing receipts demo</a></li><li><a href="{root}ai-value-calculator/">AI cost-and-value calculator</a></li><li><a href="/bill-check/">Bill check</a></li></ul></div>
     <div><h2>Company</h2><ul><li><a href="{root}about/">About Beiz</a></li><li><a href="{root}how-we-work/">How we work</a></li><li><a href="{root}workshops-speaking/">Workshops, coaching &amp; speaking</a></li><li><a href="/insights/">Insights</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy/">Privacy</a></li></ul></div>
@@ -749,86 +768,14 @@ def page_head(mode, items, eyebrow, h1, lead):
 
 
 def home(mode, cat):
+    """Homepage: the Connected Intelligence design (approved 20 Oct 2026), inside the shared shell."""
+    import concept_ci
     root = ROOTS[mode]
-    sid = {s["id"]: s for s in cat["services"]}
-    caps = [("ai-agents", "AI agents & workflow automation", "AI and automation built into one defined workflow, tested on your records, with a person approving what matters."),
-            ("dashboards", "Business intelligence & Power BI dashboards", "One trusted view of cash, performance and work needing attention."),
-            ("cash-model", "Financial modelling & scenario planning", "A 13-week cash view and profit by job or client, reconciled to the ledger."),
-            ("data-engineering", "Data engineering & analytics", "Your systems connected into one clean source for reports, models and AI."),
-            ("ai-governance", "AI governance & business improvement", "A register, policy and controls for the AI already in use, and processes redesigned before they're automated."),
-            ("cash-data-check", "Cash & data check", "A fixed-price first look at where bills, hours and invoices don't line up.")]
-    capc = "".join(f'<a class="card cap" href="{root}{sid[k]["slug"]}"><span class="mono" style="color:var(--acc)">{e(sid[k]["price"])}</span><h3>{e(t)}</h3><p>{e(d)}</p><u>Learn more</u></a>' for k, t, d in caps if k in sid)
-    impl = "".join(f'<li><a href="{root}{sid[k]["slug"]}">{e(sid[k]["title"])}</a><span>{e(sid[k]["price"])}</span></li>' for k in ("cash-data-check", "compliance-sprint", "cash-model") if k in sid)
-    pilot = cat["pilot"]
-    pilot_card = (f'<div class="card path"><span><span class="chip c-held">Pilot · register interest</span></span><h3>Subscription solutions</h3><p>{e(pilot["summary"])}</p>'
-                  f'<a class="btn g sm" href="{contact(pilot["topic"], pilot["msg"])}">Register interest</a></div>') if pilot else ""
-    flow = [("Enquiry", "Website form or a booked call", "Online", "c-ok"), ("Scope", "Fixed price and definition of done in writing", "By email", "c-n"),
-            ("Agreement", "Engagement terms signed before work starts", "By email", "c-n"), ("Payment", "Invoice by email", "By email", "c-n"),
-            ("Delivery", "Built and tested in your own tools", "In your systems", "c-n"), ("Reporting", "Weekly written status, then handover", "By email", "c-n")]
-    fl = "".join(f'<li><b>{e(a)}</b><span class="t">{e(b)}</span><span class="chip {c}">{e(s)}</span></li>' for a, b, s, c in flow)
-    roles = [("Understand the financial problem", "What it costs and what good looks like."), ("Redesign the workflow", "Remove handoffs before automating."),
-             ("Connect the data", "Every step uses the same facts."), ("Build and test", "On your past records, against a pass mark."),
-             ("Handle exceptions", "Missing, odd or unclear goes to a person."), ("Establish controls", "Approval points, limits and a log."),
-             ("Support adoption", "Training, documentation and review.")]
-    rl = "".join(f"<li><b>{e(a)}</b><p>{e(b)}</p></li>" for a, b in roles)
-    body = f'''<section class="hero"><div class="w">
-  <div>
-    <p class="eyb mono">Chartered Accountant-led. Finance, governance, data and AI.</p>
-    <h1><span class="h1a">AI agents, automation and business intelligence.</span> <span class="h1b">Built for your business.</span></h1>
-    <p class="l">Beiz helps small businesses, startups and solo operators connect their data, automate repetitive work and make clearer financial decisions, combining financial judgement with AI engineering and data science.</p>
-    <p style="font-weight:600;margin:-12px 0 28px">Less chasing. Clearer numbers. More time for what matters.</p>
-    <div class="ctas"><a class="btn p" href="{root}services/">Explore solutions</a><a class="btn g" href="#demo">See an AI workflow</a></div>
-  </div>
-  <div class="card hcard" role="img" aria-label="Example from the simulation below: an enquiry held for a person's approval, with two details missing and one out-of-scope request.">
-    <div class="hh mono"><b>New enquiry</b><span>Synthetic example</span></div>
-    <dl><div><dt>From</dt><dd>Harbourline Joinery</dd></div><div><dt>Workflow</dt><dd>Supplier bills → Xero</dd></div>
-    <div><dt>Details missing</dt><dd><span class="chip c-held">2</span></dd></div><div><dt>Outside scope</dt><dd><span class="chip c-stop">BAS</span></dd></div>
-    <div><dt>Draft reply</dt><dd>Ready</dd></div></dl>
-    <div class="hf"><span class="chip c-held">Held for your approval</span><a href="#demo">Step through it</a></div>
-  </div>
-</div></section>
-
-<section class="sec demo-sec" id="demo" aria-labelledby="h-demo"><div class="w" id="workforce">
-  <div class="sh"><h2 id="h-demo">See an AI workflow, one step at a time.</h2><p>An enquiry becomes a checked, drafted reply and an onboarding checklist. AI reads, rules check, and a person decides. Use the steps or your arrow keys.</p></div>
-  {demo()}
-  <p style="color:var(--dks);font-size:15px;margin:22px 0 0">More: <a href="{root}products-demos/missing-receipts/" style="color:#fff">missing receipts demo</a> · <a href="{root}ai-value-calculator/" style="color:#fff">AI cost-and-value calculator</a> · <a href="{root}products-demos/" style="color:#fff">all products and demos</a></p>
-</div></section>
-
-<section class="sec" id="offers" aria-labelledby="h-offers"><div class="w">
-  <div class="sh"><h2 id="h-offers">What Beiz delivers.</h2><p>Services you can buy now, working demonstrations and free tools, and subscription pilots, each clearly labelled.</p></div>
-  <div class="caps">{capc}</div>
-  <div class="ready">
-    <div class="card path"><span><span class="chip c-n">Available service</span></span><h3>Fixed-price starting points</h3><p>Scope and price agreed in writing before work starts.</p><ul>{impl}</ul><a class="btn p sm" href="{root}services/">All services</a></div>
-    <div class="card path"><span><span class="chip c-ok">Working demonstration · free</span></span><h3>Try before you talk</h3><p>Interactive simulations and tools that run in your browser.</p><ul><li><a href="{root}products-demos/ai-workflow/">AI workflow demo</a><span>Simulation</span></li><li><a href="{root}products-demos/missing-receipts/">Missing receipts demo</a><span>Simulation</span></li><li><a href="{root}ai-value-calculator/">AI cost-and-value calculator</a><span>Free</span></li><li><a href="/bill-check/">Bill check</a><span>Free</span></li></ul><a class="btn g sm" href="{root}products-demos/">Products &amp; demos</a></div>
-    {pilot_card}
-  </div>
-</div></section>
-
-<section class="sec" aria-labelledby="h-flow"><div class="w">
-  <div class="sh"><h2 id="h-flow">One connected workflow, from enquiry to reporting.</h2><p>How we work with our own clients today. The same kinds of workflow can be built into your business, including digital signing, customer payment workflows and dashboards.</p></div>
-  <ol class="flowline">{fl}</ol>
-  <p class="note"><a href="{root}how-we-work/">How we work, in detail</a>. Integrations are only described as working once they're configured and tested.</p>
-</div></section>
-
-<section class="sec" id="how" aria-labelledby="h-how"><div class="w">
-  <div class="sh"><h2 id="h-how">AI can generate an answer. Your business needs a working system.</h2><p>The hard part is connecting the right information, understanding the financial consequences, handling exceptions and knowing what needs a person's approval. Some jobs you can do yourself, and we'll say so.</p></div>
-  <ol class="roles">{rl}</ol>
-  <div class="cred2"><div class="card"><b>Chartered Accountant-led.</b> Founded by a Chartered Accountant (CA ANZ) and graduate of the Australian Institute of Company Directors (GAICD), with a background in AI engineering and data science. <a href="{root}about/">About Beiz</a></div>
-  <div class="card"><b>What Beiz doesn't do.</b> Tax returns, BAS or GST lodgements, tax or BAS agent services, statutory audit, legal or financial product advice, or payments released without a person.</div></div>
-</div></section>
-
-<section class="sec" aria-labelledby="h-ws" style="padding:56px 0"><div class="w"><div class="card band">
-  <div><h2 id="h-ws">Workshops, coaching and speaking.</h2><p>Practical sessions for owners, finance teams, boards and events, so your people can run more of it themselves.</p></div>
-  <a class="btn g" href="{root}workshops-speaking/">See sessions and topics</a></div></div></section>
-
-<section class="sec" aria-labelledby="h-cta" style="border-top:0;padding-top:0"><div class="w"><div class="card cta">
-  <div><h2 id="h-cta">Discuss your business.</h2><p>Tell us what isn't working. You'll get a written reply by the next business day, and if we're not the right fit, we'll say so.</p></div>
-  <div class="ctas"><a class="btn p" href="{DISCUSS}">Start in writing</a>{f'<a class="btn g" href="{BOOKING_URL}" target="_blank" rel="noopener">Book a 20-minute call</a>' if BOOKING_URL else ""}</div>
-</div></div></section>'''
+    body, scripts = concept_ci.home_parts(cat)
     ld = {"@context": "https://schema.org", "@graph": [ORG, {"@type": "WebPage", "url": SITE + "/", "name": "Beiz Data & Accounting", "about": {"@id": SITE + "/#org"}}]}
     return shell(mode, root, "AI agents, automation and business intelligence | Beiz Data & Accounting",
                  "Chartered Accountant-led AI agents, workflow automation, business intelligence dashboards, financial modelling and data engineering for Australian small businesses, startups and solo operators.",
-                 body, ld, DEMO_JS)
+                 body, ld, scripts)
 
 
 def svc_card(s, mode):
@@ -1434,17 +1381,23 @@ main .wrap{max-width:1180px}
 """
 # Shell elements must look identical to the new pages; these out-rank the legacy theme rules (html.legacy prefix).
 LEGACY_SHELL_FIX = """html.legacy body{background:#F6F4EF;color:#15181D;font:400 17px/1.6 Inter,system-ui,sans-serif}
-html.legacy .top{background:rgba(246,244,239,.94);border-bottom:1px solid #E2DED5}
-html.legacy .top .btn.p{background:#15181D;color:#fff;border:1px solid #15181D;transition:none}
-html.legacy .top .btn.p:hover{background:#2A2F37}
-html.legacy .top .nav a{font:400 15px Inter,sans-serif;color:#4C525C}
-html.legacy .top .nav a:hover,html.legacy .top .nav a[aria-current]{color:#15181D;background:#ECE9E2}
-html.legacy .top .nav .sub a{color:#15181D}
-html.legacy .navx{color:#15181D}
-html.legacy footer{background:#F6F4EF;color:#666C76;font:400 14px/1.6 Inter,sans-serif;border-top:1px solid #E2DED5}
-html.legacy footer .fcols h2{font:600 13px/1.4 Inter,sans-serif;letter-spacing:.02em;margin:0 0 10px;color:#15181D}
-html.legacy footer a{color:#4C525C}html.legacy footer p{font-size:14px;margin:8px 0 0}
-html.legacy footer .fcols b{font:600 14px Inter,sans-serif;color:#15181D}
+html.legacy .top{background:rgba(14,19,22,.94);border-bottom:1px solid #2A353B}
+html.legacy .top .btn.p{background:#34C28F;color:#06221A;border:1px solid #34C28F;transition:none}
+html.legacy .top .btn.p:hover{background:#4FD3A1}
+html.legacy .top .nav a{font:400 15px Inter,sans-serif;color:#AAB5B1}
+html.legacy .top .nav a:hover,html.legacy .top .nav a[aria-current]{color:#ECF0EE;background:#1B2429}
+html.legacy .top .nav .sub a{color:#15181D;background:none}
+html.legacy .top .nav .sub a:hover{background:#F2EFE8;color:#15181D}
+html.legacy .navx{color:#ECF0EE}
+html.legacy :focus-visible{outline-color:#34C28F}
+html.legacy .top .brand,html.legacy .top .brand .bn,html.legacy .top .brand b{color:#ECF0EE}
+html.legacy .top .menu{color:#ECF0EE;border-color:#46545B;background:none}
+html.legacy main h1,html.legacy main h2,html.legacy main h3{font-family:Inter,system-ui,sans-serif;font-weight:600;letter-spacing:-.025em}
+html.legacy footer{background:#0E1316;color:#AAB5B1;font:400 14px/1.6 Inter,sans-serif;border-top:0}
+html.legacy footer .fcols h2{font:600 13px/1.4 Inter,sans-serif;letter-spacing:.02em;margin:0 0 10px;color:#ECF0EE}
+html.legacy footer a{color:#AAB5B1}html.legacy footer p{font-size:14px;margin:8px 0 0}
+html.legacy footer .fcols b{font:600 14px Inter,sans-serif;color:#ECF0EE}
+@media (max-width:1200px){html.legacy .top .nav.open .sub a{color:#AAB5B1}}
 """
 
 

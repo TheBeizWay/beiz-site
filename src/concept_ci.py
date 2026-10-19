@@ -1,7 +1,7 @@
-"""Concept preview "Connected Intelligence" (20 Oct 2026): /preview/ci/ only. noindex, not in the sitemap, not linked.
-Frontend only: graphite hero with a connected-system visual (Finance / Operations / AI views, synthetic), light sections below.
+"""Connected Intelligence homepage (approved by Purav 20 Oct 2026). site3.home() puts these sections inside the shared shell.
+Graphite hero with a connected-system visual (Finance / Operations / AI views, synthetic), light sections below.
 Business facts, prices and simulation labels come from the same sources as the live site."""
-import json
+import json, re
 from html import escape as e
 from site3 import load, contact, SITE, BOOKING_URL
 
@@ -158,8 +158,7 @@ def view_html(key, v, first):
             f'<p class="nt">{e(v["note"])}</p></div>')
 
 
-def build():
-    cat = load("prod")
+def _standalone(cat):
     sid = {s["id"]: s for s in cat["services"]}
     discuss = contact("Discovery call")
     caps = [("ai-agents", "AI agents & workflow automation"), ("dashboards", "Business intelligence & dashboards"), ("cash-model", "Financial modelling & scenarios"),
@@ -240,4 +239,46 @@ def build():
 <nav aria-label="Footer"><a href="/services/">Services</a> · <a href="/products-demos/">Demos</a> · <a href="/about/">Company</a> · <a href="/privacy/">Privacy</a> · <a href="/contact/">Contact</a></nav></div></footer>
 <script>{JS}</script>
 </body></html>'''
-    return {"/preview/ci/": html}
+    return html
+
+
+SKIP = re.compile(r"^(\*|html|body|a|\.w|:focus-visible|\.skip.*|\.cbar.*|\.top.*|\.brand.*|\.nav.*|\.menu|footer.*)$")
+
+
+def _scope(css, pre=".ci"):
+    """Prefix each selector with .ci; drop page-level rules (fonts, header, footer) that the shared shell owns."""
+    out, i = [], 0
+    while i < len(css):
+        j = css.find("{", i)
+        if j < 0:
+            break
+        sel = css[i:j].strip()
+        depth, k = 1, j + 1
+        while depth:
+            depth += {"{": 1, "}": -1}.get(css[k], 0); k += 1
+        inner = css[j + 1:k - 1]
+        if sel.startswith("@font-face"):
+            pass
+        elif sel.startswith("@keyframes"):
+            out.append(f"{sel}{{{inner}}}")
+        elif sel.startswith("@media"):
+            body = _scope(inner, pre)
+            if body:
+                out.append(f"{sel}{{{body}}}")
+        else:
+            parts = [p.strip() for p in sel.split(",")]
+            keep = [pre if p == ":root" else f"{pre} {p}" for p in parts if not SKIP.match(p)]
+            if keep:
+                out.append(",".join(keep) + "{" + inner + "}")
+        i = k
+    return "\n".join(out)
+
+
+def home_parts(cat):
+    """(body, scripts) for the homepage: the concept's main sections, scoped CSS and the view-tab script."""
+    html = _standalone(cat)
+    main = html.split('<main id="main">', 1)[1].split("</main>", 1)[0]
+    js = JS.replace("document.documentElement.classList.add('js');\n", "").replace(
+        "var b=document.querySelector('.menu'),n=document.getElementById('nav');b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)});\n", "")
+    css = _scope(CSS) + "\n.ci{display:block;padding-bottom:84px;color:var(--ink)}.ci .w.band{padding:0 clamp(18px,4vw,40px)}"
+    return f'<div class="ci">{main}</div>', f"<style>{css}</style><script>{js}</script>"
