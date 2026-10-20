@@ -51,10 +51,14 @@
   }
 
   /* ---------- values ---------- */
+  // Numeric dates like 03/10/2026 are read in the format the user confirmed (dmy or mdy); nothing is guessed.
+  let fmt = "dmy";
+  const FMT = { dmy: "day/month/year (DD/MM/YYYY)", mdy: "month/day/year (MM/DD/YYYY)" };
+  const NUM = /^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{2,4})/;
   function pDate(s) {
     s = String(s || "").trim(); if (!s) return null; let m, y, mo, d;
     if ((m = s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/))) [y, mo, d] = [+m[1], +m[2], +m[3]];
-    else if ((m = s.match(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{2,4})/))) [d, mo, y] = [+m[1], +m[2], +m[3]];
+    else if ((m = s.match(NUM))) [d, mo, y] = fmt === "mdy" ? [+m[2], +m[1], +m[3]] : [+m[1], +m[2], +m[3]];
     else if ((m = s.match(/^(\d{1,2})[\s-]([A-Za-z]{3})[A-Za-z]*[\s-](\d{2,4})/))) [d, mo, y] = [+m[1], MON.indexOf(m[2].toLowerCase()) + 1, +m[3]];
     else return null;
     if (y < 100) y += 2000; if (!mo || mo > 12 || !d || d > 31) return null;
@@ -90,10 +94,11 @@
   function run(rows, map, limit) {
     const hdr = rows[0].map(norm);
     const lineLevel = map.invoice >= 0 && LINE_COLS.some(c => hdr.includes(c));
-    let bills = [], skipped = 0, merged = 0; const seen = new Set();
+    let bills = [], skipped = 0, merged = 0; const seen = new Set(), badDates = [];
     for (let r = 1; r < rows.length; r++) {
       const v = rows[r], g = k => map[k] >= 0 ? (v[map[k]] ?? "").trim() : "";
       const supplier = g("supplier"), amount = pAmt(g("amount")), date = pDate(g("date"));
+      if (supplier && amount != null && date == null && g("date")) { badDates.push(r + 1); continue; }
       if (!supplier || amount == null || date == null) { skipped++; continue; }
       const b = { row: r + 1, supplier, sk: sKey(supplier) || supplier.toLowerCase(), amount, date, invoice: g("invoice"), paid: pDate(g("paid")), bank: g("bank").replace(/\s+/g, " "), abn: g("abn") };
       if (lineLevel) { const k = [b.sk, iKey(b.invoice), date, amount].join("|"); if (seen.has(k)) { merged++; continue; } seen.add(k); }
@@ -132,16 +137,26 @@
       if (b.paid != null) { const wd = new Date(b.paid * DAY).getUTCDay(); if (wd === 0 || wd === 6) add("wkd", [b], `Paid ${wd === 6 ? "Saturday" : "Sunday"} ${fmtD(b.paid)}`); }
     });
     const NA = [["inv", "invoice", "no bill-number column"], ["bank", "bank", "no bank-account column"], ["wkd", "paid", "no date-paid column"], ["abn", "abn", "no ABN column"]].filter(([, k]) => map[k] < 0);
-    return { bills, skipped, merged, F, risk: [...twice.values()].reduce((s, a) => s + Math.max(0, a), 0), na: NA };
+    return { bills, skipped, merged, badDates, F, risk: [...twice.values()].reduce((s, a) => s + Math.max(0, a), 0), na: NA };
   }
 
   /* ---------- UI ---------- */
-  let data = null, map = null, name = "";
+  let data = null, map = null, name = "", confirmed = false;
   const out = $("#bcOut"), mapBox = $("#bcMap"), limIn = $("#bcLimit"), status = $("#bcStatus");
-  function load(text, label) {
+  // Evidence for the date format: 25/10 can only be day/month, 10/25 only month/day. Both present = mixed file.
+  function evidence() {
+    const ev = { dmy: [], mdy: [], numeric: 0 };
+    for (const k of ["date", "paid"]) { if (map[k] < 0) continue;
+      for (let r = 1; r < data.length; r++) { const v = String(data[r][map[k]] ?? "").trim(), m = v.match(NUM); if (!m) continue; ev.numeric++;
+        if (+m[1] > 12 && +m[2] <= 12) ev.dmy.push(v); else if (+m[2] > 12 && +m[1] <= 12) ev.mdy.push(v); } }
+    return ev;
+  }
+  function load(text, label, preset) {
     const rows = parseCSV(text);
     if (rows.length < 2) { status.textContent = "That file has no rows we can read. Export the bills list as CSV and try again."; return; }
-    data = rows; name = label; map = guess(rows[0]); renderMap(); go();
+    data = rows; name = label; map = guess(rows[0]);
+    const ev = evidence(); fmt = preset || (ev.mdy.length && !ev.dmy.length ? "mdy" : "dmy"); confirmed = !!preset;
+    renderMap(); go();
     root.classList.add("has");
   }
   function renderMap() {
@@ -149,12 +164,13 @@
     const open = FIELDS.some(([k, , req]) => req && map[k] < 0) ? " open" : "";
     mapBox.innerHTML = `<details class="bck-map"${open}><summary>Columns used from <b>${esc(name)}</b> <span>Change</span></summary><div class="bck-mg">` +
       FIELDS.map(([k, l, req]) => `<label><span>${l}${req ? "" : " <small>(optional)</small>"}</span><select data-f="${k}">${opts(map[k])}</select></label>`).join("") + "</div></details>";
-    mapBox.querySelectorAll("select").forEach(s => s.onchange = () => { map[s.dataset.f] = +s.value; go(); });
+    mapBox.querySelectorAll("select").forEach(s => s.onchange = () => { map[s.dataset.f] = +s.value; if (s.dataset.f === "date" || s.dataset.f === "paid") confirmed = false; go(); });
   }
   function go() {
     const limit = Math.max(1, +limIn.value || 5000);
     const miss = FIELDS.filter(([k, , req]) => req && map[k] < 0).map(f => f[1].toLowerCase());
     if (miss.length) { out.innerHTML = `<p class="bck-err">We couldn't find the ${miss.length > 1 ? miss.slice(0, -1).join(", ") + " and " + miss.at(-1) + " columns" : miss[0] + " column"}. Pick ${miss.length > 1 ? "them" : "it"} in the lists above.</p>`; status.textContent = ""; return; }
+    if (!confirmed) { dateCheck(); return; }
     const t0 = performance.now(), r = run(data, map, limit), ms = Math.round(performance.now() - t0);
     if (!r.bills.length) { out.innerHTML = `<p class="bck-err">No rows had a supplier, an amount and a date we could read. Check the columns above.</p>`; return; }
     const value = r.bills.reduce((s, b) => s + b.amount, 0), risk = r.risk;
@@ -165,11 +181,12 @@
       <div><span>Value checked</span><b>${aud0(value)}</b></div>
       <div class="${r.F.length ? "w" : ""}"><span>Worth a look</span><b>${r.F.length}</b><small>Prompts for a person, not conclusions</small></div>
       <div class="${risk ? "r" : ""}"><span>Could have been paid twice</span><b>${aud0(risk)}</b><small>Duplicates and repeated invoice numbers</small></div></div>`;
+    if (r.badDates.length) h += `<p class="bck-na"><b>${r.badDates.length} ${r.badDates.length === 1 ? "row" : "rows"} left out:</b> the date doesn't fit ${FMT[fmt]} (row${r.badDates.length === 1 ? "" : "s"} ${r.badDates.slice(0, 8).join(", ")}${r.badDates.length > 8 ? "…" : ""}). Fix ${r.badDates.length === 1 ? "it" : "them"} in the file and check again.</p>`;
     if (r.skipped || r.merged) h += `<p class="fine">${r.skipped ? `${r.skipped} ${r.skipped === 1 ? "row" : "rows"} skipped (no supplier, amount or date). ` : ""}${r.merged ? `${r.merged} line-item ${r.merged === 1 ? "row" : "rows"} combined into ${r.merged === 1 ? "its bill" : "their bills"}.` : ""}</p>`;
     const ran = 8 - r.na.length;
     if (r.na.length) h += `<p class="bck-na"><b>Not assessed:</b> ${r.na.map(([t, , why]) => `${CHECKS[t][0].toLowerCase()} (${why})`).join("; ")}. Add those columns to run ${r.na.length === 1 ? "it" : "them"}.</p>`;
     if (!r.F.length) h += `<p class="bck-ok">Nothing flagged by the ${ran} checks that ran. That's a good sign, not a clean bill of health: these are the quick checks, not all of them.</p>`;
-    h += `<p class="fine">Dates are read as day/month/year. "Could have been paid twice" counts each extra bill once.</p>`;
+    h += `<p class="fine">Dates read as ${FMT[fmt]}, as confirmed. <button type="button" class="bck-link" id="bcFmt">Change</button> "Could have been paid twice" counts each extra bill once.</p>`;
     for (const [type, [title, lvl, why]] of Object.entries(CHECKS)) {
       const fs = r.F.filter(f => f.type === type); if (!fs.length) continue;
       const rowsH = fs.slice(0, 40).map(f => f.items.map((b, i) => `<tr${i ? ' class="c"' : ""}><td>${i ? "" : esc(b.supplier)}</td><td>${esc(b.invoice) || "<i>none</i>"}</td><td>${fmtD(b.date)}</td><td class="n">${aud(b.amount)}</td><td>${i ? "" : esc(f.detail)}</td></tr>`).join("")).join("");
@@ -182,6 +199,7 @@
       <p>The two-week cash &amp; data check goes further, from your full exports: unbilled work, margin leaks and manual bottlenecks, with the records behind each finding. $1,500 fixed, credited if you go ahead. Or set up a financial controller agent that runs these checks on every bill and holds anything odd for you.</p>
       <div class="hz-ctas"><a class="btn primary" href="/contact/?topic=Two-week%20cash%20%26%20data%20check#form">Ask about the check</a><a class="btn ghost" href="/contact/?topic=Discovery%20call#form">Book a 20-minute fit check</a><a class="btn ghost" href="/services/ai-readiness-sprint/">About the agent</a></div></div>`;
     out.innerHTML = h;
+    $("#bcFmt").onclick = () => { confirmed = false; go(); };
     $("#bcCsv").onclick = () => {
       const q = s => { let v = String(s ?? ""); if (/^[=+@\t\r]/.test(v) || (/^-/.test(v) && isNaN(+v))) v = "'" + v; return `"${v.replace(/"/g, '""')}"`; }; // stop spreadsheet formulas
       const lines = [["Check", "Supplier", "Bill no.", "Bill date", "Amount", "Row in file", "Why"].join(",")];
@@ -189,7 +207,30 @@
       const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([lines.join("\r\n")], { type: "text/csv" }));
       a.download = "bill-check-findings.csv"; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 4000);
     };
-    $("#bcClear").onclick = () => { data = map = null; out.innerHTML = mapBox.innerHTML = ""; status.textContent = "Cleared. Nothing was kept."; root.classList.remove("has"); $("#bcFile").value = ""; };
+    $("#bcClear").onclick = () => { data = map = null; confirmed = false; out.innerHTML = mapBox.innerHTML = ""; status.textContent = "Cleared. Nothing was kept."; root.classList.remove("has"); $("#bcFile").value = ""; };
+  }
+
+  // Shown before any check runs: the chosen format, the evidence for it and how the first dates will be read.
+  function dateCheck() {
+    const ev = evidence(), mixed = ev.dmy.length && ev.mdy.length;
+    const sample = []; for (let r = 1; r < data.length && sample.length < 5; r++) { const v = String(data[r][map.date] ?? "").trim(); if (v) sample.push([r + 1, v]); }
+    const bad = []; for (let r = 1; r < data.length; r++) { const v = String(data[r][map.date] ?? "").trim(); if (v && pDate(v) == null) bad.push(r + 1); }
+    let note;
+    if (mixed) note = `<p class="bck-err">This file mixes formats: ${esc(ev.dmy[0])} only works as day/month, ${esc(ev.mdy[0])} only as month/day. Fix the export if you can. Rows that don't fit the format you choose are left out and listed.</p>`;
+    else if (ev.dmy.length) note = `<p class="fine">Some dates, such as ${esc(ev.dmy[0])}, only work as day/month/year.</p>`;
+    else if (ev.mdy.length) note = `<p class="fine">Some dates, such as ${esc(ev.mdy[0])}, only work as month/day/year.</p>`;
+    else if (ev.numeric) note = `<p class="bck-err">Every date in this file could be read either way (for example 03/10/2026 is 3 October or March 10). Choose the format your system exports.</p>`;
+    else note = `<p class="fine">These dates include the month name or the year first, so they can't be misread.</p>`;
+    const rows = sample.map(([n, v]) => { const t = pDate(v); return `<tr><td>${n}</td><td>${esc(v)}</td><td>${t == null ? "<b>Doesn't fit this format</b>" : fmtD(t)}</td></tr>`; }).join("");
+    out.innerHTML = `<div class="bck-dc"><h3>Check how your dates will be read</h3>${note}
+      <fieldset class="bck-fmt"><legend>Dates in this file are</legend>
+      ${Object.entries(FMT).map(([k, l]) => `<label><input type="radio" name="bcFmtR" value="${k}"${k === fmt ? " checked" : ""}> ${l}</label>`).join("")}</fieldset>
+      <div class="tblw"><table class="tbl"><thead><tr><th>Row</th><th>In your file</th><th>Read as</th></tr></thead><tbody>${rows}</tbody></table></div>
+      ${bad.length ? `<p class="bck-na"><b>${bad.length} ${bad.length === 1 ? "row doesn't" : "rows don't"} fit this format</b> and will be left out (row${bad.length === 1 ? "" : "s"} ${bad.slice(0, 8).join(", ")}${bad.length > 8 ? "…" : ""}).</p>` : ""}
+      <button type="button" class="btn primary" id="bcConfirm">Dates look right: run the checks</button></div>`;
+    status.textContent = "Confirm the date format before the checks run.";
+    out.querySelectorAll("input[name=bcFmtR]").forEach(i => i.onchange = () => { fmt = i.value; dateCheck(); });
+    $("#bcConfirm").onclick = () => { confirmed = true; go(); };
   }
   function readFile(f) {
     if (!f) return;
@@ -203,6 +244,6 @@
   ["dragenter", "dragover"].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add("on"); }));
   ["dragleave", "drop"].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove("on"); }));
   drop.addEventListener("drop", e => readFile(e.dataTransfer.files[0]));
-  $("#bcSample").onclick = () => { status.textContent = "Loading the sample…"; fetch("/data/sample-bills.csv").then(r => r.text()).then(t => load(t, "sample-bills.csv (made-up building company)")).catch(() => status.textContent = "Couldn't load the sample. Try again."); };
+  $("#bcSample").onclick = () => { status.textContent = "Loading the sample…"; fetch("/data/sample-bills.csv").then(r => r.text()).then(t => load(t, "sample-bills.csv (made-up building company)", "dmy")).catch(() => status.textContent = "Couldn't load the sample. Try again."); };
   limIn.addEventListener("change", () => data && go());
 })();

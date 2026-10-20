@@ -1178,7 +1178,7 @@ def bill_check():
                  [("/try/", "Try it"), ("/bill-check/", "Bill check")]) + f"""<section style="padding-top:0"><div class="wrap">
 <div class="bck" id="bc">
   <div class="bck-in">
-    <label class="bck-drop" id="bcDrop"><input type="file" id="bcFile" accept=".csv,.txt,.tsv,text/csv"><b>Drop your bills CSV here</b><span>or click to choose a file</span></label>
+    <label class="bck-drop" id="bcDrop"><input type="file" id="bcFile" accept=".csv,.txt,.tsv,text/csv"><b>Drop your bills CSV here</b><span>or click to choose a file</span><span class="bck-dfmt">Dates should be DD/MM/YYYY. You'll see how they're read and confirm before any check runs.</span></label>
     <div class="bck-side">
       <button type="button" class="btn primary" id="bcSample">Try it with sample data</button>
       <p class="fine">Six months of bills from a made-up building company, with a few problems planted. <a href="/data/sample-bills.csv" download>Download the sample file</a> to see the format.</p>

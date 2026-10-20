@@ -2403,3 +2403,13 @@ header.site .card-link + .th-tog{margin-left:4px!important}
 @media (min-width:901px) and (max-width:1260px){nav.main.flat{gap:18px!important}nav.main.flat a{font-size:14px!important}header.site .card-link{display:none!important}}
 @media (min-width:1041px) and (max-width:1100px){nav.main.flat{gap:13px!important}nav.main.flat a{font-size:13px!important}header.site .wm small{display:none}}
 @media (min-width:901px) and (max-width:1040px){nav.main.flat{display:none!important}.menu-btn{display:inline-block!important}}
+
+/* bill check: date-format confirmation */
+.bck-dfmt{display:block;margin-top:10px;font-size:13.5px;color:#4A525A}
+.bck-dc{background:#fff;border:1px solid #E1DED6;border-radius:12px;padding:20px 22px;margin-top:12px;display:grid;gap:12px}
+.bck-dc h3{margin:0;font:600 1.1rem Inter,sans-serif}
+.bck-fmt{border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 22px}
+.bck-fmt legend{font-weight:600;margin-bottom:6px;padding:0}
+.bck-fmt label{display:flex;gap:8px;align-items:center;cursor:pointer}
+.bck-dc .btn{justify-self:start}
+.bck-link{background:none;border:0;padding:0;font:inherit;color:inherit;text-decoration:underline;cursor:pointer}
