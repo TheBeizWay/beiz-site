@@ -6,7 +6,7 @@
 <meta property="og:title" content="Prices | Beiz Data &amp; Accounting"><meta property="og:description" content="Fixed prices for the compliance controls sprint, cash &amp; data check, cash model, AI workforce setup, leave cover and monthly controls operations."><meta property="og:url" content="https://beiz.com.au/prices/"><meta property="og:image" content="https://beiz.com.au/assets/og-card.png"><meta property="og:type" content="website">
 <meta name="theme-color" content="#0E1316"><link rel="icon" href="/assets/brand/beiz-icon.svg">
 
-<link rel="stylesheet" href="/assets/site.css?v=162"><link rel="stylesheet" href="/assets/wwd.css?v=162"><link rel="stylesheet" href="/assets/refine.css?v=162"><link rel="stylesheet" href="/assets/future-neon.css?v=162"><link rel="stylesheet" href="/assets/calm.css?v=162"><link rel="stylesheet" href="/assets/ledger.css?v=162"><link rel="stylesheet" href="/assets/paper.css?v=162"><script src="/assets/aicost-core.js?v=162" defer></script><style>main{font-family:Inter,system-ui,sans-serif}
+<link rel="stylesheet" href="/assets/site.css?v=164"><link rel="stylesheet" href="/assets/wwd.css?v=164"><link rel="stylesheet" href="/assets/refine.css?v=164"><link rel="stylesheet" href="/assets/future-neon.css?v=164"><link rel="stylesheet" href="/assets/calm.css?v=164"><link rel="stylesheet" href="/assets/ledger.css?v=164"><link rel="stylesheet" href="/assets/paper.css?v=164"><script src="/assets/aicost-core.js?v=164" defer></script><style>main{font-family:Inter,system-ui,sans-serif}
 main .wrap{max-width:1180px}
 </style><style>@font-face{font-family:Serif4;font-weight:500;font-display:swap;src:url(/assets/fonts/source-serif-4-latin-500-normal.woff2) format('woff2')}
 @font-face{font-family:Serif4;font-weight:600;font-display:swap;src:url(/assets/fonts/source-serif-4-latin-600-normal.woff2) format('woff2')}
@@ -334,7 +334,21 @@ footer p{margin:8px 0 0}
 
 .nav>li{position:relative}
 .nav .sub{display:none;position:absolute;top:100%;left:0;min-width:270px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px;box-shadow:0 18px 40px rgba(21,24,29,.10);list-style:none;margin:0;z-index:30}
-.nav>li:hover>.sub,.nav>li:focus-within>.sub{display:block}
+.nav>li:hover>.sub,.nav>li.open>.sub{display:block}
+.nav>li.nohov:hover>.sub{display:none}
+.nav>li.nohov.open>.sub{display:block}
+.nav>li{display:flex;align-items:center}.nav a{white-space:nowrap}
+.dd{width:26px;height:30px;margin-left:-8px;border:0;background:none;border-radius:6px;cursor:pointer;color:var(--soft)}
+.dd:before{content:"";display:inline-block;width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translate(-2px,-2px)}
+.dd[aria-expanded=true]:before{transform:rotate(-135deg) translate(-2px,-2px)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.sub.wide{min-width:620px;padding:10px}
+.sub.wide ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.sub.wide li{border-radius:10px;padding:4px}.sub.wide li:hover{background:#F6F4EF}
+.sub.wide li a{display:block}.sub.wide b{font-weight:600;font-size:14.5px;color:var(--ink)}
+.sub.wide small{display:block;color:var(--soft);font-size:13px;margin-top:2px}
+.sub.wide small.pb{color:var(--faint);font-style:italic}
+.sub.wide .all{display:block;margin-top:6px;padding:10px 12px;border-top:1px solid var(--line);font-weight:500;font-size:14px;text-decoration:none}
 .nav .sub a{padding:9px 12px;font-size:14.5px;color:var(--ink)}
 .nav .sub a small{display:block;color:var(--faint);font-size:12.5px;margin-top:1px}
 .nav a[aria-current]{color:var(--ink);background:#ECE9E2}
@@ -353,6 +367,8 @@ footer p{margin:8px 0 0}
 .legal{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);width:100%}
 @media (max-width:1200px){
  .nav.open .sub{display:block;position:static;border:0;box-shadow:none;padding:0 0 6px 14px;min-width:0;background:transparent}
+ .nav.open .dd{display:none}.nav.open>li.has{display:block}
+ .nav.open .sub.wide ul{grid-template-columns:1fr}.nav.open .sub.wide .ex{padding-left:4px}.nav.open .sub.wide small{display:none}
  .nav.open .sub a{border-top:0;padding:8px 4px;font-size:15px}
  .nav.open .sub a small{display:none}
  .navx{display:none}
@@ -418,7 +434,9 @@ footer{background:var(--g0);color:var(--gs);border-top:0}
 footer a,footer .fcols a{color:var(--gs)}footer a:hover,footer .fcols a:hover{color:var(--gt)}
 footer .fcols h2,footer .fb{color:var(--gt)}
 footer .legal{border-top-color:var(--gl)}
-@media (max-width:1200px){.top .nav.open .sub a{color:var(--gs)}.top .nav.open .sub a:hover{background:var(--g2);color:var(--gt)}}
+.top .dd{color:var(--gs)}.top .dd:hover{background:var(--g2);color:var(--gt)}
+.top .nav .sub.wide b{color:var(--ink)}.top .nav .sub.wide .ex{color:var(--acc);font-size:13px;padding:2px 12px 6px;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:1200px){.top .nav.open .sub.wide b{color:inherit}.top .nav.open .sub a{color:var(--gs)}.top .nav.open .sub a:hover{background:var(--g2);color:var(--gt)}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "ProfessionalService", "@id": "https://beiz.com.au/#org", "name": "Beiz Data & Accounting", "legalName": "Beiz Data & Accounting Pty Ltd", "url": "https://beiz.com.au/", "email": "hello@beiz.com.au", "taxID": "53 691 755 496", "address": {"@type": "PostalAddress", "addressLocality": "Canberra", "addressRegion": "ACT", "addressCountry": "AU"}, "areaServed": "AU", "founder": {"@type": "Person", "name": "Purav Mehta"}}]}</script>
 </head><body>
@@ -427,7 +445,7 @@ footer .legal{border-top-color:var(--gl)}
 <header class="top"><div class="w">
   <a class="brand" href="/" aria-label="Beiz Data &amp; Accounting, home"><span class="lg-cur"><img class="sym" src="/assets/brand/beiz-icon.svg" alt="" width="36" height="36"><span class="bn"><b>Beiz</b> Data &amp; Accounting</span></span></a>
   <button class="menu" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
-  <ul class="nav" id="nav" aria-label="Main"><li><a href="/services/">Services</a><ul class="sub"><li><a href="/services/#finance">Finance & decision support<small>Know where cash and margin are going, from your own records.</small></a></li><li><a href="/services/#data">Data & dashboards<small>One trusted set of numbers, flowing on a schedule.</small></a></li><li><a href="/services/#automation">Automation & AI<small>Fewer handoffs and less re-keying, with a person signing off what matters.</small></a></li><li><a href="/services/#governance">Governance & controls<small>Know what is in scope, who owns it and where a person must approve.</small></a></li><li><a href="/services/">All services<small>Scope, limits and next step for each</small></a></li></ul></li><li><a href="/products-demos/">Products &amp; Demos</a><ul class="sub"><li><a href="/products-demos/ai-workflow/">AI workflow demo<small>Enquiry to approved reply, step by step</small></a></li><li><a href="/products-demos/missing-receipts/">Missing receipts demo<small>Rules, reminders and matching with sign-off</small></a></li><li><a href="/products-demos/enquiry-assistant/">Enquiry assistant demo<small>Answers with sources, then a hand-over</small></a></li><li><a href="/ai-value-calculator/">AI cost-and-value calculator<small>Is automating a task worth it?</small></a></li><li><a href="/products-demos/">All products and demos<small>Free tools, demos and pilots</small></a></li></ul></li><li><a href="/insights/">Insights</a></li><li><a href="/about/">Company</a><ul class="sub"><li><a href="/about/">About Beiz<small>Who we are and how we're set up</small></a></li><li><a href="/how-we-work/">How we work<small>From enquiry to handover</small></a></li><li><a href="/workshops-speaking/">Workshops, coaching &amp; speaking<small>Building your team's capability</small></a></li><li><a href="/contact/">Contact<small>Start in writing or book a call</small></a></li></ul></li><li class="mob"><a href="/workshops-speaking/">Workshops &amp; Speaking</a></li></ul>
+  <ul class="nav" id="nav" aria-label="Main"><li class="has"><a href="/services/">Services</a><button class="dd" type="button" aria-expanded="false" aria-controls="sub-services"><span class="sr">Services menu</span></button><div class="sub wide" id="sub-services"><ul><li><a href="/services/#finance"><b>Finance &amp; decision support</b><small class="pb">Cash is tight and it&#x27;s unclear which jobs make money.</small><small>Cash and margins you can see ahead.</small></a><a class="ex" href="/products-demos/job-profitability/">Investigate job profitability</a></li><li><a href="/services/#data"><b>Data &amp; business intelligence</b><small class="pb">Numbers live in several systems and the reports don&#x27;t agree.</small><small>One reconciled source for reports and dashboards.</small></a><a class="ex" href="/examples/">See example outputs</a></li><li><a href="/services/#automation"><b>AI agents &amp; automation</b><small class="pb">The same matching, chasing and checking happens every week.</small><small>One workflow automated, with a person approving what matters.</small></a><a class="ex" href="/products-demos/ai-workflow/">Step through an AI workflow</a></li><li><a href="/services/#governance"><b>Governance &amp; improvement</b><small class="pb">AI use and process risk without a clear owner.</small><small>Ownership, controls and better processes.</small></a><a class="ex" href="/ai-check/">Try the Privacy Act AI check</a></li></ul><a class="all" href="/services/">View all services</a></div></li><li class="has"><a href="/products-demos/">Products &amp; Demos</a><button class="dd" type="button" aria-expanded="false" aria-controls="sub-products"><span class="sr">Products &amp; Demos menu</span></button><ul class="sub" id="sub-products"><li><a href="/bill-check/">Bill check<small>Working tool: check your own bills export</small></a></li><li><a href="/products-demos/job-profitability/">Job profitability<small>Signature experience: investigate a job's margin</small></a></li><li><a href="/products-demos/ai-workflow/">AI workflow demo<small>Enquiry to approved reply, step by step</small></a></li><li><a href="/products-demos/missing-receipts/">Missing receipts demo<small>Rules, reminders and matching with sign-off</small></a></li><li><a href="/products-demos/enquiry-assistant/">Enquiry assistant demo<small>Answers with sources, then a hand-over</small></a></li><li><a href="/ai-value-calculator/">AI cost-and-value calculator<small>Is automating a task worth it?</small></a></li><li><a href="/products-demos/">All products and demos<small>Free tools, demos and pilots</small></a></li></ul></li><li class=""><a href="/insights/">Insights</a></li><li class="has"><a href="/about/">Company</a><button class="dd" type="button" aria-expanded="false" aria-controls="sub-company"><span class="sr">Company menu</span></button><ul class="sub" id="sub-company"><li><a href="/about/">About Beiz<small>Who we are and how we're set up</small></a></li><li><a href="/how-we-work/">How we work<small>From enquiry to handover</small></a></li><li><a href="/workshops-speaking/">Workshops, coaching &amp; speaking<small>Building your team's capability</small></a></li><li><a href="/contact/">Contact<small>Start in writing or book a call</small></a></li></ul></li><li class="mob"><a href="/workshops-speaking/">Workshops &amp; Speaking</a></li></ul>
   <a class="navx" href="/workshops-speaking/">Workshops &amp; Speaking</a>
   <a class="btn p" href="/contact/?topic=Discovery+call#form">Discuss your business</a>
 </div></header>
@@ -473,7 +491,7 @@ footer .legal{border-top-color:var(--gl)}
 <footer><div class="w">
   <div class="fcols">
     <div><b class="fb">Beiz Data &amp; Accounting</b><p>Finance, data and AI for small businesses, startups and solo operators. Canberra, working Australia-wide.</p><p><a href="/contact/">hello@beiz.com.au</a></p></div>
-    <div><h2>Services</h2><ul><li><a href="/services/#finance">Finance &amp; decision support</a></li><li><a href="/services/#data">Data &amp; dashboards</a></li><li><a href="/services/#automation">Automation &amp; AI</a></li><li><a href="/services/#governance">Governance &amp; controls</a></li><li><a href="/services/">All services</a></li></ul></div>
+    <div><h2>Services</h2><ul><li><a href="/services/#finance">Finance &amp; decision support</a></li><li><a href="/services/#data">Data &amp; business intelligence</a></li><li><a href="/services/#automation">AI agents &amp; automation</a></li><li><a href="/services/#governance">Governance &amp; improvement</a></li><li><a href="/services/">All services</a></li></ul></div>
     <div><h2>Products &amp; demos</h2><ul><li><a href="/products-demos/ai-workflow/">AI workflow demo</a></li><li><a href="/products-demos/missing-receipts/">Missing receipts demo</a></li><li><a href="/ai-value-calculator/">AI cost-and-value calculator</a></li><li><a href="/bill-check/">Bill check</a></li></ul></div>
     <div><h2>Company</h2><ul><li><a href="/about/">About Beiz</a></li><li><a href="/how-we-work/">How we work</a></li><li><a href="/workshops-speaking/">Workshops, coaching &amp; speaking</a></li><li><a href="/insights/">Insights</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy/">Privacy</a></li></ul></div>
   </div>
@@ -483,7 +501,7 @@ footer .legal{border-top-color:var(--gl)}
 <script>document.documentElement.classList.add('js');
 (function(){var b=document.querySelector('.menu'),n=document.getElementById('nav');
 b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)});
-document.addEventListener('keydown',function(ev){if(ev.key==='Escape'&&n.classList.contains('open')){n.classList.remove('open');b.setAttribute('aria-expanded','false');b.focus()}})})();</script><script src="/assets/site.js?v=162" defer></script><script src="/assets/wwd.js?v=162" defer></script><style>html.legacy body{background:#F6F4EF!important;color:#15181D!important;font:400 17px/1.6 Inter,system-ui,sans-serif!important}
+var dds=[].slice.call(document.querySelectorAll('.nav .dd'));function closeAll(except){dds.forEach(function(d){if(d!==except){d.setAttribute('aria-expanded','false');d.parentNode.classList.remove('open')}})}dds.forEach(function(d){d.addEventListener('click',function(ev){ev.stopPropagation();var o=d.getAttribute('aria-expanded')!=='true';closeAll(d);d.setAttribute('aria-expanded',o);d.parentNode.classList.toggle('open',o);d.parentNode.classList.toggle('nohov',!o)});d.parentNode.addEventListener('mouseleave',function(){d.parentNode.classList.remove('nohov')})});document.addEventListener('click',function(ev){if(!ev.target.closest('.nav'))closeAll()});document.addEventListener('keydown',function(ev){if(ev.key!=='Escape')return;var open=dds.filter(function(d){return d.getAttribute('aria-expanded')==='true'})[0];if(open){closeAll();open.parentNode.classList.add('nohov');open.focus();return}if(n.classList.contains('open')){n.classList.remove('open');b.setAttribute('aria-expanded','false');b.focus()}})})();</script><script src="/assets/site.js?v=164" defer></script><script src="/assets/wwd.js?v=164" defer></script><style>html.legacy body{background:#F6F4EF!important;color:#15181D!important;font:400 17px/1.6 Inter,system-ui,sans-serif!important}
 html.legacy .top{background:rgba(14,19,22,.94)!important;border-bottom:1px solid #2A353B!important}
 html.legacy .top .btn.p{background:#34C28F!important;color:#06221A!important;border:1px solid #34C28F!important;transition:none!important}
 html.legacy .top .btn.p:hover{background:#4FD3A1!important}
@@ -493,6 +511,10 @@ html.legacy .top .nav .sub a{color:#15181D!important;background:none!important}
 html.legacy .top .nav .sub a:hover{background:#F2EFE8!important;color:#15181D!important}
 html.legacy .navx{color:#ECF0EE!important}
 html.legacy :focus-visible{outline-color:#34C28F!important}
+html.legacy .top .dd{background:none!important;border:0!important;color:#AAB5B1!important;min-height:0!important;padding:0!important;box-shadow:none!important}
+html.legacy .top .nav .sub.wide b{font:600 14.5px Inter,sans-serif!important;color:#15181D!important}
+html.legacy .top .nav .sub.wide small{font:400 13px/1.4 Inter,sans-serif!important}
+html.legacy .top .nav .sub.wide .ex{color:#17664A!important;font:400 13px Inter,sans-serif!important}
 html.legacy .top .brand,html.legacy .top .brand .bn,html.legacy .top .brand b{color:#ECF0EE!important}
 html.legacy .top .menu{color:#ECF0EE!important;border-color:#46545B!important;background:none!important}
 html.legacy main h1,html.legacy main h2,html.legacy main h3{font-family:Inter,system-ui,sans-serif!important;font-weight:600!important;letter-spacing:-.025em!important}

@@ -5,20 +5,36 @@ import json, re
 from html import escape as e
 from site3 import load, contact, SITE, BOOKING_URL
 
-VIEWS = {
-    "finance": {"label": "Finance", "sources": [("Invoices", "148 this month"), ("Timesheets", "1,206 hours"), ("Job records", "32 open jobs")],
-                "steps": [("Validate", "3 invoices missing a job code", "held"), ("Reconcile", "hours ↔ invoices ↔ ledger", "ok"), ("Flag exceptions", "5 items for review", "held"), ("Request approval", "a person signs off", "person")],
-                "outputs": [("Cash visibility", "Lowest week: week 7, $18.4k", "ok"), ("Job profitability", "3 jobs below target margin", "held"), ("Review queue", "5 items with reasons", "held")],
-                "note": "Finance view: the numbers a business runs on, reconciled before anyone relies on them."},
-    "operations": {"label": "Operations", "sources": [("Job app", "jobs marked complete"), ("Invoicing", "draft invoices"), ("Inbox", "supplier bills")],
-                   "steps": [("Detect handoff gaps", "complete but not invoiced", "held"), ("Assign an owner", "named person per item", "ok"), ("Set a due date", "agreed turnaround", "ok"), ("Track to close", "until resolved", "ok")],
-                   "outputs": [("Unbilled after completion", "2 jobs, 9+ days", "held"), ("Owner assigned", "every open item", "ok"), ("Complete to invoice", "average 4.2 days", "ok")],
-                   "note": "Operations view: where work stalls between people and systems, and who closes it."},
-    "ai": {"label": "AI", "sources": [("Bills", "PDFs and emails"), ("Bank transactions", "from the ledger"), ("Enquiries", "website form")],
-           "steps": [("Extract fields", "AI reads the document", "ok"), ("Match and check", "fixed rules", "ok"), ("Draft a reply", "AI prepares it", "ok"), ("Approve", "a person decides", "person")],
-           "outputs": [("Automated", "reading, matching, drafting", "ok"), ("Needs approval", "sending, paying, changing records", "held"), ("Logged", "every decision, with its reason", "ok")],
-           "note": "AI view: what software does on its own, and what always waits for a person."},
-}
+def model_facts():
+    """Hero figures, calculated by the same model the job-profitability page runs (assets/signature-model.js), so they can't drift."""
+    import subprocess, os
+    js = ("const M=require(process.argv[1]),D=M.DATA,f=M.forecast(D),m=M.margins(D);"
+          "console.log(JSON.stringify({low:f.lowest,below:m.filter(x=>x.below).length,jobs:D.jobs.length,hours:D.jobs.reduce((s,j)=>s+j.hours,0),"
+          "over:D.jobs.filter(j=>j.hours>j.quotedHours*1.1).length,unbilled:M.unbilled(D,{},2).length,lag:D.invoiceLag,buffer:D.buffer}))")
+    model = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets", "signature-model.js")
+    return json.loads(subprocess.run(["node", "-e", js, model], capture_output=True, text=True, check=True).stdout)
+
+
+def views():
+    f = model_facts()
+    k = lambda n: f"${n / 1000:.1f}k"
+    return {
+        "finance": {"label": "Finance", "sources": [("Invoices", f"{f['jobs']} jobs invoiced"), ("Timesheets", f"{f['hours']:,} hours"), ("Job records", "quotes and actuals")],
+                    "steps": [("Validate", "records add back to each job", "ok"), ("Reconcile", "hours ↔ invoices ↔ ledger", "ok"), ("Flag exceptions", f"{f['below']} jobs below target margin", "held"), ("Request approval", "a person decides the response", "person")],
+                    "outputs": [("Cash visibility", f"Lowest week: week {f['low']['week']}, {k(f['low']['closing'])}", "held" if f['low']['closing'] < f['buffer'] else "ok"),
+                                ("Job profitability", f"{f['below']} of {f['jobs']} jobs below the 25% target", "held"), ("Review queue", f"{f['below']} jobs, each with its cause", "held")],
+                    "note": "Finance view: calculated from the fictional business's records."},
+        "operations": {"label": "Operations", "sources": [("Job app", "jobs marked complete"), ("Invoicing", "invoices raised"), ("Timesheets", "hours by job")],
+                       "steps": [("Detect handoff gaps", "complete but not invoiced", "held"), ("Compare with the quote", "hours and materials", "ok"), ("Assign an owner", "named person per item", "ok"), ("Track to close", "until resolved", "ok")],
+                       "outputs": [("Unbilled after completion", f"{f['unbilled']} jobs at the end of week 2", "held"), ("Hours over quote", f"{f['over']} jobs more than 10% over", "held"),
+                                   ("Complete to invoice", f"{f['lag']} days in this example", "ok")],
+                       "note": "Operations view: where work stalls between people and systems. Same fictional records as the Finance view."},
+        "ai": {"label": "AI", "sources": [("Bills", "PDFs and emails"), ("Bank transactions", "from the ledger"), ("Enquiries", "website form")],
+               "steps": [("Extract fields", "AI reads the document", "ok"), ("Match and check", "fixed rules", "ok"), ("Draft a reply", "AI prepares it", "ok"), ("Approve", "a person decides", "person")],
+               "outputs": [("Automated", "reading, matching, drafting", "ok"), ("Needs approval", "sending, paying, changing records", "held"), ("Logged", "every decision, with its reason", "ok")],
+               "note": "AI view, illustrative: how work is split between software and people. No figures, and no AI runs in this example."},
+    }
+
 
 CSS = """
 @font-face{font-family:Inter;font-weight:400;font-display:swap;src:url(/assets/fonts/inter-latin-400-normal.woff2) format('woff2')}
@@ -165,12 +181,13 @@ def _standalone(cat):
             ("data-engineering", "Data engineering & analytics"), ("ai-governance", "AI governance & controls"), ("cash-data-check", "Cash & data check")]
     services = "".join(f'<a class="card" href="/{sid[k]["slug"]}"><span class="pr">{e(sid[k]["price"])}</span><h3>{e(sid[k]["title"])}</h3><p>{e(sid[k]["summary"])}</p></a>' for k, _ in caps if k in sid)  # catalogue titles, same as /services/
     demos = [("/bill-check/", "Free tool", "Bill check", "Your own bills export, checked in your browser for possible duplicates and changed bank details. Nothing is uploaded."),
+             ("/products-demos/job-profitability/", "Signature experience", "Job profitability", "Change the labour cost, then trace a flagged job to its records."),
              ("/products-demos/ai-workflow/", "Simulation", "Enquiry to approved reply", "AI reads, rules check, a person decides."),
-             ("/products-demos/enquiry-assistant/", "Simulation", "Enquiry assistant", "Answers from approved sources, or says it doesn't know."),
              ("/products-demos/missing-receipts/", "Simulation", "Missing receipts", "Reminders and matching, every send approved.")]
     dm = "".join(f'<a class="card" href="{h}"><span class="tag">{e(t)}</span><h3>{e(a)}</h3><p>{e(b)}</p></a>' for h, t, a, b in demos)
+    VIEWS = views()
     tabs = "".join(f'<button role="tab" id="t-{k}" aria-controls="v-{k}" aria-selected="{"true" if i == 0 else "false"}" tabindex="{0 if i == 0 else -1}">{e(v["label"])}</button>' for i, (k, v) in enumerate(VIEWS.items()))
-    views = "".join(view_html(k, v, i == 0) for i, (k, v) in enumerate(VIEWS.items()))
+    views_ = "".join(view_html(k, v, i == 0) for i, (k, v) in enumerate(VIEWS.items()))
     call = f'<a class="btn ol" href="{BOOKING_URL}" target="_blank" rel="noopener">Book a 20-minute call</a>' if BOOKING_URL else ""
     html = f'''<!doctype html>
 <html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -194,8 +211,9 @@ def _standalone(cat):
   <div class="ctas"><a class="btn em" href="#services">Explore services</a><a class="btn ol" href="/products-demos/ai-workflow/">Try the demo</a></div>
  </div>
  <div class="sys" aria-label="Example of a connected business system, synthetic data">
-  <div class="hd"><span class="mono syn">Synthetic example · not a live integration</span><div class="tabs" role="tablist" aria-label="Choose a view">{tabs}</div></div>
-  {views}
+  <div class="hd"><span class="mono syn">Fictional business · calculated from its records</span><div class="tabs" role="tablist" aria-label="Choose a view">{tabs}</div></div>
+  {views_}
+  <p style="padding:0 16px;margin:0 0 10px;font-size:14px"><a href="/products-demos/job-profitability/" style="color:var(--em)">Open the working version: change an assumption and trace each job</a></p>
   <div class="legend" style="padding:0 16px 14px" aria-hidden="true"><span><i style="background:var(--em)"></i>ok</span><span><i style="background:var(--am)"></i>held for review</span><span><i style="background:var(--gt)"></i>a person decides</span></div>
  </div>
 </div></section>
@@ -207,7 +225,7 @@ def _standalone(cat):
 </div></section>
 
 <section class="sec" aria-labelledby="h-d"><div class="w">
- <div class="sh"><h2 id="h-d">See the work before you talk to us.</h2><p>A free check that runs on your own bills export, and three simulations on synthetic data. Nothing is sent or connected.</p></div>
+ <div class="sh"><h2 id="h-d">See the work before you talk to us.</h2><p>A check on your own bills export, a job-profitability example calculated from fictional records, and two labelled simulations. Nothing is sent or connected.</p></div>
  <div class="grid4">{dm}</div>
 </div></section>
 

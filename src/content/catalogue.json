@@ -8,17 +8,17 @@
   },
   {
    "id": "data",
-   "title": "Data & dashboards",
+   "title": "Data & business intelligence",
    "intro": "One trusted set of numbers, flowing on a schedule."
   },
   {
    "id": "automation",
-   "title": "Automation & AI",
+   "title": "AI agents & automation",
    "intro": "Fewer handoffs and less re-keying, with a person signing off what matters."
   },
   {
    "id": "governance",
-   "title": "Governance & controls",
+   "title": "Governance & improvement",
    "intro": "Know what is in scope, who owns it and where a person must approve."
   },
   {

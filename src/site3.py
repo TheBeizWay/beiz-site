@@ -405,7 +405,21 @@ def chip(s, mode):
 SHELL_CSS = """
 .nav>li{position:relative}
 .nav .sub{display:none;position:absolute;top:100%;left:0;min-width:270px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px;box-shadow:0 18px 40px rgba(21,24,29,.10);list-style:none;margin:0;z-index:30}
-.nav>li:hover>.sub,.nav>li:focus-within>.sub{display:block}
+.nav>li:hover>.sub,.nav>li.open>.sub{display:block}
+.nav>li.nohov:hover>.sub{display:none}
+.nav>li.nohov.open>.sub{display:block}
+.nav>li{display:flex;align-items:center}.nav a{white-space:nowrap}
+.dd{width:26px;height:30px;margin-left:-8px;border:0;background:none;border-radius:6px;cursor:pointer;color:var(--soft)}
+.dd:before{content:"";display:inline-block;width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translate(-2px,-2px)}
+.dd[aria-expanded=true]:before{transform:rotate(-135deg) translate(-2px,-2px)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.sub.wide{min-width:620px;padding:10px}
+.sub.wide ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.sub.wide li{border-radius:10px;padding:4px}.sub.wide li:hover{background:#F6F4EF}
+.sub.wide li a{display:block}.sub.wide b{font-weight:600;font-size:14.5px;color:var(--ink)}
+.sub.wide small{display:block;color:var(--soft);font-size:13px;margin-top:2px}
+.sub.wide small.pb{color:var(--faint);font-style:italic}
+.sub.wide .all{display:block;margin-top:6px;padding:10px 12px;border-top:1px solid var(--line);font-weight:500;font-size:14px;text-decoration:none}
 .nav .sub a{padding:9px 12px;font-size:14.5px;color:var(--ink)}
 .nav .sub a small{display:block;color:var(--faint);font-size:12.5px;margin-top:1px}
 .nav a[aria-current]{color:var(--ink);background:#ECE9E2}
@@ -424,6 +438,8 @@ SHELL_CSS = """
 .legal{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);width:100%}
 @media (max-width:1200px){
  .nav.open .sub{display:block;position:static;border:0;box-shadow:none;padding:0 0 6px 14px;min-width:0;background:transparent}
+ .nav.open .dd{display:none}.nav.open>li.has{display:block}
+ .nav.open .sub.wide ul{grid-template-columns:1fr}.nav.open .sub.wide .ex{padding-left:4px}.nav.open .sub.wide small{display:none}
  .nav.open .sub a{border-top:0;padding:8px 4px;font-size:15px}
  .nav.open .sub a small{display:none}
  .navx{display:none}
@@ -448,7 +464,9 @@ footer{background:var(--g0);color:var(--gs);border-top:0}
 footer a,footer .fcols a{color:var(--gs)}footer a:hover,footer .fcols a:hover{color:var(--gt)}
 footer .fcols h2,footer .fb{color:var(--gt)}
 footer .legal{border-top-color:var(--gl)}
-@media (max-width:1200px){.top .nav.open .sub a{color:var(--gs)}.top .nav.open .sub a:hover{background:var(--g2);color:var(--gt)}}
+.top .dd{color:var(--gs)}.top .dd:hover{background:var(--g2);color:var(--gt)}
+.top .nav .sub.wide b{color:var(--ink)}.top .nav .sub.wide .ex{color:var(--acc);font-size:13px;padding:2px 12px 6px;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:1200px){.top .nav.open .sub.wide b{color:inherit}.top .nav.open .sub a{color:var(--gs)}.top .nav.open .sub a:hover{background:var(--g2);color:var(--gt)}}
 """
 
 DISCUSS = contact("Discovery call")
@@ -474,10 +492,17 @@ def crumbs(items):
 def nav_html(mode, path, cat):
     root = ROOTS[mode]
     sec = section_of(path, root)
-    groups = [(root + "services/#" + g["id"], g["title"], g["intro"]) for g in cat["groups"][:4]]
+    # Services panel: customer problem -> outcome -> an existing page that shows it
+    PANEL = {"finance": ("Cash is tight and it's unclear which jobs make money.", "Cash and margins you can see ahead.", root + "products-demos/job-profitability/", "Investigate job profitability"),
+             "data": ("Numbers live in several systems and the reports don't agree.", "One reconciled source for reports and dashboards.", "/examples/", "See example outputs"),
+             "automation": ("The same matching, chasing and checking happens every week.", "One workflow automated, with a person approving what matters.", root + "products-demos/ai-workflow/", "Step through an AI workflow"),
+             "governance": ("AI use and process risk without a clear owner.", "Ownership, controls and better processes.", "/ai-check/", "Try the Privacy Act AI check")}
+    groups = [(root + "services/#" + g["id"], g["title"]) + PANEL[g["id"]] for g in cat["groups"][:4]]
     menus = [
-        ("services", root + "services/", "Services", groups + [(root + "services/", "All services", "Scope, limits and next step for each")]),
+        ("services", root + "services/", "Services", groups),
         ("products", root + "products-demos/", "Products &amp; Demos", [
+            ("/bill-check/", "Bill check", "Working tool: check your own bills export"),
+            (root + "products-demos/job-profitability/", "Job profitability", "Signature experience: investigate a job's margin"),
             (root + "products-demos/ai-workflow/", "AI workflow demo", "Enquiry to approved reply, step by step"),
             (root + "products-demos/missing-receipts/", "Missing receipts demo", "Rules, reminders and matching with sign-off"),
         ] + ([(root + "products-demos/enquiry-assistant/", "Enquiry assistant demo", "Answers with sources, then a hand-over")] if demo_shown(mode, cat, "enquiry-assistant") else []) + [
@@ -493,10 +518,16 @@ def nav_html(mode, path, cat):
     out = ""
     for key, href, label, subs in menus:
         cur = ' aria-current="page"' if key == sec else ""
-        sub = ""
+        sub = btn = ""
         if subs:
-            sub = '<ul class="sub">' + "".join(f'<li><a href="{h}">{t}<small>{d}</small></a></li>' for h, t, d in subs) + "</ul>"
-        out += f'<li><a href="{href}"{cur}>{label}</a>{sub}</li>'
+            pid = f"sub-{key}"
+            btn = f'<button class="dd" type="button" aria-expanded="false" aria-controls="{pid}"><span class="sr">{label} menu</span></button>'
+            if key == "services":
+                items = "".join(f'<li><a href="{h}"><b>{e(t)}</b><small class="pb">{e(pb)}</small><small>{e(o)}</small></a><a class="ex" href="{x}">{xt}</a></li>' for h, t, pb, o, x, xt in subs)
+                sub = f'<div class="sub wide" id="{pid}"><ul>{items}</ul><a class="all" href="{href}">View all services</a></div>'
+            else:
+                sub = f'<ul class="sub" id="{pid}">' + "".join(f'<li><a href="{h}">{t}<small>{d}</small></a></li>' for h, t, d in subs) + "</ul>"
+        out += f'<li class="{"has" if subs else ""}"><a href="{href}"{cur}>{label}</a>{btn}{sub}</li>'
     out += f'<li class="mob"><a href="{root}workshops-speaking/">Workshops &amp; Speaking</a></li>'
     return out
 
@@ -555,7 +586,7 @@ def shell(mode, path, title, desc, body, ld, scripts="", head_extra="", html_cla
 MENU_JS = """document.documentElement.classList.add('js');
 (function(){var b=document.querySelector('.menu'),n=document.getElementById('nav');
 b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)});
-document.addEventListener('keydown',function(ev){if(ev.key==='Escape'&&n.classList.contains('open')){n.classList.remove('open');b.setAttribute('aria-expanded','false');b.focus()}})})();"""
+var dds=[].slice.call(document.querySelectorAll('.nav .dd'));function closeAll(except){dds.forEach(function(d){if(d!==except){d.setAttribute('aria-expanded','false');d.parentNode.classList.remove('open')}})}dds.forEach(function(d){d.addEventListener('click',function(ev){ev.stopPropagation();var o=d.getAttribute('aria-expanded')!=='true';closeAll(d);d.setAttribute('aria-expanded',o);d.parentNode.classList.toggle('open',o);d.parentNode.classList.toggle('nohov',!o)});d.parentNode.addEventListener('mouseleave',function(){d.parentNode.classList.remove('nohov')})});document.addEventListener('click',function(ev){if(!ev.target.closest('.nav'))closeAll()});document.addEventListener('keydown',function(ev){if(ev.key!=='Escape')return;var open=dds.filter(function(d){return d.getAttribute('aria-expanded')==='true'})[0];if(open){closeAll();open.parentNode.classList.add('nohov');open.focus();return}if(n.classList.contains('open')){n.classList.remove('open');b.setAttribute('aria-expanded','false');b.focus()}})})();"""
 
 ORG = {"@type": "ProfessionalService", "@id": SITE + "/#org", "name": "Beiz Data & Accounting", "legalName": "Beiz Data & Accounting Pty Ltd",
        "url": SITE + "/", "email": "hello@beiz.com.au", "taxID": "53 691 755 496",
@@ -751,7 +782,7 @@ PAGE_CSS = """
 
 RELATED_DEMOS = {
     "automation": [("products-demos/ai-workflow/", "AI workflow demo", "Enquiry to approved reply"), ("products-demos/missing-receipts/", "Missing receipts demo", "Reminders and matching with sign-off")],
-    "finance": [("ai-value-calculator/", "AI cost-and-value calculator", "Hours released against running costs"), ("/try/", "13-week cash forecast demo", "Move one big bill and see the dip")],
+    "finance": [("products-demos/job-profitability/", "Job profitability", "Trace a job's margin to its records"), ("/try/", "13-week cash forecast demo", "Move one big bill and see the dip")],
     "data": [("/examples/", "Example outputs", "Reports and dashboards on made-up businesses"), ("ai-value-calculator/", "AI cost-and-value calculator", "Is automating a task worth it?")],
     "governance": [("products-demos/ai-workflow/", "AI workflow demo", "Rules, uncertainty and a person approving"), ("/ai-check/", "Privacy Act AI check", "Free self-check for the automated-decision rules")],
     "workshops": [("/workshop/", "5-minute AI workshop", "Map your week and set an agent's limits"), ("products-demos/ai-workflow/", "AI workflow demo", "A worked example for sessions")],
@@ -854,29 +885,93 @@ def products_hub(mode, cat):
     rows = projects()
     tot_u = sum(r["logged"] - r["invoiced"] for r in rows)
     sim_rows = "".join(f'<tr><td>{r["id"][-2:]} · {e(r["sector"])}</td><td class="n">{r["logged"]:.1f}</td><td class="n">{r["invoiced"]:.1f}</td><td class="n">{r["logged"] - r["invoiced"]:.1f}</td></tr>' for r in rows)
-    tools = "".join(f'<a class="card" href="{t["href"]}"><span><span class="chip c-ok">Free tool</span></span><h3>{e(t["title"])}</h3><p>{e(t["summary"])}</p><u>Open it</u></a>' for t in cat["tools"])
+    card = lambda h, chip_, cls, t, d, u: f'<a class="card" href="{h}"><span><span class="chip {cls}">{chip_}</span></span><h3>{e(t)}</h3><p>{e(d)}</p><u>{u}</u></a>'
+    tools = "".join(card(t["href"], "Free tool", "c-ok", t["title"], t["summary"], "Open it") for t in cat["tools"] if t["href"] != "/bill-check/")
     pilot = cat["pilot"]
     pil = (f'<div class="card"><span><span class="chip c-held">Pilot · register interest</span></span><h3>{e(pilot["title"])}</h3><p>{e(pilot["summary"])}</p>'
            f'<a class="btn g sm" style="align-self:flex-start" href="{contact(pilot["topic"], pilot["msg"])}">Register interest</a></div>') if pilot else ""
+    feat = f'''<div class="feat">
+<a class="fcard" href="/bill-check/"><span class="chip c-ok">Working tool · your own file</span><h3>Bill check</h3><p>Drop in a bills export from Xero, MYOB or QuickBooks. Eight purchasing checks run in your browser: possible duplicates, changed bank details, split bills and more. You confirm how dates are read before anything runs, and every row is accounted for. Nothing is uploaded.</p><u>Check your bills</u></a>
+<a class="fcard dk" href="{root}products-demos/job-profitability/"><span class="chip c-n">Signature experience · fictional records</span><h3>Why is this job less profitable than quoted?</h3><p>Ten jobs from a fictional joinery business, with timesheets, supplier bills and invoices. Change the labour cost and every margin recalculates. Open a flagged job to trace the result to its records and see what they can't tell you.</p><u>Investigate the jobs</u></a>
+</div>'''
     body = page_head(mode, [(root, "Home"), (None, "Products & demos")], "Products &amp; demos", "Products and demos.",
-                     "Working demonstrations, free tools and pilots, each labelled for what it is. No paid products are on sale yet; simulations run on synthetic data and aren't connected to any system.") + f'''
-<section class="grp"><div class="w"><header><h2>Interactive demonstrations</h2><p>Step through a workflow end to end.</p></header><div class="hub">
+                     "Start with the two that do real work: a tool for your own file, and an experience calculated from a full set of fictional records. Everything is labelled for what it is. No paid products are on sale yet.") + f'''
+<section class="grp"><div class="w"><header><h2>Start here</h2><p>Real calculations, inspectable results.</p></header>{feat}</div></section>
+<section class="grp"><div class="w"><header><h2>Demonstrations</h2><p>Step through a workflow end to end. Simulations on synthetic data.</p></header><div class="hub">
 <a class="card" href="{root}products-demos/ai-workflow/"><span><span class="chip c-n">Simulation</span></span><h3>AI workflow: enquiry to approved reply</h3><p>AI reads an enquiry, rules check it, gaps are flagged and a person approves the reply.</p><u>Step through it</u></a>
 <a class="card" href="{root}products-demos/missing-receipts/"><span><span class="chip c-n">Simulation</span></span><h3>Missing receipts</h3><p>Rules find gaps and exceptions, AI drafts reminders and matches, a person approves every send.</p><u>Step through it</u></a>
 {f'<a class="card" href="{root}products-demos/enquiry-assistant/"><span><span class="chip c-n">Simulation</span></span><h3>Enquiry assistant</h3><p>Answers from an approved knowledge pack, says when it doesn&#39;t know, flags override attempts and hands over to a person.</p><u>Try it</u></a>' if demo_shown(mode, cat, "enquiry-assistant") else ""}
 </div></div></section>
-<section class="grp"><div class="w"><header><h2>Free tools and examples</h2><p>Tools run in your browser. Examples use made-up data.</p></header><div class="hub">{tools}
-<a class="card" href="{root}ai-value-calculator/"><span><span class="chip c-ok">Free tool</span></span><h3>AI cost-and-value calculator</h3><p>Hours released, what they're worth and what it costs to run, on your own figures.</p><u>Work it out</u></a>
-<a class="card" href="/try/"><span><span class="chip c-ok">Free</span></span><h3>Quick demos</h3><p>Late payers, a 13-week cash forecast and admin hours, using your own rough numbers.</p><u>Try one</u></a>
-<a class="card" href="/examples/"><span><span class="chip c-n">Examples</span></span><h3>Example outputs</h3><p>Cash emails, forecasts, job profitability and an AI register, on made-up businesses.</p><u>See them</u></a>
+<section class="grp"><div class="w"><header><h2>Calculators and examples</h2><p>Quick tools in your browser. Examples use made-up data.</p></header><div class="hub">{tools}
+{card(root + "ai-value-calculator/", "Free tool", "c-ok", "AI cost-and-value calculator", "Hours released, what they're worth and what it costs to run, on your own figures.", "Work it out")}
+{card("/try/", "Free", "c-ok", "Quick demos", "Late payers, a 13-week cash forecast and admin hours, using your own rough numbers.", "Try one")}
+{card("/examples/", "Examples", "c-n", "Example outputs", "Cash emails, forecasts, job profitability and an AI register, on made-up businesses.", "See them")}
 <div class="card"><span><span class="chip c-n">Simulated data</span></span><h3>Hours logged vs invoiced</h3><p>15 made-up projects: {tot_u:.1f} unbilled hours to review. That's a list to check, not lost revenue or recovered cash.</p>
-<details><summary>Show the table</summary><div class="tw" style="margin-top:10px"><table><thead><tr><th scope="col">Project</th><th scope="col">Logged</th><th scope="col">Invoiced</th><th scope="col">Unbilled</th></tr></thead><tbody>{sim_rows}</tbody></table></div></details></div></div></div></section>
-<section class="grp"><div class="w"><header><h2>Pilots</h2><p>Not on sale. Register interest only.</p></header><div class="hub">{pil}
-</div></div></section>'''
+<details><summary>Show the table</summary><div class="tw" style="margin-top:10px"><table><thead><tr><th scope="col">Project</th><th scope="col">Logged</th><th scope="col">Invoiced</th><th scope="col">Unbilled</th></tr></thead><tbody>{sim_rows}</tbody></table></div></details></div>
+</div></div></section>
+<section class="grp"><div class="w"><header><h2>Pilots</h2><p>Not on sale. Register interest only.</p></header><div class="hub">{pil}</div></div></section>'''
+    css = """<style>.feat{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fcard{display:flex;flex-direction:column;gap:10px;padding:clamp(22px,3vw,34px);border-radius:18px;border:1px solid var(--line);background:var(--card);text-decoration:none;transition:border-color .15s,transform .15s}
+.fcard:hover{border-color:var(--ink);transform:translateY(-2px)}.fcard .chip{align-self:flex-start}
+.fcard h3{font:600 clamp(1.35rem,2.2vw,1.7rem)/1.2 Inter,sans-serif;letter-spacing:-.02em;margin:4px 0 0}.fcard p{margin:0;color:var(--soft);flex:1}.fcard u{font-weight:500}
+.fcard.dk{background:var(--g0);border-color:var(--g0);color:var(--gt)}.fcard.dk p{color:var(--gs)}.fcard.dk .chip{background:var(--g2);color:var(--gt)}.fcard.dk:hover{border-color:var(--em)}
+@media (max-width:860px){.feat{grid-template-columns:minmax(0,1fr)}}.fcard .chip{white-space:normal}@media (prefers-reduced-motion:reduce){.fcard{transition:none}.fcard:hover{transform:none}}</style>"""
     return shell(mode, root + "products-demos/", "Products and demos | Beiz Data & Accounting",
-                 "Interactive AI workflow simulations, free browser tools including an AI cost-and-value calculator, and subscription pilots, each labelled for what it is.",
-                 body, {"@context": "https://schema.org", "@graph": [ORG, {"@type": "CollectionPage", "name": "Products and demos", "url": SITE + "/products-demos/"}]})
+                 "Bill check, a working tool for your own bills export; a job-profitability experience calculated from fictional records; labelled AI workflow simulations; calculators and pilots.",
+                 body, {"@context": "https://schema.org", "@graph": [ORG, {"@type": "CollectionPage", "name": "Products and demos", "url": SITE + "/products-demos/"}]}, css)
 
+
+def job_profit_page(mode, cat):
+    from layout import ASSET_V
+    root = ROOTS[mode]
+    body = page_head(mode, [(root, "Home"), (root + "products-demos/", "Products & demos"), (None, "Job profitability")], "Signature experience · fictional records",
+                     "Why is this job less profitable than quoted?",
+                     "Harbourline Joinery is a fictional business with ten completed jobs, and the timesheets, supplier bills and invoices behind them. Every figure below is calculated from those records in your browser. Change the labour cost, then open a flagged job.") + f'''
+<section style="padding:0 0 80px"><div class="w"><div class="jp" id="jp">
+<div class="jp-panel">
+  <div class="jp-ctl"><label for="jpRange" class="mono">Labour cost per hour, including on-costs</label>
+    <div class="jp-row"><input id="jpRange" type="range" min="30" max="120" step="1" value="58" aria-describedby="jpMsg"><span class="jp-num">$<input id="jpNum" type="number" min="30" max="150" step="1" value="58" inputmode="numeric" aria-label="Labour cost per hour in dollars"></span>
+    <button type="button" id="jpReset" class="jp-reset">Reset to $58</button></div><p id="jpMsg" class="jp-msg" role="status"></p></div>
+  <dl class="jp-sum"><div><dt>Revenue</dt><dd id="jpRev"></dd></div><div><dt>Cost</dt><dd id="jpCost"></dd></div><div><dt>Overall margin</dt><dd id="jpMar"></dd></div><div class="w2"><dt>Jobs below the 25% target</dt><dd id="jpBelow"></dd><small id="jpBelowNote"></small></div></dl>
+</div>
+<div class="jp-tabs" role="tablist" aria-label="Perspective"><button role="tab" aria-selected="true" data-v="fin" tabindex="0">Finance: margin</button><button role="tab" aria-selected="false" data-v="ops" tabindex="-1">Operations: hours and materials against the quote</button></div>
+<div class="tblw"><table class="tbl jp-t"><thead id="jpHead"></thead><tbody id="jpBody"></tbody></table></div>
+<section class="jp-detail" id="jpDetail" aria-live="polite" aria-label="Job records" hidden></section>
+<div class="jp-def"><div><h2>How the margin is calculated</h2><p><b>Margin = price − (hours × labour cost per hour) − materials.</b> Hours come from timesheet lines and materials from supplier bills referenced to the job. A job is flagged when its margin is below 25% of price. Causes compare actuals with the quote: more than 10% over on hours or materials, otherwise the quoted price is the likely gap.</p></div>
+<div><h2>Assumptions and limits</h2><ul><li>Fictional business and records. Not a client and not a live integration.</li><li>Overheads, GST and payment timing aren't included.</li><li>Extra hours aren't revenue: a variation is only revenue once it's agreed and billed.</li><li>A flag is a question for a person, not a conclusion about anyone's work.</li><li>No AI runs on this page. In a real build, AI could read bills and timesheets into these records; a person still decides what a flag means.</li></ul></div></div>
+</div></div></section>'''
+    css = """<style>.jp{display:grid;grid-template-columns:minmax(0,1fr);gap:22px}.jp .tblw{overflow-x:auto}
+.jp-panel{background:var(--g0);color:var(--gt);border-radius:18px;padding:clamp(20px,3vw,32px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:28px;align-items:center;box-shadow:0 24px 60px rgba(14,19,22,.18)}
+.jp-ctl label{color:var(--em);display:block;margin-bottom:10px}.jp-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.jp-row input[type=range]{flex:1 1 200px;accent-color:var(--em)}.jp-num{font:600 20px Inter,sans-serif}.jp-num input{width:4.2em;font:600 20px Inter,sans-serif;background:var(--g2);color:var(--gt);border:1px solid var(--gl);border-radius:8px;padding:6px 8px}
+.jp-reset{background:none;border:1px solid #46545B;color:var(--gt);border-radius:8px;padding:8px 12px;font:500 14px Inter,sans-serif;cursor:pointer}.jp-reset:hover{border-color:var(--gt)}
+.jp-msg{min-height:1.2em;margin:8px 0 0;color:var(--am);font-size:14px}
+.jp-sum{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0}.jp-sum div{background:var(--g1);border:1px solid var(--gl);border-radius:12px;padding:12px 14px}
+.jp-sum dt{font:500 12px Mono,monospace;color:var(--gs);letter-spacing:.04em}.jp-sum dd{margin:4px 0 0;font:600 22px Inter,sans-serif;font-variant-numeric:tabular-nums}
+.jp-sum .w2{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;border-color:#5A4A2A}.jp-sum .w2 dd{color:var(--am);margin:0}.jp-sum small{color:var(--gs)}
+.jp-tabs{display:flex;flex-wrap:wrap;gap:6px}.jp-tabs button{font:500 14.5px Inter,sans-serif;border:1px solid var(--line);background:var(--card);color:var(--soft);border-radius:999px;padding:8px 16px;cursor:pointer}
+.jp-tabs button[aria-selected=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.jp-t{background:var(--card);border-radius:14px;font-variant-numeric:tabular-nums}.jp-t th[scope=row]{font:400 15px/1.4 Inter,sans-serif;letter-spacing:0;color:var(--ink)}.jp-t th[scope=row] b{display:block;font-weight:600}.jp-t th[scope=row] span{display:block;font-weight:400;color:var(--soft);font-size:13.5px}
+.jp-t tr.lo th[scope=row]{box-shadow:inset 3px 0 0 var(--am)}.jp-t td.hot{color:#8F5409;font-weight:600}
+.bar{position:relative;display:inline-block;vertical-align:middle;width:120px;height:8px;border-radius:4px;background:#ECE9E2;margin-right:8px}
+.bar i{position:absolute;left:0;top:0;bottom:0;border-radius:4px;background:var(--acc);transition:width .35s ease}.lo .bar i{background:#C98A2B}
+.bar em{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink)}.pc{display:inline-block;min-width:3.6em;font-weight:600}
+.jp-open{font:500 14px Inter,sans-serif;border:1px solid var(--ink);background:none;border-radius:8px;padding:6px 12px;cursor:pointer;white-space:nowrap}.lo .jp-open{background:var(--ink);color:#fff}
+.jp-detail[hidden]{display:none}.jp-detail{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:clamp(18px,3vw,30px);display:grid;gap:16px;scroll-margin-top:96px}
+.jp-dh{display:flex;justify-content:space-between;gap:16px;align-items:start}.jp-dh h3{font:600 1.5rem Inter,sans-serif;margin:0}.jp-dh .eyb{margin:0 0 6px}
+.jp-x{border:1px solid var(--line);background:none;border-radius:8px;padding:6px 12px;cursor:pointer;font:500 14px Inter,sans-serif}
+.jp-calc{display:grid;gap:0;max-width:560px;font-variant-numeric:tabular-nums}.jp-calc div{display:flex;justify-content:space-between;gap:16px;padding:8px 0;border-bottom:1px solid var(--line)}
+.jp-calc .tot{border-bottom:0;border-top:2px solid var(--ink);font-size:1.1rem}.jp-calc small{color:var(--soft);font-weight:500;margin-left:6px}
+.jp-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.jp-cols ul{margin:6px 0 0;padding-left:18px;color:var(--soft)}
+.jp-detail h4{font:600 1rem Inter,sans-serif;margin:0}.jp-detail caption{text-align:left;font-weight:600;padding-bottom:6px}.jp-detail tr.sum td{font-weight:600;border-top:2px solid var(--ink)}
+.jp-def{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding-top:12px;border-top:1px solid var(--line)}.jp-def h2{font-size:1.25rem;margin:0 0 8px}.jp-def p,.jp-def li{color:var(--soft)}
+@media (max-width:900px){.jp-panel,.jp-def,.jp-cols{grid-template-columns:minmax(0,1fr)}}.jp-ctl{min-width:0}.jp-ctl label{white-space:normal}
+@media (max-width:560px){.jp-sum{grid-template-columns:1fr 1fr}.jp-sum .w2{grid-column:1/-1}.bar{width:72px}}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}</style>"""
+    scripts = css + f'<script src="/assets/signature-model.js?v={ASSET_V}"></script><script src="/assets/signature.js?v={ASSET_V}"></script>'
+    ld = {"@context": "https://schema.org", "@graph": [ORG, {"@type": "WebPage", "name": "Job profitability: a worked example on fictional records", "url": SITE + "/products-demos/job-profitability/"}]}
+    return shell(mode, root + "products-demos/job-profitability/", "Job profitability, investigated | Beiz Data & Accounting",
+                 "An interactive job-profitability example on a fictional joinery business: change the labour cost, recalculate every margin, and trace flagged jobs to their timesheets, bills and invoices.", body, ld, scripts)
 
 def ai_workflow_page(mode, cat):
     root = ROOTS[mode]
@@ -1392,6 +1487,10 @@ html.legacy .top .nav .sub a{color:#15181D;background:none}
 html.legacy .top .nav .sub a:hover{background:#F2EFE8;color:#15181D}
 html.legacy .navx{color:#ECF0EE}
 html.legacy :focus-visible{outline-color:#34C28F}
+html.legacy .top .dd{background:none;border:0;color:#AAB5B1;min-height:0;padding:0;box-shadow:none}
+html.legacy .top .nav .sub.wide b{font:600 14.5px Inter,sans-serif;color:#15181D}
+html.legacy .top .nav .sub.wide small{font:400 13px/1.4 Inter,sans-serif}
+html.legacy .top .nav .sub.wide .ex{color:#17664A;font:400 13px Inter,sans-serif}
 html.legacy .top .brand,html.legacy .top .brand .bn,html.legacy .top .brand b{color:#ECF0EE}
 html.legacy .top .menu{color:#ECF0EE;border-color:#46545B;background:none}
 html.legacy main h1,html.legacy main h2,html.legacy main h3{font-family:Inter,system-ui,sans-serif;font-weight:600;letter-spacing:-.025em}
@@ -1430,6 +1529,7 @@ def build():
             out[root + sv["slug"]] = service_page(mode, cat, sv)
         out[root + "products-demos/"] = products_hub(mode, cat)
         out[root + "products-demos/ai-workflow/"] = ai_workflow_page(mode, cat)
+        out[root + "products-demos/job-profitability/"] = job_profit_page(mode, cat)
         out[root + "products-demos/missing-receipts/"] = receipts(mode)
         if demo_shown(mode, cat, "enquiry-assistant"):
             out[root + "products-demos/enquiry-assistant/"] = assistant_page(mode, cat)
