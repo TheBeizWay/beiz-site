@@ -177,7 +177,11 @@
     const sup = new Set(r.bills.map(b => b.sk)).size;
     const span = `${fmtD(Math.min(...r.bills.map(b => b.date)))} to ${fmtD(Math.max(...r.bills.map(b => b.date)))}`;
     status.textContent = `Checked ${r.bills.length} bills in ${ms} ms. Your file stayed on this device.`;
-    let h = `<div class="bck-k"><div><span>Bills checked</span><b>${r.bills.length.toLocaleString("en-AU")}</b><small>${sup} suppliers · ${span}</small></div>
+    // Coverage first: every row in the file is accounted for, so a partial analysis can't look complete.
+    const supplied = data.length - 1, out_ = r.skipped + r.badDates.length;
+    const why = [r.skipped && `${r.skipped} missing a supplier, amount or date`, r.badDates.length && `${r.badDates.length} with a date that doesn't fit ${FMT[fmt]}`, r.merged && `${r.merged} line-item ${r.merged === 1 ? "row" : "rows"} combined into ${r.merged === 1 ? "its bill" : "their bills"}`].filter(Boolean);
+    let h = `<p class="bck-cov${out_ ? " part" : ""}" id="bcCov"><b>${supplied.toLocaleString("en-AU")} ${supplied === 1 ? "row" : "rows"} in your file · ${r.bills.length.toLocaleString("en-AU")} analysed as bills · ${out_.toLocaleString("en-AU")} excluded</b>${why.length ? ` (${why.join("; ")})` : ""}.${out_ ? " The results below don't cover the excluded rows." : ""}</p>`;
+    h += `<div class="bck-k"><div><span>Bills checked</span><b>${r.bills.length.toLocaleString("en-AU")}</b><small>${sup} ${sup === 1 ? "supplier" : "suppliers"} · ${span}</small></div>
       <div><span>Value checked</span><b>${aud0(value)}</b></div>
       <div class="${r.F.length ? "w" : ""}"><span>Worth a look</span><b>${r.F.length}</b><small>Prompts for a person, not conclusions</small></div>
       <div class="${risk ? "r" : ""}"><span>Could have been paid twice</span><b>${aud0(risk)}</b><small>Duplicates and repeated invoice numbers</small></div></div>`;
