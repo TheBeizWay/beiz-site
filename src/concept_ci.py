@@ -163,11 +163,11 @@ def _standalone(cat):
     discuss = contact("Discovery call")
     caps = [("ai-agents", "AI agents & workflow automation"), ("dashboards", "Business intelligence & dashboards"), ("cash-model", "Financial modelling & scenarios"),
             ("data-engineering", "Data engineering & analytics"), ("ai-governance", "AI governance & controls"), ("cash-data-check", "Cash & data check")]
-    services = "".join(f'<a class="card" href="/{sid[k]["slug"]}"><span class="pr">{e(sid[k]["price"])}</span><h3>{e(t)}</h3><p>{e(sid[k]["summary"])}</p></a>' for k, t in caps if k in sid)
-    demos = [("/products-demos/ai-workflow/", "Simulation", "Enquiry to approved reply", "AI reads, rules check, a person decides."),
+    services = "".join(f'<a class="card" href="/{sid[k]["slug"]}"><span class="pr">{e(sid[k]["price"])}</span><h3>{e(sid[k]["title"])}</h3><p>{e(sid[k]["summary"])}</p></a>' for k, _ in caps if k in sid)  # catalogue titles, same as /services/
+    demos = [("/bill-check/", "Free tool", "Bill check", "Your own bills export, checked in your browser for possible duplicates and changed bank details. Nothing is uploaded."),
+             ("/products-demos/ai-workflow/", "Simulation", "Enquiry to approved reply", "AI reads, rules check, a person decides."),
              ("/products-demos/enquiry-assistant/", "Simulation", "Enquiry assistant", "Answers from approved sources, or says it doesn't know."),
-             ("/products-demos/missing-receipts/", "Simulation", "Missing receipts", "Reminders and matching, every send approved."),
-             ("/ai-value-calculator/", "Free tool", "AI cost-and-value calculator", "Hours released against running costs.")]
+             ("/products-demos/missing-receipts/", "Simulation", "Missing receipts", "Reminders and matching, every send approved.")]
     dm = "".join(f'<a class="card" href="{h}"><span class="tag">{e(t)}</span><h3>{e(a)}</h3><p>{e(b)}</p></a>' for h, t, a, b in demos)
     tabs = "".join(f'<button role="tab" id="t-{k}" aria-controls="v-{k}" aria-selected="{"true" if i == 0 else "false"}" tabindex="{0 if i == 0 else -1}">{e(v["label"])}</button>' for i, (k, v) in enumerate(VIEWS.items()))
     views = "".join(view_html(k, v, i == 0) for i, (k, v) in enumerate(VIEWS.items()))
@@ -207,7 +207,7 @@ def _standalone(cat):
 </div></section>
 
 <section class="sec" aria-labelledby="h-d"><div class="w">
- <div class="sh"><h2 id="h-d">See the work before you talk to us.</h2><p>Interactive simulations on synthetic data. Nothing is sent or connected.</p></div>
+ <div class="sh"><h2 id="h-d">See the work before you talk to us.</h2><p>A free check that runs on your own bills export, and three simulations on synthetic data. Nothing is sent or connected.</p></div>
  <div class="grid4">{dm}</div>
 </div></section>
 
