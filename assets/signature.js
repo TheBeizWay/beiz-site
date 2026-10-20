@@ -51,11 +51,11 @@
       const id = `<th scope="row"><b>${m.job}</b><span>${esc(m.title)} · ${esc(m.customer)}</span></th>`;
       if (view === "fin") {
         const w = Math.max(0, Math.min(100, m.pct * 100 / 0.4));
-        return `<tr class="${m.below ? "lo" : ""}">${id}<td class="n">${aud(m.value)}</td><td class="n">${aud(m.cost)}</td><td class="n">${aud(m.margin)}</td>
+        return `<tr class="${m.below ? "lo" : ""}">${id}<td class="n opt">${aud(m.value)}</td><td class="n opt">${aud(m.cost)}</td><td class="n">${aud(m.margin)}</td>
           <td><div class="bar" aria-hidden="true"><i style="width:${w}%"></i><em style="left:${(25 / 40) * 100}%"></em></div><span class="pc">${pc(m.pct)}</span> ${st}</td><td>${open}</td></tr>`;
       }
       const ho = j.hours > j.quotedHours * 1.1, mo = j.materials > j.quotedMaterials * 1.1;
-      return `<tr class="${m.below ? "lo" : ""}">${id}<td class="${ho ? "hot" : ""}">${j.hours} / ${j.quotedHours}</td><td class="${mo ? "hot" : ""}">${aud(j.materials)} / ${aud(j.quotedMaterials)}</td>
+      return `<tr class="${m.below ? "lo" : ""}">${id}<td class="${ho ? "hot" : ""}">${j.hours} / ${j.quotedHours}</td><td class="opt ${mo ? "hot" : ""}">${aud(j.materials)} / ${aud(j.quotedMaterials)}</td>
         <td>${m.causes.length ? esc(m.causes[0].text) : "On quote"}</td><td>${open}</td></tr>`;
     }).join("");
     root.querySelectorAll(".jp-open").forEach(b => b.addEventListener("click", () => detail(b.dataset.job, b)));

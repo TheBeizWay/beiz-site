@@ -967,6 +967,7 @@ def job_profit_page(mode, cat):
 .jp-def{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding-top:12px;border-top:1px solid var(--line)}.jp-def h2{font-size:1.25rem;margin:0 0 8px}.jp-def p,.jp-def li{color:var(--soft)}
 @media (max-width:900px){.jp-panel,.jp-def,.jp-cols{grid-template-columns:minmax(0,1fr)}}.jp-ctl{min-width:0}.jp-ctl label{white-space:normal}
 @media (max-width:560px){.jp-sum{grid-template-columns:1fr 1fr}.jp-sum .w2{grid-column:1/-1}.bar{width:72px}}
+@media (max-width:620px){.jp-t thead{display:none}.jp-t tr{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:12px;border-bottom:1px solid var(--line)}.jp-t th[scope=row]{flex:1 1 100%;border:0;padding:0}.jp-t td{border:0;padding:0}.jp-t .opt{display:none}.jp-t td:last-child{margin-left:auto}}
 @media (prefers-reduced-motion:reduce){.bar i{transition:none}}</style>"""
     scripts = css + f'<script src="/assets/signature-model.js?v={ASSET_V}"></script><script src="/assets/signature.js?v={ASSET_V}"></script>'
     ld = {"@context": "https://schema.org", "@graph": [ORG, {"@type": "WebPage", "name": "Job profitability: a worked example on fictional records", "url": SITE + "/products-demos/job-profitability/"}]}
@@ -1490,7 +1491,8 @@ html.legacy :focus-visible{outline-color:#34C28F}
 html.legacy .top .dd{background:none;border:0;color:#AAB5B1;min-height:0;padding:0;box-shadow:none}
 html.legacy .top .nav .sub.wide b{font:600 14.5px Inter,sans-serif;color:#15181D}
 html.legacy .top .nav .sub.wide small{font:400 13px/1.4 Inter,sans-serif}
-html.legacy .top .nav .sub.wide .ex{color:#17664A;font:400 13px Inter,sans-serif}
+html.legacy .top .nav .sub.wide .ex{color:#17664A;font:400 13px Inter,sans-serif;border:0;background:none;box-shadow:none;display:block;padding:2px 12px 6px}
+html.legacy .top .nav .sub.wide li a{border:0;box-shadow:none}
 html.legacy .top .brand,html.legacy .top .brand .bn,html.legacy .top .brand b{color:#ECF0EE}
 html.legacy .top .menu{color:#ECF0EE;border-color:#46545B;background:none}
 html.legacy main h1,html.legacy main h2,html.legacy main h3{font-family:Inter,system-ui,sans-serif;font-weight:600;letter-spacing:-.025em}
