@@ -8,9 +8,12 @@ Content lives in src/ledger/content.py; this file is layout only.
 import html, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import content as C
+import content_more as M
+import json
+from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ASSET_V = "L21"  # bump on every CSS or JS change
+ASSET_V = "L22"  # bump on every CSS or JS change
 SITE = "https://beiz.com.au"
 e = html.escape
 
@@ -63,7 +66,7 @@ def header(path):
             return a
         cols = "".join(
             f'<div class="mcol"><a class="mh" href="/services/#{gslug(g["title"])}">{g["title"]}</a><p>{g["intro"]}</p><ul>'
-            + "".join(f'<li><a href="/services/#{gslug(g["title"])}">{n}</a><span>{p}</span></li>' for n, d, p, _ in g["items"])
+            + "".join(f'<li><a href="{DETAIL.get(n, "/services/#" + gslug(g["title"]))}">{n}</a><span>{p}</span></li>' for n, d, p, _ in g["items"])
             + "</ul></div>" for g in C.GROUPS)
         return f'<div class="dd">{a}<div class="mega" role="region" aria-label="Services"><div class="wrap">{cols}</div></div></div>'
     links = "".join(item(h, t) for h, t in NAV) + '<a class="m" href="/contact/">Contact</a>'
@@ -86,9 +89,9 @@ def footer():
 <div class="ca"><img src="/assets/media/ca-logo-reversed.png" alt="Chartered Accountants Australia and New Zealand" width="140" height="80" ></div>
 </div>
 <div><h4>Work with us</h4><ul>
-<li><a href="/services/">Services</a></li><li><a href="/how-we-work/">How it works</a></li><li><a href="/prices/">Prices</a></li><li><a href="/bill-check/">Free bill check</a></li></ul></div>
+<li><a href="/services/">Services</a></li><li><a href="/aml-ctf-accounting-firms/">AML/CTF for accounting firms</a></li><li><a href="/how-we-work/">How it works</a></li><li><a href="/prices/">Prices</a></li><li><a href="/bill-check/">Free bill check</a></li></ul></div>
 <div><h4>Company</h4><ul>
-<li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/card/">Digital card</a></li></ul></div>
+<li><a href="/about/">About</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/insights/">Insights</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/card/">Digital card</a></li></ul></div>
 </div>
 <div class="legal">
 <p>{C.FACTS_LINE}</p>
@@ -111,8 +114,10 @@ def sec(label, inner, cls="", sid=""):
     return f'<section class="sec {cls}"{i}><div class="wrap"><div class="lab">{label}</div><div class="body">{inner}</div></div></section>\n'
 
 
-def phead(h1, lede):
-    return f'<header class="phead"><div class="wrap"><h1>{h1}</h1><p class="lede">{lede}</p></div></header>\n'
+def phead(h1, lede, crumb=None, byline=""):
+    c = f'<p class="crumb"><a href="{crumb[0]}">{crumb[1]}</a></p>' if crumb else ""
+    b = f'<p class="byline">{byline}</p>' if byline else ""
+    return f'<header class="phead"><div class="wrap">{c}<h1>{h1}</h1><p class="lede">{lede}</p>{b}</div></header>\n'
 
 
 def rows(items):
@@ -121,6 +126,7 @@ def rows(items):
 
 def price_table(items, head3=("Offer", "What you get", "Price")):
     out = f'<table class="led"><thead><tr><th>{head3[0]}</th><th>{head3[1]}</th><th class="amt">{head3[2]}</th></tr></thead><tbody>'
+    items = [(n, d, pr, DETAIL.get(n) or l) for n, d, pr, l in items]
     for name, desc, price, link in items:
         nm = f'<a href="{link}">{name}</a>' if link else name
         out += f'<tr><td>{nm}</td><td data-h="">{desc}</td><td class="amt">{price}</td></tr>'
@@ -292,12 +298,152 @@ def notfound():
     return page("/404.html", "Page not found | Beiz Data & Accounting", "Page not found.", body)
 
 
+# ---------------------------------------------------------------- restored pages (5 Nov 2026)
+DETAIL = {s["name"]: s["path"] for s in M.SERVICES}
+DETAIL.update({"Live cash &amp; job profit model": "/services/cash-and-job-profit-model/",
+               "Workshops for owners &amp; teams": "/workshops-speaking/#workshops",
+               "Coaching for finance professionals": "/workshops-speaking/#coaching"})
+
+
+def ul(items, cls="plain"):
+    return f'<ul class="{cls}">' + "".join(f"<li>{x}</li>" for x in items) + "</ul>"
+
+
+def chref(topic, msg=""):
+    return "/contact/?topic=" + quote(topic) + (("&amp;msg=" + quote(msg)) if msg else "") + "#form"
+
+
+def cta(h2, text, topic, label="Start in writing"):
+    return sec("Next step", f'<h2>{h2}</h2><p class="intro">{text}</p><div class="acts"><a class="btn" href="{chref(topic)}">{label}</a><a class="btn line" href="{chref("Discovery call")}">Book a 20-minute call</a></div>', "dark")
+
+
+def ld(obj):
+    return '<script type="application/ld+json">' + json.dumps(obj, ensure_ascii=False) + "</script>\n"
+
+
+def _plain(t):
+    return html.unescape(re.sub(r"<[^>]+>", "", t))
+
+
+def faq_ld(pairs):
+    return ld({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": _plain(q), "acceptedAnswer": {"@type": "Answer", "text": _plain(a)}} for q, a in pairs]})
+
+
+def related(links):
+    links = [(h, t) for h, t in (links or []) if h.split("#")[0] in LIVE_PATHS]
+    return ul([f'<a href="{h}">{t}</a>' for h, t in links]) if links else ""
+
+
+def price_block(s):
+    extra = f'<p class="note">{s["price_extra"]}</p>' if s.get("price_extra") else ""
+    return (f'<h2>{s["price"]}</h2>' + rows([("Timing", s["timing"])]) + extra +
+            f'<p class="note">{C.PRICE_NOTE} <a href="/prices/">See every price</a>.</p>')
+
+
+def service_page(s):
+    body = phead(s.get("h1", s["name"]), s["lede"], ("/services/", "Services"))
+    extra_ld = ""
+    if s.get("aml"):
+        body += sec("In short", rows(M.AML_SPLIT) + f'<p class="note">Not legal advice: your AML/CTF program sets the actual rules. Obligations as described by <a href="{M.AUSTRAC_ENROL}" rel="noopener">AUSTRAC</a>.</p>')
+        body += sec("Is your firm caught?", f'<h2>It depends on the services you provide, not on being an accountant</h2><p class="intro">The regulated services accounting firms most often provide are:</p>{ul(M.AML_CAUGHT)}<p class="note">A practice that only does tax returns, BAS and bookkeeping is probably outside scope. If you provide any of the services above, even occasionally, check them against <a href="{M.AUSTRAC_SUMMARY}" rel="noopener">AUSTRAC&#39;s guidance for tranche 2 entities</a> or with your adviser.</p>')
+        body += sec("Key dates", rows(M.AML_DATES))
+        body += sec("What firms must do", "<h2>Your obligations</h2>" + rows(M.AML_DUTIES))
+        t = '<table class="led tw"><thead><tr><th>Step</th><th>The agent</th><th>Your people</th></tr></thead><tbody>' + "".join(
+            f'<tr><td>{a}</td><td data-h="The agent">{b}</td><td data-h="Your people">{c}</td></tr>' for a, b, c in M.AML_TABLE) + "</tbody></table>"
+        body += sec("Where an agent stops", f'<h2>The agent collects, checks and files. Your people decide.</h2>{t}')
+        body += sec("What it costs", "<h2>Three ways to start</h2>" + price_table(M.AML_COSTS) + f'<p class="note">{C.PRICE_NOTE}</p>')
+        body += sec("What we don't do", f'<p class="intro">{M.AML_NOT}</p>')
+        body += sec("Questions firms ask", rows(M.AML_FAQ))
+        body += sec("Sources", f'<p class="note"><a href="{M.AUSTRAC_SUMMARY}" rel="noopener">AUSTRAC, summary of AML/CTF obligations for tranche 2 entities</a>; <a href="{M.AUSTRAC_ENROL}" rel="noopener">AUSTRAC, enrolment for new professions</a>; <a href="{M.AUSTRAC_SMR}" rel="noopener">AUSTRAC, suspicious matter reporting reference guide</a>. Checked 16 October 2026.</p>')
+        extra_ld = faq_ld(M.AML_FAQ)
+    elif s.get("ai_workforce"):
+        body += sec("The agents", "<h2>Six roles agents can take on</h2>" + rows(M.AIW_AGENTS) + "<p class=\"note\">You don't need all six on day one. Most businesses start with the one or two that save the most hours, and add the rest once those are working.</p>")
+        body += sec("Every agent", "<h2>Six controls every agent gets</h2>" + rows(M.AIW_CONTROLS), sid="agents")
+        body += sec("How it runs", "<h2>A three-week rollout, then a day-30 review</h2>" + rows(M.AIW_WEEKS))
+        body += sec("The part demos skip", f'<p class="intro">{M.AIW_SKIP}</p>')
+        body += sec("Do you need one?", f'<h2>When you don&#39;t need an agent</h2><h3 class="sub">Use what you already have when</h3>{ul(M.AIW_NO_AGENT)}<h3 class="sub">An agent is worth setting up when</h3>{ul(M.AIW_AGENT)}<p class="note">{M.AIW_ISNT}</p>')
+        body += sec("What you get", rows(M.AIW_GETS))
+        body += sec("Price", price_block(s))
+        body += sec("Frameworks we work to", "<h2>Responsible AI isn't our invention. We make it practical.</h2>" + ul([f'<a href="{u}" rel="noopener">{t}</a>: {d}' for u, t, d in M.AIW_FRAMEWORKS]) + "<p class=\"note\">Links go to the publishers' own sites. We're not affiliated with or endorsed by any of them.</p>")
+    elif s.get("rows"):
+        body += sec("How it works", "<h2>Before, during and after</h2>" + rows(s["rows"]))
+        body += sec("Their job stays theirs", '<p class="intro">The agent covers routine work only. Decisions, customers and anything about people stay with your team. Best booked three to four weeks before the leave starts.</p>')
+        body += sec("Price", price_block(s))
+    else:
+        body += sec("Who it's for", f'<p class="intro">{s["who"]}</p>')
+        body += sec("The problem", f'<p class="intro">{s["problem"]}</p>')
+        body += sec("What you get", ul(s["gets"]))
+        body += sec("Limits", ul(s["limits"]))
+        body += sec("How it runs", rows(M.STEPS))
+        body += sec("Price", price_block(s))
+    if related(s.get("related")):
+        body += sec("Read more", related(s["related"]))
+    body += cta("Not sure it fits?", "Write a few lines about the problem. You'll get a written reply by the next business day. If it isn't a fit, we'll say so.", s["topic"], "Discuss this")
+    return page(s["path"], s["title"], s["desc"], body, extra_ld)
+
+
+def workshops_page():
+    w = ""
+    for x in M.WORKSHOPS:
+        w += (f'<div class="block"><h2>{x["name"]}</h2>' + rows([("For", x["for"]), ("Format", x["format"])]) +
+              f'<h3 class="sub">Participants will</h3>{ul(x["will"])}<h3 class="sub">Sample agenda</h3>{ul(x["agenda"])}'
+              f'<h3 class="sub">Takeaways</h3>{ul(x["take"])}<p class="note">Priced after we understand your audience and format.</p>'
+              f'<div class="acts"><a class="btn line" href="{chref("Workshop", "Workshop proposal: " + html.unescape(x["name"]) + ". Audience and format: ")}">Request a workshop proposal</a></div></div>')
+    c, sp = M.COACHING, M.SPEAKING
+    body = phead("Workshops, coaching and speaking", M.WORKSHOPS_LEDE, ("/services/", "Services"))
+    body += sec("Workshops", w, sid="workshops")
+    body += sec("Coaching", "<h2>Coaching for finance professionals</h2>" + rows([("For", c["for"]), ("Format", c["format"])]) + f'<h3 class="sub">You&#39;ll leave with</h3>{ul(c["leave"])}<p class="note">{c["limits"]}</p><div class="acts"><a class="btn line" href="{chref("Something else", "Coaching enquiry: what I want to build: ")}">Ask about coaching</a></div>', sid="coaching")
+    body += sec("Speaking", "<h2>Speaking and panels</h2>" + rows([("For", sp["for"]), ("Formats", sp["formats"])]) + f'<h3 class="sub">Topics</h3>{ul(sp["topics"])}<div class="acts"><a class="btn line" href="{chref("Something else", "Speaking or panel enquiry. Event, audience, date and length: ")}">Invite Beiz to speak</a></div>', sid="speaking")
+    body += cta("Planning a session?", "Tell us who it's for and what you'd like them to leave with. You'll get a written reply by the next business day.", "Workshop")
+    return page("/workshops-speaking/", "Workshops, coaching and speaking | Beiz Data & Accounting", "Practical workshops and coaching on putting AI and data to work in finance and small business, using made-up data.", body)
+
+
+def faq_page():
+    body = phead("FAQ", "Straight answers to the things people ask first. If yours isn't here, ask it in writing.")
+    body += sec("Questions", '<div class="rows">' + "".join(f'<div class="row"><h3>{q}</h3><p>{a}</p></div>' for q, a in M.FAQ) + "</div>")
+    body += cta("Still have a question?", "Ask it in writing. You'll get a straight answer by the next business day.", "Something else", "Ask in writing")
+    return page("/faq/", "FAQ | Beiz Data & Accounting", "Straight answers about Beiz: what we do and don't do, AI and your data, prices, who does the work and how we work with your tax accountant.", body, faq_ld(M.FAQ))
+
+
+KEEP_ARTS = ['/insights/privacy-act-automated-decisions/', '/insights/check-bills-before-you-pay/']
+ARTS = sorted([a for a in M.ARTICLES if a["path"] in KEEP_ARTS], key=lambda a: a["date"], reverse=True)
+
+
+def insights_page():
+    items = "".join(f'<div class="row"><h3><a href="{a["path"]}">{html.escape(a["title"])}</a></h3><p>{a["desc"]}<br><span class="fine">{a["shown"]} · {a["mins"]} minute read</span></p></div>' for a in ARTS)
+    body = phead("Insights", M.INSIGHTS_LEDE)
+    body += sec("Articles", f'<div class="rows">{items}</div>')
+    return page("/insights/", "Insights | Beiz Data & Accounting", "Plain-English notes on cash, controls, data and AI for Australian businesses, by Purav Mehta CA, GAICD.", body)
+
+
+def article_page(a):
+    by = f'By <a href="/about/">Purav Mehta</a>, Chartered Accountant · {a["shown"]} · {a["mins"]} minute read'
+    src = f'<p class="note">{a["sources"]}</p>' if a["sources"] else ""
+    body = phead(html.escape(a["title"]), a["desc"], ("/insights/", "Insights"), by)
+    body += f'<section class="sec"><div class="wrap"><div class="lab">Article</div><div class="body prose">{a["body"]}{src}</div></div></section>\n'
+    body += cta("Want this set up in your business?", "Write a few lines about your setup. You'll get a written reply by the next business day. If we're not the right fit, we'll say so.", a["topic"])
+    art = ld({"@context": "https://schema.org", "@type": "Article", "headline": a["title"], "description": a["desc"],
+              "datePublished": a["date"], "author": {"@type": "Person", "name": "Purav Mehta", "url": SITE + "/about/"},
+              "publisher": {"@type": "Organization", "name": "Beiz Data & Accounting Pty Ltd", "url": SITE + "/"},
+              "mainEntityOfPage": SITE + a["path"]})
+    return page(a["path"], a["title"] + " | Beiz", a["desc"], body, art)
+
+
+MORE = {s["path"]: (lambda s=s: service_page(s)) for s in M.SERVICES}
+MORE.update({"/workshops-speaking/": workshops_page, "/faq/": faq_page, "/insights/": insights_page})
+MORE.update({a["path"]: (lambda a=a: article_page(a)) for a in ARTS})
+
+
+
 def redirect(to):
     return f'<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><title>Moved</title><meta name="robots" content="noindex"><link rel="canonical" href="{SITE}{to}"><meta http-equiv="refresh" content="0; url={to}"></head><body><p>This page has moved to <a href="{to}">{SITE}{to}</a>.</p></body></html>\n'
 
 
 PAGES = {"/": home, "/services/": services, "/how-we-work/": how, "/prices/": prices, "/about/": about,
          "/contact/": contact, "/bill-check/": bill_check, "/privacy/": privacy}
+PAGES.update(MORE)
+LIVE_PATHS = set(PAGES)
 
 
 def write(path, text):

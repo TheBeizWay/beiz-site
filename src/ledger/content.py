@@ -232,12 +232,8 @@ PRIVACY = """<p>Beiz Data &amp; Accounting Pty Ltd (ABN 53 691 755 496), "we", r
 REDIRECTS = {'/ai-check/': '/services/',
  '/ai-cost-calculator/': '/prices/',
  '/ai-value-calculator/': '/prices/',
- '/aml-ctf-accounting-firms/': '/services/',
  '/ask-ai/': '/about/',
- '/cash-data-check/': '/prices/',
- '/compliance-sprint/': '/services/',
  '/examples/': '/services/',
- '/faq/': '/how-we-work/',
  '/industries/': '/services/',
  '/industries/crypto/': '/services/',
  '/industries/health/': '/services/',
@@ -245,14 +241,10 @@ REDIRECTS = {'/ai-check/': '/services/',
  '/industries/not-for-profits/': '/services/',
  '/industries/startups/': '/services/',
  '/industries/trades/': '/services/',
- '/insights/': '/',
  '/insights/burned-by-an-ai-product/': '/',
- '/insights/check-bills-before-you-pay/': '/',
- '/insights/privacy-act-automated-decisions/': '/',
  '/insights/shortcut-to-a-good-ai-tool/': '/',
  '/insights/we-feed-your-tax-accountant/': '/',
  '/insights/why-13-weeks/': '/',
- '/leave-cover/': '/services/',
  '/live/': '/',
  '/oversight/': '/how-we-work/',
  '/products-demos/': '/bill-check/',
@@ -261,25 +253,16 @@ REDIRECTS = {'/ai-check/': '/services/',
  '/products-demos/job-profitability/': '/bill-check/',
  '/products-demos/missing-receipts/': '/bill-check/',
  '/services/ai-agents/': '/services/',
- '/services/ai-governance/': '/services/',
- '/services/ai-readiness-sprint/': '/services/',
- '/services/automation/': '/services/',
- '/services/cash-and-job-profit-model/': '/services/',
- '/services/chatbots-ai-assistants/': '/services/',
  '/services/coaching/': '/services/',
- '/services/dashboards-and-models/': '/services/',
- '/services/data-engineering/': '/services/',
  '/services/human-in-the-loop/': '/services/',
  '/services/privacy-sprint/': '/services/',
  '/services/project-delivery/': '/services/',
  '/services/quick-wins/': '/services/',
  '/services/speaking/': '/services/',
- '/services/workflow-redesign/': '/services/',
  '/services/workshops/': '/services/',
  '/trust/': '/how-we-work/',
  '/try/': '/bill-check/',
- '/workshop/': '/services/',
- '/workshops-speaking/': '/services/'}
+ '/workshop/': '/services/',}
 
 LLMS = """# Beiz Data & Accounting
 
@@ -295,6 +278,10 @@ Beiz does not provide tax returns, BAS or GST lodgements, tax or BAS agent servi
 - [How it works](https://beiz.com.au/how-we-work/): first 30 days and what every build includes
 - [Prices](https://beiz.com.au/prices/): free bill check; $1,500 fixed two-week cash & data check; compliance controls sprint from $3,500; cash & job profit model, AI workforce setup, leave cover and monthly controls operations by scoped quote
 - [Free bill check](https://beiz.com.au/bill-check/): runs in the browser, nothing uploaded
+- [AML/CTF Tranche 2 for accounting firms](https://beiz.com.au/aml-ctf-accounting-firms/): which services are caught, dates, duties, AUSTRAC sources
+- [FAQ](https://beiz.com.au/faq/)
+- [Privacy Act automated decisions from 10 December 2026](https://beiz.com.au/insights/privacy-act-automated-decisions/)
+- [Five checks to run on every supplier bill](https://beiz.com.au/insights/check-bills-before-you-pay/)
 - [About](https://beiz.com.au/about/)
 - [Contact](https://beiz.com.au/contact/): hello@beiz.com.au
 - [Full detail for AI assistants](https://beiz.com.au/llms-full.txt)

@@ -393,3 +393,7 @@ a:hover{text-decoration-color:var(--brand)}
 @media (min-width:901px) and (max-width:1100px){.top{z-index:25}}
 .svc li span{flex:1 1 auto;min-width:8em}
 .svc li b{text-align:right;white-space:normal;max-width:60%}
+.crumb{font-size:15px;margin:0 0 16px}.crumb a{color:var(--muted)}
+.byline{font-size:15px;color:var(--muted);margin-top:16px}
+h3.sub{font-size:1.2rem;margin:30px 0 0}
+.block+.block{margin-top:clamp(48px,7vw,80px);padding-top:clamp(32px,5vw,48px);border-top:1px solid var(--rule)}
