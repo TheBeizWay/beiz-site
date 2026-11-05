@@ -344,3 +344,52 @@ a:hover{text-decoration-color:var(--brand)}
 .drawer .btn:hover{background:var(--brand);color:#fff;border-color:var(--brand)}
 .hero .book{color:var(--ink)}
 .hero .book .drawer dd{color:var(--ink)}
+
+/* ---- browse-and-reveal layer (5 Nov 2026) ---- */
+/* Services mega menu (desktop) */
+.dd{position:relative;display:flex}
+.mega{display:none}
+@media (min-width:901px){
+  .dd .mega{display:block;position:fixed;left:0;right:0;top:var(--megatop,72px);background:var(--paper);border-top:2px solid var(--brand);border-bottom:1px solid var(--ink);box-shadow:0 18px 30px -24px rgba(19,34,27,.45);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .16s,transform .16s,visibility .16s;z-index:20}
+  .dd:hover .mega,.dd:focus-within .mega{opacity:1;visibility:visible;transform:none}
+  .mega .wrap{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px;padding-top:22px;padding-bottom:24px;height:auto}
+  .mcol .mh{font:600 1.05rem var(--serif);color:var(--ink);text-decoration:none;border-bottom:0}
+  .mcol p{font-size:13.5px;color:var(--muted);margin:6px 0 10px;line-height:1.45}
+  .mcol ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+  .mcol li{border-bottom:1px solid var(--rule);padding:7px 0;font-size:14px}
+  .mcol li a{color:var(--ink);text-decoration:none;border-bottom:0;padding:0;display:block}
+  .mcol li a:hover{color:var(--brand)}
+  .mcol li span{display:block;font-size:12.5px;color:var(--brand)}
+}
+/* homepage services overview: ruled ledger columns, not cards */
+.svcgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:0 28px;margin-top:30px;border-top:1px solid var(--ink)}
+.svc{display:block;text-decoration:none;color:var(--ink);padding:20px 0 22px;border-bottom:1px solid var(--rule);position:relative}
+.svc::before{content:"";position:absolute;left:0;top:-1px;height:2px;width:0;background:var(--brand);transition:width .35s ease}
+.svc:hover::before,.svc:focus-visible::before{width:100%}
+.svc h3{font-size:1.25rem;margin-bottom:6px}
+.svc:hover h3{color:var(--brand)}
+.svc p{font-size:14.5px;color:var(--ink2);margin:0 0 12px}
+.svc ul{list-style:none;margin:0;padding:0}
+.svc li{display:flex;justify-content:space-between;gap:12px;font-size:14px;padding:5px 0;border-top:1px dashed var(--rule)}
+.svc li b{font-weight:500;color:var(--brand);white-space:nowrap}
+/* scroll progress */
+.progress{position:fixed;left:0;top:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:var(--brand-hi);z-index:30;pointer-events:none}
+/* reveal on scroll (only when JS has marked the page ready and motion is allowed) */
+@media (prefers-reduced-motion:no-preference){
+  .js-anim .sec .body>*,.js-anim .reveal,.js-anim .led tbody tr,.js-anim .row{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .js-anim .in,.js-anim .sec .body>.in,.js-anim .led tbody tr.in,.js-anim .row.in{opacity:1;transform:none}
+  .js-anim .sec .lab{transition:border-color .6s ease}
+  /* bills panel: rows post in like a ledger being worked */
+  .js-anim .hero .book tbody tr{opacity:0;transform:translateX(-8px);transition:opacity .35s ease,transform .35s ease,background-color .6s ease}
+  .js-anim .hero .book tbody tr.in{opacity:1;transform:none}
+  .hero .book tbody tr.flash{background-color:#FFF4D6}
+  .hero .book tbody tr.flash.okf{background-color:#E3F3EA}
+  .hero .book tbody tr.flash.stopf{background-color:#FBE4E1}
+  .dot.pulse{animation:pulse 1.6s ease-out 2}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 currentColor}100%{box-shadow:0 0 0 8px transparent}}
+  .dot.ok.pulse{color:rgba(43,118,82,.5)}.dot.held.pulse{color:rgba(168,106,18,.5)}.dot.stop.pulse{color:rgba(178,58,46,.5)}
+}
+@media (min-width:1101px){.top{position:relative;z-index:25}}
+@media (min-width:901px) and (max-width:1100px){.top{z-index:25}}
+.svc li span{flex:1 1 auto;min-width:8em}
+.svc li b{text-align:right;white-space:normal;max-width:60%}

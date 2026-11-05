@@ -5,12 +5,12 @@ Run from the repo root:  python3 src/ledger/build.py
 Writes the published pages into the repo root, plus sitemap.xml, robots.txt and llms.txt.
 Content lives in src/ledger/content.py; this file is layout only.
 """
-import html, os, sys
+import html, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import content as C
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ASSET_V = "L18"  # bump on every CSS or JS change
+ASSET_V = "L21"  # bump on every CSS or JS change
 SITE = "https://beiz.com.au"
 e = html.escape
 
@@ -52,9 +52,21 @@ def head(path, title, desc):
 """
 
 
+def gslug(t):
+    return re.sub(r"[^a-z]+", "-", t.lower()).strip("-")
+
+
 def header(path):
-    links = "".join(
-        f'<a href="{h}"{" aria-current=page" if path == h else ""}>{t}</a>' for h, t in NAV) + '<a class="m" href="/contact/">Contact</a>'
+    def item(h, t):
+        a = f'<a href="{h}"{" aria-current=page" if path == h else ""}>{t}</a>'
+        if h != "/services/":
+            return a
+        cols = "".join(
+            f'<div class="mcol"><a class="mh" href="/services/#{gslug(g["title"])}">{g["title"]}</a><p>{g["intro"]}</p><ul>'
+            + "".join(f'<li><a href="/services/#{gslug(g["title"])}">{n}</a><span>{p}</span></li>' for n, d, p, _ in g["items"])
+            + "</ul></div>" for g in C.GROUPS)
+        return f'<div class="dd">{a}<div class="mega" role="region" aria-label="Services"><div class="wrap">{cols}</div></div></div>'
+    links = "".join(item(h, t) for h, t in NAV) + '<a class="m" href="/contact/">Contact</a>'
     return f"""<header class="top"><div class="wrap">
 <a class="brand" href="/" aria-label="Beiz Data &amp; Accounting, home"><img src="/assets/ledger/beiz-lockup.png" alt="Beiz Data &amp; Accounting" width="149" height="44"></a>
 <span class="cobrand"><img src="/assets/media/ca-logo-vertical.svg" alt="Chartered Accountants Australia and New Zealand" width="96" height="108"></span>
@@ -156,6 +168,10 @@ def home():
         f'<tr><td>{a}</td><td data-h="Today">{b}</td><td data-h="With a Beiz agent">{c}</td></tr>' for a, b, c in C.JOBS) + "</tbody></table>"
     body = hero
     body += sec("Where it helps", f"<h2>The routine work an agent takes on</h2><p class=\"intro\">{C.JOBS_INTRO}</p>{jobs}")
+    svc = '<div class="svcgrid">' + "".join(
+        f'<a class="svc reveal" href="/services/#{gslug(g["title"])}"><h3>{g["title"]}</h3><p>{g["intro"]}</p><ul>'
+        + "".join(f"<li><span>{n}</span><b>{p}</b></li>" for n, d, p, _ in g["items"]) + "</ul></a>" for g in C.GROUPS) + "</div>"
+    body += sec("What we do", f"<h2>Everything Beiz does, at a glance</h2><p class=\"intro\">Fixed prices where the scope allows; a written quote everywhere else.</p>{svc}", sid="what")
     bcl = "".join(f"<li>{x}</li>" for x in C.HOME_BC)
     body += sec("Try it now", f"<h2>Run the free bill check on your own bills</h2><p class=\"intro\">Export your bills from Xero, MYOB or QuickBooks and drop the file in. Eight checks run in your browser in a few seconds. Nothing is uploaded or sent to us.</p><ul class=\"plain\">{bcl}</ul><div class=\"acts\"><a class=\"btn\" href=\"/bill-check/\">Run the free bill check</a></div>")
     body += sec("Ways to start", f"<h2>Three ways to start</h2>{price_table(C.START)}<p class=\"note\">{C.PRICE_NOTE} <a href=\"/prices/\">See every price</a>.</p>")
@@ -175,7 +191,7 @@ def home():
 def services():
     body = phead("Services", C.SERVICES_LEDE)
     for g in C.GROUPS:
-        body += sec(g["title"], f'<h2>{g["intro"]}</h2>' + price_table(g["items"], ("Service", "What it covers", "Price")))
+        body += sec(g["title"], f'<h2>{g["intro"]}</h2>' + price_table(g["items"], ("Service", "What it covers", "Price")), sid=gslug(g["title"]))
     body += sec("What we don't do", f"<p class=\"intro\">{C.NOT_DO}</p>")
     body += sec("Next step", f"<h2>Not sure which one fits?</h2><p class=\"intro\">Describe the problem in a few lines. If we're not the right fit, we'll say so.</p><div class=\"acts\"><a class=\"btn\" href=\"/contact/\">Describe the problem</a></div>", "dark")
     return page("/services/", "Services | Beiz Data & Accounting", "Finance, data, automation and governance work for Australian small businesses, with fixed prices where the scope allows.", body)
