@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import content as C
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ASSET_V = "L16"  # bump on every CSS or JS change
+ASSET_V = "L18"  # bump on every CSS or JS change
 SITE = "https://beiz.com.au"
 e = html.escape
 
@@ -39,7 +39,7 @@ def head(path, title, desc):
 <meta property="og:url" content="{SITE}{path}">
 <meta property="og:image" content="{SITE}/assets/og-card.png">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#F5F2EA">
+<meta name="theme-color" content="#13221B">
 <link rel="icon" href="/assets/brand/beiz-icon.svg">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/source-serif-4-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -149,7 +149,7 @@ def home():
     hero = f"""<section class="hero"><div class="wrap">
 <div><h1>{C.HERO_H1}</h1><p class="lede">{C.HERO_LEDE}</p>
 <div class="acts"><a class="btn" href="/contact/">Book a 20-minute call</a><a class="btn line" href="/bill-check/">Try the free bill check</a></div>
-<div class="credrow"><img src="/assets/media/ca-logo.svg" alt="Chartered Accountants Australia and New Zealand" width="147" height="84"><p class="cred">{C.HERO_CRED}<br><span class="tm">Trade mark of Chartered Accountants Australia and New Zealand and used with permission.</span></p></div></div>
+<div class="credrow"><img src="/assets/media/ca-logo-reversed.png" alt="Chartered Accountants Australia and New Zealand" width="147" height="84"><p class="cred">{C.HERO_CRED}<br><span class="tm">Trade mark of Chartered Accountants Australia and New Zealand and used with permission.</span></p></div></div>
 {book}</div></section>
 """
     jobs = '<table class="led tw"><thead><tr><th>Job</th><th>Today</th><th>With a Beiz agent</th></tr></thead><tbody>' + "".join(

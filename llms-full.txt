@@ -79,24 +79,25 @@ Build your own team's capability, not just a system.
 ## How a build runs
 - Write or talk: You describe the problem. A written reply by the next business day; calls are 20 minutes, early morning or after 5pm.
 - Fixed proposal: Within three business days: a fixed price, a timeline and a definition of done.
-- Build and test: Built in your own systems and tested on your past records against a pass mark agreed in writing.
+- Build and test: Built in your own systems and replayed on a period of your past records agreed in the proposal. You get a one-page test report: how many it cleared, held and stopped, and every case where it disagreed with what your team actually did, measured against the pass mark agreed in writing.
 - Shadow mode: The agent runs alongside your team. Its work is compared with theirs before anything goes live.
-- Hand over: Documentation, the decision log in your own accounts, and a review with you at day 30.
+- Hand over: Documentation, the decision log in your own accounts, and a review with you at day 30. The rules, scripts and procedure files are yours to keep, so you aren't tied to Beiz to keep it running.
 
 ## Rules first, AI for the exceptions
 - Rules first: Fixed rules do the routine checking: matching amounts, dates, suppliers and invoice numbers. They behave the same way every time and cost nothing to run.
 - AI for the exceptions: AI only looks at what the rules can't settle, like a supplier invoice laid out in an unusual way. It hands back a structured answer for the rules to check again.
-- A person decides: Anything held, unusual or over your limit goes to a named person. Every run is kept in a history your staff can read, step by step.
+- Figures from PDFs: PDF tables are positions on a page, not a spreadsheet, which is why general AI tools often misread them. Tables are read separately from the text, and every figure keeps a link to its document, page and line before it's checked against your ledger.
+- A person decides: Anything held, unusual or over your limit goes to a named person, and a hold always wins: nothing further down the line can release it. Every run is kept in a history your staff can read, step by step.
 
 ## Every build includes
 - A written job description, limits and a named person the agent reports to
-- Testing on your past records against a pass mark agreed in writing
+- A test report from replaying your past records, measured against a pass mark agreed in writing
 - Shadow mode before live
 - A decision log kept in your own accounts
 - A monthly spending cap and an off switch
 - Nothing paid or sent without a person
 - A day-30 review
-- An operating folder you keep: business context, procedures and agent memory, as plain files
+- An operating folder you keep: business context, procedures, the rules and scripts, and agent memory, as plain files
 
 ## Decision log fields
 - Record: The bill: supplier, invoice number, date and amount.
