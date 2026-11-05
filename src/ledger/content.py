@@ -357,3 +357,38 @@ AGENT_TOOLS = [
     ("get_bill_check_rules", "The eight checks the free bill check runs, and how your file is handled."),
     ("privacy_adm_overview", "General information on the Privacy Act automated-decision rules starting 10 December 2026, with the OAIC source. Not legal advice."),
 ]
+
+# ---------------------------------------------------------------- news strip (5 Nov 2026, Purav's go)
+# Every item needs a primary source. Dates drive the countdown ("in N days" / "since <date>").
+# Review monthly: remove items that are stale, add new ones only with a primary source.
+NEWS = [
+    {"tag": "OAIC", "date": "2026-12-10", "text": "Privacy Act automated-decision disclosures start",
+     "src": "https://www.oaic.gov.au/privacy/australian-privacy-principles/australian-privacy-principles-guidelines/chapter-1-app-1-open-and-transparent-management-of-personal-information",
+     "beiz": "Plain-English guide", "href": "/insights/privacy-act-automated-decisions/"},
+    {"tag": "AUSTRAC", "date": "2026-07-01", "text": "AML/CTF duties for accountants who provide certain services",
+     "src": "https://www.austrac.gov.au/new-and-media/news/austrac-opens-enrolment-new-professions-next-step-aml-reforms",
+     "beiz": "Client checks, your officer decides", "href": "/aml-ctf-accounting-firms/"},
+    {"tag": "ATO", "date": "2026-07-01", "text": "Payday Super: super due with every pay run, not quarterly",
+     "src": "https://www.ato.gov.au/media-centre/ato-calls-on-employers-to-prepare-for-payday-super",
+     "beiz": "A 13-week cash view that includes it", "href": "/services/cash-and-job-profit-model/"},
+    {"tag": "Scamwatch", "date": "", "text": "Payment redirection: a supplier's bank details 'change' by email",
+     "src": "https://www.scamwatch.gov.au/types-of-scams/business-email-compromise-scams",
+     "beiz": "The free bill check flags bank changes", "href": "/bill-check/"},
+    {"tag": "National AI Centre", "date": "", "text": "Guidance for AI Adoption: six practices, including keeping human control",
+     "src": "https://www.industry.gov.au/publications/guidance-for-ai-adoption",
+     "beiz": "AI governance for owners and boards", "href": "/services/ai-governance/"},
+    {"tag": "ABR", "date": "", "text": "Check a supplier's ABN on ABN Lookup before you pay",
+     "src": "https://abr.business.gov.au/",
+     "beiz": "The bill check flags missing or invalid ABNs", "href": "/bill-check/"},
+]
+
+# ---------------------------------------------------------------- guided helper ("Ask Beiz"): scripted, no AI
+HELPER_INTRO = ("Guided helper. It answers from this website only. It isn't AI, and nothing you type is stored or sent.")
+HELPER_EXTRA = [
+    {"q": "What does it cost?", "k": "cost price prices much fee fees quote expensive pay charge cash 1500 two-week sprint", "a": "The bill check is free. The two-week cash and data check is $1,500 fixed. The compliance controls sprint starts from $3,500. Everything else is quoted in writing after a short scoping conversation. No GST is added.", "href": "/prices/", "link": "See every price"},
+    {"q": "How do I start?", "k": "start begin contact call talk book meeting email write enquiry", "a": "Write a few lines about the problem, or book a 20-minute call (early morning or after 5pm). You'll get a written reply by the next business day.", "href": "/contact/", "link": "Talk to us"},
+    {"q": "Try the free bill check", "k": "bill bills duplicate duplicates check csv xero myob quickbooks invoice supplier bank abn", "a": "Drop a bills export from Xero, MYOB or QuickBooks into the bill check. Eight checks run in your browser and nothing is uploaded.", "href": "/bill-check/", "link": "Run the bill check"},
+    {"q": "AML/CTF for my firm", "k": "aml ctf austrac tranche money laundering kyc client checks accountant firm", "a": "Since 1 July 2026, accounting firms that provide certain services have AML/CTF duties. Agents can do the routine checks and paperwork; your compliance officer keeps every decision.", "href": "/aml-ctf-accounting-firms/", "link": "AML/CTF for accounting firms"},
+    {"q": "Privacy Act and AI", "k": "privacy oaic automated decision decisions app 1.7 december policy", "a": "From 10 December 2026, organisations covered by the Privacy Act need to describe certain automated decisions in their privacy policy. General information, not legal advice.", "href": "/insights/privacy-act-automated-decisions/", "link": "Read the guide"},
+    {"q": "How do you keep AI safe?", "k": "safe safety risk control controls agent agents shadow test log sign off wrong mistake", "a": "Nothing runs on its own on day one. Each agent is tested on your past records, runs alongside your team first, and needs a person's sign-off for anything that matters, with every decision logged.", "href": "/how-we-work/", "link": "How it works"},
+]

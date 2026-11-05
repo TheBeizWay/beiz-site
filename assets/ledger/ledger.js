@@ -16,6 +16,55 @@
     });
   }
 
+  /* ---- news strip: countdowns, duplicate for a seamless loop, pause control ---- */
+  const news = $(".news");
+  if (news) {
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    news.querySelectorAll(".nwhen").forEach(el => {
+      const d = new Date(el.dataset.date + "T00:00:00"), days = Math.round((d - today) / 864e5);
+      el.textContent = days > 1 ? `in ${days} days` : days === 1 ? "tomorrow" : days === 0 ? "today"
+        : "since " + d.toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" });
+    });
+    const tr = news.querySelector(".ntrack");
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      [...tr.children].forEach(li => { const c = li.cloneNode(true); c.setAttribute("aria-hidden", "true"); c.querySelectorAll("a").forEach(a => a.tabIndex = -1); tr.appendChild(c); });
+      news.style.setProperty("--ndur", Math.max(40, tr.scrollWidth / 2 / 45) + "s");
+      news.classList.add("run");
+    }
+    const pb = news.querySelector(".npause");
+    pb.addEventListener("click", () => { const p = news.classList.toggle("paused"); pb.setAttribute("aria-pressed", p); pb.textContent = p ? "Play" : "Pause"; });
+  }
+
+  /* ---- demo clips: play while on screen; reduced motion gets controls instead ---- */
+  document.querySelectorAll(".vid video").forEach(v => {
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) { v.controls = true; return; }
+    new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) v.play().catch(() => { v.controls = true; }); else v.pause(); }), { threshold: .4 }).observe(v);
+  });
+
+  /* ---- guided helper: scripted answers from this site; nothing stored or sent ---- */
+  const hb = $(".hbtn"), hp = $("#helper");
+  if (hb && hp) {
+    let data = []; try { data = JSON.parse($("#helper-data").textContent); } catch (_) {}
+    const log = hp.querySelector(".hlog"), qs = hp.querySelector(".hqs"), form = hp.querySelector(".hform"), inp = hp.querySelector("input");
+    const esc = t => String(t).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+    const words = t => t.toLowerCase().replace(/[^a-z0-9&/ ]+/g, " ").split(/\s+/).filter(w => w.length > 2 && !["the","and","for","you","your","what","how","does","with","can","are","our","about","this","that","from","have","will","who","why","when","where","much","any","get","not","its","use","there"].includes(w));
+    const add = (cls, html) => { const d = document.createElement("div"); d.className = "hmsg " + cls; d.innerHTML = html; log.appendChild(d); log.scrollTop = log.scrollHeight; };
+    const answer = item => add("bot", esc(item.a) + (item.href ? `<br><a href="${item.href}">${esc(item.link || "Read more")}</a>` : ""));
+    const ask = text => {
+      add("you", `<span>${esc(text)}</span>`);
+      const w = words(text); let best = null, score = 0;
+      data.forEach(it => { const hay = (it.q + " " + it.k).toLowerCase(); let s = 0; w.forEach(x => { if (hay.includes(x)) s += it.k.includes(x) ? 2 : 1; }); if (s > score) { score = s; best = it; } });
+      if (best && score >= 1) answer(best);
+      else add("bot", 'I don\'t have an answer for that one here. Write it to us and you\'ll get a written reply by the next business day.<br><a href="/contact/?msg=' + encodeURIComponent(text) + '">Write to us</a>');
+    };
+    data.filter(d => d.k).forEach(d => { const b = document.createElement("button"); b.type = "button"; b.textContent = d.q; b.addEventListener("click", () => ask(d.q)); qs.appendChild(b); });
+    const open = o => { hp.hidden = !o; hb.setAttribute("aria-expanded", o); if (o) { if (!log.children.length) add("bot", "Hi. Ask about prices, the bill check, AML/CTF, the Privacy Act changes or how agents are kept safe."); inp.focus(); } else hb.focus(); };
+    hb.addEventListener("click", () => open(hp.hidden));
+    hp.querySelector(".hclose").addEventListener("click", () => open(false));
+    document.addEventListener("keydown", e => { if (e.key === "Escape" && !hp.hidden) open(false); });
+    form.addEventListener("submit", e => { e.preventDefault(); const t = inp.value.trim(); if (!t) return; inp.value = ""; ask(t); });
+  }
+
   /* ---- browse-and-reveal layer ---- */
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const top0 = $(".top");

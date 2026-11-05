@@ -13,12 +13,23 @@ import json
 from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ASSET_V = "L22"  # bump on every CSS or JS change
+ASSET_V = "L24"  # bump on every CSS or JS change
 SITE = "https://beiz.com.au"
 e = html.escape
 
 NAV = [("/services/", "Services"), ("/how-we-work/", "How it works"), ("/prices/", "Prices"),
        ("/bill-check/", "Try the bill check"), ("/about/", "About")]
+
+HELPER_TMPL = """<button type="button" class="hbtn" aria-controls="helper" aria-expanded="false">Ask Beiz</button>
+<div class="helper" id="helper" role="dialog" aria-label="Ask Beiz, guided helper" hidden>
+<div class="hhead"><b>Ask Beiz</b><button type="button" class="hclose" aria-label="Close helper">Close</button></div>
+<p class="hintro">{intro}</p>
+<div class="hlog" aria-live="polite"></div>
+<div class="hqs"></div>
+<form class="hform"><label class="skip" for="hq">Your question</label><input id="hq" type="text" placeholder="Ask about prices, AML, the bill check..." autocomplete="off" maxlength="200"><button class="btn" type="submit">Ask</button></form>
+</div>
+<script type="application/json" id="helper-data">{data}</script>
+"""
 
 LD = """{"@context":"https://schema.org","@type":"ProfessionalService","name":"Beiz Data & Accounting Pty Ltd",
 "url":"https://beiz.com.au/","email":"hello@beiz.com.au","logo":"https://beiz.com.au/assets/brand/beiz-icon-512.png",
@@ -100,13 +111,34 @@ def footer():
 <p>&copy; <span data-yr>2026</span> Beiz Data &amp; Accounting Pty Ltd</p>
 </div>
 </div></footer>
+{helper_html()}
 <script src="/assets/ledger/ledger.js?v={ASSET_V}" defer></script>
 <script src="/assets/ledger/webmcp.js?v={ASSET_V}" defer></script>
 """
 
 
+def helper_html():
+    import json as _j, re as _re
+    strip = lambda t: _re.sub(r"<[^>]+>", "", t).replace("&amp;", "&")
+    data = [dict(x) for x in C.HELPER_EXTRA]
+    for q, a in M.FAQ:
+        data.append({"q": strip(q), "k": "", "a": strip(a), "href": "/faq/", "link": "Open the FAQ"})
+    js = _j.dumps(data).replace("</", "<\\/")
+    return HELPER_TMPL.format(intro=C.HELPER_INTRO, data=js)
+
+
+def news_strip():
+    items = "".join(
+        f'<li class="ni"><span class="ntag">{e(n["tag"])}</span><a class="ntext" href="{n["src"]}" rel="noopener" target="_blank">{e(n["text"])}</a>'
+        + (f'<span class="nwhen" data-date="{n["date"]}"></span>' if n["date"] else "")
+        + f'<a class="nbeiz" href="{n["href"]}">{e(n["beiz"])}</a></li>' for n in C.NEWS)
+    return (f'<section class="news" aria-label="What\'s changing for Australian businesses"><div class="wrap">'
+            f'<span class="nlabel">What\'s changing</span><div class="nview"><ul class="ntrack">{items}</ul></div>'
+            f'<button type="button" class="npause" aria-pressed="false">Pause</button></div></section>\n')
+
+
 def page(path, title, desc, body, extra_js=""):
-    return head(path, title, desc) + header(path) + f'<main id="main">\n{body}\n</main>\n' + footer() + extra_js + "</body>\n</html>\n"
+    return head(path, title, desc) + header(path) + news_strip() + f'<main id="main">\n{body}\n</main>\n' + footer() + extra_js + "</body>\n</html>\n"
 
 
 def sec(label, inner, cls="", sid=""):
@@ -180,6 +212,11 @@ def home():
     body += sec("What we do", f"<h2>Everything Beiz does, at a glance</h2><p class=\"intro\">Fixed prices where the scope allows; a written quote everywhere else.</p>{svc}", sid="what")
     bcl = "".join(f"<li>{x}</li>" for x in C.HOME_BC)
     body += sec("Try it now", f"<h2>Run the free bill check on your own bills</h2><p class=\"intro\">Export your bills from Xero, MYOB or QuickBooks and drop the file in. Eight checks run in your browser in a few seconds. Nothing is uploaded or sent to us.</p><ul class=\"plain\">{bcl}</ul><div class=\"acts\"><a class=\"btn\" href=\"/bill-check/\">Run the free bill check</a></div>")
+    body += sec("See it working", '<h2>Two short clips of the checks running</h2><p class="intro">Recorded on this site with the made-up business. No sound.</p><div class="vids">'
+        + ''.join(f'<figure class="vid"><video muted playsinline loop preload="none" poster="/assets/media/demo-{k}.jpg" aria-label="{a}"><source src="/assets/media/demo-{k}.mp4" type="video/mp4"></video><figcaption>{c}</figcaption></figure>' for k, a, c in [
+            ("log", "Decision log for a matched bill, a held bill and a stopped bill", "Each row opens its decision log: the record, the check, the finding, the status and who decides."),
+            ("bc", "The free bill check running on sample data", "The free bill check on sample bills: a likely duplicate, a reused invoice number, changed bank details and a split bill.")])
+        + '</div>', sid="see")
     body += sec("Ways to start", f"<h2>Three ways to start</h2>{price_table(C.START)}<p class=\"note\">{C.PRICE_NOTE} <a href=\"/prices/\">See every price</a>.</p>")
     body += sec("How it stays safe", f"<h2>Nothing runs on its own on day one</h2>{rows(C.SAFE)}<p class=\"note\">{C.NOT_DO} <a href=\"/how-we-work/\">How a build runs</a>.</p>")
     tools = "".join(f"<li><b>{n}</b>: {d}</li>" for n, d in C.AGENT_TOOLS)
