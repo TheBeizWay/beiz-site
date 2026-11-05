@@ -158,7 +158,7 @@ FACTS = [
     ("ACN", "691 755 496"),
     ("GST", "Not registered. Prices are AUD with no GST added"),
     ("Principal", "Purav Mehta: Chartered Accountant (CA ANZ) with a Certificate of Public Practice, GAICD"),
-    ("Insurance", "Professional indemnity insurance held"),
+    ("Insurance", "Professional indemnity insurance held with Chubb"),
     ("Based in", "Canberra, ACT. Working Australia-wide"),
     ("Email", '<a href="mailto:hello@beiz.com.au">hello@beiz.com.au</a>'),
 ]

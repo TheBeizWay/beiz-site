@@ -92,7 +92,7 @@ def footer():
 </div>
 <div class="legal">
 <p>{C.FACTS_LINE}</p>
-<p>Liability limited by a scheme approved under Professional Standards Legislation. Professional indemnity insurance held.</p>
+<p>Liability limited by a scheme approved under Professional Standards Legislation. Professional indemnity insurance held with Chubb.</p>
 <p>Trade mark of Chartered Accountants Australia and New Zealand and used with permission.</p>
 <p>&copy; <span data-yr>2026</span> Beiz Data &amp; Accounting Pty Ltd</p>
 </div>
