@@ -10,12 +10,12 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import content as C
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ASSET_V = "L14"  # bump on every CSS or JS change
+ASSET_V = "L15"  # bump on every CSS or JS change
 SITE = "https://beiz.com.au"
 e = html.escape
 
 NAV = [("/services/", "Services"), ("/how-we-work/", "How it works"), ("/prices/", "Prices"),
-       ("/bill-check/", "Free bill check"), ("/about/", "About")]
+       ("/bill-check/", "Try the bill check"), ("/about/", "About")]
 
 LD = """{"@context":"https://schema.org","@type":"ProfessionalService","name":"Beiz Data & Accounting Pty Ltd",
 "url":"https://beiz.com.au/","email":"hello@beiz.com.au","logo":"https://beiz.com.au/assets/brand/beiz-icon-512.png",

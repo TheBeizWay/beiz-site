@@ -195,6 +195,7 @@ BC_FILE = ("In your accounting software, open the bills or supplier invoices lis
 BC_FAQ = [
     ("Is my bills file uploaded anywhere?", "No. The check runs in your browser on your own device. Your file isn't uploaded, stored or sent to Beiz."),
     ("Which accounting software does it work with?", "Any bills or payables export saved as CSV, including from Xero, MYOB and QuickBooks. It needs a supplier, an amount and a date; invoice numbers, payment dates, bank details and ABNs make it sharper."),
+    ("Why not paste my bills into ChatGPT?", "You can, but a chat assistant reads a file loosely and can skip or misread rows in a long export. This check runs the same fixed rules on every row, shows each flag with the records behind it, and your file never leaves your device. Check your own obligations before putting supplier bank details or client information into any online AI tool."),
     ("Is this an audit?", "No. It's eight quick checks. A flag is a prompt for a person to look, and many flags will have an innocent explanation."),
     ("What does it cost?", "Nothing. The paid two-week cash and data check goes further, from your full exports, for $1,500 fixed."),
 ]
