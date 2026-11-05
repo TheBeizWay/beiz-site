@@ -13,7 +13,7 @@ HERO_H1 = "AI that does the checking. A Chartered Accountant who checks the AI."
 HERO_LEDE = ("Beiz Data &amp; Accounting sets up AI agents for the routine finance and admin work in your business: bills, cash, "
              "reconciliations and client checks. Each agent is tested on your past records first, and anything it isn't sure "
              "about waits for a person.")
-HERO_CRED = ("Led by a Chartered Accountant (CA ANZ) with a Certificate of Public Practice and GAICD. "
+HERO_CRED = ("Led by a Chartered Accountant, a member of Chartered Accountants Australia and New Zealand with a Certificate of Public Practice, and GAICD. "
              "Canberra, working Australia-wide.")
 
 # (status class, status label, row text, count) for the made-up example week
@@ -62,7 +62,7 @@ NOT_DO = ("Beiz doesn't do tax returns, BAS or GST lodgements, tax or BAS agent 
 CTA_TEXT = ("Tell us which piece of work takes the most hours. You'll get a written reply by the next business day, "
             "and a fixed-price proposal within three business days if it's a fit. If we're not the right fit, we'll say so.")
 
-BIO = ("<p>Chartered Accountant (CA ANZ) with a Certificate of Public Practice and a graduate of the Australian Institute "
+BIO = ("<p>Chartered Accountant, a member of Chartered Accountants Australia and New Zealand (CA ANZ) with a Certificate of Public Practice and a graduate of the Australian Institute "
        "of Company Directors, with a background in audit, controls, finance, data science and AI engineering. "
        "Every engagement is scoped, built and signed off by him.</p>")
 BIO_FULL = BIO + ("<p>Where a job needs a lawyer, tax agent or IT provider, we say so and work alongside them. "

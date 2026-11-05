@@ -37,17 +37,20 @@ h3{font-size:1.3rem;line-height:1.25;font-weight:600}
 
 /* header */
 .top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--rule)}
-.top .wrap{display:flex;align-items:center;gap:28px;height:72px}
+.top>.wrap{display:flex;align-items:center;gap:28px;height:72px}
 .brand{display:block;flex:none}.brand img{height:44px;width:auto}
 /* CA ANZ co-branding (desktop): primary vertical logo at full height of the Beiz logo, divider between,
    artwork at least 65px wide. The SVG carries its own clear space (about 15px at this size). */
 .cobrand{display:none}
+.tmstrip{display:none}
 @media (min-width:1101px){
   .top{position:static}
-  .top .wrap{height:116px}
-  .brand img{height:77px}
-  .cobrand{display:flex;align-items:center;flex:none;margin-left:2px;padding-left:15px;border-left:1px solid var(--rule2);height:77px}
-  .cobrand img{height:106px;width:auto}
+  .top>.wrap{height:122px}
+  .brand img{height:78px}
+  .cobrand{display:flex;align-items:center;flex:none;margin-left:2px;padding-left:15px;border-left:1px solid var(--rule2);height:78px}
+  .cobrand img{height:108px;width:auto}
+  .tmstrip{display:block;border-top:1px solid var(--rule);font-size:12px;color:var(--muted)}
+  .tmstrip .wrap{height:auto;padding-top:5px;padding-bottom:5px}
   .credrow img{display:none}
 }
 .nav{display:flex;gap:26px;margin-left:auto;font-size:15.5px}
