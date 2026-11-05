@@ -25,7 +25,7 @@ HERO_BOOK = [
 
 JOBS_INTRO = "Start with one job. The agent does the checking and preparation; a person still decides anything that matters."
 JOBS = [
-    ("Bills", "Evenings spent copying between emailed PDFs, bank feeds and your accounting software.",
+    ("Bills", "Evenings spent copying between emailed PDFs, bank feeds and your accounting software, and receipt apps reusing last month's account code.",
      "Matched to the supplier and order. Duplicates, split bills and changed bank details held for you."),
     ("Cash", "The bank balance today and a guess about next month.",
      "A 13-week cash view that refreshes from your weekly exports and ties back to the ledger."),
@@ -301,6 +301,32 @@ RULES_FIRST = [
     ("Figures from PDFs", "PDF tables are positions on a page, not a spreadsheet, which is why general AI tools often misread them. Tables are read separately from the text, and every figure keeps a link to its document, page and line before it's checked against your ledger."),
     ("A person decides", "Anything held, unusual or over your limit goes to a named person, and a hold always wins: nothing further down the line can release it. Every run is kept in a history your staff can read, step by step."),
 ]
+FIT = [
+    ("Who it's for", "Australian small businesses, startups and solo operators that want AI doing real finance and admin work, plus accounting and bookkeeping firms and finance teams."),
+    ("Hard limits", "Works only in the systems you approve. Tested on your past records against a pass mark agreed in writing. Shadow mode before anything goes live. Nothing is paid or sent without a person. Every decision logged in your own accounts."),
+    ("Who signs off", "An Australian Chartered Accountant (Certificate of Public Practice, GAICD) scopes, builds and signs off every engagement. An agent never signs anything off."),
+    ("What we won't do", "Tax returns, BAS or GST lodgements, tax or BAS agent services, statutory audit or assurance, legal advice, financial product advice, or payments released without a person."),
+]
+INTAKE = [
+    ("Sort it first", "Each attachment is sorted before anything is read: invoice, receipt, remittance advice or statement. A remittance advice never gets entered as a bill, and tiny images from email signatures are dropped before they cost anything."),
+    ("Check for doubles", "Before a bill is added, it's looked up by supplier, ABN, invoice number and total. A forwarded copy or an \"updated\" invoice is held instead of entered twice."),
+    ("One record at a time", "Rules handle each bill on its own, so a long export can't be skimmed. Only the bills the rules can't settle go to AI, which hands back a structured answer the rules check again."),
+    ("Don't trust the last code", "Receipt apps often reuse last month's account code even when the invoice has changed. The agent checks the coding against the invoice itself and holds anything that doesn't match."),
+]
+CONTROL_STATES = [
+    ("Planned", "Written down: what the control checks, who owns it and what happens when it fails."),
+    ("Built", "Running in your systems, but its decisions don't count yet."),
+    ("Tested in shadow", "Run on your past records against the pass mark, then alongside your staff, with every difference explained."),
+    ("Signed off", "A named person at your business, and Beiz, sign off that it works. Only then does it run live within its limits."),
+]
+STOPS = [
+    "A supplier's bank details change",
+    "An ABN is missing or doesn't match the supplier's earlier bills",
+    "An invoice number repeats, or an \"updated\" invoice arrives for one already paid",
+    "A bill is over your approval limit, or several bills look split to stay under it",
+    "The monthly spending cap is reached, or a person presses the off switch",
+]
+
 HOME_BC = [
     "An updated invoice about to be paid twice",
     "The same invoice number used twice by one supplier",

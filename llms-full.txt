@@ -29,8 +29,14 @@ Beiz Data & Accounting sets up AI agents for the routine finance and admin work 
 
 Led by a Chartered Accountant, a member of Chartered Accountants Australia and New Zealand with a Certificate of Public Practice, and GAICD. Canberra, working Australia-wide.
 
+## Is Beiz a fit?
+- Who it's for: Australian small businesses, startups and solo operators that want AI doing real finance and admin work, plus accounting and bookkeeping firms and finance teams.
+- Hard limits: Works only in the systems you approve. Tested on your past records against a pass mark agreed in writing. Shadow mode before anything goes live. Nothing is paid or sent without a person. Every decision logged in your own accounts.
+- Who signs off: An Australian Chartered Accountant (Certificate of Public Practice, GAICD) scopes, builds and signs off every engagement. An agent never signs anything off.
+- What we won't do: Tax returns, BAS or GST lodgements, tax or BAS agent services, statutory audit or assurance, legal advice, financial product advice, or payments released without a person.
+
 ## Where it helps
-- Bills: today, evenings spent copying between emailed PDFs, bank feeds and your accounting software. With a Beiz agent: Matched to the supplier and order. Duplicates, split bills and changed bank details held for you.
+- Bills: today, evenings spent copying between emailed PDFs, bank feeds and your accounting software, and receipt apps reusing last month's account code. With a Beiz agent: Matched to the supplier and order. Duplicates, split bills and changed bank details held for you.
 - Cash: today, the bank balance today and a guess about next month. With a Beiz agent: A 13-week cash view that refreshes from your weekly exports and ties back to the ledger.
 - Reconciliations: today, month-end spent copying between your accounting software and spreadsheets. With a Beiz agent: Accounts matched on a schedule, with the exceptions listed for a person to clear.
 - Client checks: today, new-client checks done from memory or an old checklist. With a Beiz agent: Each new client checked against your written procedure, with gaps flagged before work starts.
@@ -105,6 +111,75 @@ No GST is added (not registered).
 - Nothing paid or sent without a person
 - A day-30 review
 - An operating folder you keep: business context, procedures, the rules and scripts, and agent memory, as plain files
+
+## How a bill gets in
+- Sort it first: Each attachment is sorted before anything is read: invoice, receipt, remittance advice or statement. A remittance advice never gets entered as a bill, and tiny images from email signatures are dropped before they cost anything.
+- Check for doubles: Before a bill is added, it's looked up by supplier, ABN, invoice number and total. A forwarded copy or an "updated" invoice is held instead of entered twice.
+- One record at a time: Rules handle each bill on its own, so a long export can't be skimmed. Only the bills the rules can't settle go to AI, which hands back a structured answer the rules check again.
+- Don't trust the last code: Receipt apps often reuse last month's account code even when the invoice has changed. The agent checks the coding against the invoice itself and holds anything that doesn't match.
+
+## Control status
+- Planned: Written down: what the control checks, who owns it and what happens when it fails.
+- Built: Running in your systems, but its decisions don't count yet.
+- Tested in shadow: Run on your past records against the pass mark, then alongside your staff, with every difference explained.
+- Signed off: A named person at your business, and Beiz, sign off that it works. Only then does it run live within its limits.
+
+## Stop conditions (work stops and waits for a person)
+- A supplier's bank details change
+- An ABN is missing or doesn't match the supplier's earlier bills
+- An invoice number repeats, or an "updated" invoice arrives for one already paid
+- A bill is over your approval limit, or several bills look split to stay under it
+- The monthly spending cap is reached, or a person presses the off switch
+
+## Each service in brief
+### Two-week cash & data check (https://beiz.com.au/cash-data-check/)
+- For owners and finance leads who bill time or fixed fees and suspect work or money is slipping.
+- Two weeks, from your exports: bills, invoices and timesheets checked against each other, every finding traced to its record.
+- No logins to your ledger, no tax or BAS advice. The fee is credited if you go ahead with a build.
+### Cash & job profit model (https://beiz.com.au/services/cash-and-job-profit-model/)
+- For businesses that need to see the tight cash week before it arrives, not after month-end.
+- A 13-week cash view built from when your customers actually pay, your payroll, super and tax dates, and profit by job, tied to the ledger.
+- A model with written assumptions that you run after handover. Not financial product advice.
+### Leave cover (https://beiz.com.au/leave-cover/)
+- For small finance teams where one person going on leave means bills and invoices stall.
+- An agent carries the routine part of the role, holds anything unusual for a named person, and you get a one-page update every Friday.
+- Decisions, customers and people stay with your team. A Chartered Accountant reviews the agent's work.
+### AI workforce setup (https://beiz.com.au/services/ai-readiness-sprint/)
+- For businesses that want AI doing real finance and admin work, with limits a board or owner can defend.
+- One workflow first: the agent's job description, limits, a test on your past records and shadow mode before anything goes live.
+- Nothing is paid or sent without a person, and every decision is logged in your own accounts.
+### Workflow review & redesign (https://beiz.com.au/services/workflow-redesign/)
+- For small businesses, startups and solo operators whose admin grows with every new job.
+- One process mapped end to end, with re-keying, handoffs and waiting taken out before anything is automated.
+- You get a redesigned process with named owners, and a short list of what to automate and what to leave alone.
+### Workflow automation (https://beiz.com.au/services/automation/)
+- For teams doing the same matching, chasing and checking every week.
+- One workflow automated with fixed rules for the routine records and AI only for the exceptions, then tested and handed over.
+- Runs in your own accounts, with a run history your staff can read and a person approving anything that matters.
+### Chatbots & AI assistants (https://beiz.com.au/services/chatbots-ai-assistants/)
+- For businesses answering the same questions by email, phone and chat.
+- An assistant that answers only from information you approve, and hands anything else to a person.
+- Clear limits on what it may say, tested on real questions before it goes live.
+### Data engineering (https://beiz.com.au/services/data-engineering/)
+- For teams whose numbers live across an accounting system, a CRM, a job app and spreadsheets.
+- One clean source, refreshed on a schedule, reconciled back to the ledger.
+- Built in your own accounts and documented so someone else can run it.
+### Dashboards & management reporting (https://beiz.com.au/services/dashboards-and-models/)
+- For owners and boards who want three answers each week: which jobs made money, where cash is stuck, and what's due in the next 14 days.
+- A reporting pack or dashboard on agreed definitions, reconciled to the ledger.
+- A few numbers you trust, rather than twenty charts nobody reads.
+### Compliance controls sprint (https://beiz.com.au/compliance-sprint/)
+- For businesses facing one obligation now: AI use, AML/CTF tranche 2 or the Privacy Act automated-decision rules.
+- Two weeks: what's in scope, who owns each step, where a person must approve, and a plan for the first controlled workflow.
+- General information, not legal advice. Your adviser or lawyer keeps the legal wording.
+### AML/CTF for accounting firms (https://beiz.com.au/aml-ctf-accounting-firms/)
+- For accounting firms working out whether the services they provide bring them under AUSTRAC's AML/CTF rules.
+- Agents collect, check and file the routine client checks. Your compliance officer decides every risk rating and every report.
+- Sized for small firms. General information, not legal advice.
+### AI governance for boards & owners (https://beiz.com.au/services/ai-governance/)
+- For boards, directors and owners who need to oversee the AI already in use, including staff pasting client records into public AI tools.
+- A register of AI use, a short policy, and a reporting line the board can follow.
+- Practical controls mapped to published frameworks. General information, not legal advice.
 
 ## Decision log fields
 - Record: The bill: supplier, invoice number, date and amount.

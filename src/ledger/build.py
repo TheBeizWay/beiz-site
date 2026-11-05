@@ -13,7 +13,7 @@ import json
 from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ASSET_V = "L26"  # bump on every CSS or JS change
+ASSET_V = "L27"  # bump on every CSS or JS change
 SITE = "https://beiz.com.au"
 e = html.escape
 
@@ -245,6 +245,7 @@ def home():
 
 def services():
     body = phead("Services", C.SERVICES_LEDE)
+    body += sec("Is Beiz a fit?", f"<h2>Who it's for, and the limits we work to</h2>{rows(C.FIT)}", sid="fit")
     for g in C.GROUPS:
         body += sec(g["title"], f'<h2>{g["intro"]}</h2>' + price_table(g["items"], ("Service", "What it covers", "")), sid=gslug(g["title"]))
     body += sec("What we don't do", f"<p class=\"intro\">{C.NOT_DO}</p>")
@@ -256,6 +257,9 @@ def how():
     body = phead("How it works", C.HOW_LEDE)
     body += sec("The first 30 days", f"<h2>From first message to a working agent</h2>{rows(C.FIRST30)}")
     body += sec("How it's built", f"<h2>Rules first. AI only for the exceptions.</h2><p class=\"intro\">Most finance work follows rules, so rules do most of the work. That keeps every step traceable and the running costs low.</p>{rows(C.RULES_FIRST)}")
+    body += sec("How a bill gets in", f"<h2>Sorted, checked for doubles, then handled one at a time</h2>{rows(C.INTAKE)}", sid="intake")
+    body += sec("Control status", f"<h2>A control isn't live until it's signed off</h2><p class=\"intro\">Every control moves through four states, and each change is recorded. An AI answer is a draft until a person approves it.</p>{rows(C.CONTROL_STATES)}", sid="status")
+    body += sec("Stop conditions", f"<h2>When the work stops and waits for a person</h2><ul class=\"plain\">{''.join(f'<li>{x}</li>' for x in C.STOPS)}</ul><p class=\"note\">A stop can't be released by anything further down the line. Only the named person can clear it, and their decision is logged.</p>", sid="stops")
     body += sec("Decision log", f"<h2>Five things every check records</h2><p class=\"intro\">The log lives in your own accounts. Here is what each entry holds.</p>{rows(C.LOG_FIELDS)}", sid="log")
     body += sec("Every agent", f"<h2>What every Beiz build includes</h2><ul class=\"plain\">{''.join(f'<li>{x}</li>' for x in C.INCLUDES)}</ul>")
     body += sec("Findings", f"<h2>We report what the records support</h2>{rows(C.FINDINGS)}")
@@ -393,6 +397,8 @@ def price_block(s):
 
 def service_page(s):
     body = phead(s.get("h1", s["name"]), s["lede"], ("/services/", "Services"))
+    if M.BRIEF.get(s["path"]):
+        body += sec("In brief", '<ul class="brief">' + "".join(f"<li>{x}</li>" for x in M.BRIEF[s["path"]]) + "</ul>")
     extra_ld = ""
     if s.get("aml"):
         body += sec("In short", rows(M.AML_SPLIT) + f'<p class="note">Not legal advice: your AML/CTF program sets the actual rules. Obligations as described by <a href="{M.AUSTRAC_ENROL}" rel="noopener">AUSTRAC</a>.</p>')
@@ -421,10 +427,10 @@ def service_page(s):
         body += sec("Their job stays theirs", '<p class="intro">The agent covers routine work only. Decisions, customers and anything about people stay with your team. Best booked three to four weeks before the leave starts.</p>')
         body += sec("Fee", price_block(s))
     else:
-        body += sec("Who it's for", f'<p class="intro">{s["who"]}</p>')
-        body += sec("The problem", f'<p class="intro">{s["problem"]}</p>')
-        body += sec("What you get", ul(s["gets"]))
-        body += sec("Limits", ul(s["limits"]))
+        if not M.BRIEF.get(s["path"]):
+            body += sec("Who it's for", f'<p class="intro">{s["who"]}</p>')
+        body += sec("The problem", f'<h2>{s["problem"]}</h2>')
+        body += sec("What you get", f'<div class="pair"><div><h3>What you get</h3>{ul(s["gets"])}</div><div><h3>Limits</h3>{ul(s["limits"])}</div></div>')
         body += sec("How it runs", rows(M.STEPS))
         body += sec("Fee", price_block(s))
     if related(s.get("related")):
@@ -568,6 +574,7 @@ def llms_full():
     import re
     t = lambda x: re.sub(r"<[^>]+>", "", x).replace("&amp;", "&").replace("&middot;", "·")
     L = [C.LLMS.strip(), "", "---", "", "# Full detail", "", "## What Beiz does", t(C.HERO_LEDE), "", t(C.HERO_CRED), ""]
+    L += ["## Is Beiz a fit?"] + [f"- {a}: {t(b)}" for a, b in C.FIT] + [""]
     L += ["## Where it helps"] + [f"- {a}: today, {t(b)[:1].lower() + t(b)[1:]} With a Beiz agent: {t(c)}" for a, b, c in C.JOBS] + [""]
     L += ["## Services"]
     for g in C.GROUPS:
@@ -577,6 +584,10 @@ def llms_full():
     L += ["## How a build runs"] + [f"- {a}: {t(b)}" for a, b in C.FIRST30] + [""]
     L += ["## Rules first, AI for the exceptions"] + [f"- {a}: {t(b)}" for a, b in C.RULES_FIRST] + [""]
     L += ["## Every build includes"] + [f"- {t(x)}" for x in C.INCLUDES] + [""]
+    L += ["## How a bill gets in"] + [f"- {a}: {t(b)}" for a, b in C.INTAKE] + [""]
+    L += ["## Control status"] + [f"- {a}: {t(b)}" for a, b in C.CONTROL_STATES] + [""]
+    L += ["## Stop conditions (work stops and waits for a person)"] + [f"- {t(x)}" for x in C.STOPS] + [""]
+    L += ["## Each service in brief"] + sum(([f"### {t(sv['name'])} ({SITE}{sv['path']})"] + [f"- {t(x)}" for x in M.BRIEF.get(sv["path"], [])] for sv in M.SERVICES), []) + [""]
     L += ["## Decision log fields"] + [f"- {a}: {t(b)}" for a, b in C.LOG_FIELDS] + [""]
     L += ["## Free bill check", t(C.BC_LEDE)] + [f"- {t(x)}" for x in C.BC_CHECKS] + [""] + [f"Q: {q}\nA: {t(a)}" for q, a in C.BC_FAQ] + ["", t(C.BC_LIMITS), ""]
     L += ["## What Beiz does not do", t(C.NOT_DO), "", "## Company details"] + [f"- {a}: {t(b)}" for a, b in C.FACTS]
@@ -593,7 +604,7 @@ def main():
         write(old, redirect(new))
     urls = "".join(f"<url><loc>{SITE}{p}</loc></url>" for p in PAGES)
     open(os.path.join(ROOT, "sitemap.xml"), "w").write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>\n')
-    open(os.path.join(ROOT, "llms.txt"), "w").write(C.LLMS)
+    open(os.path.join(ROOT, "llms.txt"), "w").write(C.LLMS.rstrip() + "\n\n## Is Beiz a fit?\n" + "".join(f"- {a}: {b}\n" for a, b in C.FIT))
     open(os.path.join(ROOT, "llms-full.txt"), "w").write(llms_full())
     open(os.path.join(ROOT, "assets", "ledger", "webmcp.js"), "w").write(webmcp_js())
     print("built", len(PAGES), "pages,", len(C.REDIRECTS), "redirects")

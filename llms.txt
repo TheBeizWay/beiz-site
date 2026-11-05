@@ -19,3 +19,9 @@ Beiz does not provide tax returns, BAS or GST lodgements, tax or BAS agent servi
 - [About](https://beiz.com.au/about/)
 - [Contact](https://beiz.com.au/contact/): hello@beiz.com.au
 - [Full detail for AI assistants](https://beiz.com.au/llms-full.txt)
+
+## Is Beiz a fit?
+- Who it's for: Australian small businesses, startups and solo operators that want AI doing real finance and admin work, plus accounting and bookkeeping firms and finance teams.
+- Hard limits: Works only in the systems you approve. Tested on your past records against a pass mark agreed in writing. Shadow mode before anything goes live. Nothing is paid or sent without a person. Every decision logged in your own accounts.
+- Who signs off: An Australian Chartered Accountant (Certificate of Public Practice, GAICD) scopes, builds and signs off every engagement. An agent never signs anything off.
+- What we won't do: Tax returns, BAS or GST lodgements, tax or BAS agent services, statutory audit or assurance, legal advice, financial product advice, or payments released without a person.

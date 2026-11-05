@@ -524,3 +524,12 @@ h3.sub{font-size:1.2rem;margin:30px 0 0}
 @media (max-width:700px){.whead{grid-template-columns:1fr;align-items:start}.jobs4,.tiles,.start3,.steps4{grid-template-columns:1fr}.job,.job+.job{padding:22px 0;border-right:0;border-top:1px solid var(--rule)}.job:first-child{border-top:0}.who-sec .who{grid-template-columns:1fr}.who-sec .who img.p{width:200px}}
 @media (prefers-reduced-motion:reduce){.tile,.st h3 a{transition:none}.tile:hover{transform:none}}
 .hero .book .btn.line{color:var(--ink);border-color:var(--ink2);background:transparent}.hero .book .btn.line:hover{background:var(--ink);color:var(--paper)}
+/* In brief */
+.brief{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.brief li{position:relative;padding:14px 0 14px 28px;border-bottom:1px solid var(--rule);font-size:1.06rem;color:var(--ink)}
+.brief li::before{content:"";position:absolute;left:2px;top:23px;width:10px;height:10px;border-radius:50%;background:var(--brand)}
+/* tighter inner pages */
+.sec{padding:clamp(44px,6vw,76px) 0}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,48px)}
+.pair h3{font-size:1.3rem;margin-bottom:10px;padding-bottom:10px;border-bottom:2px solid var(--ink)}
+@media (max-width:700px){.pair{grid-template-columns:1fr}}
