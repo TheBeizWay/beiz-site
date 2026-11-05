@@ -13,7 +13,7 @@ import json
 from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ASSET_V = "L25"  # bump on every CSS or JS change
+ASSET_V = "L26"  # bump on every CSS or JS change
 SITE = "https://beiz.com.au"
 e = html.escape
 
@@ -146,6 +146,12 @@ def sec(label, inner, cls="", sid=""):
     return f'<section class="sec {cls}"{i}><div class="wrap"><div class="lab">{label}</div><div class="body">{inner}</div></div></section>\n'
 
 
+def wsec(kicker, inner, cls="", sid=""):
+    i = f' id="{sid}"' if sid else ""
+    k = f'<p class="kick">{kicker}</p>' if kicker else ""
+    return f'<section class="wsec {cls}"{i}><div class="wrap">{k}{inner}</div></section>\n'
+
+
 def phead(h1, lede, crumb=None, byline=""):
     c = f'<p class="crumb"><a href="{crumb[0]}">{crumb[1]}</a></p>' if crumb else ""
     b = f'<p class="byline">{byline}</p>' if byline else ""
@@ -202,23 +208,29 @@ def home():
 <div class="credrow"><img src="/assets/media/ca-logo-reversed.png" alt="Chartered Accountants Australia and New Zealand" width="147" height="84"><p class="cred">{C.HERO_CRED}<br><span class="tm">Trade mark of Chartered Accountants Australia and New Zealand and used with permission.</span></p></div></div>
 {book}</div></section>
 """
-    jobs = '<table class="led tw"><thead><tr><th>Job</th><th>Today</th><th>With a Beiz agent</th></tr></thead><tbody>' + "".join(
-        f'<tr><td>{a}</td><td data-h="Today">{b}</td><td data-h="With a Beiz agent">{c}</td></tr>' for a, b, c in C.JOBS) + "</tbody></table>"
     body = hero
-    body += sec("Where it helps", f"<h2>The routine work an agent takes on</h2><p class=\"intro\">{C.JOBS_INTRO}</p>{jobs}")
-    svc = '<div class="svcgrid">' + "".join(
-        f'<a class="svc reveal" href="/services/#{gslug(g["title"])}"><h3>{g["title"]}</h3><p>{g["intro"]}</p><ul>'
-        + "".join(f"<li><span>{n}</span></li>" for n, d, p, _ in g["items"]) + "</ul></a>" for g in C.GROUPS) + "</div>"
-    body += sec("What we do", f"<h2>Everything Beiz does, at a glance</h2><p class=\"intro\">Every engagement is a fixed fee, agreed in writing before work starts.</p>{svc}", sid="what")
+    jobs = '<div class="jobs4">' + "".join(
+        f'<article class="job reveal"><p class="num">{i:02d}</p><h3>{a}</h3><p class="was"><span>Today</span>{b}</p><p class="now"><span>With a Beiz agent</span>{c}</p></article>'
+        for i, (a, b, c) in enumerate(C.JOBS, 1)) + "</div>"
+    body += wsec("Where it helps", f'<div class="whead"><h2>The routine work an agent takes on</h2><p class="intro">{C.JOBS_INTRO}</p></div>{jobs}')
+    body += ('<section class="band"><div class="wrap"><p class="big">Nothing is paid or sent without a person.</p>'
+             '<p>Every agent is tested on your past records, runs alongside your team in shadow mode first, and logs every decision in your own accounts.</p></div></section>\n')
+    svc = '<div class="tiles">' + "".join(
+        f'<a class="tile reveal" href="/services/#{gslug(g["title"])}"><h3>{g["title"]}</h3><p>{g["intro"]}</p><ul>'
+        + "".join(f"<li>{n}</li>" for n, d, p, _ in g["items"]) + '</ul><span class="go">See the services</span></a>' for g in C.GROUPS)
+    svc += '<a class="tile ask reveal" href="/contact/"><h3>Not sure which fits?</h3><p>Describe the problem in a few lines. If we\'re not the right fit, we\'ll say so.</p><span class="go">Describe the problem</span></a></div>'
+    body += wsec("What we do", f'<div class="whead"><h2>Everything Beiz does</h2><p class="intro">Every engagement is a fixed fee, agreed in writing before work starts.</p></div>{svc}', "white", sid="what")
     bcl = "".join(f"<li>{x}</li>" for x in C.HOME_BC)
-    body += sec("Try it now", f"<h2>Run the free bill check on your own bills</h2><p class=\"intro\">Export your bills from Xero, MYOB or QuickBooks and drop the file in. Eight checks run in your browser in a few seconds. Nothing is uploaded or sent to us.</p><ul class=\"plain\">{bcl}</ul><div class=\"acts\"><a class=\"btn\" href=\"/bill-check/\">Run the free bill check</a></div>")
-    body += sec("See it working", '<h2>Two short clips of the checks running</h2><p class="intro">Recorded on this site with the made-up business. No sound.</p><div class="vids">'
-        + ''.join(f'<figure class="vid"><video muted playsinline loop preload="none" poster="/assets/media/demo-{k}.jpg" aria-label="{a}"><source src="/assets/media/demo-{k}.mp4" type="video/mp4"></video><figcaption>{c}</figcaption></figure>' for k, a, c in [
-            ("log", "Decision log for a matched bill, a held bill and a stopped bill", "Each row opens its decision log: the record, the check, the finding, the status and who decides."),
-            ("bc", "The free bill check running on sample data", "The free bill check on sample bills: a likely duplicate, a reused invoice number, changed bank details and a split bill.")])
-        + '</div>', sid="see")
-    body += sec("Ways to start", f"<h2>Three ways to start</h2>{price_table(C.START)}<p class=\"note\">{C.PRICE_NOTE} <a href=\"/prices/\">How fees work</a>.</p>")
-    body += sec("How it stays safe", f"<h2>Nothing runs on its own on day one</h2>{rows(C.SAFE)}<p class=\"note\">{C.NOT_DO} <a href=\"/how-we-work/\">How a build runs</a>.</p>")
+    vids = ''.join(f'<figure class="vid reveal"><video muted playsinline loop preload="none" poster="/assets/media/demo-{k}.jpg" aria-label="{al}"><source src="/assets/media/demo-{k}.mp4" type="video/mp4"></video><figcaption>{c}</figcaption></figure>' for k, al, c in [
+            ("bc", "The free bill check running on sample data", "The free bill check on sample bills: a likely duplicate, a reused invoice number, changed bank details and a split bill."),
+            ("log", "Decision log for a matched bill, a held bill and a stopped bill", "Each row opens its decision log: the record, the check, the finding, the status and who decides.")])
+    body += wsec("Try it now", f'<div class="split"><div><h2>Run the free bill check on your own bills</h2><p class="intro">Export your bills from Xero, MYOB or QuickBooks and drop the file in. Eight checks run in your browser in a few seconds. Nothing is uploaded or sent to us.</p><ul class="ticks">{bcl}</ul><div class="acts"><a class="btn" href="/bill-check/">Run the free bill check</a></div></div><div class="vids">{vids}<p class="vnote">Recorded on this site with a made-up business. No sound.</p></div></div>', "forest", sid="see")
+    start = '<div class="start3">' + "".join(
+        f'<article class="st reveal"><p class="num">{i:02d}</p><h3><a href="{DETAIL.get(n) or l}">{n}</a></h3><p>{d}</p></article>'
+        for i, (n, d, _p, l) in enumerate(C.START, 1)) + "</div>"
+    body += wsec("Ways to start", f'<div class="whead"><h2>Three ways to start</h2><p class="intro">{C.PRICE_NOTE} <a href="/prices/">How fees work</a>.</p></div>{start}')
+    safe = '<ol class="steps4">' + "".join(f'<li class="reveal"><span class="num">{i:02d}</span><h3>{a}</h3><p>{b}</p></li>' for i, (a, b) in enumerate(C.SAFE, 1)) + "</ol>"
+    body += wsec("How it stays safe", f'<div class="whead"><h2>Nothing runs on its own on day one</h2></div>{safe}<p class="note">{C.NOT_DO} <a href="/how-we-work/">How a build runs</a>.</p>', "forest")
     tools = "".join(f"<li><b>{n}</b>: {d}</li>" for n, d in C.AGENT_TOOLS)
     tv = (f'<div class="viewsw" role="group" aria-label="View"><button type="button" data-view="plain" aria-pressed="true">Plain view</button><button type="button" data-view="tech" aria-pressed="false">Technical view</button></div>'
           f'<div class="vplain"><p class="intro">{C.TECH_PLAIN}</p></div>'
@@ -226,7 +238,7 @@ def home():
           f'<h3>Tools this site offers to browser AI agents</h3><p>Registered through WebMCP where the browser supports it (currently a Chrome preview behind a flag). In other browsers nothing loads.</p><ul class="plain">{tools}</ul>'
           f'<h3>How the bill check handles your file</h3><p>The file is read in your browser with plain JavaScript. It isn\'t uploaded, stored or sent; the only request the page makes is for the sample file, and only if you ask for it.</p></div>')
     body += sec("Under the hood", f"<h2>The record behind every check</h2>{tv}", sid="hood")
-    body += sec("Who you'll deal with", f"<h2>One accountable person, from first call to handover</h2>{who_block()}")
+    body += wsec("Who you'll deal with", f"<div class=\"whead\"><h2>One accountable person, from first call to handover</h2></div>{who_block()}", "white who-sec")
     body += sec("Next step", f"<h2>Talk or write. Either way, a reply by the next business day.</h2><p class=\"intro\">{C.CTA_TEXT}</p><div class=\"acts\"><a class=\"btn\" href=\"/contact/\">Start in writing</a><a class=\"btn line\" href=\"/contact/?topic=Discovery%20call\">Book a 20-minute call</a></div>", "dark")
     return page("/", "Beiz Data & Accounting | AI for real work, checked by a Chartered Accountant", C.HOME_DESC, body)
 
