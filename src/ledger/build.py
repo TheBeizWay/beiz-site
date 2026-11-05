@@ -13,7 +13,7 @@ import json
 from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ASSET_V = "L27"  # bump on every CSS or JS change
+ASSET_V = "L28"  # bump on every CSS or JS change
 SITE = "https://beiz.com.au"
 e = html.escape
 
@@ -34,9 +34,9 @@ HELPER_TMPL = """<button type="button" class="hbtn" aria-controls="helper" aria-
 LD = """{"@context":"https://schema.org","@type":"ProfessionalService","name":"Beiz Data & Accounting Pty Ltd",
 "url":"https://beiz.com.au/","email":"hello@beiz.com.au","logo":"https://beiz.com.au/assets/brand/beiz-icon-512.png",
 "address":{"@type":"PostalAddress","addressLocality":"Canberra","addressRegion":"ACT","addressCountry":"AU"},
-"areaServed":"AU","sameAs":["https://github.com/TheBeizWay"],"taxID":"53 691 755 496",
+"areaServed":"AU","sameAs":["https://www.linkedin.com/company/beiz-data-accounting/","https://github.com/TheBeizWay"],"taxID":"53 691 755 496",
 "description":"AI for real business work, with guardrails, set up and checked by an Australian Chartered Accountant.",
-"founder":{"@type":"Person","name":"Purav Mehta","jobTitle":"Principal","hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"Professional membership","name":"Chartered Accountant (CA) with a Certificate of Public Practice","recognizedBy":{"@type":"Organization","name":"Chartered Accountants Australia and New Zealand","url":"https://www.charteredaccountantsanz.com"}},{"@type":"EducationalOccupationalCredential","name":"Graduate of the Australian Institute of Company Directors (GAICD)","recognizedBy":{"@type":"Organization","name":"Australian Institute of Company Directors","url":"https://www.aicd.com.au"}}]}}"""
+"founder":{"@type":"Person","name":"Purav Mehta","jobTitle":"Principal","sameAs":["https://www.linkedin.com/in/puravmehtaca/"],"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"Professional membership","name":"Chartered Accountant (CA) with a Certificate of Public Practice","recognizedBy":{"@type":"Organization","name":"Chartered Accountants Australia and New Zealand","url":"https://www.charteredaccountantsanz.com"}},{"@type":"EducationalOccupationalCredential","name":"Graduate of the Australian Institute of Company Directors (GAICD)","recognizedBy":{"@type":"Organization","name":"Australian Institute of Company Directors","url":"https://www.aicd.com.au"}}]}}"""
 
 
 def head(path, title, desc):
@@ -102,7 +102,7 @@ def footer():
 <div><h4>Work with us</h4><ul>
 <li><a href="/services/">Services</a></li><li><a href="/aml-ctf-accounting-firms/">AML/CTF for accounting firms</a></li><li><a href="/how-we-work/">How it works</a></li><li><a href="/prices/">Fees</a></li><li><a href="/bill-check/">Free bill check</a></li></ul></div>
 <div><h4>Company</h4><ul>
-<li><a href="/about/">About</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/insights/">Insights</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/card/">Digital card</a></li></ul></div>
+<li><a href="/about/">About</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/insights/">Insights</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/card/">Digital card</a></li><li><a href="https://www.linkedin.com/company/beiz-data-accounting/" rel="noopener">LinkedIn</a></li></ul></div>
 </div>
 <div class="legal">
 <p>{C.FACTS_LINE}</p>
@@ -176,6 +176,7 @@ def who_block(full=False):
     return f"""<div class="who">
 <img class="p" src="/assets/media/purav-mehta-2.jpg" alt="Purav Mehta" width="200" height="267" loading="lazy">
 <div><h3>Purav Mehta CA, GAICD</h3><p class="role">Founder and principal</p>{bio}
+<p class="li"><a href="https://www.linkedin.com/in/puravmehtaca/" rel="noopener">Purav on LinkedIn</a></p>
 <div class="calogo"><img src="/assets/media/ca-logo.svg" alt="Chartered Accountants Australia and New Zealand" width="147" height="84">
 <p>Trade mark of Chartered Accountants Australia and New Zealand and used with permission.</p></div></div></div>"""
 

@@ -533,3 +533,4 @@ h3.sub{font-size:1.2rem;margin:30px 0 0}
 .pair{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,48px)}
 .pair h3{font-size:1.3rem;margin-bottom:10px;padding-bottom:10px;border-bottom:2px solid var(--ink)}
 @media (max-width:700px){.pair{grid-template-columns:1fr}}
+.who .li a{color:var(--brand);font-weight:500}
