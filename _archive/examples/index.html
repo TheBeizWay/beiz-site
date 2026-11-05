@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en-AU" class="ledger paper legacy"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Examples | Beiz Data &amp; Accounting</title>
+<meta name="description" content="Sample outputs from fictional businesses: Monday cash email, 13-week cash forecast, job profitability, runway model, AI register, board paper…">
+<link rel="canonical" href="https://beiz.com.au/examples/">
+<meta property="og:title" content="Examples | Beiz Data &amp; Accounting"><meta property="og:description" content="Sample outputs from fictional businesses: Monday cash email, 13-week cash forecast, job profitability, runway model, AI register, board paper…"><meta property="og:url" content="https://beiz.com.au/examples/"><meta property="og:image" content="https://beiz.com.au/assets/og-card.png"><meta property="og:type" content="website">
+<meta name="theme-color" content="#0E1316"><link rel="icon" href="/assets/brand/beiz-icon.svg">
+
+<link rel="stylesheet" href="/assets/site.css?v=165"><link rel="stylesheet" href="/assets/wwd.css?v=165"><link rel="stylesheet" href="/assets/refine.css?v=165"><link rel="stylesheet" href="/assets/future-neon.css?v=165"><link rel="stylesheet" href="/assets/calm.css?v=165"><link rel="stylesheet" href="/assets/ledger.css?v=165"><link rel="stylesheet" href="/assets/paper.css?v=165"><script src="/assets/aicost-core.js?v=165" defer></script><style>main{font-family:Inter,system-ui,sans-serif}
+main .wrap{max-width:1180px}
+</style><style>@font-face{font-family:Serif4;font-weight:500;font-display:swap;src:url(/assets/fonts/source-serif-4-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:Serif4;font-weight:600;font-display:swap;src:url(/assets/fonts/source-serif-4-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:Inter;font-weight:400;font-display:swap;src:url(/assets/fonts/inter-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:Inter;font-weight:500;font-display:swap;src:url(/assets/fonts/inter-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:Inter;font-weight:600;font-display:swap;src:url(/assets/fonts/inter-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:Mono;font-weight:400;font-display:swap;src:url(/assets/fonts/jetbrains-mono-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:Mono;font-weight:500;font-display:swap;src:url(/assets/fonts/jetbrains-mono-latin-500-normal.woff2) format('woff2')}
+
+:root{--bg:#F6F4EF;--card:#FFFFFF;--ink:#15181D;--soft:#4C525C;--faint:#666C76;--line:#E2DED5;--acc:#1D6A49;--acc2:#E3EFE8;--amb:#8F5409;--amb2:#F7EBD6;--red:#9E2F24;--red2:#F8E3DF;--dk:#15181D;--dkt:#E9E7E1;--dks:#A9ADB4;--lg-acc:var(--acc)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px;border-radius:4px}
+.w{max-width:1180px;margin:0 auto;padding:0 clamp(18px,4vw,40px)}
+h1,h2,h3{font-family:Serif4,Georgia,serif;font-weight:500;letter-spacing:-.015em;margin:0}
+.mono{font-family:Mono,ui-monospace,monospace;font-size:13px;letter-spacing:.02em}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:10px 16px;border-radius:8px;z-index:50}
+.skip:focus{left:12px}
+.rev{background:var(--amb2);color:var(--amb);font-size:14px;border-bottom:1px solid #EAD6B4}
+.rev .w{padding-top:8px;padding-bottom:8px}
+[data-bare] .rev{display:none}
+.top{position:sticky;top:0;z-index:20;background:rgba(246,244,239,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .w{display:flex;align-items:center;gap:24px;min-height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex:none;color:var(--ink)}
+.brand .sym{width:36px;height:36px;flex:none;display:block}
+.brand b{display:block;font:600 15px/1.1 Inter,sans-serif;letter-spacing:.16em}
+.brand .bn{font:500 16px/1.2 Inter,sans-serif;white-space:nowrap}
+.brand .bn b{display:inline;font:700 17px Inter,sans-serif;letter-spacing:-.01em}
+.brand small{display:block;font-size:12px;color:var(--soft);margin-top:3px}
+.brand .lg{display:none}
+.brand .lg-cur{display:flex;align-items:center;gap:12px}
+[data-logo=a] .brand .lg-cur,[data-logo=b] .brand .lg-cur,[data-logo=c] .brand .lg-cur{display:none}
+[data-logo=a] .brand .lg-a,[data-logo=b] .brand .lg-b,[data-logo=c] .brand .lg-c{display:flex;align-items:center;gap:11px}
+.wm-a{font:600 25px/1 Inter,sans-serif;letter-spacing:-.035em}
+.wm-b{font:600 21px/1 Serif4,Georgia,serif;letter-spacing:.14em}
+.wm-c{font:600 22px/1 Inter,sans-serif;letter-spacing:-.01em}
+.wm-sub{display:block;font:500 10.5px/1 Mono,monospace;letter-spacing:.06em;color:var(--soft);margin-top:5px;text-transform:none}
+.nav{display:flex;gap:4px;margin:0 0 0 auto;list-style:none;padding:0}
+.nav a{display:block;text-decoration:none;font-size:15px;color:var(--soft);padding:8px 12px;border-radius:8px}
+.nav a:hover,.nav a[aria-current]{color:var(--ink);background:#ECE9E2}
+.navx{flex:none;font-size:15px;color:var(--ink);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line);padding:8px 4px}
+.navx:hover{text-decoration-color:var(--ink)}
+.navx[aria-current]{text-decoration-color:var(--acc)}
+.nav .mob{display:none}
+
+.menu{display:none;margin-left:auto;background:none;border:1px solid var(--line);border-radius:8px;font:500 14px Inter,sans-serif;padding:9px 14px;color:var(--ink);cursor:pointer}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:10px;font:500 15px Inter,sans-serif;text-decoration:none;border:1px solid var(--ink);transition:background .15s,color .15s;cursor:pointer}
+.btn.p{background:var(--ink);color:#fff}
+.btn.p:hover{background:#2A2F37}
+.btn.g{background:transparent;color:var(--ink)}
+.btn.g:hover{background:#ECE9E2}
+.btn.sm{min-height:40px;padding:0 16px;font-size:14px}
+.top .btn{min-height:42px;padding:0 16px;font-size:14px;flex:none}
+.chip{display:inline-block;font:500 11.5px Mono,monospace;letter-spacing:.03em;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.c-ok{background:var(--acc2);color:var(--acc)}
+.c-held{background:var(--amb2);color:var(--amb)}
+.c-stop{background:var(--red2);color:var(--red)}
+.c-n{background:#ECE9E2;color:var(--soft)}
+.c-ed{background:var(--amb2);color:var(--amb)}
+/* hero */
+.hero{padding:76px 0 84px}
+.hero .w{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:start}
+.hero .hcard{margin-top:46px}
+.eyb{color:var(--acc);margin:0 0 20px}
+.hero h1{font-size:clamp(2.2rem,4.1vw,3.6rem);line-height:1.08;margin-bottom:24px;text-wrap:balance}
+.hero h1 span{display:block}
+.hero h1 .h1b{color:var(--acc);white-space:nowrap}
+
+.hero .l{font-size:1.18rem;color:var(--soft);max-width:31em;margin:0 0 32px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.cred{margin:32px 0 0;padding-top:20px;border-top:1px solid var(--line);font-size:15px;color:var(--soft);max-width:34em}
+.cred b{color:var(--ink);font-weight:600}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px}
+.hcard{box-shadow:0 20px 50px rgba(21,24,29,.08);overflow:hidden}
+.hcard .hh{display:flex;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);background:#FAF9F6}
+.hcard .hh span{color:var(--faint)}
+.hcard dl{margin:0;padding:6px 18px}
+.hcard dl div{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-top:1px solid #EFECE5;font-size:15px}
+.hcard dl div:first-child{border-top:0}
+.hcard dt{color:var(--soft)}
+.hcard dd{margin:0;text-align:right;font-weight:500}
+.hcard .hf{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;border-top:1px solid var(--line);background:#FAF9F6;font-size:14px}
+/* sections */
+.sec{padding:96px 0;border-top:1px solid var(--line)}
+.sh{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:44px}
+.sh h2{font-size:clamp(1.9rem,3.4vw,2.8rem);line-height:1.1}
+.sh p{margin:0;color:var(--soft);font-size:1.08rem}
+.paths{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.path{display:flex;flex-direction:column;padding:28px 26px}
+.path h3{font-size:1.45rem;line-height:1.2;margin:14px 0 8px}
+.path>p{margin:0 0 18px;color:var(--soft);font-size:15.5px}
+.path ul{list-style:none;margin:0 0 22px;padding:0;font-size:15px}
+.path li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-top:1px solid #EFECE5;scroll-margin-top:96px}
+.path li a{text-decoration:none;font-weight:500}
+.path li a:hover{text-decoration:underline;text-underline-offset:3px}
+.path li span{font:500 13.5px Mono,monospace;color:var(--acc);white-space:nowrap}
+.path .btn{margin-top:auto;align-self:flex-start}
+.who{margin:28px 0 0;color:var(--soft);font-size:15.5px}
+.who b{color:var(--ink);font-weight:600}
+/* demo */
+.demo-sec{background:var(--dk);color:var(--dkt);border-top:0}
+.demo-sec .sh p{color:var(--dks)}
+.sim{display:inline-flex;gap:8px;align-items:center;font:500 12.5px Mono,monospace;color:#F2C98A;border:1px solid #5A4A2E;border-radius:999px;padding:4px 12px;margin-bottom:18px}
+.flow{list-style:none;margin:0 0 20px;padding:0;display:grid;grid-template-columns:repeat(6,1fr);gap:8px;counter-reset:f}
+.flow li{position:relative}
+.flow li+li:before{content:"";position:absolute;left:-8px;top:50%;width:8px;height:2px;background:#3A4048}
+.flow button,.flow .fn{display:flex;flex-direction:column;gap:6px;width:100%;height:100%;text-align:left;background:#1E2228;border:1px solid #343940;border-radius:12px;padding:12px 14px;color:var(--dkt);font:500 14.5px/1.3 Inter,sans-serif;cursor:pointer}
+.flow button:hover{border-color:#6B727C}
+.flow button[aria-current=step]{background:#F6F4EF;color:var(--ink);border-color:#F6F4EF}
+.lane{font:500 11px Mono,monospace;letter-spacing:.05em;text-transform:uppercase}
+.l-in{color:#9EC5FF}.l-ai{color:#C7A8FF}.l-rule{color:#8FD3AE}.l-person{color:#F2C98A}.l-out{color:#D6D2C8}
+.flow button[aria-current=step] .lane{color:var(--acc)}
+.stage{background:#F6F4EF;color:var(--ink);border-radius:16px;padding:clamp(20px,3.5vw,36px)}
+.step+.step{margin-top:40px;padding-top:32px;border-top:1px solid var(--line)}
+.js .step+.step{margin-top:0;padding-top:0;border-top:0}
+.flow.f8{grid-template-columns:repeat(8,1fr)}
+.flow.f8 button{font-size:13.5px;padding:10px 11px}
+.step h3{font-size:clamp(1.4rem,2.4vw,1.8rem);line-height:1.2;margin:8px 0 10px;outline:none}
+.step .why{color:var(--soft);margin:0 0 22px;max-width:46em}
+.mail{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.mail .mh{padding:12px 16px;border-bottom:1px solid var(--line);font-size:14px;color:var(--soft);display:grid;gap:2px}
+.mail .mh b{color:var(--ink);font-weight:500}
+.mail .mb{padding:16px;font-size:15.5px;white-space:pre-line}
+.att{margin:12px 16px 16px;border:1px dashed #CFC9BC;border-radius:10px;padding:12px 14px;font-size:14.5px;background:#FBFAF7}
+.att .an{font:500 12.5px Mono,monospace;color:var(--soft);display:block;margin-bottom:6px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{padding:10px 14px;text-align:left;vertical-align:top}
+th{font:500 12px Mono,monospace;color:var(--faint);letter-spacing:.03em;border-bottom:1px solid var(--line);white-space:nowrap}
+tbody tr+tr td{border-top:1px solid #EFECE5}
+td q{color:var(--soft);font-style:italic;quotes:"\201C" "\201D"}
+td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.note{font-size:14px;color:var(--soft);margin:12px 0 0}
+.gaps{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.gaps li{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--amb);border-radius:10px;padding:12px 16px;font-size:15px}
+.gaps li.stop{border-left-color:var(--red)}
+.gaps b{display:block;font-weight:600;margin-bottom:2px}
+.draft label{display:block;font:600 14px Inter,sans-serif;margin-bottom:8px}
+.draft textarea{width:100%;min-height:290px;font:400 15px/1.55 Inter,sans-serif;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;resize:vertical}
+.check{list-style:none;padding:0;margin:0;font-size:15px}
+.check li{display:flex;gap:10px;justify-content:space-between;padding:9px 0;border-top:1px solid #EFECE5}
+.check li:first-child{border-top:0}
+.decide{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 0;align-items:center}
+.decide select{font:400 15px Inter,sans-serif;min-height:40px;border:1px solid var(--line);border-radius:8px;padding:0 10px;background:var(--card);color:var(--ink)}
+.result{margin-top:20px;padding:16px 18px;border-radius:12px;background:var(--acc2);color:#123E2B;font-size:15px}
+.result.rej{background:var(--red2);color:#5E1C15}
+.log{width:100%;margin-top:14px}
+.dnav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}
+.dnav .pos{font:500 13px Mono,monospace;color:var(--faint)}
+.js .nojs{display:none}
+.side{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
+.tile{display:flex;flex-direction:column;border:1px solid #343940;border-radius:14px;padding:22px;text-decoration:none;color:var(--dkt)}
+a.tile:hover{border-color:var(--dkt)}
+.tile .mono{color:#8FD3AE}
+.tile h3{font-size:1.2rem;margin:12px 0 6px;color:#fff}
+.tile p{margin:0 0 14px;color:var(--dks);font-size:15px;flex:1}
+.tile u{text-underline-offset:3px;font-size:15px}
+.tile summary{cursor:pointer;font-size:15px;text-decoration:underline;text-underline-offset:3px}
+.tile table{font-size:13px;margin-top:10px;color:var(--dkt)}
+.tile th{color:var(--dks);border-color:#343940}
+.tile tbody tr+tr td{border-color:#2A2F36}
+.tile td,.tile th{padding:6px 6px}
+/* expertise */
+.roles{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(7,1fr);gap:12px;counter-reset:r}
+.roles li{counter-increment:r;border-top:2px solid var(--ink);padding-top:16px}
+.roles li:before{content:"0" counter(r);font:500 12.5px Mono,monospace;color:var(--faint);display:block;margin-bottom:10px}
+.roles b{display:block;font:600 15.5px/1.3 Inter,sans-serif;margin-bottom:6px}
+.roles p{margin:0;color:var(--soft);font-size:14.5px}
+.keep{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+.keep>div{padding:20px 22px;font-size:15px;color:var(--soft)}
+.keep b{color:var(--ink);font-weight:600}
+/* journey */
+.jr{display:grid;grid-template-columns:1.25fr 1fr;gap:24px;align-items:start}
+.jr h3{font-size:1.35rem;margin:0 0 4px}
+.jr .sub{margin:0 0 16px;color:var(--soft);font-size:15px}
+.jlist{list-style:none;margin:0;padding:0;counter-reset:j}
+.jlist li{counter-increment:j;display:grid;grid-template-columns:30px 1fr auto;gap:12px;align-items:baseline;padding:12px 0;border-top:1px solid var(--line);font-size:15px}
+.jlist li:before{content:counter(j);font:500 12.5px Mono,monospace;color:var(--faint)}
+.jlist b{font-weight:600}
+.jlist span.t{display:block;color:var(--soft);font-size:14.5px}
+.build{padding:24px}
+.build ul{list-style:none;margin:0;padding:0}
+.build li{padding:12px 0;border-top:1px solid #EFECE5;font-size:15px;color:var(--soft)}
+.build li:first-child{border-top:0;padding-top:4px}
+.build li b{display:block;color:var(--ink);font-weight:600}
+/* areas */
+.areas{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.area{display:flex;flex-direction:column;padding:24px 22px;text-decoration:none;transition:border-color .2s}
+.area:hover{border-color:var(--ink)}
+.area .mono{color:var(--faint)}
+.area h3{font-size:1.3rem;line-height:1.2;margin:14px 0 8px}
+.area p{margin:0 0 16px;color:var(--soft);font-size:15px}
+.area ul{list-style:none;padding:12px 0 0;margin:auto 0 0;border-top:1px solid var(--line);font-size:14.5px}
+.area li{padding:3px 0}
+.pw{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-top:16px}
+.pw>div{padding:26px}
+.pw h3{font-size:1.3rem;margin:10px 0 12px}
+.pw ol{margin:0;padding-left:20px;color:var(--soft);font-size:15px}
+.pw ol li{padding:3px 0}
+.pw .sec2{background:transparent}
+.ws{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.ws ul{list-style:none;margin:0;padding:0}
+.ws li{display:flex;flex-direction:column;gap:4px;padding:18px 0;border-top:1px solid var(--line)}
+.ws li:last-child{border-bottom:1px solid var(--line)}
+.ws li a{font-weight:500;text-decoration:none}
+.ws li a:hover{text-decoration:underline;text-underline-offset:3px}
+.ws li span{color:var(--soft);font-size:15px}
+.about{display:grid;grid-template-columns:200px 1fr;gap:48px;align-items:start}
+.about img{width:200px;height:240px;object-fit:cover;border-radius:14px}
+.about h2{font-size:clamp(1.7rem,3vw,2.4rem);margin-bottom:16px}
+.about p{color:var(--soft);margin:0 0 14px;max-width:38em}
+.cta{padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center;border-radius:20px}
+.cta h2{font-size:clamp(1.8rem,3.2vw,2.6rem);line-height:1.1;margin-bottom:12px}
+.cta p{margin:0;color:var(--soft)}
+.cta .ctas{justify-content:flex-end}
+footer{padding:48px 0 64px;font-size:14px;color:var(--faint);border-top:1px solid var(--line)}
+footer .w{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between}
+footer a{color:var(--soft)}
+footer nav{display:flex;gap:20px;flex-wrap:wrap}
+footer p{margin:8px 0 0}
+.flag{color:var(--amb)}
+/* catalogue */
+.ph1{padding:64px 0 40px}
+.ph1 h1{font-size:clamp(2.3rem,4.6vw,3.6rem);line-height:1.06;margin-bottom:16px}
+.ph1 p{color:var(--soft);font-size:1.15rem;max-width:36em;margin:0}
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;padding:0;list-style:none}
+.jump a{display:block;text-decoration:none;font-size:14.5px;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:7px 14px}
+.jump a:hover{border-color:var(--ink)}
+.grp{padding:56px 0;border-top:1px solid var(--line);scroll-margin-top:84px}
+.grp>.w>header{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 24px;margin-bottom:24px}
+.grp h2{font-size:clamp(1.6rem,2.8vw,2.2rem)}
+.grp header p{margin:0;color:var(--soft)}
+.svcs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.svc{padding:26px 26px 22px;display:flex;flex-direction:column;scroll-margin-top:84px}
+.svc .tp{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px}
+.svc h3{font-size:1.4rem;line-height:1.2}
+.svc .sum{margin:0 0 14px;color:var(--soft)}
+.svc .for{margin:0 0 14px;font-size:15px}
+.svc .for b{font-weight:600}
+.svc details{border-top:1px solid var(--line);padding-top:6px;margin-bottom:14px}
+.svc summary{cursor:pointer;font-weight:500;font-size:15px;padding:8px 0}
+.svc summary:hover{color:var(--acc)}
+.svc h4{font:600 13px Inter,sans-serif;margin:14px 0 6px}
+.svc details p{margin:0;font-size:15px;color:var(--soft)}
+.svc details ul{margin:0;padding-left:18px;font-size:15px;color:var(--soft)}
+.svc .ft{margin-top:auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-top:16px;border-top:1px solid var(--line)}
+.price b{font:500 15px Mono,monospace}
+.price span{display:block;font-size:13px;color:var(--faint)}
+.svc .lk{display:flex;gap:16px;align-items:center;font-size:15px}
+.svc .lk a.d{color:var(--soft)}
+@media (max-width:1100px){
+ .hero .w{grid-template-columns:1fr;gap:40px}
+ .hero .hcard{max-width:560px;margin-top:0}
+ .roles{grid-template-columns:repeat(4,1fr);row-gap:28px}
+ .side{grid-template-columns:repeat(2,1fr)}
+ .flow,.flow.f8{grid-template-columns:repeat(4,1fr)}
+ .flow li:nth-child(5):before{display:none}
+}
+@media (max-width:1200px){
+ .nav{display:none}
+ .menu{display:inline-flex}
+ .top .w{flex-wrap:wrap}
+ .nav.open{display:flex;flex-direction:column;width:100%;order:9;padding:8px 0 16px;gap:0}
+ .nav.open a{padding:12px 4px;font-size:16px;border-top:1px solid var(--line);border-radius:0}
+}
+@media (max-width:1040px){
+ .areas{grid-template-columns:repeat(2,1fr)}
+ .paths{grid-template-columns:1fr}
+}
+@media (max-width:860px){
+ .hero{padding:48px 0 64px}
+ .sh,.ws,.cta,.about,.jr,.two,.keep,.pw{grid-template-columns:1fr;gap:24px}
+ .svcs{grid-template-columns:1fr}
+ .cta .ctas{justify-content:flex-start}
+ .sec{padding:64px 0}
+ .roles{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:560px){
+ .top .btn{display:none}
+ .areas,.side{grid-template-columns:1fr}
+ .flow,.flow.f8{grid-template-columns:repeat(2,1fr)}
+ .flow li:before{display:none}
+ .about img{width:120px;height:144px}
+ .roles{grid-template-columns:1fr}
+ th,td{padding:9px 10px}
+ .jlist li{grid-template-columns:24px 1fr}
+ .jlist li .chip{grid-column:2;justify-self:start}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+/* phone-only refinements (20 Oct 2026); desktop unaffected */
+@media (max-width:560px){
+ .sec{padding:48px 0}
+ .sh{margin-bottom:28px}
+ .hero{padding:32px 0 44px}
+ .hero .l{font-size:1.06rem;margin-bottom:24px}
+ .hero .ctas .btn{flex:1 1 100%}
+ .hero .hcard{display:none}
+ .caps{gap:10px}
+ .cap{padding:16px 18px}
+ .cap h3{font-size:1.12rem;margin:6px 0 4px}
+ .cap p{font-size:14.5px;margin:0}
+ .cap u{display:none}
+ .path{padding:20px 18px}
+ .flow,.flow.f8{grid-template-columns:repeat(3,1fr);gap:6px}
+ .flow button{padding:8px 9px;font-size:12.5px;border-radius:10px;gap:3px}
+ .flow .lane{font-size:10px}
+ .stage{padding:16px;border-radius:12px}
+ .step h3{font-size:1.25rem}
+ .mail .mb{padding:12px;font-size:15px}
+ .dnav{position:sticky;bottom:0;background:#F6F4EF;margin:20px -16px -16px;padding:12px 16px;border-radius:0 0 12px 12px}
+ .roles{gap:18px}
+ .cta{padding:22px}
+ .band{padding:20px}
+ .svc{padding:20px 18px 18px}
+ footer{padding:36px 0 44px}
+}
+@media (max-width:430px){
+ .hero h1{font-size:1.9rem}
+ .hero h1 .h1b{white-space:nowrap}
+}
+@media (max-width:350px){.hero h1 .h1b{white-space:normal}}
+
+.nav>li{position:relative}
+.nav .sub{display:none;position:absolute;top:100%;left:0;min-width:270px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px;box-shadow:0 18px 40px rgba(21,24,29,.10);list-style:none;margin:0;z-index:30}
+.nav>li:hover>.sub,.nav>li.open>.sub{display:block}
+.nav>li.nohov:hover>.sub{display:none}
+.nav>li.nohov.open>.sub{display:block}
+.nav>li{display:flex;align-items:center}.nav a{white-space:nowrap}
+.dd{width:26px;height:30px;margin-left:-8px;border:0;background:none;border-radius:6px;cursor:pointer;color:var(--soft)}
+.dd:before{content:"";display:inline-block;width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translate(-2px,-2px)}
+.dd[aria-expanded=true]:before{transform:rotate(-135deg) translate(-2px,-2px)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.sub.wide{min-width:620px;padding:10px}
+.sub.wide ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.sub.wide li{border-radius:10px;padding:4px}.sub.wide li:hover{background:#F6F4EF}
+.sub.wide li a{display:block}.sub.wide b{font-weight:600;font-size:14.5px;color:var(--ink)}
+.sub.wide small{display:block;color:var(--soft);font-size:13px;margin-top:2px}
+.sub.wide small.pb{color:var(--faint);font-style:italic}
+.sub.wide .all{display:block;margin-top:6px;padding:10px 12px;border-top:1px solid var(--line);font-weight:500;font-size:14px;text-decoration:none}
+.nav .sub a{padding:9px 12px;font-size:14.5px;color:var(--ink)}
+.nav .sub a small{display:block;color:var(--faint);font-size:12.5px;margin-top:1px}
+.nav a[aria-current]{color:var(--ink);background:#ECE9E2}
+.navx{flex:none;font-size:15px;color:var(--ink);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line);padding:8px 4px}
+.navx:hover{text-decoration-color:var(--ink)}
+.navx[aria-current]{text-decoration-color:var(--acc)}
+.nav .mob{display:none}
+
+.crumbs{font-size:14px;color:var(--faint);margin:0 0 18px}
+.crumbs a{color:var(--soft)}
+.crumbs span{margin:0 8px}
+.fcols{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:32px;width:100%}
+.fcols h2{font:600 13px Inter,sans-serif;color:var(--ink);margin:0 0 10px;letter-spacing:.02em}
+.fcols ul{list-style:none;margin:0;padding:0}.fcols li{padding:4px 0}
+.fcols a{color:var(--soft);text-decoration:none}.fcols a:hover{text-decoration:underline}
+.legal{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);width:100%}
+@media (max-width:1200px){
+ .nav.open .sub{display:block;position:static;border:0;box-shadow:none;padding:0 0 6px 14px;min-width:0;background:transparent}
+ .nav.open .dd{display:none}.nav.open>li.has{display:block}
+ .nav.open .sub.wide ul{grid-template-columns:1fr}.nav.open .sub.wide .ex{padding-left:4px}.nav.open .sub.wide small{display:none}
+ .nav.open .sub a{border-top:0;padding:8px 4px;font-size:15px}
+ .nav.open .sub a small{display:none}
+ .navx{display:none}
+ .nav.open .mob{display:block}
+}
+@media (max-width:860px){.fcols{grid-template-columns:1fr 1fr}}
+
+.caps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cap{display:flex;flex-direction:column;padding:24px;text-decoration:none;transition:border-color .2s}
+.cap:hover{border-color:var(--ink)}
+.cap h3{font-size:1.3rem;line-height:1.2;margin:12px 0 8px}
+.cap p{margin:0 0 14px;color:var(--soft);font-size:15px;flex:1}
+.cap u{font-size:14.5px;text-underline-offset:3px}
+.ready{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.flowline{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);gap:10px;counter-reset:fl}
+.flowline li{counter-increment:fl;padding:16px;border-radius:12px;background:var(--card);border:1px solid var(--line);font-size:14.5px;position:relative}
+.flowline li:before{content:counter(fl);font:500 12px Mono,monospace;color:var(--faint);display:block;margin-bottom:6px}
+.flowline b{display:block;font-size:15.5px;margin-bottom:4px}
+.flowline span.t{display:block;color:var(--soft);margin-bottom:10px}
+.cred2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.cred2>div{padding:22px 24px;font-size:15px;color:var(--soft)}
+.cred2 b{color:var(--ink)}
+.band{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;padding:28px 30px}
+.band h2{font-size:clamp(1.5rem,2.6vw,2rem);margin-bottom:6px}
+.band p{margin:0;color:var(--soft)}
+.dt{display:grid;grid-template-columns:1fr 340px;gap:40px;align-items:start}
+.dt h2{font-size:1.45rem;margin:36px 0 10px}
+.dt h2:first-child{margin-top:0}
+.dt p,.dt li{color:var(--soft)}
+.dt ul{padding-left:20px}
+.aside{padding:24px;position:sticky;top:96px}
+.aside .pr{font:500 22px Mono,monospace;margin:4px 0 2px}
+.aside .btn{width:100%;margin-top:16px}
+.rel{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.rel a{display:block;padding:20px 22px;text-decoration:none}
+.rel a:hover{border-color:var(--ink)}
+.rel b{display:block;margin:8px 0 4px;font-weight:600}
+.rel span.t{color:var(--soft);font-size:14.5px}
+.hub{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.hub .card{display:flex;flex-direction:column;padding:24px;text-decoration:none}
+.hub a.card:hover{border-color:var(--ink)}
+.hub h3{font-size:1.3rem;margin:12px 0 8px}
+.hub p{color:var(--soft);font-size:15px;margin:0 0 14px;flex:1}
+.facts{width:100%;border-collapse:collapse}
+.facts th,.facts td{padding:12px 0;border-top:1px solid var(--line);text-align:left;font-size:15.5px}
+.facts th{font:500 13px Mono,monospace;color:var(--faint);width:40%}
+@media (max-width:1100px){.flowline{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:1040px){.caps,.ready,.hub,.rel{grid-template-columns:1fr 1fr}.dt{grid-template-columns:1fr}.aside{position:static}}
+@media (max-width:640px){.caps,.ready,.hub,.rel,.cred2,.flowline{grid-template-columns:1fr}}
+
+:root{--acc:#17664A;--g0:#0E1316;--g1:#141B1F;--g2:#1B2429;--gl:#2A353B;--gt:#ECF0EE;--gs:#AAB5B1;--em:#34C28F;--am:#F2B35B}
+h1,h2,h3{font-family:Inter,system-ui,sans-serif;font-weight:600;letter-spacing:-.025em}
+:focus-visible{outline-color:var(--em)}
+.top{background:rgba(14,19,22,.94);border-bottom:1px solid var(--gl);color:var(--gt)}
+.top .brand,.top .brand .bn{color:var(--gt)}
+.top .nav a{color:var(--gs)}
+.top .nav a:hover,.top .nav a[aria-current]{color:var(--gt);background:var(--g2)}
+.top .nav .sub a{color:var(--ink);background:none}.top .nav .sub a:hover{background:#F2EFE8;color:var(--ink)}
+.top .navx{color:var(--gt);text-decoration-color:#46545B}.top .navx:hover{text-decoration-color:var(--gt)}.top .navx[aria-current]{text-decoration-color:var(--em)}
+.top .menu{border-color:#46545B;color:var(--gt)}
+.top .btn.p{background:var(--em);color:#06221A;border-color:var(--em)}.top .btn.p:hover{background:#4FD3A1}
+footer{background:var(--g0);color:var(--gs);border-top:0}
+footer a,footer .fcols a{color:var(--gs)}footer a:hover,footer .fcols a:hover{color:var(--gt)}
+footer .fcols h2,footer .fb{color:var(--gt)}
+footer .legal{border-top-color:var(--gl)}
+.top .dd{color:var(--gs)}.top .dd:hover{background:var(--g2);color:var(--gt)}
+.top .nav .sub.wide b{color:var(--ink)}.top .nav .sub.wide .ex{color:var(--acc);font-size:13px;padding:2px 12px 6px;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:1200px){.top .nav.open .sub.wide b{color:inherit}.top .nav.open .sub a{color:var(--gs)}.top .nav.open .sub a:hover{background:var(--g2);color:var(--gt)}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "ProfessionalService", "@id": "https://beiz.com.au/#org", "name": "Beiz Data & Accounting", "legalName": "Beiz Data & Accounting Pty Ltd", "url": "https://beiz.com.au/", "email": "hello@beiz.com.au", "taxID": "53 691 755 496", "address": {"@type": "PostalAddress", "addressLocality": "Canberra", "addressRegion": "ACT", "addressCountry": "AU"}, "areaServed": "AU", "founder": {"@type": "Person", "name": "Purav Mehta"}}]}</script>
+</head><body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top"><div class="w">
+  <a class="brand" href="/" aria-label="Beiz Data &amp; Accounting, home"><span class="lg-cur"><img class="sym" src="/assets/brand/beiz-icon.svg" alt="" width="36" height="36"><span class="bn"><b>Beiz</b> Data &amp; Accounting</span></span></a>
+  <button class="menu" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <ul class="nav" id="nav" aria-label="Main"><li class="has"><a href="/services/">Services</a><button class="dd" type="button" aria-expanded="false" aria-controls="sub-services"><span class="sr">Services menu</span></button><div class="sub wide" id="sub-services"><ul><li><a href="/services/#finance"><b>Finance &amp; decision support</b><small class="pb">Cash is tight and it&#x27;s unclear which jobs make money.</small><small>Cash and margins you can see ahead.</small></a><a class="ex" href="/products-demos/job-profitability/">Investigate job profitability</a></li><li><a href="/services/#data"><b>Data &amp; business intelligence</b><small class="pb">Numbers live in several systems and the reports don&#x27;t agree.</small><small>One reconciled source for reports and dashboards.</small></a><a class="ex" href="/examples/">See example outputs</a></li><li><a href="/services/#automation"><b>AI agents &amp; automation</b><small class="pb">The same matching, chasing and checking happens every week.</small><small>One workflow automated, with a person approving what matters.</small></a><a class="ex" href="/products-demos/ai-workflow/">Step through an AI workflow</a></li><li><a href="/services/#governance"><b>Governance &amp; improvement</b><small class="pb">AI use and process risk without a clear owner.</small><small>Ownership, controls and better processes.</small></a><a class="ex" href="/ai-check/">Try the Privacy Act AI check</a></li></ul><a class="all" href="/services/">View all services</a></div></li><li class="has"><a href="/products-demos/">Products &amp; Demos</a><button class="dd" type="button" aria-expanded="false" aria-controls="sub-products"><span class="sr">Products &amp; Demos menu</span></button><ul class="sub" id="sub-products"><li><a href="/bill-check/">Bill check<small>Working tool: check your own bills export</small></a></li><li><a href="/products-demos/job-profitability/">Job profitability<small>Signature experience: investigate a job's margin</small></a></li><li><a href="/products-demos/ai-workflow/">AI workflow demo<small>Enquiry to approved reply, step by step</small></a></li><li><a href="/products-demos/missing-receipts/">Missing receipts demo<small>Rules, reminders and matching with sign-off</small></a></li><li><a href="/products-demos/enquiry-assistant/">Enquiry assistant demo<small>Answers with sources, then a hand-over</small></a></li><li><a href="/ai-value-calculator/">AI cost-and-value calculator<small>Is automating a task worth it?</small></a></li><li><a href="/products-demos/">All products and demos<small>Free tools, demos and pilots</small></a></li></ul></li><li class=""><a href="/insights/">Insights</a></li><li class="has"><a href="/about/">Company</a><button class="dd" type="button" aria-expanded="false" aria-controls="sub-company"><span class="sr">Company menu</span></button><ul class="sub" id="sub-company"><li><a href="/about/">About Beiz<small>Who we are and how we're set up</small></a></li><li><a href="/how-we-work/">How we work<small>From enquiry to handover</small></a></li><li><a href="/workshops-speaking/">Workshops, coaching &amp; speaking<small>Building your team's capability</small></a></li><li><a href="/contact/">Contact<small>Start in writing or book a call</small></a></li></ul></li><li class="mob"><a href="/workshops-speaking/">Workshops &amp; Speaking</a></li></ul>
+  <a class="navx" href="/workshops-speaking/">Workshops &amp; Speaking</a>
+  <a class="btn p" href="/contact/?topic=Discovery+call#form">Discuss your business</a>
+</div></header>
+<main id="main">
+<section class="phero"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Examples</span></nav>
+  <p class="eyebrow" style="margin-top:22px">Examples</p><h1>See the work. Not the recipe.</h1><p class="lede">Every example here uses a made-up business and made-up numbers. What's real is the format: this is what lands in your inbox or on your screen. How it's built is what you're paying for, so that part stays with us.</p></div></section><section style="padding-top:8px"><div class="wrap">
+
+<figure class="vid" style="max-width:760px;margin-bottom:28px"><video src="/assets/media/cash-13-weeks.mp4?v=71" poster="/assets/media/cash-13-weeks.jpg?v=71" autoplay muted loop playsinline preload="none" aria-label="Screen recording: a 13-week cash forecast redraws as a large bill moves between weeks"></video><figcaption><b>A 13-week cash forecast.</b> Move one big bill and see which week drops below your buffer. <a href="/try/#cash">Try it with your numbers</a></figcaption></figure>
+
+<div class="ex"><div class="exh"><b>1. The Monday cash email</b><span>Sample · fictional joinery business</span></div>
+<div class="exb"><div class="mail"><div class="mh">From: Beiz reports · To: Sam · Monday 6:00am<br><b>Subject: Cash this week: $42,000 in the bank, one thing to watch</b></div>
+<p>Morning Sam,</p>
+<div class="kpis"><div><small>In the bank</small><b>$42,000</b></div><div><small>Owed to you</small><b>$31,400</b></div><div><small>Going out this week</small><b>$12,900</b></div></div>
+<p><b>Overdue:</b> 3 invoices, $9,850. Reminders went out Friday. Harbour Kitchens (21 days, $6,200) hasn't opened theirs.</p>
+<p class="flag"><b>Heads up:</b> cash is forecast to dip to $17,600 in the week of 16 November, below your $20,000 buffer. Two big supplier bills and wages land together. Options: bring forward the Cronulla invoice, or ask Timber Co for 14 days.</p>
+<p>Full 13-week view: tap here.</p></div></div>
+<p class="cap">What it replaces: logging into the bank, the accounting software and a spreadsheet every Monday. It arrives before you do.</p></div>
+
+<div class="ex"><div class="exh"><b>2. The 13-week cash forecast</b><span>Sample · same business</span></div>
+<div class="exb"><svg class="chart" viewBox="0 0 720 300" role="img" aria-label="Sample 13-week cash forecast. Closing cash dips to $17,600 in the week of 16 November, below the $20,000 buffer, then recovers to $48,700."><line x1="52" x2="706" y1="266.0" y2="266.0" stroke="#1A2333" stroke-width="1"/><text x="44" y="270.0" text-anchor="end" font-size="11" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">$0k</text><line x1="52" x2="706" y1="217.2" y2="217.2" stroke="#1A2333" stroke-width="1"/><text x="44" y="221.2" text-anchor="end" font-size="11" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">$10k</text><line x1="52" x2="706" y1="168.4" y2="168.4" stroke="#1A2333" stroke-width="1"/><text x="44" y="172.4" text-anchor="end" font-size="11" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">$20k</text><line x1="52" x2="706" y1="119.6" y2="119.6" stroke="#1A2333" stroke-width="1"/><text x="44" y="123.6" text-anchor="end" font-size="11" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">$30k</text><line x1="52" x2="706" y1="70.8" y2="70.8" stroke="#1A2333" stroke-width="1"/><text x="44" y="74.8" text-anchor="end" font-size="11" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">$40k</text><line x1="52" x2="706" y1="22.0" y2="22.0" stroke="#1A2333" stroke-width="1"/><text x="44" y="26.0" text-anchor="end" font-size="11" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">$50k</text><g><title>Week of 5 Oct: closing cash $42k</title><rect x="52.0" y="22" width="50.3" height="244" fill="transparent"/><path d="M61.6,266.0 V65.0 Q61.6,61.0 65.6,61.0 H88.7 Q92.7,61.0 92.7,65.0 V266.0 Z" fill="#10A37F"/></g><text x="77.2" y="288" text-anchor="middle" font-size="10.5" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">5 Oct</text><g><title>Week of 12 Oct: closing cash $38k</title><rect x="102.3" y="22" width="50.3" height="244" fill="transparent"/><path d="M111.9,266.0 V82.1 Q111.9,78.1 115.9,78.1 H139.1 Q143.1,78.1 143.1,82.1 V266.0 Z" fill="#10A37F"/></g><text x="127.5" y="288" text-anchor="middle" font-size="10.5" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">12 Oct</text><g><title>Week of 19 Oct: closing cash $45k</title><rect x="152.6" y="22" width="50.3" height="244" fill="transparent"/><path d="M162.2,266.0 V49.4 Q162.2,45.4 166.2,45.4 H189.4 Q193.4,45.4 193.4,49.4 V266.0 Z" fill="#10A37F"/></g><text x="177.8" y="288" text-anchor="middle" font-size="10.5" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">19 Oct</text><g><title>Week of 26 Oct: closing cash $37k</title><rect x="202.9" y="22" width="50.3" height="244" fill="transparent"/><path d="M212.5,266.0 V90.4 Q212.5,86.4 216.5,86.4 H239.7 Q243.7,86.4 243.7,90.4 V266.0 Z" fill="#10A37F"/></g><text x="228.1" y="288" text-anchor="middle" font-size="10.5" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">26 Oct</text><g><title>Week of 2 Nov: closing cash $31k</title><rect x="253.2" y="22" width="50.3" height="244" fill="transparent"/><path d="M262.8,266.0 V116.8 Q262.8,112.8 266.8,112.8 H290.0 Q294.0,112.8 294.0,116.8 V266.0 Z" fill="#10A37F"/></g><text x="278.4" y="288" text-anchor="middle" font-size="10.5" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">2 Nov</text><g><title>Week of 9 Nov: closing cash $27k</title><rect x="303.5" y="22" width="50.3" height="244" fill="transparent"/><path d="M313.1,266.0 V137.8 Q313.1,133.8 317.1,133.8 H340.3 Q344.3,133.8 344.3,137.8 V266.0 Z" fill="#10A37F"/></g><text x="328.7" y="288" text-anchor="middle" font-size="10.5" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">9 Nov</text><g><title>Week of 16 Nov: closing cash $18k · below buffer</title><rect x="353.8" y="22" width="50.3" height="244" fill="transparent"/><path d="M363.4,266.0 V184.1 Q363.4,180.1 367.4,180.1 H390.6 Q394.6,180.1 394.6,184.1 V266.0 Z" fill="#F59E0B"/></g><text x="379.0" y="288" text-anchor="middle" font-size="10.5" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">16 Nov</text><g><title>Week of 23 Nov: closing cash $24k</title><rect x="404.2" y="22" width="50.3" height="244" fill="transparent"/><path d="M413.7,266.0 V153.4 Q413.7,149.4 417.7,149.4 H440.9 Q444.9,149.4 444.9,153.4 V266.0 Z" fill="#10A37F"/></g><text x="429.3" y="288" text-anchor="middle" font-size="10.5" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">23 Nov</text><g><title>Week of 30 Nov: closing cash $33k</title><rect x="454.5" y="22" width="50.3" height="244" fill="transparent"/><path d="M464.0,266.0 V108.0 Q464.0,104.0 468.0,104.0 H491.2 Q495.2,104.0 495.2,108.0 V266.0 Z" fill="#10A37F"/></g><text x="479.6" y="288" text-anchor="middle" font-size="10.5" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">30 Nov</text><g><title>Week of 7 Dec: closing cash $39k</title><rect x="504.8" y="22" width="50.3" height="244" fill="transparent"/><path d="M514.3,266.0 V77.7 Q514.3,73.7 518.3,73.7 H541.5 Q545.5,73.7 545.5,77.7 V266.0 Z" fill="#10A37F"/></g><text x="529.9" y="288" text-anchor="middle" font-size="10.5" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">7 Dec</text><g><title>Week of 14 Dec: closing cash $35k</title><rect x="555.1" y="22" width="50.3" height="244" fill="transparent"/><path d="M564.6,266.0 V98.7 Q564.6,94.7 568.6,94.7 H591.8 Q595.8,94.7 595.8,98.7 V266.0 Z" fill="#10A37F"/></g><text x="580.2" y="288" text-anchor="middle" font-size="10.5" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">14 Dec</text><g><title>Week of 21 Dec: closing cash $44k</title><rect x="605.4" y="22" width="50.3" height="244" fill="transparent"/><path d="M614.9,266.0 V53.8 Q614.9,49.8 618.9,49.8 H642.1 Q646.1,49.8 646.1,53.8 V266.0 Z" fill="#10A37F"/></g><text x="630.5" y="288" text-anchor="middle" font-size="10.5" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">21 Dec</text><g><title>Week of 28 Dec: closing cash $49k</title><rect x="655.7" y="22" width="50.3" height="244" fill="transparent"/><path d="M665.3,266.0 V32.3 Q665.3,28.3 669.3,28.3 H692.4 Q696.4,28.3 696.4,32.3 V266.0 Z" fill="#10A37F"/></g><text x="680.8" y="288" text-anchor="middle" font-size="10.5" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">28 Dec</text><line x1="52" x2="706" y1="168.4" y2="168.4" stroke="#E8EEF5" stroke-width="1.2" stroke-dasharray="4 4" opacity=".7"/><text x="706" y="162.4" text-anchor="end" font-size="11" fill="#E8EEF5" font-family="Inter,system-ui,sans-serif">Minimum buffer $20k</text><text x="379.0" y="172.1" text-anchor="middle" font-size="11.5" font-weight="600" fill="#F59E0B" font-family="Inter,system-ui,sans-serif">▼ $18k</text><text x="77.2" y="53.0" text-anchor="middle" font-size="11" fill="#E8EEF5" font-family="Inter,system-ui,sans-serif">$42k</text><text x="680.8" y="20.3" text-anchor="middle" font-size="11" fill="#E8EEF5" font-family="Inter,system-ui,sans-serif">$49k</text></svg><details class="numbers"><summary>See the numbers</summary><div class="tblw"><table class="tbl "><thead><tr><th class="">Week of</th><th class="n">Closing cash</th><th class="n">Status</th></tr></thead><tbody><tr><td class="">5 Oct</td><td class="n">$42,000</td><td class="n">OK</td></tr><tr><td class="">12 Oct</td><td class="n">$38,500</td><td class="n">OK</td></tr><tr><td class="">19 Oct</td><td class="n">$45,200</td><td class="n">OK</td></tr><tr><td class="">26 Oct</td><td class="n">$36,800</td><td class="n">OK</td></tr><tr><td class="">2 Nov</td><td class="n">$31,400</td><td class="n">OK</td></tr><tr><td class="">9 Nov</td><td class="n">$27,100</td><td class="n">OK</td></tr><tr><td class="">16 Nov</td><td class="n">$17,600</td><td class="n">Below buffer</td></tr><tr><td class="">23 Nov</td><td class="n">$23,900</td><td class="n">OK</td></tr><tr><td class="">30 Nov</td><td class="n">$33,200</td><td class="n">OK</td></tr><tr><td class="">7 Dec</td><td class="n">$39,400</td><td class="n">OK</td></tr><tr><td class="">14 Dec</td><td class="n">$35,100</td><td class="n">OK</td></tr><tr><td class="">21 Dec</td><td class="n">$44,300</td><td class="n">OK</td></tr><tr><td class="">28 Dec</td><td class="n">$48,700</td><td class="n">OK</td></tr></tbody></table></div></details></div>
+<p class="cap">Refreshed weekly from the ledger and bank. The amber week breaches the minimum buffer, and you see it seven weeks out, with time to act. Hover a bar for the figure.</p></div>
+
+<div class="ex"><div class="exh"><b>3. Which jobs actually make money</b><span>Sample · fictional joinery business</span></div>
+<div class="exb"><svg class="chart" viewBox="0 0 720 312" role="img" aria-label="Sample job profitability. Six of eight jobs beat the 20% target margin; Bathroom Ryde at 12% and Office fit-out CBD at 8% fall below."><line x1="170.0" x2="170.0" y1="20" y2="302" stroke="#1A2333"/><text x="170.0" y="14" text-anchor="middle" font-size="10.5" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">0%</text><line x1="290.0" x2="290.0" y1="20" y2="302" stroke="#1A2333"/><text x="290.0" y="14" text-anchor="middle" font-size="10.5" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">10%</text><line x1="410.0" x2="410.0" y1="20" y2="302" stroke="#1A2333"/><text x="410.0" y="14" text-anchor="middle" font-size="10.5" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">20%</text><line x1="530.0" x2="530.0" y1="20" y2="302" stroke="#1A2333"/><text x="530.0" y="14" text-anchor="middle" font-size="10.5" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">30%</text><line x1="650.0" x2="650.0" y1="20" y2="302" stroke="#1A2333"/><text x="650.0" y="14" text-anchor="middle" font-size="10.5" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">40%</text><g><title>Wardrobes, Parramatta: 34% margin</title><rect x="0" y="27" width="720" height="32" fill="transparent"/><text x="160" y="47" text-anchor="end" font-size="12.5" fill="#E8EEF5" font-family="Inter,system-ui,sans-serif">Wardrobes, Parramatta</text><path d="M170,34 H574.0 Q578.0,34 578.0,38 V48 Q578.0,52 574.0,52 H170 Z" fill="#10A37F"/><text x="586.0" y="47" font-size="12" fill="#E8EEF5" font-family="JetBrains Mono,ui-monospace,monospace">34%</text></g><g><title>Kitchen, Bondi: 31% margin</title><rect x="0" y="61" width="720" height="32" fill="transparent"/><text x="160" y="81" text-anchor="end" font-size="12.5" fill="#E8EEF5" font-family="Inter,system-ui,sans-serif">Kitchen, Bondi</text><path d="M170,68 H538.0 Q542.0,68 542.0,72 V82 Q542.0,86 538.0,86 H170 Z" fill="#10A37F"/><text x="550.0" y="81" font-size="12" fill="#E8EEF5" font-family="JetBrains Mono,ui-monospace,monospace">31%</text></g><g><title>Deck, Manly: 28% margin</title><rect x="0" y="95" width="720" height="32" fill="transparent"/><text x="160" y="115" text-anchor="end" font-size="12.5" fill="#E8EEF5" font-family="Inter,system-ui,sans-serif">Deck, Manly</text><path d="M170,102 H502.0 Q506.0,102 506.0,106 V116 Q506.0,120 502.0,120 H170 Z" fill="#10A37F"/><text x="514.0" y="115" font-size="12" fill="#E8EEF5" font-family="JetBrains Mono,ui-monospace,monospace">28%</text></g><g><title>Laundry, Epping: 26% margin</title><rect x="0" y="129" width="720" height="32" fill="transparent"/><text x="160" y="149" text-anchor="end" font-size="12.5" fill="#E8EEF5" font-family="Inter,system-ui,sans-serif">Laundry, Epping</text><path d="M170,136 H478.0 Q482.0,136 482.0,140 V150 Q482.0,154 478.0,154 H170 Z" fill="#10A37F"/><text x="490.0" y="149" font-size="12" fill="#E8EEF5" font-family="JetBrains Mono,ui-monospace,monospace">26%</text></g><g><title>Kitchen, Cronulla: 22% margin</title><rect x="0" y="163" width="720" height="32" fill="transparent"/><text x="160" y="183" text-anchor="end" font-size="12.5" fill="#E8EEF5" font-family="Inter,system-ui,sans-serif">Kitchen, Cronulla</text><path d="M170,170 H430.0 Q434.0,170 434.0,174 V184 Q434.0,188 430.0,188 H170 Z" fill="#10A37F"/><text x="442.0" y="183" font-size="12" fill="#E8EEF5" font-family="JetBrains Mono,ui-monospace,monospace">22%</text></g><g><title>Stairs, Mosman: 19% margin · below target</title><rect x="0" y="197" width="720" height="32" fill="transparent"/><text x="160" y="217" text-anchor="end" font-size="12.5" fill="#E8EEF5" font-family="Inter,system-ui,sans-serif">Stairs, Mosman</text><path d="M170,204 H394.0 Q398.0,204 398.0,208 V218 Q398.0,222 394.0,222 H170 Z" fill="#F59E0B"/><text x="406.0" y="217" font-size="12" fill="#E8EEF5" font-family="JetBrains Mono,ui-monospace,monospace">19% ▼</text></g><g><title>Bathroom, Ryde: 12% margin · below target</title><rect x="0" y="231" width="720" height="32" fill="transparent"/><text x="160" y="251" text-anchor="end" font-size="12.5" fill="#E8EEF5" font-family="Inter,system-ui,sans-serif">Bathroom, Ryde</text><path d="M170,238 H310.0 Q314.0,238 314.0,242 V252 Q314.0,256 310.0,256 H170 Z" fill="#F59E0B"/><text x="322.0" y="251" font-size="12" fill="#E8EEF5" font-family="JetBrains Mono,ui-monospace,monospace">12% ▼</text></g><g><title>Office fit-out, CBD: 8% margin · below target</title><rect x="0" y="265" width="720" height="32" fill="transparent"/><text x="160" y="285" text-anchor="end" font-size="12.5" fill="#E8EEF5" font-family="Inter,system-ui,sans-serif">Office fit-out, CBD</text><path d="M170,272 H262.0 Q266.0,272 266.0,276 V286 Q266.0,290 262.0,290 H170 Z" fill="#F59E0B"/><text x="274.0" y="285" font-size="12" fill="#E8EEF5" font-family="JetBrains Mono,ui-monospace,monospace">8% ▼</text></g><line x1="410.0" x2="410.0" y1="24" y2="302" stroke="#E8EEF5" stroke-width="1.2" stroke-dasharray="4 4" opacity=".7"/><text x="416.0" y="298" font-size="11" fill="#E8EEF5" font-family="Inter,system-ui,sans-serif">Target 20%</text></svg><details class="numbers"><summary>See the numbers</summary><div class="tblw"><table class="tbl "><thead><tr><th class="">Job</th><th class="n">Margin</th><th class="n">Status</th></tr></thead><tbody><tr><td class="">Wardrobes, Parramatta</td><td class="n">34%</td><td class="n">OK</td></tr><tr><td class="">Kitchen, Bondi</td><td class="n">31%</td><td class="n">OK</td></tr><tr><td class="">Deck, Manly</td><td class="n">28%</td><td class="n">OK</td></tr><tr><td class="">Laundry, Epping</td><td class="n">26%</td><td class="n">OK</td></tr><tr><td class="">Kitchen, Cronulla</td><td class="n">22%</td><td class="n">OK</td></tr><tr><td class="">Stairs, Mosman</td><td class="n">19%</td><td class="n">Below target</td></tr><tr><td class="">Bathroom, Ryde</td><td class="n">12%</td><td class="n">Below target</td></tr><tr><td class="">Office fit-out, CBD</td><td class="n">8%</td><td class="n">Below target</td></tr></tbody></table></div></details></div>
+<p class="cap">Materials, labour and subcontractors against each job. Two jobs fell below the 20% target. The office fit-out ran 40 hours over quote, which changes how the next one gets priced.</p></div>
+
+<div class="ex"><div class="exh"><b>4. Startup runway and investor metrics</b><span>Sample · fictional software startup</span></div>
+<div class="exb"><div class="tiles"><div class="tile"><small>MRR</small><b>$86.4k</b><span>▲ 6.1% on last month</span></div><div class="tile"><small>Net revenue retention</small><b>108%</b><span>trailing 12 months</span></div><div class="tile"><small>CAC payback</small><b>9.5 mo</b><span>target under 12</span></div><div class="tile"><small>Gross margin</small><b>78%</b><span>after hosting &amp; AI costs</span></div></div>
+<div style="margin-top:18px"><svg class="chart" viewBox="0 0 720 320" role="img" aria-label="Sample runway scenarios for a fictional software startup over 24 months: worst case runs out of cash in month 11, base case in month 17, best case never runs out."><line x1="60" x2="570" y1="284.0" y2="284.0" stroke="#1A2333"/><text x="52" y="288.0" text-anchor="end" font-size="11" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">$0</text><line x1="60" x2="570" y1="218.0" y2="218.0" stroke="#1A2333"/><text x="52" y="222.0" text-anchor="end" font-size="11" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">$500k</text><line x1="60" x2="570" y1="152.0" y2="152.0" stroke="#1A2333"/><text x="52" y="156.0" text-anchor="end" font-size="11" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">$1.00m</text><line x1="60" x2="570" y1="86.0" y2="86.0" stroke="#1A2333"/><text x="52" y="90.0" text-anchor="end" font-size="11" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">$1.50m</text><line x1="60" x2="570" y1="20.0" y2="20.0" stroke="#1A2333"/><text x="52" y="24.0" text-anchor="end" font-size="11" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">$2.00m</text><text x="60.0" y="306" text-anchor="middle" font-size="10.5" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">Now</text><text x="187.5" y="306" text-anchor="middle" font-size="10.5" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">M6</text><text x="315.0" y="306" text-anchor="middle" font-size="10.5" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">M12</text><text x="442.5" y="306" text-anchor="middle" font-size="10.5" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">M18</text><text x="570.0" y="306" text-anchor="middle" font-size="10.5" fill="#9AA6B6" font-family="JetBrains Mono,ui-monospace,monospace">M24</text><polyline points="60.0,86.0 81.2,99.9 102.5,113.5 123.8,126.8 145.0,139.9 166.2,152.7 187.5,165.2 208.8,177.5 230.0,189.5 251.2,201.2 272.5,212.7 293.8,223.9 315.0,234.9 336.2,245.6 357.5,256.0 378.8,266.2 400.0,276.1 421.2,284.0 442.5,284.0 463.8,284.0 485.0,284.0 506.2,284.0 527.5,284.0 548.8,284.0 570.0,284.0" fill="none" stroke="#10A37F" stroke-width="2" stroke-linejoin="round"/><circle cx="421.2" cy="284.0" r="4.5" fill="#10A37F" stroke="#0E131D" stroke-width="2"/><text x="580" y="296.0" font-size="12" fill="#E8EEF5" font-family="Inter,system-ui,sans-serif"><tspan fill="#10A37F">●</tspan> Base: 17 months</text><circle cx="60.0" cy="86.0" r="7" fill="transparent"><title>Base, month 0: $1.50m</title></circle><circle cx="81.2" cy="99.9" r="7" fill="transparent"><title>Base, month 1: $1.40m</title></circle><circle cx="102.5" cy="113.5" r="7" fill="transparent"><title>Base, month 2: $1.29m</title></circle><circle cx="123.8" cy="126.8" r="7" fill="transparent"><title>Base, month 3: $1.19m</title></circle><circle cx="145.0" cy="139.9" r="7" fill="transparent"><title>Base, month 4: $1.09m</title></circle><circle cx="166.2" cy="152.7" r="7" fill="transparent"><title>Base, month 5: $995k</title></circle><circle cx="187.5" cy="165.2" r="7" fill="transparent"><title>Base, month 6: $900k</title></circle><circle cx="208.8" cy="177.5" r="7" fill="transparent"><title>Base, month 7: $807k</title></circle><circle cx="230.0" cy="189.5" r="7" fill="transparent"><title>Base, month 8: $716k</title></circle><circle cx="251.2" cy="201.2" r="7" fill="transparent"><title>Base, month 9: $627k</title></circle><circle cx="272.5" cy="212.7" r="7" fill="transparent"><title>Base, month 10: $540k</title></circle><circle cx="293.8" cy="223.9" r="7" fill="transparent"><title>Base, month 11: $455k</title></circle><circle cx="315.0" cy="234.9" r="7" fill="transparent"><title>Base, month 12: $372k</title></circle><circle cx="336.2" cy="245.6" r="7" fill="transparent"><title>Base, month 13: $291k</title></circle><circle cx="357.5" cy="256.0" r="7" fill="transparent"><title>Base, month 14: $212k</title></circle><circle cx="378.8" cy="266.2" r="7" fill="transparent"><title>Base, month 15: $135k</title></circle><circle cx="400.0" cy="276.1" r="7" fill="transparent"><title>Base, month 16: $60k</title></circle><circle cx="421.2" cy="284.0" r="7" fill="transparent"><title>Base, month 17: $0k</title></circle><circle cx="442.5" cy="284.0" r="7" fill="transparent"><title>Base, month 18: $0k</title></circle><circle cx="463.8" cy="284.0" r="7" fill="transparent"><title>Base, month 19: $0k</title></circle><circle cx="485.0" cy="284.0" r="7" fill="transparent"><title>Base, month 20: $0k</title></circle><circle cx="506.2" cy="284.0" r="7" fill="transparent"><title>Base, month 21: $0k</title></circle><circle cx="527.5" cy="284.0" r="7" fill="transparent"><title>Base, month 22: $0k</title></circle><circle cx="548.8" cy="284.0" r="7" fill="transparent"><title>Base, month 23: $0k</title></circle><circle cx="570.0" cy="284.0" r="7" fill="transparent"><title>Base, month 24: $0k</title></circle><polyline points="60.0,86.0 81.2,102.9 102.5,120.1 123.8,137.7 145.0,155.6 166.2,173.8 187.5,192.3 208.8,211.2 230.0,230.4 251.2,249.9 272.5,269.8 293.8,284.0 315.0,284.0 336.2,284.0 357.5,284.0 378.8,284.0 400.0,284.0 421.2,284.0 442.5,284.0 463.8,284.0 485.0,284.0 506.2,284.0 527.5,284.0 548.8,284.0 570.0,284.0" fill="none" stroke="#E8590C" stroke-width="2" stroke-linejoin="round"/><circle cx="293.8" cy="284.0" r="4.5" fill="#E8590C" stroke="#0E131D" stroke-width="2"/><text x="580" y="276.0" font-size="12" fill="#E8EEF5" font-family="Inter,system-ui,sans-serif"><tspan fill="#E8590C">●</tspan> Worst: 11 months</text><circle cx="60.0" cy="86.0" r="7" fill="transparent"><title>Worst, month 0: $1.50m</title></circle><circle cx="81.2" cy="102.9" r="7" fill="transparent"><title>Worst, month 1: $1.37m</title></circle><circle cx="102.5" cy="120.1" r="7" fill="transparent"><title>Worst, month 2: $1.24m</title></circle><circle cx="123.8" cy="137.7" r="7" fill="transparent"><title>Worst, month 3: $1.11m</title></circle><circle cx="145.0" cy="155.6" r="7" fill="transparent"><title>Worst, month 4: $973k</title></circle><circle cx="166.2" cy="173.8" r="7" fill="transparent"><title>Worst, month 5: $835k</title></circle><circle cx="187.5" cy="192.3" r="7" fill="transparent"><title>Worst, month 6: $694k</title></circle><circle cx="208.8" cy="211.2" r="7" fill="transparent"><title>Worst, month 7: $552k</title></circle><circle cx="230.0" cy="230.4" r="7" fill="transparent"><title>Worst, month 8: $406k</title></circle><circle cx="251.2" cy="249.9" r="7" fill="transparent"><title>Worst, month 9: $258k</title></circle><circle cx="272.5" cy="269.8" r="7" fill="transparent"><title>Worst, month 10: $108k</title></circle><circle cx="293.8" cy="284.0" r="7" fill="transparent"><title>Worst, month 11: $0k</title></circle><circle cx="315.0" cy="284.0" r="7" fill="transparent"><title>Worst, month 12: $0k</title></circle><circle cx="336.2" cy="284.0" r="7" fill="transparent"><title>Worst, month 13: $0k</title></circle><circle cx="357.5" cy="284.0" r="7" fill="transparent"><title>Worst, month 14: $0k</title></circle><circle cx="378.8" cy="284.0" r="7" fill="transparent"><title>Worst, month 15: $0k</title></circle><circle cx="400.0" cy="284.0" r="7" fill="transparent"><title>Worst, month 16: $0k</title></circle><circle cx="421.2" cy="284.0" r="7" fill="transparent"><title>Worst, month 17: $0k</title></circle><circle cx="442.5" cy="284.0" r="7" fill="transparent"><title>Worst, month 18: $0k</title></circle><circle cx="463.8" cy="284.0" r="7" fill="transparent"><title>Worst, month 19: $0k</title></circle><circle cx="485.0" cy="284.0" r="7" fill="transparent"><title>Worst, month 20: $0k</title></circle><circle cx="506.2" cy="284.0" r="7" fill="transparent"><title>Worst, month 21: $0k</title></circle><circle cx="527.5" cy="284.0" r="7" fill="transparent"><title>Worst, month 22: $0k</title></circle><circle cx="548.8" cy="284.0" r="7" fill="transparent"><title>Worst, month 23: $0k</title></circle><circle cx="570.0" cy="284.0" r="7" fill="transparent"><title>Worst, month 24: $0k</title></circle><polyline points="60.0,86.0 81.2,98.9 102.5,111.1 123.8,122.4 145.0,133.0 166.2,142.8 187.5,151.7 208.8,159.9 230.0,167.3 251.2,173.9 272.5,179.7 293.8,184.7 315.0,189.0 336.2,192.4 357.5,195.0 378.8,196.9 400.0,197.9 421.2,198.2 442.5,197.7 463.8,196.4 485.0,194.2 506.2,191.3 527.5,187.6 548.8,183.2 570.0,177.9" fill="none" stroke="#4C8DF6" stroke-width="2" stroke-linejoin="round"/><circle cx="570.0" cy="177.9" r="4.5" fill="#4C8DF6" stroke="#0E131D" stroke-width="2"/><text x="580" y="177.9" font-size="12" fill="#E8EEF5" font-family="Inter,system-ui,sans-serif"><tspan fill="#4C8DF6">●</tspan> Best: 24+ months</text><circle cx="60.0" cy="86.0" r="7" fill="transparent"><title>Best, month 0: $1.50m</title></circle><circle cx="81.2" cy="98.9" r="7" fill="transparent"><title>Best, month 1: $1.40m</title></circle><circle cx="102.5" cy="111.1" r="7" fill="transparent"><title>Best, month 2: $1.31m</title></circle><circle cx="123.8" cy="122.4" r="7" fill="transparent"><title>Best, month 3: $1.22m</title></circle><circle cx="145.0" cy="133.0" r="7" fill="transparent"><title>Best, month 4: $1.14m</title></circle><circle cx="166.2" cy="142.8" r="7" fill="transparent"><title>Best, month 5: $1.07m</title></circle><circle cx="187.5" cy="151.7" r="7" fill="transparent"><title>Best, month 6: $1.00m</title></circle><circle cx="208.8" cy="159.9" r="7" fill="transparent"><title>Best, month 7: $940k</title></circle><circle cx="230.0" cy="167.3" r="7" fill="transparent"><title>Best, month 8: $884k</title></circle><circle cx="251.2" cy="173.9" r="7" fill="transparent"><title>Best, month 9: $834k</title></circle><circle cx="272.5" cy="179.7" r="7" fill="transparent"><title>Best, month 10: $790k</title></circle><circle cx="293.8" cy="184.7" r="7" fill="transparent"><title>Best, month 11: $752k</title></circle><circle cx="315.0" cy="189.0" r="7" fill="transparent"><title>Best, month 12: $720k</title></circle><circle cx="336.2" cy="192.4" r="7" fill="transparent"><title>Best, month 13: $694k</title></circle><circle cx="357.5" cy="195.0" r="7" fill="transparent"><title>Best, month 14: $674k</title></circle><circle cx="378.8" cy="196.9" r="7" fill="transparent"><title>Best, month 15: $660k</title></circle><circle cx="400.0" cy="197.9" r="7" fill="transparent"><title>Best, month 16: $652k</title></circle><circle cx="421.2" cy="198.2" r="7" fill="transparent"><title>Best, month 17: $650k</title></circle><circle cx="442.5" cy="197.7" r="7" fill="transparent"><title>Best, month 18: $654k</title></circle><circle cx="463.8" cy="196.4" r="7" fill="transparent"><title>Best, month 19: $664k</title></circle><circle cx="485.0" cy="194.2" r="7" fill="transparent"><title>Best, month 20: $680k</title></circle><circle cx="506.2" cy="191.3" r="7" fill="transparent"><title>Best, month 21: $702k</title></circle><circle cx="527.5" cy="187.6" r="7" fill="transparent"><title>Best, month 22: $730k</title></circle><circle cx="548.8" cy="183.2" r="7" fill="transparent"><title>Best, month 23: $764k</title></circle><circle cx="570.0" cy="177.9" r="7" fill="transparent"><title>Best, month 24: $804k</title></circle></svg><details class="numbers"><summary>See the numbers</summary><div class="tblw"><table class="tbl "><thead><tr><th class="">Month</th><th class="n">Base</th><th class="n">Worst</th><th class="n">Best</th></tr></thead><tbody><tr><td class="">Month 0</td><td class="n">$1,500,000</td><td class="n">$1,500,000</td><td class="n">$1,500,000</td></tr><tr><td class="">Month 3</td><td class="n">$1,191,000</td><td class="n">$1,108,500</td><td class="n">$1,224,000</td></tr><tr><td class="">Month 6</td><td class="n">$900,000</td><td class="n">$694,500</td><td class="n">$1,002,000</td></tr><tr><td class="">Month 9</td><td class="n">$627,000</td><td class="n">$258,000</td><td class="n">$834,000</td></tr><tr><td class="">Month 12</td><td class="n">$372,000</td><td class="n">$0</td><td class="n">$720,000</td></tr><tr><td class="">Month 15</td><td class="n">$135,000</td><td class="n">$0</td><td class="n">$660,000</td></tr><tr><td class="">Month 18</td><td class="n">$0</td><td class="n">$0</td><td class="n">$654,000</td></tr><tr><td class="">Month 21</td><td class="n">$0</td><td class="n">$0</td><td class="n">$702,000</td></tr><tr><td class="">Month 24</td><td class="n">$0</td><td class="n">$0</td><td class="n">$804,000</td></tr></tbody></table></div></details></div></div>
+<p class="cap">Three scenarios from the same model. The base case runs out of cash in month 17, the worst case in month 11. That's when to start raising, and it's a conversation to have now.</p></div>
+
+<div class="ex"><div class="exh"><b>5. The AI register</b><span>Sample excerpt · fictional services firm</span></div>
+<div class="exb"><div class="tblw"><table class="tbl"><thead><tr><th>Tool</th><th>Used for</th><th>Personal info?</th><th>Trains on your data?</th><th>Decides about people?</th><th>Risk</th></tr></thead><tbody>
+<tr><td>Free chatbot (personal accounts)</td><td>Drafting client emails</td><td>Yes</td><td>Possibly</td><td>No</td><td><span class="pill r">▲ High</span></td></tr>
+<tr><td>Business AI assistant</td><td>Meeting notes, drafting</td><td>Yes</td><td>No (switched off)</td><td>No</td><td><span class="pill g">● Low</span></td></tr>
+<tr><td>Booking system</td><td>Auto-declines late cancellers</td><td>Yes</td><td>No</td><td>Yes</td><td><span class="pill a">■ Medium</span></td></tr>
+<tr><td>Accounting software</td><td>Credit terms by payment history</td><td>Yes</td><td>No</td><td>Yes</td><td><span class="pill a">■ Medium</span></td></tr>
+</tbody></table></div></div>
+<p class="cap">The first thing we build in a governance engagement. Two of these four tools make decisions about people, so they belong in the privacy policy from 10 December 2026.</p></div>
+
+<div class="ex"><div class="exh"><b>6. The one-page board paper</b><span>Sample excerpt</span></div>
+<div class="exb prose" style="max-width:none"><p style="color:var(--text)"><b>AI use: where we stand, Q4</b></p>
+<p><b>Headline:</b> AI saves the team about 30 hours a month. One high risk remains: client data in personal chatbot accounts.</p>
+<p><b>Decisions for the board:</b></p><ol><li>Approve the AI use policy (attached, two pages).</li><li>Fund business AI licences for all staff and block personal accounts.</li><li>Approve the privacy policy wording on automated decisions before 10 December.</li></ol>
+<p><b>Owner:</b> Chief Operating Officer. <b>Next review:</b> March.</p></div>
+<p class="cap">Directors get one page with decisions on it, not a technical report.</p></div>
+
+<div class="ex"><div class="exh"><b>7. Wallet reconciliation</b><span>Sample · fictional digital asset business</span></div>
+<div class="exb"><div class="tblw"><table class="tbl"><thead><tr><th>Wallet</th><th class="n">On-chain</th><th class="n">Ledger</th><th class="n">Difference</th><th>Status</th></tr></thead><tbody>
+<tr><td>Operating (USDC)</td><td class="n">184,220.50</td><td class="n">184,220.50</td><td class="n">0.00</td><td><span class="pill g">✓ Matched</span></td></tr>
+<tr><td>Treasury (BTC)</td><td class="n">3.41820000</td><td class="n">3.41820000</td><td class="n">0.00</td><td><span class="pill g">✓ Matched</span></td></tr>
+<tr><td>Payments (AUD stablecoin)</td><td class="n">52,904.00</td><td class="n">55,404.00</td><td class="n">&minus;2,500.00</td><td><span class="pill a">! Unmatched receipt</span></td></tr>
+</tbody></table></div></div>
+<p class="cap">Differences are explained, not just flagged: here, a customer payment recorded in the ledger that hasn't arrived on-chain.</p></div>
+
+<div class="ex"><div class="exh"><b>8. An agent's control log</b><span>Sample · accounts payable run</span></div>
+<div class="exb"><ul class="log" id="log" aria-label="Example automated control log"></ul></div>
+<p class="cap">Every action written down. Tap "why?" on the flagged lines to see the reasoning.</p></div>
+
+<div class="ex" id="ex9"><div class="exh"><b>9. Behind the Monday email: the workflow</b><span>How it runs</span></div>
+<div class="exb"><div class="vscroll"><svg class="flowsvg" viewBox="0 0 1226 210" role="img" aria-label="Workflow: schedule, pull from Xero read-only, run checks, update forecast, AI drafts the note, you approve, send and log. Failed checks stop the run and alert you."><defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#9AA6B6"/></marker></defs><g><title>Every Monday: 5:00am schedule</title><rect x="10" y="20" width="150" height="78" rx="10" fill="#0E131D" stroke="#34425C" stroke-width="1.5"/><text x="22" y="40" font-family="Inter,sans-serif" font-size="9.5"  fill="#9AA6B6">STEP 1</text><text x="22" y="62" font-family="Inter,sans-serif" font-size="14" font-weight="600" fill="#E8EEF5">Every Monday</text><text x="22" y="81" font-family="Inter,sans-serif" font-size="10.5" fill="#9AA6B6">5:00am schedule</text></g><line x1="162" y1="59.0" x2="183" y2="59.0" stroke="#9AA6B6" stroke-width="1.5" marker-end="url(#ar)"/><g><title>Pull from Xero: read-only access</title><rect x="186" y="20" width="150" height="78" rx="10" fill="#0E131D" stroke="#34425C" stroke-width="1.5"/><text x="198" y="40" font-family="Inter,sans-serif" font-size="9.5"  fill="#9AA6B6">STEP 2</text><text x="198" y="62" font-family="Inter,sans-serif" font-size="14" font-weight="600" fill="#E8EEF5">Pull from Xero</text><text x="198" y="81" font-family="Inter,sans-serif" font-size="10.5" fill="#9AA6B6">read-only access</text></g><line x1="338" y1="59.0" x2="359" y2="59.0" stroke="#9AA6B6" stroke-width="1.5" marker-end="url(#ar)"/><g><title>Run the checks: ties to bank? bills missing?</title><rect x="362" y="20" width="150" height="78" rx="10" fill="#0E131D" stroke="#10B981" stroke-width="2"/><text x="374" y="40" font-family="Inter,sans-serif" font-size="9.5"  fill="#10B981">STEP 3</text><text x="374" y="62" font-family="Inter,sans-serif" font-size="14" font-weight="600" fill="#E8EEF5">Run the checks</text><text x="374" y="81" font-family="Inter,sans-serif" font-size="10.5" fill="#9AA6B6">ties to bank? bills missing?</text></g><line x1="514" y1="59.0" x2="535" y2="59.0" stroke="#9AA6B6" stroke-width="1.5" marker-end="url(#ar)"/><g><title>Update forecast: 13 weeks, rolled on</title><rect x="538" y="20" width="150" height="78" rx="10" fill="#0E131D" stroke="#34425C" stroke-width="1.5"/><text x="550" y="40" font-family="Inter,sans-serif" font-size="9.5"  fill="#9AA6B6">STEP 4</text><text x="550" y="62" font-family="Inter,sans-serif" font-size="14" font-weight="600" fill="#E8EEF5">Update forecast</text><text x="550" y="81" font-family="Inter,sans-serif" font-size="10.5" fill="#9AA6B6">13 weeks, rolled on</text></g><line x1="690" y1="59.0" x2="711" y2="59.0" stroke="#9AA6B6" stroke-width="1.5" marker-end="url(#ar)"/><g><title>Draft the note: AI writes, cites figures</title><rect x="714" y="20" width="150" height="78" rx="10" fill="#0E131D" stroke="#34425C" stroke-width="1.5"/><text x="726" y="40" font-family="Inter,sans-serif" font-size="9.5"  fill="#9AA6B6">AI · CHECKED</text><text x="726" y="62" font-family="Inter,sans-serif" font-size="14" font-weight="600" fill="#E8EEF5">Draft the note</text><text x="726" y="81" font-family="Inter,sans-serif" font-size="10.5" fill="#9AA6B6">AI writes, cites figures</text></g><line x1="866" y1="59.0" x2="887" y2="59.0" stroke="#9AA6B6" stroke-width="1.5" marker-end="url(#ar)"/><g><title>You approve: nothing sends without you</title><rect x="890" y="20" width="150" height="78" rx="10" fill="#0E131D" stroke="#F59E0B" stroke-width="2"/><text x="902" y="40" font-family="Inter,sans-serif" font-size="9.5"  fill="#F59E0B">HUMAN</text><text x="902" y="62" font-family="Inter,sans-serif" font-size="14" font-weight="600" fill="#E8EEF5">You approve</text><text x="902" y="81" font-family="Inter,sans-serif" font-size="10.5" fill="#9AA6B6">nothing sends without you</text></g><line x1="1042" y1="59.0" x2="1063" y2="59.0" stroke="#9AA6B6" stroke-width="1.5" marker-end="url(#ar)"/><g><title>Send + log: email out, all logged</title><rect x="1066" y="20" width="150" height="78" rx="10" fill="#0E131D" stroke="#34425C" stroke-width="1.5"/><text x="1078" y="40" font-family="Inter,sans-serif" font-size="9.5"  fill="#9AA6B6">STEP 7</text><text x="1078" y="62" font-family="Inter,sans-serif" font-size="14" font-weight="600" fill="#E8EEF5">Send + log</text><text x="1078" y="81" font-family="Inter,sans-serif" font-size="10.5" fill="#9AA6B6">email out, all logged</text></g><path d="M437.0,100 L437.0,142" stroke="#F87171" stroke-width="1.5" stroke-dasharray="4 3" fill="none" marker-end="url(#ar)"/><g><title>If a check fails, the run stops and you get an alert instead of a wrong email</title><rect x="317.0" y="146" width="240" height="50" rx="10" fill="#0E131D" stroke="#F87171" stroke-width="1.5"/><text x="329.0" y="166" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#E8EEF5">Check fails? Stop and alert you</text><text x="329.0" y="184" font-family="Inter,sans-serif" font-size="10.5" fill="#9AA6B6">No wrong numbers ever reach your inbox</text></g></svg></div></div>
+<p class="cap">Every Monday the same seven steps run on their own. The red line is the safety net: if the numbers don't tie to the bank, the run stops and you get an alert, not a wrong email. Nothing goes out until a person approves it.</p></div>
+
+<div class="ex" id="ex10"><div class="exh"><b>10. Time given back</b><span>Illustrative example · 12-person business</span></div>
+<div class="exb"><div class="vlegend"><span><i style="background:#5B6678"></i>Before (hours a month)</span><span><i style="background:#10B981"></i>After</span></div><div class="vscroll"><svg class="timesvg" viewBox="0 0 700 300" role="img" aria-label="Hours per month before and after automation, by task. Total 52 hours before, 12.5 after."><line x1="230.0" y1="22" x2="230.0" y2="274" stroke="#243048" stroke-width="1"/><text x="230.0" y="290" text-anchor="middle" font-size="10" fill="#9AA6B6" font-family="Inter,sans-serif">0h</text><line x1="332.5" y1="22" x2="332.5" y2="274" stroke="#243048" stroke-width="1"/><text x="332.5" y="290" text-anchor="middle" font-size="10" fill="#9AA6B6" font-family="Inter,sans-serif">4h</text><line x1="435.0" y1="22" x2="435.0" y2="274" stroke="#243048" stroke-width="1"/><text x="435.0" y="290" text-anchor="middle" font-size="10" fill="#9AA6B6" font-family="Inter,sans-serif">8h</text><line x1="537.5" y1="22" x2="537.5" y2="274" stroke="#243048" stroke-width="1"/><text x="537.5" y="290" text-anchor="middle" font-size="10" fill="#9AA6B6" font-family="Inter,sans-serif">12h</text><line x1="640.0" y1="22" x2="640.0" y2="274" stroke="#243048" stroke-width="1"/><text x="640.0" y="290" text-anchor="middle" font-size="10" fill="#9AA6B6" font-family="Inter,sans-serif">16h</text><text x="218" y="43" text-anchor="end" font-size="12.5" fill="#E8EEF5" font-family="Inter,sans-serif">Matching supplier bills</text><g><title>Matching supplier bills: before 12 hours a month</title><rect x="230" y="26" width="307.5" height="13" rx="3" fill="#5B6678"/></g><text x="543.5" y="37" font-size="10.5" fill="#9AA6B6" font-family="Inter,sans-serif">12h</text><g><title>Matching supplier bills: after 3 hours a month</title><rect x="230" y="42.0" width="76.875" height="13" rx="3" fill="#10B981"/></g><text x="312.875" y="53.0" font-size="10.5" fill="#E8EEF5" font-family="Inter,sans-serif">3h</text><text x="218" y="91" text-anchor="end" font-size="12.5" fill="#E8EEF5" font-family="Inter,sans-serif">Chasing payments</text><g><title>Chasing payments: before 10 hours a month</title><rect x="230" y="74" width="256.25" height="13" rx="3" fill="#5B6678"/></g><text x="492.25" y="85" font-size="10.5" fill="#9AA6B6" font-family="Inter,sans-serif">10h</text><g><title>Chasing payments: after 2 hours a month</title><rect x="230" y="90.0" width="51.25" height="13" rx="3" fill="#10B981"/></g><text x="287.25" y="101.0" font-size="10.5" fill="#E8EEF5" font-family="Inter,sans-serif">2h</text><text x="218" y="139" text-anchor="end" font-size="12.5" fill="#E8EEF5" font-family="Inter,sans-serif">Month-end checks</text><g><title>Month-end checks: before 16 hours a month</title><rect x="230" y="122" width="410.0" height="13" rx="3" fill="#5B6678"/></g><text x="646.0" y="133" font-size="10.5" fill="#9AA6B6" font-family="Inter,sans-serif">16h</text><g><title>Month-end checks: after 6 hours a month</title><rect x="230" y="138.0" width="153.75" height="13" rx="3" fill="#10B981"/></g><text x="389.75" y="149.0" font-size="10.5" fill="#E8EEF5" font-family="Inter,sans-serif">6h</text><text x="218" y="187" text-anchor="end" font-size="12.5" fill="#E8EEF5" font-family="Inter,sans-serif">Building the reporting pack</text><g><title>Building the reporting pack: before 8 hours a month</title><rect x="230" y="170" width="205.0" height="13" rx="3" fill="#5B6678"/></g><text x="441.0" y="181" font-size="10.5" fill="#9AA6B6" font-family="Inter,sans-serif">8h</text><g><title>Building the reporting pack: after 1 hours a month</title><rect x="230" y="186.0" width="25.625" height="13" rx="3" fill="#10B981"/></g><text x="261.625" y="197.0" font-size="10.5" fill="#E8EEF5" font-family="Inter,sans-serif">1h</text><text x="218" y="235" text-anchor="end" font-size="12.5" fill="#E8EEF5" font-family="Inter,sans-serif">Working out cash for the month</text><g><title>Working out cash for the month: before 6 hours a month</title><rect x="230" y="218" width="153.75" height="13" rx="3" fill="#5B6678"/></g><text x="389.75" y="229" font-size="10.5" fill="#9AA6B6" font-family="Inter,sans-serif">6h</text><g><title>Working out cash for the month: after 0.5 hours a month</title><rect x="230" y="234.0" width="12.8125" height="13" rx="3" fill="#10B981"/></g><text x="248.8125" y="245.0" font-size="10.5" fill="#E8EEF5" font-family="Inter,sans-serif">0.5h</text></svg></div>
+<div class="vkpis"><div><small>Before</small><b>52 h a month</b></div><div><small>After</small><b>12.5 h a month</b></div><div><small>Back to the business</small><b>About 40 h a month</b></div></div></div>
+<p class="cap">Illustrative only: your numbers depend on your volume and how tidy your data is. We measure your real before-and-after hours, so you see the actual result, not a promise.</p></div>
+
+<div class="ex" id="ex11"><div class="exh"><b>11. The accountant's check</b><span>Sample · before anything is sent</span></div>
+<div class="exb"><ul class="cacheck">
+<li class="ok"><b>Opening cash ties to the bank statement</b><span>$61,500 at 5 October · matched</span></li>
+<li class="ok"><b>Money owed to you ties to Xero</b><span>8 invoices, $109,700 · matched to aged receivables</span></li>
+<li class="ok"><b>Bills owed tie to Xero</b><span>6 bills, $57,350 · matched to aged payables</span></li>
+<li class="ok"><b>Payroll and super match the last pay run</b><span>$18,500 net wages + $3,400 super, fortnightly</span></li>
+<li class="ok"><b>BAS amount confirmed</b><span>$21,600 due 28 October · confirmed with your tax agent</span></li>
+<li class="ok"><b>Last week's forecast vs what happened</b><span>Receipts 4% under forecast · inside the 10% tolerance</span></li>
+<li class="fl"><b>1 exception raised</b><span>A $4,800 bill paid from the bank isn't in Xero · sent to you to confirm</span></li>
+</ul><p class="stamp">Reviewed and signed off · CA</p></div>
+<p class="cap">This is the part software skips. The forecast is only as good as the numbers under it, so every figure is tied back to its source before you see it.</p></div>
+
+<div class="ex" id="ex12"><div class="exh"><b>12. The board's view of risk</b><span>Sample · governance lens</span></div>
+<div class="exb"><div class="riskwrap"><div><svg class="risksvg" viewBox="0 0 312 294" role="img" aria-label="Risk heat map: likelihood across, impact up."><rect x="71" y="165" width="72" height="72" rx="6" fill="#10B981" fill-opacity="0.1" stroke="#243048"/><rect x="71" y="91" width="72" height="72" rx="6" fill="#10B981" fill-opacity="0.18" stroke="#243048"/><rect x="71" y="17" width="72" height="72" rx="6" fill="#10B981" fill-opacity="0.26" stroke="#243048"/><rect x="145" y="165" width="72" height="72" rx="6" fill="#10B981" fill-opacity="0.18" stroke="#243048"/><rect x="145" y="91" width="72" height="72" rx="6" fill="#10B981" fill-opacity="0.34" stroke="#243048"/><rect x="145" y="17" width="72" height="72" rx="6" fill="#10B981" fill-opacity="0.5" stroke="#243048"/><rect x="219" y="165" width="72" height="72" rx="6" fill="#10B981" fill-opacity="0.26" stroke="#243048"/><rect x="219" y="91" width="72" height="72" rx="6" fill="#10B981" fill-opacity="0.5" stroke="#243048"/><rect x="219" y="17" width="72" height="72" rx="6" fill="#10B981" fill-opacity="0.74" stroke="#243048"/><g><title>1. Cash short in the BAS week · owner: Owner · control: 13-week forecast, buffer alert</title><circle cx="255.0" cy="53.0" r="11" fill="#E8EEF5" stroke="#0E131D" stroke-width="2"/><text x="255.0" y="57.0" text-anchor="middle" font-size="11" font-weight="700" fill="#0E131D" font-family="Inter,sans-serif">1</text></g><g><title>2. Biggest customer pays late · owner: Owner · control: Weekly debtor check, reminder flow</title><circle cx="170.0" cy="53.0" r="11" fill="#E8EEF5" stroke="#0E131D" stroke-width="2"/><text x="170.0" y="57.0" text-anchor="middle" font-size="11" font-weight="700" fill="#0E131D" font-family="Inter,sans-serif">2</text></g><g><title>3. Staff paste customer data into free AI · owner: Office manager · control: Approved tool only, one-page rules</title><circle cx="255.0" cy="127.0" r="11" fill="#E8EEF5" stroke="#0E131D" stroke-width="2"/><text x="255.0" y="131.0" text-anchor="middle" font-size="11" font-weight="700" fill="#0E131D" font-family="Inter,sans-serif">3</text></g><g><title>4. Fake supplier bank details · owner: Bookkeeper · control: Bank changes held until phone-verified</title><circle cx="192.0" cy="53.0" r="11" fill="#E8EEF5" stroke="#0E131D" stroke-width="2"/><text x="192.0" y="57.0" text-anchor="middle" font-size="11" font-weight="700" fill="#0E131D" font-family="Inter,sans-serif">4</text></g><g><title>5. Only one person knows the books · owner: Owner · control: Runbook and a second login</title><circle cx="181.0" cy="127.0" r="11" fill="#E8EEF5" stroke="#0E131D" stroke-width="2"/><text x="181.0" y="131.0" text-anchor="middle" font-size="11" font-weight="700" fill="#0E131D" font-family="Inter,sans-serif">5</text></g><g><title>6. Xero not reconciled · owner: Bookkeeper · control: Weekly reconciliation check</title><circle cx="255.0" cy="201.0" r="11" fill="#E8EEF5" stroke="#0E131D" stroke-width="2"/><text x="255.0" y="205.0" text-anchor="middle" font-size="11" font-weight="700" fill="#0E131D" font-family="Inter,sans-serif">6</text></g><text x="107.0" y="256" text-anchor="middle" font-size="10.5" fill="#9AA6B6" font-family="Inter,sans-serif">Unlikely</text><text x="181.0" y="256" text-anchor="middle" font-size="10.5" fill="#9AA6B6" font-family="Inter,sans-serif">Possible</text><text x="255.0" y="256" text-anchor="middle" font-size="10.5" fill="#9AA6B6" font-family="Inter,sans-serif">Likely</text><text x="62" y="205.0" text-anchor="end" font-size="10.5" fill="#9AA6B6" font-family="Inter,sans-serif">Low</text><text x="62" y="131.0" text-anchor="end" font-size="10.5" fill="#9AA6B6" font-family="Inter,sans-serif">Medium</text><text x="62" y="57.0" text-anchor="end" font-size="10.5" fill="#9AA6B6" font-family="Inter,sans-serif">High</text><text x="181.0" y="278" text-anchor="middle" font-size="10"  fill="#9AA6B6" font-family="Inter,sans-serif">LIKELIHOOD →</text></svg><p class="muted" style="font-size:.8rem;margin-top:4px">Impact goes up the side · darker = higher priority</p></div><ol class="rlist"><li><b>Cash short in the BAS week</b><span>Owner: Business owner · Control: 13-week forecast, buffer alert</span></li><li><b>Biggest customer pays late</b><span>Owner: Business owner · Control: Weekly debtor check, reminder flow</span></li><li><b>Staff paste customer data into free AI</b><span>Owner: Office manager · Control: Approved tool only, one-page rules</span></li><li><b>Fake supplier bank details</b><span>Owner: Bookkeeper · Control: Bank changes held until phone-verified</span></li><li><b>Only one person knows the books</b><span>Owner: Business owner · Control: Runbook and a second login</span></li><li><b>Xero not reconciled</b><span>Owner: Bookkeeper · Control: Weekly reconciliation check</span></li></ol></div></div>
+<p class="cap">Every risk gets a name, an owner and a control, the way a board would want it. It's one page, reviewed each quarter, and it covers cash, people, fraud and AI together.</p></div>
+
+<div class="ex" id="ex13"><div class="exh"><b>13. Revenue leakage findings</b><span>Sample · fictional 8-person engineering firm · one quarter</span></div>
+<div class="exb"><div class="vkpis"><div><small>Revenue not invoiced</small><b>$72,586</b></div><div><small>Effort not recovered</small><b>$40,068</b></div><div><small>Total to review</small><b>$112,654</b></div></div>
+<div class="tblw" style="margin-top:16px"><table class="tbl"><thead><tr><th>Where it leaks</th><th class="n">This quarter</th></tr></thead><tbody>
+<tr><td>Time and materials work not invoiced</td><td class="n">$54,586</td></tr>
+<tr><td>Fixed fees not invoiced on finished jobs</td><td class="n">$18,000</td></tr>
+<tr><td>Fixed-fee jobs over budget, no variation raised</td><td class="n">$19,795</td></tr>
+<tr><td>Client time marked non-billable</td><td class="n">$20,273</td></tr>
+</tbody></table></div>
+<p style="margin:18px 0 6px"><b>Five jobs to review first</b></p><div class="vscroll"><svg class="timesvg" viewBox="0 0 700 250" role="img" aria-label="Five jobs to review first, by dollars to review: J103 $22,580, J107 $22,513, J102 $20,387, J104 $19,770, J109 $13,437."><text x="238" y="37" text-anchor="end" font-size="12.5" fill="#E8EEF5" font-family="Inter,sans-serif">J103 Warehouse fit-out design</text><g><title>J103 Warehouse fit-out design: $22,580 to review. Fixed fee: effort 28% over the fee, no variation raised</title><rect x="250" y="24" width="343.2" height="18" rx="3" fill="#10B981"/></g><text x="601.2" y="37" font-size="10.5" fill="#E8EEF5" font-family="Inter,sans-serif">$22,580</text><text x="238" y="81" text-anchor="end" font-size="12.5" fill="#E8EEF5" font-family="Inter,sans-serif">J107 Clinic services upgrade</text><g><title>J107 Clinic services upgrade: $22,513 to review. Time and materials: September time of about $19,450 never invoiced</title><rect x="250" y="68" width="342.2" height="18" rx="3" fill="#10B981"/></g><text x="600.2" y="81" font-size="10.5" fill="#E8EEF5" font-family="Inter,sans-serif">$22,513</text><text x="238" y="125" text-anchor="end" font-size="12.5" fill="#E8EEF5" font-family="Inter,sans-serif">J102 Site inspections</text><g><title>J102 Site inspections: $20,387 to review. Time and materials: only 55% of time value invoiced</title><rect x="250" y="112" width="309.9" height="18" rx="3" fill="#10B981"/></g><text x="567.9" y="125" font-size="10.5" fill="#E8EEF5" font-family="Inter,sans-serif">$20,387</text><text x="238" y="169" text-anchor="end" font-size="12.5" fill="#E8EEF5" font-family="Inter,sans-serif">J104 Racking certification</text><g><title>J104 Racking certification: $19,770 to review. Fixed fee: job marked complete, half the fee never invoiced</title><rect x="250" y="156" width="300.5" height="18" rx="3" fill="#10B981"/></g><text x="558.5" y="169" font-size="10.5" fill="#E8EEF5" font-family="Inter,sans-serif">$19,770</text><text x="238" y="213" text-anchor="end" font-size="12.5" fill="#E8EEF5" font-family="Inter,sans-serif">J109 Pump station review</text><g><title>J109 Pump station review: $13,437 to review. Time and materials: 80% invoiced, $4,298 of time marked non-billable</title><rect x="250" y="200" width="204.2" height="18" rx="3" fill="#10B981"/></g><text x="462.2" y="213" font-size="10.5" fill="#E8EEF5" font-family="Inter,sans-serif">$13,437</text></svg></div></div>
+<p class="cap">Timesheets, jobs and Xero invoices reconciled for one quarter. Each item is marked for the owner to confirm, not called money owed, because time is valued at the rate card and some write-offs are fair. Synthetic data: the leakage level was built to show every measure and isn't typical of any firm. The fixes were a month-end billing check, an overrun alert and a rule that no job closes before its final invoice.</p></div>
+
+</div></section><section class="band"><div class="wrap cta-band"><div><h2>Want this for your business?</h2><p class="muted">Tell us which of these you'd use first. A few lines in writing is enough.</p></div>
+  <div class="cta" style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn primary" href="https://calendar.app.google/cNdbhY7JLJxroVfA8" target="_blank" rel="noopener">Book a fit check</a><a class="btn" href="/contact/?topic=Dashboards%20%26%20analytics#form">Start in writing</a><button class="btn" type="button" data-open-bot>Ask Bei-zAI</button></div></div></section>
+</main>
+<footer><div class="w">
+  <div class="fcols">
+    <div><b class="fb">Beiz Data &amp; Accounting</b><p>Finance, data and AI for small businesses, startups and solo operators. Canberra, working Australia-wide.</p><p><a href="/contact/">hello@beiz.com.au</a></p></div>
+    <div><h2>Services</h2><ul><li><a href="/services/#finance">Finance &amp; decision support</a></li><li><a href="/services/#data">Data &amp; business intelligence</a></li><li><a href="/services/#automation">AI agents &amp; automation</a></li><li><a href="/services/#governance">Governance &amp; improvement</a></li><li><a href="/services/">All services</a></li></ul></div>
+    <div><h2>Products &amp; demos</h2><ul><li><a href="/products-demos/ai-workflow/">AI workflow demo</a></li><li><a href="/products-demos/missing-receipts/">Missing receipts demo</a></li><li><a href="/ai-value-calculator/">AI cost-and-value calculator</a></li><li><a href="/bill-check/">Bill check</a></li></ul></div>
+    <div><h2>Company</h2><ul><li><a href="/about/">About Beiz</a></li><li><a href="/how-we-work/">How we work</a></li><li><a href="/workshops-speaking/">Workshops, coaching &amp; speaking</a></li><li><a href="/insights/">Insights</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy/">Privacy</a></li></ul></div>
+  </div>
+  <div class="legal">Beiz Data &amp; Accounting Pty Ltd · ABN 53 691 755 496 · Not registered for GST
+  <p>Liability limited by a scheme approved under Professional Standards Legislation.</p></div>
+</div></footer>
+<script>document.documentElement.classList.add('js');
+(function(){var b=document.querySelector('.menu'),n=document.getElementById('nav');
+b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+var dds=[].slice.call(document.querySelectorAll('.nav .dd'));function closeAll(except){dds.forEach(function(d){if(d!==except){d.setAttribute('aria-expanded','false');d.parentNode.classList.remove('open')}})}dds.forEach(function(d){d.addEventListener('click',function(ev){ev.stopPropagation();var o=d.getAttribute('aria-expanded')!=='true';closeAll(d);d.setAttribute('aria-expanded',o);d.parentNode.classList.toggle('open',o);d.parentNode.classList.toggle('nohov',!o)});d.parentNode.addEventListener('mouseleave',function(){d.parentNode.classList.remove('nohov')})});document.addEventListener('click',function(ev){if(!ev.target.closest('.nav'))closeAll()});document.addEventListener('keydown',function(ev){if(ev.key!=='Escape')return;var open=dds.filter(function(d){return d.getAttribute('aria-expanded')==='true'})[0];if(open){closeAll();open.parentNode.classList.add('nohov');open.focus();return}if(n.classList.contains('open')){n.classList.remove('open');b.setAttribute('aria-expanded','false');b.focus()}})})();</script><script src="/assets/site.js?v=165" defer></script><script src="/assets/wwd.js?v=165" defer></script><style>html.legacy body{background:#F6F4EF!important;color:#15181D!important;font:400 17px/1.6 Inter,system-ui,sans-serif!important}
+html.legacy .top{background:rgba(14,19,22,.94)!important;border-bottom:1px solid #2A353B!important}
+html.legacy .top .btn.p{background:#34C28F!important;color:#06221A!important;border:1px solid #34C28F!important;transition:none!important}
+html.legacy .top .btn.p:hover{background:#4FD3A1!important}
+html.legacy .top .nav a{font:400 15px Inter,sans-serif!important;color:#AAB5B1!important}
+html.legacy .top .nav a:hover,html.legacy .top .nav a[aria-current]{color:#ECF0EE!important;background:#1B2429!important}
+html.legacy .top .nav .sub a{color:#15181D!important;background:none!important}
+html.legacy .top .nav .sub a:hover{background:#F2EFE8!important;color:#15181D!important}
+html.legacy .navx{color:#ECF0EE!important}
+html.legacy :focus-visible{outline-color:#34C28F!important}
+html.legacy .top .dd{background:none!important;border:0!important;color:#AAB5B1!important;min-height:0!important;padding:0!important;box-shadow:none!important}
+html.legacy .top .nav .sub.wide b{font:600 14.5px Inter,sans-serif!important;color:#15181D!important}
+html.legacy .top .nav .sub.wide small{font:400 13px/1.4 Inter,sans-serif!important}
+html.legacy .top .nav .sub.wide .ex{color:#17664A!important;font:400 13px Inter,sans-serif!important;border:0!important;background:none!important;box-shadow:none!important;display:block!important;padding:2px 12px 6px!important}
+html.legacy .top .nav .sub.wide li a{border:0!important;box-shadow:none!important}
+html.legacy .top .brand,html.legacy .top .brand .bn,html.legacy .top .brand b{color:#ECF0EE!important}
+html.legacy .top .menu{color:#ECF0EE!important;border-color:#46545B!important;background:none!important}
+html.legacy main h1,html.legacy main h2,html.legacy main h3{font-family:Inter,system-ui,sans-serif!important;font-weight:600!important;letter-spacing:-.025em!important}
+html.legacy footer{background:#0E1316!important;color:#AAB5B1!important;font:400 14px/1.6 Inter,sans-serif!important;border-top:0!important}
+html.legacy footer .fcols h2{font:600 13px/1.4 Inter,sans-serif!important;letter-spacing:.02em!important;margin:0 0 10px!important;color:#ECF0EE!important}
+html.legacy footer a{color:#AAB5B1!important}html.legacy footer p{font-size:14px!important;margin:8px 0 0!important}
+html.legacy footer .fcols b{font:600 14px Inter,sans-serif!important;color:#ECF0EE!important}
+@media (max-width:1200px){html.legacy .top .nav.open .sub a{color:#AAB5B1!important}}
+</style>
+</body></html>

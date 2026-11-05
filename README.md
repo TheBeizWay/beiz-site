@@ -2,8 +2,8 @@
 
 Static site for Beiz Data & Accounting, hosted on GitHub Pages.
 
-- Edit content in `src/pages.py`, layout in `src/layout.py`, charts in `src/charts.py`.
-- Build: `python3 src/build.py` (writes HTML into the repo root, plus sitemap.xml and robots.txt).
-- Build needs **Python 3** and **Node.js** (tested with Node 22 and Python 3.13). The homepage panel figures are calculated at build time by running `assets/signature-model.js` with Node, so they always match `/products-demos/job-profitability/`.
-- Styles: `assets/site.css` · Script: `assets/site.js` · Fonts self-hosted in `assets/fonts/`.
-- Market data: `.github/workflows/markets.yml` refreshes `data/markets.json` every 30 minutes.
+- Build: `python3 src/ledger/build.py` (writes the pages into the repo root, plus sitemap.xml and llms.txt). Python 3 only.
+- Content: `src/ledger/content.py`. Layout: `src/ledger/build.py`. Styles and script: `assets/ledger/`.
+- Fonts are self-hosted in `assets/fonts/`.
+- Archived pages live in `_archive/` and aren't published. `src/legacy/` holds the old generator; don't run it.
+- Working rules: `CLAUDE.md`.
