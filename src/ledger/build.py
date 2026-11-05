@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import content as C
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ASSET_V = "L9"  # bump on every CSS or JS change
+ASSET_V = "L10"  # bump on every CSS or JS change
 SITE = "https://beiz.com.au"
 e = html.escape
 
@@ -56,6 +56,7 @@ def header(path):
         f'<a href="{h}"{" aria-current=page" if path == h else ""}>{t}</a>' for h, t in NAV) + '<a class="m" href="/contact/">Contact</a>'
     return f"""<header class="top"><div class="wrap">
 <a class="brand" href="/" aria-label="Beiz Data &amp; Accounting, home"><img src="/assets/ledger/beiz-lockup.png" alt="Beiz Data &amp; Accounting" width="149" height="44"></a>
+<span class="cobrand"><img src="/assets/media/ca-logo-vertical.svg" alt="Chartered Accountants Australia and New Zealand" width="94" height="106"></span>
 <nav class="nav" aria-label="Main">{links}</nav>
 <a class="btn" href="/contact/">Talk to us</a>
 <button class="menu" type="button" aria-expanded="false" aria-label="Open menu">Menu</button>
