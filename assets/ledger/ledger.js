@@ -16,6 +16,84 @@
     });
   }
 
+  /* ---- interactive bills panel ---- */
+  const book = $(".book");
+  if (book) {
+    const btns = [...book.querySelectorAll(".rowbtn")];
+    btns.forEach(b => b.addEventListener("click", () => {
+      btns.forEach(x => {
+        const on = x === b;
+        x.setAttribute("aria-expanded", on);
+        const d = document.getElementById("log-" + x.dataset.log);
+        if (d) { d.hidden = !on; if (on) { const n = d.querySelector(".dnote"); if (n) n.textContent = ""; } }
+      });
+    }));
+    book.querySelectorAll("[data-demo]").forEach(b => b.addEventListener("click", () => {
+      const n = b.closest(".drawer").querySelector(".dnote");
+      n.textContent = "\u201C" + b.textContent + "\u201D chosen. " + book.dataset.demoNote;
+    }));
+  }
+
+  /* ---- plain / technical view ---- */
+  const sw = $(".viewsw");
+  if (sw) {
+    const set = v => {
+      sw.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", b.dataset.view === v));
+      $(".vplain").hidden = v !== "plain"; $(".vtech").hidden = v !== "tech";
+    };
+    let saved = null; try { saved = localStorage.getItem("beizView"); } catch (_) {}
+    if (saved === "tech" || location.hash === "#hood-tech") set("tech");
+    if (location.hash === "#hood-tech") { const h = document.getElementById("hood"); if (h) h.scrollIntoView(); }
+    sw.addEventListener("click", e => {
+      const b = e.target.closest("button[data-view]"); if (!b) return;
+      set(b.dataset.view); try { localStorage.setItem("beizView", b.dataset.view); } catch (_) {}
+    });
+  }
+
+  /* ---- command palette: Ctrl/Cmd + K ---- */
+  const ITEMS = [
+    ["Home", "/"], ["Services", "/services/"], ["How it works", "/how-we-work/"],
+    ["Rules first, AI for the exceptions", "/how-we-work/", "How it works"],
+    ["Decision log: the five fields", "/how-we-work/#log", "How it works"],
+    ["Prices", "/prices/"], ["Run the free bill check", "/bill-check/"],
+    ["Under the hood: technical view", "/#hood-tech", "Home"],
+    ["About Beiz", "/about/"], ["Book a 20-minute call", "/contact/?topic=Discovery%20call"],
+    ["Write to us", "/contact/"], ["Email hello@beiz.com.au", "mailto:hello@beiz.com.au"], ["Privacy policy", "/privacy/"]
+  ];
+  const mac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
+  document.querySelectorAll("[data-pal]").forEach(b => { if (mac) b.textContent = "Jump to (\u2318K)"; });
+  let pal = null, sel = 0;
+  function render(q) {
+    const ul = pal.querySelector("ul"); q = q.trim().toLowerCase();
+    const hits = ITEMS.filter(i => !q || (i[0] + " " + (i[2] || "")).toLowerCase().includes(q));
+    sel = 0;
+    ul.innerHTML = hits.map((i, n) => `<li role="option"><a href="${i[1]}" aria-selected="${n === 0}">${i[0]}${i[2] ? `<small>${i[2]}</small>` : ""}</a></li>`).join("") || '<li><span style="display:block;padding:10px 18px;color:var(--muted)">No match</span></li>';
+  }
+  function openPal() {
+    if (!pal) {
+      pal = document.createElement("dialog"); pal.className = "pal"; pal.setAttribute("aria-label", "Jump to a page");
+      pal.innerHTML = '<input type="text" placeholder="Jump to..." aria-label="Search pages" autocomplete="off"><ul role="listbox"></ul><p class="phint">Arrow keys to move, Enter to open, Esc to close.</p>';
+      document.body.appendChild(pal);
+      const inp = pal.querySelector("input");
+      inp.addEventListener("input", () => render(inp.value));
+      inp.addEventListener("keydown", e => {
+        const links = [...pal.querySelectorAll("li a")];
+        if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+          e.preventDefault(); if (!links.length) return;
+          sel = (sel + (e.key === "ArrowDown" ? 1 : -1) + links.length) % links.length;
+          links.forEach((a, n) => a.setAttribute("aria-selected", n === sel)); links[sel].scrollIntoView({ block: "nearest" });
+        } else if (e.key === "Enter" && links[sel]) { e.preventDefault(); location.href = links[sel].getAttribute("href"); pal.close(); }
+      });
+      pal.addEventListener("click", e => { if (e.target === pal) pal.close(); });
+    }
+    const inp = pal.querySelector("input"); inp.value = ""; render("");
+    if (!pal.open) pal.showModal(); inp.focus();
+  }
+  document.addEventListener("keydown", e => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") { e.preventDefault(); openPal(); }
+  });
+  document.querySelectorAll("[data-pal]").forEach(b => b.addEventListener("click", openPal));
+
   const EMAIL = "hello@beiz.com.au";
   const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbw3iLtpS-Pubb6fLiWK2A8TgFGi9Joq0u-c7UyZqBO2-ciPcQbgdxmygnsBMKWXjm8FJg/exec";
   const form = $("#contactForm"), msg = $("#formMsg");

@@ -268,3 +268,41 @@ h3{font-size:1.3rem;line-height:1.25;font-weight:600}
 }
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 @media print{.top,.foot .grid,.acts{display:none}body{background:#fff}}
+
+/* interactive bills panel */
+.book .cue{margin:0;padding:8px 18px;font-size:13.5px;color:var(--muted);border-bottom:1px solid var(--rule)}
+.rowbtn{all:unset;cursor:pointer;text-decoration:underline;text-decoration-color:var(--rule2);text-underline-offset:3px}
+.rowbtn:hover{text-decoration-color:var(--ink)}
+.rowbtn:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.rowbtn[aria-expanded="true"]{font-weight:600;text-decoration-color:var(--ink)}
+.drawer{border-top:3px double var(--ink);padding:14px 18px 16px;background:var(--paper2)}
+.drawer .dhead{margin:0 0 8px;font:600 1rem var(--serif)}
+.drawer dl{margin:0;display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:0;font-size:14.5px}
+.drawer dt{color:var(--muted);padding:6px 10px 6px 0;border-top:1px solid var(--rule)}
+.drawer dd{margin:0;padding:6px 0;border-top:1px solid var(--rule)}
+.drawer .dacts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.drawer .btn{font-size:14px;padding:10px 14px}
+.drawer .dnote{margin:8px 0 0;font-size:13.5px;color:var(--ink2);min-height:0}
+@media (prefers-reduced-motion:no-preference){.drawer:not([hidden]){animation:dropin .18s ease-out}@keyframes dropin{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}}
+@media (max-width:420px){.drawer dl{grid-template-columns:1fr}.drawer dt{padding-bottom:0}.drawer dd{border-top:0;padding-top:2px}}
+
+/* plain / technical view */
+.viewsw{display:inline-flex;border:1px solid var(--ink);margin-top:24px}
+.viewsw button{background:transparent;border:0;padding:9px 16px;font:500 15px var(--sans);color:var(--ink);cursor:pointer}
+.viewsw button+button{border-left:1px solid var(--ink)}
+.viewsw button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.vplain,.vtech{margin-top:22px;max-width:46em}
+.vtech h3{margin:26px 0 10px;font-size:1.15rem}
+.code{background:var(--ink);color:#EDEAE2;padding:16px 18px;overflow-x:auto;font:400 13.5px/1.55 ui-monospace,"Cascadia Mono",Consolas,monospace;margin:0}
+
+/* command palette (Ctrl/Cmd+K) */
+.kbtn{background:none;border:0;padding:0;font:inherit;color:var(--muted);cursor:pointer;text-decoration:underline;text-underline-offset:3px;float:right}
+.kbtn:hover{color:var(--ink)}
+.pal{border:1px solid var(--ink);padding:0;width:min(560px,92vw);background:var(--paper);color:var(--ink)}
+.pal::backdrop{background:rgba(23,25,27,.35)}
+.pal input{width:100%;border:0;border-bottom:1px solid var(--ink);padding:16px 18px;font:400 17px var(--sans);background:var(--white);color:var(--ink);outline:none}
+.pal ul{list-style:none;margin:0;padding:6px 0;max-height:60vh;overflow:auto}
+.pal li a{display:block;padding:10px 18px;text-decoration:none;color:var(--ink)}
+.pal li a small{color:var(--muted);margin-left:8px}
+.pal li a[aria-selected="true"],.pal li a:hover{background:var(--paper2)}
+.pal .phint{margin:0;padding:8px 18px 12px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--rule)}

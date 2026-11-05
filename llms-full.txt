@@ -1,0 +1,146 @@
+# Beiz Data & Accounting
+
+> AI for real business work, with guardrails, set up and checked by an Australian Chartered Accountant. Canberra, working Australia-wide.
+
+Beiz Data & Accounting Pty Ltd (ABN 53 691 755 496) sets up AI agents for routine finance and admin work: bills, cash, reconciliations and client checks. Each agent has a written job description and limits, is tested on the client's past records, runs in shadow mode first, and needs a person's sign-off for anything that matters. Principal: Purav Mehta, Chartered Accountant (CA ANZ) with a Certificate of Public Practice, GAICD. Not registered for GST; prices are AUD with no GST added.
+
+Beiz does not provide tax returns, BAS or GST lodgements, tax or BAS agent services, statutory audit or assurance, legal advice or financial product advice.
+
+## Pages
+- [Home](https://beiz.com.au/)
+- [Services](https://beiz.com.au/services/): finance, AI agents and automation, data and reporting, governance, workshops
+- [How it works](https://beiz.com.au/how-we-work/): first 30 days and what every build includes
+- [Prices](https://beiz.com.au/prices/): free bill check; $1,500 fixed two-week cash & data check; compliance controls sprint from $3,500; cash & job profit model from $5,000; AI workforce setup by scoped quote; leave cover from $3,500 setup then from $2,000 a month; monthly controls operations from $1,250 a month
+- [Free bill check](https://beiz.com.au/bill-check/): runs in the browser, nothing uploaded
+- [About](https://beiz.com.au/about/)
+- [Contact](https://beiz.com.au/contact/): hello@beiz.com.au
+- [Full detail for AI assistants](https://beiz.com.au/llms-full.txt)
+
+---
+
+# Full detail
+
+## What Beiz does
+Beiz Data & Accounting sets up AI agents for the routine finance and admin work in your business: bills, cash, reconciliations and client checks. Each agent is tested on your past records first, and anything it isn't sure about waits for a person.
+
+Led by a Chartered Accountant, a member of Chartered Accountants Australia and New Zealand with a Certificate of Public Practice, and GAICD. Canberra, working Australia-wide.
+
+## Where it helps
+- Bills: today, evenings spent copying between emailed PDFs, bank feeds and your accounting software. With a Beiz agent: Matched to the supplier and order. Duplicates, split bills and changed bank details held for you.
+- Cash: today, the bank balance today and a guess about next month. With a Beiz agent: A 13-week cash view that refreshes from your weekly exports and ties back to the ledger.
+- Reconciliations: today, month-end spent copying between your accounting software and spreadsheets. With a Beiz agent: Accounts matched on a schedule, with the exceptions listed for a person to clear.
+- Client checks: today, new-client checks done from memory or an old checklist. With a Beiz agent: Each new client checked against your written procedure, with gaps flagged before work starts.
+
+## Services
+### Finance and decisions
+Know where cash and margin are going, from your own records.
+- Two-week cash & data check ($1,500 fixed): Bills, invoices and timesheets checked against each other, every finding traced to its record.
+- Cash & job profit model (from $5,000): A 13-week cash view and profit by job or client, tied back to the ledger. You drop in fresh exports weekly and it refreshes.
+- Leave cover (from $3,500 setup, then from $2,000 a month): When someone in finance goes on leave, an agent carries the routine part of their role, a Chartered Accountant reviews its work, and everything is handed back the day they return.
+
+### AI agents and automation
+Fewer handoffs and less re-keying, with a person signing off what matters.
+- AI workforce setup (Scoped quote): Agents for routine checking and preparation, each with a job description, limits, a test on your past records and shadow mode first.
+- Workflow review & redesign (Scoped quote): One process mapped end to end, with the handoffs, re-keying and waiting taken out before anything is automated.
+- Workflow automation (Scoped quote): One repetitive finance or admin workflow automated, tested and handed over.
+- Chatbots & AI assistants (Scoped quote): Answers from approved business information only, with clear limits and a hand-over to a person.
+- Monthly controls operations (from $1,250 a month): Up to two agreed agents or one model: monthly control review, log sample, test re-run and up to two hours of fixes.
+
+### Data and reporting
+One trusted set of numbers, flowing on a schedule.
+- Data engineering (Scoped quote): Your accounting software, CRM, job app and spreadsheets connected into one clean source.
+- Dashboards & management reporting (Scoped quote): A reporting pack or dashboard on agreed definitions, reconciled to the ledger.
+
+### Governance
+Know what's in scope, who owns it and where a person must approve.
+- Compliance controls sprint (from $3,500): One obligation mapped in two weeks: AI use, AML/CTF Tranche 2 or the Privacy Act automated-decision rules. General information, not legal advice.
+- AI governance for boards & owners (Scoped quote): A register, policy and reporting line for the AI already in use, including staff pasting client records into public AI tools.
+
+### Workshops
+Build your own team's capability, not just a system.
+- Workshops for owners & teams (Scoped quote): Small-group or in-house sessions on putting AI and data to work safely in day-to-day finance and admin.
+- Coaching for finance professionals (On request): One-to-one sessions for accountants and finance leads building working data and AI skills.
+
+## Prices (AUD, no GST added)
+- Free bill check: Free. Eight quick checks on a bills export, run in your browser. Nothing is uploaded.
+- Two-week cash & data check: $1,500 fixed. Bills, invoices and timesheets checked against each other, every finding traced to its record.
+- Compliance controls sprint: from $3,500. Two weeks, one focus: AI use, AML/CTF Tranche 2 or the Privacy Act automated-decision rules.
+- Live cash & job profit model: from $5,000. 13-week cash and profit by job or client, tied to the ledger, documented and handed over.
+- AI workforce setup: Scoped quote. Agents with written limits, tested on your records, shadow mode first.
+- Leave cover: from $3,500 setup, then from $2,000 a month. An agent carries the routine part of a finance role during leave, reviewed by a Chartered Accountant.
+- Monthly controls operations: from $1,250 a month. Ongoing review of up to two agreed agents or one model.
+
+## Terms
+- Credit: The $1,500 check is credited once against your next Beiz build (cash model, AI workforce setup, compliance sprint or leave cover setup) if you accept the proposal and pay the deposit within 60 days of the findings. It isn't redeemable for cash and doesn't apply to monthly support.
+- Monthly operations: Covers up to two agreed agents or one model: a monthly control review, a log sample, a test re-run and up to two hours of fixes in total. More is quoted. Requests are acknowledged within two business days. It isn't round-the-clock monitoring or an emergency service.
+- Cash model: You drop in fresh exports weekly and the model refreshes. Beiz builds it, ties actuals to the ledger, documents the assumptions and hands it over. Beiz reviews the forecast only where the support agreement sets out how often and what.
+- Proposals: Every proposal has a fixed price, a timeline and a definition of done, and arrives within three business days.
+
+## How a build runs
+- Write or talk: You describe the problem. A written reply by the next business day; calls are 20 minutes, early morning or after 5pm.
+- Fixed proposal: Within three business days: a fixed price, a timeline and a definition of done.
+- Build and test: Built in your own systems and tested on your past records against a pass mark agreed in writing.
+- Shadow mode: The agent runs alongside your team. Its work is compared with theirs before anything goes live.
+- Hand over: Documentation, the decision log in your own accounts, and a review with you at day 30.
+
+## Rules first, AI for the exceptions
+- Rules first: Fixed rules do the routine checking: matching amounts, dates, suppliers and invoice numbers. They behave the same way every time and cost nothing to run.
+- AI for the exceptions: AI only looks at what the rules can't settle, like a supplier invoice laid out in an unusual way. It hands back a structured answer for the rules to check again.
+- A person decides: Anything held, unusual or over your limit goes to a named person. Every run is kept in a history your staff can read, step by step.
+
+## Every build includes
+- A written job description, limits and a named person the agent reports to
+- Testing on your past records against a pass mark agreed in writing
+- Shadow mode before live
+- A decision log kept in your own accounts
+- A monthly spending cap and an off switch
+- Nothing paid or sent without a person
+- A day-30 review
+- An operating folder you keep: business context, procedures and agent memory, as plain files
+
+## Decision log fields
+- Record: The bill: supplier, invoice number, date and amount.
+- Check: The rule that ran, in plain words.
+- Finding: What the check saw in the records, with the records it compared.
+- Status: ok, held for a person, or stopped before payment.
+- Who decides: The named person who clears it, and what they do next. Their decision is logged with their name and the time.
+
+## Free bill check
+Catch an updated invoice about to be paid twice, or a supplier whose bank details just changed, before the payment run. Drop in a bills export from Xero, MYOB or QuickBooks, or any spreadsheet saved as CSV. Eight checks run on this device in a few seconds. Your file isn't uploaded, stored or sent to us.
+- Possible duplicate bills: same supplier, same amount, within 14 days, including an updated invoice sent after the original
+- The same invoice number used twice by one supplier
+- A supplier's bank details changing
+- Bills that look split to stay under your approval limit
+- Bills just under your approval limit
+- A large first bill from a supplier first seen in your file
+- Payments made on a weekend
+- ABNs missing or failing the check-digit test
+
+Q: Is my bills file uploaded anywhere?
+A: No. The check runs in your browser on your own device. Your file isn't uploaded, stored or sent to Beiz.
+Q: Which accounting software does it work with?
+A: Any bills or payables export saved as CSV, including from Xero, MYOB and QuickBooks. It needs a supplier, an amount and a date; invoice numbers, payment dates, bank details and ABNs make it sharper.
+Q: Why not paste my bills into ChatGPT?
+A: You can, but a chat assistant reads a file loosely and can skip or misread rows in a long export. This check runs the same fixed rules on every row, shows each flag with the records behind it, and your file never leaves your device. Check your own obligations before putting supplier bank details or client information into any online AI tool.
+Q: Is this an audit?
+A: No. It's eight quick checks. A flag is a prompt for a person to look, and many flags will have an innocent explanation.
+Q: What does it cost?
+A: Nothing. The paid two-week cash and data check goes further, from your full exports, for $1,500 fixed.
+
+It's eight quick checks, not an audit. It can't see your bank, your emails or the bills you never entered, and it doesn't tell you whether anyone did anything wrong. It's general information, not tax, legal or accounting advice, and you decide what to do with any flag. Xero, MYOB and QuickBooks are named only to describe file formats; Beiz isn't affiliated with them.
+
+## What Beiz does not do
+Beiz doesn't do tax returns, BAS or GST lodgements, tax or BAS agent services, statutory audit or assurance, legal advice or financial product advice, and never releases payments without a person. Your tax agent keeps that work.
+
+## Company details
+- Legal name: Beiz Data & Accounting Pty Ltd
+- ABN: 53 691 755 496
+- ACN: 691 755 496
+- GST: Not registered. Prices are AUD with no GST added
+- Principal: Purav Mehta: Chartered Accountant (CA ANZ) with a Certificate of Public Practice, GAICD
+- Insurance: Professional indemnity insurance held
+- Based in: Canberra, ACT. Working Australia-wide
+- Email: hello@beiz.com.au
+
+Liability limited by a scheme approved under Professional Standards Legislation.
+Trade mark of Chartered Accountants Australia and New Zealand and used with permission.

@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import content as C
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ASSET_V = "L15"  # bump on every CSS or JS change
+ASSET_V = "L16"  # bump on every CSS or JS change
 SITE = "https://beiz.com.au"
 e = html.escape
 
@@ -21,7 +21,8 @@ LD = """{"@context":"https://schema.org","@type":"ProfessionalService","name":"B
 "url":"https://beiz.com.au/","email":"hello@beiz.com.au","logo":"https://beiz.com.au/assets/brand/beiz-icon-512.png",
 "address":{"@type":"PostalAddress","addressLocality":"Canberra","addressRegion":"ACT","addressCountry":"AU"},
 "areaServed":"AU","sameAs":["https://github.com/TheBeizWay"],"taxID":"53 691 755 496",
-"description":"AI for real business work, with guardrails, set up and checked by an Australian Chartered Accountant."}"""
+"description":"AI for real business work, with guardrails, set up and checked by an Australian Chartered Accountant.",
+"founder":{"@type":"Person","name":"Purav Mehta","jobTitle":"Principal","hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"Professional membership","name":"Chartered Accountant (CA) with a Certificate of Public Practice","recognizedBy":{"@type":"Organization","name":"Chartered Accountants Australia and New Zealand","url":"https://www.charteredaccountantsanz.com"}},{"@type":"EducationalOccupationalCredential","name":"Graduate of the Australian Institute of Company Directors (GAICD)","recognizedBy":{"@type":"Organization","name":"Australian Institute of Company Directors","url":"https://www.aicd.com.au"}}]}}"""
 
 
 def head(path, title, desc):
@@ -60,7 +61,7 @@ def header(path):
 <nav class="nav" aria-label="Main">{links}</nav>
 <a class="btn" href="/contact/">Talk to us</a>
 <button class="menu" type="button" aria-expanded="false" aria-label="Open menu">Menu</button>
-</div><div class="tmstrip"><div class="wrap">Trade mark of Chartered Accountants Australia and New Zealand and used with permission.</div></div></header>
+</div><div class="tmstrip"><div class="wrap">Trade mark of Chartered Accountants Australia and New Zealand and used with permission.<button type="button" class="kbtn" data-pal>Jump to (Ctrl K)</button></div></div></header>
 """
 
 
@@ -85,6 +86,7 @@ def footer():
 </div>
 </div></footer>
 <script src="/assets/ledger/ledger.js?v={ASSET_V}" defer></script>
+<script src="/assets/ledger/webmcp.js?v={ASSET_V}" defer></script>
 """
 
 
@@ -124,14 +126,26 @@ def who_block(full=False):
 
 # ---------------------------------------------------------------- pages
 def home():
+    def drawer(key):
+        d = C.HERO_LOG[key]
+        dl = "".join(f"<dt>{a}</dt><dd>{b}</dd>" for a, b in d["log"])
+        acts = "".join(
+            (f'<a class="btn line" href="{u}">{t}</a>' if u != "demo" else f'<button type="button" class="btn line" data-demo>{t}</button>')
+            for t, u in d["acts"])
+        hidden = "" if key == "stop" else " hidden"
+        return (f'<div class="drawer" id="log-{key}" role="region" aria-label="Decision log: {d["row"]}"{hidden}>'
+                f'<p class="dhead">Decision log</p><dl>{dl}</dl><div class="dacts">{acts}</div>'
+                f'<p class="dnote" aria-live="polite"></p></div>')
     rowsb = "".join(
-        f'<tr><td><span class="dot {c}"></span>{t}</td><td class="n">{n}</td></tr>'
+        f'<tr><td><span class="dot {c}"></span><button type="button" class="rowbtn" data-log="{c}" aria-controls="log-{c}" aria-expanded="{"true" if c == "stop" else "false"}">{t}</button></td><td class="n">{n}</td></tr>'
         for c, lab, t, n in C.HERO_BOOK)
-    book = f"""<div class="book" role="img" aria-label="Example week for a made-up business: 42 bills received, 38 matched, 3 held for a person, 1 stopped.">
+    drawers = "".join(drawer(k) for k in ("ok", "held", "stop"))
+    book = f"""<div class="book" data-demo-note="{C.DEMO_ACT_NOTE}">
 <div class="cap"><span>Bills this week</span><span>Example, made-up business</span></div>
-<table><tbody><tr><td><span class="dot none"></span>Bills received</td><td class="n">42</td></tr>{rowsb}
+<p class="cue">Select a row to see its decision log.</p>
+<table><caption class="skip">Example week for a made-up business: 42 bills received, 38 matched, 3 held for a person, 1 stopped, none paid without sign-off.</caption><tbody><tr><td><span class="dot none"></span>Bills received</td><td class="n">42</td></tr>{rowsb}
 <tr class="tot"><td><span class="dot none"></span>Paid without a person's sign-off</td><td class="n">0</td></tr></tbody></table>
-<p class="bnote">Each held or stopped bill shows the reason and the records behind it.</p></div>"""
+{drawers}</div>"""
     hero = f"""<section class="hero"><div class="wrap">
 <div><h1>{C.HERO_H1}</h1><p class="lede">{C.HERO_LEDE}</p>
 <div class="acts"><a class="btn" href="/contact/">Book a 20-minute call</a><a class="btn line" href="/bill-check/">Try the free bill check</a></div>
@@ -146,6 +160,13 @@ def home():
     body += sec("Try it now", f"<h2>Run the free bill check on your own bills</h2><p class=\"intro\">Export your bills from Xero, MYOB or QuickBooks and drop the file in. Eight checks run in your browser in a few seconds. Nothing is uploaded or sent to us.</p><ul class=\"plain\">{bcl}</ul><div class=\"acts\"><a class=\"btn\" href=\"/bill-check/\">Run the free bill check</a></div>")
     body += sec("Ways to start", f"<h2>Three ways to start</h2>{price_table(C.START)}<p class=\"note\">{C.PRICE_NOTE} <a href=\"/prices/\">See every price</a>.</p>")
     body += sec("How it stays safe", f"<h2>Nothing runs on its own on day one</h2>{rows(C.SAFE)}<p class=\"note\">{C.NOT_DO} <a href=\"/how-we-work/\">How a build runs</a>.</p>")
+    tools = "".join(f"<li><b>{n}</b>: {d}</li>" for n, d in C.AGENT_TOOLS)
+    tv = (f'<div class="viewsw" role="group" aria-label="View"><button type="button" data-view="plain" aria-pressed="true">Plain view</button><button type="button" data-view="tech" aria-pressed="false">Technical view</button></div>'
+          f'<div class="vplain"><p class="intro">{C.TECH_PLAIN}</p></div>'
+          f'<div class="vtech" hidden><h3>One decision-log record</h3><pre class="code"><code>{e(C.LOG_SCHEMA)}</code></pre>'
+          f'<h3>Tools this site offers to browser AI agents</h3><p>Registered through WebMCP where the browser supports it (currently a Chrome preview behind a flag). In other browsers nothing loads.</p><ul class="plain">{tools}</ul>'
+          f'<h3>How the bill check handles your file</h3><p>The file is read in your browser with plain JavaScript. It isn\'t uploaded, stored or sent; the only request the page makes is for the sample file, and only if you ask for it.</p></div>')
+    body += sec("Under the hood", f"<h2>The record behind every check</h2>{tv}", sid="hood")
     body += sec("Who you'll deal with", f"<h2>One accountable person, from first call to handover</h2>{who_block()}")
     body += sec("Next step", f"<h2>Talk or write. Either way, a reply by the next business day.</h2><p class=\"intro\">{C.CTA_TEXT}</p><div class=\"acts\"><a class=\"btn\" href=\"/contact/\">Start in writing</a><a class=\"btn line\" href=\"/contact/?topic=Discovery%20call\">Book a 20-minute call</a></div>", "dark")
     return page("/", "Beiz Data & Accounting | AI for real work, checked by a Chartered Accountant", C.HOME_DESC, body)
@@ -164,6 +185,7 @@ def how():
     body = phead("How it works", C.HOW_LEDE)
     body += sec("The first 30 days", f"<h2>From first message to a working agent</h2>{rows(C.FIRST30)}")
     body += sec("How it's built", f"<h2>Rules first. AI only for the exceptions.</h2><p class=\"intro\">Most finance work follows rules, so rules do most of the work. That keeps every step traceable and the running costs low.</p>{rows(C.RULES_FIRST)}")
+    body += sec("Decision log", f"<h2>Five things every check records</h2><p class=\"intro\">The log lives in your own accounts. Here is what each entry holds.</p>{rows(C.LOG_FIELDS)}", sid="log")
     body += sec("Every agent", f"<h2>What every Beiz build includes</h2><ul class=\"plain\">{''.join(f'<li>{x}</li>' for x in C.INCLUDES)}</ul>")
     body += sec("Findings", f"<h2>We report what the records support</h2>{rows(C.FINDINGS)}")
     body += sec("Scope", f"<h2>What we don't do</h2><p class=\"intro\">{C.NOT_DO}</p>")
@@ -233,7 +255,13 @@ def bill_check():
     body += sec("Limits", f"<p class=\"intro\">{C.BC_LIMITS}</p>")
     body += sec("Next step", "<h2>Want these checks on every bill?</h2><p class=\"intro\">They're a small slice of the two-week cash and data check ($1,500 fixed), and of a bills agent that runs them before anything is paid and holds anything odd for a person.</p><div class=\"acts\"><a class=\"btn\" href=\"/contact/?topic=Two-week%20cash%20%26%20data%20check\">Ask about the check</a></div>", "dark")
     js = f'<script src="/assets/billcheck.js?v={ASSET_V}" defer></script>\n'
-    return page("/bill-check/", "Free bill check | Beiz Data & Accounting", "Check a bills export from Xero, MYOB or QuickBooks for duplicates, changed bank details and split bills. Runs in your browser; nothing is uploaded.", body, js + ld)
+    app = '<script type="application/ld+json">' + __import__("json").dumps({
+        "@context": "https://schema.org", "@type": "WebApplication", "name": "Beiz free bill check",
+        "url": "https://beiz.com.au/bill-check/", "applicationCategory": "FinanceApplication", "operatingSystem": "Any modern browser",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "AUD"},
+        "description": "Eight checks on a bills export (duplicates, repeated invoice numbers, changed supplier bank details, split bills and more). Runs in the browser; the file isn't uploaded.",
+        "provider": {"@type": "ProfessionalService", "name": "Beiz Data & Accounting Pty Ltd", "url": "https://beiz.com.au/"}}) + "</script>"
+    return page("/bill-check/", "Free bill check | Beiz Data & Accounting", "Check a bills export from Xero, MYOB or QuickBooks for duplicates, changed bank details and split bills. Runs in your browser; nothing is uploaded.", body, js + ld + app)
 
 
 def privacy():
@@ -262,6 +290,89 @@ def write(path, text):
     open(f, "w", encoding="utf-8").write(text)
 
 
+def webmcp_js():
+    """Browser-agent tools (WebMCP). Facts come straight from content.py so they can't drift from the pages."""
+    import json, re
+    strip = lambda t: re.sub(r"<[^>]+>", "", t).replace("&amp;", "&").replace("&middot;", "\u00b7")
+    services = {
+        "name": "Beiz Data & Accounting Pty Ltd", "abn": "53 691 755 496", "acn": "691 755 496",
+        "gst": "Not registered. Prices are AUD with no GST added.", "location": "Canberra, ACT. Works Australia-wide.",
+        "principal": "Purav Mehta: Chartered Accountant (member of Chartered Accountants Australia and New Zealand) with a Certificate of Public Practice, GAICD",
+        "positioning": "AI for real work, with guardrails, set up and checked by an Australian Chartered Accountant.",
+        "prices": [{"offer": strip(n), "what": strip(d), "price": strip(p)} for n, d, p, _ in C.PRICES],
+        "every_build_includes": [strip(x) for x in C.INCLUDES],
+        "does_not_do": strip(C.NOT_DO),
+        "contact": {"email": "hello@beiz.com.au", "page": "https://beiz.com.au/contact/",
+                    "reply": "Written reply by the next business day; proposal within three business days."},
+        "source": "https://beiz.com.au/",
+    }
+    bill = {"url": "https://beiz.com.au/bill-check/", "checks": [strip(x) for x in C.BC_CHECKS],
+            "file_handling": "Runs in the visitor's browser. The file isn't uploaded, stored or sent.",
+            "limits": strip(C.BC_LIMITS)}
+    adm = {
+        "commences": "10 December 2026",
+        "rule": "New APP 1.7 to 1.9 (Privacy and Other Legislation Amendment Act 2024): an APP entity's privacy policy must describe its use of computer programs in decisions.",
+        "applies_when_all": [
+            "the organisation is an APP entity covered by the Privacy Act",
+            "a computer program makes a decision, or does something substantially and directly related to making one",
+            "the decision could reasonably be expected to significantly affect an individual's rights or interests",
+            "personal information is used in the program's operation for that decision"],
+        "what_it_requires": "Transparency in the privacy policy. It is a disclosure obligation.",
+        "source": "https://www.oaic.gov.au/privacy/australian-privacy-principles/australian-privacy-principles-guidelines/chapter-1-app-1-open-and-transparent-management-of-personal-information",
+        "note": "General information only, not legal advice. Confirm with your own adviser."}
+    return """/* Beiz WebMCP tools. Generated by src/ledger/build.py; edit content.py, not this file.
+   Progressive enhancement: does nothing unless the browser exposes document.modelContext (or navigator.modelContext). */
+(() => {
+  const mc = document.modelContext || navigator.modelContext;
+  if (!mc || typeof mc.registerTool !== "function") return;
+  const SERVICES = %s, BILL = %s, ADM = %s;
+  const out = o => ({ content: [{ type: "text", text: JSON.stringify(o, null, 2) }] });
+  const reg = t => { try { const r = mc.registerTool(t); if (r && r.catch) r.catch(() => {}); } catch (_) {} };
+  reg({ name: "get_beiz_services", description: "Facts about Beiz Data & Accounting: who it is, prices in AUD, what every build includes, what it does not do, and how to make contact. Read-only.",
+        inputSchema: { type: "object", properties: {} }, annotations: { readOnlyHint: true }, execute: async () => out(SERVICES) });
+  reg({ name: "get_bill_check_rules", description: "The eight checks the free browser-based bill check runs, how the file is handled, and its limits. Read-only.",
+        inputSchema: { type: "object", properties: {} }, annotations: { readOnlyHint: true }, execute: async () => out(BILL) });
+  reg({ name: "privacy_adm_overview",
+        description: "General information on Australia's Privacy Act automated-decision transparency rules (APP 1.7 to 1.9, from 10 December 2026). Optionally pass what the user knows; returns which conditions are met, unknown or not met. Not legal advice.",
+        inputSchema: { type: "object", properties: {
+          app_entity: { type: "string", enum: ["yes", "no", "unsure"], description: "Is the organisation covered by the Privacy Act?" },
+          computer_program_decides: { type: "string", enum: ["yes", "no", "unsure"], description: "Does a computer program make, or substantially help make, the decision?" },
+          significant_effect: { type: "string", enum: ["yes", "no", "unsure"], description: "Could the decision reasonably be expected to significantly affect an individual's rights or interests?" },
+          uses_personal_information: { type: "string", enum: ["yes", "no", "unsure"], description: "Is personal information used in making it?" } } },
+        annotations: { readOnlyHint: true },
+        execute: async (a = {}) => {
+          const k = ["app_entity", "computer_program_decides", "significant_effect", "uses_personal_information"];
+          const v = k.map(x => a[x] || "unsure");
+          const summary = v.includes("no") ? "At least one condition is not met, so the new disclosure rule is unlikely to apply to this decision."
+            : v.includes("unsure") ? "Some conditions are unknown. The rule may apply; confirm the unknowns."
+            : "All four conditions are met, so the privacy policy will likely need the new disclosures from 10 December 2026.";
+          return out({ ...ADM, answers: Object.fromEntries(k.map((x, i) => [x, v[i]])), summary });
+        } });
+})();
+""" % (json.dumps(services), json.dumps(bill), json.dumps(adm))
+
+
+def llms_full():
+    import re
+    t = lambda x: re.sub(r"<[^>]+>", "", x).replace("&amp;", "&").replace("&middot;", "·")
+    L = [C.LLMS.strip(), "", "---", "", "# Full detail", "", "## What Beiz does", t(C.HERO_LEDE), "", t(C.HERO_CRED), ""]
+    L += ["## Where it helps"] + [f"- {a}: today, {t(b)[:1].lower() + t(b)[1:]} With a Beiz agent: {t(c)}" for a, b, c in C.JOBS] + [""]
+    L += ["## Services"]
+    for g in C.GROUPS:
+        L += [f"### {t(g['title'])}", t(g["intro"])] + [f"- {t(n)} ({t(p)}): {t(d)}" for n, d, p, _ in g["items"]] + [""]
+    L += ["## Prices (AUD, no GST added)"] + [f"- {t(n)}: {t(p)}. {t(d)}" for n, d, p, _ in C.PRICES] + [""]
+    L += ["## Terms"] + [f"- {a}: {t(b)}" for a, b in C.PRICE_TERMS] + [""]
+    L += ["## How a build runs"] + [f"- {a}: {t(b)}" for a, b in C.FIRST30] + [""]
+    L += ["## Rules first, AI for the exceptions"] + [f"- {a}: {t(b)}" for a, b in C.RULES_FIRST] + [""]
+    L += ["## Every build includes"] + [f"- {t(x)}" for x in C.INCLUDES] + [""]
+    L += ["## Decision log fields"] + [f"- {a}: {t(b)}" for a, b in C.LOG_FIELDS] + [""]
+    L += ["## Free bill check", t(C.BC_LEDE)] + [f"- {t(x)}" for x in C.BC_CHECKS] + [""] + [f"Q: {q}\nA: {t(a)}" for q, a in C.BC_FAQ] + ["", t(C.BC_LIMITS), ""]
+    L += ["## What Beiz does not do", t(C.NOT_DO), "", "## Company details"] + [f"- {a}: {t(b)}" for a, b in C.FACTS]
+    L += ["", "Liability limited by a scheme approved under Professional Standards Legislation.",
+          "Trade mark of Chartered Accountants Australia and New Zealand and used with permission.", ""]
+    return "\n".join(L)
+
+
 def main():
     for p, fn in PAGES.items():
         write(p, fn())
@@ -271,6 +382,8 @@ def main():
     urls = "".join(f"<url><loc>{SITE}{p}</loc></url>" for p in PAGES)
     open(os.path.join(ROOT, "sitemap.xml"), "w").write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>\n')
     open(os.path.join(ROOT, "llms.txt"), "w").write(C.LLMS)
+    open(os.path.join(ROOT, "llms-full.txt"), "w").write(llms_full())
+    open(os.path.join(ROOT, "assets", "ledger", "webmcp.js"), "w").write(webmcp_js())
     print("built", len(PAGES), "pages,", len(C.REDIRECTS), "redirects")
 
 

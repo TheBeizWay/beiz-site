@@ -297,6 +297,7 @@ Beiz does not provide tax returns, BAS or GST lodgements, tax or BAS agent servi
 - [Free bill check](https://beiz.com.au/bill-check/): runs in the browser, nothing uploaded
 - [About](https://beiz.com.au/about/)
 - [Contact](https://beiz.com.au/contact/): hello@beiz.com.au
+- [Full detail for AI assistants](https://beiz.com.au/llms-full.txt)
 """
 
 # ---------------------------------------------------------------- added 5 Nov 2026 (Reddit research, Purav's go)
@@ -310,4 +311,61 @@ HOME_BC = [
     "The same invoice number used twice by one supplier",
     "A supplier's bank details changing",
     "Bills split to stay under your approval limit",
+]
+
+# ---------------------------------------------------------------- interactive hero (5 Nov 2026, Purav's request)
+# Decision-log examples come from the same made-up business as /data/sample-bills.csv.
+LOG_FIELDS = [
+    ("Record", "The bill: supplier, invoice number, date and amount."),
+    ("Check", "The rule that ran, in plain words."),
+    ("Finding", "What the check saw in the records, with the records it compared."),
+    ("Status", "ok, held for a person, or stopped before payment."),
+    ("Who decides", "The named person who clears it, and what they do next. Their decision is logged with their name and the time."),
+]
+HERO_LOG = {
+    "ok": {
+        "row": "Matched to supplier and order",
+        "log": [("Record", "Gecko Fleet Fuel &middot; GF1434 &middot; 6 Apr 2026 &middot; $537.22"),
+                ("Check", "Supplier known, invoice number not seen before, amount in the usual range, bank details unchanged"),
+                ("Finding", "Nothing unusual against the supplier's last 26 bills"),
+                ("Status", "ok: ready for the normal payment run"),
+                ("Who decides", "No action needed. Still logged, so the record shows it was checked")],
+        "acts": [("Open the bill check", "/bill-check/")],
+    },
+    "held": {
+        "row": "Held for a person: possible duplicate or over limit",
+        "log": [("Record", "Wattlebird Electrical &middot; INV-2207A &middot; 19 Aug 2026 &middot; $3,960.00"),
+                ("Check", "Same supplier, same amount, within 14 days of another bill"),
+                ("Finding", "Matches INV-2207 from 12 Aug 2026 for $3,960.00. Looks like an updated invoice sent after the original"),
+                ("Status", "held: not in the payment run until a person decides"),
+                ("Who decides", "The accounts payable lead: pay it, or mark it as a duplicate")],
+        "acts": [("Mark as duplicate", "demo"), ("Approve to pay", "demo")],
+    },
+    "stop": {
+        "row": "Stopped: supplier bank details changed",
+        "log": [("Record", "Bluetongue Plumbing &middot; BT1911 &middot; 25 Aug 2026 &middot; $2,423.87"),
+                ("Check", "Bank details compared with the supplier's previous bills"),
+                ("Finding", "Account changed from BSB 062-208, account ending 4580 (9 bills since April) to BSB 082-991, account ending 1192"),
+                ("Status", "stopped: kept out of the payment file"),
+                ("Who decides", "The owner rings the supplier on a number already on file, never one from the email, before anything is paid")],
+        "acts": [("Ring the supplier first", "demo"), ("Open the bill check", "/bill-check/")],
+    },
+}
+DEMO_ACT_NOTE = "Demo only. In a real setup this decision is logged with your name and the time. Nothing is paid or sent."
+
+# ---------------------------------------------------------------- technical view, agent tools
+TECH_PLAIN = ("Every check an agent runs leaves a record: what it looked at, the rule it used, what it found, and who decided. "
+              "That record lives in your own accounts, not ours. The free bill check runs entirely in your browser; your file isn't sent anywhere.")
+LOG_SCHEMA = """{
+  "record":      { "supplier": "Bluetongue Plumbing", "invoice": "BT1911",
+                   "date": "2026-08-25", "amount_aud": 2423.87 },
+  "check":       "bank_details_changed",
+  "finding":     "BSB/account differs from the supplier's previous 9 bills",
+  "status":      "stopped",
+  "who_decides": { "role": "owner", "decision": null, "decided_at": null }
+}"""
+AGENT_TOOLS = [
+    ("get_beiz_services", "Company facts, prices and what Beiz doesn't do, from this site."),
+    ("get_bill_check_rules", "The eight checks the free bill check runs, and how your file is handled."),
+    ("privacy_adm_overview", "General information on the Privacy Act automated-decision rules starting 10 December 2026, with the OAIC source. Not legal advice."),
 ]

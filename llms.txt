@@ -14,3 +14,4 @@ Beiz does not provide tax returns, BAS or GST lodgements, tax or BAS agent servi
 - [Free bill check](https://beiz.com.au/bill-check/): runs in the browser, nothing uploaded
 - [About](https://beiz.com.au/about/)
 - [Contact](https://beiz.com.au/contact/): hello@beiz.com.au
+- [Full detail for AI assistants](https://beiz.com.au/llms-full.txt)
