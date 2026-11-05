@@ -10,7 +10,7 @@ Beiz does not provide tax returns, BAS or GST lodgements, tax or BAS agent servi
 - [Home](https://beiz.com.au/)
 - [Services](https://beiz.com.au/services/): finance, AI agents and automation, data and reporting, governance, workshops
 - [How it works](https://beiz.com.au/how-we-work/): first 30 days and what every build includes
-- [Prices](https://beiz.com.au/prices/): free bill check; $1,500 fixed two-week cash & data check; compliance controls sprint from $3,500; cash & job profit model from $5,000; AI workforce setup by scoped quote; leave cover from $3,500 setup then from $2,000 a month; monthly controls operations from $1,250 a month
+- [Prices](https://beiz.com.au/prices/): free bill check; $1,500 fixed two-week cash & data check; compliance controls sprint from $3,500; cash & job profit model, AI workforce setup, leave cover and monthly controls operations by scoped quote
 - [Free bill check](https://beiz.com.au/bill-check/): runs in the browser, nothing uploaded
 - [About](https://beiz.com.au/about/)
 - [Contact](https://beiz.com.au/contact/): hello@beiz.com.au
@@ -35,8 +35,8 @@ Led by a Chartered Accountant, a member of Chartered Accountants Australia and N
 ### Finance and decisions
 Know where cash and margin are going, from your own records.
 - Two-week cash & data check ($1,500 fixed): Bills, invoices and timesheets checked against each other, every finding traced to its record.
-- Cash & job profit model (from $5,000): A 13-week cash view and profit by job or client, tied back to the ledger. You drop in fresh exports weekly and it refreshes.
-- Leave cover (from $3,500 setup, then from $2,000 a month): When someone in finance goes on leave, an agent carries the routine part of their role, a Chartered Accountant reviews its work, and everything is handed back the day they return.
+- Cash & job profit model (Scoped quote): A 13-week cash view and profit by job or client, tied back to the ledger. You drop in fresh exports weekly and it refreshes.
+- Leave cover (Scoped quote): When someone in finance goes on leave, an agent carries the routine part of their role, a Chartered Accountant reviews its work, and everything is handed back the day they return.
 
 ### AI agents and automation
 Fewer handoffs and less re-keying, with a person signing off what matters.
@@ -44,7 +44,7 @@ Fewer handoffs and less re-keying, with a person signing off what matters.
 - Workflow review & redesign (Scoped quote): One process mapped end to end, with the handoffs, re-keying and waiting taken out before anything is automated.
 - Workflow automation (Scoped quote): One repetitive finance or admin workflow automated, tested and handed over.
 - Chatbots & AI assistants (Scoped quote): Answers from approved business information only, with clear limits and a hand-over to a person.
-- Monthly controls operations (from $1,250 a month): Up to two agreed agents or one model: monthly control review, log sample, test re-run and up to two hours of fixes.
+- Monthly controls operations (Scoped quote): Up to two agreed agents or one model: monthly control review, log sample, test re-run and up to two hours of fixes.
 
 ### Data and reporting
 One trusted set of numbers, flowing on a schedule.
@@ -65,10 +65,10 @@ Build your own team's capability, not just a system.
 - Free bill check: Free. Eight quick checks on a bills export, run in your browser. Nothing is uploaded.
 - Two-week cash & data check: $1,500 fixed. Bills, invoices and timesheets checked against each other, every finding traced to its record.
 - Compliance controls sprint: from $3,500. Two weeks, one focus: AI use, AML/CTF Tranche 2 or the Privacy Act automated-decision rules.
-- Live cash & job profit model: from $5,000. 13-week cash and profit by job or client, tied to the ledger, documented and handed over.
+- Live cash & job profit model: Scoped quote. 13-week cash and profit by job or client, tied to the ledger, documented and handed over.
 - AI workforce setup: Scoped quote. Agents with written limits, tested on your records, shadow mode first.
-- Leave cover: from $3,500 setup, then from $2,000 a month. An agent carries the routine part of a finance role during leave, reviewed by a Chartered Accountant.
-- Monthly controls operations: from $1,250 a month. Ongoing review of up to two agreed agents or one model.
+- Leave cover: Scoped quote. An agent carries the routine part of a finance role during leave, reviewed by a Chartered Accountant.
+- Monthly controls operations: Scoped quote. Ongoing review of up to two agreed agents or one model.
 
 ## Terms
 - Credit: The $1,500 check is credited once against your next Beiz build (cash model, AI workforce setup, compliance sprint or leave cover setup) if you accept the proposal and pay the deposit within 60 days of the findings. It isn't redeemable for cash and doesn't apply to monthly support.

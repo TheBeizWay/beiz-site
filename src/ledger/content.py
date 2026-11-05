@@ -74,15 +74,15 @@ SERVICES_LEDE = ("Finance, data, automation and governance work for Australian s
 GROUPS = [
     {"title": "Finance and decisions", "intro": "Know where cash and margin are going, from your own records.", "items": [
         ("Two-week cash &amp; data check", "Bills, invoices and timesheets checked against each other, every finding traced to its record.", "$1,500 fixed", ""),
-        ("Cash &amp; job profit model", "A 13-week cash view and profit by job or client, tied back to the ledger. You drop in fresh exports weekly and it refreshes.", "from $5,000", ""),
-        ("Leave cover", "When someone in finance goes on leave, an agent carries the routine part of their role, a Chartered Accountant reviews its work, and everything is handed back the day they return.", "from $3,500 setup, then from $2,000 a month", ""),
+        ("Cash &amp; job profit model", "A 13-week cash view and profit by job or client, tied back to the ledger. You drop in fresh exports weekly and it refreshes.", "Scoped quote", ""),
+        ("Leave cover", "When someone in finance goes on leave, an agent carries the routine part of their role, a Chartered Accountant reviews its work, and everything is handed back the day they return.", "Scoped quote", ""),
     ]},
     {"title": "AI agents and automation", "intro": "Fewer handoffs and less re-keying, with a person signing off what matters.", "items": [
         ("AI workforce setup", "Agents for routine checking and preparation, each with a job description, limits, a test on your past records and shadow mode first.", "Scoped quote", ""),
         ("Workflow review &amp; redesign", "One process mapped end to end, with the handoffs, re-keying and waiting taken out before anything is automated.", "Scoped quote", ""),
         ("Workflow automation", "One repetitive finance or admin workflow automated, tested and handed over.", "Scoped quote", ""),
         ("Chatbots &amp; AI assistants", "Answers from approved business information only, with clear limits and a hand-over to a person.", "Scoped quote", ""),
-        ("Monthly controls operations", "Up to two agreed agents or one model: monthly control review, log sample, test re-run and up to two hours of fixes.", "from $1,250 a month", ""),
+        ("Monthly controls operations", "Up to two agreed agents or one model: monthly control review, log sample, test re-run and up to two hours of fixes.", "Scoped quote", ""),
     ]},
     {"title": "Data and reporting", "intro": "One trusted set of numbers, flowing on a schedule.", "items": [
         ("Data engineering", "Your accounting software, CRM, job app and spreadsheets connected into one clean source.", "Scoped quote", ""),
@@ -130,10 +130,10 @@ PRICES = [
     ("Free bill check", "Eight quick checks on a bills export, run in your browser. Nothing is uploaded.", "Free", "/bill-check/"),
     ("Two-week cash &amp; data check", "Bills, invoices and timesheets checked against each other, every finding traced to its record.", "$1,500 fixed", ""),
     ("Compliance controls sprint", "Two weeks, one focus: AI use, AML/CTF Tranche 2 or the Privacy Act automated-decision rules.", "from $3,500", ""),
-    ("Live cash &amp; job profit model", "13-week cash and profit by job or client, tied to the ledger, documented and handed over.", "from $5,000", ""),
+    ("Live cash &amp; job profit model", "13-week cash and profit by job or client, tied to the ledger, documented and handed over.", "Scoped quote", ""),
     ("AI workforce setup", "Agents with written limits, tested on your records, shadow mode first.", "Scoped quote", ""),
-    ("Leave cover", "An agent carries the routine part of a finance role during leave, reviewed by a Chartered Accountant.", "from $3,500 setup, then from $2,000 a month", ""),
-    ("Monthly controls operations", "Ongoing review of up to two agreed agents or one model.", "from $1,250 a month", ""),
+    ("Leave cover", "An agent carries the routine part of a finance role during leave, reviewed by a Chartered Accountant.", "Scoped quote", ""),
+    ("Monthly controls operations", "Ongoing review of up to two agreed agents or one model.", "Scoped quote", ""),
 ]
 PRICE_TERMS = [
     ("Credit", "The $1,500 check is credited once against your next Beiz build (cash model, AI workforce setup, compliance sprint "
@@ -293,7 +293,7 @@ Beiz does not provide tax returns, BAS or GST lodgements, tax or BAS agent servi
 - [Home](https://beiz.com.au/)
 - [Services](https://beiz.com.au/services/): finance, AI agents and automation, data and reporting, governance, workshops
 - [How it works](https://beiz.com.au/how-we-work/): first 30 days and what every build includes
-- [Prices](https://beiz.com.au/prices/): free bill check; $1,500 fixed two-week cash & data check; compliance controls sprint from $3,500; cash & job profit model from $5,000; AI workforce setup by scoped quote; leave cover from $3,500 setup then from $2,000 a month; monthly controls operations from $1,250 a month
+- [Prices](https://beiz.com.au/prices/): free bill check; $1,500 fixed two-week cash & data check; compliance controls sprint from $3,500; cash & job profit model, AI workforce setup, leave cover and monthly controls operations by scoped quote
 - [Free bill check](https://beiz.com.au/bill-check/): runs in the browser, nothing uploaded
 - [About](https://beiz.com.au/about/)
 - [Contact](https://beiz.com.au/contact/): hello@beiz.com.au

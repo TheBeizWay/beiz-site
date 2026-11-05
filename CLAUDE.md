@@ -53,10 +53,10 @@ Use only these. Never substitute, round or "improve" them.
 | Free bill check (/bill-check/) | Free, runs in the browser |
 | Two-week cash & data check | $1,500 fixed, credited if they go ahead |
 | Compliance controls sprint (/compliance-sprint/) | from $3,500, two weeks, one focus |
-| Live cash & job profit model | from $5,000 |
+| Live cash & job profit model | scoped quote (no public price, Purav 5 Nov 2026) |
 | AI workforce setup (/services/ai-readiness-sprint/) | scoped quote (no public price, Purav 19 Oct 2026) |
-| Leave cover (/leave-cover/) | from $3,500 setup, then from $2,000 a month |
-| Monthly controls operations | from $1,250 a month |
+| Leave cover | scoped quote (no public price, Purav 5 Nov 2026) |
+| Monthly controls operations | scoped quote (no public price, Purav 5 Nov 2026) |
 
 ### Promises already on the site (keep them consistent everywhere)
 
