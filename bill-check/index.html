@@ -16,11 +16,11 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/source-serif-4-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/ledger/ledger.css?v=L7">
+<link rel="stylesheet" href="/assets/ledger/ledger.css?v=L9">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Beiz Data & Accounting Pty Ltd",
 "url":"https://beiz.com.au/","email":"hello@beiz.com.au","logo":"https://beiz.com.au/assets/brand/beiz-icon-512.png",
 "address":{"@type":"PostalAddress","addressLocality":"Canberra","addressRegion":"ACT","addressCountry":"AU"},
-"areaServed":"AU","taxID":"53 691 755 496",
+"areaServed":"AU","sameAs":["https://github.com/TheBeizWay"],"taxID":"53 691 755 496",
 "description":"AI for real business work, with guardrails, set up and checked by an Australian Chartered Accountant."}</script>
 </head>
 <body>
@@ -32,7 +32,7 @@
 <button class="menu" type="button" aria-expanded="false" aria-label="Open menu">Menu</button>
 </div></header>
 <main id="main">
-<header class="phead"><div class="wrap"><h1>Free bill check</h1><p class="lede">Drop in a bills export from Xero, MYOB or QuickBooks, or any spreadsheet saved as CSV. Eight checks run on this device in a few seconds. Your file isn't uploaded, stored or sent to us.</p></div></header>
+<header class="phead"><div class="wrap"><h1>Free bill check</h1><p class="lede">Catch an updated invoice about to be paid twice, or a supplier whose bank details just changed, before the payment run. Drop in a bills export from Xero, MYOB or QuickBooks, or any spreadsheet saved as CSV. Eight checks run on this device in a few seconds. Your file isn't uploaded, stored or sent to us.</p></div></header>
 <section class="sec "><div class="wrap"><div class="lab">Run it</div><div class="body"><h2>Check your bills for duplicates and red flags</h2><div class="bck" id="bc">
 <div class="bck-in">
 <label class="bck-drop" id="bcDrop"><input type="file" id="bcFile" accept=".csv,.txt,.tsv,text/csv"><b>Drop your bills CSV here</b><span>or click to choose a file</span><span class="bck-dfmt">Dates should be DD/MM/YYYY. You'll see how they're read and confirm before any check runs.</span></label>
@@ -45,7 +45,7 @@
 <div id="bcMap"></div>
 <div id="bcOut" aria-live="polite"></div>
 </div></div></div></section>
-<section class="sec "><div class="wrap"><div class="lab">What it checks</div><div class="body"><ul class="plain"><li>Possible duplicate bills: same supplier, same amount, within 14 days</li><li>The same invoice number used twice by one supplier</li><li>A supplier's bank details changing</li><li>Bills that look split to stay under your approval limit</li><li>Bills just under your approval limit</li><li>A large first bill from a supplier first seen in your file</li><li>Payments made on a weekend</li><li>ABNs missing or failing the check-digit test</li></ul></div></div></section>
+<section class="sec "><div class="wrap"><div class="lab">What it checks</div><div class="body"><ul class="plain"><li>Possible duplicate bills: same supplier, same amount, within 14 days, including an updated invoice sent after the original</li><li>The same invoice number used twice by one supplier</li><li>A supplier's bank details changing</li><li>Bills that look split to stay under your approval limit</li><li>Bills just under your approval limit</li><li>A large first bill from a supplier first seen in your file</li><li>Payments made on a weekend</li><li>ABNs missing or failing the check-digit test</li></ul></div></div></section>
 <section class="sec "><div class="wrap"><div class="lab">Getting the file</div><div class="body"><p class="intro">In your accounting software, open the bills or supplier invoices list (or a payables report), pick a date range and export it as CSV. Six or twelve months is a good start. If it only exports to Excel, open the file and save it as CSV. The check needs a supplier, an amount and a date; invoice numbers, payment dates, bank details and ABNs make it sharper.</p></div></div></section>
 <section class="sec "><div class="wrap"><div class="lab">Common questions</div><div class="body"><div class="rows"><div class="row"><h3>Is my bills file uploaded anywhere?</h3><p>No. The check runs in your browser on your own device. Your file isn't uploaded, stored or sent to Beiz.</p></div><div class="row"><h3>Which accounting software does it work with?</h3><p>Any bills or payables export saved as CSV, including from Xero, MYOB and QuickBooks. It needs a supplier, an amount and a date; invoice numbers, payment dates, bank details and ABNs make it sharper.</p></div><div class="row"><h3>Is this an audit?</h3><p>No. It's eight quick checks. A flag is a prompt for a person to look, and many flags will have an innocent explanation.</p></div><div class="row"><h3>What does it cost?</h3><p>Nothing. The paid two-week cash and data check goes further, from your full exports, for $1,500 fixed.</p></div></div></div></div></section>
 <section class="sec "><div class="wrap"><div class="lab">Limits</div><div class="body"><p class="intro">It's eight quick checks, not an audit. It can't see your bank, your emails or the bills you never entered, and it doesn't tell you whether anyone did anything wrong. It's general information, not tax, legal or accounting advice, and you decide what to do with any flag. Xero, MYOB and QuickBooks are named only to describe file formats; Beiz isn't affiliated with them.</p></div></div></section>
@@ -71,7 +71,7 @@
 <p>&copy; <span data-yr>2026</span> Beiz Data &amp; Accounting Pty Ltd</p>
 </div>
 </div></footer>
-<script src="/assets/ledger/ledger.js?v=L7" defer></script>
-<script src="/assets/billcheck.js?v=L7" defer></script>
+<script src="/assets/ledger/ledger.js?v=L9" defer></script>
+<script src="/assets/billcheck.js?v=L9" defer></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is my bills file uploaded anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. The check runs in your browser on your own device. Your file isn't uploaded, stored or sent to Beiz."}}, {"@type": "Question", "name": "Which accounting software does it work with?", "acceptedAnswer": {"@type": "Answer", "text": "Any bills or payables export saved as CSV, including from Xero, MYOB and QuickBooks. It needs a supplier, an amount and a date; invoice numbers, payment dates, bank details and ABNs make it sharper."}}, {"@type": "Question", "name": "Is this an audit?", "acceptedAnswer": {"@type": "Answer", "text": "No. It's eight quick checks. A flag is a prompt for a person to look, and many flags will have an innocent explanation."}}, {"@type": "Question", "name": "What does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "Nothing. The paid two-week cash and data check goes further, from your full exports, for $1,500 fixed."}}]}</script></body>
 </html>

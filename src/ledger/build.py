@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import content as C
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ASSET_V = "L7"  # bump on every CSS or JS change
+ASSET_V = "L9"  # bump on every CSS or JS change
 SITE = "https://beiz.com.au"
 e = html.escape
 
@@ -20,7 +20,7 @@ NAV = [("/services/", "Services"), ("/how-we-work/", "How it works"), ("/prices/
 LD = """{"@context":"https://schema.org","@type":"ProfessionalService","name":"Beiz Data & Accounting Pty Ltd",
 "url":"https://beiz.com.au/","email":"hello@beiz.com.au","logo":"https://beiz.com.au/assets/brand/beiz-icon-512.png",
 "address":{"@type":"PostalAddress","addressLocality":"Canberra","addressRegion":"ACT","addressCountry":"AU"},
-"areaServed":"AU","taxID":"53 691 755 496",
+"areaServed":"AU","sameAs":["https://github.com/TheBeizWay"],"taxID":"53 691 755 496",
 "description":"AI for real business work, with guardrails, set up and checked by an Australian Chartered Accountant."}"""
 
 
@@ -134,13 +134,15 @@ def home():
     hero = f"""<section class="hero"><div class="wrap">
 <div><h1>{C.HERO_H1}</h1><p class="lede">{C.HERO_LEDE}</p>
 <div class="acts"><a class="btn" href="/contact/">Book a 20-minute call</a><a class="btn line" href="/bill-check/">Try the free bill check</a></div>
-<p class="cred">{C.HERO_CRED}</p></div>
+<div class="credrow"><img src="/assets/media/ca-logo.svg" alt="Chartered Accountants Australia and New Zealand" width="147" height="84"><p class="cred">{C.HERO_CRED}<br><span class="tm">Trade mark of Chartered Accountants Australia and New Zealand and used with permission.</span></p></div></div>
 {book}</div></section>
 """
     jobs = '<table class="led tw"><thead><tr><th>Job</th><th>Today</th><th>With a Beiz agent</th></tr></thead><tbody>' + "".join(
         f'<tr><td>{a}</td><td data-h="Today">{b}</td><td data-h="With a Beiz agent">{c}</td></tr>' for a, b, c in C.JOBS) + "</tbody></table>"
     body = hero
     body += sec("Where it helps", f"<h2>The routine work an agent takes on</h2><p class=\"intro\">{C.JOBS_INTRO}</p>{jobs}")
+    bcl = "".join(f"<li>{x}</li>" for x in C.HOME_BC)
+    body += sec("Try it now", f"<h2>Run the free bill check on your own bills</h2><p class=\"intro\">Export your bills from Xero, MYOB or QuickBooks and drop the file in. Eight checks run in your browser in a few seconds. Nothing is uploaded or sent to us.</p><ul class=\"plain\">{bcl}</ul><div class=\"acts\"><a class=\"btn\" href=\"/bill-check/\">Run the free bill check</a></div>")
     body += sec("Ways to start", f"<h2>Three ways to start</h2>{price_table(C.START)}<p class=\"note\">{C.PRICE_NOTE} <a href=\"/prices/\">See every price</a>.</p>")
     body += sec("How it stays safe", f"<h2>Nothing runs on its own on day one</h2>{rows(C.SAFE)}<p class=\"note\">{C.NOT_DO} <a href=\"/how-we-work/\">How a build runs</a>.</p>")
     body += sec("Who you'll deal with", f"<h2>One accountable person, from first call to handover</h2>{who_block()}")
@@ -160,6 +162,7 @@ def services():
 def how():
     body = phead("How it works", C.HOW_LEDE)
     body += sec("The first 30 days", f"<h2>From first message to a working agent</h2>{rows(C.FIRST30)}")
+    body += sec("How it's built", f"<h2>Rules first. AI only for the exceptions.</h2><p class=\"intro\">Most finance work follows rules, so rules do most of the work. That keeps every step traceable and the running costs low.</p>{rows(C.RULES_FIRST)}")
     body += sec("Every agent", f"<h2>What every Beiz build includes</h2><ul class=\"plain\">{''.join(f'<li>{x}</li>' for x in C.INCLUDES)}</ul>")
     body += sec("Findings", f"<h2>We report what the records support</h2>{rows(C.FINDINGS)}")
     body += sec("Scope", f"<h2>What we don't do</h2><p class=\"intro\">{C.NOT_DO}</p>")

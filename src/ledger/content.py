@@ -25,7 +25,7 @@ HERO_BOOK = [
 
 JOBS_INTRO = "Start with one job. The agent does the checking and preparation; a person still decides anything that matters."
 JOBS = [
-    ("Bills", "Keyed in by hand and checked when someone has time.",
+    ("Bills", "Evenings spent copying between emailed PDFs, bank feeds and your accounting software.",
      "Matched to the supplier and order. Duplicates, split bills and changed bank details held for you."),
     ("Cash", "The bank balance today and a guess about next month.",
      "A 13-week cash view that refreshes from your weekly exports and ties back to the ledger."),
@@ -47,7 +47,7 @@ START = [
      "Agents for your bills, cash or client checks, each with written limits, tested on your records and run "
      "in shadow mode before going live.", "Scoped quote", "/how-we-work/"),
 ]
-PRICE_NOTE = "Prices are in AUD. Beiz isn't registered for GST, so no GST is added."
+PRICE_NOTE = "Prices are in AUD, with no GST added."
 
 SAFE = [
     ("Declare", "Each agent gets a written job description, its limits and a named person it reports to."),
@@ -90,7 +90,7 @@ GROUPS = [
     ]},
     {"title": "Governance", "intro": "Know what's in scope, who owns it and where a person must approve.", "items": [
         ("Compliance controls sprint", "One obligation mapped in two weeks: AI use, AML/CTF Tranche 2 or the Privacy Act automated-decision rules. General information, not legal advice.", "from $3,500", ""),
-        ("AI governance for boards &amp; owners", "A register, policy and reporting line for the AI already in use.", "Scoped quote", ""),
+        ("AI governance for boards &amp; owners", "A register, policy and reporting line for the AI already in use, including staff pasting client records into public AI tools.", "Scoped quote", ""),
     ]},
     {"title": "Workshops", "intro": "Build your own team's capability, not just a system.", "items": [
         ("Workshops for owners &amp; teams", "Small-group or in-house sessions on putting AI and data to work safely in day-to-day finance and admin.", "Scoped quote", ""),
@@ -125,7 +125,7 @@ FINDINGS = [
 ]
 
 # ---------------------------------------------------------------- prices
-PRICES_LEDE = "Prices are in AUD. Beiz isn't registered for GST, so no GST is added."
+PRICES_LEDE = "Prices are in AUD, with no GST added. Every proposal has a fixed price, a timeline and a definition of done."
 PRICES = [
     ("Free bill check", "Eight quick checks on a bills export, run in your browser. Nothing is uploaded.", "Free", "/bill-check/"),
     ("Two-week cash &amp; data check", "Bills, invoices and timesheets checked against each other, every finding traced to its record.", "$1,500 fixed", ""),
@@ -176,10 +176,11 @@ EXPECT = [
 ]
 
 # ---------------------------------------------------------------- bill check
-BC_LEDE = ("Drop in a bills export from Xero, MYOB or QuickBooks, or any spreadsheet saved as CSV. Eight checks run on this "
+BC_LEDE = ("Catch an updated invoice about to be paid twice, or a supplier whose bank details just changed, before the payment run. "
+           "Drop in a bills export from Xero, MYOB or QuickBooks, or any spreadsheet saved as CSV. Eight checks run on this "
            "device in a few seconds. Your file isn't uploaded, stored or sent to us.")
 BC_CHECKS = [
-    "Possible duplicate bills: same supplier, same amount, within 14 days",
+    "Possible duplicate bills: same supplier, same amount, within 14 days, including an updated invoice sent after the original",
     "The same invoice number used twice by one supplier",
     "A supplier's bank details changing",
     "Bills that look split to stay under your approval limit",
@@ -296,3 +297,16 @@ Beiz does not provide tax returns, BAS or GST lodgements, tax or BAS agent servi
 - [About](https://beiz.com.au/about/)
 - [Contact](https://beiz.com.au/contact/): hello@beiz.com.au
 """
+
+# ---------------------------------------------------------------- added 5 Nov 2026 (Reddit research, Purav's go)
+RULES_FIRST = [
+    ("Rules first", "Fixed rules do the routine checking: matching amounts, dates, suppliers and invoice numbers. They behave the same way every time and cost nothing to run."),
+    ("AI for the exceptions", "AI only looks at what the rules can't settle, like a supplier invoice laid out in an unusual way. It hands back a structured answer for the rules to check again."),
+    ("A person decides", "Anything held, unusual or over your limit goes to a named person. Every run is kept in a history your staff can read, step by step."),
+]
+HOME_BC = [
+    "An updated invoice about to be paid twice",
+    "The same invoice number used twice by one supplier",
+    "A supplier's bank details changing",
+    "Bills split to stay under your approval limit",
+]
