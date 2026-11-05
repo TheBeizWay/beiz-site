@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import content as C
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ASSET_V = "L11"  # bump on every CSS or JS change
+ASSET_V = "L14"  # bump on every CSS or JS change
 SITE = "https://beiz.com.au"
 e = html.escape
 
@@ -125,12 +125,12 @@ def who_block(full=False):
 # ---------------------------------------------------------------- pages
 def home():
     rowsb = "".join(
-        f'<tr><td class="s"><span class="dot {c}"></span>{lab}</td><td>{t}</td><td class="n">{n}</td></tr>'
+        f'<tr><td><span class="dot {c}"></span>{t}</td><td class="n">{n}</td></tr>'
         for c, lab, t, n in C.HERO_BOOK)
     book = f"""<div class="book" role="img" aria-label="Example week for a made-up business: 42 bills received, 38 matched, 3 held for a person, 1 stopped.">
 <div class="cap"><span>Bills this week</span><span>Example, made-up business</span></div>
-<table><tbody><tr><td class="s"></td><td>Bills received</td><td class="n">42</td></tr>{rowsb}
-<tr class="tot"><td class="s"></td><td>Paid without a person's sign-off</td><td class="n">0</td></tr></tbody></table>
+<table><tbody><tr><td><span class="dot none"></span>Bills received</td><td class="n">42</td></tr>{rowsb}
+<tr class="tot"><td><span class="dot none"></span>Paid without a person's sign-off</td><td class="n">0</td></tr></tbody></table>
 <p class="bnote">Each held or stopped bill shows the reason and the records behind it.</p></div>"""
     hero = f"""<section class="hero"><div class="wrap">
 <div><h1>{C.HERO_H1}</h1><p class="lede">{C.HERO_LEDE}</p>
