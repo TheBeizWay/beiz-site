@@ -13,11 +13,11 @@ import json
 from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ASSET_V = "L24"  # bump on every CSS or JS change
+ASSET_V = "L25"  # bump on every CSS or JS change
 SITE = "https://beiz.com.au"
 e = html.escape
 
-NAV = [("/services/", "Services"), ("/how-we-work/", "How it works"), ("/prices/", "Prices"),
+NAV = [("/services/", "Services"), ("/how-we-work/", "How it works"), ("/prices/", "Fees"),
        ("/bill-check/", "Try the bill check"), ("/about/", "About")]
 
 HELPER_TMPL = """<button type="button" class="hbtn" aria-controls="helper" aria-expanded="false">Ask Beiz</button>
@@ -26,7 +26,7 @@ HELPER_TMPL = """<button type="button" class="hbtn" aria-controls="helper" aria-
 <p class="hintro">{intro}</p>
 <div class="hlog" aria-live="polite"></div>
 <div class="hqs"></div>
-<form class="hform"><label class="skip" for="hq">Your question</label><input id="hq" type="text" placeholder="Ask about prices, AML, the bill check..." autocomplete="off" maxlength="200"><button class="btn" type="submit">Ask</button></form>
+<form class="hform"><label class="skip" for="hq">Your question</label><input id="hq" type="text" placeholder="Ask about fees, AML, the bill check..." autocomplete="off" maxlength="200"><button class="btn" type="submit">Ask</button></form>
 </div>
 <script type="application/json" id="helper-data">{data}</script>
 """
@@ -100,7 +100,7 @@ def footer():
 <div class="ca"><img src="/assets/media/ca-logo-reversed.png" alt="Chartered Accountants Australia and New Zealand" width="140" height="80" ></div>
 </div>
 <div><h4>Work with us</h4><ul>
-<li><a href="/services/">Services</a></li><li><a href="/aml-ctf-accounting-firms/">AML/CTF for accounting firms</a></li><li><a href="/how-we-work/">How it works</a></li><li><a href="/prices/">Prices</a></li><li><a href="/bill-check/">Free bill check</a></li></ul></div>
+<li><a href="/services/">Services</a></li><li><a href="/aml-ctf-accounting-firms/">AML/CTF for accounting firms</a></li><li><a href="/how-we-work/">How it works</a></li><li><a href="/prices/">Fees</a></li><li><a href="/bill-check/">Free bill check</a></li></ul></div>
 <div><h4>Company</h4><ul>
 <li><a href="/about/">About</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/insights/">Insights</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/card/">Digital card</a></li></ul></div>
 </div>
@@ -156,12 +156,12 @@ def rows(items):
     return '<div class="rows">' + "".join(f'<div class="row"><h3>{a}</h3><p>{b}</p></div>' for a, b in items) + "</div>"
 
 
-def price_table(items, head3=("Offer", "What you get", "Price")):
-    out = f'<table class="led"><thead><tr><th>{head3[0]}</th><th>{head3[1]}</th><th class="amt">{head3[2]}</th></tr></thead><tbody>'
+def price_table(items, head3=("Engagement", "What you get", "")):
+    out = f'<table class="led"><thead><tr><th>{head3[0]}</th><th>{head3[1]}</th></tr></thead><tbody>'
     items = [(n, d, pr, DETAIL.get(n) or l) for n, d, pr, l in items]
     for name, desc, price, link in items:
         nm = f'<a href="{link}">{name}</a>' if link else name
-        out += f'<tr><td>{nm}</td><td data-h="">{desc}</td><td class="amt">{price}</td></tr>'
+        out += f'<tr><td>{nm}</td><td data-h="">{desc}</td></tr>'
     return out + "</tbody></table>"
 
 
@@ -208,8 +208,8 @@ def home():
     body += sec("Where it helps", f"<h2>The routine work an agent takes on</h2><p class=\"intro\">{C.JOBS_INTRO}</p>{jobs}")
     svc = '<div class="svcgrid">' + "".join(
         f'<a class="svc reveal" href="/services/#{gslug(g["title"])}"><h3>{g["title"]}</h3><p>{g["intro"]}</p><ul>'
-        + "".join(f"<li><span>{n}</span><b>{p}</b></li>" for n, d, p, _ in g["items"]) + "</ul></a>" for g in C.GROUPS) + "</div>"
-    body += sec("What we do", f"<h2>Everything Beiz does, at a glance</h2><p class=\"intro\">Fixed prices where the scope allows; a written quote everywhere else.</p>{svc}", sid="what")
+        + "".join(f"<li><span>{n}</span></li>" for n, d, p, _ in g["items"]) + "</ul></a>" for g in C.GROUPS) + "</div>"
+    body += sec("What we do", f"<h2>Everything Beiz does, at a glance</h2><p class=\"intro\">Every engagement is a fixed fee, agreed in writing before work starts.</p>{svc}", sid="what")
     bcl = "".join(f"<li>{x}</li>" for x in C.HOME_BC)
     body += sec("Try it now", f"<h2>Run the free bill check on your own bills</h2><p class=\"intro\">Export your bills from Xero, MYOB or QuickBooks and drop the file in. Eight checks run in your browser in a few seconds. Nothing is uploaded or sent to us.</p><ul class=\"plain\">{bcl}</ul><div class=\"acts\"><a class=\"btn\" href=\"/bill-check/\">Run the free bill check</a></div>")
     body += sec("See it working", '<h2>Two short clips of the checks running</h2><p class="intro">Recorded on this site with the made-up business. No sound.</p><div class="vids">'
@@ -217,7 +217,7 @@ def home():
             ("log", "Decision log for a matched bill, a held bill and a stopped bill", "Each row opens its decision log: the record, the check, the finding, the status and who decides."),
             ("bc", "The free bill check running on sample data", "The free bill check on sample bills: a likely duplicate, a reused invoice number, changed bank details and a split bill.")])
         + '</div>', sid="see")
-    body += sec("Ways to start", f"<h2>Three ways to start</h2>{price_table(C.START)}<p class=\"note\">{C.PRICE_NOTE} <a href=\"/prices/\">See every price</a>.</p>")
+    body += sec("Ways to start", f"<h2>Three ways to start</h2>{price_table(C.START)}<p class=\"note\">{C.PRICE_NOTE} <a href=\"/prices/\">How fees work</a>.</p>")
     body += sec("How it stays safe", f"<h2>Nothing runs on its own on day one</h2>{rows(C.SAFE)}<p class=\"note\">{C.NOT_DO} <a href=\"/how-we-work/\">How a build runs</a>.</p>")
     tools = "".join(f"<li><b>{n}</b>: {d}</li>" for n, d in C.AGENT_TOOLS)
     tv = (f'<div class="viewsw" role="group" aria-label="View"><button type="button" data-view="plain" aria-pressed="true">Plain view</button><button type="button" data-view="tech" aria-pressed="false">Technical view</button></div>'
@@ -234,10 +234,10 @@ def home():
 def services():
     body = phead("Services", C.SERVICES_LEDE)
     for g in C.GROUPS:
-        body += sec(g["title"], f'<h2>{g["intro"]}</h2>' + price_table(g["items"], ("Service", "What it covers", "Price")), sid=gslug(g["title"]))
+        body += sec(g["title"], f'<h2>{g["intro"]}</h2>' + price_table(g["items"], ("Service", "What it covers", "")), sid=gslug(g["title"]))
     body += sec("What we don't do", f"<p class=\"intro\">{C.NOT_DO}</p>")
     body += sec("Next step", f"<h2>Not sure which one fits?</h2><p class=\"intro\">Describe the problem in a few lines. If we're not the right fit, we'll say so.</p><div class=\"acts\"><a class=\"btn\" href=\"/contact/\">Describe the problem</a></div>", "dark")
-    return page("/services/", "Services | Beiz Data & Accounting", "Finance, data, automation and governance work for Australian small businesses, with fixed prices where the scope allows.", body)
+    return page("/services/", "Services | Beiz Data & Accounting", "Finance, data, automation and governance work for Australian small businesses, each a fixed fee agreed in writing.", body)
 
 
 def how():
@@ -253,11 +253,12 @@ def how():
 
 
 def prices():
-    body = phead("Prices", C.PRICES_LEDE)
-    body += sec("Fixed and starting prices", "<h2>What things cost</h2>" + price_table(C.PRICES))
-    body += sec("The fine print", f"<h2>Terms that matter</h2>{rows(C.PRICE_TERMS)}")
-    body += sec("Next step", "<h2>Want a fixed price for your job?</h2><p class=\"intro\">Proposals come within three business days, with a fixed price, a timeline and a definition of done.</p><div class=\"acts\"><a class=\"btn\" href=\"/contact/\">Ask for a proposal</a></div>", "dark")
-    return page("/prices/", "Prices | Beiz Data & Accounting", "Beiz prices in AUD: free bill check, $1,500 two-week cash and data check, compliance sprint from $3,500, and more.", body)
+    body = phead("How fees work", C.PRICES_LEDE)
+    body += sec("How a fee is set", f"<h2>Scope first, then a fixed fee in writing</h2>{rows(C.FEES_HOW)}")
+    body += sec("Where to start", "<h2>The usual first engagements</h2>" + price_table(C.PRICES))
+    body += sec("Terms", f"<h2>Terms that matter</h2>{rows(C.PRICE_TERMS)}")
+    body += sec("Next step", "<h2>Want a fixed fee for your job?</h2><p class=\"intro\">Describe the work in a few lines. You'll get a written reply by the next business day and a proposal within three business days if it's a fit.</p><div class=\"acts\"><a class=\"btn\" href=\"/contact/\">Ask for a proposal</a></div>", "dark")
+    return page("/prices/", "How fees work | Beiz Data & Accounting", "Every Beiz engagement is a fixed fee, set out in a written proposal with the timeline and what done looks like, before any work starts.", body)
 
 
 def about():
@@ -312,7 +313,7 @@ def bill_check():
     body += sec("Getting the file", f"<p class=\"intro\">{C.BC_FILE}</p>")
     body += sec("Common questions", f'<div class="rows">{faq}</div>')
     body += sec("Limits", f"<p class=\"intro\">{C.BC_LIMITS}</p>")
-    body += sec("Next step", "<h2>Want these checks on every bill?</h2><p class=\"intro\">They're a small slice of the two-week cash and data check ($1,500 fixed), and of a bills agent that runs them before anything is paid and holds anything odd for a person.</p><div class=\"acts\"><a class=\"btn\" href=\"/contact/?topic=Two-week%20cash%20%26%20data%20check\">Ask about the check</a></div>", "dark")
+    body += sec("Next step", "<h2>Want these checks on every bill?</h2><p class=\"intro\">They're a small slice of the two-week cash and data check, and of a bills agent that runs them before anything is paid and holds anything odd for a person.</p><div class=\"acts\"><a class=\"btn\" href=\"/contact/?topic=Two-week%20cash%20%26%20data%20check\">Ask about the check</a></div>", "dark")
     js = f'<script src="/assets/billcheck.js?v={ASSET_V}" defer></script>\n'
     app = '<script type="application/ld+json">' + __import__("json").dumps({
         "@context": "https://schema.org", "@type": "WebApplication", "name": "Beiz free bill check",
@@ -331,7 +332,7 @@ def privacy():
 
 def notfound():
     body = phead("Page not found", "That page has moved or no longer exists. The site was simplified in November 2026.")
-    body += sec("Try", '<ul class="plain"><li><a href="/">Home</a></li><li><a href="/services/">Services</a></li><li><a href="/prices/">Prices</a></li><li><a href="/bill-check/">Free bill check</a></li><li><a href="/contact/">Contact</a></li></ul>')
+    body += sec("Try", '<ul class="plain"><li><a href="/">Home</a></li><li><a href="/services/">Services</a></li><li><a href="/prices/">Fees</a></li><li><a href="/bill-check/">Free bill check</a></li><li><a href="/contact/">Contact</a></li></ul>')
     return page("/404.html", "Page not found | Beiz Data & Accounting", "Page not found.", body)
 
 
@@ -374,8 +375,8 @@ def related(links):
 
 def price_block(s):
     extra = f'<p class="note">{s["price_extra"]}</p>' if s.get("price_extra") else ""
-    return (f'<h2>{s["price"]}</h2>' + rows([("Timing", s["timing"])]) + extra +
-            f'<p class="note">{C.PRICE_NOTE} <a href="/prices/">See every price</a>.</p>')
+    return ('<h2>A fixed fee, agreed in writing before work starts</h2>' + rows([("Timing", s["timing"])]) + extra +
+            f'<p class="note">{C.PRICE_NOTE} <a href="/prices/">How fees work</a>.</p>')
 
 
 def service_page(s):
@@ -389,7 +390,7 @@ def service_page(s):
         t = '<table class="led tw"><thead><tr><th>Step</th><th>The agent</th><th>Your people</th></tr></thead><tbody>' + "".join(
             f'<tr><td>{a}</td><td data-h="The agent">{b}</td><td data-h="Your people">{c}</td></tr>' for a, b, c in M.AML_TABLE) + "</tbody></table>"
         body += sec("Where an agent stops", f'<h2>The agent collects, checks and files. Your people decide.</h2>{t}')
-        body += sec("What it costs", "<h2>Three ways to start</h2>" + price_table(M.AML_COSTS) + f'<p class="note">{C.PRICE_NOTE}</p>')
+        body += sec("Ways to start", "<h2>Three ways to start</h2>" + price_table(M.AML_COSTS) + f'<p class="note">{C.PRICE_NOTE}</p>')
         body += sec("What we don't do", f'<p class="intro">{M.AML_NOT}</p>')
         body += sec("Questions firms ask", rows(M.AML_FAQ))
         body += sec("Sources", f'<p class="note"><a href="{M.AUSTRAC_SUMMARY}" rel="noopener">AUSTRAC, summary of AML/CTF obligations for tranche 2 entities</a>; <a href="{M.AUSTRAC_ENROL}" rel="noopener">AUSTRAC, enrolment for new professions</a>; <a href="{M.AUSTRAC_SMR}" rel="noopener">AUSTRAC, suspicious matter reporting reference guide</a>. Checked 16 October 2026.</p>')
@@ -401,19 +402,19 @@ def service_page(s):
         body += sec("The part demos skip", f'<p class="intro">{M.AIW_SKIP}</p>')
         body += sec("Do you need one?", f'<h2>When you don&#39;t need an agent</h2><h3 class="sub">Use what you already have when</h3>{ul(M.AIW_NO_AGENT)}<h3 class="sub">An agent is worth setting up when</h3>{ul(M.AIW_AGENT)}<p class="note">{M.AIW_ISNT}</p>')
         body += sec("What you get", rows(M.AIW_GETS))
-        body += sec("Price", price_block(s))
+        body += sec("Fee", price_block(s))
         body += sec("Frameworks we work to", "<h2>Responsible AI isn't our invention. We make it practical.</h2>" + ul([f'<a href="{u}" rel="noopener">{t}</a>: {d}' for u, t, d in M.AIW_FRAMEWORKS]) + "<p class=\"note\">Links go to the publishers' own sites. We're not affiliated with or endorsed by any of them.</p>")
     elif s.get("rows"):
         body += sec("How it works", "<h2>Before, during and after</h2>" + rows(s["rows"]))
         body += sec("Their job stays theirs", '<p class="intro">The agent covers routine work only. Decisions, customers and anything about people stay with your team. Best booked three to four weeks before the leave starts.</p>')
-        body += sec("Price", price_block(s))
+        body += sec("Fee", price_block(s))
     else:
         body += sec("Who it's for", f'<p class="intro">{s["who"]}</p>')
         body += sec("The problem", f'<p class="intro">{s["problem"]}</p>')
         body += sec("What you get", ul(s["gets"]))
         body += sec("Limits", ul(s["limits"]))
         body += sec("How it runs", rows(M.STEPS))
-        body += sec("Price", price_block(s))
+        body += sec("Fee", price_block(s))
     if related(s.get("related")):
         body += sec("Read more", related(s["related"]))
     body += cta("Not sure it fits?", "Write a few lines about the problem. You'll get a written reply by the next business day. If it isn't a fit, we'll say so.", s["topic"], "Discuss this")
@@ -495,10 +496,10 @@ def webmcp_js():
     strip = lambda t: re.sub(r"<[^>]+>", "", t).replace("&amp;", "&").replace("&middot;", "\u00b7")
     services = {
         "name": "Beiz Data & Accounting Pty Ltd", "abn": "53 691 755 496", "acn": "691 755 496",
-        "gst": "Not registered. Prices are AUD with no GST added.", "location": "Canberra, ACT. Works Australia-wide.",
+        "gst": "Not registered, so no GST is added.", "location": "Canberra, ACT. Works Australia-wide.",
         "principal": "Purav Mehta: Chartered Accountant (member of Chartered Accountants Australia and New Zealand) with a Certificate of Public Practice, GAICD",
         "positioning": "AI for real work, with guardrails, set up and checked by an Australian Chartered Accountant.",
-        "prices": [{"offer": strip(n), "what": strip(d), "price": strip(p)} for n, d, p, _ in C.PRICES],
+        "fees": "Every engagement is a fixed fee in a written proposal. The bill check is free.", "offers": [{"offer": strip(n), "what": strip(d)} for n, d, p, _ in C.PRICES],
         "every_build_includes": [strip(x) for x in C.INCLUDES],
         "does_not_do": strip(C.NOT_DO),
         "contact": {"email": "hello@beiz.com.au", "page": "https://beiz.com.au/contact/",
@@ -527,7 +528,7 @@ def webmcp_js():
   const SERVICES = %s, BILL = %s, ADM = %s;
   const out = o => ({ content: [{ type: "text", text: JSON.stringify(o, null, 2) }] });
   const reg = t => { try { const r = mc.registerTool(t); if (r && r.catch) r.catch(() => {}); } catch (_) {} };
-  reg({ name: "get_beiz_services", description: "Facts about Beiz Data & Accounting: who it is, prices in AUD, what every build includes, what it does not do, and how to make contact. Read-only.",
+  reg({ name: "get_beiz_services", description: "Facts about Beiz Data & Accounting: who it is, how fees work, what every build includes, what it does not do, and how to make contact. Read-only.",
         inputSchema: { type: "object", properties: {} }, annotations: { readOnlyHint: true }, execute: async () => out(SERVICES) });
   reg({ name: "get_bill_check_rules", description: "The eight checks the free browser-based bill check runs, how the file is handled, and its limits. Read-only.",
         inputSchema: { type: "object", properties: {} }, annotations: { readOnlyHint: true }, execute: async () => out(BILL) });
@@ -559,7 +560,7 @@ def llms_full():
     L += ["## Services"]
     for g in C.GROUPS:
         L += [f"### {t(g['title'])}", t(g["intro"])] + [f"- {t(n)} ({t(p)}): {t(d)}" for n, d, p, _ in g["items"]] + [""]
-    L += ["## Prices (AUD, no GST added)"] + [f"- {t(n)}: {t(p)}. {t(d)}" for n, d, p, _ in C.PRICES] + [""]
+    L += ["## Fees", C.PRICES_LEDE, "No GST is added (not registered).", ""] + [f"- {t(n)}: {t(d)}" for n, d, p, _ in C.PRICES] + [""]
     L += ["## Terms"] + [f"- {a}: {t(b)}" for a, b in C.PRICE_TERMS] + [""]
     L += ["## How a build runs"] + [f"- {a}: {t(b)}" for a, b in C.FIRST30] + [""]
     L += ["## Rules first, AI for the exceptions"] + [f"- {a}: {t(b)}" for a, b in C.RULES_FIRST] + [""]

@@ -58,7 +58,7 @@
       else add("bot", 'I don\'t have an answer for that one here. Write it to us and you\'ll get a written reply by the next business day.<br><a href="/contact/?msg=' + encodeURIComponent(text) + '">Write to us</a>');
     };
     data.filter(d => d.k).forEach(d => { const b = document.createElement("button"); b.type = "button"; b.textContent = d.q; b.addEventListener("click", () => ask(d.q)); qs.appendChild(b); });
-    const open = o => { hp.hidden = !o; hb.setAttribute("aria-expanded", o); if (o) { if (!log.children.length) add("bot", "Hi. Ask about prices, the bill check, AML/CTF, the Privacy Act changes or how agents are kept safe."); inp.focus(); } else hb.focus(); };
+    const open = o => { hp.hidden = !o; hb.setAttribute("aria-expanded", o); if (o) { if (!log.children.length) add("bot", "Hi. Ask about fees, the bill check, AML/CTF, the Privacy Act changes or how agents are kept safe."); inp.focus(); } else hb.focus(); };
     hb.addEventListener("click", () => open(hp.hidden));
     hp.querySelector(".hclose").addEventListener("click", () => open(false));
     document.addEventListener("keydown", e => { if (e.key === "Escape" && !hp.hidden) open(false); });
@@ -136,7 +136,7 @@
     ["Home", "/"], ["Services", "/services/"], ["How it works", "/how-we-work/"],
     ["Rules first, AI for the exceptions", "/how-we-work/", "How it works"],
     ["Decision log: the five fields", "/how-we-work/#log", "How it works"],
-    ["Prices", "/prices/"], ["Run the free bill check", "/bill-check/"],
+    ["How fees work", "/prices/"], ["Run the free bill check", "/bill-check/"],
     ["Under the hood: technical view", "/#hood-tech", "Home"],
     ["About Beiz", "/about/"], ["Book a 20-minute call", "/contact/?topic=Discovery%20call"],
     ["Write to us", "/contact/"], ["Email hello@beiz.com.au", "mailto:hello@beiz.com.au"], ["Privacy policy", "/privacy/"]

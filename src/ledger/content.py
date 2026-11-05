@@ -1,6 +1,6 @@
 """beiz.com.au content, "Ledger" edition (Nov 2026).
 
-Every fact and price here must match CLAUDE.md section 1. Change prices only when Purav says so.
+Every fact and price here must match CLAUDE.md section 1. Beiz publishes no fees (Purav, 5 Nov 2026): everything is a fixed fee in a written proposal.
 Australian English. Plain words. Control first, then benefit. No invented results.
 """
 
@@ -39,15 +39,15 @@ JOBS = [
 START = [
     ("Two-week cash &amp; data check",
      "Your bills, invoices and timesheets checked against each other, with every finding traced to its record. "
-     "Credited against your next Beiz build if you go ahead.", "$1,500 fixed", "/prices/"),
+     "Credited against your next Beiz build if you go ahead.", "Fixed fee", "/prices/"),
     ("Compliance controls sprint",
      "Two weeks on one obligation: AI use, AML/CTF Tranche 2 or the Privacy Act automated-decision rules. "
-     "What's in scope, who owns it and where a person must approve.", "from $3,500", "/prices/"),
+     "What's in scope, who owns it and where a person must approve.", "Fixed fee", "/prices/"),
     ("AI workforce setup",
      "Agents for your bills, cash or client checks, each with written limits, tested on your records and run "
-     "in shadow mode before going live.", "Scoped quote", "/how-we-work/"),
+     "in shadow mode before going live.", "Fixed fee", "/how-we-work/"),
 ]
-PRICE_NOTE = "Prices are in AUD, with no GST added."
+PRICE_NOTE = "Every engagement is a fixed fee, set out in a written proposal before any work starts."
 
 SAFE = [
     ("Declare", "Each agent gets a written job description, its limits and a named person it reports to."),
@@ -60,7 +60,7 @@ NOT_DO = ("Beiz doesn't do tax returns, BAS or GST lodgements, tax or BAS agent 
           "legal advice or financial product advice, and never releases payments without a person. Your tax agent keeps that work.")
 
 CTA_TEXT = ("Tell us which piece of work takes the most hours. You'll get a written reply by the next business day, "
-            "and a fixed-price proposal within three business days if it's a fit. If we're not the right fit, we'll say so.")
+            "and a fixed-fee proposal within three business days if it's a fit. If we're not the right fit, we'll say so.")
 
 BIO = ("<p>Chartered Accountant, a member of Chartered Accountants Australia and New Zealand (CA ANZ) with a Certificate of Public Practice and a graduate of the Australian Institute "
        "of Company Directors, with a background in audit, controls, finance, data science and AI engineering. "
@@ -70,30 +70,30 @@ BIO_FULL = BIO + ("<p>Where a job needs a lawyer, tax agent or IT provider, we s
 
 # ---------------------------------------------------------------- services
 SERVICES_LEDE = ("Finance, data, automation and governance work for Australian small businesses, startups and solo operators. "
-                 "Fixed prices where the scope allows; a written quote everywhere else.")
+                 "Every engagement is a fixed fee, agreed in writing before work starts.")
 GROUPS = [
     {"title": "Finance and decisions", "intro": "Know where cash and margin are going, from your own records.", "items": [
-        ("Two-week cash &amp; data check", "Bills, invoices and timesheets checked against each other, every finding traced to its record.", "$1,500 fixed", ""),
-        ("Cash &amp; job profit model", "A 13-week cash view and profit by job or client, tied back to the ledger. You drop in fresh exports weekly and it refreshes.", "Scoped quote", ""),
-        ("Leave cover", "When someone in finance goes on leave, an agent carries the routine part of their role, a Chartered Accountant reviews its work, and everything is handed back the day they return.", "Scoped quote", ""),
+        ("Two-week cash &amp; data check", "Bills, invoices and timesheets checked against each other, every finding traced to its record.", "Fixed fee", ""),
+        ("Cash &amp; job profit model", "A 13-week cash view and profit by job or client, tied back to the ledger. You drop in fresh exports weekly and it refreshes.", "Fixed fee", ""),
+        ("Leave cover", "When someone in finance goes on leave, an agent carries the routine part of their role, a Chartered Accountant reviews its work, and everything is handed back the day they return.", "Fixed fee", ""),
     ]},
     {"title": "AI agents and automation", "intro": "Fewer handoffs and less re-keying, with a person signing off what matters.", "items": [
-        ("AI workforce setup", "Agents for routine checking and preparation, each with a job description, limits, a test on your past records and shadow mode first.", "Scoped quote", ""),
-        ("Workflow review &amp; redesign", "One process mapped end to end, with the handoffs, re-keying and waiting taken out before anything is automated.", "Scoped quote", ""),
-        ("Workflow automation", "One repetitive finance or admin workflow automated, tested and handed over.", "Scoped quote", ""),
-        ("Chatbots &amp; AI assistants", "Answers from approved business information only, with clear limits and a hand-over to a person.", "Scoped quote", ""),
-        ("Monthly controls operations", "Up to two agreed agents or one model: monthly control review, log sample, test re-run and up to two hours of fixes.", "Scoped quote", ""),
+        ("AI workforce setup", "Agents for routine checking and preparation, each with a job description, limits, a test on your past records and shadow mode first.", "Fixed fee", ""),
+        ("Workflow review &amp; redesign", "One process mapped end to end, with the handoffs, re-keying and waiting taken out before anything is automated.", "Fixed fee", ""),
+        ("Workflow automation", "One repetitive finance or admin workflow automated, tested and handed over.", "Fixed fee", ""),
+        ("Chatbots &amp; AI assistants", "Answers from approved business information only, with clear limits and a hand-over to a person.", "Fixed fee", ""),
+        ("Monthly controls operations", "Up to two agreed agents or one model: monthly control review, log sample, test re-run and up to two hours of fixes.", "Fixed fee", ""),
     ]},
     {"title": "Data and reporting", "intro": "One trusted set of numbers, flowing on a schedule.", "items": [
-        ("Data engineering", "Your accounting software, CRM, job app and spreadsheets connected into one clean source.", "Scoped quote", ""),
-        ("Dashboards &amp; management reporting", "A reporting pack or dashboard on agreed definitions, reconciled to the ledger.", "Scoped quote", ""),
+        ("Data engineering", "Your accounting software, CRM, job app and spreadsheets connected into one clean source.", "Fixed fee", ""),
+        ("Dashboards &amp; management reporting", "A reporting pack or dashboard on agreed definitions, reconciled to the ledger.", "Fixed fee", ""),
     ]},
     {"title": "Governance", "intro": "Know what's in scope, who owns it and where a person must approve.", "items": [
-        ("Compliance controls sprint", "One obligation mapped in two weeks: AI use, AML/CTF Tranche 2 or the Privacy Act automated-decision rules. General information, not legal advice.", "from $3,500", ""),
-        ("AI governance for boards &amp; owners", "A register, policy and reporting line for the AI already in use, including staff pasting client records into public AI tools.", "Scoped quote", ""),
+        ("Compliance controls sprint", "One obligation mapped in two weeks: AI use, AML/CTF Tranche 2 or the Privacy Act automated-decision rules. General information, not legal advice.", "Fixed fee", ""),
+        ("AI governance for boards &amp; owners", "A register, policy and reporting line for the AI already in use, including staff pasting client records into public AI tools.", "Fixed fee", ""),
     ]},
     {"title": "Workshops", "intro": "Build your own team's capability, not just a system.", "items": [
-        ("Workshops for owners &amp; teams", "Small-group or in-house sessions on putting AI and data to work safely in day-to-day finance and admin.", "Scoped quote", ""),
+        ("Workshops for owners &amp; teams", "Small-group or in-house sessions on putting AI and data to work safely in day-to-day finance and admin.", "Fixed fee", ""),
         ("Coaching for finance professionals", "One-to-one sessions for accountants and finance leads building working data and AI skills.", "On request", ""),
     ]},
 ]
@@ -103,7 +103,7 @@ HOW_LEDE = ("Nothing runs on its own on day one. Every agent is tested on your p
             "and needs a person's sign-off for anything that matters.")
 FIRST30 = [
     ("Write or talk", "You describe the problem. A written reply by the next business day; calls are 20 minutes, early morning or after 5pm."),
-    ("Fixed proposal", "Within three business days: a fixed price, a timeline and a definition of done."),
+    ("Fixed proposal", "Within three business days: a fixed fee, a timeline and a definition of done."),
     ("Build and test", "Built in your own systems and replayed on a period of your past records agreed in the proposal. You get a one-page test report: how many it cleared, held and stopped, and every case where it disagreed with what your team actually did, measured against the pass mark agreed in writing."),
     ("Shadow mode", "The agent runs alongside your team. Its work is compared with theirs before anything goes live."),
     ("Hand over", "Documentation, the decision log in your own accounts, and a review with you at day 30. The rules, scripts and procedure files are yours to keep, so you aren't tied to Beiz to keep it running."),
@@ -125,18 +125,25 @@ FINDINGS = [
 ]
 
 # ---------------------------------------------------------------- prices
-PRICES_LEDE = "Prices are in AUD, with no GST added. Every proposal has a fixed price, a timeline and a definition of done."
+PRICES_LEDE = "Every engagement is a fixed fee, agreed in writing before any work starts. You see the fee, the timeline and what done looks like before you commit."
 PRICES = [
     ("Free bill check", "Eight quick checks on a bills export, run in your browser. Nothing is uploaded.", "Free", "/bill-check/"),
-    ("Two-week cash &amp; data check", "Bills, invoices and timesheets checked against each other, every finding traced to its record.", "$1,500 fixed", ""),
-    ("Compliance controls sprint", "Two weeks, one focus: AI use, AML/CTF Tranche 2 or the Privacy Act automated-decision rules.", "from $3,500", ""),
-    ("Live cash &amp; job profit model", "13-week cash and profit by job or client, tied to the ledger, documented and handed over.", "Scoped quote", ""),
-    ("AI workforce setup", "Agents with written limits, tested on your records, shadow mode first.", "Scoped quote", ""),
-    ("Leave cover", "An agent carries the routine part of a finance role during leave, reviewed by a Chartered Accountant.", "Scoped quote", ""),
-    ("Monthly controls operations", "Ongoing review of up to two agreed agents or one model.", "Scoped quote", ""),
+    ("Two-week cash &amp; data check", "Bills, invoices and timesheets checked against each other, every finding traced to its record.", "Fixed fee", ""),
+    ("Compliance controls sprint", "Two weeks, one focus: AI use, AML/CTF Tranche 2 or the Privacy Act automated-decision rules.", "Fixed fee", ""),
+    ("Live cash &amp; job profit model", "13-week cash and profit by job or client, tied to the ledger, documented and handed over.", "Fixed fee", ""),
+    ("AI workforce setup", "Agents with written limits, tested on your records, shadow mode first.", "Fixed fee", ""),
+    ("Leave cover", "An agent carries the routine part of a finance role during leave, reviewed by a Chartered Accountant.", "Fixed fee", ""),
+    ("Monthly controls operations", "Ongoing review of up to two agreed agents or one model.", "Fixed fee", ""),
 ]
+FEES_HOW = [
+    ("Talk or write", "A 20-minute call or a few lines in writing about the work. You'll get a written reply by the next business day."),
+    ("Scope", "We agree what's in and out, which records we need and who signs off at each step. If we're not the right fit, we'll say so."),
+    ("Proposal", "Within three business days: a fixed fee, a timeline and a definition of done, in writing. Nothing starts until you accept it."),
+    ("No surprises", "The fee doesn't move unless the scope does, and any change is agreed in writing first. Beiz isn't registered for GST, so no GST is added."),
+]
+
 PRICE_TERMS = [
-    ("Credit", "The $1,500 check is credited once against your next Beiz build (cash model, AI workforce setup, compliance sprint "
+    ("Credit", "The fee for the two-week cash and data check is credited once against your next Beiz build (cash model, AI workforce setup, compliance sprint "
                "or leave cover setup) if you accept the proposal and pay the deposit within 60 days of the findings. "
                "It isn't redeemable for cash and doesn't apply to monthly support."),
     ("Monthly operations", "Covers up to two agreed agents or one model: a monthly control review, a log sample, a test re-run and up "
@@ -144,7 +151,7 @@ PRICE_TERMS = [
                            "It isn't round-the-clock monitoring or an emergency service."),
     ("Cash model", "You drop in fresh exports weekly and the model refreshes. Beiz builds it, ties actuals to the ledger, documents "
                    "the assumptions and hands it over. Beiz reviews the forecast only where the support agreement sets out how often and what."),
-    ("Proposals", "Every proposal has a fixed price, a timeline and a definition of done, and arrives within three business days."),
+    ("Proposals", "Every proposal has a fixed fee, a timeline and a definition of done, and arrives within three business days."),
 ]
 
 # ---------------------------------------------------------------- about
@@ -171,7 +178,7 @@ TOPICS = ["Discovery call", "Two-week cash & data check", "Compliance controls s
 EXPECT = [
     ("Reply", "In writing, by the next business day."),
     ("Calls", "20 minutes, early morning or after 5pm, if a call helps."),
-    ("Proposal", "Within three business days: fixed price, timeline and definition of done."),
+    ("Proposal", "Within three business days: fixed fee, timeline and definition of done."),
     ("Fit", "If we're not the right fit, we'll say so and point you elsewhere where we can."),
 ]
 
@@ -197,7 +204,7 @@ BC_FAQ = [
     ("Which accounting software does it work with?", "Any bills or payables export saved as CSV, including from Xero, MYOB and QuickBooks. It needs a supplier, an amount and a date; invoice numbers, payment dates, bank details and ABNs make it sharper."),
     ("Why not paste my bills into ChatGPT?", "You can, but a chat assistant reads a file loosely and can skip or misread rows in a long export. This check runs the same fixed rules on every row, shows each flag with the records behind it, and your file never leaves your device. Check your own obligations before putting supplier bank details or client information into any online AI tool."),
     ("Is this an audit?", "No. It's eight quick checks. A flag is a prompt for a person to look, and many flags will have an innocent explanation."),
-    ("What does it cost?", "Nothing. The paid two-week cash and data check goes further, from your full exports, for $1,500 fixed."),
+    ("What does it cost?", "Nothing. The paid two-week cash and data check goes further, from your full exports, at a fixed fee agreed in writing."),
 ]
 BC_LIMITS = ("It's eight quick checks, not an audit. It can't see your bank, your emails or the bills you never entered, and it "
              "doesn't tell you whether anyone did anything wrong. It's general information, not tax, legal or accounting advice, "
@@ -276,7 +283,7 @@ Beiz does not provide tax returns, BAS or GST lodgements, tax or BAS agent servi
 - [Home](https://beiz.com.au/)
 - [Services](https://beiz.com.au/services/): finance, AI agents and automation, data and reporting, governance, workshops
 - [How it works](https://beiz.com.au/how-we-work/): first 30 days and what every build includes
-- [Prices](https://beiz.com.au/prices/): free bill check; $1,500 fixed two-week cash & data check; compliance controls sprint from $3,500; cash & job profit model, AI workforce setup, leave cover and monthly controls operations by scoped quote
+- [Fees](https://beiz.com.au/prices/): free bill check; every engagement is a fixed fee in a written proposal within three business days; no GST added
 - [Free bill check](https://beiz.com.au/bill-check/): runs in the browser, nothing uploaded
 - [AML/CTF Tranche 2 for accounting firms](https://beiz.com.au/aml-ctf-accounting-firms/): which services are caught, dates, duties, AUSTRAC sources
 - [FAQ](https://beiz.com.au/faq/)
@@ -353,7 +360,7 @@ LOG_SCHEMA = """{
   "who_decides": { "role": "owner", "decision": null, "decided_at": null }
 }"""
 AGENT_TOOLS = [
-    ("get_beiz_services", "Company facts, prices and what Beiz doesn't do, from this site."),
+    ("get_beiz_services", "Company facts, how fees work and what Beiz doesn't do, from this site."),
     ("get_bill_check_rules", "The eight checks the free bill check runs, and how your file is handled."),
     ("privacy_adm_overview", "General information on the Privacy Act automated-decision rules starting 10 December 2026, with the OAIC source. Not legal advice."),
 ]
@@ -385,7 +392,7 @@ NEWS = [
 # ---------------------------------------------------------------- guided helper ("Ask Beiz"): scripted, no AI
 HELPER_INTRO = ("Guided helper. It answers from this website only. It isn't AI, and nothing you type is stored or sent.")
 HELPER_EXTRA = [
-    {"q": "What does it cost?", "k": "cost price prices much fee fees quote expensive pay charge cash 1500 two-week sprint", "a": "The bill check is free. The two-week cash and data check is $1,500 fixed. The compliance controls sprint starts from $3,500. Everything else is quoted in writing after a short scoping conversation. No GST is added.", "href": "/prices/", "link": "See every price"},
+    {"q": "What does it cost?", "k": "cost price prices much fee fees quote expensive pay charge cash two-week sprint proposal", "a": "The bill check is free. Everything else is a fixed fee, set out in a written proposal within three business days of a short scoping conversation. No GST is added.", "href": "/prices/", "link": "How fees work"},
     {"q": "How do I start?", "k": "start begin contact call talk book meeting email write enquiry", "a": "Write a few lines about the problem, or book a 20-minute call (early morning or after 5pm). You'll get a written reply by the next business day.", "href": "/contact/", "link": "Talk to us"},
     {"q": "Try the free bill check", "k": "bill bills duplicate duplicates check csv xero myob quickbooks invoice supplier bank abn", "a": "Drop a bills export from Xero, MYOB or QuickBooks into the bill check. Eight checks run in your browser and nothing is uploaded.", "href": "/bill-check/", "link": "Run the bill check"},
     {"q": "AML/CTF for my firm", "k": "aml ctf austrac tranche money laundering kyc client checks accountant firm", "a": "Since 1 July 2026, accounting firms that provide certain services have AML/CTF duties. Agents can do the routine checks and paperwork; your compliance officer keeps every decision.", "href": "/aml-ctf-accounting-firms/", "link": "AML/CTF for accounting firms"},

@@ -47,17 +47,9 @@ Use only these. Never substitute, round or "improve" them.
 | Buyers | Any Australian business that wants to use AI for real work but needs guardrails; accounting and bookkeeping firms and finance teams remain the core |
 | Email | hello@beiz.com.au |
 
-### Prices (change only when Purav says so)
+### Fees (Purav, 5 Nov 2026: "no professional firm does prices")
 
-| Offer | Price |
-|---|---|
-| Free bill check (/bill-check/) | Free, runs in the browser |
-| Two-week cash & data check | $1,500 fixed, credited if they go ahead |
-| Compliance controls sprint (/compliance-sprint/) | from $3,500, two weeks, one focus |
-| Live cash & job profit model | scoped quote (no public price, Purav 5 Nov 2026) |
-| AI workforce setup (/services/ai-readiness-sprint/) | scoped quote (no public price, Purav 19 Oct 2026) |
-| Leave cover | scoped quote (no public price, Purav 5 Nov 2026) |
-| Monthly controls operations | scoped quote (no public price, Purav 5 Nov 2026) |
+The site publishes no fee amounts. Every engagement is a fixed fee, set out in a written proposal (fee, timeline, definition of done) within three business days, before any work starts. `/prices/` is the "How fees work" page (nav label "Fees"). The free bill check stays free. Don't put dollar amounts for Beiz's own work back on any page, meta tag, `llms.txt`, WebMCP output or helper answer without Purav's yes. Internal reference only (not for the site): two-week cash & data check was $1,500, compliance sprint from $3,500.
 
 ### Promises already on the site (keep them consistent everywhere)
 
@@ -66,7 +58,7 @@ Use only these. Never substitute, round or "improve" them.
 - Agents: written job description, limits, a named person they report to, tested on the client's past records against a pass mark agreed in writing, shadow mode before live, decision log in the client's own accounts, monthly spending cap and off switch, day-30 review.
 - The client keeps an operating folder: business context, procedures and agent memory, as plain files.
 - Nothing is paid or sent without a person.
-- Credit (agreed 18 Oct 2026): the $1,500 check is credited once against the next Beiz build (cash model, AI workforce setup, compliance sprint or leave cover setup) if the client accepts the proposal and pays the deposit within 60 days of the findings. Not redeemable for cash; not for monthly support.
+- Credit (agreed 18 Oct 2026): the fee for the two-week check is credited once against the next Beiz build (cash model, AI workforce setup, compliance sprint or leave cover setup) if the client accepts the proposal and pays the deposit within 60 days of the findings. Not redeemable for cash; not for monthly support.
 - Cash model: the client drops in fresh exports weekly and the model refreshes; Beiz builds it, ties actuals to the ledger, documents assumptions and hands over. A Beiz review of the forecast only where its frequency and scope are set out in the support agreement.
 - Monthly controls operations: up to two agreed agents or one model; monthly control review, log sample, test-set re-run, up to two hours of fixes in total; more is quoted. Requests acknowledged within two business days. Not round-the-clock monitoring or an emergency service.
 - Findings: "We report what the records support"; findings may need an explanation before action; weak records are reported as a limitation.
