@@ -13,7 +13,7 @@ import json
 from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ASSET_V = "L28"  # bump on every CSS or JS change
+ASSET_V = "L29"  # bump on every CSS or JS change
 SITE = "https://beiz.com.au"
 e = html.escape
 
@@ -87,7 +87,7 @@ def header(path):
 <nav class="nav" aria-label="Main">{links}</nav>
 <a class="btn" href="/contact/">Talk to us</a>
 <button class="menu" type="button" aria-expanded="false" aria-label="Open menu">Menu</button>
-</div><div class="tmstrip"><div class="wrap">Trade mark of Chartered Accountants Australia and New Zealand and used with permission.<button type="button" class="kbtn" data-pal>Jump to (Ctrl K)</button></div></div></header>
+</div><div class="tmstrip"><div class="wrap">Trade mark of Chartered Accountants Australia and New Zealand and used with permission.</div></div></header>
 """
 
 
@@ -111,7 +111,6 @@ def footer():
 <p>&copy; <span data-yr>2026</span> Beiz Data &amp; Accounting Pty Ltd</p>
 </div>
 </div></footer>
-{helper_html()}
 <script src="/assets/ledger/ledger.js?v={ASSET_V}" defer></script>
 <script src="/assets/ledger/webmcp.js?v={ASSET_V}" defer></script>
 """
@@ -138,7 +137,7 @@ def news_strip():
 
 
 def page(path, title, desc, body, extra_js=""):
-    return head(path, title, desc) + header(path) + news_strip() + f'<main id="main">\n{body}\n</main>\n' + footer() + extra_js + "</body>\n</html>\n"
+    return head(path, title, desc) + header(path) + f'<main id="main">\n{body}\n</main>\n' + footer() + extra_js + "</body>\n</html>\n"
 
 
 def sec(label, inner, cls="", sid=""):
@@ -174,7 +173,7 @@ def price_table(items, head3=("Engagement", "What you get", "")):
 def who_block(full=False):
     bio = C.BIO_FULL if full else C.BIO
     return f"""<div class="who">
-<img class="p" src="/assets/media/purav-mehta-2.jpg" alt="Purav Mehta" width="200" height="267" loading="lazy">
+<img class="p" src="/assets/media/purav-mehta-2.jpg" alt="Purav Mehta" width="200" height="267">
 <div><h3>Purav Mehta CA, GAICD</h3><p class="role">Founder and principal</p>{bio}
 <p class="li"><a href="https://www.linkedin.com/in/puravmehtaca/" rel="noopener">Purav on LinkedIn</a></p>
 <div class="calogo"><img src="/assets/media/ca-logo.svg" alt="Chartered Accountants Australia and New Zealand" width="147" height="84">
@@ -183,64 +182,48 @@ def who_block(full=False):
 
 # ---------------------------------------------------------------- pages
 def home():
-    def drawer(key):
-        d = C.HERO_LOG[key]
-        dl = "".join(f"<dt>{a}</dt><dd>{b}</dd>" for a, b in d["log"])
-        acts = "".join(
-            (f'<a class="btn line" href="{u}">{t}</a>' if u != "demo" else f'<button type="button" class="btn line" data-demo>{t}</button>')
-            for t, u in d["acts"])
-        hidden = "" if key == "stop" else " hidden"
-        return (f'<div class="drawer" id="log-{key}" role="region" aria-label="Decision log: {d["row"]}"{hidden}>'
-                f'<p class="dhead">Decision log</p><dl>{dl}</dl><div class="dacts">{acts}</div>'
-                f'<p class="dnote" aria-live="polite"></p></div>')
     rowsb = "".join(
-        f'<tr><td><span class="dot {c}"></span><button type="button" class="rowbtn" data-log="{c}" aria-controls="log-{c}" aria-expanded="{"true" if c == "stop" else "false"}">{t}</button></td><td class="n">{n}</td></tr>'
+        f'<tr><td><span class="dot {c}"></span>{t}</td><td class="n">{n}</td></tr>'
         for c, lab, t, n in C.HERO_BOOK)
-    drawers = "".join(drawer(k) for k in ("ok", "held", "stop"))
-    book = f"""<div class="book" data-demo-note="{C.DEMO_ACT_NOTE}">
+    book = f"""<div class="book">
 <div class="cap"><span>Bills this week</span><span>Example, made-up business</span></div>
-<p class="cue">Select a row to see its decision log.</p>
 <table><caption class="skip">Example week for a made-up business: 42 bills received, 38 matched, 3 held for a person, 1 stopped, none paid without sign-off.</caption><tbody><tr><td><span class="dot none"></span>Bills received</td><td class="n">42</td></tr>{rowsb}
 <tr class="tot"><td><span class="dot none"></span>Paid without a person's sign-off</td><td class="n">0</td></tr></tbody></table>
-{drawers}</div>"""
+<p class="bfoot">Stopped bill: Bluetongue Plumbing, bank details changed since April. The owner rings the supplier on the number already on file before anything is paid.</p></div>"""
     hero = f"""<section class="hero"><div class="wrap">
-<div><h1>{C.HERO_H1}</h1><p class="lede">{C.HERO_LEDE}</p>
-<div class="acts"><a class="btn" href="/contact/">Book a 20-minute call</a><a class="btn line" href="/bill-check/">Try the free bill check</a></div>
+<div><h1>AI that does the checking. <br>A Chartered Accountant who checks the AI.</h1><p class="lede">{C.HERO_LEDE}</p>
+<div class="acts"><a class="btn" href="/contact/?topic=Discovery%20call">Book a 20-minute call</a><a class="btn line" href="/bill-check/">Try the free bill check</a></div>
 <div class="credrow"><img src="/assets/media/ca-logo-reversed.png" alt="Chartered Accountants Australia and New Zealand" width="147" height="84"><p class="cred">{C.HERO_CRED}<br><span class="tm">Trade mark of Chartered Accountants Australia and New Zealand and used with permission.</span></p></div></div>
 {book}</div></section>
 """
     body = hero
     jobs = '<div class="jobs4">' + "".join(
-        f'<article class="job reveal"><p class="num">{i:02d}</p><h3>{a}</h3><p class="was"><span>Today</span>{b}</p><p class="now"><span>With a Beiz agent</span>{c}</p></article>'
+        f'<article class="job"><p class="num">{i:02d}</p><h3>{a}</h3><p class="was"><span>Today</span>{b}</p><p class="now"><span>With a Beiz agent</span>{c}</p></article>'
         for i, (a, b, c) in enumerate(C.JOBS, 1)) + "</div>"
     body += wsec("Where it helps", f'<div class="whead"><h2>The routine work an agent takes on</h2><p class="intro">{C.JOBS_INTRO}</p></div>{jobs}')
     body += ('<section class="band"><div class="wrap"><p class="big">Nothing is paid or sent without a person.</p>'
              '<p>Every agent is tested on your past records, runs alongside your team in shadow mode first, and logs every decision in your own accounts.</p></div></section>\n')
-    svc = '<div class="tiles">' + "".join(
-        f'<a class="tile reveal" href="/services/#{gslug(g["title"])}"><h3>{g["title"]}</h3><p>{g["intro"]}</p><ul>'
-        + "".join(f"<li>{n}</li>" for n, d, p, _ in g["items"]) + '</ul><span class="go">See the services</span></a>' for g in C.GROUPS)
-    svc += '<a class="tile ask reveal" href="/contact/"><h3>Not sure which fits?</h3><p>Describe the problem in a few lines. If we\'re not the right fit, we\'ll say so.</p><span class="go">Describe the problem</span></a></div>'
-    body += wsec("What we do", f'<div class="whead"><h2>Everything Beiz does</h2><p class="intro">Every engagement is a fixed fee, agreed in writing before work starts.</p></div>{svc}', "white", sid="what")
-    bcl = "".join(f"<li>{x}</li>" for x in C.HOME_BC)
-    vids = ''.join(f'<figure class="vid reveal"><video muted playsinline loop preload="none" poster="/assets/media/demo-{k}.jpg" aria-label="{al}"><source src="/assets/media/demo-{k}.mp4" type="video/mp4"></video><figcaption>{c}</figcaption></figure>' for k, al, c in [
-            ("bc", "The free bill check running on sample data", "The free bill check on sample bills: a likely duplicate, a reused invoice number, changed bank details and a split bill."),
-            ("log", "Decision log for a matched bill, a held bill and a stopped bill", "Each row opens its decision log: the record, the check, the finding, the status and who decides.")])
-    body += wsec("Try it now", f'<div class="split"><div><h2>Run the free bill check on your own bills</h2><p class="intro">Export your bills from Xero, MYOB or QuickBooks and drop the file in. Eight checks run in your browser in a few seconds. Nothing is uploaded or sent to us.</p><ul class="ticks">{bcl}</ul><div class="acts"><a class="btn" href="/bill-check/">Run the free bill check</a></div></div><div class="vids">{vids}<p class="vnote">Recorded on this site with a made-up business. No sound.</p></div></div>', "forest", sid="see")
     start = '<div class="start3">' + "".join(
-        f'<article class="st reveal"><p class="num">{i:02d}</p><h3><a href="{DETAIL.get(n) or l}">{n}</a></h3><p>{d}</p></article>'
+        f'<a class="st" href="{DETAIL.get(n) or l}"><p class="num">{i:02d}</p><h3>{n}</h3><p>{d}</p><span class="go">Read more</span></a>'
         for i, (n, d, _p, l) in enumerate(C.START, 1)) + "</div>"
-    body += wsec("Ways to start", f'<div class="whead"><h2>Three ways to start</h2><p class="intro">{C.PRICE_NOTE} <a href="/prices/">How fees work</a>.</p></div>{start}')
-    safe = '<ol class="steps4">' + "".join(f'<li class="reveal"><span class="num">{i:02d}</span><h3>{a}</h3><p>{b}</p></li>' for i, (a, b) in enumerate(C.SAFE, 1)) + "</ol>"
-    body += wsec("How it stays safe", f'<div class="whead"><h2>Nothing runs on its own on day one</h2></div>{safe}<p class="note">{C.NOT_DO} <a href="/how-we-work/">How a build runs</a>.</p>', "forest")
-    tools = "".join(f"<li><b>{n}</b>: {d}</li>" for n, d in C.AGENT_TOOLS)
-    tv = (f'<div class="viewsw" role="group" aria-label="View"><button type="button" data-view="plain" aria-pressed="true">Plain view</button><button type="button" data-view="tech" aria-pressed="false">Technical view</button></div>'
-          f'<div class="vplain"><p class="intro">{C.TECH_PLAIN}</p></div>'
-          f'<div class="vtech" hidden><h3>One decision-log record</h3><pre class="code"><code>{e(C.LOG_SCHEMA)}</code></pre>'
-          f'<h3>Tools this site offers to browser AI agents</h3><p>Registered through WebMCP where the browser supports it (currently a Chrome preview behind a flag). In other browsers nothing loads.</p><ul class="plain">{tools}</ul>'
-          f'<h3>How the bill check handles your file</h3><p>The file is read in your browser with plain JavaScript. It isn\'t uploaded, stored or sent; the only request the page makes is for the sample file, and only if you ask for it.</p></div>')
-    body += sec("Under the hood", f"<h2>The record behind every check</h2>{tv}", sid="hood")
+    body += wsec("Ways to start", f'<div class="whead"><h2>Three ways to start</h2><p class="intro">{C.PRICE_NOTE} <a href="/prices/">How fees work</a>.</p></div>{start}<p class="allsvc"><a href="/services/">See every service</a>: cash and profit models, workflow automation, dashboards, AI governance, AML/CTF for accounting firms and workshops.</p>', "white")
+    bcl = "".join(f"<li>{x}</li>" for x in C.HOME_BC)
+    sample = ('<div class="bcard" aria-label="Example bill check results on a made-up building company\'s bills">'
+              '<div class="bchead"><span>Bill check results</span><span>Example results, made-up business</span></div>'
+              '<ul>'
+              '<li><span class="dot stop"></span><div><b>Bank details changed</b><p>One supplier\'s account number differs from earlier bills.</p></div></li>'
+              '<li><span class="dot held"></span><div><b>Possible duplicate</b><p>Same supplier and amount within 14 days, sent as an updated invoice.</p></div></li>'
+              '<li><span class="dot held"></span><div><b>Invoice number reused</b><p>One supplier used the same invoice number twice.</p></div></li>'
+              '<li><span class="dot held"></span><div><b>Looks split under the limit</b><p>Two bills on the same day, each just under your approval limit.</p></div></li>'
+              '</ul><p class="bcnote">A flag is a prompt for a person to look. Many have an innocent explanation.</p></div>')
+    body += wsec("Try it now", f'<div class="split"><div><h2>Run the free bill check on your own bills</h2><p class="intro">Export your bills from Xero, MYOB or QuickBooks and drop the file in. Eight checks run in your browser in a few seconds. Nothing is uploaded or sent to us.</p><ul class="ticks">{bcl}</ul><div class="acts"><a class="btn" href="/bill-check/">Run the free bill check</a></div></div>{sample}</div>', "forest", sid="see")
+    safe = '<ol class="steps4">' + "".join(f'<li><span class="num">{i:02d}</span><h3>{a}</h3><p>{b}</p></li>' for i, (a, b) in enumerate(C.SAFE, 1)) + "</ol>"
+    body += wsec("How it stays safe", f'<div class="whead"><h2>Nothing runs on its own on day one</h2></div>{safe}<p class="note">{C.NOT_DO} <a href="/how-we-work/">How a build runs</a>.</p>')
     body += wsec("Who you'll deal with", f"<div class=\"whead\"><h2>One accountable person, from first call to handover</h2></div>{who_block()}", "white who-sec")
-    body += sec("Next step", f"<h2>Talk or write. Either way, a reply by the next business day.</h2><p class=\"intro\">{C.CTA_TEXT}</p><div class=\"acts\"><a class=\"btn\" href=\"/contact/\">Start in writing</a><a class=\"btn line\" href=\"/contact/?topic=Discovery%20call\">Book a 20-minute call</a></div>", "dark")
+    news = '<ul class="chg">' + "".join(
+        f'<li><p class="ctag">{e(n["tag"])}</p><p class="ctext"><a href="{n["src"]}" rel="noopener" target="_blank">{e(n["text"])}</a></p><p class="cbeiz"><a href="{n["href"]}">{e(n["beiz"])}</a></p></li>' for n in C.NEWS) + "</ul>"
+    body += wsec("Official sources", f'<div class="whead"><h2>What&rsquo;s changing for Australian businesses</h2><p class="intro">Each item links to the official source. General information, not advice.</p></div>{news}', sid="changing")
+    body += wsec("", f"<div class=\"closer\"><h2>Talk or write. Either way, a reply by the next business day.</h2><p class=\"intro\">{C.CTA_TEXT}</p><div class=\"acts\"><a class=\"btn\" href=\"/contact/?topic=Discovery%20call\">Book a 20-minute call</a><a class=\"btn line\" href=\"/contact/\">Start in writing</a></div></div>", "forest")
     return page("/", "Beiz Data & Accounting | AI for real work, checked by a Chartered Accountant", C.HOME_DESC, body)
 
 

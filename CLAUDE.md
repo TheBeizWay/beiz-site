@@ -2,6 +2,13 @@
 
 Read this before changing anything in this repo. It describes the site as it is, the facts it may state, and how to change it without breaking it. If a request conflicts with this file, say so before building.
 
+## Update, 13 Nov 2026: "Studio" refresh of the homepage (Purav: "fix this site, looks like a kids project")
+
+- Removed site-wide: the scrolling "What's changing" ticker under the header, the floating "Ask Beiz" helper, the "Jump to (Ctrl K)" link, the scroll progress line, fade-ins and the ticking counters. The site is still; nothing moves on scroll.
+- The NEWS items now show once, as a static "What's changing for Australian businesses" grid near the end of the homepage, each linked to its official source.
+- Homepage order: hero (static bills panel, no drawers) → four jobs → amber band → three ways to start (linked cards, plus "See every service") → bill check with an HTML example-results card (the demo videos are off the homepage) → four safety steps → who you'll deal with (colour photo) → what's changing → closing call to action. "Everything Beiz does" tiles and "Under the hood" are off the homepage; /services/ and /how-we-work/ cover them.
+- "Book a 20-minute call" goes to /contact/?topic=Discovery%20call until Purav supplies a calendar booking link.
+
 ## Update, 5 Nov 2026: the "Ledger" revamp (Purav chose the direction, scope and branch build)
 
 The site was rebuilt from scratch and cut to six pages plus the free bill check. **This section overrides anything older below.**

@@ -70,33 +70,6 @@
   const top0 = $(".top");
   const setMegaTop = () => { if (top0) document.documentElement.style.setProperty("--megatop", Math.max(0, top0.getBoundingClientRect().bottom) + "px"); };
   setMegaTop(); addEventListener("scroll", setMegaTop, { passive: true }); addEventListener("resize", setMegaTop);
-  const bar = document.createElement("div"); bar.className = "progress"; bar.setAttribute("aria-hidden", "true"); document.body.appendChild(bar);
-  const prog = () => { const h = document.documentElement.scrollHeight - innerHeight; bar.style.transform = `scaleX(${h > 0 ? Math.min(1, scrollY / h) : 0})`; };
-  prog(); addEventListener("scroll", prog, { passive: true });
-  if (!reduce && "IntersectionObserver" in window) {
-    document.documentElement.classList.add("js-anim");
-    const targets = [...document.querySelectorAll(".sec .body>*, .reveal, .led tbody tr, .row")];
-    const io = new IntersectionObserver(es => es.forEach(en => {
-      if (!en.isIntersecting) return;
-      const el = en.target, sib = el.parentElement ? [...el.parentElement.children].indexOf(el) : 0;
-      el.style.transitionDelay = Math.min(sib, 6) * 60 + "ms";
-      el.classList.add("in"); io.unobserve(el);
-    }), { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
-    targets.forEach(t => io.observe(t));
-    /* bills panel: rows post in one by one, counts tick up, status rows flash */
-    const rowsB = [...document.querySelectorAll(".hero .book tbody tr")];
-    rowsB.forEach((tr, i) => setTimeout(() => {
-      tr.classList.add("in");
-      const n = tr.querySelector("td.n"); if (n) {
-        const end = parseInt(n.textContent, 10) || 0, t0 = performance.now(), dur = 700;
-        const step = t => { const k = Math.min(1, (t - t0) / dur); n.textContent = Math.round(end * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(step); };
-        n.textContent = "0"; requestAnimationFrame(step);
-      }
-      const d = tr.querySelector(".dot:not(.none)");
-      if (d) { d.classList.add("pulse"); tr.classList.add("flash", d.classList.contains("ok") ? "okf" : d.classList.contains("stop") ? "stopf" : "heldf"); setTimeout(() => tr.classList.remove("flash"), 900); }
-    }, 250 + i * 230));
-  }
-
   /* ---- interactive bills panel ---- */
   const book = $(".book");
   if (book) {
