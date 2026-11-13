@@ -70,7 +70,7 @@ CTA_TEXT = ("Tell us which piece of work takes the most hours. You'll get a writ
             "and a fixed-fee proposal within three business days if it's a fit. If we're not the right fit, we'll say so.")
 
 BIO = ("<p>Chartered Accountant, a member of Chartered Accountants Australia and New Zealand (CA ANZ) with a Certificate of Public Practice and a graduate of the Australian Institute "
-       "of Company Directors, with a background in audit, controls, finance, data science and AI engineering. "
+       "of Company Directors, with a background in audit, controls, finance, data analytics and building AI automation. "
        "Every engagement is scoped, built and signed off by him.</p>")
 BIO_FULL = BIO + ("<p>Where a job needs a lawyer, tax agent or IT provider, we say so and work alongside them. "
                   "Beiz takes on a limited number of projects at a time, with capacity agreed in writing before work begins.</p>")

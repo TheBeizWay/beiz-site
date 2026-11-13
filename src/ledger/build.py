@@ -13,7 +13,7 @@ import json
 from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ASSET_V = "L32"  # bump on every CSS or JS change
+ASSET_V = "L33"  # bump on every CSS or JS change
 SITE = "https://beiz.com.au"
 e = html.escape
 
@@ -191,7 +191,7 @@ def home():
 <div class="credrow"><img src="/assets/media/ca-logo.svg" alt="Chartered Accountants Australia and New Zealand" width="147" height="84"><p class="cred">Trade mark of Chartered Accountants Australia and New Zealand and used with permission.</p></div>
 </div>
 <figure class="hphoto"><img src="/assets/media/purav-mehta-2.jpg" alt="Purav Mehta" width="480" height="640" fetchpriority="high">
-<figcaption><b>Purav Mehta CA, GAICD</b><span>Founder. You deal with him from the first call to handover.</span></figcaption></figure>
+<figcaption><b>Purav Mehta CA, GAICD</b><span>Founder. You deal with him from the first call to handover. <a href="/about/">About Purav</a> · <a href="https://www.linkedin.com/in/puravmehtaca/" rel="noopener">LinkedIn</a></span></figcaption></figure>
 </div></section>
 """
     body = hero
@@ -219,7 +219,6 @@ def home():
     body += wsec("Try it now", f'<div class="split"><div><h2>Run the free bill check on your own bills</h2><p class="intro">Export your bills from Xero, MYOB or QuickBooks and drop the file in. Eight checks run in your browser in a few seconds. Nothing is uploaded or sent to us.</p><ul class="ticks">{bcl}</ul><div class="acts"><a class="btn" href="/bill-check/">Run the free bill check</a></div></div>{sample}</div>', "forest", sid="see")
     safe = '<ol class="steps4">' + "".join(f'<li><span class="num">{i:02d}</span><h3>{a}</h3><p>{b}</p></li>' for i, (a, b) in enumerate(C.SAFE, 1)) + "</ol>"
     body += wsec("How it stays safe", f'<div class="whead"><h2>Nothing runs on its own on day one</h2></div>{safe}<p class="note">{C.NOT_DO} <a href="/how-we-work/">How a build runs</a>.</p>')
-    body += wsec("Who you'll deal with", f"<div class=\"whead\"><h2>One accountable person, from first call to handover</h2></div>{who_block()}", "white who-sec")
     news = '<ul class="chg">' + "".join(
         f'<li><p class="ctag">{e(n["tag"])}</p><p class="ctext"><a href="{n["src"]}" rel="noopener" target="_blank">{e(n["text"])}</a></p><p class="cbeiz"><a href="{n["href"]}">{e(n["beiz"])}</a></p></li>' for n in C.NEWS) + "</ul>"
     body += wsec("Official sources", f'<div class="whead"><h2>What&rsquo;s changing for Australian businesses</h2><p class="intro">Each item links to the official source. General information, not advice.</p></div>{news}', sid="changing")
