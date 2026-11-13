@@ -189,3 +189,8 @@
     }
   });
 })();
+
+/* bill check: show the walk-through offer once results appear */
+(() => { const out = document.getElementById("bcOut"), nx = document.getElementById("bcNext");
+  if (!out || !nx) return;
+  new MutationObserver(() => { nx.hidden = !out.textContent.trim(); }).observe(out, { childList: true, subtree: true }); })();

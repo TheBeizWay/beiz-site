@@ -8,6 +8,12 @@ Read this before changing anything in this repo. It describes the site as it is,
 - The NEWS items now show once, as a static "What's changing for Australian businesses" grid near the end of the homepage, each linked to its official source.
 - Homepage order: hero (static bills panel, no drawers) → four jobs → amber band → three ways to start (linked cards, plus "See every service") → bill check with an HTML example-results card (the demo videos are off the homepage) → four safety steps → who you'll deal with (colour photo) → what's changing → closing call to action. "Everything Beiz does" tiles and "Under the hood" are off the homepage; /services/ and /how-we-work/ cover them.
 - "Book a 20-minute call" goes to /contact/?topic=Discovery%20call until Purav supplies a calendar booking link.
+- Hero is now light and photo-led (`hero2`): headline, lede, two buttons, three plain facts, and Purav's photo with a caption. The bills panel left the hero.
+- Each homepage job column carries one example decision-log entry (`JOB_LOGS` in `content.py`, made-up business, labelled).
+- /how-we-work/ has the "Under the hood" plain/technical view of one decision record (no WebMCP list).
+- The Services nav item is a plain link; the 13-item hover panel is gone.
+- The bill check shows a "20-minute walk-through" offer (`#bcNext`) once results appear. No prices, no "signed report" wording.
+- 30-day site freeze from 13 Nov 2026 unless Purav asks: selling comes first.
 
 ## Update, 5 Nov 2026: the "Ledger" revamp (Purav chose the direction, scope and branch build)
 

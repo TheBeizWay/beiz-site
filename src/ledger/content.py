@@ -23,6 +23,13 @@ HERO_BOOK = [
     ("stop", "stop", "Stopped: supplier bank details changed", "1"),
 ]
 
+# One example decision-log entry per job (made-up business, same as the bill check sample). (status, record, finding, who decides)
+JOB_LOGS = [
+    ("stop", "Bluetongue Plumbing, $2,423.87", "Bank details changed since April.", "The owner rings the supplier on the number already on file."),
+    ("held", "Week 6 forecast", "Cash dips below the agreed floor if one overdue debtor pays late.", "The owner decides whether to chase the debtor or delay a purchase."),
+    ("held", "Trade creditors, October", "A manual journal doesn't match the payables report.", "The bookkeeper explains or corrects it before month-end is closed."),
+    ("held", "New client, family trust", "One beneficial owner's ID is missing from the file.", "Your compliance officer, before the engagement letter is signed."),
+]
 JOBS_INTRO = "Start with one job. The agent does the checking and preparation; a person still decides anything that matters."
 JOBS = [
     ("Bills", "Evenings spent copying between emailed PDFs, bank feeds and your accounting software, and receipt apps reusing last month's account code.",

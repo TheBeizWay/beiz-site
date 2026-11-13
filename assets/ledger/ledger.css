@@ -606,3 +606,12 @@ h3.sub{font-size:1.2rem;margin:30px 0 0}
 @media (max-width:860px){.hero2 .wrap{grid-template-columns:1fr}.hero2 h1 br{display:none}.hphoto{max-width:360px}.hfacts{grid-template-columns:1fr}.hfacts li+li{padding-left:0;border-left:0}.hfacts li{padding:14px 0;border-bottom:1px solid var(--rule)}}
 .hero2 h1{font-size:clamp(2.4rem,4.3vw,3.9rem)}
 .hero2{padding-top:clamp(40px,5vw,72px)}
+.jlog{margin-top:18px;padding:14px 14px 12px;background:var(--white);border:1px solid var(--rule);font-size:14px;line-height:1.5}
+.jlog p{margin:0 0 6px;color:var(--ink2)}
+.jlog b{color:var(--ink);font-weight:600}
+.jlog .jl1{position:relative;padding-left:16px;font-weight:500;color:var(--ink)}
+.jlog .jl1 .dot{position:absolute;left:0;top:7px;margin:0}
+.jlog .jwho{margin:0;color:var(--muted);font-size:13.5px}
+.jnote{margin:22px 0 0;font-size:14px;color:var(--muted)}
+.bcnext{margin-top:22px;padding:18px 20px;border:1px solid var(--ink);border-left:4px solid var(--brand);background:var(--white);display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.bcnext p{margin:0;max-width:40em}

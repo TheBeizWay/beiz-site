@@ -13,7 +13,7 @@ import json
 from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ASSET_V = "L30"  # bump on every CSS or JS change
+ASSET_V = "L32"  # bump on every CSS or JS change
 SITE = "https://beiz.com.au"
 e = html.escape
 
@@ -73,8 +73,7 @@ def gslug(t):
 def header(path):
     def item(h, t):
         a = f'<a href="{h}"{" aria-current=page" if path == h else ""}>{t}</a>'
-        if h != "/services/":
-            return a
+        return a
         cols = "".join(
             f'<div class="mcol"><a class="mh" href="/services/#{gslug(g["title"])}">{g["title"]}</a><p>{g["intro"]}</p><ul>'
             + "".join(f'<li><a href="{DETAIL.get(n, "/services/#" + gslug(g["title"]))}">{n}</a><span>{p}</span></li>' for n, d, p, _ in g["items"])
@@ -197,8 +196,10 @@ def home():
 """
     body = hero
     jobs = '<div class="jobs4">' + "".join(
-        f'<article class="job"><p class="num">{i:02d}</p><h3>{a}</h3><p class="was"><span>Today</span>{b}</p><p class="now"><span>With a Beiz agent</span>{c}</p></article>'
-        for i, (a, b, c) in enumerate(C.JOBS, 1)) + "</div>"
+        f'<article class="job"><p class="num">{i:02d}</p><h3>{a}</h3><p class="was"><span>Today</span>{b}</p><p class="now"><span>With a Beiz agent</span>{c}</p>'
+        f'<div class="jlog"><p class="jl1"><span class="dot {lg[0]}"></span>{"Stopped" if lg[0] == "stop" else "Held for a person"}</p><p><b>{lg[1]}</b><br>{lg[2]}</p><p class="jwho">Who decides: {lg[3]}</p></div></article>'
+        for i, ((a, b, c), lg) in enumerate(zip(C.JOBS, C.JOB_LOGS), 1)) + "</div>"
+    jobs += '<p class="jnote">Example decision-log entries from a made-up business. Every check is logged, including the ones that pass.</p>'
     body += wsec("Where it helps", f'<div class="whead"><h2>The routine work an agent takes on</h2><p class="intro">{C.JOBS_INTRO}</p></div>{jobs}')
     body += ('<section class="band"><div class="wrap"><p class="big">Nothing is paid or sent without a person.</p>'
              '<p>Every agent is tested on your past records, runs alongside your team in shadow mode first, and logs every decision in your own accounts.</p></div></section>\n')
@@ -244,6 +245,10 @@ def how():
     body += sec("Control status", f"<h2>A control isn't live until it's signed off</h2><p class=\"intro\">Every control moves through four states, and each change is recorded. An AI answer is a draft until a person approves it.</p>{rows(C.CONTROL_STATES)}", sid="status")
     body += sec("Stop conditions", f"<h2>When the work stops and waits for a person</h2><ul class=\"plain\">{''.join(f'<li>{x}</li>' for x in C.STOPS)}</ul><p class=\"note\">A stop can't be released by anything further down the line. Only the named person can clear it, and their decision is logged.</p>", sid="stops")
     body += sec("Decision log", f"<h2>Five things every check records</h2><p class=\"intro\">The log lives in your own accounts. Here is what each entry holds.</p>{rows(C.LOG_FIELDS)}", sid="log")
+    tv = (f'<div class="viewsw" role="group" aria-label="View"><button type="button" data-view="plain" aria-pressed="true">Plain view</button><button type="button" data-view="tech" aria-pressed="false">Technical view</button></div>'
+          f'<div class="vplain"><p class="intro">{C.TECH_PLAIN}</p></div>'
+          f'<div class="vtech" hidden><h3>One decision-log record (made-up business)</h3><pre class="code"><code>{e(C.LOG_SCHEMA)}</code></pre></div>')
+    body += sec("Under the hood", f"<h2>The record behind every check</h2>{tv}", sid="hood")
     body += sec("Every agent", f"<h2>What every Beiz build includes</h2><ul class=\"plain\">{''.join(f'<li>{x}</li>' for x in C.INCLUDES)}</ul>")
     body += sec("Findings", f"<h2>We report what the records support</h2>{rows(C.FINDINGS)}")
     body += sec("Scope", f"<h2>What we don't do</h2><p class=\"intro\">{C.NOT_DO}</p>")
@@ -301,6 +306,7 @@ def bill_check():
 <p class="bck-status" id="bcStatus" aria-live="polite"></p>
 <div id="bcMap"></div>
 <div id="bcOut" aria-live="polite"></div>
+<div class="bcnext" id="bcNext" hidden><p><b>Want someone to go through these flags with you?</b> A 20-minute call with a Chartered Accountant, free. Your file stays on your device; bring the flags, not the export.</p><a class="btn" href="/contact/?topic=Bill%20check%20walk-through">Book a 20-minute walk-through</a></div>
 </div>"""
     faq = "".join(f"<div class=\"row\"><h3>{q}</h3><p>{a}</p></div>" for q, a in C.BC_FAQ)
     ld = '<script type="application/ld+json">' + __import__("json").dumps({
