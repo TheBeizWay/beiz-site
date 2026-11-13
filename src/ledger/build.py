@@ -13,7 +13,7 @@ import json
 from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ASSET_V = "L29"  # bump on every CSS or JS change
+ASSET_V = "L30"  # bump on every CSS or JS change
 SITE = "https://beiz.com.au"
 e = html.escape
 
@@ -182,19 +182,18 @@ def who_block(full=False):
 
 # ---------------------------------------------------------------- pages
 def home():
-    rowsb = "".join(
-        f'<tr><td><span class="dot {c}"></span>{t}</td><td class="n">{n}</td></tr>'
-        for c, lab, t, n in C.HERO_BOOK)
-    book = f"""<div class="book">
-<div class="cap"><span>Bills this week</span><span>Example, made-up business</span></div>
-<table><caption class="skip">Example week for a made-up business: 42 bills received, 38 matched, 3 held for a person, 1 stopped, none paid without sign-off.</caption><tbody><tr><td><span class="dot none"></span>Bills received</td><td class="n">42</td></tr>{rowsb}
-<tr class="tot"><td><span class="dot none"></span>Paid without a person's sign-off</td><td class="n">0</td></tr></tbody></table>
-<p class="bfoot">Stopped bill: Bluetongue Plumbing, bank details changed since April. The owner rings the supplier on the number already on file before anything is paid.</p></div>"""
-    hero = f"""<section class="hero"><div class="wrap">
-<div><h1>AI that does the checking. <br>A Chartered Accountant who checks the AI.</h1><p class="lede">{C.HERO_LEDE}</p>
+    hero = f"""<section class="hero2"><div class="wrap">
+<div class="h2main">
+<p class="hkick">Beiz Data &amp; Accounting, Canberra</p>
+<h1>AI that does the checking. <br>A Chartered Accountant who checks the AI.</h1>
+<p class="lede">{C.HERO_LEDE}</p>
 <div class="acts"><a class="btn" href="/contact/?topic=Discovery%20call">Book a 20-minute call</a><a class="btn line" href="/bill-check/">Try the free bill check</a></div>
-<div class="credrow"><img src="/assets/media/ca-logo-reversed.png" alt="Chartered Accountants Australia and New Zealand" width="147" height="84"><p class="cred">{C.HERO_CRED}<br><span class="tm">Trade mark of Chartered Accountants Australia and New Zealand and used with permission.</span></p></div></div>
-{book}</div></section>
+<ul class="hfacts"><li><b>Chartered Accountant</b><span>Member of Chartered Accountants Australia and New Zealand, with a Certificate of Public Practice</span></li><li><b>Fixed fee</b><span>Agreed in writing before any work starts</span></li><li><b>A person signs off</b><span>Nothing is paid or sent by an agent alone</span></li></ul>
+<div class="credrow"><img src="/assets/media/ca-logo.svg" alt="Chartered Accountants Australia and New Zealand" width="147" height="84"><p class="cred">Trade mark of Chartered Accountants Australia and New Zealand and used with permission.</p></div>
+</div>
+<figure class="hphoto"><img src="/assets/media/purav-mehta-2.jpg" alt="Purav Mehta" width="480" height="640" fetchpriority="high">
+<figcaption><b>Purav Mehta CA, GAICD</b><span>Founder. You deal with him from the first call to handover.</span></figcaption></figure>
+</div></section>
 """
     body = hero
     jobs = '<div class="jobs4">' + "".join(

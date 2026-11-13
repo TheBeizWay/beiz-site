@@ -579,3 +579,30 @@ h3.sub{font-size:1.2rem;margin:30px 0 0}
 .wsec:not(.forest) .steps4 .num{color:var(--brand)}
 .wsec:not(.forest) .steps4 li{border-top-color:var(--ink)}
 @media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.hero .book{margin-top:8px}.hero h1{font-size:clamp(2.2rem,9vw,2.8rem)}}
+
+/* ---- Hero 2 (13 Nov 2026): light, photo-led first screen ---- */
+.hero2{background:var(--white);border-bottom:4px solid var(--amber);padding:clamp(48px,7vw,104px) 0 clamp(56px,8vw,112px)}
+.hero2 .wrap{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(36px,6vw,88px);align-items:center}
+.hkick{font-size:15px;font-weight:500;color:var(--brand);margin:0 0 22px;display:flex;align-items:center;gap:12px}
+.hkick::before{content:"";width:28px;height:2px;background:var(--brand)}
+.hero2 h1{font-size:clamp(2.5rem,5vw,4.6rem);line-height:1.02;letter-spacing:-.03em;color:var(--ink);text-wrap:balance}
+.hero2 .lede{font-size:clamp(1.08rem,1.5vw,1.25rem);color:var(--ink2);max-width:34em;margin-top:26px}
+.hero2 .btn{background:var(--brand);border-color:var(--brand);color:#fff}
+.hero2 .btn:hover{background:#17553A;border-color:#17553A}
+.hero2 .btn.line{background:transparent;color:var(--ink);border-color:var(--ink)}
+.hero2 .btn.line:hover{background:var(--ink);color:#fff}
+.hfacts{list-style:none;margin:40px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--rule2)}
+.hfacts li{padding:18px 18px 0 0}
+.hfacts li+li{padding-left:18px;border-left:1px solid var(--rule)}
+.hfacts b{display:block;font:600 1.05rem/1.25 var(--serif);margin-bottom:4px}
+.hfacts span{display:block;font-size:14px;line-height:1.45;color:var(--muted)}
+.hero2 .credrow{display:none}
+.hphoto{margin:0;position:relative}
+.hphoto img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border-radius:3px}
+.hphoto figcaption{position:absolute;left:16px;right:16px;bottom:16px;background:var(--white);padding:14px 16px;border-left:3px solid var(--amber)}
+.hphoto b{display:block;font:600 1.1rem/1.2 var(--serif)}
+.hphoto span{display:block;font-size:14px;color:var(--ink2);margin-top:3px}
+@media (max-width:1100px){.hero2 .credrow{display:flex;align-items:center;gap:16px;margin-top:28px}.hero2 .credrow img{width:140px;height:auto}.hero2 .cred{font-size:13px;color:var(--muted);margin:0}}
+@media (max-width:860px){.hero2 .wrap{grid-template-columns:1fr}.hero2 h1 br{display:none}.hphoto{max-width:360px}.hfacts{grid-template-columns:1fr}.hfacts li+li{padding-left:0;border-left:0}.hfacts li{padding:14px 0;border-bottom:1px solid var(--rule)}}
+.hero2 h1{font-size:clamp(2.4rem,4.3vw,3.9rem)}
+.hero2{padding-top:clamp(40px,5vw,72px)}
