@@ -1,0 +1,54 @@
+name: Weekly opportunity pipeline
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 20,21 * * 0'
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: weekly-opportunity-pipeline
+  cancel-in-progress: false
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check Canberra local time
+        id: clock
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          python - <<'PY'
+          import datetime, os
+          from zoneinfo import ZoneInfo
+          now = datetime.datetime.now(ZoneInfo('Australia/Sydney'))
+          run = os.environ['EVENT_NAME'] == 'workflow_dispatch' or (now.weekday() == 0 and now.hour == 7)
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              f.write(f'run={str(run).lower()}\n')
+          PY
+      - name: Generate review drafts
+        if: steps.clock.outputs.run == 'true'
+        run: python scripts/weekly_opportunity_pipeline.py
+      - name: Open review PR
+        if: steps.clock.outputs.run == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          branch=automation/opportunity-$(TZ=Australia/Sydney date +%F)
+          if gh pr list --head "$branch" --state all --json number --jq 'length' | grep -qv '^0$'; then
+            echo 'A PR already exists for this date; skipping.'
+            exit 0
+          fi
+          git switch -c "$branch"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/opportunity-drafts
+          git commit -m 'Prepare weekly opportunity brief and draft landing page'
+          git push origin "$branch"
+          gh pr create --base main --head "$branch" --draft --title "Weekly Beiz opportunity review" --body "Review-only research and noindex landing-page draft. Keyword scores are not evidence of willingness to pay. Review feed failures, source relevance, claims and commercial fit before publishing. No outreach or automatic merge."
