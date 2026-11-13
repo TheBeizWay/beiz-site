@@ -620,3 +620,13 @@ h3.sub{font-size:1.2rem;margin:30px 0 0}
 .led td.fee{text-align:right;white-space:nowrap;font-weight:600;font-variant-numeric:tabular-nums;width:9em;padding-right:0}
 .bcnext p.bcpaid{flex-basis:100%;padding-top:12px;border-top:1px solid var(--rule);font-size:15px}
 @media (max-width:640px){.led td.fee{text-align:left;display:block;width:auto;padding-top:0}}
+/* 14 Nov 2026: tighter header and hero so both buttons sit on the first screen at laptop size */
+@media (min-width:1101px){.top>.wrap{height:108px}.tmstrip .wrap{padding-bottom:6px}.tmstrip{font-size:11.5px}.nav{gap:22px;font-size:15px}}
+.hero2{padding:clamp(32px,4vw,56px) 0 clamp(44px,5vw,72px)}
+@media (min-width:861px){.hero2 .wrap{grid-template-columns:minmax(0,1.9fr) minmax(0,1fr);align-items:start}}
+.hero2 h1{font-size:clamp(2.3rem,3.6vw,3.4rem);line-height:1.05;max-width:16em}
+.hero2 .lede{margin-top:18px}
+.hero2 .acts{margin-top:24px}
+.hkick{margin-bottom:16px}
+.hfacts{margin-top:28px}
+@media (min-width:861px){.hphoto img{aspect-ratio:4/4.6;max-height:520px}}

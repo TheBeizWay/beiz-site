@@ -13,13 +13,13 @@ import json
 from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ASSET_V = "L34"  # bump on every CSS or JS change
+ASSET_V = "L35"  # bump on every CSS or JS change
 BEACON = ('<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon=\'{"token": "%s"}\'></script>\n' % C.CF_BEACON_TOKEN) if C.CF_BEACON_TOKEN else ""
 SITE = "https://beiz.com.au"
 e = html.escape
 
 NAV = [("/services/", "Services"), ("/how-we-work/", "How it works"), ("/prices/", "Fees"),
-       ("/bill-check/", "Try the bill check"), ("/about/", "About")]
+       ("/bill-check/", "Free bill check"), ("/about/", "About")]
 
 HELPER_TMPL = """<button type="button" class="hbtn" aria-controls="helper" aria-expanded="false">Ask Beiz</button>
 <div class="helper" id="helper" role="dialog" aria-label="Ask Beiz, guided helper" hidden>
@@ -201,13 +201,11 @@ def home():
         f'<div class="jlog"><p class="jl1"><span class="dot {lg[0]}"></span>{"Stopped" if lg[0] == "stop" else "Held for a person"}</p><p><b>{lg[1]}</b><br>{lg[2]}</p><p class="jwho">Who decides: {lg[3]}</p></div></article>'
         for i, ((a, b, c), lg) in enumerate(zip(C.JOBS, C.JOB_LOGS), 1)) + "</div>"
     jobs += '<p class="jnote">Example decision-log entries from a made-up business. Every check is logged, including the ones that pass.</p>'
-    body += wsec("Where it helps", f'<div class="whead"><h2>The routine work an agent takes on</h2><p class="intro">{C.JOBS_INTRO}</p></div>{jobs}')
-    body += ('<section class="band"><div class="wrap"><p class="big">Nothing is paid or sent without a person.</p>'
-             '<p>Every agent is tested on your past records, runs alongside your team in shadow mode first, and logs every decision in your own accounts.</p></div></section>\n')
     start = '<div class="start3">' + "".join(
         f'<a class="st" href="{DETAIL.get(n) or l}"><p class="num">{i:02d}</p><h3>{n}</h3><p class="stp">{_p}</p><p>{d}</p><span class="go">Read more</span></a>'
         for i, (n, d, _p, l) in enumerate(C.START, 1)) + "</div>"
     body += wsec("Ways to start", f'<div class="whead"><h2>Three ways to start</h2><p class="intro">Fixed fees, in AUD, no GST added. Scope, timeline and definition of done in writing before any work starts. <a href="/prices/">How fees work</a>.</p></div>{start}<p class="allsvc"><a href="/services/">See every service</a>: cash and profit models, workflow automation, dashboards, AI governance, AML/CTF for accounting firms and workshops.</p>', "white")
+    body += wsec("Where it helps", f'<div class="whead"><h2>The routine work an agent takes on</h2><p class="intro">{C.JOBS_INTRO}</p></div>{jobs}')
     bcl = "".join(f"<li>{x}</li>" for x in C.HOME_BC)
     sample = ('<div class="bcard" aria-label="Example bill check results on a made-up building company\'s bills">'
               '<div class="bchead"><span>Bill check results</span><span>Example results, made-up business</span></div>'
