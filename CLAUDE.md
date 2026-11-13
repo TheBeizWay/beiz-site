@@ -2,6 +2,12 @@
 
 Read this before changing anything in this repo. It describes the site as it is, the facts it may state, and how to change it without breaking it. If a request conflicts with this file, say so before building.
 
+## Update, 14 Nov 2026: header and hero tightened (Purav: "website looks so shite including the menu and header", "do any steps")
+
+- Header: same Beiz and CA ANZ logo sizes and trade mark strip (CA placement unchanged pending CA ANZ review); header row 116px to 108px, tighter nav. Nav label "Try the bill check" is now "Free bill check".
+- Hero: same copy, wider text column and smaller H1 so it runs three lines on desktop and both buttons sit on the first screen at laptop size (about 1400x780). Photo capped at 520px tall.
+- Homepage: the amber "Nothing is paid or sent without a person." band is removed (it repeated the hero fact and the safety steps). "Three ways to start" with fees now comes straight after the hero, before "Where it helps".
+
 ## Update, 13 Nov 2026 (later): selling changes (Purav: "make those changes", "push it")
 
 - Fees are published again for two entry offers: two-week cash & data check **$1,500 fixed**; AML/CTF or compliance controls sprint **from $3,500**. AI workforce setup stays a scoped quote; every other service stays "Fixed fee" in a written proposal. AUD, no GST added. This overrides the 5 Nov "no prices" rule below for those two offers only.
