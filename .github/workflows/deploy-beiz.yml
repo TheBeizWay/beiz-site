@@ -24,6 +24,8 @@ jobs:
           python-version: '3.12'
       - name: Build the shared editorial site
         run: python scripts/build_editorial.py _publish
+      - name: Install B-symbol logo and readable header
+        run: python scripts/polish_brand.py _publish
       - uses: actions/configure-pages@v5
         with:
           enablement: true
@@ -49,8 +51,8 @@ jobs:
                   home = get('/')
                   work = get('/services/')
                   tools = get('/tools/')
-                  if release.get('commit') == sha and release.get('design') == 'editorial-v1' and all('data-design="editorial-v1"' in s for s in [home,work,tools]) and 'ca-logo-vertical.svg' in home:
-                      print('Verified editorial release:', sha)
+                  if release.get('commit') == sha and release.get('branding') == 'green-b-readable-v1' and all('data-design="editorial-v1"' in s and 'beiz-symbol' in s for s in [home,work,tools]) and 'ca-logo-vertical.svg' in home:
+                      print('Verified branded release:', sha)
                       break
                   error = 'Served release does not match'
               except Exception as exc:
