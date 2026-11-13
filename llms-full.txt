@@ -25,7 +25,7 @@ Beiz does not provide tax returns, BAS or GST lodgements, tax or BAS agent servi
 # Full detail
 
 ## What Beiz does
-Beiz Data & Accounting sets up AI agents for the routine finance and admin work in your business: bills, cash, reconciliations and client checks. Each agent is tested on your past records first, and anything it isn't sure about waits for a person.
+Beiz sets up AI agents for the routine checking: AML/CTF client checks, bills, cash and reconciliations. Each agent is tested on your past records first, and anything it isn't sure about waits for a person.
 
 Led by a Chartered Accountant, a member of Chartered Accountants Australia and New Zealand with a Certificate of Public Practice, and GAICD. Canberra, working Australia-wide.
 
@@ -44,7 +44,7 @@ Led by a Chartered Accountant, a member of Chartered Accountants Australia and N
 ## Services
 ### Finance and decisions
 Know where cash and margin are going, from your own records.
-- Two-week cash & data check (Fixed fee): Bills, invoices and timesheets checked against each other, every finding traced to its record.
+- Two-week cash & data check ($1,500 fixed): Bills, invoices and timesheets checked against each other, every finding traced to its record.
 - Cash & job profit model (Fixed fee): A 13-week cash view and profit by job or client, tied back to the ledger. You drop in fresh exports weekly and it refreshes.
 - Leave cover (Fixed fee): When someone in finance goes on leave, an agent carries the routine part of their role, a Chartered Accountant reviews its work, and everything is handed back the day they return.
 

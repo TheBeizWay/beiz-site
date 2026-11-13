@@ -2,6 +2,14 @@
 
 Read this before changing anything in this repo. It describes the site as it is, the facts it may state, and how to change it without breaking it. If a request conflicts with this file, say so before building.
 
+## Update, 13 Nov 2026 (later): selling changes (Purav: "make those changes", "push it")
+
+- Fees are published again for two entry offers: two-week cash & data check **$1,500 fixed**; AML/CTF or compliance controls sprint **from $3,500**. AI workforce setup stays a scoped quote; every other service stays "Fixed fee" in a written proposal. AUD, no GST added. This overrides the 5 Nov "no prices" rule below for those two offers only.
+- Homepage leads with one buyer: kicker "For accounting firms and growing businesses"; "Three ways to start" is now AML/CTF sprint for accounting firms → two-week cash & data check (Payday Super framing) → AI workforce setup, each card showing its fee. Hero H1 unchanged.
+- Bill check `#bcNext` adds a paid next step: the $1,500 cash & data check.
+- `BOOK_URL` and `CF_BEACON_TOKEN` in `content.py`: empty until Purav supplies a calendar link and a Cloudflare Web Analytics token. When set, every "Book a 20-minute call" uses the calendar and every page loads the Cloudflare beacon (cookie-free); update /privacy/ in the same change.
+- The 30-day freeze still stands for design. Copy and offer changes only with Purav's yes.
+
 ## Update, 13 Nov 2026: "Studio" refresh of the homepage (Purav: "fix this site, looks like a kids project")
 
 - Removed site-wide: the scrolling "What's changing" ticker under the header, the floating "Ask Beiz" helper, the "Jump to (Ctrl K)" link, the scroll progress line, fade-ins and the ticking counters. The site is still; nothing moves on scroll.
@@ -64,7 +72,7 @@ Use only these. Never substitute, round or "improve" them.
 
 ### Fees (Purav, 5 Nov 2026: "no professional firm does prices")
 
-The site publishes no fee amounts. Every engagement is a fixed fee, set out in a written proposal (fee, timeline, definition of done) within three business days, before any work starts. `/prices/` is the "How fees work" page (nav label "Fees"). The free bill check stays free. Don't put dollar amounts for Beiz's own work back on any page, meta tag, `llms.txt`, WebMCP output or helper answer without Purav's yes. Internal reference only (not for the site): two-week cash & data check was $1,500, compliance sprint from $3,500.
+(Superseded 13 Nov 2026 for the two entry offers, see top.) The site publishes no fee amounts for other work. Every engagement is a fixed fee, set out in a written proposal (fee, timeline, definition of done) within three business days, before any work starts. `/prices/` is the "How fees work" page (nav label "Fees"). The free bill check stays free. Don't put dollar amounts for Beiz's own work back on any page, meta tag, `llms.txt`, WebMCP output or helper answer without Purav's yes. Internal reference only (not for the site): two-week cash & data check was $1,500, compliance sprint from $3,500.
 
 ### Promises already on the site (keep them consistent everywhere)
 

@@ -16,7 +16,7 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/source-serif-4-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/ledger/ledger.css?v=L33">
+<link rel="stylesheet" href="/assets/ledger/ledger.css?v=L34">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Beiz Data & Accounting Pty Ltd",
 "url":"https://beiz.com.au/","email":"hello@beiz.com.au","logo":"https://beiz.com.au/assets/brand/beiz-icon-512.png",
 "address":{"@type":"PostalAddress","addressLocality":"Canberra","addressRegion":"ACT","addressCountry":"AU"},
@@ -46,7 +46,7 @@
 <p class="bck-status" id="bcStatus" aria-live="polite"></p>
 <div id="bcMap"></div>
 <div id="bcOut" aria-live="polite"></div>
-<div class="bcnext" id="bcNext" hidden><p><b>Want someone to go through these flags with you?</b> A 20-minute call with a Chartered Accountant, free. Your file stays on your device; bring the flags, not the export.</p><a class="btn" href="/contact/?topic=Bill%20check%20walk-through">Book a 20-minute walk-through</a></div>
+<div class="bcnext" id="bcNext" hidden><p><b>Want someone to go through these flags with you?</b> A 20-minute call with a Chartered Accountant, free. Your file stays on your device; bring the flags, not the export.</p><a class="btn" href="/contact/?topic=Bill%20check%20walk-through">Book a 20-minute walk-through</a><p class="bcpaid"><b>Want the whole set checked?</b> The <a href="/cash-data-check/">two-week cash &amp; data check</a> joins your bills, invoices and timesheets and traces every finding to its record. $1,500 fixed, no GST added, credited against your next Beiz build.</p></div>
 </div></div></div></section>
 <section class="sec "><div class="wrap"><div class="lab">What it checks</div><div class="body"><ul class="plain"><li>Possible duplicate bills: same supplier, same amount, within 14 days, including an updated invoice sent after the original</li><li>The same invoice number used twice by one supplier</li><li>A supplier's bank details changing</li><li>Bills that look split to stay under your approval limit</li><li>Bills just under your approval limit</li><li>A large first bill from a supplier first seen in your file</li><li>Payments made on a weekend</li><li>ABNs missing or failing the check-digit test</li></ul></div></div></section>
 <section class="sec "><div class="wrap"><div class="lab">Getting the file</div><div class="body"><p class="intro">In your accounting software, open the bills or supplier invoices list (or a payables report), pick a date range and export it as CSV. Six or twelve months is a good start. If it only exports to Excel, open the file and save it as CSV. The check needs a supplier, an amount and a date; invoice numbers, payment dates, bank details and ABNs make it sharper.</p></div></div></section>
@@ -74,8 +74,8 @@
 <p>&copy; <span data-yr>2026</span> Beiz Data &amp; Accounting Pty Ltd</p>
 </div>
 </div></footer>
-<script src="/assets/ledger/ledger.js?v=L33" defer></script>
-<script src="/assets/ledger/webmcp.js?v=L33" defer></script>
-<script src="/assets/billcheck.js?v=L33" defer></script>
+<script src="/assets/ledger/ledger.js?v=L34" defer></script>
+<script src="/assets/ledger/webmcp.js?v=L34" defer></script>
+<script src="/assets/billcheck.js?v=L34" defer></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is my bills file uploaded anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. The check runs in your browser on your own device. Your file isn't uploaded, stored or sent to Beiz."}}, {"@type": "Question", "name": "Which accounting software does it work with?", "acceptedAnswer": {"@type": "Answer", "text": "Any bills or payables export saved as CSV, including from Xero, MYOB and QuickBooks. It needs a supplier, an amount and a date; invoice numbers, payment dates, bank details and ABNs make it sharper."}}, {"@type": "Question", "name": "Why not paste my bills into ChatGPT?", "acceptedAnswer": {"@type": "Answer", "text": "You can, but a chat assistant reads a file loosely and can skip or misread rows in a long export. This check runs the same fixed rules on every row, shows each flag with the records behind it, and your file never leaves your device. Check your own obligations before putting supplier bank details or client information into any online AI tool."}}, {"@type": "Question", "name": "Is this an audit?", "acceptedAnswer": {"@type": "Answer", "text": "No. It's eight quick checks. A flag is a prompt for a person to look, and many flags will have an innocent explanation."}}, {"@type": "Question", "name": "What does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "Nothing. The paid two-week cash and data check goes further, from your full exports, at a fixed fee agreed in writing."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Beiz free bill check", "url": "https://beiz.com.au/bill-check/", "applicationCategory": "FinanceApplication", "operatingSystem": "Any modern browser", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "AUD"}, "description": "Eight checks on a bills export (duplicates, repeated invoice numbers, changed supplier bank details, split bills and more). Runs in the browser; the file isn't uploaded.", "provider": {"@type": "ProfessionalService", "name": "Beiz Data & Accounting Pty Ltd", "url": "https://beiz.com.au/"}}</script></body>
 </html>

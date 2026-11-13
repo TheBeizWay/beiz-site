@@ -13,7 +13,8 @@ import json
 from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ASSET_V = "L33"  # bump on every CSS or JS change
+ASSET_V = "L34"  # bump on every CSS or JS change
+BEACON = ('<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon=\'{"token": "%s"}\'></script>\n' % C.CF_BEACON_TOKEN) if C.CF_BEACON_TOKEN else ""
 SITE = "https://beiz.com.au"
 e = html.escape
 
@@ -136,7 +137,7 @@ def news_strip():
 
 
 def page(path, title, desc, body, extra_js=""):
-    return head(path, title, desc) + header(path) + f'<main id="main">\n{body}\n</main>\n' + footer() + extra_js + "</body>\n</html>\n"
+    return head(path, title, desc) + header(path) + f'<main id="main">\n{body}\n</main>\n' + footer() + extra_js + BEACON + "</body>\n</html>\n"
 
 
 def sec(label, inner, cls="", sid=""):
@@ -161,11 +162,11 @@ def rows(items):
 
 
 def price_table(items, head3=("Engagement", "What you get", "")):
-    out = f'<table class="led"><thead><tr><th>{head3[0]}</th><th>{head3[1]}</th></tr></thead><tbody>'
+    out = f'<table class="led"><thead><tr><th>{head3[0]}</th><th>{head3[1]}</th><th>Fee</th></tr></thead><tbody>'
     items = [(n, d, pr, DETAIL.get(n) or l) for n, d, pr, l in items]
     for name, desc, price, link in items:
         nm = f'<a href="{link}">{name}</a>' if link else name
-        out += f'<tr><td>{nm}</td><td data-h="">{desc}</td></tr>'
+        out += f'<tr><td>{nm}</td><td data-h="">{desc}</td><td class="fee">{price}</td></tr>'
     return out + "</tbody></table>"
 
 
@@ -183,10 +184,10 @@ def who_block(full=False):
 def home():
     hero = f"""<section class="hero2"><div class="wrap">
 <div class="h2main">
-<p class="hkick">Beiz Data &amp; Accounting, Canberra</p>
+<p class="hkick">For accounting firms and growing businesses</p>
 <h1>AI that does the checking. <br>A Chartered Accountant who checks the AI.</h1>
 <p class="lede">{C.HERO_LEDE}</p>
-<div class="acts"><a class="btn" href="/contact/?topic=Discovery%20call">Book a 20-minute call</a><a class="btn line" href="/bill-check/">Try the free bill check</a></div>
+<div class="acts"><a class="btn" href="{BOOK}">Book a 20-minute call</a><a class="btn line" href="/bill-check/">Try the free bill check</a></div>
 <ul class="hfacts"><li><b>Chartered Accountant</b><span>Member of Chartered Accountants Australia and New Zealand, with a Certificate of Public Practice</span></li><li><b>Fixed fee</b><span>Agreed in writing before any work starts</span></li><li><b>A person signs off</b><span>Nothing is paid or sent by an agent alone</span></li></ul>
 <div class="credrow"><img src="/assets/media/ca-logo.svg" alt="Chartered Accountants Australia and New Zealand" width="147" height="84"><p class="cred">Trade mark of Chartered Accountants Australia and New Zealand and used with permission.</p></div>
 </div>
@@ -204,9 +205,9 @@ def home():
     body += ('<section class="band"><div class="wrap"><p class="big">Nothing is paid or sent without a person.</p>'
              '<p>Every agent is tested on your past records, runs alongside your team in shadow mode first, and logs every decision in your own accounts.</p></div></section>\n')
     start = '<div class="start3">' + "".join(
-        f'<a class="st" href="{DETAIL.get(n) or l}"><p class="num">{i:02d}</p><h3>{n}</h3><p>{d}</p><span class="go">Read more</span></a>'
+        f'<a class="st" href="{DETAIL.get(n) or l}"><p class="num">{i:02d}</p><h3>{n}</h3><p class="stp">{_p}</p><p>{d}</p><span class="go">Read more</span></a>'
         for i, (n, d, _p, l) in enumerate(C.START, 1)) + "</div>"
-    body += wsec("Ways to start", f'<div class="whead"><h2>Three ways to start</h2><p class="intro">{C.PRICE_NOTE} <a href="/prices/">How fees work</a>.</p></div>{start}<p class="allsvc"><a href="/services/">See every service</a>: cash and profit models, workflow automation, dashboards, AI governance, AML/CTF for accounting firms and workshops.</p>', "white")
+    body += wsec("Ways to start", f'<div class="whead"><h2>Three ways to start</h2><p class="intro">Fixed fees, in AUD, no GST added. Scope, timeline and definition of done in writing before any work starts. <a href="/prices/">How fees work</a>.</p></div>{start}<p class="allsvc"><a href="/services/">See every service</a>: cash and profit models, workflow automation, dashboards, AI governance, AML/CTF for accounting firms and workshops.</p>', "white")
     bcl = "".join(f"<li>{x}</li>" for x in C.HOME_BC)
     sample = ('<div class="bcard" aria-label="Example bill check results on a made-up building company\'s bills">'
               '<div class="bchead"><span>Bill check results</span><span>Example results, made-up business</span></div>'
@@ -222,7 +223,7 @@ def home():
     news = '<ul class="chg">' + "".join(
         f'<li><p class="ctag">{e(n["tag"])}</p><p class="ctext"><a href="{n["src"]}" rel="noopener" target="_blank">{e(n["text"])}</a></p><p class="cbeiz"><a href="{n["href"]}">{e(n["beiz"])}</a></p></li>' for n in C.NEWS) + "</ul>"
     body += wsec("Official sources", f'<div class="whead"><h2>What&rsquo;s changing for Australian businesses</h2><p class="intro">Each item links to the official source. General information, not advice.</p></div>{news}', sid="changing")
-    body += wsec("", f"<div class=\"closer\"><h2>Talk or write. Either way, a reply by the next business day.</h2><p class=\"intro\">{C.CTA_TEXT}</p><div class=\"acts\"><a class=\"btn\" href=\"/contact/?topic=Discovery%20call\">Book a 20-minute call</a><a class=\"btn line\" href=\"/contact/\">Start in writing</a></div></div>", "forest")
+    body += wsec("", f"<div class=\"closer\"><h2>Talk or write. Either way, a reply by the next business day.</h2><p class=\"intro\">{C.CTA_TEXT}</p><div class=\"acts\"><a class=\"btn\" href=\"{BOOK}\">Book a 20-minute call</a><a class=\"btn line\" href=\"/contact/\">Start in writing</a></div></div>", "forest")
     return page("/", "Beiz Data & Accounting | AI for real work, checked by a Chartered Accountant", C.HOME_DESC, body)
 
 
@@ -305,7 +306,7 @@ def bill_check():
 <p class="bck-status" id="bcStatus" aria-live="polite"></p>
 <div id="bcMap"></div>
 <div id="bcOut" aria-live="polite"></div>
-<div class="bcnext" id="bcNext" hidden><p><b>Want someone to go through these flags with you?</b> A 20-minute call with a Chartered Accountant, free. Your file stays on your device; bring the flags, not the export.</p><a class="btn" href="/contact/?topic=Bill%20check%20walk-through">Book a 20-minute walk-through</a></div>
+<div class="bcnext" id="bcNext" hidden><p><b>Want someone to go through these flags with you?</b> A 20-minute call with a Chartered Accountant, free. Your file stays on your device; bring the flags, not the export.</p><a class="btn" href="/contact/?topic=Bill%20check%20walk-through">Book a 20-minute walk-through</a><p class="bcpaid"><b>Want the whole set checked?</b> The <a href="/cash-data-check/">two-week cash &amp; data check</a> joins your bills, invoices and timesheets and traces every finding to its record. $1,500 fixed, no GST added, credited against your next Beiz build.</p></div>
 </div>"""
     faq = "".join(f"<div class=\"row\"><h3>{q}</h3><p>{a}</p></div>" for q, a in C.BC_FAQ)
     ld = '<script type="application/ld+json">' + __import__("json").dumps({
@@ -351,12 +352,15 @@ def ul(items, cls="plain"):
     return f'<ul class="{cls}">' + "".join(f"<li>{x}</li>" for x in items) + "</ul>"
 
 
+BOOK = C.BOOK_URL or "/contact/?topic=Discovery%20call"
+
+
 def chref(topic, msg=""):
     return "/contact/?topic=" + quote(topic) + (("&amp;msg=" + quote(msg)) if msg else "") + "#form"
 
 
 def cta(h2, text, topic, label="Start in writing"):
-    return sec("Next step", f'<h2>{h2}</h2><p class="intro">{text}</p><div class="acts"><a class="btn" href="{chref(topic)}">{label}</a><a class="btn line" href="{chref("Discovery call")}">Book a 20-minute call</a></div>', "dark")
+    return sec("Next step", f'<h2>{h2}</h2><p class="intro">{text}</p><div class="acts"><a class="btn" href="{chref(topic)}">{label}</a><a class="btn line" href="{BOOK}">Book a 20-minute call</a></div>', "dark")
 
 
 def ld(obj):
@@ -379,7 +383,8 @@ def related(links):
 
 def price_block(s):
     extra = f'<p class="note">{s["price_extra"]}</p>' if s.get("price_extra") else ""
-    return ('<h2>A fixed fee, agreed in writing before work starts</h2>' + rows([("Timing", s["timing"])]) + extra +
+    fee = [("Fee", s["price"] + ", no GST added")] if "$" in s.get("price", "") else []
+    return ('<h2>A fixed fee, agreed in writing before work starts</h2>' + rows(fee + [("Timing", s["timing"])]) + extra +
             f'<p class="note">{C.PRICE_NOTE} <a href="/prices/">How fees work</a>.</p>')
 
 
