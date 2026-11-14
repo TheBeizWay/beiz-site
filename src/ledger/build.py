@@ -13,7 +13,7 @@ import json
 from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ASSET_V = "L37"  # bump on every CSS or JS change
+ASSET_V = "L38"  # bump on every CSS or JS change
 SITE = "https://beiz.com.au"
 e = html.escape
 
@@ -35,7 +35,7 @@ LD = """{"@context":"https://schema.org","@type":"ProfessionalService","name":"B
 "url":"https://beiz.com.au/","email":"hello@beiz.com.au","logo":"https://beiz.com.au/assets/brand/beiz-mark-512.png",
 "address":{"@type":"PostalAddress","addressLocality":"Canberra","addressRegion":"ACT","addressCountry":"AU"},
 "areaServed":"AU","sameAs":["https://www.linkedin.com/company/beiz-data-accounting/","https://github.com/TheBeizWay"],"taxID":"53 691 755 496",
-"description":"AI for real business work, with guardrails, set up and checked by an Australian Chartered Accountant.",
+"description":"Finance workflows connected, reconciled and tested in the tools you already use, led by an Australian Chartered Accountant.",
 "founder":{"@type":"Person","name":"Purav Mehta","jobTitle":"Principal","sameAs":["https://www.linkedin.com/in/puravmehtaca/"],"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"Professional membership","name":"Chartered Accountant (CA) with a Certificate of Public Practice","recognizedBy":{"@type":"Organization","name":"Chartered Accountants Australia and New Zealand","url":"https://www.charteredaccountantsanz.com"}},{"@type":"EducationalOccupationalCredential","name":"Graduate of the Australian Institute of Company Directors (GAICD)","recognizedBy":{"@type":"Organization","name":"Australian Institute of Company Directors","url":"https://www.aicd.com.au"}}]}}"""
 
 
@@ -94,7 +94,7 @@ def footer():
     return f"""<footer class="foot"><div class="wrap">
 <div class="grid">
 <div>
-<p><b>Beiz Data &amp; Accounting</b><br>AI for real business work, set up and checked by an Australian Chartered Accountant. Canberra, working Australia-wide.</p>
+<p><b>Beiz Data &amp; Accounting</b><br>Finance workflows connected, reconciled and tested in the tools you already use. Led by an Australian Chartered Accountant. Canberra, working Australia-wide.</p>
 <p><a href="mailto:hello@beiz.com.au">hello@beiz.com.au</a></p>
 <div class="ca"><img src="/assets/media/ca-logo-reversed.png" alt="Chartered Accountants Australia and New Zealand" width="140" height="80" ></div>
 </div>
@@ -232,26 +232,26 @@ def services():
         body += sec(g["title"], f'<h2>{g["intro"]}</h2>' + price_table(g["items"], ("Service", "What it covers", "")), sid=gslug(g["title"]))
     body += sec("What we don't do", f"<p class=\"intro\">{C.NOT_DO}</p>")
     body += sec("Next step", f"<h2>Not sure which one fits?</h2><p class=\"intro\">Describe the problem in a few lines. If we're not the right fit, we'll say so.</p><div class=\"acts\"><a class=\"btn\" href=\"/contact/\">Describe the problem</a></div>", "dark")
-    return page("/services/", "Services | Beiz Data & Accounting", "Finance, data, automation and governance work for Australian small businesses, each a fixed fee agreed in writing.", body)
+    return page("/services/", "Services | Beiz Data & Accounting", "Start with the system-to-ledger exception review: one recurring month-end job where your systems and ledger disagree, fixed in the tools you already use. Fixed fees agreed in writing.", body)
 
 
 def how():
     body = phead("How it works", C.HOW_LEDE)
-    body += sec("The first 30 days", f"<h2>From first message to a working agent</h2>{rows(C.FIRST30)}")
+    body += sec("The first 30 days", f"<h2>From first message to a tested workflow</h2>{rows(C.FIRST30)}")
     body += sec("How it's built", f"<h2>Rules first. AI only for the exceptions.</h2><p class=\"intro\">Most finance work follows rules, so rules do most of the work. That keeps every step traceable and the running costs low.</p>{rows(C.RULES_FIRST)}")
     body += sec("How a bill gets in", f"<h2>Sorted, checked for doubles, then handled one at a time</h2>{rows(C.INTAKE)}", sid="intake")
-    body += sec("Control status", f"<h2>A control isn't live until it's signed off</h2><p class=\"intro\">Every control moves through four states, and each change is recorded. An AI answer is a draft until a person approves it.</p>{rows(C.CONTROL_STATES)}", sid="status")
+    body += sec("Control status", f"<h2>A control isn't live until a person has reviewed it</h2><p class=\"intro\">Every control moves through four states, and each change is recorded. An AI answer is a draft until a person approves it.</p>{rows(C.CONTROL_STATES)}", sid="status")
     body += sec("Stop conditions", f"<h2>When the work stops and waits for a person</h2><ul class=\"plain\">{''.join(f'<li>{x}</li>' for x in C.STOPS)}</ul><p class=\"note\">A stop can't be released by anything further down the line. Only the named person can clear it, and their decision is logged.</p>", sid="stops")
     body += sec("Decision log", f"<h2>Five things every check records</h2><p class=\"intro\">The log lives in your own accounts. Here is what each entry holds.</p>{rows(C.LOG_FIELDS)}", sid="log")
     tv = (f'<div class="viewsw" role="group" aria-label="View"><button type="button" data-view="plain" aria-pressed="true">Plain view</button><button type="button" data-view="tech" aria-pressed="false">Technical view</button></div>'
           f'<div class="vplain"><p class="intro">{C.TECH_PLAIN}</p></div>'
           f'<div class="vtech" hidden><h3>One decision-log record (made-up business)</h3><pre class="code"><code>{e(C.LOG_SCHEMA)}</code></pre></div>')
     body += sec("Under the hood", f"<h2>The record behind every check</h2>{tv}", sid="hood")
-    body += sec("Every agent", f"<h2>What every Beiz build includes</h2><ul class=\"plain\">{''.join(f'<li>{x}</li>' for x in C.INCLUDES)}</ul>")
+    body += sec("Every build", f"<h2>What every Beiz build includes</h2><ul class=\"plain\">{''.join(f'<li>{x}</li>' for x in C.INCLUDES)}</ul>")
     body += sec("Findings", f"<h2>We report what the records support</h2>{rows(C.FINDINGS)}")
     body += sec("Scope", f"<h2>What we don't do</h2><p class=\"intro\">{C.NOT_DO}</p>")
     body += sec("Next step", "<h2>Start with one workflow</h2><p class=\"intro\">Tell us which piece of work takes the most hours. We'll reply in writing by the next business day.</p><div class=\"acts\"><a class=\"btn\" href=\"/contact/\">Talk to us</a></div>", "dark")
-    return page("/how-we-work/", "How it works | Beiz Data & Accounting", "How Beiz sets up an AI agent: tested on your past records, shadow mode first, a person signs off, every decision logged.", body)
+    return page("/how-we-work/", "How it works | Beiz Data & Accounting", "How a Beiz workflow build runs: scoped in writing, built in your existing tools, tested on your past records beside your team, reviewed by a Chartered Accountant and handed over.", body)
 
 
 def prices():

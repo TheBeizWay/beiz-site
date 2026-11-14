@@ -71,7 +71,7 @@ CTA_TEXT = ("Tell us which piece of work takes the most hours. You'll get a writ
 
 BIO = ("<p>Chartered Accountant, a member of Chartered Accountants Australia and New Zealand (CA ANZ) with a Certificate of Public Practice and a graduate of the Australian Institute "
        "of Company Directors, with a background in audit, controls, finance, data analytics and building AI automation. "
-       "Every engagement is scoped, built and signed off by him.</p>")
+       "Every engagement is scoped by him and every deliverable is reviewed by him before handover.</p>")
 BIO_FULL = BIO + ("<p>Where a job needs a lawyer, tax agent or IT provider, we say so and work alongside them. "
                   "Beiz takes on a limited number of projects at a time, with capacity agreed in writing before work begins.</p>")
 
@@ -85,7 +85,7 @@ GROUPS = [
         ("Exception sprint", "One agreed workflow built in your existing tools, with written acceptance tests, documentation and handover. $4,000–$8,000.", "$4,000–$8,000", "/#services"),
         ("Maintenance", "Limited monitoring and updates, quoted once the real workload is measured. Never open-ended.", "Quoted", ""),
     ]},
-    {"title": "Also available", "intro": "Quoted in writing unless a price is shown. No new services until buyers ask for them.", "items": [
+    {"title": "Also available", "intro": "Quoted in writing unless a price is shown.", "items": [
         ("Fractional CFO + reporting", "Weekly cash and margin reporting and a rolling forecast, run on your own data. From $3,500 a month.", "From $3,500/month", ""),
         ("AI workflows &amp; automation", "We check what Xero, MYOB or your existing software already does first, then build only the gaps, tested and handed over. From $8,500.", "From $8,500", ""),
         ("Automation acceptance testing", "Test cases from your own records, including duplicates, missing rows and changed file formats, before a workflow or agent goes live.", "Quoted", ""),
@@ -97,24 +97,24 @@ GROUPS = [
 ]
 
 # ---------------------------------------------------------------- how it works
-HOW_LEDE = ("Nothing runs on its own on day one. Every agent is tested on your past records, runs alongside your staff first, "
-            "and needs a person's sign-off for anything that matters.")
+HOW_LEDE = ("One recurring month-end workflow at a time: scoped in writing, built in the tools you already use, tested on your past records "
+            "beside your team, and handed over with the documentation. Nothing is paid or sent without a person.")
 FIRST30 = [
     ("Write or talk", "You describe the problem. A written reply by the next business day; calls are 20 minutes, early morning or after 5pm."),
     ("Fixed proposal", "Within three business days: a fixed fee, a timeline and a definition of done."),
-    ("Build and test", "Built in your own systems and replayed on a period of your past records agreed in the proposal. You get a one-page test report: how many it cleared, held and stopped, and every case where it disagreed with what your team actually did, measured against the pass mark agreed in writing."),
-    ("Shadow mode", "The agent runs alongside your team. Its work is compared with theirs before anything goes live."),
+    ("Build and test", "Built in your own systems and replayed on a period of your past records agreed in the proposal. You get a one-page test report: how many rows it matched, held and stopped, and every case where it disagreed with what your team actually did, measured against the acceptance tests agreed in writing."),
+    ("Run beside your team", "The new workflow runs alongside the current one for an agreed period. Its output is compared with your team's before anything goes live."),
     ("Hand over", "Documentation, the decision log in your own accounts, and a review with you at day 30. The rules, scripts and procedure files are yours to keep, so you aren't tied to Beiz to keep it running."),
 ]
 INCLUDES = [
-    "A written job description, limits and a named person the agent reports to",
+    "A written scope: which inputs are supported, which rules you approve, what a complete output looks like and who reviews exceptions",
     "A test report from replaying your past records, measured against a pass mark agreed in writing",
-    "Shadow mode before live",
+    "A run beside your team before live",
     "A decision log kept in your own accounts",
-    "A monthly spending cap and an off switch",
+    "A monthly spending cap and an off switch for anything that calls an AI model",
     "Nothing paid or sent without a person",
     "A day-30 review",
-    "An operating folder you keep: business context, procedures, the rules and scripts, and agent memory, as plain files",
+    "An operating folder you keep: business context, procedures, the rules and scripts, as plain files",
 ]
 FINDINGS = [
     ("What we report", "We report what the records support. Some findings need an explanation before anyone acts on them."),
@@ -154,9 +154,9 @@ PRICE_TERMS = [
 ]
 
 # ---------------------------------------------------------------- about
-ABOUT_LEDE = ("Beiz Data &amp; Accounting Pty Ltd sets up AI for real work in Australian businesses, with the controls a "
-              "Chartered Accountant expects. Small businesses, startups and solo operators first; accounting firms and finance teams at the core.")
-SETUP = ("Beiz is a company, led by its founder. Every engagement is scoped, built and signed off by him, and outside help "
+ABOUT_LEDE = ("Beiz Data &amp; Accounting Pty Ltd builds and tests finance workflows across the systems Australian businesses already use, with the controls a "
+              "Chartered Accountant expects. Outsourced bookkeeping and finance firms and in-house finance teams first.")
+SETUP = ("Beiz is a company, led by its founder. Every engagement is scoped by him and every deliverable reviewed by him before handover, and outside help "
          "works under his review. We take on a limited number of projects at a time.")
 FACTS = [
     ("Legal name", "Beiz Data &amp; Accounting Pty Ltd"),
@@ -235,7 +235,7 @@ PRIVACY = """<p>Beiz Data &amp; Accounting Pty Ltd (ABN 53 691 755 496), "we", r
 <p>We don't use computer programs to make decisions about individuals that could significantly affect their rights or interests.</p>"""
 
 # ---------------------------------------------------------------- old URLs -> new pages
-REDIRECTS = {'/services/cash-and-job-profit-model/': '/kits/', '/leave-cover/': '/services/', '/services/ai-readiness-sprint/': '/services/automation/', '/services/workflow-redesign/': '/cash-data-check/', '/services/chatbots-ai-assistants/': '/services/', '/services/data-engineering/': '/cash-data-check/', '/services/dashboards-and-models/': '/cash-data-check/', '/services/ai-governance/': '/compliance-sprint/', '/workshops-speaking/': '/services/',
+REDIRECTS = {'/how-it-works/': '/how-we-work/', '/services/cash-and-job-profit-model/': '/kits/', '/leave-cover/': '/services/', '/services/ai-readiness-sprint/': '/services/automation/', '/services/workflow-redesign/': '/cash-data-check/', '/services/chatbots-ai-assistants/': '/services/', '/services/data-engineering/': '/cash-data-check/', '/services/dashboards-and-models/': '/cash-data-check/', '/services/ai-governance/': '/compliance-sprint/', '/workshops-speaking/': '/services/',
  '/ai-check/': '/services/',
  '/ai-cost-calculator/': '/prices/',
  '/ai-value-calculator/': '/prices/',
@@ -273,16 +273,19 @@ REDIRECTS = {'/services/cash-and-job-profit-model/': '/kits/', '/leave-cover/': 
 
 LLMS = """# Beiz Data & Accounting
 
-> AI for real business work, with guardrails, set up and checked by an Australian Chartered Accountant. Canberra, working Australia-wide.
+> Finance workflows connected, reconciled and tested in the tools you already use. Led by an Australian Chartered Accountant. Canberra, working Australia-wide.
 
-Beiz Data & Accounting Pty Ltd (ABN 53 691 755 496) sets up AI agents for routine finance and admin work: bills, cash, reconciliations and client checks. Each agent has a written job description and limits, is tested on the client's past records, runs in shadow mode first, and needs a person's sign-off for anything that matters. Principal: Purav Mehta, Chartered Accountant (CA ANZ) with a Certificate of Public Practice, GAICD. Not registered for GST; prices are AUD with no GST added.
+Beiz Data & Accounting Pty Ltd (ABN 53 691 755 496) fixes one recurring month-end workflow at a time where a business's systems and its ledger disagree: job systems, timesheets, payroll and bank data against Xero, MYOB or an ERP. The lead offer is a free 20-minute fit conversation, then a system-to-ledger exception review ($1,500–$2,500 AUD) and, where justified, a system-to-ledger exception sprint ($4,000–$8,000 AUD) built in the client's existing tools with written acceptance tests, documentation and handover. Maintenance is quoted only after the workload is measured. Every deliverable is reviewed by a Chartered Accountant before handover; nothing is paid or sent without a person. Principal: Purav Mehta, Chartered Accountant (CA ANZ) with a Certificate of Public Practice, GAICD. Not registered for GST; prices are AUD with no GST added.
 
 Beiz does not provide tax returns, BAS or GST lodgements, tax or BAS agent services, statutory audit or assurance, legal advice or financial product advice.
 
 ## Pages
 - [Home](https://beiz.com.au/)
-- [Services](https://beiz.com.au/services/): finance, AI agents and automation, data and reporting, governance, workshops
-- [How it works](https://beiz.com.au/how-we-work/): first 30 days and what every build includes
+- [Services](https://beiz.com.au/services/): start here (fit conversation, exception review, exception sprint, maintenance) and a short also-available list
+- [Workbench](https://beiz.com.au/workbench/): interactive example with sample data, not connected to any real system
+- [Kits](https://beiz.com.au/kits/): two Excel kits, invoiced and emailed after payment
+- [Finance continuity](https://beiz.com.au/continuity/)
+- [How it works](https://beiz.com.au/how-we-work/): fit conversation, diagnose, build and test, hand over
 - [Fees](https://beiz.com.au/prices/): free bill check; every engagement is a fixed fee in a written proposal within three business days; no GST added
 - [Free bill check](https://beiz.com.au/bill-check/): runs in the browser, nothing uploaded
 - [AML/CTF Tranche 2 for accounting firms](https://beiz.com.au/aml-ctf-accounting-firms/): which services are caught, dates, duties, AUSTRAC sources
@@ -303,7 +306,7 @@ RULES_FIRST = [
 ]
 FIT = [
     ("Who it's for", "Outsourced bookkeeping and finance firms of around 5 to 25 staff, and Australian businesses and finance teams with one month-end job that keeps getting stuck."),
-    ("Hard limits", "Works only in the systems you approve. Tested on your past records against a pass mark agreed in writing. Shadow mode before anything goes live. Nothing is paid or sent without a person. Every decision logged in your own accounts."),
+    ("Hard limits", "Works only in the systems you approve. Tested on your past records against acceptance tests agreed in writing. Runs beside your team before anything goes live. Nothing is paid or sent without a person. Every decision logged in your own accounts."),
     ("Who reviews", "An Australian Chartered Accountant (Certificate of Public Practice, GAICD) scopes the work and reviews every deliverable before handover. An agent never signs anything off."),
     ("What we won't do", "Tax returns, BAS or GST lodgements, tax or BAS agent services, statutory audit or assurance, legal advice, financial product advice, or payments released without a person."),
 ]
@@ -316,8 +319,8 @@ INTAKE = [
 CONTROL_STATES = [
     ("Planned", "Written down: what the control checks, who owns it and what happens when it fails."),
     ("Built", "Running in your systems, but its decisions don't count yet."),
-    ("Tested in shadow", "Run on your past records against the pass mark, then alongside your staff, with every difference explained."),
-    ("Signed off", "A named person at your business, and Beiz, sign off that it works. Only then does it run live within its limits."),
+    ("Tested beside your team", "Run on your past records against the acceptance tests, then alongside your staff, with every difference explained."),
+    ("Reviewed and live", "A named person at your business accepts the test results, and a Chartered Accountant at Beiz has reviewed the work. Only then does it run live within its limits."),
 ]
 STOPS = [
     "A supplier's bank details change",
@@ -375,7 +378,7 @@ HERO_LOG = {
 DEMO_ACT_NOTE = "Demo only. In a real setup this decision is logged with your name and the time. Nothing is paid or sent."
 
 # ---------------------------------------------------------------- technical view, agent tools
-TECH_PLAIN = ("Every check an agent runs leaves a record: what it looked at, the rule it used, what it found, and who decided. "
+TECH_PLAIN = ("Every check the workflow runs leaves a record: what it looked at, the rule it used, what it found, and who decided. "
               "That record lives in your own accounts, not ours. The free bill check runs entirely in your browser; your file isn't sent anywhere.")
 LOG_SCHEMA = """{
   "record":      { "supplier": "Bluetongue Plumbing", "invoice": "BT1911",

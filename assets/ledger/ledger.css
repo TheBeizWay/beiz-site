@@ -677,3 +677,14 @@ code,pre{background:#060808!important;color:#D8E0DA!important;border-color:var(-
 .dot.ok{background:var(--ok)}.dot.held{background:var(--held)}.dot.stop{background:var(--stop)}
 ::selection{background:#C9A96A;color:#0B0E0D}
 body::before{display:none}
+/* 14 Nov 2026 defect pass: dark theme swapped --paper to near-black, which left .sec.dark headings and buttons invisible on the forest band */
+.sec.dark{background:var(--forest)}
+.sec.dark h2,.sec.dark h3{color:var(--ink)}
+.sec.dark .intro,.sec.dark p{color:var(--ink2)}
+.sec.dark .btn{background:#F4F1E8;color:#0B0E0D;border-color:#F4F1E8}
+.sec.dark .btn.line{background:transparent;color:var(--ink);border-color:var(--rule2)}
+.sec.dark .btn.line:hover{background:rgba(255,255,255,.06);color:#fff;border-color:#fff}
+.sec.dark .lab{color:var(--brand);border-top-color:var(--brand)}
+/* inner-page header: keep "How it works" on one line and the button from wrapping at 1440 */
+.top.dk .nav a{white-space:nowrap}
+.top.dk .btn{white-space:nowrap}

@@ -1,15 +1,18 @@
 # Beiz Data & Accounting
 
-> AI for real business work, with guardrails, set up and checked by an Australian Chartered Accountant. Canberra, working Australia-wide.
+> Finance workflows connected, reconciled and tested in the tools you already use. Led by an Australian Chartered Accountant. Canberra, working Australia-wide.
 
-Beiz Data & Accounting Pty Ltd (ABN 53 691 755 496) sets up AI agents for routine finance and admin work: bills, cash, reconciliations and client checks. Each agent has a written job description and limits, is tested on the client's past records, runs in shadow mode first, and needs a person's sign-off for anything that matters. Principal: Purav Mehta, Chartered Accountant (CA ANZ) with a Certificate of Public Practice, GAICD. Not registered for GST; prices are AUD with no GST added.
+Beiz Data & Accounting Pty Ltd (ABN 53 691 755 496) fixes one recurring month-end workflow at a time where a business's systems and its ledger disagree: job systems, timesheets, payroll and bank data against Xero, MYOB or an ERP. The lead offer is a free 20-minute fit conversation, then a system-to-ledger exception review ($1,500–$2,500 AUD) and, where justified, a system-to-ledger exception sprint ($4,000–$8,000 AUD) built in the client's existing tools with written acceptance tests, documentation and handover. Maintenance is quoted only after the workload is measured. Every deliverable is reviewed by a Chartered Accountant before handover; nothing is paid or sent without a person. Principal: Purav Mehta, Chartered Accountant (CA ANZ) with a Certificate of Public Practice, GAICD. Not registered for GST; prices are AUD with no GST added.
 
 Beiz does not provide tax returns, BAS or GST lodgements, tax or BAS agent services, statutory audit or assurance, legal advice or financial product advice.
 
 ## Pages
 - [Home](https://beiz.com.au/)
-- [Services](https://beiz.com.au/services/): finance, AI agents and automation, data and reporting, governance, workshops
-- [How it works](https://beiz.com.au/how-we-work/): first 30 days and what every build includes
+- [Services](https://beiz.com.au/services/): start here (fit conversation, exception review, exception sprint, maintenance) and a short also-available list
+- [Workbench](https://beiz.com.au/workbench/): interactive example with sample data, not connected to any real system
+- [Kits](https://beiz.com.au/kits/): two Excel kits, invoiced and emailed after payment
+- [Finance continuity](https://beiz.com.au/continuity/)
+- [How it works](https://beiz.com.au/how-we-work/): fit conversation, diagnose, build and test, hand over
 - [Fees](https://beiz.com.au/prices/): free bill check; every engagement is a fixed fee in a written proposal within three business days; no GST added
 - [Free bill check](https://beiz.com.au/bill-check/): runs in the browser, nothing uploaded
 - [AML/CTF Tranche 2 for accounting firms](https://beiz.com.au/aml-ctf-accounting-firms/): which services are caught, dates, duties, AUSTRAC sources
@@ -22,6 +25,6 @@ Beiz does not provide tax returns, BAS or GST lodgements, tax or BAS agent servi
 
 ## Is Beiz a fit?
 - Who it's for: Outsourced bookkeeping and finance firms of around 5 to 25 staff, and Australian businesses and finance teams with one month-end job that keeps getting stuck.
-- Hard limits: Works only in the systems you approve. Tested on your past records against a pass mark agreed in writing. Shadow mode before anything goes live. Nothing is paid or sent without a person. Every decision logged in your own accounts.
+- Hard limits: Works only in the systems you approve. Tested on your past records against acceptance tests agreed in writing. Runs beside your team before anything goes live. Nothing is paid or sent without a person. Every decision logged in your own accounts.
 - Who reviews: An Australian Chartered Accountant (Certificate of Public Practice, GAICD) scopes the work and reviews every deliverable before handover. An agent never signs anything off.
 - What we won't do: Tax returns, BAS or GST lodgements, tax or BAS agent services, statutory audit or assurance, legal advice, financial product advice, or payments released without a person.
