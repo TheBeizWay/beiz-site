@@ -615,3 +615,11 @@ h3.sub{font-size:1.2rem;margin:30px 0 0}
 .jnote{margin:22px 0 0;font-size:14px;color:var(--muted)}
 .bcnext{margin-top:22px;padding:18px 20px;border:1px solid var(--ink);border-left:4px solid var(--brand);background:var(--white);display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
 .bcnext p{margin:0;max-width:40em}
+
+/* Wordmark refresh (14 Nov 2026): icon kept, BEIZ set in Space Grotesk to match the homepage */
+@font-face{font-family:"Space Grotesk";src:url(/assets/fonts/space-grotesk-latin-700-normal.woff2) format("woff2");font-weight:700;font-display:swap}
+.brand.bl{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.brand.bl .bmark{height:44px;width:44px}
+.bword{font:700 25px/1 "Space Grotesk",var(--sans);letter-spacing:.14em;color:var(--ink)}
+.bword small{display:block;font:500 12.5px/1 var(--sans);letter-spacing:.02em;color:var(--muted);margin-top:7px}
+@media (min-width:1101px){.brand.bl .bmark{height:64px;width:64px}.bword{font-size:31px}.bword small{font-size:14px;margin-top:9px}}

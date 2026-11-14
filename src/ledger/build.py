@@ -13,7 +13,7 @@ import json
 from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ASSET_V = "L33"  # bump on every CSS or JS change
+ASSET_V = "L34"  # bump on every CSS or JS change
 SITE = "https://beiz.com.au"
 e = html.escape
 
@@ -81,7 +81,7 @@ def header(path):
         return f'<div class="dd">{a}<div class="mega" role="region" aria-label="Services"><div class="wrap">{cols}</div></div></div>'
     links = "".join(item(h, t) for h, t in NAV) + '<a class="m" href="/contact/">Contact</a>'
     return f"""<header class="top"><div class="wrap">
-<a class="brand" href="/" aria-label="Beiz Data &amp; Accounting, home"><img src="/assets/ledger/beiz-lockup.png" alt="Beiz Data &amp; Accounting" width="149" height="44"></a>
+<a class="brand bl" href="/" aria-label="Beiz Data &amp; Accounting, home"><img class="bmark" src="/assets/brand/beiz-icon.svg" alt="" width="44" height="44"><span class="bword">BEIZ<small>Data &amp; Accounting</small></span></a>
 <span class="cobrand"><img src="/assets/media/ca-logo-vertical.svg" alt="Chartered Accountants Australia and New Zealand" width="96" height="108"></span>
 <nav class="nav" aria-label="Main">{links}</nav>
 <a class="btn" href="/contact/">Talk to us</a>

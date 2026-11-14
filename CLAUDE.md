@@ -11,6 +11,7 @@ Only the Claude session Purav works with on Beiz pushes to `main`. Other tools m
 - The homepage is the hand-built dark page in `src/home/index.html`; `build.py` copies it over the generated `index.html` at the end of every build. Edit that file for homepage changes. Inner pages still come from the ledger build.
 - Fixes applied to A before going live: real Beiz logo (`assets/brand/beiz-logo-dark-trimmed.png`), CA ANZ logo at 140px wide, self-hosted fonts (no Google Fonts), the enquiry form posts to the Apps Script (it used to open the visitor's email app), and no "signed off by a Chartered Accountant", "board assurance", "many of our clients" or n8n wording.
 - Fees (Purav, 14 Nov 2026: "only put prices if competitors do the same"): prices show only where comparable Australian firms publish theirs: the diagnostic ($4,500), fractional CFO + reporting (from $3,500 a month) and AI workflow builds (from $8,500). Checked 14 Nov: Roar Data publishes a $1,950 incl. GST diagnostic and builds from $3,250; Standard Ledger publishes fractional CFO from $5,500 + GST a month. Everything else says "Quoted in writing". This supersedes the 5 Nov no-prices rule for the homepage only.
+- Research applied 14 Nov 2026: positioning is "builds and tests finance workflows across the systems you already use", every build has written acceptance tests, AI workflows start by checking what Xero or MYOB already does, and the catalogue offers supplier payment controls and automation acceptance testing (the "Queryable Company" concept was removed: no evidence of demand).
 
 ## Update, 13 Nov 2026: "Studio" refresh of the homepage (Purav: "fix this site, looks like a kids project")
 
@@ -132,7 +133,11 @@ See the 5 Nov 2026 update at the top for build, pages and design. Also:
 - The bill check is `assets/billcheck.js`, unchanged; its output classes are styled in `ledger.css`. The bill check FAQ carries `FAQPage` JSON-LD and must stay visible on the page.
 - `llms.txt` and `sitemap.xml` are written by the build from `content.py`. IndexNow still runs after each push to `main`; the key file in the repo root must stay.
 
-### Logo (locked 18 Oct 2026, Purav's final call)
+### Logo (refreshed 14 Nov 2026, Purav: "make your final call")
+
+The icon stays. The wordmark is now live text: "BEIZ" in Space Grotesk 700 with "Data & Accounting" in the body font underneath (`.bword`). Light pages use `assets/brand/beiz-icon.svg`; the dark homepage uses `assets/brand/beiz-icon-dark.svg` (lighter square so it shows on black). The old PNG lockups stay in `assets/` for LinkedIn and documents until those are updated.
+
+### Logo (locked 18 Oct 2026, superseded by the refresh above)
 
 The charcoal rounded square with green, amber and grey ledger marks, plus the spaced BEIZ wordmark and "Data & Accounting". No new concepts, no rebrand, no animation. The header uses `assets/ledger/beiz-lockup.png` (the light-background lockup trimmed of padding). Source files: `assets/brand/`.
 
