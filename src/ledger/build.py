@@ -591,6 +591,9 @@ HOME_PAGES = [
 ]
 
 
+HOME_ONLY_ELSEWHERE = ["continuity", "kits"]
+
+
 def home_page(home, path, sid, title, desc):
     import re
     head_end = home.index('<section class="hero">')
@@ -626,7 +629,11 @@ def main():
     home_src = os.path.join(ROOT, "src", "home", "index.html")
     if os.path.exists(home_src):
         home = open(home_src).read()
-        open(os.path.join(ROOT, "index.html"), "w").write(home)
+        # Kits and continuity live on their own pages; the homepage keeps services, workbench and why (Purav, 15 Nov 2026)
+        home_only = home
+        for sid in HOME_ONLY_ELSEWHERE:
+            home_only = re.sub(r'<section class="s" id="%s"[^>]*>.*?</section>\s*' % sid, "", home_only, count=1, flags=re.S)
+        open(os.path.join(ROOT, "index.html"), "w").write(home_only)
         for path, sid, title, desc in HOME_PAGES:
             os.makedirs(os.path.join(ROOT, path.strip("/")), exist_ok=True)
             open(os.path.join(ROOT, path.strip("/"), "index.html"), "w").write(home_page(home, path, sid, title, desc))
