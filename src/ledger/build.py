@@ -474,7 +474,7 @@ def article_page(a):
 
 
 MORE = {s["path"]: (lambda s=s: service_page(s)) for s in M.SERVICES}
-MORE.update({"/workshops-speaking/": workshops_page, "/faq/": faq_page, "/insights/": insights_page})
+MORE.update({"/faq/": faq_page, "/insights/": insights_page})
 MORE.update({a["path"]: (lambda a=a: article_page(a)) for a in ARTS})
 
 

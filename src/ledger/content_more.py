@@ -81,7 +81,7 @@ SERVICES = [
               "A short list of what to automate, what to simplify and what to leave alone"],
      "limits": ["Recommendations and design; building them is scoped separately", "Your people decide what changes"],
      "price": "Fixed fee", "timing": "Set in your written proposal", "topic": "Automation & AI agents"},
-    {"path": "/services/automation/", "group": "AI agents and automation", "name": "Workflow automation",
+    {"path": "/services/automation/", "group": "AI agents and automation", "name": "AI workflows &amp; automation",
      "title": "Workflow automation | Beiz Data & Accounting",
      "desc": "One repetitive finance or admin workflow automated, tested on your past records and handed over, with approval steps for anything touching money.",
      "lede": "One repetitive finance or admin workflow automated, tested and handed over.",
@@ -602,3 +602,8 @@ BRIEF = {
                           "A register of AI use, a short policy, and a reporting line the board can follow.",
                           "Practical controls mapped to published frameworks. General information, not legal advice."],
 }
+
+
+# Retired 14 Nov 2026 (catalogue cut to the exception review plus a short "also available" list); old URLs redirect.
+RETIRED = {'/services/cash-and-job-profit-model/': '/kits/', '/leave-cover/': '/services/', '/services/ai-readiness-sprint/': '/services/automation/', '/services/workflow-redesign/': '/cash-data-check/', '/services/chatbots-ai-assistants/': '/services/', '/services/data-engineering/': '/cash-data-check/', '/services/dashboards-and-models/': '/cash-data-check/', '/services/ai-governance/': '/compliance-sprint/', '/workshops-speaking/': '/services/'}
+SERVICES = [s for s in SERVICES if s["path"] not in RETIRED]

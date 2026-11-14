@@ -43,41 +43,21 @@ Led by a Chartered Accountant, a member of Chartered Accountants Australia and N
 
 ## Services
 ### Start here: system-to-ledger exception review
-One bottleneck, fixed in the tools you already own, tested and handed over.
+One month-end job where your systems and your ledger disagree, fixed in the tools you already own.
 - Fit conversation (Free): 20 minutes, free. What gets stuck, what access we'd need, and whether a feature you already pay for solves it.
 - System-to-ledger exception review ($1,500–$2,500): One process mapped and sample inputs inspected, with a bounded fixed-price scope. $1,500–$2,500.
 - Exception sprint ($4,000–$8,000): One agreed workflow built in your existing tools, with written acceptance tests, documentation and handover. $4,000–$8,000.
 - Maintenance (Quoted): Limited monitoring and updates, quoted once the real workload is measured. Never open-ended.
 
-### Finance and decisions
-Know where cash and margin are going, from your own records.
+### Also available
+Quoted in writing unless a price is shown. No new services until buyers ask for them.
 - Fractional CFO + reporting (From $3,500/month): Weekly cash and margin reporting and a rolling forecast, run on your own data. From $3,500 a month.
-- Cash & job profit model (Fixed fee): A 13-week cash view and profit by job or client, tied back to the ledger. You drop in fresh exports weekly and it refreshes.
-- Leave cover (Fixed fee): When someone in finance goes on leave, an agent carries the routine part of their role, a Chartered Accountant reviews its work, and everything is handed back the day they return.
-
-### AI agents and automation
-Fewer handoffs and less re-keying, with a person signing off what matters.
-- AI workforce setup (Fixed fee): Agents for routine checking and preparation, each with a job description, limits, a test on your past records and shadow mode first.
-- Workflow review & redesign (Fixed fee): One process mapped end to end, with the handoffs, re-keying and waiting taken out before anything is automated.
 - AI workflows & automation (From $8,500): We check what Xero, MYOB or your existing software already does first, then build only the gaps, tested and handed over. From $8,500.
 - Automation acceptance testing (Quoted): Test cases from your own records, including duplicates, missing rows and changed file formats, before a workflow or agent goes live.
-- Chatbots & AI assistants (Fixed fee): Answers from approved business information only, with clear limits and a hand-over to a person.
-- Monthly controls operations (Fixed fee): Up to two agreed agents or one model: monthly control review, log sample, test re-run and up to two hours of fixes.
-
-### Data and reporting
-One trusted set of numbers, flowing on a schedule.
-- Data engineering (Fixed fee): Your accounting software, CRM, job app and spreadsheets connected into one clean source.
-- Dashboards & management reporting (Fixed fee): A reporting pack or dashboard on agreed definitions, reconciled to the ledger.
-
-### Governance
-Know what's in scope, who owns it and where a person must approve.
-- Compliance controls sprint (Fixed fee): One obligation mapped in two weeks: AI use, AML/CTF Tranche 2 or the Privacy Act automated-decision rules. General information, not legal advice.
-- AI governance for boards & owners (Fixed fee): A register, policy and reporting line for the AI already in use, including staff pasting client records into public AI tools.
-
-### Workshops
-Build your own team's capability, not just a system.
-- Workshops for owners & teams (Fixed fee): Small-group or in-house sessions on putting AI and data to work safely in day-to-day finance and admin.
-- Coaching for finance professionals (On request): One-to-one sessions for accountants and finance leads building working data and AI skills.
+- Compliance controls sprint (Quoted): One obligation mapped in two weeks: AI use, AML/CTF Tranche 2 or the Privacy Act automated-decision rules. General information, not legal advice.
+- AML/CTF for accounting firms (Quoted): What Tranche 2 asks of an accounting practice, and the client checks and records to set up. General information, not legal advice.
+- Finance continuity (Quoted): Keep paying and reconciling when Microsoft or your ledger is down.
+- Kits ($190–$290): A 13-week cash forecast ($290) and a supplier bank-change control kit ($190).
 
 ## Fees
 Every engagement is a fixed fee, agreed in writing before any work starts. You see the fee, the timeline and what done looks like before you commit.
@@ -145,38 +125,10 @@ No GST is added (not registered).
 - For owners and finance leads who bill time or fixed fees and suspect work or money is slipping.
 - Two weeks, from your exports: bills, invoices and timesheets checked against each other, every finding traced to its record.
 - No logins to your ledger, no tax or BAS advice. The fee is credited if you go ahead with a build.
-### Cash & job profit model (https://beiz.com.au/services/cash-and-job-profit-model/)
-- For businesses that need to see the tight cash week before it arrives, not after month-end.
-- A 13-week cash view built from when your customers actually pay, your payroll, super and tax dates, and profit by job, tied to the ledger.
-- A model with written assumptions that you run after handover. Not financial product advice.
-### Leave cover (https://beiz.com.au/leave-cover/)
-- For small finance teams where one person going on leave means bills and invoices stall.
-- An agent carries the routine part of the role, holds anything unusual for a named person, and you get a one-page update every Friday.
-- Decisions, customers and people stay with your team. A Chartered Accountant reviews the agent's work.
-### AI workforce setup (https://beiz.com.au/services/ai-readiness-sprint/)
-- For businesses that want AI doing real finance and admin work, with limits a board or owner can defend.
-- One workflow first: the agent's job description, limits, a test on your past records and shadow mode before anything goes live.
-- Nothing is paid or sent without a person, and every decision is logged in your own accounts.
-### Workflow review & redesign (https://beiz.com.au/services/workflow-redesign/)
-- For small businesses, startups and solo operators whose admin grows with every new job.
-- One process mapped end to end, with re-keying, handoffs and waiting taken out before anything is automated.
-- You get a redesigned process with named owners, and a short list of what to automate and what to leave alone.
-### Workflow automation (https://beiz.com.au/services/automation/)
+### AI workflows & automation (https://beiz.com.au/services/automation/)
 - For teams doing the same matching, chasing and checking every week.
 - One workflow automated with fixed rules for the routine records and AI only for the exceptions, then tested and handed over.
 - Runs in your own accounts, with a run history your staff can read and a person approving anything that matters.
-### Chatbots & AI assistants (https://beiz.com.au/services/chatbots-ai-assistants/)
-- For businesses answering the same questions by email, phone and chat.
-- An assistant that answers only from information you approve, and hands anything else to a person.
-- Clear limits on what it may say, tested on real questions before it goes live.
-### Data engineering (https://beiz.com.au/services/data-engineering/)
-- For teams whose numbers live across an accounting system, a CRM, a job app and spreadsheets.
-- One clean source, refreshed on a schedule, reconciled back to the ledger.
-- Built in your own accounts and documented so someone else can run it.
-### Dashboards & management reporting (https://beiz.com.au/services/dashboards-and-models/)
-- For owners and boards who want three answers each week: which jobs made money, where cash is stuck, and what's due in the next 14 days.
-- A reporting pack or dashboard on agreed definitions, reconciled to the ledger.
-- A few numbers you trust, rather than twenty charts nobody reads.
 ### Compliance controls sprint (https://beiz.com.au/compliance-sprint/)
 - For businesses facing one obligation now: AI use, AML/CTF tranche 2 or the Privacy Act automated-decision rules.
 - Two weeks: what's in scope, who owns each step, where a person must approve, and a plan for the first controlled workflow.
@@ -185,10 +137,6 @@ No GST is added (not registered).
 - For accounting firms working out whether the services they provide bring them under AUSTRAC's AML/CTF rules.
 - Agents collect, check and file the routine client checks. Your compliance officer decides every risk rating and every report.
 - Sized for small firms. General information, not legal advice.
-### AI governance for boards & owners (https://beiz.com.au/services/ai-governance/)
-- For boards, directors and owners who need to oversee the AI already in use, including staff pasting client records into public AI tools.
-- A register of AI use, a short policy, and a reporting line the board can follow.
-- Practical controls mapped to published frameworks. General information, not legal advice.
 
 ## Decision log fields
 - Record: The bill: supplier, invoice number, date and amount.

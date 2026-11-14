@@ -79,36 +79,20 @@ BIO_FULL = BIO + ("<p>Where a job needs a lawyer, tax agent or IT provider, we s
 SERVICES_LEDE = ("We fix one recurring month-end bottleneck in the finance tools you already use, then show you the new process works. "
                  "Every engagement is a fixed fee, agreed in writing before work starts. Prices in AUD; no GST is added.")
 GROUPS = [
-    {"title": "Start here: system-to-ledger exception review", "intro": "One bottleneck, fixed in the tools you already own, tested and handed over.", "items": [
+    {"title": "Start here: system-to-ledger exception review", "intro": "One month-end job where your systems and your ledger disagree, fixed in the tools you already own.", "items": [
         ("Fit conversation", "20 minutes, free. What gets stuck, what access we'd need, and whether a feature you already pay for solves it.", "Free", "/contact/?topic=Fit%20conversation%20(free)"),
         ("System-to-ledger exception review", "One process mapped and sample inputs inspected, with a bounded fixed-price scope. $1,500–$2,500.", "$1,500–$2,500", ""),
         ("Exception sprint", "One agreed workflow built in your existing tools, with written acceptance tests, documentation and handover. $4,000–$8,000.", "$4,000–$8,000", "/#services"),
         ("Maintenance", "Limited monitoring and updates, quoted once the real workload is measured. Never open-ended.", "Quoted", ""),
     ]},
-    {"title": "Finance and decisions", "intro": "Know where cash and margin are going, from your own records.", "items": [
+    {"title": "Also available", "intro": "Quoted in writing unless a price is shown. No new services until buyers ask for them.", "items": [
         ("Fractional CFO + reporting", "Weekly cash and margin reporting and a rolling forecast, run on your own data. From $3,500 a month.", "From $3,500/month", ""),
-        ("Cash &amp; job profit model", "A 13-week cash view and profit by job or client, tied back to the ledger. You drop in fresh exports weekly and it refreshes.", "Fixed fee", ""),
-        ("Leave cover", "When someone in finance goes on leave, an agent carries the routine part of their role, a Chartered Accountant reviews its work, and everything is handed back the day they return.", "Fixed fee", ""),
-    ]},
-    {"title": "AI agents and automation", "intro": "Fewer handoffs and less re-keying, with a person signing off what matters.", "items": [
-        ("AI workforce setup", "Agents for routine checking and preparation, each with a job description, limits, a test on your past records and shadow mode first.", "Fixed fee", ""),
-        ("Workflow review &amp; redesign", "One process mapped end to end, with the handoffs, re-keying and waiting taken out before anything is automated.", "Fixed fee", ""),
         ("AI workflows &amp; automation", "We check what Xero, MYOB or your existing software already does first, then build only the gaps, tested and handed over. From $8,500.", "From $8,500", ""),
         ("Automation acceptance testing", "Test cases from your own records, including duplicates, missing rows and changed file formats, before a workflow or agent goes live.", "Quoted", ""),
-        ("Chatbots &amp; AI assistants", "Answers from approved business information only, with clear limits and a hand-over to a person.", "Fixed fee", ""),
-        ("Monthly controls operations", "Up to two agreed agents or one model: monthly control review, log sample, test re-run and up to two hours of fixes.", "Fixed fee", ""),
-    ]},
-    {"title": "Data and reporting", "intro": "One trusted set of numbers, flowing on a schedule.", "items": [
-        ("Data engineering", "Your accounting software, CRM, job app and spreadsheets connected into one clean source.", "Fixed fee", ""),
-        ("Dashboards &amp; management reporting", "A reporting pack or dashboard on agreed definitions, reconciled to the ledger.", "Fixed fee", ""),
-    ]},
-    {"title": "Governance", "intro": "Know what's in scope, who owns it and where a person must approve.", "items": [
-        ("Compliance controls sprint", "One obligation mapped in two weeks: AI use, AML/CTF Tranche 2 or the Privacy Act automated-decision rules. General information, not legal advice.", "Fixed fee", ""),
-        ("AI governance for boards &amp; owners", "A register, policy and reporting line for the AI already in use, including staff pasting client records into public AI tools.", "Fixed fee", ""),
-    ]},
-    {"title": "Workshops", "intro": "Build your own team's capability, not just a system.", "items": [
-        ("Workshops for owners &amp; teams", "Small-group or in-house sessions on putting AI and data to work safely in day-to-day finance and admin.", "Fixed fee", ""),
-        ("Coaching for finance professionals", "One-to-one sessions for accountants and finance leads building working data and AI skills.", "On request", ""),
+        ("Compliance controls sprint", "One obligation mapped in two weeks: AI use, AML/CTF Tranche 2 or the Privacy Act automated-decision rules. General information, not legal advice.", "Quoted", ""),
+        ("AML/CTF for accounting firms", "What Tranche 2 asks of an accounting practice, and the client checks and records to set up. General information, not legal advice.", "Quoted", ""),
+        ("Finance continuity", "Keep paying and reconciling when Microsoft or your ledger is down.", "Quoted", "/continuity/"),
+        ("Kits", "A 13-week cash forecast ($290) and a supplier bank-change control kit ($190).", "$190–$290", "/kits/"),
     ]},
 ]
 
@@ -251,7 +235,8 @@ PRIVACY = """<p>Beiz Data &amp; Accounting Pty Ltd (ABN 53 691 755 496), "we", r
 <p>We don't use computer programs to make decisions about individuals that could significantly affect their rights or interests.</p>"""
 
 # ---------------------------------------------------------------- old URLs -> new pages
-REDIRECTS = {'/ai-check/': '/services/',
+REDIRECTS = {'/services/cash-and-job-profit-model/': '/kits/', '/leave-cover/': '/services/', '/services/ai-readiness-sprint/': '/services/automation/', '/services/workflow-redesign/': '/cash-data-check/', '/services/chatbots-ai-assistants/': '/services/', '/services/data-engineering/': '/cash-data-check/', '/services/dashboards-and-models/': '/cash-data-check/', '/services/ai-governance/': '/compliance-sprint/', '/workshops-speaking/': '/services/',
+ '/ai-check/': '/services/',
  '/ai-cost-calculator/': '/prices/',
  '/ai-value-calculator/': '/prices/',
  '/ask-ai/': '/about/',
