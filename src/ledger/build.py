@@ -13,12 +13,12 @@ import json
 from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ASSET_V = "L36"  # bump on every CSS or JS change
+ASSET_V = "L37"  # bump on every CSS or JS change
 SITE = "https://beiz.com.au"
 e = html.escape
 
 NAV = [("/services/", "Services"), ("/workbench/", "Workbench"), ("/kits/", "Kits"), ("/continuity/", "Continuity"),
-       ("/how-we-work/", "How it works"), ("/bill-check/", "Bill check")]
+       ("/how-we-work/", "How it works")]
 
 HELPER_TMPL = """<button type="button" class="hbtn" aria-controls="helper" aria-expanded="false">Ask Beiz</button>
 <div class="helper" id="helper" role="dialog" aria-label="Ask Beiz, guided helper" hidden>
@@ -84,7 +84,7 @@ def header(path):
 <a class="brand bl" href="/" aria-label="Beiz Data &amp; Accounting, home"><img class="bmark" src="/assets/brand/beiz-mark.svg" alt="" width="40" height="40"><span class="bword">BEIZ<small>Data &amp; Accounting</small></span></a>
 <span class="cobrand"><img src="/assets/media/ca-logo-reversed.png" alt="Chartered Accountants Australia and New Zealand" width="140" height="80"></span>
 <nav class="nav" aria-label="Main">{links}</nav>
-<a class="btn" href="/contact/?topic=Discovery%20call">Book a strategy call</a>
+<a class="btn" href="/contact/?topic=Fit%20conversation%20(free)">Book a free fit conversation</a>
 <button class="menu" type="button" aria-expanded="false" aria-label="Open menu">Menu</button>
 </div><div class="tmstrip"><div class="wrap">Trade mark of Chartered Accountants Australia and New Zealand and used with permission.</div></div></header>
 """
@@ -185,7 +185,7 @@ def home():
 <p class="hkick">Beiz Data &amp; Accounting, Canberra</p>
 <h1>AI that does the checking. <br>A Chartered Accountant who checks the AI.</h1>
 <p class="lede">{C.HERO_LEDE}</p>
-<div class="acts"><a class="btn" href="/contact/?topic=Discovery%20call">Book a 20-minute call</a><a class="btn line" href="/bill-check/">Try the free bill check</a></div>
+<div class="acts"><a class="btn" href="/contact/?topic=Fit%20conversation%20(free)">Book a 20-minute call</a><a class="btn line" href="/bill-check/">Try the free bill check</a></div>
 <ul class="hfacts"><li><b>Chartered Accountant</b><span>Member of Chartered Accountants Australia and New Zealand, with a Certificate of Public Practice</span></li><li><b>Fixed fee</b><span>Agreed in writing before any work starts</span></li><li><b>A person signs off</b><span>Nothing is paid or sent by an agent alone</span></li></ul>
 <div class="credrow"><img src="/assets/media/ca-logo-reversed.png" alt="Chartered Accountants Australia and New Zealand" width="147" height="84"><p class="cred">Trade mark of Chartered Accountants Australia and New Zealand and used with permission.</p></div>
 </div>
@@ -221,7 +221,7 @@ def home():
     news = '<ul class="chg">' + "".join(
         f'<li><p class="ctag">{e(n["tag"])}</p><p class="ctext"><a href="{n["src"]}" rel="noopener" target="_blank">{e(n["text"])}</a></p><p class="cbeiz"><a href="{n["href"]}">{e(n["beiz"])}</a></p></li>' for n in C.NEWS) + "</ul>"
     body += wsec("Official sources", f'<div class="whead"><h2>What&rsquo;s changing for Australian businesses</h2><p class="intro">Each item links to the official source. General information, not advice.</p></div>{news}', sid="changing")
-    body += wsec("", f"<div class=\"closer\"><h2>Talk or write. Either way, a reply by the next business day.</h2><p class=\"intro\">{C.CTA_TEXT}</p><div class=\"acts\"><a class=\"btn\" href=\"/contact/?topic=Discovery%20call\">Book a 20-minute call</a><a class=\"btn line\" href=\"/contact/\">Start in writing</a></div></div>", "forest")
+    body += wsec("", f"<div class=\"closer\"><h2>Talk or write. Either way, a reply by the next business day.</h2><p class=\"intro\">{C.CTA_TEXT}</p><div class=\"acts\"><a class=\"btn\" href=\"/contact/?topic=Fit%20conversation%20(free)\">Book a 20-minute call</a><a class=\"btn line\" href=\"/contact/\">Start in writing</a></div></div>", "forest")
     return page("/", "Beiz Data & Accounting | AI for real work, checked by a Chartered Accountant", C.HOME_DESC, body)
 
 
@@ -355,7 +355,7 @@ def chref(topic, msg=""):
 
 
 def cta(h2, text, topic, label="Start in writing"):
-    return sec("Next step", f'<h2>{h2}</h2><p class="intro">{text}</p><div class="acts"><a class="btn" href="{chref(topic)}">{label}</a><a class="btn line" href="{chref("Discovery call")}">Book a 20-minute call</a></div>', "dark")
+    return sec("Next step", f'<h2>{h2}</h2><p class="intro">{text}</p><div class="acts"><a class="btn" href="{chref(topic)}">{label}</a><a class="btn line" href="{chref("Fit conversation (free)")}">Book a 20-minute call</a></div>', "dark")
 
 
 def ld(obj):

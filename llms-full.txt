@@ -30,9 +30,9 @@ Beiz Data & Accounting sets up AI agents for the routine finance and admin work 
 Led by a Chartered Accountant, a member of Chartered Accountants Australia and New Zealand with a Certificate of Public Practice, and GAICD. Canberra, working Australia-wide.
 
 ## Is Beiz a fit?
-- Who it's for: Australian small businesses, startups and solo operators that want AI doing real finance and admin work, plus accounting and bookkeeping firms and finance teams.
+- Who it's for: Outsourced bookkeeping and finance firms of around 5 to 25 staff, and Australian businesses and finance teams with one month-end job that keeps getting stuck.
 - Hard limits: Works only in the systems you approve. Tested on your past records against a pass mark agreed in writing. Shadow mode before anything goes live. Nothing is paid or sent without a person. Every decision logged in your own accounts.
-- Who signs off: An Australian Chartered Accountant (Certificate of Public Practice, GAICD) scopes, builds and signs off every engagement. An agent never signs anything off.
+- Who reviews: An Australian Chartered Accountant (Certificate of Public Practice, GAICD) scopes the work and reviews every deliverable before handover. An agent never signs anything off.
 - What we won't do: Tax returns, BAS or GST lodgements, tax or BAS agent services, statutory audit or assurance, legal advice, financial product advice, or payments released without a person.
 
 ## Where it helps
@@ -42,9 +42,16 @@ Led by a Chartered Accountant, a member of Chartered Accountants Australia and N
 - Client checks: today, new-client checks done from memory or an old checklist. With a Beiz agent: Each new client checked against your written procedure, with gaps flagged before work starts.
 
 ## Services
+### Start here: system-to-ledger exception review
+One bottleneck, fixed in the tools you already own, tested and handed over.
+- Fit conversation (Free): 20 minutes, free. What gets stuck, what access we'd need, and whether a feature you already pay for solves it.
+- System-to-ledger exception review ($1,500–$2,500): One process mapped and sample inputs inspected, with a bounded fixed-price scope. $1,500–$2,500.
+- Exception sprint ($4,000–$8,000): One agreed workflow built in your existing tools, with written acceptance tests, documentation and handover. $4,000–$8,000.
+- Maintenance (Quoted): Limited monitoring and updates, quoted once the real workload is measured. Never open-ended.
+
 ### Finance and decisions
 Know where cash and margin are going, from your own records.
-- Two-week cash & data check (Fixed fee): Bills, invoices and timesheets checked against each other, every finding traced to its record.
+- Fractional CFO + reporting (From $3,500/month): Weekly cash and margin reporting and a rolling forecast, run on your own data. From $3,500 a month.
 - Cash & job profit model (Fixed fee): A 13-week cash view and profit by job or client, tied back to the ledger. You drop in fresh exports weekly and it refreshes.
 - Leave cover (Fixed fee): When someone in finance goes on leave, an agent carries the routine part of their role, a Chartered Accountant reviews its work, and everything is handed back the day they return.
 
@@ -52,7 +59,8 @@ Know where cash and margin are going, from your own records.
 Fewer handoffs and less re-keying, with a person signing off what matters.
 - AI workforce setup (Fixed fee): Agents for routine checking and preparation, each with a job description, limits, a test on your past records and shadow mode first.
 - Workflow review & redesign (Fixed fee): One process mapped end to end, with the handoffs, re-keying and waiting taken out before anything is automated.
-- Workflow automation (Fixed fee): One repetitive finance or admin workflow automated, tested and handed over.
+- AI workflows & automation (From $8,500): We check what Xero, MYOB or your existing software already does first, then build only the gaps, tested and handed over. From $8,500.
+- Automation acceptance testing (Quoted): Test cases from your own records, including duplicates, missing rows and changed file formats, before a workflow or agent goes live.
 - Chatbots & AI assistants (Fixed fee): Answers from approved business information only, with clear limits and a hand-over to a person.
 - Monthly controls operations (Fixed fee): Up to two agreed agents or one model: monthly control review, log sample, test re-run and up to two hours of fixes.
 
@@ -75,16 +83,17 @@ Build your own team's capability, not just a system.
 Every engagement is a fixed fee, agreed in writing before any work starts. You see the fee, the timeline and what done looks like before you commit.
 No GST is added (not registered).
 
+- Fit conversation: 20 minutes. Whether a feature you already pay for solves it. Free.
 - Free bill check: Eight quick checks on a bills export, run in your browser. Nothing is uploaded.
-- Two-week cash & data check: Bills, invoices and timesheets checked against each other, every finding traced to its record.
-- Compliance controls sprint: Two weeks, one focus: AI use, AML/CTF Tranche 2 or the Privacy Act automated-decision rules.
-- Live cash & job profit model: 13-week cash and profit by job or client, tied to the ledger, documented and handed over.
-- AI workforce setup: Agents with written limits, tested on your records, shadow mode first.
-- Leave cover: An agent carries the routine part of a finance role during leave, reviewed by a Chartered Accountant.
-- Monthly controls operations: Ongoing review of up to two agreed agents or one model.
+- System-to-ledger exception review: One process mapped, sample inputs inspected, a bounded fixed-price scope. $1,500–$2,500.
+- System-to-ledger exception sprint: One agreed workflow built in your existing tools, with written acceptance tests and handover. $4,000–$8,000.
+- Fractional CFO + reporting: Weekly cash, margin and forecast on your own data. From $3,500 a month.
+- AI workflows & automation: Only the gaps your existing software doesn't cover, tested on your records. From $8,500.
+- Kits: A 13-week cash forecast ($290) and a supplier bank-change control kit ($190), as Excel files.
+- Everything else: Compliance sprints, continuity, leave cover and monthly operations are quoted in writing.
 
 ## Terms
-- Credit: The fee for the two-week cash and data check is credited once against your next Beiz build (cash model, AI workforce setup, compliance sprint or leave cover setup) if you accept the proposal and pay the deposit within 60 days of the findings. It isn't redeemable for cash and doesn't apply to monthly support.
+- Credit: Where the proposal says so, the exception review fee is credited once against the exception sprint if you accept the sprint proposal and pay the deposit within 60 days of the diagnostic. It isn't redeemable for cash and doesn't apply to maintenance.
 - Monthly operations: Covers up to two agreed agents or one model: a monthly control review, a log sample, a test re-run and up to two hours of fixes in total. More is quoted. Requests are acknowledged within two business days. It isn't round-the-clock monitoring or an emergency service.
 - Cash model: You drop in fresh exports weekly and the model refreshes. Beiz builds it, ties actuals to the ledger, documents the assumptions and hands it over. Beiz reviews the forecast only where the support agreement sets out how often and what.
 - Proposals: Every proposal has a fixed fee, a timeline and a definition of done, and arrives within three business days.
@@ -132,7 +141,7 @@ No GST is added (not registered).
 - The monthly spending cap is reached, or a person presses the off switch
 
 ## Each service in brief
-### Two-week cash & data check (https://beiz.com.au/cash-data-check/)
+### System-to-ledger exception review (https://beiz.com.au/cash-data-check/)
 - For owners and finance leads who bill time or fixed fees and suspect work or money is slipping.
 - Two weeks, from your exports: bills, invoices and timesheets checked against each other, every finding traced to its record.
 - No logins to your ledger, no tax or BAS advice. The fee is credited if you go ahead with a build.

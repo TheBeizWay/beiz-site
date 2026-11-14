@@ -76,18 +76,25 @@ BIO_FULL = BIO + ("<p>Where a job needs a lawyer, tax agent or IT provider, we s
                   "Beiz takes on a limited number of projects at a time, with capacity agreed in writing before work begins.</p>")
 
 # ---------------------------------------------------------------- services
-SERVICES_LEDE = ("Finance, data, automation and governance work for Australian small businesses, startups and solo operators. "
-                 "Every engagement is a fixed fee, agreed in writing before work starts.")
+SERVICES_LEDE = ("We fix one recurring month-end bottleneck in the finance tools you already use, then show you the new process works. "
+                 "Every engagement is a fixed fee, agreed in writing before work starts. Prices in AUD; no GST is added.")
 GROUPS = [
+    {"title": "Start here: system-to-ledger exception review", "intro": "One bottleneck, fixed in the tools you already own, tested and handed over.", "items": [
+        ("Fit conversation", "20 minutes, free. What gets stuck, what access we'd need, and whether a feature you already pay for solves it.", "Free", "/contact/?topic=Fit%20conversation%20(free)"),
+        ("System-to-ledger exception review", "One process mapped and sample inputs inspected, with a bounded fixed-price scope. $1,500–$2,500.", "$1,500–$2,500", ""),
+        ("Exception sprint", "One agreed workflow built in your existing tools, with written acceptance tests, documentation and handover. $4,000–$8,000.", "$4,000–$8,000", "/#services"),
+        ("Maintenance", "Limited monitoring and updates, quoted once the real workload is measured. Never open-ended.", "Quoted", ""),
+    ]},
     {"title": "Finance and decisions", "intro": "Know where cash and margin are going, from your own records.", "items": [
-        ("Two-week cash &amp; data check", "Bills, invoices and timesheets checked against each other, every finding traced to its record.", "Fixed fee", ""),
+        ("Fractional CFO + reporting", "Weekly cash and margin reporting and a rolling forecast, run on your own data. From $3,500 a month.", "From $3,500/month", ""),
         ("Cash &amp; job profit model", "A 13-week cash view and profit by job or client, tied back to the ledger. You drop in fresh exports weekly and it refreshes.", "Fixed fee", ""),
         ("Leave cover", "When someone in finance goes on leave, an agent carries the routine part of their role, a Chartered Accountant reviews its work, and everything is handed back the day they return.", "Fixed fee", ""),
     ]},
     {"title": "AI agents and automation", "intro": "Fewer handoffs and less re-keying, with a person signing off what matters.", "items": [
         ("AI workforce setup", "Agents for routine checking and preparation, each with a job description, limits, a test on your past records and shadow mode first.", "Fixed fee", ""),
         ("Workflow review &amp; redesign", "One process mapped end to end, with the handoffs, re-keying and waiting taken out before anything is automated.", "Fixed fee", ""),
-        ("Workflow automation", "One repetitive finance or admin workflow automated, tested and handed over.", "Fixed fee", ""),
+        ("AI workflows &amp; automation", "We check what Xero, MYOB or your existing software already does first, then build only the gaps, tested and handed over. From $8,500.", "From $8,500", ""),
+        ("Automation acceptance testing", "Test cases from your own records, including duplicates, missing rows and changed file formats, before a workflow or agent goes live.", "Quoted", ""),
         ("Chatbots &amp; AI assistants", "Answers from approved business information only, with clear limits and a hand-over to a person.", "Fixed fee", ""),
         ("Monthly controls operations", "Up to two agreed agents or one model: monthly control review, log sample, test re-run and up to two hours of fixes.", "Fixed fee", ""),
     ]},
@@ -134,13 +141,14 @@ FINDINGS = [
 # ---------------------------------------------------------------- prices
 PRICES_LEDE = "Every engagement is a fixed fee, agreed in writing before any work starts. You see the fee, the timeline and what done looks like before you commit."
 PRICES = [
+    ("Fit conversation", "20 minutes. Whether a feature you already pay for solves it. Free.", "Free", "/contact/?topic=Fit%20conversation%20(free)"),
     ("Free bill check", "Eight quick checks on a bills export, run in your browser. Nothing is uploaded.", "Free", "/bill-check/"),
-    ("Two-week cash &amp; data check", "Bills, invoices and timesheets checked against each other, every finding traced to its record.", "Fixed fee", ""),
-    ("Compliance controls sprint", "Two weeks, one focus: AI use, AML/CTF Tranche 2 or the Privacy Act automated-decision rules.", "Fixed fee", ""),
-    ("Live cash &amp; job profit model", "13-week cash and profit by job or client, tied to the ledger, documented and handed over.", "Fixed fee", ""),
-    ("AI workforce setup", "Agents with written limits, tested on your records, shadow mode first.", "Fixed fee", ""),
-    ("Leave cover", "An agent carries the routine part of a finance role during leave, reviewed by a Chartered Accountant.", "Fixed fee", ""),
-    ("Monthly controls operations", "Ongoing review of up to two agreed agents or one model.", "Fixed fee", ""),
+    ("System-to-ledger exception review", "One process mapped, sample inputs inspected, a bounded fixed-price scope. $1,500–$2,500.", "$1,500–$2,500", ""),
+    ("System-to-ledger exception sprint", "One agreed workflow built in your existing tools, with written acceptance tests and handover. $4,000–$8,000.", "$4,000–$8,000", "/#services"),
+    ("Fractional CFO + reporting", "Weekly cash, margin and forecast on your own data. From $3,500 a month.", "From $3,500/month", ""),
+    ("AI workflows &amp; automation", "Only the gaps your existing software doesn't cover, tested on your records. From $8,500.", "From $8,500", ""),
+    ("Kits", "A 13-week cash forecast ($290) and a supplier bank-change control kit ($190), as Excel files.", "$190–$290", "/kits/"),
+    ("Everything else", "Compliance sprints, continuity, leave cover and monthly operations are quoted in writing.", "Quoted", ""),
 ]
 FEES_HOW = [
     ("Talk or write", "A 20-minute call or a few lines in writing about the work. You'll get a written reply by the next business day."),
@@ -150,9 +158,9 @@ FEES_HOW = [
 ]
 
 PRICE_TERMS = [
-    ("Credit", "The fee for the two-week cash and data check is credited once against your next Beiz build (cash model, AI workforce setup, compliance sprint "
-               "or leave cover setup) if you accept the proposal and pay the deposit within 60 days of the findings. "
-               "It isn't redeemable for cash and doesn't apply to monthly support."),
+    ("Credit", "Where the proposal says so, the exception review fee is credited once against the exception sprint "
+               "if you accept the sprint proposal and pay the deposit within 60 days of the diagnostic. "
+               "It isn't redeemable for cash and doesn't apply to maintenance."),
     ("Monthly operations", "Covers up to two agreed agents or one model: a monthly control review, a log sample, a test re-run and up "
                            "to two hours of fixes in total. More is quoted. Requests are acknowledged within two business days. "
                            "It isn't round-the-clock monitoring or an emergency service."),
@@ -179,7 +187,7 @@ FACTS = [
 
 # ---------------------------------------------------------------- contact
 CONTACT_LEDE = "Write a few lines about the problem. You'll get a written reply by the next business day."
-TOPICS = ["Discovery call", "Two-week cash & data check", "Compliance controls sprint", "AML/CTF Tranche 2",
+TOPICS = ["Fit conversation (free)", "System-to-ledger exception review", "System-to-ledger exception sprint", "Compliance controls sprint", "AML/CTF Tranche 2",
           "AI workforce setup", "Cash & job profit model", "Leave cover", "Automation & AI agents",
           "Dashboards & reporting", "Workshop", "Referral partnership (accountants, bookkeepers, IT providers)", "Something else"]
 EXPECT = [
@@ -309,9 +317,9 @@ RULES_FIRST = [
     ("A person decides", "Anything held, unusual or over your limit goes to a named person, and a hold always wins: nothing further down the line can release it. Every run is kept in a history your staff can read, step by step."),
 ]
 FIT = [
-    ("Who it's for", "Australian small businesses, startups and solo operators that want AI doing real finance and admin work, plus accounting and bookkeeping firms and finance teams."),
+    ("Who it's for", "Outsourced bookkeeping and finance firms of around 5 to 25 staff, and Australian businesses and finance teams with one month-end job that keeps getting stuck."),
     ("Hard limits", "Works only in the systems you approve. Tested on your past records against a pass mark agreed in writing. Shadow mode before anything goes live. Nothing is paid or sent without a person. Every decision logged in your own accounts."),
-    ("Who signs off", "An Australian Chartered Accountant (Certificate of Public Practice, GAICD) scopes, builds and signs off every engagement. An agent never signs anything off."),
+    ("Who reviews", "An Australian Chartered Accountant (Certificate of Public Practice, GAICD) scopes the work and reviews every deliverable before handover. An agent never signs anything off."),
     ("What we won't do", "Tax returns, BAS or GST lodgements, tax or BAS agent services, statutory audit or assurance, legal advice, financial product advice, or payments released without a person."),
 ]
 INTAKE = [

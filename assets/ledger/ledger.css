@@ -676,3 +676,4 @@ code,pre{background:#060808!important;color:#D8E0DA!important;border-color:var(-
 .foot{background:#070908;border-top:1px solid var(--rule)}
 .dot.ok{background:var(--ok)}.dot.held{background:var(--held)}.dot.stop{background:var(--stop)}
 ::selection{background:#C9A96A;color:#0B0E0D}
+body::before{display:none}

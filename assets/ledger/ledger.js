@@ -111,7 +111,7 @@
     ["Decision log: the five fields", "/how-we-work/#log", "How it works"],
     ["How fees work", "/prices/"], ["Run the free bill check", "/bill-check/"],
     ["Under the hood: technical view", "/#hood-tech", "Home"],
-    ["About Beiz", "/about/"], ["Book a 20-minute call", "/contact/?topic=Discovery%20call"],
+    ["About Beiz", "/about/"], ["Book a free fit conversation", "/contact/?topic=Fit%20conversation%20(free)"],
     ["Write to us", "/contact/"], ["Email hello@beiz.com.au", "mailto:hello@beiz.com.au"], ["Privacy policy", "/privacy/"]
   ];
   const mac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
