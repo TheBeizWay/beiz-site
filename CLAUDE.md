@@ -6,6 +6,16 @@ Read this before changing anything in this repo. It describes the site as it is,
 
 Only the Claude session Purav works with on Beiz pushes to `main`. Other tools may review or suggest, never push. On 13–14 Nov other tools pushed 12 commits (a dark "financial intelligence" homepage with prices, "board assurance" and "signed off" claims, a B-symbol logo, and a deploy step that rewrote pages at publish time); all of it was reverted to the 13 Nov version. Deploys now copy the committed files as they are (`.github/workflows/deploy-beiz.yml`); never add build-time rewriting.
 
+## Update, 15 Nov 2026 (Purav: "do it, make those changes", different pages)
+
+- One call to action everywhere: "Book a 20-minute call" (header and hero). "See the workbench" is the secondary button.
+- Services section headline: "Find what doesn't add up. Fix it for good." Audience is Australian businesses and accounting firms, not only 5 to 25 staff bookkeeping firms. Card 04 is Fractional CFO + reporting (from $3,500 a month); Maintenance moved to the Also available list. Offer names and prices unchanged.
+- Kits and Finance continuity are no longer on the homepage. They stay in `src/home/index.html` because /kits/ and /continuity/ are cut from it; `build.py` strips them from the root `index.html` (`HOME_ONLY_ELSEWHERE`).
+- "A commit isn't proof" is now "Tested on your records before it goes live."
+- Enquiry form topics cut from 15 to 10; continuity buttons prefill "Finance continuity".
+- Phones: the CA ANZ logo and trade mark line are hidden in the header (the footer carries both); role tabs scroll sideways instead of wrapping.
+- The "Deploy Beiz website" Actions workflow was disabled on 14 Nov 2026; GitHub Pages publishes main directly.
+
 ## Homepage "A" (Purav, 14 Nov 2026: "I like A")
 
 - The homepage is the hand-built dark page in `src/home/index.html`; `build.py` copies it over the generated `index.html` at the end of every build. Edit that file for homepage changes. Inner pages still come from the ledger build.
