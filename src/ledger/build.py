@@ -595,6 +595,10 @@ def main():
     open(os.path.join(ROOT, "llms.txt"), "w").write(C.LLMS.rstrip() + "\n\n## Is Beiz a fit?\n" + "".join(f"- {a}: {b}\n" for a, b in C.FIT))
     open(os.path.join(ROOT, "llms-full.txt"), "w").write(llms_full())
     open(os.path.join(ROOT, "assets", "ledger", "webmcp.js"), "w").write(webmcp_js())
+    # Homepage: the hand-built page in src/home/ replaces the generated one (Purav chose design "A", 14 Nov 2026)
+    home_src = os.path.join(ROOT, "src", "home", "index.html")
+    if os.path.exists(home_src):
+        open(os.path.join(ROOT, "index.html"), "w").write(open(home_src).read())
     print("built", len(PAGES), "pages,", len(C.REDIRECTS), "redirects")
 
 

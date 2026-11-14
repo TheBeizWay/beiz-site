@@ -1,80 +1,536 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-AU">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Beiz Data &amp; Accounting | AI for real work, checked by a Chartered Accountant</title>
-<meta name="description" content="Beiz sets up AI agents for routine finance and admin work in Australian businesses. Tested on your past records, held for a person when unsure, checked by a Chartered Accountant.">
+<title>Beiz Data &amp; Accounting | Financial intelligence, AI systems &amp; controls</title>
+<meta name="description" content="Beiz builds the finance data stack, AI workflows and board-grade controls for Australian accounting firms and $2M–$20M businesses. Led by an Australian Chartered Accountant. Fixed fees.">
 <link rel="canonical" href="https://beiz.com.au/">
-<meta property="og:title" content="Beiz Data &amp; Accounting | AI for real work, checked by a Chartered Accountant">
-<meta property="og:description" content="Beiz sets up AI agents for routine finance and admin work in Australian businesses. Tested on your past records, held for a person when unsure, checked by a Chartered Accountant.">
+<meta property="og:title" content="Beiz | Financial intelligence, AI systems & controls">
+<meta property="og:description" content="Finance data, AI workflows and controls for Australian businesses. Led by a Chartered Accountant.">
 <meta property="og:url" content="https://beiz.com.au/">
-<meta property="og:image" content="https://beiz.com.au/assets/og-card.png">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#13221B">
-<link rel="icon" href="/assets/brand/beiz-icon.svg">
-<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="preload" href="/assets/fonts/source-serif-4-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/assets/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/ledger/ledger.css?v=L33">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Beiz Data & Accounting Pty Ltd",
-"url":"https://beiz.com.au/","email":"hello@beiz.com.au","logo":"https://beiz.com.au/assets/brand/beiz-icon-512.png",
-"address":{"@type":"PostalAddress","addressLocality":"Canberra","addressRegion":"ACT","addressCountry":"AU"},
-"areaServed":"AU","sameAs":["https://www.linkedin.com/company/beiz-data-accounting/","https://github.com/TheBeizWay"],"taxID":"53 691 755 496",
-"description":"AI for real business work, with guardrails, set up and checked by an Australian Chartered Accountant.",
-"founder":{"@type":"Person","name":"Purav Mehta","jobTitle":"Principal","sameAs":["https://www.linkedin.com/in/puravmehtaca/"],"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"Professional membership","name":"Chartered Accountant (CA) with a Certificate of Public Practice","recognizedBy":{"@type":"Organization","name":"Chartered Accountants Australia and New Zealand","url":"https://www.charteredaccountantsanz.com"}},{"@type":"EducationalOccupationalCredential","name":"Graduate of the Australian Institute of Company Directors (GAICD)","recognizedBy":{"@type":"Organization","name":"Australian Institute of Company Directors","url":"https://www.aicd.com.au"}}]}}</script>
+<meta name="theme-color" content="#060B09">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Beiz Data & Accounting Pty Ltd","url":"https://beiz.com.au/","email":"hello@beiz.com.au","areaServed":"AU","taxID":"53 691 755 496","address":{"@type":"PostalAddress","addressLocality":"Canberra","addressRegion":"ACT","addressCountry":"AU"},"description":"Financial intelligence, AI systems and controls for Australian accounting firms and growing businesses, led by a Chartered Accountant.","founder":{"@type":"Person","name":"Purav Mehta","jobTitle":"Principal","sameAs":["https://www.linkedin.com/in/puravmehtaca/"]},"makesOffer":[{"@type":"Offer","name":"Finance & AI Diagnostic","price":"4500","priceCurrency":"AUD"},{"@type":"Offer","name":"Fractional CFO + live data stack","price":"3500","priceCurrency":"AUD"},{"@type":"Offer","name":"AI workforce & automation build","price":"8500","priceCurrency":"AUD"},{"@type":"Offer","name":"Deal quality of earnings"},{"@type":"Offer","name":"Board AI & compliance sprint"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why pay Beiz when anyone can use ChatGPT?","acceptedAnswer":{"@type":"Answer","text":"A chatbot gives you an answer. Beiz gives you a system that runs on your own ledger, timesheets and bank data, is tested against your past records, and is led by a Chartered Accountant who holds professional indemnity insurance. When a board, bank or regulator asks who is accountable for the work, there is a name on it."}},{"@type":"Question","name":"What changes on 10 December 2026 under the Privacy Act?","acceptedAnswer":{"@type":"Answer","text":"From 10 December 2026, organisations covered by the Privacy Act must say in their privacy policy when a computer program uses personal information to make, or substantially help make, decisions that could significantly affect people. Most finance teams have several: credit holds, approvals and onboarding checks."}},{"@type":"Question","name":"Do you do tax or BAS?","acceptedAnswer":{"@type":"Answer","text":"No. Beiz does not do tax returns, BAS, statutory audit or legal advice. Your accountant keeps that work, and Beiz works alongside accounting firms rather than competing with them."}},{"@type":"Question","name":"Who owns what you build?","acceptedAnswer":{"@type":"Answer","text":"You do. Dashboards, scripts, prompts and decision logs live in your own accounts, documented, with no licence fee or lock-in."}}]}</script>
+<style>@font-face{font-family:"Space Grotesk";src:url(/assets/fonts/space-grotesk-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}@font-face{font-family:"Space Grotesk";src:url(/assets/fonts/space-grotesk-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}@font-face{font-family:"Space Grotesk";src:url(/assets/fonts/space-grotesk-latin-700-normal.woff2) format("woff2");font-weight:700;font-display:swap}@font-face{font-family:"Inter";src:url(/assets/fonts/inter-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}@font-face{font-family:"Inter";src:url(/assets/fonts/inter-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}@font-face{font-family:"Inter";src:url(/assets/fonts/inter-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}@font-face{font-family:"JetBrains Mono";src:url(/assets/fonts/jetbrains-mono-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}@font-face{font-family:"JetBrains Mono";src:url(/assets/fonts/jetbrains-mono-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}.blogo{height:44px;width:auto;display:block}footer .blogo{height:48px}.cab img{width:140px!important;height:auto!important;max-width:none}@media(max-width:600px){.cab img{width:120px!important}.blogo{height:36px}}
+:root{--bg:#0B0E0D;--bg2:#111614;--card:rgba(255,255,255,.025);--line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.14);--tx:#F2EFE8;--mu:#A8ADA6;--mint:#C9A96A;--cyan:#C9A96A;--amber:#E0B25C;--red:#E8806F;--r:14px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%}
+h1,h2,h3{font-family:'Space Grotesk',Inter,sans-serif;letter-spacing:-.025em;margin:0}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+.wrap{width:min(1200px,calc(100% - 48px));margin:0 auto}
+.skip{position:absolute;left:16px;top:-80px;background:var(--mint);color:#04120B;padding:10px 14px;border-radius:8px;z-index:100}
+.skip:focus{top:12px}
+:focus-visible{outline:2px solid var(--mint);outline-offset:3px;border-radius:6px}
+
+/* ambient */
+.aurora{display:none;position:fixed;inset:-20vh -10vw auto;height:120vh;z-index:-2;pointer-events:none;background:
+radial-gradient(40vw 30vw at 15% 10%,rgba(110,242,176,.16),transparent 60%),
+radial-gradient(35vw 28vw at 85% 0%,rgba(92,200,255,.14),transparent 60%),
+radial-gradient(30vw 24vw at 60% 60%,rgba(110,242,176,.06),transparent 60%);filter:blur(10px);animation:drift 22s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate3d(0,4vh,0) scale(1.05)}}
+.grid-bg{display:none;position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse at 50% 0%,#000 30%,transparent 75%)}
+
+/* header */
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px) saturate(140%);background:rgba(6,11,9,.72);border-bottom:1px solid var(--line)}
+.bar{height:76px;display:flex;align-items:center;gap:32px}
+.dd{position:relative}.dd>a:after{content:" ▾";font-size:10px}
+.mega{position:absolute;top:100%;right:-220px;width:640px;padding-top:22px;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s,transform .18s,visibility .18s}
+.dd:hover .mega,.dd:focus-within .mega{opacity:1;visibility:visible;transform:none}
+.mega .in{background:#141917;border:1px solid var(--line2);border-radius:12px;box-shadow:0 30px 60px -20px rgba(0,0,0,.8);display:grid;grid-template-columns:1fr 1fr;gap:2px;padding:10px}
+.mega a{display:block;padding:14px 16px;border-radius:8px;text-decoration:none;color:var(--tx)!important}
+.mega a:hover{background:rgba(255,255,255,.04)}
+.mega b{display:flex;justify-content:space-between;gap:10px;font:600 14px Inter}
+.mega b em{font:500 12px 'JetBrains Mono';font-style:normal;color:var(--mint);white-space:nowrap}
+.mega span{display:block;font-size:13px;color:var(--mu);margin-top:3px;line-height:1.45}
+.mega .all{grid-column:1/-1;border-top:1px solid var(--line);border-radius:0 0 8px 8px;font-size:13px;color:var(--mu)!important}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.mark{display:none}.cab{display:flex;align-items:center;padding-left:18px;margin-left:4px;border-left:1px solid var(--line2)}.cab img{height:50px;width:auto;display:block}
+.word{font:700 22px/1 'Space Grotesk';letter-spacing:.2em}
+.word small{display:block;font:500 9px 'Inter';letter-spacing:.24em;color:var(--mu);margin-top:6px}
+nav.main{display:flex;gap:28px;margin-left:auto;font-size:14px}
+nav.main a{text-decoration:none;color:var(--mu);transition:color .2s}
+nav.main a:hover{color:var(--tx)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:6px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s;font-family:Inter,sans-serif}
+.btn.p{background:var(--tx);color:#0B0E0D}
+.btn.p:hover{background:#fff}
+.btn.g{border-color:var(--line2);color:var(--tx);background:rgba(255,255,255,.03)}
+.btn.g:hover{border-color:var(--mint)}
+.btn.lg{padding:15px 24px;font-size:15px}
+.menu{display:none;margin-left:auto;background:none;border:1px solid var(--line2);color:var(--tx);border-radius:999px;padding:8px 14px;font:inherit;font-size:14px}
+
+/* hero */
+.hero{position:relative;padding:88px 0 72px}
+#net{display:none;position:absolute;inset:0;width:100%;height:100%;z-index:-1;opacity:.55}
+.hgrid{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:6px 12px 6px 6px;border:1px solid var(--line2);border-radius:999px;font-size:13px;color:var(--mu);background:rgba(255,255,255,.03);margin-bottom:28px}
+.pill b{background:rgba(201,169,106,.16);color:var(--mint);font:500 11px 'JetBrains Mono';padding:3px 8px;border-radius:999px;letter-spacing:.06em}
+.hero h1{font-size:clamp(44px,6.2vw,84px);line-height:.98;font-weight:600}
+.grad{color:var(--mint);font-style:italic;font-weight:500}
+.lede{font-size:19px;color:var(--mu);max-width:560px;margin:26px 0 34px}
+.acts{display:flex;gap:12px;flex-wrap:wrap}
+.creds{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:40px;font-size:13px;color:var(--mu)}
+.creds span{display:flex;align-items:center;gap:8px}
+.creds i{width:6px;height:6px;background:var(--mint)}
+
+/* console */
+.console{position:relative;border:1px solid var(--line2);border-radius:22px;background:linear-gradient(180deg,rgba(16,28,24,.85),rgba(8,14,12,.92));box-shadow:0 30px 60px -30px rgba(0,0,0,.7);overflow:hidden}
+.console:before{display:none;content:"";position:absolute;inset:-1px;border-radius:22px;padding:1px;background:linear-gradient(140deg,rgba(110,242,176,.6),transparent 35%,transparent 65%,rgba(92,200,255,.5));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.ctop{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--line);font-size:12px}
+.dots{display:flex;gap:6px}.dots i{width:10px;height:10px;border-radius:50%;background:#26332E}
+.live{display:flex;align-items:center;gap:8px;color:var(--mu);letter-spacing:.08em}
+.live i{display:none}
+@keyframes pulse{50%{opacity:.25}}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
+.kpi{padding:16px 18px;border-right:1px solid var(--line)}.kpi:last-child{border:0}
+.kpi .l{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mu)}
+.kpi .v{font:500 22px 'JetBrains Mono';margin-top:4px}
+.spark{display:block;width:100%;height:28px;margin-top:6px}
+.ask{padding:18px}
+.qbox{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid var(--line2);border-radius:12px;background:rgba(0,0,0,.3);font-size:14px;min-height:46px}
+.qbox .cur{width:8px;height:17px;background:var(--mint);animation:pulse 1s steps(1) infinite}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
+.chip{border:1px solid var(--line2);background:rgba(255,255,255,.03);color:var(--mu);border-radius:999px;padding:6px 11px;font-size:12px;cursor:pointer;font-family:Inter}
+.chip[aria-pressed=true],.chip:hover{color:#0B0E0D;background:var(--mint);border-color:var(--mint)}
+.ans{margin-top:14px;min-height:178px}
+.ans p{margin:0 0 12px;font-size:14px;color:var(--tx)}
+.rows{width:100%;border-collapse:collapse;font:12px 'JetBrains Mono'}
+.rows td{padding:7px 8px;border-top:1px solid var(--line);color:var(--mu)}
+.rows td:last-child{text-align:right;color:var(--tx)}
+.trace{display:flex;justify-content:space-between;gap:10px;margin-top:12px;font:11px 'JetBrains Mono';color:var(--mu)}
+.trace b{color:var(--mint);font-weight:500}
+.demo-note{padding:10px 18px;border-top:1px solid var(--line);font:10px 'JetBrains Mono';color:#7F948A;letter-spacing:.04em}
+
+/* trust strip */
+.trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.015)}
+.trust .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px 36px;flex-wrap:wrap;padding:22px 0;font-size:13px;color:var(--mu)}
+.trust img{height:40px;width:auto;display:block}
+.tm{font-size:11px;color:#8A9D93}
+
+/* sections */
+section.s{padding:112px 0}
+.kick{font:500 12px 'JetBrains Mono';letter-spacing:.14em;text-transform:uppercase;color:var(--mint);margin:0 0 18px;display:flex;align-items:center;gap:10px}
+.kick:before{content:"";width:22px;height:1px;background:var(--mint)}
+h2{font-size:clamp(34px,4.4vw,58px);line-height:1.02;font-weight:600;max-width:900px}
+.sub{color:var(--mu);font-size:18px;max-width:640px;margin:20px 0 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap;margin-bottom:56px}
+
+/* bento services */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.svc{position:relative;grid-column:span 2;padding:28px;border:1px solid var(--line);border-radius:var(--r);background:var(--card);display:flex;flex-direction:column;gap:14px;overflow:hidden;transition:border-color .3s,transform .3s}
+.svc.w{grid-column:span 3}
+.svc:hover{border-color:rgba(201,169,106,.5);transform:translateY(-3px)}
+.svc:after{display:none;content:"";position:absolute;width:260px;height:260px;right:-120px;top:-120px;background:radial-gradient(circle,rgba(110,242,176,.14),transparent 70%);pointer-events:none}
+.svc .no{font:500 12px 'JetBrains Mono';color:var(--mu);display:flex;justify-content:space-between}
+.svc .no em{font-style:normal;color:var(--cyan)}
+.svc h3{font-size:26px;line-height:1.1;font-weight:600}
+.svc p{margin:0;color:var(--mu);font-size:15px}
+.svc ul{margin:0;padding:0;list-style:none;display:grid;gap:7px;font-size:14px}
+.svc li{display:flex;gap:10px}.svc li:before{content:"→";color:var(--mint);font-family:'JetBrains Mono'}
+.price{margin-top:auto;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.price b{font:500 24px 'JetBrains Mono'}
+.price span{font-size:13px;color:var(--mu)}
+.price a{font-size:14px;font-weight:600;color:var(--mint);text-decoration:none}
+.price a:hover{text-decoration:underline}
+.svc.hero-svc{background:rgba(201,169,106,.06);border-color:rgba(201,169,106,.45)}
+.tag{display:inline-block;font:500 10px 'JetBrains Mono';letter-spacing:.1em;text-transform:uppercase;padding:4px 8px;border-radius:4px;background:rgba(201,169,106,.14);color:var(--mint);width:fit-content}
+
+/* signature */
+.sig{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.sigc{padding:30px;border-radius:var(--r);border:1px solid var(--line);background:linear-gradient(180deg,rgba(92,200,255,.06),rgba(255,255,255,.02));display:flex;flex-direction:column;gap:14px}
+.sigc .ico{width:44px;height:44px;border-radius:12px;border:1px solid var(--line2);display:grid;place-items:center;background:rgba(0,0,0,.3)}
+.sigc h3{font-size:22px}
+.sigc p{margin:0;color:var(--mu);font-size:15px}
+.sigc .price{border-color:var(--line)}
+
+/* compare */
+.cmp{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--card)}
+.cmp table{width:100%;border-collapse:collapse;font-size:15px}
+.cmp th,.cmp td{padding:18px 20px;text-align:left;border-bottom:1px solid var(--line)}
+.cmp thead th{font:500 12px 'JetBrains Mono';letter-spacing:.08em;text-transform:uppercase;color:var(--mu);background:rgba(0,0,0,.25)}
+.cmp thead th.us{color:var(--mint)}
+.cmp td.us{background:rgba(201,169,106,.07);color:var(--tx);font-weight:500}
+.cmp tr:last-child td{border-bottom:0}
+.y{color:#9CC7A8}.n{color:var(--red)}.m{color:var(--amber)}
+.scroll{overflow-x:auto}
+
+/* market */
+.mkt{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.mk{padding:24px;border:1px solid var(--line);border-radius:var(--r);background:var(--card)}
+.mk .r{font:500 11px 'JetBrains Mono';color:var(--cyan);letter-spacing:.06em;text-transform:uppercase}
+.mk h3{font-size:19px;margin:10px 0 8px}
+.mk p{margin:0;color:var(--mu);font-size:14px}
+.mk .to{margin-top:14px;padding-top:12px;border-top:1px dashed var(--line2);font-size:13px;color:var(--tx)}
+.mk .to b{color:var(--mint);font-weight:500}
+
+/* calculator */
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:stretch}
+.panel{padding:30px;border:1px solid var(--line);border-radius:var(--r);background:var(--card)}
+.panel label{display:block;font-size:14px;margin-bottom:26px}
+.panel label span{display:flex;justify-content:space-between;margin-bottom:10px;color:var(--mu)}
+.panel label span b{color:var(--tx);font:500 15px 'JetBrains Mono'}
+input[type=range]{width:100%;accent-color:var(--mint)}
+.out{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.o{padding:20px;border-radius:14px;background:rgba(0,0,0,.3);border:1px solid var(--line)}
+.o .l{font:500 10px 'JetBrains Mono';letter-spacing:.1em;text-transform:uppercase;color:var(--mu)}
+.o .v{font:500 30px 'JetBrains Mono';margin-top:6px}
+.o.hl .v{color:var(--mint)}
+.small{font-size:13px;color:var(--mu)}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
+.st{padding:26px;border-top:2px solid var(--line2);position:relative}
+.st:before{counter-increment:s;content:"0" counter(s);font:500 12px 'JetBrains Mono';color:var(--mint)}
+.st h3{font-size:21px;margin:14px 0 8px}
+.st p{margin:0;color:var(--mu);font-size:15px}
+.st.on{border-top-color:var(--mint)}
+
+/* deadlines */
+.dl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.d{padding:24px;border:1px solid var(--line);border-radius:var(--r);background:var(--card)}
+.d .big{font:500 44px 'JetBrains Mono';line-height:1;color:var(--amber)}
+.d .big.ok{color:var(--mint);font-size:22px;line-height:1.3}
+.d h3{font-size:18px;margin:14px 0 6px}
+.d p{margin:0;color:var(--mu);font-size:14px}
+
+/* faq */
+.faq{max-width:900px}
+.faq details{border-bottom:1px solid var(--line);padding:4px 0}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font:600 19px 'Space Grotesk'}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";font-family:'JetBrains Mono';color:var(--mint);transition:transform .25s}
+.faq details[open] summary:after{transform:rotate(45deg)}
+.faq p{margin:0 0 22px;color:var(--mu);max-width:760px}
+
+/* contact */
+.cta{position:relative;border:1px solid var(--line2);border-radius:16px;padding:64px;background:var(--bg2);display:grid;grid-template-columns:1fr 1.1fr;gap:48px}
+.cta h2{font-size:clamp(32px,4vw,52px)}
+form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+form label{display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--mu)}
+form .full{grid-column:1/-1}
+input,select,textarea{font:inherit;font-size:15px;color:var(--tx);background:rgba(0,0,0,.35);border:1px solid var(--line2);border-radius:12px;padding:13px 14px}
+select option{background:#0A1210}
+textarea{resize:vertical;min-height:110px}
+input:focus,select:focus,textarea:focus{border-color:var(--mint);outline:none;box-shadow:0 0 0 3px rgba(201,169,106,.2)}
+
+footer{border-top:1px solid var(--line);margin-top:112px;padding:56px 0 36px;font-size:14px;color:var(--mu)}
+.fg{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-bottom:36px}
+.fl{display:flex;gap:56px;flex-wrap:wrap}
+.fl div{display:flex;flex-direction:column;gap:10px}
+.fl a{text-decoration:none}.fl a:hover{color:var(--tx)}
+.legal{border-top:1px solid var(--line);padding-top:22px;font-size:12px;line-height:1.7;color:#8A9D93}
+.legal p{margin:0 0 6px}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:1000px){
+.hgrid,.cta,.calc{grid-template-columns:1fr}
+.bento{grid-template-columns:1fr 1fr}.svc,.svc.w{grid-column:span 1}
+.sig,.dl{grid-template-columns:1fr}
+.mkt,.steps{grid-template-columns:1fr 1fr}
+.cta{padding:36px}
+}
+@media(max-width:720px){
+nav.main,.bar>.btn{display:none}
+.menu{display:block}
+.mega{display:none}nav.main.open{display:flex;position:absolute;top:76px;left:0;right:0;flex-direction:column;gap:0;background:#08100D;border-bottom:1px solid var(--line);padding:8px 24px}
+nav.main.open a{padding:14px 0;border-bottom:1px solid var(--line)}
+.bento,.mkt,.steps,.out{grid-template-columns:1fr}
+form{grid-template-columns:1fr}
+.hero{padding:48px 0}
+section.s{padding:72px 0}
+.kpi .v{font-size:17px}
+.wrap{width:calc(100% - 32px)}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+.lens{display:inline-flex;flex-wrap:wrap;gap:4px;padding:4px;border:1px solid var(--line2);border-radius:999px;background:rgba(255,255,255,.03);margin-bottom:22px}
+.lens button{border:0;background:transparent;color:var(--mu);font:600 13px Inter,sans-serif;padding:8px 14px;border-radius:999px;cursor:pointer}
+.lens button[aria-pressed=true]{background:var(--tx);color:#04120B}
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="top"><div class="wrap">
-<a class="brand" href="/" aria-label="Beiz Data &amp; Accounting, home"><img src="/assets/ledger/beiz-lockup.png" alt="Beiz Data &amp; Accounting" width="149" height="44"></a>
-<span class="cobrand"><img src="/assets/media/ca-logo-vertical.svg" alt="Chartered Accountants Australia and New Zealand" width="96" height="108"></span>
-<nav class="nav" aria-label="Main"><a href="/services/">Services</a><a href="/how-we-work/">How it works</a><a href="/prices/">Fees</a><a href="/bill-check/">Try the bill check</a><a href="/about/">About</a><a class="m" href="/contact/">Contact</a></nav>
-<a class="btn" href="/contact/">Talk to us</a>
-<button class="menu" type="button" aria-expanded="false" aria-label="Open menu">Menu</button>
-</div><div class="tmstrip"><div class="wrap">Trade mark of Chartered Accountants Australia and New Zealand and used with permission.</div></div></header>
-<main id="main">
-<section class="hero2"><div class="wrap">
-<div class="h2main">
-<p class="hkick">Beiz Data &amp; Accounting, Canberra</p>
-<h1>AI that does the checking. <br>A Chartered Accountant who checks the AI.</h1>
-<p class="lede">Beiz Data &amp; Accounting sets up AI agents for the routine finance and admin work in your business: bills, cash, reconciliations and client checks. Each agent is tested on your past records first, and anything it isn't sure about waits for a person.</p>
-<div class="acts"><a class="btn" href="/contact/?topic=Discovery%20call">Book a 20-minute call</a><a class="btn line" href="/bill-check/">Try the free bill check</a></div>
-<ul class="hfacts"><li><b>Chartered Accountant</b><span>Member of Chartered Accountants Australia and New Zealand, with a Certificate of Public Practice</span></li><li><b>Fixed fee</b><span>Agreed in writing before any work starts</span></li><li><b>A person signs off</b><span>Nothing is paid or sent by an agent alone</span></li></ul>
-<div class="credrow"><img src="/assets/media/ca-logo.svg" alt="Chartered Accountants Australia and New Zealand" width="147" height="84"><p class="cred">Trade mark of Chartered Accountants Australia and New Zealand and used with permission.</p></div>
-</div>
-<figure class="hphoto"><img src="/assets/media/purav-mehta-2.jpg" alt="Purav Mehta" width="480" height="640" fetchpriority="high">
-<figcaption><b>Purav Mehta CA, GAICD</b><span>Founder. You deal with him from the first call to handover. <a href="/about/">About Purav</a> · <a href="https://www.linkedin.com/in/puravmehtaca/" rel="noopener">LinkedIn</a></span></figcaption></figure>
-</div></section>
-<section class="wsec "><div class="wrap"><p class="kick">Where it helps</p><div class="whead"><h2>The routine work an agent takes on</h2><p class="intro">Start with one job. The agent does the checking and preparation; a person still decides anything that matters.</p></div><div class="jobs4"><article class="job"><p class="num">01</p><h3>Bills</h3><p class="was"><span>Today</span>Evenings spent copying between emailed PDFs, bank feeds and your accounting software, and receipt apps reusing last month's account code.</p><p class="now"><span>With a Beiz agent</span>Matched to the supplier and order. Duplicates, split bills and changed bank details held for you.</p><div class="jlog"><p class="jl1"><span class="dot stop"></span>Stopped</p><p><b>Bluetongue Plumbing, $2,423.87</b><br>Bank details changed since April.</p><p class="jwho">Who decides: The owner rings the supplier on the number already on file.</p></div></article><article class="job"><p class="num">02</p><h3>Cash</h3><p class="was"><span>Today</span>The bank balance today and a guess about next month.</p><p class="now"><span>With a Beiz agent</span>A 13-week cash view that refreshes from your weekly exports and ties back to the ledger.</p><div class="jlog"><p class="jl1"><span class="dot held"></span>Held for a person</p><p><b>Week 6 forecast</b><br>Cash dips below the agreed floor if one overdue debtor pays late.</p><p class="jwho">Who decides: The owner decides whether to chase the debtor or delay a purchase.</p></div></article><article class="job"><p class="num">03</p><h3>Reconciliations</h3><p class="was"><span>Today</span>Month-end spent copying between your accounting software and spreadsheets.</p><p class="now"><span>With a Beiz agent</span>Accounts matched on a schedule, with the exceptions listed for a person to clear.</p><div class="jlog"><p class="jl1"><span class="dot held"></span>Held for a person</p><p><b>Trade creditors, October</b><br>A manual journal doesn't match the payables report.</p><p class="jwho">Who decides: The bookkeeper explains or corrects it before month-end is closed.</p></div></article><article class="job"><p class="num">04</p><h3>Client checks</h3><p class="was"><span>Today</span>New-client checks done from memory or an old checklist.</p><p class="now"><span>With a Beiz agent</span>Each new client checked against your written procedure, with gaps flagged before work starts.</p><div class="jlog"><p class="jl1"><span class="dot held"></span>Held for a person</p><p><b>New client, family trust</b><br>One beneficial owner's ID is missing from the file.</p><p class="jwho">Who decides: Your compliance officer, before the engagement letter is signed.</p></div></article></div><p class="jnote">Example decision-log entries from a made-up business. Every check is logged, including the ones that pass.</p></div></section>
-<section class="band"><div class="wrap"><p class="big">Nothing is paid or sent without a person.</p><p>Every agent is tested on your past records, runs alongside your team in shadow mode first, and logs every decision in your own accounts.</p></div></section>
-<section class="wsec white"><div class="wrap"><p class="kick">Ways to start</p><div class="whead"><h2>Three ways to start</h2><p class="intro">Every engagement is a fixed fee, set out in a written proposal before any work starts. <a href="/prices/">How fees work</a>.</p></div><div class="start3"><a class="st" href="/cash-data-check/"><p class="num">01</p><h3>Two-week cash &amp; data check</h3><p>Your bills, invoices and timesheets checked against each other, with every finding traced to its record. Credited against your next Beiz build if you go ahead.</p><span class="go">Read more</span></a><a class="st" href="/compliance-sprint/"><p class="num">02</p><h3>Compliance controls sprint</h3><p>Two weeks on one obligation: AI use, AML/CTF Tranche 2 or the Privacy Act automated-decision rules. What's in scope, who owns it and where a person must approve.</p><span class="go">Read more</span></a><a class="st" href="/services/ai-readiness-sprint/"><p class="num">03</p><h3>AI workforce setup</h3><p>Agents for your bills, cash or client checks, each with written limits, tested on your records and run in shadow mode before going live.</p><span class="go">Read more</span></a></div><p class="allsvc"><a href="/services/">See every service</a>: cash and profit models, workflow automation, dashboards, AI governance, AML/CTF for accounting firms and workshops.</p></div></section>
-<section class="wsec forest" id="see"><div class="wrap"><p class="kick">Try it now</p><div class="split"><div><h2>Run the free bill check on your own bills</h2><p class="intro">Export your bills from Xero, MYOB or QuickBooks and drop the file in. Eight checks run in your browser in a few seconds. Nothing is uploaded or sent to us.</p><ul class="ticks"><li>An updated invoice about to be paid twice</li><li>The same invoice number used twice by one supplier</li><li>A supplier's bank details changing</li><li>Bills split to stay under your approval limit</li></ul><div class="acts"><a class="btn" href="/bill-check/">Run the free bill check</a></div></div><div class="bcard" aria-label="Example bill check results on a made-up building company's bills"><div class="bchead"><span>Bill check results</span><span>Example results, made-up business</span></div><ul><li><span class="dot stop"></span><div><b>Bank details changed</b><p>One supplier's account number differs from earlier bills.</p></div></li><li><span class="dot held"></span><div><b>Possible duplicate</b><p>Same supplier and amount within 14 days, sent as an updated invoice.</p></div></li><li><span class="dot held"></span><div><b>Invoice number reused</b><p>One supplier used the same invoice number twice.</p></div></li><li><span class="dot held"></span><div><b>Looks split under the limit</b><p>Two bills on the same day, each just under your approval limit.</p></div></li></ul><p class="bcnote">A flag is a prompt for a person to look. Many have an innocent explanation.</p></div></div></div></section>
-<section class="wsec "><div class="wrap"><p class="kick">How it stays safe</p><div class="whead"><h2>Nothing runs on its own on day one</h2></div><ol class="steps4"><li><span class="num">01</span><h3>Declare</h3><p>Each agent gets a written job description, its limits and a named person it reports to.</p></li><li><span class="num">02</span><h3>Contain</h3><p>It works only in the systems you approve, with a monthly spending cap and an off switch. Nothing is paid or sent without a person.</p></li><li><span class="num">03</span><h3>Test</h3><p>It's tested on your past records against a pass mark agreed in writing, then runs alongside your staff in shadow mode.</p></li><li><span class="num">04</span><h3>Watch</h3><p>Every decision is logged in your own accounts, and we review it with you at day 30.</p></li></ol><p class="note">Beiz doesn't do tax returns, BAS or GST lodgements, tax or BAS agent services, statutory audit or assurance, legal advice or financial product advice, and never releases payments without a person. Your tax agent keeps that work. <a href="/how-we-work/">How a build runs</a>.</p></div></section>
-<section class="wsec " id="changing"><div class="wrap"><p class="kick">Official sources</p><div class="whead"><h2>What&rsquo;s changing for Australian businesses</h2><p class="intro">Each item links to the official source. General information, not advice.</p></div><ul class="chg"><li><p class="ctag">OAIC</p><p class="ctext"><a href="https://www.oaic.gov.au/privacy/australian-privacy-principles/australian-privacy-principles-guidelines/chapter-1-app-1-open-and-transparent-management-of-personal-information" rel="noopener" target="_blank">Privacy Act automated-decision disclosures start</a></p><p class="cbeiz"><a href="/insights/privacy-act-automated-decisions/">Plain-English guide</a></p></li><li><p class="ctag">AUSTRAC</p><p class="ctext"><a href="https://www.austrac.gov.au/new-and-media/news/austrac-opens-enrolment-new-professions-next-step-aml-reforms" rel="noopener" target="_blank">AML/CTF duties for accountants who provide certain services</a></p><p class="cbeiz"><a href="/aml-ctf-accounting-firms/">Client checks, your officer decides</a></p></li><li><p class="ctag">ATO</p><p class="ctext"><a href="https://www.ato.gov.au/media-centre/ato-calls-on-employers-to-prepare-for-payday-super" rel="noopener" target="_blank">Payday Super: super due with every pay run, not quarterly</a></p><p class="cbeiz"><a href="/services/cash-and-job-profit-model/">A 13-week cash view that includes it</a></p></li><li><p class="ctag">Scamwatch</p><p class="ctext"><a href="https://www.scamwatch.gov.au/types-of-scams/business-email-compromise-scams" rel="noopener" target="_blank">Payment redirection: a supplier&#x27;s bank details &#x27;change&#x27; by email</a></p><p class="cbeiz"><a href="/bill-check/">The free bill check flags bank changes</a></p></li><li><p class="ctag">National AI Centre</p><p class="ctext"><a href="https://www.industry.gov.au/publications/guidance-for-ai-adoption" rel="noopener" target="_blank">Guidance for AI Adoption: six practices, including keeping human control</a></p><p class="cbeiz"><a href="/services/ai-governance/">AI governance for owners and boards</a></p></li><li><p class="ctag">ABR</p><p class="ctext"><a href="https://abr.business.gov.au/" rel="noopener" target="_blank">Check a supplier&#x27;s ABN on ABN Lookup before you pay</a></p><p class="cbeiz"><a href="/bill-check/">The bill check flags missing or invalid ABNs</a></p></li></ul></div></section>
-<section class="wsec forest"><div class="wrap"><div class="closer"><h2>Talk or write. Either way, a reply by the next business day.</h2><p class="intro">Tell us which piece of work takes the most hours. You'll get a written reply by the next business day, and a fixed-fee proposal within three business days if it's a fit. If we're not the right fit, we'll say so.</p><div class="acts"><a class="btn" href="/contact/?topic=Discovery%20call">Book a 20-minute call</a><a class="btn line" href="/contact/">Start in writing</a></div></div></div></section>
+<div class="aurora" aria-hidden="true"></div>
+<div class="grid-bg" aria-hidden="true"></div>
 
-</main>
-<footer class="foot"><div class="wrap">
-<div class="grid">
-<div>
-<p><b>Beiz Data &amp; Accounting</b><br>AI for real business work, set up and checked by an Australian Chartered Accountant. Canberra, working Australia-wide.</p>
-<p><a href="mailto:hello@beiz.com.au">hello@beiz.com.au</a></p>
-<div class="ca"><img src="/assets/media/ca-logo-reversed.png" alt="Chartered Accountants Australia and New Zealand" width="140" height="80" ></div>
+<header>
+<div class="wrap bar">
+<a class="brand" href="/" aria-label="Beiz Data and Accounting, home"><img src="/assets/brand/beiz-logo-dark-trimmed.png" alt="Beiz Data &amp; Accounting" width="806" height="238" class="blogo"></a>
+<span class="cab"><img src="/assets/media/ca-logo-reversed.png" alt="Chartered Accountants Australia and New Zealand" width="140" height="80"></span>
+<nav class="main" id="nav" aria-label="Main"><div class="dd"><a href="#services">Services</a><div class="mega"><div class="in"><a href="#services"><b>Finance &amp; AI diagnostic <em>$4,500</em></b><span>Two weeks on your real data. Leaks and wins ranked by dollar value.</span></a><a href="#services"><b>Fractional CFO + reporting <em>from $3.5k/mo</em></b><span>Weekly cash, margin, forecast and board pack.</span></a><a href="#services"><b>AI workflows &amp; automation <em>from $8,500</em></b><span>Quote-to-cash, debtors, onboarding, month-end.</span></a><a href="#services"><b>Quality of earnings <em>quoted</em></b><span>True EBITDA and working capital for $2M–$15M deals.</span></a><a href="#services"><b>Board AI &amp; compliance <em>quoted</em></b><span>Privacy Act automated decisions, AML/CTF, AI testing.</span></a><a href="#services"><b>Bank-ready stress pack <em>quoted</em></b><span>CA-prepared forecast for finance brokers and lenders.</span></a><a class="all" href="#services">See every service and fee →</a></div></div></div><a href="#why">Why Beiz</a><a href="#how">How it works</a><a href="#pricing-calc">Pricing</a></nav>
+<a class="btn p" href="#contact">Book a strategy call</a>
+<button class="menu" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
 </div>
-<div><h4>Work with us</h4><ul>
-<li><a href="/services/">Services</a></li><li><a href="/aml-ctf-accounting-firms/">AML/CTF for accounting firms</a></li><li><a href="/how-we-work/">How it works</a></li><li><a href="/prices/">Fees</a></li><li><a href="/bill-check/">Free bill check</a></li></ul></div>
-<div><h4>Company</h4><ul>
-<li><a href="/about/">About</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/insights/">Insights</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/card/">Digital card</a></li><li><a href="https://www.linkedin.com/company/beiz-data-accounting/" rel="noopener">LinkedIn</a></li></ul></div>
+</header>
+
+<main id="main">
+<section class="hero">
+<canvas id="net" aria-hidden="true"></canvas>
+<div class="wrap hgrid">
+<div>
+<div class="pill"><b>NEW</b><span>Privacy Act automated-decision rules start in <span id="cd1" class="mono">—</span> days</span></div>
+<div class="lens" role="group" aria-label="I am a"><button type="button" data-lens="cfo" aria-pressed="true">CEO / CFO ($2M–$20M)</button><button type="button" data-lens="partner" aria-pressed="false">Accounting firm partner</button><button type="button" data-lens="board" aria-pressed="false">Board &amp; deal buyer</button></div>
+<h1 id="h1">Your numbers.<br><span class="grad">Wired for decisions.</span></h1>
+<p class="lede" id="lede">Beiz builds the finance data stack, AI workflows and board-grade controls for Australian accounting firms and $2M–$20M businesses. Led by a Chartered Accountant, and a person signs off anything that matters.</p>
+<div class="acts"><a class="btn p lg" href="#contact">Book a 20-min strategy call →</a><a class="btn g lg" href="#services">Explore services</a></div>
+<div class="creds"><span><i></i>CA ANZ · Certificate of Public Practice</span><span><i></i>GAICD</span><span><i></i>Python · SQL · Power BI</span><span><i></i>Fixed fees, in writing</span></div>
+</div>
+
+<div class="console" aria-label="Interactive demo: ask questions of a made-up business's finance data">
+<div class="ctop"><div class="dots" aria-hidden="true"><i></i><i></i><i></i></div><span class="mono" style="color:var(--mu)">beiz://intelligence</span><span class="live mono"><i></i>DEMO</span></div>
+<div class="kpis">
+<div class="kpi"><div class="l">Cash · 13 wk low</div><div class="v" id="k1">$0</div><svg class="spark" viewBox="0 0 100 28" preserveAspectRatio="none" aria-hidden="true"><polyline fill="none" stroke="#5CC8FF" stroke-width="1.5" points="0,8 12,10 24,7 36,12 48,15 60,22 72,18 84,12 100,9"/></svg></div>
+<div class="kpi"><div class="l">Gross margin</div><div class="v" id="k2">0%</div><svg class="spark" viewBox="0 0 100 28" preserveAspectRatio="none" aria-hidden="true"><polyline fill="none" stroke="#6EF2B0" stroke-width="1.5" points="0,20 14,18 28,19 42,15 56,14 70,12 84,10 100,7"/></svg></div>
+<div class="kpi"><div class="l">Unbilled WIP</div><div class="v" id="k3">$0</div><svg class="spark" viewBox="0 0 100 28" preserveAspectRatio="none" aria-hidden="true"><polyline fill="none" stroke="#FFC46B" stroke-width="1.5" points="0,22 14,20 28,16 42,17 56,12 70,10 84,7 100,5"/></svg></div>
+</div>
+<div class="ask">
+<div class="qbox mono" aria-live="polite"><span style="color:var(--mint)">›</span><span id="q"></span><span class="cur" aria-hidden="true"></span></div>
+<div class="chips" role="group" aria-label="Example questions"></div>
+<div class="ans" id="ans" aria-live="polite"></div>
+</div>
+<div class="demo-note">DEMO · MADE-UP BUSINESS · EVERY ANSWER TRACED TO SOURCE ROWS</div>
+</div>
+</div>
+</section>
+
+<div class="trust"><div class="wrap">
+<img src="/assets/media/ca-logo-reversed.png" alt="Chartered Accountants Australia and New Zealand" width="140" height="80">
+<span>Led by Purav Mehta CA, GAICD</span>
+<span>Professional indemnity insurance with Chubb</span>
+<span>Canberra · working Australia-wide</span>
+<span class="tm">Trade mark of Chartered Accountants Australia and New Zealand and used with permission.</span>
+</div></div>
+
+<section class="s" id="services"><div class="wrap">
+<div class="head rv"><div><p class="kick">Services</p><h2>Five ways we move the numbers.</h2></div><p class="sub">Start with a two-week diagnostic. Everything after it is scoped, priced and agreed in writing before work starts.</p></div>
+<div class="bento">
+<article class="svc w hero-svc rv"><div class="no"><span>01 · START HERE</span><em>2 weeks</em></div><span class="tag">Credited to any build</span><h3>Finance &amp; AI Diagnostic</h3><p>A detailed look at your ledger, timesheets, bank data and workflows. You get the margin leaks, cash pinch points and automation wins, ranked by dollar value, with a build plan.</p><ul><li>12-month ledger, job and cash tie-out</li><li>Margin, WIP and debtor leakage register</li><li>Automation and AI opportunity map with ROI</li></ul><div class="price"><div><b>$4,500</b> <span>AUD fixed</span></div><a href="#contact" data-topic="Finance & AI Diagnostic ($4,500)">Book the diagnostic →</a></div></article>
+<article class="svc w rv"><div class="no"><span>02 · FRACTIONAL CFO</span><em>Monthly</em></div><h3>Fractional CFO + live data stack</h3><p>Senior finance leadership without a full-time CFO salary. Automated weekly cash and margin reporting, rolling forecasts and board packs, run on your own data.</p><ul><li>3-way forecast with Payday Super modelled per pay run</li><li>Power BI unit economics and KPI dashboards</li><li>Monthly board pack and CFO session</li></ul><div class="price"><div><b>From $3,500</b> <span>/ month</span></div><a href="#contact" data-topic="Fractional CFO + data stack">Talk CFO support →</a></div></article>
+<article class="svc rv"><div class="no"><span>03 · AI WORKFORCE</span><em>Build + run</em></div><h3>AI workflows &amp; automation</h3><p>Agents for quote-to-cash, debtor chasing, client onboarding and reporting. Tested on your history and run in shadow mode before going live.</p><div class="price"><div><b>From $8,500</b> <span>build</span></div><a href="#contact" data-topic="AI workflows & automation">Scope a build →</a></div></article>
+<article class="svc rv"><div class="no"><span>04 · DEALS</span><em>Per deal</em></div><h3>Quality of earnings</h3><p>Buying or selling a $2M–$15M business? 36 months of ledger, bank and POS data rebuilt to show true EBITDA, churn and working capital.</p><div class="price"><div><b>Quoted in writing</b></div><a href="#contact" data-topic="Quality of earnings">Discuss a deal →</a></div></article>
+<article class="svc rv"><div class="no"><span>05 · BOARDS</span><em>Sprint</em></div><h3>Board AI &amp; compliance sprint</h3><p>Privacy Act automated decisions, AML/CTF Tranche 2 and AI governance. Mapped, tested in Python and written up for your board.</p><div class="price"><div><b>Quoted in writing</b></div><a href="#contact" data-topic="Board AI & compliance sprint">Brief your board →</a></div></article>
+</div>
+</div></section>
+
+<section class="s" style="padding-top:0"><div class="wrap">
+<div class="head rv"><div><p class="kick">Signature builds</p><h2>Packaged builds for specific jobs.</h2></div></div>
+<div class="sig">
+<article class="sigc rv"><div class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6EF2B0" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div><h3>The Queryable Company</h3><p>A private, governed AI over your ledger, contracts and board papers. Directors ask "which five jobs lost margin last quarter?" and every answer links back to the source rows. Built on services that don't train on your data.</p><div class="price"><div><b>Quoted in writing</b></div></div></article>
+<article class="sigc rv"><div class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5CC8FF" stroke-width="1.6"><path d="M3 21h18M5 21V10m4 11V10m6 11V10m4 11V10M2 10l10-6 10 6"/></svg></div><h3>Bank-ready stress pack</h3><p>Built for commercial finance brokers and their clients. A CA-prepared 3-way forecast and working-capital stress test, delivered fast, so the facility application lands with the numbers already checked.</p><div class="price"><div><b>Quoted in writing</b></div></div></article>
+<article class="sigc rv"><div class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFC46B" stroke-width="1.6"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>AI evaluation report</h3><p>About to switch on a vendor's AI agent? We replay it against 50+ of your historical cases in Python and report accuracy, failure modes and where a person must stay in the loop. Written for the board.</p><div class="price"><div><b>Quoted in writing</b></div></div></article>
+</div>
+</div></section>
+
+<section class="s" id="why" style="background:linear-gradient(180deg,transparent,rgba(110,242,176,.03),transparent)"><div class="wrap">
+<div class="head rv"><div><p class="kick">Why Beiz</p><h2>AI can draft the answer. <span class="grad">Someone still has to own it.</span></h2></div><p class="sub">The model proposes. Code checks. A person signs off, and a Chartered Accountant is accountable for the work. That's the difference between a demo and a system your board, bank and regulator will accept.</p></div>
+<div class="cmp rv scroll"><table>
+<thead><tr><th scope="col"></th><th scope="col">ChatGPT on its own</th><th scope="col">Typical AI agency</th><th scope="col" class="us">Beiz</th></tr></thead>
+<tbody>
+<tr><th scope="row">Works on your real Xero, MYOB or ERP data</th><td class="m">Copy and paste</td><td class="y">Yes</td><td class="us y">Yes, in your own accounts</td></tr>
+<tr><th scope="row">Tested on your past records before go-live</th><td class="n">No</td><td class="m">Sometimes</td><td class="us y">Always, with a written pass mark</td></tr>
+<tr><th scope="row">A Chartered Accountant accountable for the work</th><td class="n">No</td><td class="m">Varies</td><td class="us y">Yes, every engagement</td></tr>
+<tr><th scope="row">Professional indemnity insurance</th><td class="n">No</td><td class="m">Varies</td><td class="us y">Yes, Chubb</td></tr>
+<tr><th scope="row">Board, Privacy Act and AML/CTF literate</th><td class="n">No</td><td class="m">Varies</td><td class="us y">GAICD + internal audit background</td></tr>
+<tr><th scope="row">You own the code, dashboards and logs</th><td class="m">N/A</td><td class="m">Varies</td><td class="us y">Yes, no lock-in</td></tr>
+</tbody></table></div>
+</div></section>
+
+<section class="s"><div class="wrap">
+<div class="head rv"><div><p class="kick">What the market is hiring for</p><h2>The roles finance teams can't fill fast enough.</h2></div><p class="sub">Recruiting takes months. A Beiz sprint starts within two weeks and leaves documented systems behind, whether or not you make the hire.</p></div>
+<div class="mkt">
+<article class="mk rv"><div class="r">Power BI / reporting analyst</div><h3>Manual reporting, every month</h3><p>Exports, spreadsheets and late packs.</p><div class="to">Beiz: <b>automated reporting pipeline</b></div></article>
+<article class="mk rv"><div class="r">Systems accountant</div><h3>Systems that don't talk</h3><p>Xero, payroll, job and CRM data in silos.</p><div class="to">Beiz: <b>integrated finance data stack</b></div></article>
+<article class="mk rv"><div class="r">FP&amp;A / commercial analyst</div><h3>No forward view</h3><p>Decisions made on last month's numbers.</p><div class="to">Beiz: <b>fractional CFO + live forecast</b></div></article>
+<article class="mk rv"><div class="r">AI / governance lead</div><h3>AI with no guardrails</h3><p>Tools switched on, nobody accountable.</p><div class="to">Beiz: <b>AI build + governance</b></div></article>
+</div>
+</div></section>
+
+<section class="s" id="pricing-calc" style="padding-top:0"><div class="wrap">
+<div class="head rv"><div><p class="kick">Run the numbers</p><h2>What manual finance work is costing you.</h2></div></div>
+<div class="calc rv">
+<div class="panel">
+<label for="h"><span>Hours a week on manual reporting &amp; reconciliations <b id="hv">12 hrs</b></span><input id="h" type="range" min="2" max="60" value="12"></label>
+<label for="c"><span>Loaded cost per hour <b id="cv">$85</b></span><input id="c" type="range" min="50" max="250" step="5" value="85"></label>
+<label for="a" style="margin-bottom:0"><span>Share we automate <b id="av">60%</b></span><input id="a" type="range" min="20" max="90" step="5" value="60"></label>
+</div>
+<div class="panel" style="display:flex;flex-direction:column;gap:14px">
+<div class="out">
+<div class="o"><div class="l">Cost today / year</div><div class="v" id="o1">—</div></div>
+<div class="o hl"><div class="l">Recovered / year</div><div class="v" id="o2">—</div></div>
+<div class="o"><div class="l">Hours back / year</div><div class="v" id="o3">—</div></div>
+<div class="o hl"><div class="l">$8.5k build pays back</div><div class="v" id="o4">—</div></div>
+</div>
+<p class="small" style="margin:auto 0 0">Based on 46 working weeks. Your diagnostic replaces these assumptions with your real numbers.</p>
+<a class="btn p" href="#contact" data-topic="Finance & AI Diagnostic ($4,500)" style="justify-content:center">Get my real numbers →</a>
+</div>
+</div>
+</div></section>
+
+<section class="s" id="how" style="padding-top:0"><div class="wrap">
+<div class="head rv"><div><p class="kick">How it works</p><h2>Built like an audit. Shipped like software.</h2></div><p class="sub">Nothing is paid, lodged or sent without a person. Beiz doesn't do tax returns, BAS or statutory audit, so your accountant keeps that work.</p></div>
+<div class="steps">
+<div class="st rv"><h3>Diagnose</h3><p>Two weeks on your real data. Leaks, risks and wins ranked by dollar value.</p></div>
+<div class="st rv"><h3>Build</h3><p>Pipelines, dashboards and agents in your own systems, documented as plain files.</p></div>
+<div class="st rv"><h3>Shadow</h3><p>Runs beside your team against a pass mark agreed in writing.</p></div>
+<div class="st rv"><h3>Run &amp; own</h3><p>Handed over in your accounts. Optional monthly CFO and support.</p></div>
+</div>
+</div></section>
+
+<section class="s" style="padding-top:0"><div class="wrap">
+<div class="head rv"><div><p class="kick">Deadlines that are already here</p><h2>Regulation moved. Most systems didn't.</h2></div></div>
+<div class="dl">
+<article class="d rv"><div class="big" id="cd2">—</div><h3>Privacy Act automated decisions</h3><p>Days until privacy policies must disclose decisions made by computer programs that significantly affect people (10 December 2026).</p></article>
+<article class="d rv"><div class="big ok">In force<br>since 1 Jul 2026</div><h3>AML/CTF Tranche 2</h3><p>Accountants providing designated services now need AUSTRAC enrolment, a written program and client due diligence.</p></article>
+<article class="d rv"><div class="big ok">In force<br>since 1 Jul 2026</div><h3>Payday Super</h3><p>Super is paid with every pay run, not quarterly. Your cash forecast has to model it weekly.</p></article>
+</div>
+</div></section>
+
+<section class="s" style="padding-top:0"><div class="wrap">
+<div class="head rv"><div><p class="kick">Straight answers</p><h2>Questions we get asked.</h2></div></div>
+<div class="faq rv">
+<details><summary>Why pay Beiz when anyone can use ChatGPT?</summary><p>A chatbot gives you an answer. Beiz gives you a system that runs on your own ledger, timesheets and bank data, is tested against your past records, and is led by a Chartered Accountant who holds professional indemnity insurance. When a board, bank or regulator asks who is accountable for the work, there is a name on it.</p></details>
+<details><summary>What changes on 10 December 2026 under the Privacy Act?</summary><p>Organisations covered by the Privacy Act must say in their privacy policy when a computer program uses personal information to make, or substantially help make, decisions that could significantly affect people. Most finance teams have several: credit holds, approvals and onboarding checks. Our compliance sprint maps them and names an owner for each.</p></details>
+<details><summary>Do you replace our accountant or tax agent?</summary><p>No. Beiz does not do tax returns, BAS, statutory audit or legal advice. We build the reporting, systems and controls around your existing accountant, and work alongside accounting firms rather than competing with them.</p></details>
+<details><summary>How fast can you start?</summary><p>Diagnostics start within two weeks of sign-off. Builds are scheduled from the diagnostic plan, and the diagnostic fee is credited in full against any build within 60 days.</p></details>
+<details><summary>Who owns what you build?</summary><p>You do. Dashboards, scripts, prompts and decision logs live in your own accounts with documentation. No licence fee, no lock-in.</p></details>
+</div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+<div class="cta rv">
+<div><p class="kick">Next step</p><h2>Tell us where the numbers hurt.</h2><p class="sub" style="font-size:17px">A written reply by the next business day. A fixed-fee proposal within three if it's a fit. If we're not the right firm, we'll say so.</p><p class="small" style="margin-top:28px">Or email <a href="mailto:hello@beiz.com.au" style="color:var(--mint)">hello@beiz.com.au</a></p></div>
+<form id="f">
+<label>Name<input name="name" required autocomplete="name"></label>
+<label>Work email<input name="email" type="email" required autocomplete="email"></label>
+<label>Company<input name="organisation" autocomplete="organization"></label><input type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+<label>Annual revenue<select name="rev"><option>Under $2M</option><option selected>$2M–$5M</option><option>$5M–$20M</option><option>$20M+</option><option>Accounting firm</option></select></label>
+<label class="full">Interested in<select name="topic" id="topic"><option>Finance &amp; AI Diagnostic ($4,500)</option><option>Fractional CFO + data stack</option><option>AI workflows &amp; automation</option><option>Quality of earnings</option><option>Board AI &amp; compliance sprint</option><option>Queryable Company</option><option>Bank-ready stress pack</option><option>Not sure yet</option></select></label>
+<label class="full">What's the problem?<textarea name="message" required placeholder="e.g. Month-end takes 15 days and the board pack is still a spreadsheet."></textarea></label>
+<button class="btn p lg full" type="submit" style="justify-content:center">Send enquiry →</button><p id="fmsg" class="small full" role="status" style="margin:4px 0 0"></p>
+</form>
+</div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+<div class="fg">
+<div style="max-width:360px"><a class="brand" href="/" aria-label="Beiz home"><img src="/assets/brand/beiz-logo-dark-trimmed.png" alt="Beiz Data &amp; Accounting" width="806" height="238" class="blogo"></a><p style="margin:16px 0 0">Financial intelligence, AI systems and controls. Led by an Australian Chartered Accountant.</p></div>
+<nav class="fl" aria-label="Footer"><div><a href="#services">Services</a><a href="#why">Why Beiz</a><a href="#how">How it works</a><a href="#pricing-calc">Pricing</a></div><div><a href="/about/">About</a><a href="/insights/">Insights</a><a href="/privacy/">Privacy</a><a href="https://www.linkedin.com/company/beiz-data-accounting/" rel="noopener">LinkedIn</a></div></nav>
 </div>
 <div class="legal">
-<p>Beiz Data &amp; Accounting Pty Ltd &middot; ABN 53 691 755 496 &middot; ACN 691 755 496 &middot; Not registered for GST &middot; Canberra, ACT</p>
-<p>Liability limited by a scheme approved under Professional Standards Legislation. Professional indemnity insurance held with Chubb.</p>
-<p>Trade mark of Chartered Accountants Australia and New Zealand and used with permission.</p>
-<p>&copy; <span data-yr>2026</span> Beiz Data &amp; Accounting Pty Ltd</p>
+<p>Beiz Data &amp; Accounting Pty Ltd · ABN 53 691 755 496 · ACN 691 755 496 · Not registered for GST · Canberra, ACT</p>
+<p>Beiz does not provide tax returns, BAS or GST lodgements, tax or BAS agent services, statutory audit, legal advice or financial product advice.</p>
+<p>Liability limited by a scheme approved under Professional Standards Legislation. Professional indemnity insurance held with Chubb. Trade mark of Chartered Accountants Australia and New Zealand and used with permission.</p>
+<p>© <span id="yr">2026</span> Beiz Data &amp; Accounting Pty Ltd</p>
 </div>
 </div></footer>
-<script src="/assets/ledger/ledger.js?v=L33" defer></script>
-<script src="/assets/ledger/webmcp.js?v=L33" defer></script>
+
+<script>
+(function(){
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = s => document.querySelector(s);
+const aud = n => '$' + Math.round(n).toLocaleString('en-AU');
+
+/* countdown */
+const days = Math.ceil((new Date('2026-12-10T00:00:00+11:00') - new Date()) / 864e5);
+const cdTxt = days > 0 ? String(days) : '0';
+$('#cd1').textContent = cdTxt;
+if (days > 0) { $('#cd2').textContent = days + ' days'; } else { const e = $('#cd2'); e.classList.add('ok'); e.innerHTML = 'In force<br>since 10 Dec 2026'; document.querySelector('.pill').innerHTML = '<b>LIVE</b>Privacy Act automated-decision rules now in force'; }
+$('#yr').textContent = new Date().getFullYear();
+
+/* buyer lens */
+const LENS = {
+ cfo: ['Your numbers.<br><span class="grad">Wired for decisions.</span>', 'Beiz builds the finance data stack, AI workflows and board-grade controls for Australian accounting firms and $2M–$20M businesses. Led by a Chartered Accountant, and a person signs off anything that matters.'],
+ partner: ['Your firm\'s<br><span class="grad">build partner.</span>', 'We never touch tax, BAS or audit. Beiz clears client reporting backlogs, builds Power BI and automation for your clients, and sets up AML/CTF Tranche 2 and Privacy Act controls for your practice.'],
+ board: ['Know the numbers<br><span class="grad">before you sign.</span>', 'Quality of earnings for SME acquisitions, automated-decision registers for the Privacy Act, and independent testing of AI before it goes live. Led by a Chartered Accountant and GAICD graduate.']
+};
+document.querySelectorAll('.lens button').forEach(b=>b.addEventListener('click',()=>{ const v=LENS[b.dataset.lens]; $('#h1').innerHTML=v[0]; $('#lede').textContent=v[1]; document.querySelectorAll('.lens button').forEach(x=>x.setAttribute('aria-pressed', x===b)); }));
+
+/* mobile menu */
+const mb = $('.menu'), nav = $('#nav');
+mb.addEventListener('click', () => { const o = nav.classList.toggle('open'); mb.setAttribute('aria-expanded', o); });
+nav.addEventListener('click', e => { if (e.target.tagName === 'A') { nav.classList.remove('open'); mb.setAttribute('aria-expanded', false); } });
+
+/* KPI count-up */
+function count(el, to, fmt, ms){ if (RM) { el.textContent = fmt(to); return; } const t0 = performance.now(); (function f(t){ const p = Math.min(1,(t-t0)/ms), e = 1-Math.pow(1-p,3); el.textContent = fmt(to*e); if (p<1) requestAnimationFrame(f); })(t0); }
+count($('#k1'), -18400, v => (v<0?'-':'') + aud(Math.abs(v)), 1400);
+count($('#k2'), 34.6, v => v.toFixed(1) + '%', 1400);
+count($('#k3'), 42850, aud, 1400);
+
+/* ask-your-numbers console */
+const QA = [
+ { c:'Margin', q:'Which 3 jobs lost the most margin last quarter?', a:'Three jobs ran below quoted margin, mostly from unbilled variations and subcontractor overruns.', rows:[['J-408 Commercial fitout','-$28,400'],['J-377 Clinic refurb','-$11,920'],['J-391 Warehouse racking','-$6,310']], src:'timesheets ↔ invoices ↔ supplier bills', by:'rule: margin < quote − 5%' },
+ { c:'Cash', q:'When does cash dip below our $150k floor?', a:'Week 6. Payday Super on two fortnightly pay runs plus one late debtor takes cash $18.4k under the floor.', rows:[['Wk 5 closing','$171,200'],['Wk 6 closing','$131,600'],['Wk 7 closing','$158,900']], src:'bank feed + AR ageing + payroll calendar', by:'13-week rolling forecast' },
+ { c:'Debtors', q:'Who should we chase this week?', a:'Two customers account for 71% of overdue debtors. Both have paid late three times this year.', rows:[['Northgate Health','$38,750 · 64 days'],['Ridgeway Developments','$21,300 · 47 days'],['Others (6)','$24,100']], src:'Xero AR ageing + payment history', by:'rule: > 45 days & repeat late' },
+ { c:'Risk', q:'Any supplier payments we should stop?', a:'One. A supplier\'s bank details changed by email two days before the pay run. Held for a call-back.', rows:[['Supplier BT-1911 BSB change','$2,423.87 · held'],['Possible duplicate RE-0442','$3,960.00 · review'],['Paid without sign-off','0']], src:'bills vs 12-month supplier history', by:'held for: owner call-back' },
+];
+const chips = document.querySelector('.chips'), qEl = $('#q'), ans = $('#ans');
+let timer;
+function show(i){
+  chips.querySelectorAll('.chip').forEach((b,j)=>b.setAttribute('aria-pressed', i===j));
+  clearInterval(timer); const it = QA[i]; qEl.textContent = ''; ans.innerHTML = '';
+  const done = () => {
+    ans.innerHTML = '<p>' + it.a + '</p><table class="rows"><tbody>' + it.rows.map(r=>'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>').join('') + '</tbody></table><div class="trace"><span>source: '+it.src+'</span><span><b>✓ '+it.by+'</b></span></div>';
+    if (!RM) { ans.style.opacity = 0; requestAnimationFrame(()=>{ ans.style.transition='opacity .5s'; ans.style.opacity = 1; }); }
+  };
+  if (RM) { qEl.textContent = it.q; done(); return; }
+  let k = 0; timer = setInterval(()=>{ qEl.textContent = it.q.slice(0, ++k); if (k >= it.q.length){ clearInterval(timer); setTimeout(done, 250); } }, 22);
+}
+QA.forEach((it,i)=>{ const b = document.createElement('button'); b.type='button'; b.className='chip'; b.textContent = it.c; b.setAttribute('aria-pressed','false'); b.onclick = ()=>{ auto=false; show(i); }; chips.appendChild(b); });
+let auto = !RM, idx = 0; show(0);
+setInterval(()=>{ if (auto && !document.hidden) { idx = (idx+1) % QA.length; show(idx); } }, 7000);
+
+/* calculator */
+const h=$('#h'), c=$('#c'), a=$('#a');
+function calc(){
+  const H=+h.value, C=+c.value, A=+a.value/100, yr=H*C*46, rec=yr*A, wk=H*C*A;
+  $('#hv').textContent=H+' hrs'; $('#cv').textContent='$'+C; $('#av').textContent=Math.round(A*100)+'%';
+  $('#o1').textContent=aud(yr); $('#o2').textContent=aud(rec); $('#o3').textContent=Math.round(H*A*46).toLocaleString('en-AU');
+  const w=Math.ceil(8500/wk); $('#o4').textContent = w + (w===1?' wk':' wks');
+}
+[h,c,a].forEach(x=>x.addEventListener('input',calc)); calc();
+
+/* topic prefill */
+const topic = $('#topic');
+document.querySelectorAll('[data-topic]').forEach(el=>el.addEventListener('click',()=>{ const t = el.dataset.topic; [...topic.options].forEach(o=>{ if (o.textContent===t) topic.value=o.value; }); }));
+
+/* form -> email */
+$('#f').addEventListener('submit', async e=>{
+  e.preventDefault(); const f = e.target, m = document.getElementById('fmsg');
+  if (f.company_website.value) return;
+  const d = Object.fromEntries(new FormData(f)); delete d.company_website;
+  d.message = 'Revenue: ' + (d.rev || '-') + '\n\n' + d.message; delete d.rev; d.page = location.pathname;
+  m.textContent = 'Sending...';
+  try {
+    const r = await fetch('https://script.google.com/macros/s/AKfycbw3iLtpS-Pubb6fLiWK2A8TgFGi9Joq0u-c7UyZqBO2-ciPcQbgdxmygnsBMKWXjm8FJg/exec', { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(d) });
+    const res = r.ok ? await r.json().catch(() => ({})) : {};
+    if (!res.ok) throw new Error();
+    f.reset(); m.textContent = "Received. You'll get a written reply by the next business day.";
+  } catch (err) { m.innerHTML = 'That didn\'t send. Please email <a href="mailto:hello@beiz.com.au">hello@beiz.com.au</a>.'; }
+});
+
+/* reveal */
+if (!RM && 'IntersectionObserver' in window){ const io = new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } }),{threshold:.12}); document.querySelectorAll('.rv').forEach(el=>io.observe(el)); } else document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));
+
+/* node network */
+const cv = $('#net'), ctx = cv.getContext('2d'); let W,H2,P=[],mx=-999,my=-999;
+function size(){ const r = cv.getBoundingClientRect(), d = Math.min(devicePixelRatio||1,2); W=r.width; H2=r.height; cv.width=W*d; cv.height=H2*d; ctx.setTransform(d,0,0,d,0,0); const n = Math.min(70, Math.floor(W*H2/16000)); P = Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H2,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3})); }
+function draw(){
+  ctx.clearRect(0,0,W,H2);
+  for (const p of P){ if(!RM){ p.x+=p.vx; p.y+=p.vy; if(p.x<0||p.x>W)p.vx*=-1; if(p.y<0||p.y>H2)p.vy*=-1; } }
+  for (let i=0;i<P.length;i++){ const p=P[i]; for (let j=i+1;j<P.length;j++){ const q=P[j], dx=p.x-q.x, dy=p.y-q.y, d=dx*dx+dy*dy; if (d<18000){ ctx.strokeStyle='rgba(110,242,176,'+(0.14*(1-d/18000))+')'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y); ctx.stroke(); } }
+    const md=(p.x-mx)**2+(p.y-my)**2; ctx.fillStyle = md<12000 ? 'rgba(92,200,255,.9)' : 'rgba(110,242,176,.45)'; ctx.beginPath(); ctx.arc(p.x,p.y,md<12000?2.4:1.5,0,7); ctx.fill(); }
+  if(!RM) requestAnimationFrame(draw);
+}
+size(); draw(); addEventListener('resize', ()=>{ size(); if(RM) draw(); });
+cv.parentElement.addEventListener('mousemove', e=>{ const r=cv.getBoundingClientRect(); mx=e.clientX-r.left; my=e.clientY-r.top; });
+})();
+</script>
 </body>
 </html>

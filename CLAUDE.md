@@ -6,6 +6,12 @@ Read this before changing anything in this repo. It describes the site as it is,
 
 Only the Claude session Purav works with on Beiz pushes to `main`. Other tools may review or suggest, never push. On 13–14 Nov other tools pushed 12 commits (a dark "financial intelligence" homepage with prices, "board assurance" and "signed off" claims, a B-symbol logo, and a deploy step that rewrote pages at publish time); all of it was reverted to the 13 Nov version. Deploys now copy the committed files as they are (`.github/workflows/deploy-beiz.yml`); never add build-time rewriting.
 
+## Homepage "A" (Purav, 14 Nov 2026: "I like A")
+
+- The homepage is the hand-built dark page in `src/home/index.html`; `build.py` copies it over the generated `index.html` at the end of every build. Edit that file for homepage changes. Inner pages still come from the ledger build.
+- Fixes applied to A before going live: real Beiz logo (`assets/brand/beiz-logo-dark-trimmed.png`), CA ANZ logo at 140px wide, self-hosted fonts (no Google Fonts), the enquiry form posts to the Apps Script (it used to open the visitor's email app), and no "signed off by a Chartered Accountant", "board assurance", "many of our clients" or n8n wording.
+- Fees (Purav, 14 Nov 2026: "only put prices if competitors do the same"): prices show only where comparable Australian firms publish theirs: the diagnostic ($4,500), fractional CFO + reporting (from $3,500 a month) and AI workflow builds (from $8,500). Checked 14 Nov: Roar Data publishes a $1,950 incl. GST diagnostic and builds from $3,250; Standard Ledger publishes fractional CFO from $5,500 + GST a month. Everything else says "Quoted in writing". This supersedes the 5 Nov no-prices rule for the homepage only.
+
 ## Update, 13 Nov 2026: "Studio" refresh of the homepage (Purav: "fix this site, looks like a kids project")
 
 - Removed site-wide: the scrolling "What's changing" ticker under the header, the floating "Ask Beiz" helper, the "Jump to (Ctrl K)" link, the scroll progress line, fade-ins and the ticking counters. The site is still; nothing moves on scroll.
