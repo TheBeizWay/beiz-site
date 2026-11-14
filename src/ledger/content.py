@@ -1,21 +1,17 @@
 """beiz.com.au content, "Ledger" edition (Nov 2026).
 
-Every fact and price here must match CLAUDE.md section 1. Prices back on (Purav, 13 Nov 2026, "make those changes"): two entry offers carry a published fixed fee; everything else is a fixed fee in a written proposal.
+Every fact and price here must match CLAUDE.md section 1. Beiz publishes no fees (Purav, 5 Nov 2026): everything is a fixed fee in a written proposal.
 Australian English. Plain words. Control first, then benefit. No invented results.
 """
 
 FACTS_LINE = "Beiz Data &amp; Accounting Pty Ltd &middot; ABN 53 691 755 496 &middot; ACN 691 755 496 &middot; Not registered for GST &middot; Canberra, ACT"
 
-HOME_DESC = ("For accounting firms and growing businesses: AML/CTF client checks, bills and cash, checked by AI agents and signed off by a "
-             "Chartered Accountant. Fixed fees from $1,500.")
-
-# Set these when Purav supplies them. Empty = feature off.
-BOOK_URL = ""          # calendar booking link (Cal.com or Google appointment schedule). Empty: the contact form.
-CF_BEACON_TOKEN = ""   # Cloudflare Web Analytics token. Empty: no analytics script.
+HOME_DESC = ("Beiz sets up AI agents for routine finance and admin work in Australian businesses. Tested on your past records, "
+             "held for a person when unsure, checked by a Chartered Accountant.")
 
 HERO_H1 = "AI that does the checking. A Chartered Accountant who checks the AI."
-HERO_LEDE = ("Beiz sets up AI agents for the routine checking: AML/CTF client checks, "
-             "bills, cash and reconciliations. Each agent is tested on your past records first, and anything it isn't sure "
+HERO_LEDE = ("Beiz Data &amp; Accounting sets up AI agents for the routine finance and admin work in your business: bills, cash, "
+             "reconciliations and client checks. Each agent is tested on your past records first, and anything it isn't sure "
              "about waits for a person.")
 HERO_CRED = ("Led by a Chartered Accountant, a member of Chartered Accountants Australia and New Zealand with a Certificate of Public Practice, and GAICD. "
              "Canberra, working Australia-wide.")
@@ -48,15 +44,15 @@ JOBS = [
 
 # (name, description, price, link)
 START = [
-    ("AML/CTF sprint for accounting firms",
-     "Since 1 July 2026, firms that set up companies and trusts or act as trustees have AML/CTF obligations. Two weeks: "
-     "which services are caught, who owns each check and where your compliance officer must approve.", "From $3,500", "/aml-ctf-accounting-firms/"),
     ("Two-week cash &amp; data check",
-     "Super is now due with every pay run. Your bills, invoices and timesheets checked against each other, a 13-week cash view "
-     "that includes Payday Super, and every finding traced to its record. Credited against your next Beiz build if you go ahead.", "$1,500 fixed", "/cash-data-check/"),
+     "Your bills, invoices and timesheets checked against each other, with every finding traced to its record. "
+     "Credited against your next Beiz build if you go ahead.", "Fixed fee", "/prices/"),
+    ("Compliance controls sprint",
+     "Two weeks on one obligation: AI use, AML/CTF Tranche 2 or the Privacy Act automated-decision rules. "
+     "What's in scope, who owns it and where a person must approve.", "Fixed fee", "/prices/"),
     ("AI workforce setup",
      "Agents for your bills, cash or client checks, each with written limits, tested on your records and run "
-     "in shadow mode before going live.", "Scoped quote", "/how-we-work/"),
+     "in shadow mode before going live.", "Fixed fee", "/how-we-work/"),
 ]
 PRICE_NOTE = "Every engagement is a fixed fee, set out in a written proposal before any work starts."
 
@@ -84,7 +80,7 @@ SERVICES_LEDE = ("Finance, data, automation and governance work for Australian s
                  "Every engagement is a fixed fee, agreed in writing before work starts.")
 GROUPS = [
     {"title": "Finance and decisions", "intro": "Know where cash and margin are going, from your own records.", "items": [
-        ("Two-week cash &amp; data check", "Bills, invoices and timesheets checked against each other, every finding traced to its record.", "$1,500 fixed", ""),
+        ("Two-week cash &amp; data check", "Bills, invoices and timesheets checked against each other, every finding traced to its record.", "Fixed fee", ""),
         ("Cash &amp; job profit model", "A 13-week cash view and profit by job or client, tied back to the ledger. You drop in fresh exports weekly and it refreshes.", "Fixed fee", ""),
         ("Leave cover", "When someone in finance goes on leave, an agent carries the routine part of their role, a Chartered Accountant reviews its work, and everything is handed back the day they return.", "Fixed fee", ""),
     ]},
@@ -139,8 +135,8 @@ FINDINGS = [
 PRICES_LEDE = "Every engagement is a fixed fee, agreed in writing before any work starts. You see the fee, the timeline and what done looks like before you commit."
 PRICES = [
     ("Free bill check", "Eight quick checks on a bills export, run in your browser. Nothing is uploaded.", "Free", "/bill-check/"),
-    ("Two-week cash &amp; data check", "Bills, invoices and timesheets checked against each other, every finding traced to its record.", "$1,500 fixed", ""),
-    ("Compliance controls sprint", "Two weeks, one focus: AI use, AML/CTF Tranche 2 or the Privacy Act automated-decision rules.", "From $3,500", ""),
+    ("Two-week cash &amp; data check", "Bills, invoices and timesheets checked against each other, every finding traced to its record.", "Fixed fee", ""),
+    ("Compliance controls sprint", "Two weeks, one focus: AI use, AML/CTF Tranche 2 or the Privacy Act automated-decision rules.", "Fixed fee", ""),
     ("Live cash &amp; job profit model", "13-week cash and profit by job or client, tied to the ledger, documented and handed over.", "Fixed fee", ""),
     ("AI workforce setup", "Agents with written limits, tested on your records, shadow mode first.", "Fixed fee", ""),
     ("Leave cover", "An agent carries the routine part of a finance role during leave, reviewed by a Chartered Accountant.", "Fixed fee", ""),

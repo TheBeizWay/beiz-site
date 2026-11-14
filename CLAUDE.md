@@ -2,19 +2,9 @@
 
 Read this before changing anything in this repo. It describes the site as it is, the facts it may state, and how to change it without breaking it. If a request conflicts with this file, say so before building.
 
-## Update, 14 Nov 2026: header and hero tightened (Purav: "website looks so shite including the menu and header", "do any steps")
+## Ownership (Purav, 14 Nov 2026)
 
-- Header: same Beiz and CA ANZ logo sizes and trade mark strip (CA placement unchanged pending CA ANZ review); header row 116px to 108px, tighter nav. Nav label "Try the bill check" is now "Free bill check".
-- Hero: same copy, wider text column and smaller H1 so it runs three lines on desktop and both buttons sit on the first screen at laptop size (about 1400x780). Photo capped at 520px tall.
-- Homepage: the amber "Nothing is paid or sent without a person." band is removed (it repeated the hero fact and the safety steps). "Three ways to start" with fees now comes straight after the hero, before "Where it helps".
-
-## Update, 13 Nov 2026 (later): selling changes (Purav: "make those changes", "push it")
-
-- Fees are published again for two entry offers: two-week cash & data check **$1,500 fixed**; AML/CTF or compliance controls sprint **from $3,500**. AI workforce setup stays a scoped quote; every other service stays "Fixed fee" in a written proposal. AUD, no GST added. This overrides the 5 Nov "no prices" rule below for those two offers only.
-- Homepage leads with one buyer: kicker "For accounting firms and growing businesses"; "Three ways to start" is now AML/CTF sprint for accounting firms → two-week cash & data check (Payday Super framing) → AI workforce setup, each card showing its fee. Hero H1 unchanged.
-- Bill check `#bcNext` adds a paid next step: the $1,500 cash & data check.
-- `BOOK_URL` and `CF_BEACON_TOKEN` in `content.py`: empty until Purav supplies a calendar link and a Cloudflare Web Analytics token. When set, every "Book a 20-minute call" uses the calendar and every page loads the Cloudflare beacon (cookie-free); update /privacy/ in the same change.
-- The 30-day freeze still stands for design. Copy and offer changes only with Purav's yes.
+Only the Claude session Purav works with on Beiz pushes to `main`. Other tools may review or suggest, never push. On 13–14 Nov other tools pushed 12 commits (a dark "financial intelligence" homepage with prices, "board assurance" and "signed off" claims, a B-symbol logo, and a deploy step that rewrote pages at publish time); all of it was reverted to the 13 Nov version. Deploys now copy the committed files as they are (`.github/workflows/deploy-beiz.yml`); never add build-time rewriting.
 
 ## Update, 13 Nov 2026: "Studio" refresh of the homepage (Purav: "fix this site, looks like a kids project")
 
@@ -78,7 +68,7 @@ Use only these. Never substitute, round or "improve" them.
 
 ### Fees (Purav, 5 Nov 2026: "no professional firm does prices")
 
-(Superseded 13 Nov 2026 for the two entry offers, see top.) The site publishes no fee amounts for other work. Every engagement is a fixed fee, set out in a written proposal (fee, timeline, definition of done) within three business days, before any work starts. `/prices/` is the "How fees work" page (nav label "Fees"). The free bill check stays free. Don't put dollar amounts for Beiz's own work back on any page, meta tag, `llms.txt`, WebMCP output or helper answer without Purav's yes. Internal reference only (not for the site): two-week cash & data check was $1,500, compliance sprint from $3,500.
+The site publishes no fee amounts. Every engagement is a fixed fee, set out in a written proposal (fee, timeline, definition of done) within three business days, before any work starts. `/prices/` is the "How fees work" page (nav label "Fees"). The free bill check stays free. Don't put dollar amounts for Beiz's own work back on any page, meta tag, `llms.txt`, WebMCP output or helper answer without Purav's yes. Internal reference only (not for the site): two-week cash & data check was $1,500, compliance sprint from $3,500.
 
 ### Promises already on the site (keep them consistent everywhere)
 
