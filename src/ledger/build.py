@@ -13,12 +13,12 @@ import json
 from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ASSET_V = "L34"  # bump on every CSS or JS change
+ASSET_V = "L35"  # bump on every CSS or JS change
 SITE = "https://beiz.com.au"
 e = html.escape
 
-NAV = [("/services/", "Services"), ("/how-we-work/", "How it works"), ("/prices/", "Fees"),
-       ("/bill-check/", "Try the bill check"), ("/about/", "About")]
+NAV = [("/services/", "Services"), ("/#why", "Why Beiz"), ("/how-we-work/", "How it works"), ("/prices/", "Pricing"),
+       ("/bill-check/", "Bill check")]
 
 HELPER_TMPL = """<button type="button" class="hbtn" aria-controls="helper" aria-expanded="false">Ask Beiz</button>
 <div class="helper" id="helper" role="dialog" aria-label="Ask Beiz, guided helper" hidden>
@@ -80,11 +80,11 @@ def header(path):
             + "</ul></div>" for g in C.GROUPS)
         return f'<div class="dd">{a}<div class="mega" role="region" aria-label="Services"><div class="wrap">{cols}</div></div></div>'
     links = "".join(item(h, t) for h, t in NAV) + '<a class="m" href="/contact/">Contact</a>'
-    return f"""<header class="top"><div class="wrap">
-<a class="brand bl" href="/" aria-label="Beiz Data &amp; Accounting, home"><img class="bmark" src="/assets/brand/beiz-icon.svg" alt="" width="44" height="44"><span class="bword">BEIZ<small>Data &amp; Accounting</small></span></a>
-<span class="cobrand"><img src="/assets/media/ca-logo-vertical.svg" alt="Chartered Accountants Australia and New Zealand" width="96" height="108"></span>
+    return f"""<header class="top dk"><div class="wrap">
+<a class="brand bl" href="/" aria-label="Beiz Data &amp; Accounting, home"><img class="bmark" src="/assets/brand/beiz-icon-dark.svg" alt="" width="40" height="40"><span class="bword">BEIZ<small>Data &amp; Accounting</small></span></a>
+<span class="cobrand"><img src="/assets/media/ca-logo-reversed.png" alt="Chartered Accountants Australia and New Zealand" width="140" height="80"></span>
 <nav class="nav" aria-label="Main">{links}</nav>
-<a class="btn" href="/contact/">Talk to us</a>
+<a class="btn" href="/contact/?topic=Discovery%20call">Book a strategy call</a>
 <button class="menu" type="button" aria-expanded="false" aria-label="Open menu">Menu</button>
 </div><div class="tmstrip"><div class="wrap">Trade mark of Chartered Accountants Australia and New Zealand and used with permission.</div></div></header>
 """
@@ -111,7 +111,6 @@ def footer():
 </div>
 </div></footer>
 <script src="/assets/ledger/ledger.js?v={ASSET_V}" defer></script>
-<script src="/assets/ledger/webmcp.js?v={ASSET_V}" defer></script>
 """
 
 

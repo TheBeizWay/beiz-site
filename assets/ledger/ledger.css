@@ -623,3 +623,28 @@ h3.sub{font-size:1.2rem;margin:30px 0 0}
 .bword{font:700 25px/1 "Space Grotesk",var(--sans);letter-spacing:.14em;color:var(--ink)}
 .bword small{display:block;font:500 12.5px/1 var(--sans);letter-spacing:.02em;color:var(--muted);margin-top:7px}
 @media (min-width:1101px){.brand.bl .bmark{height:64px;width:64px}.bword{font-size:31px}.bword small{font-size:14px;margin-top:9px}}
+
+/* One header on every page (14 Nov 2026): dark single row matching homepage A; Space Grotesk headings, Inter body */
+@font-face{font-family:"Space Grotesk";src:url(/assets/fonts/space-grotesk-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Inter";src:url(/assets/fonts/inter-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Inter";src:url(/assets/fonts/inter-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Inter";src:url(/assets/fonts/inter-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
+:root{--serif:"Space Grotesk","Inter",system-ui,sans-serif;--sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif}
+h1,h2,h3{font-weight:600;letter-spacing:-.02em}
+.top.dk{background:#0B0D0C;border-bottom:1px solid #1E2521;color:#E9ECE8}
+.top.dk>.wrap{height:76px!important}
+.top.dk .bword{color:#F4F1E8;font-size:23px}
+.top.dk .bword small{color:#9AA39D;font-size:12px;margin-top:6px;white-space:nowrap}
+.top.dk .brand.bl .bmark{width:40px;height:40px}
+.top.dk .cobrand{border-left:1px solid #26302B;padding-left:22px;margin-left:4px;display:flex;align-items:center}
+.top.dk .cobrand img{width:140px;height:auto;max-width:none}
+.top.dk .nav a{color:#C3CBC6;border-bottom-color:transparent}
+.top.dk .nav a:hover,.top.dk .nav a[aria-current]{color:#fff;border-bottom-color:#E8B04A}
+.top.dk .btn{background:#F4F1E8;border-color:#F4F1E8;color:#0B0D0C;border-radius:8px;font-weight:600}
+.top.dk .btn:hover{background:#fff;border-color:#fff}
+.top.dk .menu{color:#F4F1E8;border-color:#3A4540;background:transparent;border-radius:999px}
+.top.dk .tmstrip{background:#0B0D0C;color:#7F8984;border-top:1px solid #161B18}
+@media (min-width:1101px){.top.dk .brand.bl .bmark{width:40px;height:40px}.top.dk .bword{font-size:23px}.top.dk .bword small{font-size:12px}}
+@media (max-width:1100px){.top.dk .cobrand{display:flex}.top.dk .cobrand img{width:112px}}
+@media (max-width:600px){.top.dk .cobrand{display:none}.top.dk .bword{font-size:19px}.top.dk .bword small{font-size:10.5px}.top.dk .brand.bl .bmark{width:32px;height:32px}}
+@media (max-width:1100px){.top.dk .nav{background:#0B0D0C;border-color:#1E2521}.top.dk .nav a{color:#E9ECE8;border-bottom-color:#1E2521}.top.dk .nav a[aria-current]{color:#E8B04A}}
