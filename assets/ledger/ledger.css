@@ -648,3 +648,31 @@ h1,h2,h3{font-weight:600;letter-spacing:-.02em}
 @media (max-width:1100px){.top.dk .cobrand{display:flex}.top.dk .cobrand img{width:112px}}
 @media (max-width:600px){.top.dk .cobrand{display:none}.top.dk .bword{font-size:19px}.top.dk .bword small{font-size:10.5px}.top.dk .brand.bl .bmark{width:32px;height:32px}}
 @media (max-width:1100px){.top.dk .nav{background:#0B0D0C;border-color:#1E2521}.top.dk .nav a{color:#E9ECE8;border-bottom-color:#1E2521}.top.dk .nav a[aria-current]{color:#E8B04A}}
+
+/* Dark everywhere (14 Nov 2026, Purav: "futuristic"): inner pages take homepage A's palette */
+:root{--paper:#0B0E0D;--paper2:#111614;--white:#141A18;--ink:#F2EFE8;--ink2:#C9CEC8;--muted:#A3A9A2;
+  --rule:rgba(255,255,255,.10);--rule2:rgba(255,255,255,.20);--brand:#C9A96A;--brand-hi:#E0B25C;--forest:#0F1513;--forest2:#141C19;
+  --ok:#4CC38A;--held:#E0B25C;--stop:#E8806F}
+html{background:#0B0E0D;color-scheme:dark}
+body{background:#0B0E0D;color:var(--ink)}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(50% 40% at 85% 0%,rgba(201,169,106,.07),transparent 70%),linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px) 0 0/56px 56px,linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px) 0 0/56px 56px;-webkit-mask-image:linear-gradient(#000,transparent 70%);mask-image:linear-gradient(#000,transparent 70%)}
+a{color:inherit}
+.phead{background:transparent!important;border-bottom:1px solid var(--rule)!important}
+.phead h1{letter-spacing:-.03em}
+.sec{border-top-color:var(--rule)}
+.sec .lab{border-top-color:var(--brand)!important;color:var(--brand)!important}
+.btn{background:#F4F1E8;border-color:#F4F1E8;color:#0B0E0D;border-radius:10px}
+.btn:hover{background:#fff;border-color:#fff;color:#0B0E0D}
+.btn.line{background:transparent;color:var(--ink);border-color:var(--rule2)}
+.btn.line:hover{background:rgba(255,255,255,.06);color:#fff;border-color:#fff}
+input,select,textarea{background:#111614!important;color:var(--ink)!important;border-color:var(--rule2)!important;border-radius:8px}
+input::placeholder,textarea::placeholder{color:#7D847E}
+.st,.bcard,.jlog,.book,.bcnext,.row,.who,.thx{background:rgba(255,255,255,.025)}
+.bcnext{border-color:var(--rule2);border-left-color:var(--brand)}
+.led td,.led th,table td,table th{border-color:var(--rule)!important}
+code,pre{background:#060808!important;color:#D8E0DA!important;border-color:var(--rule)!important}
+.band{background:linear-gradient(90deg,#C9A96A,#E0B25C);color:#14100A}
+.band p{color:#2A2312}
+.foot{background:#070908;border-top:1px solid var(--rule)}
+.dot.ok{background:var(--ok)}.dot.held{background:var(--held)}.dot.stop{background:var(--stop)}
+::selection{background:#C9A96A;color:#0B0E0D}

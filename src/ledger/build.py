@@ -13,7 +13,7 @@ import json
 from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ASSET_V = "L35"  # bump on every CSS or JS change
+ASSET_V = "L36"  # bump on every CSS or JS change
 SITE = "https://beiz.com.au"
 e = html.escape
 
@@ -174,7 +174,7 @@ def who_block(full=False):
 <img class="p" src="/assets/media/purav-mehta-2.jpg" alt="Purav Mehta" width="200" height="267">
 <div><h3>Purav Mehta CA, GAICD</h3><p class="role">Founder and principal</p>{bio}
 <p class="li"><a href="https://www.linkedin.com/in/puravmehtaca/" rel="noopener">Purav on LinkedIn</a></p>
-<div class="calogo"><img src="/assets/media/ca-logo.svg" alt="Chartered Accountants Australia and New Zealand" width="147" height="84">
+<div class="calogo"><img src="/assets/media/ca-logo-reversed.png" alt="Chartered Accountants Australia and New Zealand" width="140" height="80">
 <p>Trade mark of Chartered Accountants Australia and New Zealand and used with permission.</p></div></div></div>"""
 
 
@@ -187,7 +187,7 @@ def home():
 <p class="lede">{C.HERO_LEDE}</p>
 <div class="acts"><a class="btn" href="/contact/?topic=Discovery%20call">Book a 20-minute call</a><a class="btn line" href="/bill-check/">Try the free bill check</a></div>
 <ul class="hfacts"><li><b>Chartered Accountant</b><span>Member of Chartered Accountants Australia and New Zealand, with a Certificate of Public Practice</span></li><li><b>Fixed fee</b><span>Agreed in writing before any work starts</span></li><li><b>A person signs off</b><span>Nothing is paid or sent by an agent alone</span></li></ul>
-<div class="credrow"><img src="/assets/media/ca-logo.svg" alt="Chartered Accountants Australia and New Zealand" width="147" height="84"><p class="cred">Trade mark of Chartered Accountants Australia and New Zealand and used with permission.</p></div>
+<div class="credrow"><img src="/assets/media/ca-logo-reversed.png" alt="Chartered Accountants Australia and New Zealand" width="147" height="84"><p class="cred">Trade mark of Chartered Accountants Australia and New Zealand and used with permission.</p></div>
 </div>
 <figure class="hphoto"><img src="/assets/media/purav-mehta-2.jpg" alt="Purav Mehta" width="480" height="640" fetchpriority="high">
 <figcaption><b>Purav Mehta CA, GAICD</b><span>Founder. You deal with him from the first call to handover. <a href="/about/">About Purav</a> · <a href="https://www.linkedin.com/in/puravmehtaca/" rel="noopener">LinkedIn</a></span></figcaption></figure>
