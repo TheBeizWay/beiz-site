@@ -17,8 +17,8 @@ ASSET_V = "L36"  # bump on every CSS or JS change
 SITE = "https://beiz.com.au"
 e = html.escape
 
-NAV = [("/services/", "Services"), ("/#why", "Why Beiz"), ("/how-we-work/", "How it works"), ("/prices/", "Pricing"),
-       ("/bill-check/", "Bill check")]
+NAV = [("/services/", "Services"), ("/workbench/", "Workbench"), ("/kits/", "Kits"), ("/continuity/", "Continuity"),
+       ("/how-we-work/", "How it works"), ("/bill-check/", "Bill check")]
 
 HELPER_TMPL = """<button type="button" class="hbtn" aria-controls="helper" aria-expanded="false">Ask Beiz</button>
 <div class="helper" id="helper" role="dialog" aria-label="Ask Beiz, guided helper" hidden>
@@ -32,7 +32,7 @@ HELPER_TMPL = """<button type="button" class="hbtn" aria-controls="helper" aria-
 """
 
 LD = """{"@context":"https://schema.org","@type":"ProfessionalService","name":"Beiz Data & Accounting Pty Ltd",
-"url":"https://beiz.com.au/","email":"hello@beiz.com.au","logo":"https://beiz.com.au/assets/brand/beiz-icon-512.png",
+"url":"https://beiz.com.au/","email":"hello@beiz.com.au","logo":"https://beiz.com.au/assets/brand/beiz-mark-512.png",
 "address":{"@type":"PostalAddress","addressLocality":"Canberra","addressRegion":"ACT","addressCountry":"AU"},
 "areaServed":"AU","sameAs":["https://www.linkedin.com/company/beiz-data-accounting/","https://github.com/TheBeizWay"],"taxID":"53 691 755 496",
 "description":"AI for real business work, with guardrails, set up and checked by an Australian Chartered Accountant.",
@@ -54,7 +54,7 @@ def head(path, title, desc):
 <meta property="og:image" content="{SITE}/assets/og-card.png">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#13221B">
-<link rel="icon" href="/assets/brand/beiz-icon.svg">
+<link rel="icon" href="/assets/brand/beiz-mark.svg">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/source-serif-4-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -81,7 +81,7 @@ def header(path):
         return f'<div class="dd">{a}<div class="mega" role="region" aria-label="Services"><div class="wrap">{cols}</div></div></div>'
     links = "".join(item(h, t) for h, t in NAV) + '<a class="m" href="/contact/">Contact</a>'
     return f"""<header class="top dk"><div class="wrap">
-<a class="brand bl" href="/" aria-label="Beiz Data &amp; Accounting, home"><img class="bmark" src="/assets/brand/beiz-icon-dark.svg" alt="" width="40" height="40"><span class="bword">BEIZ<small>Data &amp; Accounting</small></span></a>
+<a class="brand bl" href="/" aria-label="Beiz Data &amp; Accounting, home"><img class="bmark" src="/assets/brand/beiz-mark.svg" alt="" width="40" height="40"><span class="bword">BEIZ<small>Data &amp; Accounting</small></span></a>
 <span class="cobrand"><img src="/assets/media/ca-logo-reversed.png" alt="Chartered Accountants Australia and New Zealand" width="140" height="80"></span>
 <nav class="nav" aria-label="Main">{links}</nav>
 <a class="btn" href="/contact/?topic=Discovery%20call">Book a strategy call</a>
@@ -583,13 +583,41 @@ def llms_full():
     return "\n".join(L)
 
 
+# Pages cut from the hand-built homepage (Purav, 14 Nov 2026: "I like a multi page website")
+HOME_PAGES = [
+    ("/workbench/", "workbench", "Workbench", "See how Beiz takes an input, applies a rule, sends the exception to a person and records the corrected output. Made-up business, not connected to any real system."),
+    ("/kits/", "kits", "Kits", "Excel kits built by a Chartered Accountant: a 13-week cash forecast and a supplier bank-change control kit."),
+    ("/continuity/", "continuity", "Finance continuity", "Keep paying and reconciling when Microsoft or your ledger is down: continuity check, kit, recovery reconciliation and exercise."),
+]
+
+
+def home_page(home, path, sid, title, desc):
+    import re
+    head_end = home.index('<section class="hero">')
+    c0 = home.index('<section id="contact">')
+    c1 = home.index("</section>", c0) + len("</section>")
+    m = re.search(r'<section class="s" id="%s"[^>]*>.*?</section>' % sid, home, re.S)
+    sec = m.group(0)
+    sec = re.sub(r'^<section class="s" id="%s"[^>]*>' % sid, '<section class="s pg" id="%s">' % sid, sec)
+    if "<h2" in sec:
+        sec = sec.replace("<h2", '<h1 class="pgh"', 1).replace("</h2>", "</h1>", 1)
+    else:
+        sec = sec.replace('<div class="wrap">', '<div class="wrap"><div class="head"><div><p class="kick">%s</p><h1 class="pgh">Every exception, traced to a person.</h1></div><p class="sub">%s</p></div>' % (title, desc), 1)
+    top = home[:head_end]
+    top = re.sub(r"<title>.*?</title>", "<title>%s | Beiz Data &amp; Accounting</title>" % title, top, 1, flags=re.S)
+    top = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="%s">' % desc, top, 1)
+    top = top.replace('href="https://beiz.com.au/"', 'href="https://beiz.com.au%s"' % path, 1).replace('content="https://beiz.com.au/"', 'content="https://beiz.com.au%s"' % path, 1)
+    top = top.replace("</style>", ".pg{padding-top:56px}.pgh{font-size:clamp(38px,5.4vw,66px);line-height:1.02;margin:0}</style>", 1)
+    return top + sec + "\n\n" + home[c0:]
+
+
 def main():
     for p, fn in PAGES.items():
         write(p, fn())
     write("/404.html", notfound())
     for old, new in C.REDIRECTS.items():
         write(old, redirect(new))
-    urls = "".join(f"<url><loc>{SITE}{p}</loc></url>" for p in PAGES)
+    urls = "".join(f"<url><loc>{SITE}{p}</loc></url>" for p in list(PAGES) + [h[0] for h in HOME_PAGES])
     open(os.path.join(ROOT, "sitemap.xml"), "w").write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>\n')
     open(os.path.join(ROOT, "llms.txt"), "w").write(C.LLMS.rstrip() + "\n\n## Is Beiz a fit?\n" + "".join(f"- {a}: {b}\n" for a, b in C.FIT))
     open(os.path.join(ROOT, "llms-full.txt"), "w").write(llms_full())
@@ -597,7 +625,11 @@ def main():
     # Homepage: the hand-built page in src/home/ replaces the generated one (Purav chose design "A", 14 Nov 2026)
     home_src = os.path.join(ROOT, "src", "home", "index.html")
     if os.path.exists(home_src):
-        open(os.path.join(ROOT, "index.html"), "w").write(open(home_src).read())
+        home = open(home_src).read()
+        open(os.path.join(ROOT, "index.html"), "w").write(home)
+        for path, sid, title, desc in HOME_PAGES:
+            os.makedirs(os.path.join(ROOT, path.strip("/")), exist_ok=True)
+            open(os.path.join(ROOT, path.strip("/"), "index.html"), "w").write(home_page(home, path, sid, title, desc))
     print("built", len(PAGES), "pages,", len(C.REDIRECTS), "redirects")
 
 
