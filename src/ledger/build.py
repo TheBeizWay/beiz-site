@@ -13,7 +13,7 @@ import json
 from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ASSET_V = "L41"  # bump on every CSS or JS change
+ASSET_V = "L42"  # bump on every CSS or JS change
 SITE = "https://beiz.com.au"
 e = html.escape
 
@@ -98,7 +98,7 @@ def footer():
 <div class="ca"><img src="/assets/media/ca-logo-reversed.png" alt="Chartered Accountants Australia and New Zealand" width="140" height="80" ></div>
 </div>
 <div><h4>Work with us</h4><ul>
-<li><a href="/services/">Services</a></li><li><a href="/aml-ctf-accounting-firms/">AML/CTF for accounting firms</a></li><li><a href="/how-we-work/">How it works</a></li><li><a href="/prices/">Fees</a></li><li><a href="/bill-check/">Free bill check</a></li></ul></div>
+<li><a href="/services/">Services</a></li><li><a href="/aml-ctf-accounting-firms/">AML/CTF for accounting firms</a></li><li><a href="/how-we-work/">How it works</a></li><li><a href="/prices/">Fees</a></li><li><a href="/bill-check/">Free bill check</a></li><li><a href="/supplier-statement-check/">Free statement check</a></li></ul></div>
 <div><h4>Company</h4><ul>
 <li><a href="/about/">About</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/insights/">Insights</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/card/">Digital card</a></li><li><a href="https://www.linkedin.com/company/beiz-data-accounting/" rel="noopener">LinkedIn</a></li></ul></div>
 </div>
@@ -482,8 +482,49 @@ def redirect(to):
     return f'<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><title>Moved</title><meta name="robots" content="noindex"><link rel="canonical" href="{SITE}{to}"><meta http-equiv="refresh" content="0; url={to}"></head><body><p>This page has moved to <a href="{to}">{SITE}{to}</a>.</p></body></html>\n'
 
 
+SC_FAQ = [
+    ("Is my data uploaded anywhere?", "No. Both files are read by your browser and checked on your device. Nothing is sent to Beiz or anyone else, and closing the page clears it."),
+    ("What does it handle that a simple match doesn't?", "Reference formats that differ (INV-00412 against 412), part-payments and batched payments, credit notes the supplier has netted into an invoice, possible duplicate bills, and payments made after the statement date."),
+    ("Which Xero report should I export?", "Any CSV of that supplier's bills, credit notes and payments with a date, reference, type and amount works. You'll see how each column was read before you rely on the result."),
+    ("Is this a reconciliation sign-off?", "No. It's a free first pass that lists what to look at. A person still checks each item before anything is changed or paid. General information only, not advice."),
+]
+
+
+def statement_check():
+    tool = """<div class="bck" id="sc">
+<div class="sc-in">
+<label class="bck-drop"><input type="file" id="scSt" accept=".csv,.txt,.tsv,text/csv"><b>1. Supplier statement (CSV)</b><span>Drop the file here or click to choose</span></label>
+<label class="bck-drop"><input type="file" id="scXe" accept=".csv,.txt,.tsv,text/csv"><b>2. That supplier in Xero (CSV)</b><span>Drop the file here or click to choose</span></label>
+</div>
+<div class="sc-side"><button type="button" class="btn" id="scSample">Try it with sample data</button>
+<p class="fine">One month from a made-up timber supplier, with a missing bill, a duplicate, a keying error, a netted credit note, a part-payment and a payment in transit planted. Download the <a href="/data/sample-supplier-statement.csv" download>sample statement</a> and <a href="/data/sample-xero-supplier.csv" download>sample Xero file</a> to see the format.</p></div>
+<p class="bck-status" id="scStatus" aria-live="polite"></p>
+<div id="scOut" aria-live="polite"></div>
+<div class="bcnext" id="scNext" hidden><p><b>Want a Chartered Accountant to go through the list with you?</b> A 20-minute call, free. Your files stay on your device; bring the list, not the exports.</p><a class="btn" href="https://calendar.app.google/cNdbhY7JLJxroVfA8" target="_blank" rel="noopener">Book a 20-minute call</a></div>
+</div>"""
+    faq = "".join(f'<div class="row"><h3>{q}</h3><p>{a}</p></div>' for q, a in SC_FAQ)
+    js = f'<script src="/assets/statementcheck.js?v={ASSET_V}" defer></script>\n'
+    ld = '<script type="application/ld+json">' + __import__("json").dumps({
+        "@context": "https://schema.org", "@type": "FAQPage",
+        "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in SC_FAQ]}) + "</script>"
+    app = '<script type="application/ld+json">' + __import__("json").dumps({
+        "@context": "https://schema.org", "@type": "WebApplication", "name": "Beiz free supplier statement check",
+        "url": "https://beiz.com.au/supplier-statement-check/", "applicationCategory": "FinanceApplication", "operatingSystem": "Any modern browser",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "AUD"},
+        "description": "Compares a supplier statement with the same supplier's entries in Xero: missing and duplicate bills, amount differences, netted credit notes, part-payments and payments in transit. Runs in the browser; files aren't uploaded.",
+        "provider": {"@type": "ProfessionalService", "name": "Beiz Data & Accounting Pty Ltd", "url": "https://beiz.com.au/"}}) + "</script>"
+    body = phead("Free supplier statement check", "Compare a supplier's statement with what's in Xero and get a list of what doesn't agree, with the balance difference explained line by line. It runs in your browser. Nothing is uploaded.")
+    body += sec("Run it", f"<h2>Check one supplier's statement against Xero</h2>{tool}")
+    body += sec("What it checks", '<ul class="plain"><li>Bills and credit notes on the statement that aren\'t in Xero, and the reverse</li><li>Possible duplicate bills in Xero: same amount and date under a different reference</li><li>Amounts that differ between the statement and Xero</li><li>Credit notes the supplier has netted into an invoice</li><li>Part-payments and batched payments, matched payment to payment</li><li>Payments made after the statement date, shown as in transit</li><li>A line-by-line bridge from the statement balance to the Xero balance</li></ul>')
+    body += sec("Getting the files", '<p class="intro">From the supplier: their statement as CSV, or copy it into a spreadsheet with Date, Type, Reference and Amount columns. From Xero: export that supplier\'s bills, credit notes and payments for the same period as CSV. Amounts can be positive; the Type column (invoice or bill, credit, payment) sets the direction. Dates as DD/MM/YYYY or YYYY-MM-DD.</p>')
+    body += sec("Common questions", f'<div class="rows">{faq}</div>')
+    body += sec("Limits", '<p class="intro">References are matched on their letters and numbers, so very different numbering schemes may not match. Payments are matched by amount within 10 days, or in groups of up to three. Opening balances aren\'t included, so use the same period in both files. It\'s a first pass that lists what to look at, not a reconciliation sign-off, and the figures in the sample are made up.</p>')
+    body += sec("Next step", '<h2>Doing this for every supplier, every month?</h2><p class="intro">That\'s the kind of recurring job an exception review looks at: one process mapped, sample files checked, and a fixed-price scope to build it into your own systems.</p><div class="acts"><a class="btn" href="/services/">See the exception review</a></div>', "dark")
+    return page("/supplier-statement-check/", "Free supplier statement check | Beiz Data & Accounting", "Compare a supplier statement with Xero: missing and duplicate bills, amount differences, netted credit notes, part-payments and payments in transit. Runs in your browser; nothing is uploaded.", body, js + ld + app)
+
+
 PAGES = {"/": home, "/services/": services, "/how-we-work/": how, "/prices/": prices, "/about/": about,
-         "/contact/": contact, "/bill-check/": bill_check, "/privacy/": privacy}
+         "/contact/": contact, "/bill-check/": bill_check, "/supplier-statement-check/": statement_check, "/privacy/": privacy}
 PAGES.update(MORE)
 LIVE_PATHS = set(PAGES)
 

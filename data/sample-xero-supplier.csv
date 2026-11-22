@@ -1,0 +1,15 @@
+Date,Type,Reference,Description,Amount
+01/10/2026,Bill,10231,Ridgeline Timber Supplies (made-up sample),4180.00
+05/10/2026,Bill,INV10244,Ridgeline Timber Supplies (made-up sample),2650.00
+09/10/2026,Payment,,Ridgeline Timber Supplies,4180.00
+12/10/2026,Bill,10258,Ridgeline Timber Supplies (made-up sample),7920.00
+15/10/2026,Credit Note,CN412,Ridgeline Timber Supplies,350.00
+22/10/2026,Payment,,Ridgeline Timber Supplies,3000.00
+26/10/2026,Bill,INV-10279,Ridgeline Timber Supplies (made-up sample),5480.00
+26/10/2026,Bill,10279-1,Ridgeline Timber Supplies (made-up sample),5480.00
+28/10/2026,Bill,INV-10283,Ridgeline Timber Supplies (made-up sample),2890.00
+28/10/2026,Credit Note,CN-0419,Ridgeline Timber Supplies,280.00
+29/10/2026,Bill,INV-10290,Ridgeline Timber Supplies (made-up sample),1890.00
+30/10/2026,Payment,,Ridgeline Timber Supplies,1500.00
+30/10/2026,Payment,,Ridgeline Timber Supplies,800.00
+31/10/2026,Payment,,Ridgeline Timber Supplies,1000.00
