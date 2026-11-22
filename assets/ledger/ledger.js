@@ -111,7 +111,7 @@
     ["Decision log: the five fields", "/how-we-work/#log", "How it works"],
     ["How fees work", "/prices/"], ["Run the free bill check", "/bill-check/"],
     ["Under the hood: technical view", "/#hood-tech", "Home"],
-    ["About Beiz", "/about/"], ["Book a free fit conversation", "/contact/?topic=Fit%20conversation%20(free)"],
+    ["About Beiz", "/about/"], ["Book a 20-minute call", "/contact/?topic=Fit%20conversation%20(free)"],
     ["Write to us", "/contact/"], ["Email hello@beiz.com.au", "mailto:hello@beiz.com.au"], ["Privacy policy", "/privacy/"]
   ];
   const mac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
@@ -153,7 +153,7 @@
   const form = $("#contactForm"), msg = $("#formMsg");
   if (!form) return;
   const q = new URLSearchParams(location.search);
-  if (q.get("topic")) [...form.topic.options].forEach(o => { if (o.text === q.get("topic")) o.selected = true; });
+  if (q.get("topic")) { const t = q.get("topic"); let f = [...form.topic.options].find(o => o.text === t); if (!f) { f = new Option(t, t); form.topic.add(f, form.topic.options[form.topic.options.length - 1]); } f.selected = true; }
   if (q.get("msg")) form.message.value = q.get("msg").slice(0, 1500);
 
   form.addEventListener("submit", async e => {

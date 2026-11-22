@@ -171,9 +171,7 @@ FACTS = [
 
 # ---------------------------------------------------------------- contact
 CONTACT_LEDE = "Write a few lines about the problem. You'll get a written reply by the next business day."
-TOPICS = ["Fit conversation (free)", "System-to-ledger exception review", "System-to-ledger exception sprint", "Compliance controls sprint", "AML/CTF Tranche 2",
-          "AI workforce setup", "Cash & job profit model", "Leave cover", "Automation & AI agents",
-          "Dashboards & reporting", "Workshop", "Referral partnership (accountants, bookkeepers, IT providers)", "Something else"]
+TOPICS = ["Fit conversation (free)", "System-to-ledger exception review", "System-to-ledger exception sprint", "Something else"]
 EXPECT = [
     ("Reply", "In writing, by the next business day."),
     ("Calls", "20 minutes, early morning or after 5pm, if a call helps."),

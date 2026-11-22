@@ -11,6 +11,7 @@ Read this before changing anything in this repo. It describes the site as it is,
 - "Deadlines this year" replaces "Deadlines that are already here" (the Privacy Act rules start 10 Dec 2026; the card counts down in the browser).
 - Footer anchors are absolute (`/#services`) so they work on /workbench/, /kits/ and /continuity/; those pages now get their own og: and twitter: title and description (`home_page()` in build.py).
 - Phone workbench: the result count sits on its own line and filter buttons don't wrap.
+- Later on 22 Nov (Purav: "do everything, proceed"): headline split into "Your systems and your ledger disagree every month." plus a `.hsub` line "We fix one workflow, at a fixed price."; main nav everywhere is Services · How it works · About · Fees (Workbench, Kits and Continuity stay as pages, linked from Services and the footer); homepage Services shows three cards (fit conversation, exception review, exception sprint) and one "Also available" line to /services/; the Services hover menu lists only those three; both enquiry forms have four topics (fit conversation, review, sprint, something else) and a button or `?topic=` for any other topic adds it to the list instead of falling back silently. ASSET_V bumped.
 - Still waiting on Purav: a calendar booking link (the call button still opens the form) and a payment link for the $290 kit (still invoice first).
 
 ## Ownership (Purav, 14 Nov 2026)

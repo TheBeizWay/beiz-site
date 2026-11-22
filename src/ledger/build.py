@@ -13,12 +13,11 @@ import json
 from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ASSET_V = "L38"  # bump on every CSS or JS change
+ASSET_V = "L39"  # bump on every CSS or JS change
 SITE = "https://beiz.com.au"
 e = html.escape
 
-NAV = [("/services/", "Services"), ("/workbench/", "Workbench"), ("/kits/", "Kits"), ("/continuity/", "Continuity"),
-       ("/how-we-work/", "How it works")]
+NAV = [("/services/", "Services"), ("/how-we-work/", "How it works"), ("/about/", "About"), ("/prices/", "Fees")]
 
 HELPER_TMPL = """<button type="button" class="hbtn" aria-controls="helper" aria-expanded="false">Ask Beiz</button>
 <div class="helper" id="helper" role="dialog" aria-label="Ask Beiz, guided helper" hidden>
