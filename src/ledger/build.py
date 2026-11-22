@@ -98,7 +98,7 @@ def footer():
 <div class="ca"><img src="/assets/media/ca-logo-reversed.png" alt="Chartered Accountants Australia and New Zealand" width="140" height="80" ></div>
 </div>
 <div><h4>Work with us</h4><ul>
-<li><a href="/services/">Services</a></li><li><a href="/aml-ctf-accounting-firms/">AML/CTF for accounting firms</a></li><li><a href="/how-we-work/">How it works</a></li><li><a href="/prices/">Fees</a></li><li><a href="/bill-check/">Free bill check</a></li><li><a href="/supplier-statement-check/">Free statement check</a></li></ul></div>
+<li><a href="/services/">Services</a></li><li><a href="/accounting-firms/">For accounting firms</a></li><li><a href="/aml-ctf-accounting-firms/">AML/CTF for accounting firms</a></li><li><a href="/how-we-work/">How it works</a></li><li><a href="/prices/">Fees</a></li><li><a href="/bill-check/">Free bill check</a></li><li><a href="/supplier-statement-check/">Free statement check</a></li></ul></div>
 <div><h4>Company</h4><ul>
 <li><a href="/about/">About</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/insights/">Insights</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/card/">Digital card</a></li><li><a href="https://www.linkedin.com/company/beiz-data-accounting/" rel="noopener">LinkedIn</a></li></ul></div>
 </div>
@@ -523,8 +523,64 @@ def statement_check():
     return page("/supplier-statement-check/", "Free supplier statement check | Beiz Data & Accounting", "Compare a supplier statement with Xero: missing and duplicate bills, amount differences, netted credit notes, part-payments and payments in transit. Runs in your browser; nothing is uploaded.", body, js + ld + app)
 
 
+# ---------------------------------------------------------------- accounting firms (proposed 23 Nov 2026, weekly research PR)
+APP8 = "https://www.oaic.gov.au/privacy/australian-privacy-principles/australian-privacy-principles-guidelines/chapter-8-app-8-cross-border-disclosure-of-personal-information"
+FIRMS_BRIEF = [
+    "For small Australian accounting and bookkeeping practices weighing up offshore staff for bank recs, data entry and workpaper prep.",
+    "We build the repeatable part into your own Xero, MYOB or practice software first, with every difference listed for your reviewer.",
+    "Your registered agent stays responsible for lodgement and advice. Beiz does no tax, BAS or audit work.",
+]
+FIRMS_PROBLEM = [
+    ("The saving shrinks at review", "Work that comes back needing onshore review and rework uses partner and manager time, the most expensive hours in the firm."),
+    ("The process lives in someone's head", "If the steps aren't written down, the handover fails whoever picks it up, onshore or offshore."),
+    ("Client data leaves your systems", "Sending client files to another team, in another country, adds privacy steps and access risk your firm has to manage."),
+    ("Errors surface at lodgement", "A wrong coding decision found after lodgement costs far more than one held for a person at month-end."),
+]
+FIRMS_FIRST = [
+    ("Bank reconciliation prep", "Bank lines matched to the ledger on agreed rules, with every unmatched or doubtful line listed for your staff to clear."),
+    ("Supplier statements and bills", "Statements compared with the ledger: missing and duplicate bills, part-payments, netted credit notes and payments in transit."),
+    ("Missing client information", "One structured request per client, each item tracked until it's answered, instead of email chains before every close."),
+    ("Workpaper tie-outs", "Ledger balances tied to bank, loan, payroll and super clearing figures, with the differences shown line by line for the preparer."),
+]
+FIRMS_CONTROLS = [
+    ("Your reviewer decides", "The workflow prepares and lists. A person in your firm clears every exception and signs off. Nothing is lodged, paid or sent to a client by the workflow."),
+    ("Your systems, your data", "It runs in the accounts your firm already controls. Every service a step uses, and where it processes data, is set out in the proposal before work starts."),
+    ("Tested on past jobs", "Replayed on a period of your past client files agreed in writing, with seeded duplicates and missing rows that must be stopped and shown."),
+    ("Written down", "The procedure, the rules and the exception list are documented, so the work doesn't depend on one person remembering it."),
+]
+FIRMS_FAQ = [
+    ("Is this instead of offshore staff?", "It can be, or it can come first. Automating the repeatable steps and writing the procedure down makes any later handover cleaner, whoever does the work."),
+    ("Does Beiz do tax, BAS or audit work for our clients?", "No. Beiz does no tax returns, BAS or GST lodgements, tax or BAS agent services, statutory audit or assurance. Your firm keeps that work and the client relationship."),
+    ("Which software do you work with?", "Xero and MYOB, plus exports from your practice and job systems. If a feature you already pay for solves the problem, we'll tell you on the first call."),
+    ("What about privacy if a step uses an outside service?", "We list every service a workflow uses and where it processes data before you approve the scope. If your firm is covered by the Privacy Act, sending personal information overseas brings obligations under Australian Privacy Principle 8; the OAIC guidance is linked on this page. General information, not legal advice."),
+]
+
+
+def firms_page():
+    body = phead("Automate the repeatable work before you send it offshore",
+                 "For small Australian accounting and bookkeeping firms. We build bank-rec prep, statement checks, client information requests and workpaper tie-outs into your own systems, and list every difference for your reviewer. Your registered agent stays responsible for the work.",
+                 ("/services/", "Services"))
+    body += sec("In brief", '<ul class="brief">' + "".join(f"<li>{x}</li>" for x in FIRMS_BRIEF) + "</ul>")
+    body += sec("The problem", "<h2>Cheaper hours don't help if review time goes up</h2>" + rows(FIRMS_PROBLEM))
+    body += sec("What we automate first", "<h2>Four jobs that follow rules every month</h2>" + rows(FIRMS_FIRST)
+                + '<p class="note">Try one now: the <a href="/supplier-statement-check/">free supplier statement check</a> runs in your browser and uploads nothing.</p>')
+    body += sec("Controls", "<h2>Prepared by the workflow. Decided by your people.</h2>" + rows(FIRMS_CONTROLS))
+    body += sec("Ways to start", "<h2>The same fixed-fee path as every Beiz engagement</h2>" + rows([
+        ("Fit conversation", "20 minutes, free. Which job uses the most staff hours, and whether your software already covers it."),
+        ("System-to-ledger exception review", "One firm process mapped on sample client files, with a bounded fixed-price scope. $1,500–$2,500."),
+        ("Exception sprint", "That workflow built in your systems, with written acceptance tests, documentation and handover. $4,000–$8,000."),
+    ]) + f"<p class=\"note\">{C.PRICE_NOTE} Prices in AUD; Beiz isn't registered for GST, so none is added. <a href=\"/prices/\">How fees work</a>.</p>")
+    body += sec("Questions firms ask", rows(FIRMS_FAQ))
+    body += sec("What we don't do", f'<p class="intro">{C.NOT_DO}</p>')
+    body += sec("Sources", f'<p class="note"><a href="{APP8}" rel="noopener">Office of the Australian Information Commissioner, APP guidelines chapter 8: cross-border disclosure of personal information</a>. Checked 23 November 2026. General information, not legal advice.</p>')
+    body += cta("Got one job your team does the same way every month?", "Write a few lines about it. You'll get a written reply by the next business day. If your software already does it, we'll say so.", "Automation for accounting firms", "Describe the job")
+    return page("/accounting-firms/", "Automation for accounting and bookkeeping firms | Beiz Data & Accounting",
+                "For small Australian accounting and bookkeeping firms: bank-rec prep, statement checks, client information requests and workpaper tie-outs built into your own systems, with every difference listed for your reviewer. Fixed fees.",
+                body, faq_ld(FIRMS_FAQ))
+
+
 PAGES = {"/": home, "/services/": services, "/how-we-work/": how, "/prices/": prices, "/about/": about,
-         "/contact/": contact, "/bill-check/": bill_check, "/supplier-statement-check/": statement_check, "/privacy/": privacy}
+         "/contact/": contact, "/bill-check/": bill_check, "/supplier-statement-check/": statement_check, "/accounting-firms/": firms_page, "/privacy/": privacy}
 PAGES.update(MORE)
 LIVE_PATHS = set(PAGES)
 
