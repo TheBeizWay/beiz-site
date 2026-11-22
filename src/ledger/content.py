@@ -132,7 +132,7 @@ PRICES = [
     ("Fractional CFO + reporting", "Weekly cash, margin and forecast on your own data. From $3,500 a month.", "From $3,500/month", ""),
     ("AI workflows &amp; automation", "Only the gaps your existing software doesn't cover, tested on your records. From $8,500.", "From $8,500", ""),
     ("Kits", "A 13-week cash forecast ($290) and a supplier bank-change control kit ($190), as Excel files.", "$190–$290", "/kits/"),
-    ("Everything else", "Compliance sprints, continuity, leave cover and monthly operations are quoted in writing.", "Quoted", ""),
+    ("Everything else", "Compliance sprints, finance continuity and monthly operations are quoted in writing.", "Quoted", ""),
 ]
 FEES_HOW = [
     ("Talk or write", "A 20-minute call or a few lines in writing about the work. You'll get a written reply by the next business day."),
@@ -145,7 +145,7 @@ PRICE_TERMS = [
     ("Credit", "Where the proposal says so, the exception review fee is credited once against the exception sprint "
                "if you accept the sprint proposal and pay the deposit within 60 days of the diagnostic. "
                "It isn't redeemable for cash and doesn't apply to maintenance."),
-    ("Monthly operations", "Covers up to two agreed agents or one model: a monthly control review, a log sample, a test re-run and up "
+    ("Monthly operations", "Covers up to two agreed workflows or one model: a monthly control review, a log sample, a test re-run and up "
                            "to two hours of fixes in total. More is quoted. Requests are acknowledged within two business days. "
                            "It isn't round-the-clock monitoring or an emergency service."),
     ("Cash model", "You drop in fresh exports weekly and the model refreshes. Beiz builds it, ties actuals to the ledger, documents "
@@ -201,7 +201,7 @@ BC_FAQ = [
     ("Which accounting software does it work with?", "Any bills or payables export saved as CSV, including from Xero, MYOB and QuickBooks. It needs a supplier, an amount and a date; invoice numbers, payment dates, bank details and ABNs make it sharper."),
     ("Why not paste my bills into ChatGPT?", "You can, but a chat assistant reads a file loosely and can skip or misread rows in a long export. This check runs the same fixed rules on every row, shows each flag with the records behind it, and your file never leaves your device. Check your own obligations before putting supplier bank details or client information into any online AI tool."),
     ("Is this an audit?", "No. It's eight quick checks. A flag is a prompt for a person to look, and many flags will have an innocent explanation."),
-    ("What does it cost?", "Nothing. The paid two-week cash and data check goes further, from your full exports, at a fixed fee agreed in writing."),
+    ("What does it cost?", "Nothing. The paid exception review goes further, from your own exports, at a fixed fee agreed in writing."),
 ]
 BC_LIMITS = ("It's eight quick checks, not an audit. It can't see your bank, your emails or the bills you never entered, and it "
              "doesn't tell you whether anyone did anything wrong. It's general information, not tax, legal or accounting advice, "

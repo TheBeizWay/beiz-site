@@ -73,11 +73,11 @@ No GST is added (not registered).
 - Fractional CFO + reporting: Weekly cash, margin and forecast on your own data. From $3,500 a month.
 - AI workflows & automation: Only the gaps your existing software doesn't cover, tested on your records. From $8,500.
 - Kits: A 13-week cash forecast ($290) and a supplier bank-change control kit ($190), as Excel files.
-- Everything else: Compliance sprints, continuity, leave cover and monthly operations are quoted in writing.
+- Everything else: Compliance sprints, finance continuity and monthly operations are quoted in writing.
 
 ## Terms
 - Credit: Where the proposal says so, the exception review fee is credited once against the exception sprint if you accept the sprint proposal and pay the deposit within 60 days of the diagnostic. It isn't redeemable for cash and doesn't apply to maintenance.
-- Monthly operations: Covers up to two agreed agents or one model: a monthly control review, a log sample, a test re-run and up to two hours of fixes in total. More is quoted. Requests are acknowledged within two business days. It isn't round-the-clock monitoring or an emergency service.
+- Monthly operations: Covers up to two agreed workflows or one model: a monthly control review, a log sample, a test re-run and up to two hours of fixes in total. More is quoted. Requests are acknowledged within two business days. It isn't round-the-clock monitoring or an emergency service.
 - Cash model: You drop in fresh exports weekly and the model refreshes. Beiz builds it, ties actuals to the ledger, documents the assumptions and hands it over. Beiz reviews the forecast only where the support agreement sets out how often and what.
 - Proposals: Every proposal has a fixed fee, a timeline and a definition of done, and arrives within three business days.
 
@@ -168,7 +168,7 @@ A: You can, but a chat assistant reads a file loosely and can skip or misread ro
 Q: Is this an audit?
 A: No. It's eight quick checks. A flag is a prompt for a person to look, and many flags will have an innocent explanation.
 Q: What does it cost?
-A: Nothing. The paid two-week cash and data check goes further, from your full exports, at a fixed fee agreed in writing.
+A: Nothing. The paid exception review goes further, from your own exports, at a fixed fee agreed in writing.
 
 It's eight quick checks, not an audit. It can't see your bank, your emails or the bills you never entered, and it doesn't tell you whether anyone did anything wrong. It's general information, not tax, legal or accounting advice, and you decide what to do with any flag. Xero, MYOB and QuickBooks are named only to describe file formats; Beiz isn't affiliated with them.
 

@@ -315,7 +315,7 @@ def bill_check():
     body += sec("Getting the file", f"<p class=\"intro\">{C.BC_FILE}</p>")
     body += sec("Common questions", f'<div class="rows">{faq}</div>')
     body += sec("Limits", f"<p class=\"intro\">{C.BC_LIMITS}</p>")
-    body += sec("Next step", "<h2>Want these checks on every bill?</h2><p class=\"intro\">They're a small slice of the two-week cash and data check, and of a bills agent that runs them before anything is paid and holds anything odd for a person.</p><div class=\"acts\"><a class=\"btn\" href=\"/contact/?topic=Two-week%20cash%20%26%20data%20check\">Ask about the check</a></div>", "dark")
+    body += sec("Next step", "<h2>Want these checks on every bill?</h2><p class=\"intro\">They're a small slice of what an exception review looks at: one process mapped, your sample files checked, and a fixed-price scope to build the checks into your own systems, with anything odd held for a person.</p><div class=\"acts\"><a class=\"btn\" href=\"/services/\">See the exception review</a></div>", "dark")
     js = f'<script src="/assets/billcheck.js?v={ASSET_V}" defer></script>\n'
     app = '<script type="application/ld+json">' + __import__("json").dumps({
         "@context": "https://schema.org", "@type": "WebApplication", "name": "Beiz free bill check",
