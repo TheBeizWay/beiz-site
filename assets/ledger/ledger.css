@@ -688,3 +688,43 @@ body::before{display:none}
 /* inner-page header: keep "How it works" on one line and the button from wrapping at 1440 */
 .top.dk .nav a{white-space:nowrap}
 .top.dk .btn{white-space:nowrap}
+
+/* ===== Light practice design, 22 Nov 2026 (Purav approved Brain/proposals/2026-11-22-light-redesign-spec.md). Overrides the 14 Nov dark layer above. ===== */
+:root{--paper:#F7F5EF;--paper2:#EFEBE1;--white:#FFFFFF;--ink:#17191B;--ink2:#3A3F44;--muted:#5E646A;
+  --rule:#E4DFD3;--rule2:#CFC9BB;--brand:#1F6B4A;--brand-hi:#43B581;--forest:#13221B;--forest2:#1B2E25;
+  --ok:#2B7652;--held:#A86A12;--stop:#B23A2E;
+  --serif:"Source Serif 4",Georgia,serif;--sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif}
+html{background:#F7F5EF;color-scheme:light}
+body{background:#F7F5EF;color:var(--ink)}
+h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em}
+.top.dk{background:#fff;border-bottom:1px solid var(--rule);color:var(--ink)}
+.top.dk .bword{color:var(--ink)}
+.top.dk .bword small{color:var(--muted)}
+.top.dk .cobrand{border-left-color:var(--rule)}
+.top.dk .nav a{color:var(--ink2)}
+.top.dk .nav a:hover,.top.dk .nav a[aria-current]{color:var(--ink);border-bottom-color:var(--brand)}
+.top.dk .btn{background:var(--brand);border-color:var(--brand);color:#fff}
+.top.dk .btn:hover{background:#185A3E;border-color:#185A3E;color:#fff}
+.top.dk .menu{color:var(--ink);border-color:var(--rule2);background:#fff}
+.top.dk .tmstrip{background:#fff;color:var(--muted);border-top:1px solid #EEEAE0}
+@media (max-width:1100px){.top.dk .nav{background:#fff;border-color:var(--rule)}.top.dk .nav a{color:var(--ink);border-bottom-color:var(--rule)}.top.dk .nav a[aria-current]{color:var(--brand)}}
+.btn{background:var(--brand);border-color:var(--brand);color:#fff;border-radius:8px}
+.btn:hover{background:#185A3E;border-color:#185A3E;color:#fff}
+.btn.line{background:#fff;color:var(--ink);border-color:var(--rule2)}
+.btn.line:hover{background:#fff;color:var(--ink);border-color:var(--ink)}
+input,select,textarea{background:#fff!important;color:var(--ink)!important;border-color:var(--rule2)!important}
+input::placeholder,textarea::placeholder{color:#8A8F94}
+.st,.bcard,.jlog,.book,.bcnext,.row,.who,.thx{background:#fff}
+code,pre{background:#F3F1EA!important;color:var(--ink)!important;border-color:var(--rule)!important}
+.band{background:#FBF6EA;color:var(--ink);border-top:1px solid #EAD9B5;border-bottom:1px solid #EAD9B5}
+.band p{color:var(--ink2)}
+::selection{background:var(--brand);color:#fff}
+.sec .lab{border-top-color:var(--brand)!important;color:var(--brand)!important}
+.sec.dark{background:var(--forest);color:#F2EFE8}
+.sec.dark h2,.sec.dark h3{color:#F2EFE8}
+.sec.dark .intro,.sec.dark p{color:#C9D2CC}
+.sec.dark .lab{color:var(--brand-hi)!important;border-top-color:var(--brand-hi)!important}
+.sec.dark .btn{background:var(--brand-hi);color:#0E1A14;border-color:var(--brand-hi)}
+.sec.dark .btn.line{background:transparent;color:#F2EFE8;border-color:#9FB5A8}
+.foot{background:var(--forest);border-top:0;color:#C9D2CC}
+.foot a,.foot p,.foot b{color:#E4E9E5}
