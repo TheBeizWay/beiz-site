@@ -84,7 +84,7 @@ def header(path):
 <a class="brand bl" href="/" aria-label="Beiz Data &amp; Accounting, home"><img class="bmark" src="/assets/brand/beiz-mark.svg" alt="" width="40" height="40"><span class="bword">BEIZ<small>Data &amp; Accounting</small></span></a>
 <span class="cobrand"><img src="/assets/media/ca-logo-reversed.png" alt="Chartered Accountants Australia and New Zealand" width="140" height="80"></span>
 <nav class="nav" aria-label="Main">{links}</nav>
-<a class="btn" href="/contact/?topic=Fit%20conversation%20(free)">Book a free fit conversation</a>
+<a class="btn" href="/contact/?topic=Fit%20conversation%20(free)">Book a 20-minute call</a>
 <button class="menu" type="button" aria-expanded="false" aria-label="Open menu">Menu</button>
 </div><div class="tmstrip"><div class="wrap">Trade mark of Chartered Accountants Australia and New Zealand and used with permission.</div></div></header>
 """
@@ -609,6 +609,10 @@ def home_page(home, path, sid, title, desc):
     top = home[:head_end]
     top = re.sub(r"<title>.*?</title>", "<title>%s | Beiz Data &amp; Accounting</title>" % title, top, 1, flags=re.S)
     top = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="%s">' % desc, top, 1)
+    top = re.sub(r'<meta property="og:title" content="[^"]*">', '<meta property="og:title" content="Beiz | %s">' % title, top, 1)
+    top = re.sub(r'<meta property="og:description" content="[^"]*">', '<meta property="og:description" content="%s">' % desc, top, 1)
+    top = re.sub(r'<meta name="twitter:title" content="[^"]*">', '<meta name="twitter:title" content="Beiz | %s">' % title, top, 1)
+    top = re.sub(r'<meta name="twitter:description" content="[^"]*">', '<meta name="twitter:description" content="%s">' % desc, top, 1)
     top = top.replace('href="https://beiz.com.au/"', 'href="https://beiz.com.au%s"' % path, 1).replace('content="https://beiz.com.au/"', 'content="https://beiz.com.au%s"' % path, 1)
     top = top.replace("</style>", ".pg{padding-top:56px}.pgh{font-size:clamp(38px,5.4vw,66px);line-height:1.02;margin:0}</style>", 1)
     return top + sec + "\n\n" + home[c0:]

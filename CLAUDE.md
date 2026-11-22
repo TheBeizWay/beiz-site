@@ -2,6 +2,17 @@
 
 Read this before changing anything in this repo. It describes the site as it is, the facts it may state, and how to change it without breaking it. If a request conflicts with this file, say so before building.
 
+## Update, 22 Nov 2026 (Purav: "make the site look more professional", then "commit and deploy, yes to all")
+
+- Hero: headline "Your systems and your ledger disagree every month. We fix one workflow, at a fixed price." A fixed line under the role-switched lede: "Exception review $1,500–$2,500. Built in Xero, MYOB or your ERP. Led by a Chartered Accountant." (`.hfix`; the role tabs rewrite only `#lede`).
+- No highlighted phrases in headings (`.grad` now renders as plain heading text), sentence-case section labels, prices in Inter with tabular numbers, no "→" on buttons or links (arrows stay inside workflow steps).
+- One label: header button "Book a 20-minute call" on every page (inner pages too); service cards say "Book the call" (free) or "Enquire".
+- Payday Super strip after Services, linking to /kits/ (13-week cash forecast kit, $290). New FAQ, visible and in JSON-LD: "Can't ChatGPT or our ledger's own AI do the month-end review now?" Written without claims about any vendor's product.
+- "Deadlines this year" replaces "Deadlines that are already here" (the Privacy Act rules start 10 Dec 2026; the card counts down in the browser).
+- Footer anchors are absolute (`/#services`) so they work on /workbench/, /kits/ and /continuity/; those pages now get their own og: and twitter: title and description (`home_page()` in build.py).
+- Phone workbench: the result count sits on its own line and filter buttons don't wrap.
+- Still waiting on Purav: a calendar booking link (the call button still opens the form) and a payment link for the $290 kit (still invoice first).
+
 ## Ownership (Purav, 14 Nov 2026)
 
 Only the Claude session Purav works with on Beiz pushes to `main`. Other tools may review or suggest, never push. On 13–14 Nov other tools pushed 12 commits (a dark "financial intelligence" homepage with prices, "board assurance" and "signed off" claims, a B-symbol logo, and a deploy step that rewrote pages at publish time); all of it was reverted to the 13 Nov version. Deploys now copy the committed files as they are (`.github/workflows/deploy-beiz.yml`); never add build-time rewriting.
