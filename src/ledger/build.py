@@ -13,7 +13,7 @@ import json
 from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ASSET_V = "L40"  # bump on every CSS or JS change
+ASSET_V = "L41"  # bump on every CSS or JS change
 SITE = "https://beiz.com.au"
 e = html.escape
 
@@ -83,7 +83,7 @@ def header(path):
 <a class="brand bl" href="/" aria-label="Beiz Data &amp; Accounting, home"><img class="bmark" src="/assets/brand/beiz-mark.svg" alt="" width="40" height="40"><span class="bword">BEIZ<small>Data &amp; Accounting</small></span></a>
 <span class="cobrand"><img src="/assets/media/ca-logo.svg" alt="Chartered Accountants Australia and New Zealand" width="140" height="80"></span>
 <nav class="nav" aria-label="Main">{links}</nav>
-<a class="btn" href="/contact/?topic=Fit%20conversation%20(free)">Book a 20-minute call</a>
+<a class="btn" href="https://calendar.app.google/cNdbhY7JLJxroVfA8" target="_blank" rel="noopener">Book a 20-minute call</a>
 <button class="menu" type="button" aria-expanded="false" aria-label="Open menu">Menu</button>
 </div><div class="tmstrip"><div class="wrap">Trade mark of Chartered Accountants Australia and New Zealand and used with permission.</div></div></header>
 """
@@ -184,7 +184,7 @@ def home():
 <p class="hkick">Beiz Data &amp; Accounting, Canberra</p>
 <h1>AI that does the checking. <br>A Chartered Accountant who checks the AI.</h1>
 <p class="lede">{C.HERO_LEDE}</p>
-<div class="acts"><a class="btn" href="/contact/?topic=Fit%20conversation%20(free)">Book a 20-minute call</a><a class="btn line" href="/bill-check/">Try the free bill check</a></div>
+<div class="acts"><a class="btn" href="https://calendar.app.google/cNdbhY7JLJxroVfA8" target="_blank" rel="noopener">Book a 20-minute call</a><a class="btn line" href="/bill-check/">Try the free bill check</a></div>
 <ul class="hfacts"><li><b>Chartered Accountant</b><span>Member of Chartered Accountants Australia and New Zealand, with a Certificate of Public Practice</span></li><li><b>Fixed fee</b><span>Agreed in writing before any work starts</span></li><li><b>A person signs off</b><span>Nothing is paid or sent by an agent alone</span></li></ul>
 <div class="credrow"><img src="/assets/media/ca-logo.svg" alt="Chartered Accountants Australia and New Zealand" width="147" height="84"><p class="cred">Trade mark of Chartered Accountants Australia and New Zealand and used with permission.</p></div>
 </div>
