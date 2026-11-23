@@ -15,6 +15,7 @@ Beiz does not provide tax returns, BAS or GST lodgements, tax or BAS agent servi
 - [How it works](https://beiz.com.au/how-we-work/): fit conversation, diagnose, build and test, hand over
 - [Fees](https://beiz.com.au/prices/): free bill check; every engagement is a fixed fee in a written proposal within three business days; no GST added
 - [Free bill check](https://beiz.com.au/bill-check/): runs in the browser, nothing uploaded
+- [Automation for accounting firms](https://beiz.com.au/accounting-firms/): bank-rec prep, statement checks, client information requests and workpaper tie-outs built into the firm's own systems; the registered agent stays responsible
 - [AML/CTF Tranche 2 for accounting firms](https://beiz.com.au/aml-ctf-accounting-firms/): which services are caught, dates, duties, AUSTRAC sources
 - [FAQ](https://beiz.com.au/faq/)
 - [Privacy Act automated decisions from 10 December 2026](https://beiz.com.au/insights/privacy-act-automated-decisions/)

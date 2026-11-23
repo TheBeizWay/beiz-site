@@ -90,6 +90,7 @@ GROUPS = [
         ("AI workflows &amp; automation", "We check what Xero, MYOB or your existing software already does first, then build only the gaps, tested and handed over. From $8,500.", "From $8,500", ""),
         ("Automation acceptance testing", "Test cases from your own records, including duplicates, missing rows and changed file formats, before a workflow or agent goes live.", "Quoted", ""),
         ("Compliance controls sprint", "One obligation mapped in two weeks: AI use, AML/CTF Tranche 2 or the Privacy Act automated-decision rules. General information, not legal advice.", "Quoted", ""),
+        ("Automation for accounting firms", "Bank-rec prep, statement checks, client information requests and workpaper tie-outs built into your own systems before you send them offshore. Same fixed-fee review and sprint.", "$1,500–$8,000", "/accounting-firms/"),
         ("AML/CTF for accounting firms", "What Tranche 2 asks of an accounting practice, and the client checks and records to set up. General information, not legal advice.", "Quoted", ""),
         ("Finance continuity", "Keep paying and reconciling when Microsoft or your ledger is down.", "Quoted", "/continuity/"),
         ("Kits", "A 13-week cash forecast ($290) and a supplier bank-change control kit ($190).", "$190–$290", "/kits/"),
@@ -286,6 +287,7 @@ Beiz does not provide tax returns, BAS or GST lodgements, tax or BAS agent servi
 - [How it works](https://beiz.com.au/how-we-work/): fit conversation, diagnose, build and test, hand over
 - [Fees](https://beiz.com.au/prices/): free bill check; every engagement is a fixed fee in a written proposal within three business days; no GST added
 - [Free bill check](https://beiz.com.au/bill-check/): runs in the browser, nothing uploaded
+- [Automation for accounting firms](https://beiz.com.au/accounting-firms/): bank-rec prep, statement checks, client information requests and workpaper tie-outs built into the firm's own systems; the registered agent stays responsible
 - [AML/CTF Tranche 2 for accounting firms](https://beiz.com.au/aml-ctf-accounting-firms/): which services are caught, dates, duties, AUSTRAC sources
 - [FAQ](https://beiz.com.au/faq/)
 - [Privacy Act automated decisions from 10 December 2026](https://beiz.com.au/insights/privacy-act-automated-decisions/)
